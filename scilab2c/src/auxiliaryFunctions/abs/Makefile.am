@@ -39,17 +39,23 @@ check_INCLUDES	=	-I $(top_builddir)/auxiliaryFunctions/includes \
 			-I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-check_PROGRAMS	= 	testAbs
-
-TESTS		=	testAbs
-
-#
-# -*- Abs Tests -*-
-#
-testAbs_SOURCES = 	testAbs.c
-testAbs_CFLAGS	=	$(check_INCLUDES)
-testAbs_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
+check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
 			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
 			@LIBMATH@
+
+check_PROGRAMS	= 	testFloatAbs testDoubleAbs
+
+TESTS		=	testFloatAbs testDoubleAbs
+
+#
+# -*- Abs Tests -*-
+#
+testFloatAbs_SOURCES = 	testFloatAbs.c
+testFloatAbs_CFLAGS =	$(check_INCLUDES)
+testFloatAbs_LDADD =	$(check_LDADD)
+
+testDoubleAbs_SOURCES =	testDoubleAbs.c
+testDoubleAbs_CFLAGS =	$(check_INCLUDES)
+testDoubleAbs_LDADD =	$(check_LDADD)
