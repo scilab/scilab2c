@@ -16,5 +16,6 @@ SUBDIRS=	abs \
 		isnan \
 		rand \
 		sign \
-		pythag #\
-		#type
+		pythag \
+		size \
+		type
