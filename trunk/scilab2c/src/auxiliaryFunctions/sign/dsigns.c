@@ -12,13 +12,13 @@
 
 #include "sign.h"
 
-int dsigns(double num) {
+double dsigns(double num) {
   if (num > 0) {
-    return 1;
+    return 1.0;
   }
   if (num < 0) {
-    return -1;
+    return -1.0;
   }
   /* num == 0 */
-  return 0;
+  return 0.0;
 }
