@@ -54,10 +54,7 @@ pkglibLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkglib_LTLIBRARIES)
 libType_la_LIBADD =
 am__objects_1 =
-am__objects_2 = libType_la-stypes.lo libType_la-dtypes.lo \
-	libType_la-ctypes.lo libType_la-ztypes.lo libType_la-stypea.lo \
-	libType_la-dtypea.lo libType_la-ctypea.lo libType_la-ztypea.lo
-am_libType_la_OBJECTS = $(am__objects_1) $(am__objects_2)
+am_libType_la_OBJECTS = $(am__objects_1)
 libType_la_OBJECTS = $(am_libType_la_OBJECTS)
 libType_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libType_la_CFLAGS) \
@@ -196,26 +193,17 @@ target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 libType_la_CFLAGS = -I ../../type \
-		-I ../includes
+			-I ../includes
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libType.la
-libType_la_SOURCES = $(HEAD) $(SRC)
-SRC = stypes.c \
-		dtypes.c \
-		ctypes.c \
-		ztypes.c \
-		stypea.c \
-		dtypea.c \
-		ctypea.c \
-		ztypea.c
-
+libType_la_SOURCES = $(HEAD)
 HEAD = ../includes/type.h
 
 ####
 # Checking Part
 ####
-check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
+check_INCLUDES = -I $(top_builddir)/auxiliaryFunctions/includes \
 			-I $(top_builddir)/type
 
 
@@ -308,14 +296,6 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libType_la-ctypea.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libType_la-ctypes.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libType_la-dtypea.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libType_la-dtypes.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libType_la-stypea.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libType_la-stypes.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libType_la-ztypea.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libType_la-ztypes.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testType-testType.Po@am__quote@
 
 .c.o:
@@ -338,62 +318,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
-
-libType_la-stypes.lo: stypes.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libType_la_CFLAGS) $(CFLAGS) -MT libType_la-stypes.lo -MD -MP -MF $(DEPDIR)/libType_la-stypes.Tpo -c -o libType_la-stypes.lo `test -f 'stypes.c' || echo '$(srcdir)/'`stypes.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libType_la-stypes.Tpo $(DEPDIR)/libType_la-stypes.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stypes.c' object='libType_la-stypes.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libType_la_CFLAGS) $(CFLAGS) -c -o libType_la-stypes.lo `test -f 'stypes.c' || echo '$(srcdir)/'`stypes.c
-
-libType_la-dtypes.lo: dtypes.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libType_la_CFLAGS) $(CFLAGS) -MT libType_la-dtypes.lo -MD -MP -MF $(DEPDIR)/libType_la-dtypes.Tpo -c -o libType_la-dtypes.lo `test -f 'dtypes.c' || echo '$(srcdir)/'`dtypes.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libType_la-dtypes.Tpo $(DEPDIR)/libType_la-dtypes.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dtypes.c' object='libType_la-dtypes.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libType_la_CFLAGS) $(CFLAGS) -c -o libType_la-dtypes.lo `test -f 'dtypes.c' || echo '$(srcdir)/'`dtypes.c
-
-libType_la-ctypes.lo: ctypes.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libType_la_CFLAGS) $(CFLAGS) -MT libType_la-ctypes.lo -MD -MP -MF $(DEPDIR)/libType_la-ctypes.Tpo -c -o libType_la-ctypes.lo `test -f 'ctypes.c' || echo '$(srcdir)/'`ctypes.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libType_la-ctypes.Tpo $(DEPDIR)/libType_la-ctypes.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ctypes.c' object='libType_la-ctypes.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libType_la_CFLAGS) $(CFLAGS) -c -o libType_la-ctypes.lo `test -f 'ctypes.c' || echo '$(srcdir)/'`ctypes.c
-
-libType_la-ztypes.lo: ztypes.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libType_la_CFLAGS) $(CFLAGS) -MT libType_la-ztypes.lo -MD -MP -MF $(DEPDIR)/libType_la-ztypes.Tpo -c -o libType_la-ztypes.lo `test -f 'ztypes.c' || echo '$(srcdir)/'`ztypes.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libType_la-ztypes.Tpo $(DEPDIR)/libType_la-ztypes.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ztypes.c' object='libType_la-ztypes.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libType_la_CFLAGS) $(CFLAGS) -c -o libType_la-ztypes.lo `test -f 'ztypes.c' || echo '$(srcdir)/'`ztypes.c
-
-libType_la-stypea.lo: stypea.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libType_la_CFLAGS) $(CFLAGS) -MT libType_la-stypea.lo -MD -MP -MF $(DEPDIR)/libType_la-stypea.Tpo -c -o libType_la-stypea.lo `test -f 'stypea.c' || echo '$(srcdir)/'`stypea.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libType_la-stypea.Tpo $(DEPDIR)/libType_la-stypea.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stypea.c' object='libType_la-stypea.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libType_la_CFLAGS) $(CFLAGS) -c -o libType_la-stypea.lo `test -f 'stypea.c' || echo '$(srcdir)/'`stypea.c
-
-libType_la-dtypea.lo: dtypea.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libType_la_CFLAGS) $(CFLAGS) -MT libType_la-dtypea.lo -MD -MP -MF $(DEPDIR)/libType_la-dtypea.Tpo -c -o libType_la-dtypea.lo `test -f 'dtypea.c' || echo '$(srcdir)/'`dtypea.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libType_la-dtypea.Tpo $(DEPDIR)/libType_la-dtypea.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dtypea.c' object='libType_la-dtypea.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libType_la_CFLAGS) $(CFLAGS) -c -o libType_la-dtypea.lo `test -f 'dtypea.c' || echo '$(srcdir)/'`dtypea.c
-
-libType_la-ctypea.lo: ctypea.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libType_la_CFLAGS) $(CFLAGS) -MT libType_la-ctypea.lo -MD -MP -MF $(DEPDIR)/libType_la-ctypea.Tpo -c -o libType_la-ctypea.lo `test -f 'ctypea.c' || echo '$(srcdir)/'`ctypea.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libType_la-ctypea.Tpo $(DEPDIR)/libType_la-ctypea.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ctypea.c' object='libType_la-ctypea.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libType_la_CFLAGS) $(CFLAGS) -c -o libType_la-ctypea.lo `test -f 'ctypea.c' || echo '$(srcdir)/'`ctypea.c
-
-libType_la-ztypea.lo: ztypea.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libType_la_CFLAGS) $(CFLAGS) -MT libType_la-ztypea.lo -MD -MP -MF $(DEPDIR)/libType_la-ztypea.Tpo -c -o libType_la-ztypea.lo `test -f 'ztypea.c' || echo '$(srcdir)/'`ztypea.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libType_la-ztypea.Tpo $(DEPDIR)/libType_la-ztypea.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ztypea.c' object='libType_la-ztypea.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libType_la_CFLAGS) $(CFLAGS) -c -o libType_la-ztypea.lo `test -f 'ztypea.c' || echo '$(srcdir)/'`ztypea.c
 
 testType-testType.o: testType.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testType_CFLAGS) $(CFLAGS) -MT testType-testType.o -MD -MP -MF $(DEPDIR)/testType-testType.Tpo -c -o testType-testType.o `test -f 'testType.c' || echo '$(srcdir)/'`testType.c
