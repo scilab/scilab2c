@@ -12,13 +12,13 @@
 
 #include "sign.h"
 
-int ssigns(float num) {
+float ssigns(float num) {
   if (num > 0) {
-    return 1;
+    return 1.0f;
   }
   if (num < 0) {
-    return -1;
+    return -1.0f;
   }
   /* num == 0 */
-  return 0;
+  return 0.0f;
 }
