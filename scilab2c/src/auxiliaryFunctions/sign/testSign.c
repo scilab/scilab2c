@@ -18,9 +18,9 @@
 
 int ssignsTest() {
 
-  float positive = 0.123;
-  float negative = -0.123;
-  float zero = 0;
+  float positive = 0.123f;
+  float negative = -0.123f;
+  float zero = 0.0f;
 
   printf(">> Float \n");
   assert(ssigns(positive) == 1);
@@ -71,6 +71,7 @@ int zsignsTest() {
   assert(zreals(sign_i) == 0);
   assert(zimags(sign_i) == 1);
   /* sign(1+%i) = (1+%i) / sqrt(2) */
+
   assert(zreals(sign_oneAndI) == sqrt(2) / 2);
   assert(zimags(sign_oneAndI) == 1 / sqrt(2));
 
