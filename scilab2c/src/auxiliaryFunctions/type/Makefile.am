@@ -11,22 +11,13 @@
 ##
 
 libType_la_CFLAGS =	-I ../../type \
-		-I ../includes
+			-I ../includes
 
 instdir = $(top_builddir)/lib
 
 pkglib_LTLIBRARIES =	libType.la
 
-libType_la_SOURCES =	$(HEAD) $(SRC)
-
-SRC	=	stypes.c \
-		dtypes.c \
-		ctypes.c \
-		ztypes.c \
-		stypea.c \
-		dtypea.c \
-		ctypea.c \
-		ztypea.c
+libType_la_SOURCES =	$(HEAD)
 
 HEAD	=	../includes/type.h
 
@@ -34,7 +25,7 @@ HEAD	=	../includes/type.h
 # Checking Part
 ####
 
-check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
+check_INCLUDES	=	-I $(top_builddir)/auxiliaryFunctions/includes \
 			-I $(top_builddir)/type
 
 check_PROGRAMS	= 	testType
