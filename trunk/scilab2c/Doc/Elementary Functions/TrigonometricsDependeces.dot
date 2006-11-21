@@ -1,0 +1,65 @@
+digraph TrigonometricsFunctions {
+size="6,6";
+node [shape=circle];
+
+//
+// -*- Basic Call -*-
+//
+
+F77_Call [label="Fortan Call", shape=doublecircle];
+
+//
+// -*- Functions definition -*-
+//
+
+// Cosinus
+Cos_Real [label="cos(R)"];
+Cos_Complex [label="cos(C)"];
+Cos_Hyperbolic_Real [label="ch(R)"];
+Cos_Hyperbolic_Complex [label="ch(C)"];
+
+// Sinus
+Sin_Real [label="sin(R)"];
+Sin_Complex [label="sin(C)"];
+Sin_Hyperbolic_Real [label="sh(R)"];
+Sin_Hyperbolic_Complex [label="sh(C)"];
+
+// Exponentielle
+Exp_Real [label="exp(R)"];
+Exp_Complex [label="exp(C)"];
+
+// Valeur Absolue
+Abs_Real [label="abs(R) <=> |R|"];
+
+
+//
+// -*- Functions call links -*-
+//
+
+
+// cos(a+ib) = cos(a).ch(b) - i.sin(a).sh(b)
+Cos_Complex -> {
+Cos_Real
+Sin_Real
+Cos_Hyperbolic_Real
+Sin_Hyperbolic_Real
+};
+
+// sin(a+ib) = sin(a).ch(b) + i.cos(a).sh(b)
+Sin_Complex -> {
+Cos_Real
+Sin_Real
+Cos_Hyperbolic_Real
+Sin_Hyperbolic_Real
+};
+
+
+// Call a cosinus function in F77 math lib
+Cos_Real -> F77_Call;
+
+// Call a sinus function in F77 math lib
+Sin_Real -> F77_Call;
+
+
+
+}
