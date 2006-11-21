@@ -1,0 +1,15 @@
+##
+##
+##
+## TODO
+## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
+##
+## Started on  Tue Nov 21 15:22:58 2006 jofret
+## Last update Tue Nov 21 15:24:21 2006 jofret
+##
+## Copyright INRIA 2006
+##
+
+- Evaluate and draw a graph of function dependences.
+
+- Find a way to code complex type taking care of double/float precision.
