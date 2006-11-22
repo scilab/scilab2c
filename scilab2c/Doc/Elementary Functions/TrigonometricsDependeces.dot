@@ -1,12 +1,18 @@
 digraph TrigonometricsFunctions {
-size="6,6";
-node [shape=circle];
+	size="8,8";
+	node [shape=circle];
 
 //
 // -*- Basic Call -*-
 //
-
 F77_Call [label="Fortan Call", shape=doublecircle];
+C_Call [label="C Call", shape=doublecircle];
+
+//
+// -*- Specific LAPACK Call -*-
+//
+Dlamch_E_Call [label="dlamch('e')", comment="Précision Machine - LAPACK", shape=doublecircle, color=red];
+
 
 //
 // -*- Functions definition -*-
@@ -24,42 +30,96 @@ Sin_Complex [label="sin(C)"];
 Sin_Hyperbolic_Real [label="sh(R)"];
 Sin_Hyperbolic_Complex [label="sh(C)"];
 
+// Tangeante
+Tan_Real [label="tan(R)"];
+Tan_Complex [label="tan(C)", comment="wtan"];
+Tan_Hyperbolic_Real [label="tanh(R)"];
+
 // Exponentielle
 Exp_Real [label="exp(R)"];
 Exp_Complex [label="exp(C)"];
 
+// Log
+Log_Real [label="log(R)"];
+Log_Complex [label="log(C)"];
+
+// Racine Carrée
+Sqrt_Real [label="sqrt(R)"];
+Sqrt_Positive_Real [label="sqrt(R+)"];
+Sqrt_Negative_Real [label="sqrt(R-)"];
+Sqrt_Complex [label="sqrt(C)", comment="wsqrt"];
+
+
+Sqrt_Complex [label="sqrt(C)"];
+
+
 // Valeur Absolue
-Abs_Real [label="abs(R) <=> |R|"];
+Abs_Real [label="abs(R)", comment="|R|"];
+
+// Signe
+Sign_Real [label="sign(R)"];
+
 
 
 //
 // -*- Functions call links -*-
 //
 
-
+// -*- COS -*-
 // cos(a+ib) = cos(a).ch(b) - i.sin(a).sh(b)
 Cos_Complex -> {
-Cos_Real
-Sin_Real
-Cos_Hyperbolic_Real
-Sin_Hyperbolic_Real
-};
+	Cos_Real
+	Sin_Real
+	Cos_Hyperbolic_Real
+	Sin_Hyperbolic_Real
+	};
+	// Call a cosinus function in F77 math lib
+	Cos_Real -> F77_Call;
 
+// -*- SIN -*-
+//
 // sin(a+ib) = sin(a).ch(b) + i.cos(a).sh(b)
 Sin_Complex -> {
-Cos_Real
-Sin_Real
-Cos_Hyperbolic_Real
-Sin_Hyperbolic_Real
-};
-
-
-// Call a cosinus function in F77 math lib
-Cos_Real -> F77_Call;
+	Cos_Real
+	Sin_Real
+	Cos_Hyperbolic_Real
+	Sin_Hyperbolic_Real
+	};
 
 // Call a sinus function in F77 math lib
 Sin_Real -> F77_Call;
 
+
+// -*- TAN -*-
+//
+// tan(a+ib) = x_r + i.x_i
+// x_i = | sh(2.b) / 2.d	si |b| <= L
+//	 | sign(a)
+//
+// d = cos(a)^2 + sh(b)^2
+//
+// L = 1 + log(2 / sqrt(dlamch('e')))
+Tan_Complex -> {
+	Cos_Real
+	Sin_Hyperbolic_Real
+	Log_Real
+	Sqrt_Real
+	Dlamch_E_Call
+	Abs_Real
+	Sign_Real
+	};
+
+// Call a tangeante function in F77 math lib
+Tan_Real -> F77_Call;
+
+
+// -*- SQRT -*-
+//
+Sqrt_Negative_Real -> Sqrt_Complex;
+
+
+// Call a sqrt function in F77 math lib
+Sqrt_Positive_Real -> F77_Call;
 
 
 }
