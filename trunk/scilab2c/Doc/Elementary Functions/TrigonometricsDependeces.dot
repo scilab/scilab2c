@@ -1,17 +1,21 @@
 digraph TrigonometricsFunctions {
-	size="8,8";
+	size="6,6";
 	node [shape=circle];
 
 //
 // -*- Basic Call -*-
 //
-F77_Call [label="Fortan Call", shape=doublecircle];
-C_Call [label="C Call", shape=doublecircle];
+F77_Call [label="Fortan Call", shape=doublecircle, color=green];
+C_Call [label="C Call", shape=doublecircle, color=blue];
+LAPACK_Call [label="LAPACK Call", shape=doublecircle, color=yellow];
+
 
 //
 // -*- Specific LAPACK Call -*-
 //
-Dlamch_E_Call [label="dlamch('e')", comment="Précision Machine - LAPACK", shape=doublecircle, color=red];
+Dlamch_E_Call [label="dlamch('E')", comment="Précision Machine - LAPACK", shape=doublecircle, color=red];
+Dlamch_U_Call [label="dlamch('U')", comment="??? - LAPACK", shape=doublecircle, color=red];
+Dlamch_O_Call [label="dlamch('O')", comment="??? - LAPACK", shape=doublecircle, color=red];
 
 
 //
@@ -49,10 +53,6 @@ Sqrt_Positive_Real [label="sqrt(R+)"];
 Sqrt_Negative_Real [label="sqrt(R-)"];
 Sqrt_Complex [label="sqrt(C)", comment="wsqrt"];
 
-
-Sqrt_Complex [label="sqrt(C)"];
-
-
 // Valeur Absolue
 Abs_Real [label="abs(R)", comment="|R|"];
 
@@ -65,6 +65,12 @@ Sign_Real [label="sign(R)"];
 // -*- Functions call links -*-
 //
 
+// -*- DLAMCH -*-
+Dlamch_E_Call -> LAPACK_Call;
+Dlamch_U_Call -> LAPACK_Call;
+Dlamch_O_Call -> LAPACK_Call;
+
+
 // -*- COS -*-
 // cos(a+ib) = cos(a).ch(b) - i.sin(a).sh(b)
 Cos_Complex -> {
@@ -73,8 +79,9 @@ Cos_Complex -> {
 	Cos_Hyperbolic_Real
 	Sin_Hyperbolic_Real
 	};
-	// Call a cosinus function in F77 math lib
-	Cos_Real -> F77_Call;
+
+// Call a cosinus function in F77 math lib
+Cos_Real -> F77_Call;
 
 // -*- SIN -*-
 //
@@ -93,6 +100,9 @@ Sin_Real -> F77_Call;
 // -*- TAN -*-
 //
 // tan(a+ib) = x_r + i.x_i
+//
+// x_r= 1/2 sin(2.a) / d
+//
 // x_i = | sh(2.b) / 2.d	si |b| <= L
 //	 | sign(a)
 //
@@ -113,13 +123,65 @@ Tan_Complex -> {
 Tan_Real -> F77_Call;
 
 
+// -*- LOG -*-
+//
+// log(a+ib) = x_r + i.x_i
+//
+// Constantes :
+//		L_inf = sqrt(dlamch('U'))
+//		L_sup = sqrt(R_max / 2)
+//		R_max = dlamch('O')
+//		t = pythag(|a|,|b|)
+//		r = |b|/|a|
+//
+// x_i = atan2(b, a)
+//
+// x_r = | 1/2 logp1((|a|-1)(|a|+1) + |b|^2)		si 1/2 <= |a| <= sqrt(2)
+//	 | 1/2 log(|a|^2 + |b|^2)			si L_inf < |b| && |a| < L_sup
+//	 | |a|						si |a| > R_max
+//	 | log(t)					si t <= R_max
+//	 | log(|a|) + 1/2 logp1(r^2)			sinon
+Log_Complex -> {
+	Sqrt_Real
+	Dlamch_U_Call
+	Dlamch_O_Call
+	Pythag_Real
+	LogP1_Real
+	Log_Real
+	Abs_Real
+	Pythag_Real
+	ATan2_Real
+	};
+
+// Call a log function in F77 math lib
+Log_Real -> F77_Call;
+
+
+
 // -*- SQRT -*-
 //
-Sqrt_Negative_Real -> Sqrt_Complex;
+// Separate positive and negative case
+Sqrt_Real -> {
+	Sqrt_Positive_Real
+	Sqrt_Negative_Real
+	};
 
+// Call another sqrt function, treat it as complex
+Sqrt_Negative_Real -> Sqrt_Complex;
 
 // Call a sqrt function in F77 math lib
 Sqrt_Positive_Real -> F77_Call;
 
+
+// -*- SIGN -*-
+//
+// Call a sign function in F77 math lib
+Sign_Real -> F77_Call;
+
+
+// -*- ABS -*-
+//
+// Call a abs function in F77 math lib
+Abs_Real -> F77_Call;
 
 }
