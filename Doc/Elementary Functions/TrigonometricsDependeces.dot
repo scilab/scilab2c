@@ -160,6 +160,48 @@ Log_Real -> F77_Call;
 
 // -*- SQRT -*-
 //
+// sqrt(a+ib) = x_r + i.x_i
+//
+// (1) a = 0
+//~~~~~~~~~~~~
+// x_r = | sqrt(|b| / 2)		si |b| <= BRmin
+//	 | sqrt(|b|).sqrt(1/2)
+//
+// x_i = sign(b).x_r
+//
+// (2) |a| >= BRmax && |b| >= BRmax
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//  - Si t > Rmax
+//	a = a / 16
+//      b = b / 16
+//      t = sqrt(2.|a| + pythag(a,b))
+//	x_r = | 2.t		si a >= 0
+//	      | 4.|b| / t
+//	x_i = | 4.b / t		si a >= 0
+//	      | 2.sign(b).t
+//
+//  - Sinon
+//
+//	x_r = | t / 2		si a >= 0
+//	      | |b| / t
+//
+//	x_i = | b / t		si a >= 0
+//	      | sign(b) / 2.t
+//
+// (3) Tous les cas pourris
+//~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+// x_r = | a + b		si a is NaN && b is NaN
+//	 | |b|			si |b| > Rmax
+//	 | 0			si a < -Rmax
+//	 | a
+//
+// x_i = | a + b		si a is NaN && b is NaN
+//	 | b			si |b| > Rmax
+//	 | sign(b).|a|		si a < -Rmax
+//	 | 0
+//
+
 // Separate positive and negative case
 Sqrt_Real -> {
 	Sqrt_Positive_Real
