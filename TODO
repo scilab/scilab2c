@@ -5,19 +5,29 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Tue Nov 21 15:22:58 2006 jofret
-## Last update Wed Nov 22 17:15:00 2006 jofret
+## Last update Mon Nov 27 12:19:53 2006 jofret
 ##
 ## Copyright INRIA 2006
 ##
 
-BJ - Evaluate and draw a graph of function dependences.
+
+BJ - Evaluated and draw :
 	+ cos	: [done R & C]
 	+ sin	: [done R & C]
 	+ tan	: [done R & C]
+	+ log	: [done R & C]
+	+ sign	: [done R]
+	+ abs	: [done R]
+
+BJ - Evaluate and draw a graph of function dependences.
 	+ sqrt	: Working...
-	+ log	: Working...
-	+ exp
+	+ ch	: Fixme (R)
+	+ sh	: Fixme (R)
+	+ atan2 : Fixme (R)
+	+ exp	: Fixme (R & C)
 
 BJ - Find a way to code complex type taking care of double/float precision.
 
 BJ - Listing of atomic call and library dependences.
+
+BJ - Explore dlamch uses 'e' 'u' 'o' ???
