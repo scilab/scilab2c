@@ -1,0 +1,29 @@
+2006-11-27  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* Number Sign [sign]:
+	Done for Real Type.
+	* Abslute Value [abs]:
+	Done for Real Type.
+
+2006-11-18  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* Tangeant [tan]:
+	Done for Real and Complex Type.
+	* Logarithm [log]:
+	Done for Real and Complex Type.
+
+2006-11-15  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* Cosinus [cos]:
+	Done for Real and Complex Type.
+	* Sinus [sin]:
+	Done for Real and Complex Type.
+
+2006-11-13  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* TrigonometricsDependeces.dot :
+	First dependences...
+	Evaluating all depences in order to find atomic calls.
+
+
+
