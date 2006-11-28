@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Tue Nov 21 15:22:58 2006 jofret
-## Last update Mon Nov 27 12:19:53 2006 jofret
+## Last update Tue Nov 28 18:03:35 2006 jofret
 ##
 ## Copyright INRIA 2006
 ##
@@ -18,13 +18,16 @@ BJ - Evaluated and draw :
 	+ log	: [done R & C]
 	+ sign	: [done R]
 	+ abs	: [done R]
+	+ sqrt	: [done R & C]
 
 BJ - Evaluate and draw a graph of function dependences.
-	+ sqrt	: Working...
-	+ ch	: Fixme (R)
-	+ sh	: Fixme (R)
+	+ ch	: Fixme (R & C)
+	+ sh	: Fixme (R & C)
+	+ tanh	: Fixme (R & C)
 	+ atan2 : Fixme (R)
 	+ exp	: Fixme (R & C)
+	+ pythag: Fixme (R)
+	+ Logp1 : Fixme (R)
 
 BJ - Find a way to code complex type taking care of double/float precision.
 
