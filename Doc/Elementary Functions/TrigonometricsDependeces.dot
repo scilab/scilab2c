@@ -7,15 +7,15 @@ digraph TrigonometricsFunctions {
 //
 F77_Call [label="Fortan Call", shape=doublecircle, color=green];
 C_Call [label="C Call", shape=doublecircle, color=blue];
-LAPACK_Call [label="LAPACK Call", shape=doublecircle, color=yellow];
+LAPACK_Call [label="LAPACK Call", shape=doublecircle, color=red];
 
 
 //
 // -*- Specific LAPACK Call -*-
 //
 Dlamch_E_Call [label="dlamch('E')", comment="Précision Machine - LAPACK", shape=doublecircle, color=red];
-Dlamch_U_Call [label="dlamch('U')", comment="??? - LAPACK", shape=doublecircle, color=red];
-Dlamch_O_Call [label="dlamch('O')", comment="??? - LAPACK", shape=doublecircle, color=red];
+Dlamch_U_Call [label="dlamch('U')", comment="Borne Inférieure - LAPACK", shape=doublecircle, color=red];
+Dlamch_O_Call [label="dlamch('O')", comment="Borne Supérieure - LAPACK", shape=doublecircle, color=red];
 
 
 //
@@ -38,6 +38,7 @@ Sin_Hyperbolic_Complex [label="sh(C)"];
 Tan_Real [label="tan(R)"];
 Tan_Complex [label="tan(C)", comment="wtan"];
 Tan_Hyperbolic_Real [label="tanh(R)"];
+Tan_Hyperbolic_Complex [label="tanh(C)"];
 
 // Exponentielle
 Exp_Real [label="exp(R)"];
@@ -45,6 +46,8 @@ Exp_Complex [label="exp(C)"];
 
 // Log
 Log_Real [label="log(R)"];
+Log_Positive_Real [label="log(R+)"];
+Log_Negative_Real [label="log(R-)"];
 Log_Complex [label="log(C)"];
 
 // Racine Carrée
@@ -64,14 +67,19 @@ Sign_Real [label="sign(R)"];
 //
 // -*- Functions call links -*-
 //
-
-// -*- DLAMCH -*-
-Dlamch_E_Call -> LAPACK_Call;
-Dlamch_U_Call -> LAPACK_Call;
-Dlamch_O_Call -> LAPACK_Call;
+subgraph clusterLAPACK {
+	style=filled;
+	color=lightsteelblue1;
+	label="LAPACK";
+	// -*- DLAMCH -*-
+	Dlamch_E_Call -> LAPACK_Call;
+	Dlamch_U_Call -> LAPACK_Call;
+	Dlamch_O_Call -> LAPACK_Call;
+}
 
 
 // -*- COS -*-
+//
 // cos(a+ib) = cos(a).ch(b) - i.sin(a).sh(b)
 Cos_Complex -> {
 	Cos_Real
@@ -82,6 +90,7 @@ Cos_Complex -> {
 
 // Call a cosinus function in F77 math lib
 Cos_Real -> F77_Call;
+
 
 // -*- SIN -*-
 //
@@ -153,14 +162,28 @@ Log_Complex -> {
 	ATan2_Real
 	};
 
+// Separate positive and negative case
+Log_Real -> {
+	Log_Positive_Real
+	Log_Negative_Real
+	};
+
+// Call another log function, treat it as complex
+Log_Negative_Real -> Log_Complex;
+
 // Call a log function in F77 math lib
-Log_Real -> F77_Call;
+Log_Positive_Real -> F77_Call;
 
 
 
 // -*- SQRT -*-
 //
 // sqrt(a+ib) = x_r + i.x_i
+//
+// Constantes :
+//		Rmax = dlamch('O')
+//		BRmin = 2.dlamch('U')
+//		t = sqrt(2.|a| + pythag(a,b))
 //
 // (1) a = 0
 //~~~~~~~~~~~~
@@ -201,6 +224,14 @@ Log_Real -> F77_Call;
 //	 | sign(b).|a|		si a < -Rmax
 //	 | 0
 //
+Sqrt_Complex -> {
+	Abs_Real
+	Sqrt_Real
+	Sign_Real
+	Pythag_Real
+	Dlamch_U_Call
+	Dlamch_O_Call
+	};
 
 // Separate positive and negative case
 Sqrt_Real -> {

@@ -1,3 +1,10 @@
+2006-11-28  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* Logarithm [log]:
+	Correction : Log for a negative Real call Log as complex.
+	* Root [sqrt]:
+	Done for Real and Complex.
+
 2006-11-27  Bruno JOFRET  <bruno.jofret@inria.fr>
 
 	* Number Sign [sign]:
