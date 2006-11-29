@@ -9,14 +9,12 @@ F77_Call [label="Fortan Call", shape=doublecircle, color=green];
 C_Call [label="C Call", shape=doublecircle, color=blue];
 LAPACK_Call [label="LAPACK Call", shape=doublecircle, color=red];
 
-
 //
 // -*- Specific LAPACK Call -*-
 //
 Dlamch_E_Call [label="dlamch('E')", comment="Précision Machine - LAPACK", shape=doublecircle, color=red];
 Dlamch_U_Call [label="dlamch('U')", comment="Borne Inférieure - LAPACK", shape=doublecircle, color=red];
 Dlamch_O_Call [label="dlamch('O')", comment="Borne Supérieure - LAPACK", shape=doublecircle, color=red];
-
 
 //
 // -*- Functions definition -*-
@@ -62,6 +60,8 @@ Abs_Real [label="abs(R)", comment="|R|"];
 // Signe
 Sign_Real [label="sign(R)"];
 
+// Pythagore
+Pythag_Real [label="pythag(R)"];
 
 
 //
@@ -244,6 +244,17 @@ Sqrt_Negative_Real -> Sqrt_Complex;
 
 // Call a sqrt function in F77 math lib
 Sqrt_Positive_Real -> F77_Call;
+
+// -*- PYTHAG -*-
+//
+// pythag(a,b) = sqrt(a^2 + b^2)
+//
+//
+Pythag_Real -> {
+	Sqrt_Real
+	Dlamch_O_Call
+};
+
 
 
 // -*- SIGN -*-
