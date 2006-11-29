@@ -48,6 +48,9 @@ Log_Positive_Real [label="log(R+)"];
 Log_Negative_Real [label="log(R-)"];
 Log_Complex [label="log(C)"];
 
+// Log1p
+Log1p_Real [label="log1p(R)"];
+
 // Racine Carrée
 Sqrt_Real [label="sqrt(R)"];
 Sqrt_Positive_Real [label="sqrt(R+)"];
@@ -155,7 +158,7 @@ Log_Complex -> {
 	Dlamch_U_Call
 	Dlamch_O_Call
 	Pythag_Real
-	LogP1_Real
+	Log1p_Real
 	Log_Real
 	Abs_Real
 	Pythag_Real
@@ -174,6 +177,8 @@ Log_Negative_Real -> Log_Complex;
 // Call a log function in F77 math lib
 Log_Positive_Real -> F77_Call;
 
+// Call a log1p function in F77 math lib
+Log1p_Real -> F77_Call;
 
 
 // -*- SQRT -*-
