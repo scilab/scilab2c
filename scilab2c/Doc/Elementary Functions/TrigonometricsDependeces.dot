@@ -38,6 +38,9 @@ Tan_Complex [label="tan(C)", comment="wtan"];
 Tan_Hyperbolic_Real [label="tanh(R)"];
 Tan_Hyperbolic_Complex [label="tanh(C)"];
 
+// ArcTaneante2
+ATan2_Real [label="atan2(R)"];
+
 // Exponentielle
 Exp_Real [label="exp(R)"];
 Exp_Complex [label="exp(C)"];
@@ -286,5 +289,10 @@ Exp_Complex -> {
 // Call a exp function in F77 math lib
 Exp_Real -> F77_Call;
 
+
+// -*- ATAN2 -*-
+//
+// Call atan2 function in C math lib
+ATan2_Real -> C_Call;
 
 }
