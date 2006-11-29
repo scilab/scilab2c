@@ -273,4 +273,18 @@ Sign_Real -> F77_Call;
 // Call a abs function in F77 math lib
 Abs_Real -> F77_Call;
 
+
+// -*- EXP -*-
+//
+// exp(a+i.b) = exp(a).cos(b) + i.exp(a)sin(b)
+Exp_Complex -> {
+	Exp_Real
+	Cos_Real
+	Sin_Real
+};
+
+// Call a exp function in F77 math lib
+Exp_Real -> F77_Call;
+
+
 }
