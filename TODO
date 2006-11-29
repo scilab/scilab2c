@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Tue Nov 21 15:22:58 2006 jofret
-## Last update Wed Nov 29 17:34:49 2006 jofret
+## Last update Wed Nov 29 17:40:04 2006 jofret
 ##
 ## Copyright INRIA 2006
 ##
@@ -36,3 +36,8 @@ BJ - Listing of atomic call and library dependences.
 
 BJ - Explore dlamch uses 'e' 'u' 'o'
      Added help file for dlamch use...
+
+BJ - Start coding C basic functions with libmath link.
+
+BJ - Bench for precision between F77 and C Math lib.
+     For example : atan2 / log1p
