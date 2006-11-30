@@ -6,6 +6,12 @@
 	Done for Real and Complex type.
 	* Hyperbolic Tangeant [tanh]:
 	Done for Real and Complex type.
+	* src:
+	To put basic sources.
+	* src/type:
+	To put complex types.
+	* src/type/doubleComplex.{ch}:
+	Simple definition of complex as struct of double.
 
 2006-11-29  Bruno JOFRET  <brunojofret@inria.fr>
 
