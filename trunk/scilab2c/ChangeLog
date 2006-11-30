@@ -1,3 +1,12 @@
+2006-11-30  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* Hyperbolic Cosinus [cosh]:
+	Done for Real and Complex type.
+	* Hyperboloc Sinus [sinh]:
+	Done for Real and Complex type.
+	* Hyperbolic Tangeant [tanh]:
+	Done for Real and Complex type.
+
 2006-11-29  Bruno JOFRET  <brunojofret@inria.fr>
 
 	* Pythagore [pythag]:
