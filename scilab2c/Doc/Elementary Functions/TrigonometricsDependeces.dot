@@ -60,6 +60,9 @@ Sqrt_Positive_Real [label="sqrt(R+)"];
 Sqrt_Negative_Real [label="sqrt(R-)"];
 Sqrt_Complex [label="sqrt(C)", comment="wsqrt"];
 
+// Partie Imaginaire
+Imag_Complex [label="imag(C)"];
+
 // Valeur Absolue
 Abs_Real [label="abs(R)", comment="|R|"];
 
@@ -87,7 +90,7 @@ subgraph clusterLAPACK {
 // -*- COS -*-
 //
 // cos(a+ib) = cos(a).ch(b) - i.sin(a).sh(b)
-Cos_Complex -> {
+Cos_Complex  -> {
 	Cos_Real
 	Sin_Real
 	Cos_Hyperbolic_Real
@@ -96,6 +99,19 @@ Cos_Complex -> {
 
 // Call a cosinus function in F77 math lib
 Cos_Real -> F77_Call;
+
+// -*- COSH -*-
+//
+// ch(z) = cos(i.z)
+Cos_Hyperbolic_Complex -> {
+	Cos_Complex
+	};
+
+// ch(x) = 1/2 . exp(|x|) + exp(-|x|)
+Cos_Hyperbolic_Real -> {
+	Exp_Real
+	Abs_Real
+};
 
 
 // -*- SIN -*-
@@ -110,6 +126,20 @@ Sin_Complex -> {
 
 // Call a sinus function in F77 math lib
 Sin_Real -> F77_Call;
+
+
+// -*- SINH -*-
+//
+// sh(z) = -i.sin(i.z)
+Sin_Hyperbolic_Complex -> {
+	Sin_Complex
+};
+
+// sh(x) = imag(sin(i.x))
+Sin_Hyperbolic_Real -> {
+	Sin_Complex
+	Imag_Complex
+};
 
 
 // -*- TAN -*-
@@ -136,6 +166,20 @@ Tan_Complex -> {
 
 // Call a tangeante function in F77 math lib
 Tan_Real -> F77_Call;
+
+
+// -*- TANH -*-
+//
+// tanh(z) = -i.tan(i.z)
+Tan_Hyperbolic_Complex -> {
+	Tan_Complex
+	};
+
+// tanh(x) = imag(tan(i.x))
+Tan_Hyperbolic_Real -> {
+	Tan_Complex
+	Imag_Complex
+};
 
 
 // -*- LOG -*-
@@ -294,5 +338,11 @@ Exp_Real -> F77_Call;
 //
 // Call atan2 function in C math lib
 ATan2_Real -> C_Call;
+
+
+// -*- IMAG -*-
+//
+// Call a imag function in F77 math lib
+Imag_Complex -> F77_Call;
 
 }
