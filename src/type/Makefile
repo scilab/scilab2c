@@ -5,28 +5,52 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Thu Nov 30 16:33:40 2006 jofret
-## Last update Thu Nov 30 17:52:34 2006 jofret
+## Last update Fri Dec  1 16:21:12 2006 jofret
 ##
 ## Copyright INRIA 2006
 ##
 
-NAME	=	dummy
+NAME	=	complex
 RM	=	rm -f
 CC	=	gcc
-CFLAGS	=	-Wall -pedantic
+CFLAGS	=	-Wall -pedantic -ansi
+AR	=	ar cru
+RANLIB	=	ranlib
 
-SRC	=	doubleComplex.c \
-		main.c
+OBJS	=	$(DCOBJ) $(FCOBJ)
+LIBS	=	$(DCLIB) $(FCLIB)
 
-HEADERS	=	doubleComplex.h
+### test
 
-OBJ	=	$(SRC:.c=.o)
 
-all: $(SRC) $(HEADERS) $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+### Double Complex
+DCLIB	=	libDoubleComplex.a
+DCSRC	=	doubleComplex.c
+DCHEAD	=	doubleComplex.h
+DCOBJ	=	$(DCSRC:.c=.o)
+
+### Float Complex
+FCLIB	=	libFloatComplex.a
+FCSRC	=	floatComplex.c
+FCHEAD	=	floatComplex.h
+FCOBJ	=	$(FCSRC:.c=.o)
+
+
+all: $(LIBS)
+
+$(DCLIB) : $(DCOBJ)
+	$(AR) $@ $<
+	$(RANLIB) $@
+
+$(FCLIB) : $(FCOBJ)
+	$(AR) $@ $<
+	$(RANLIB) $@
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJS)
 
 distclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(LIBS)
+
+test: $(NAME)
+
