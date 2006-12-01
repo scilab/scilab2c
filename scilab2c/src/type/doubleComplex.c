@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Nov 30 16:27:08 2006 jofret
-** Last update Thu Nov 30 17:59:50 2006 jofret
+** Last update Fri Dec  1 15:17:20 2006 jofret
 **
 ** Copyright INRIA 2006
 */
@@ -38,4 +38,24 @@ doubleComplex DoubleComplex(double real, double imag) {
   z.real = real;
   z.imag = imag;
   return z;
+}
+
+/*
+** \function isreal
+** \brief check if complex is real .
+*/
+bool isreal(doubleComplex z) {
+  if (z.imag == 0)
+    return true;
+  return false;
+}
+
+/*
+** \function isimag
+** \brief check if complex is pure imaginary .
+*/
+bool isimag(doubleComplex z) {
+  if (z.real == 0)
+    return true;
+  return false;
 }
