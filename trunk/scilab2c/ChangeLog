@@ -1,3 +1,18 @@
+2006-12-04  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* Group functions:
+	Group all same name functions, ignore type.
+	* Inverse Cosinus [acos]:
+	Done for Real and Complex type.
+	* Inverse Hyperbolic Cosinus [acosh]:
+	Done for Real and Complex type.
+	* Inverse Sinus [asin]:
+	Done for Real and Complex type.
+	* Inverse Hyperbolic Sinus [asinh]:
+	Done for Real and Complex type.
+	* Inverse Tangeant [atan]:
+	Done for Real and Complex type.
+
 2006-11-30  Bruno JOFRET  <bruno.jofret@inria.fr>
 
 	* Hyperbolic Cosinus [cosh]:
