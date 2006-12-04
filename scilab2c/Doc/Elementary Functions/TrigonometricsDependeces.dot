@@ -23,34 +23,68 @@ Dlamch_O_Call [label="dlamch('O')", comment="Borne Supérieure - LAPACK", shape=d
 // Cosinus
 subgraph clusterCosinus {
 	label="Cosine";
-	color=yellow2;
+	color=yellow;
 	style=filled;
 	Cos_Real [label="cos(R)"];
 	Cos_Complex [label="cos(C)"];
 }
 subgraph clusterHyperbolicCosinus {
 	label="Hyperbolic Cosine";
-	color="wheat4";
+	color="wheat";
 	style=filled;
 	Cos_Hyperbolic_Real [label="ch(R)"];
 	Cos_Hyperbolic_Complex [label="ch(C)"];
 }
 
+// ArcCosinus
+subgraph clusterArcCosinus {
+	label="Inverse Cosine";
+	color=springgreen;
+	style=filled;
+	ACos_Real [label="acos(R)"];
+	ACos_Complex [label="acos(C)"];
+}
+subgraph clusterArcHyperbolicCosinus {
+	label="Inverse Hyperbolic Cosine";
+	color=slategray;
+	style=filled;
+	ACos_Hyperbolic_Real [label="ach(R)"];
+	ACos_Hyperbolic_Complex [label="ach(C)"];
+}
+
 // Sinus
 subgraph clusterSinus {
 	label="Sine";
-	color="violetred4";
+	color="violetred";
 	style=filled;
 	Sin_Real [label="sin(R)"];
 	Sin_Complex [label="sin(C)"];
 }
 subgraph clusterHyperbolicSinus {
-	label="HyperbolicSine";
-	color=violet;
+	label="Hyperbolic Sine";
+	color=skyblue;
 	style=filled;
 	Sin_Hyperbolic_Real [label="sh(R)"];
 	Sin_Hyperbolic_Complex [label="sh(C)"];
 }
+
+
+// ArcSinus
+subgraph clusterArcSinus {
+	label="Inverse Sine";
+	color=slateblue;
+	style=filled;
+	ASin_Real [label="asin(R)"];
+	ASin_Complex [label="asin(C)"];
+}
+subgraph clusterArcHyperbolicSinus {
+	label="Inverse Hyperbolic Sine";
+	color=violet;
+	style=filled;
+	ASin_Hyperbolic_Real [label="ash(R)"];
+	ASin_Hyperbolic_Complex [label="ash(C)"];
+}
+
 
 // Tangeante
 subgraph clusterTan {
@@ -60,13 +94,31 @@ subgraph clusterTan {
 	Tan_Real [label="tan(R)"];
 	Tan_Complex [label="tan(C)", comment="wtan"];
 }
-subgraph clusterhyperbolicTan {
+subgraph clusterHyperbolicTan {
 	label="Hyperbolic Tan";
-	color=tomato1;
+	color=tomato;
 	style=filled;
 	Tan_Hyperbolic_Real [label="tanh(R)"];
 	Tan_Hyperbolic_Complex [label="tanh(C)"];
 }
+
+
+// ArcTangeante
+subgraph clusterArcTan {
+	label="Inverse Tan";
+	color=limegreen;
+	style=filled;
+	ATan_Real [label="atan(R)"];
+	ATan_Complex [label="atan(C)", comment="watan"];
+}
+subgraph clusterArcHyperbolicTan {
+	label="Inverse Hyperbolic Tan";
+	color=mediumorchid;
+	style=filled;
+	ATan_Hyperbolic_Real [label="atanh(R)"];
+	ATan_Hyperbolic_Complex [label="atanh(C)"];
+}
+
 
 // ArcTaneante2
 ATan2_Real [label="atan2(R)"];
@@ -74,7 +126,7 @@ ATan2_Real [label="atan2(R)"];
 // Exponentielle
 subgraph clusterExponential {
 	label="Exponential";
-	color=thistle1;
+	color=thistle;
 	style=filled;
 	Exp_Real [label="exp(R)"];
 	Exp_Complex [label="exp(C)"];
@@ -83,7 +135,7 @@ subgraph clusterExponential {
 // Log
 subgraph clusterLog {
 	label="Log";
-	color=tan1;
+	color=tan;
 	style=filled;
 	Log_Real [label="log(R)"];
 	Log_Positive_Real [label="log(R+)"];
@@ -97,7 +149,7 @@ Log1p_Real [label="log1p(R)"];
 // Racine Carrée
 subgraph clusterSquare {
 	label="Square Root";
-	color=steelblue1;
+	color=steelblue;
 	style=filled;
 	Sqrt_Real [label="sqrt(R)"];
 	Sqrt_Positive_Real [label="sqrt(R+)"];
@@ -123,7 +175,7 @@ Pythag_Real [label="pythag(R)"];
 //
 subgraph clusterLAPACK {
 	style=filled;
-	color=lightsteelblue1;
+	color=lightsteelblue;
 	label="LAPACK";
 	// -*- DLAMCH -*-
 	Dlamch_E_Call -> LAPACK_Call;
@@ -145,6 +197,27 @@ Cos_Complex  -> {
 // Call a cosinus function in F77 math lib
 Cos_Real -> F77_Call;
 
+
+// -*- ACOS -*-
+//
+// acos(a+ib) = see $SCIHOME/modules/elementaries_functions/src/fortran/wacos.f
+ACos_Complex -> {
+	Dlamch_O_Call
+	Dlamch_E_Call
+	Dlamch_U_Call
+	Sqrt_Real
+	Abs_Real
+	ACos_Real
+	ATan_Real
+	Log1p_Real
+	Log_Real
+	Sign_Real
+	};
+
+// Call an inverse cosine function in F77 math lib
+ACos_Real -> F77_Call;
+
+
 // -*- COSH -*-
 //
 // ch(z) = cos(i.z)
@@ -157,6 +230,21 @@ Cos_Hyperbolic_Real -> {
 	Exp_Real
 	Abs_Real
 	};
+
+
+// -*- ACOSH -*-
+//
+// acosh(z) = sign(-imag(acos(z)) i acos(z)
+ACos_Hyperbolic_Complex -> {
+	Imag_Complex
+	ACos_Complex
+};
+// acosh(z) = sign(-imag(acos(z)) i acos(
+ACos_Hyperbolic_Real -> {
+	Imag_Complex
+	ACos_Complex
+	Min_Real
+};
 
 
 // -*- SIN -*-
@@ -173,6 +261,26 @@ Sin_Complex -> {
 Sin_Real -> F77_Call;
 
 
+// -*- ASIN -*-
+//
+// asin(a+ib) = see $SCIHOME/modules/elementaries_functions/src/fortran/wasin.f
+ASin_Complex -> {
+	Dlamch_O_Call
+	Dlamch_U_Call
+	Dlamch_E_Call
+	Abs_Real
+	Sqrt_Real
+	ASin_Real
+	ATan_Real
+	Log1p_Real
+	Log_Real
+	Sign_Real
+};
+
+// Call an inverse sine function in F77 math lib
+ASin_Real -> F77_Call;
+
+
 // -*- SINH -*-
 //
 // sh(z) = -i.sin(i.z)
@@ -185,6 +293,20 @@ Sin_Hyperbolic_Real -> {
 	Sin_Complex
 	Imag_Complex
 	};
+
+
+// -*- ASINH -*-
+//
+// asinh(z) = -i asin(i z)
+ASin_Hyperbolic_Complex -> {
+	ASin_Complex
+};
+
+// asinh(z) = -i asin(i z)
+ASin_Hyperbolic_Real -> {
+	ASin_Complex
+	Imag_Complex
+};
 
 
 // -*- TAN -*-
