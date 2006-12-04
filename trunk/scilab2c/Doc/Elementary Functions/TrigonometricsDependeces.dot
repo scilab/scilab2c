@@ -21,44 +21,89 @@ Dlamch_O_Call [label="dlamch('O')", comment="Borne Supérieure - LAPACK", shape=d
 //
 
 // Cosinus
-Cos_Real [label="cos(R)"];
-Cos_Complex [label="cos(C)"];
-Cos_Hyperbolic_Real [label="ch(R)"];
-Cos_Hyperbolic_Complex [label="ch(C)"];
+subgraph clusterCosinus {
+	label="Cosine";
+	color=yellow2;
+	style=filled;
+	Cos_Real [label="cos(R)"];
+	Cos_Complex [label="cos(C)"];
+}
+subgraph clusterHyperbolicCosinus {
+	label="Hyperbolic Cosine";
+	color="wheat4";
+	style=filled;
+	Cos_Hyperbolic_Real [label="ch(R)"];
+	Cos_Hyperbolic_Complex [label="ch(C)"];
+}
 
 // Sinus
-Sin_Real [label="sin(R)"];
-Sin_Complex [label="sin(C)"];
-Sin_Hyperbolic_Real [label="sh(R)"];
-Sin_Hyperbolic_Complex [label="sh(C)"];
+subgraph clusterSinus {
+	label="Sine";
+	color="violetred4";
+	style=filled;
+	Sin_Real [label="sin(R)"];
+	Sin_Complex [label="sin(C)"];
+}
+subgraph clusterHyperbolicSinus {
+	label="HyperbolicSine";
+	color=violet;
+	style=filled;
+	Sin_Hyperbolic_Real [label="sh(R)"];
+	Sin_Hyperbolic_Complex [label="sh(C)"];
+}
 
 // Tangeante
-Tan_Real [label="tan(R)"];
-Tan_Complex [label="tan(C)", comment="wtan"];
-Tan_Hyperbolic_Real [label="tanh(R)"];
-Tan_Hyperbolic_Complex [label="tanh(C)"];
+subgraph clusterTan {
+	label="Tan";
+	color=turquoise;
+	style=filled;
+	Tan_Real [label="tan(R)"];
+	Tan_Complex [label="tan(C)", comment="wtan"];
+}
+subgraph clusterhyperbolicTan {
+	label="Hyperbolic Tan";
+	color=tomato1;
+	style=filled;
+	Tan_Hyperbolic_Real [label="tanh(R)"];
+	Tan_Hyperbolic_Complex [label="tanh(C)"];
+}
 
 // ArcTaneante2
 ATan2_Real [label="atan2(R)"];
 
 // Exponentielle
-Exp_Real [label="exp(R)"];
-Exp_Complex [label="exp(C)"];
+subgraph clusterExponential {
+	label="Exponential";
+	color=thistle1;
+	style=filled;
+	Exp_Real [label="exp(R)"];
+	Exp_Complex [label="exp(C)"];
+}
 
 // Log
-Log_Real [label="log(R)"];
-Log_Positive_Real [label="log(R+)"];
-Log_Negative_Real [label="log(R-)"];
-Log_Complex [label="log(C)"];
+subgraph clusterLog {
+	label="Log";
+	color=tan1;
+	style=filled;
+	Log_Real [label="log(R)"];
+	Log_Positive_Real [label="log(R+)"];
+	Log_Negative_Real [label="log(R-)"];
+	Log_Complex [label="log(C)"];
+}
 
 // Log1p
 Log1p_Real [label="log1p(R)"];
 
 // Racine Carrée
-Sqrt_Real [label="sqrt(R)"];
-Sqrt_Positive_Real [label="sqrt(R+)"];
-Sqrt_Negative_Real [label="sqrt(R-)"];
-Sqrt_Complex [label="sqrt(C)", comment="wsqrt"];
+subgraph clusterSquare {
+	label="Square Root";
+	color=steelblue1;
+	style=filled;
+	Sqrt_Real [label="sqrt(R)"];
+	Sqrt_Positive_Real [label="sqrt(R+)"];
+	Sqrt_Negative_Real [label="sqrt(R-)"];
+	Sqrt_Complex [label="sqrt(C)", comment="wsqrt"];
+}
 
 // Partie Imaginaire
 Imag_Complex [label="imag(C)"];
@@ -111,7 +156,7 @@ Cos_Hyperbolic_Complex -> {
 Cos_Hyperbolic_Real -> {
 	Exp_Real
 	Abs_Real
-};
+	};
 
 
 // -*- SIN -*-
@@ -133,13 +178,13 @@ Sin_Real -> F77_Call;
 // sh(z) = -i.sin(i.z)
 Sin_Hyperbolic_Complex -> {
 	Sin_Complex
-};
+	};
 
 // sh(x) = imag(sin(i.x))
 Sin_Hyperbolic_Real -> {
 	Sin_Complex
 	Imag_Complex
-};
+	};
 
 
 // -*- TAN -*-
@@ -179,7 +224,7 @@ Tan_Hyperbolic_Complex -> {
 Tan_Hyperbolic_Real -> {
 	Tan_Complex
 	Imag_Complex
-};
+	};
 
 
 // -*- LOG -*-
@@ -305,7 +350,7 @@ Sqrt_Positive_Real -> F77_Call;
 Pythag_Real -> {
 	Sqrt_Real
 	Dlamch_O_Call
-};
+	};
 
 
 
@@ -328,7 +373,7 @@ Exp_Complex -> {
 	Exp_Real
 	Cos_Real
 	Sin_Real
-};
+	};
 
 // Call a exp function in F77 math lib
 Exp_Real -> F77_Call;
