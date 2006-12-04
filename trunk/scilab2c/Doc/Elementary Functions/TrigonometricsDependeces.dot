@@ -335,6 +335,22 @@ Tan_Complex -> {
 Tan_Real -> F77_Call;
 
 
+//
+// -*- ATAN -*-
+//
+ATan_Complex -> {
+	Dlamch_O_Call
+	ATan_Real
+	Abs_Real
+	Sign_Real
+	Log_Real
+	ATan2_Real
+};
+
+// Call an inverse tangeant function in F77 math lib
+ATan_Real -> F77_Call;
+
+
 // -*- TANH -*-
 //
 // tanh(z) = -i.tan(i.z)
@@ -345,6 +361,19 @@ Tan_Hyperbolic_Complex -> {
 // tanh(x) = imag(tan(i.x))
 Tan_Hyperbolic_Real -> {
 	Tan_Complex
+	Imag_Complex
+	};
+
+// -*- ATANH -*-
+//
+// atanh(z) = i atan(-i z)
+ATan_Hyperbolic_Complex -> {
+	ATan_Complex
+	};
+
+// atanh(x) = -imag(atan(i.x)) | i.atan(-i.x)
+ATan_Hyperbolic_Real -> {
+	ATan_Complex
 	Imag_Complex
 	};
 
