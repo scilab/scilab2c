@@ -5,32 +5,42 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Tue Nov 21 15:22:58 2006 jofret
-## Last update Thu Nov 30 14:50:44 2006 jofret
+## Last update Mon Dec  4 14:57:38 2006 jofret
 ##
 ## Copyright INRIA 2006
 ##
 
 
-BJ - Evaluated and drawn :
+BJ - Evaluated and drawn - have to be implemented in C :
 	+ cos	: [done R & C]
+	+ acos	: [done R & C]
 	+ sin	: [done R & C]
+	+ asin	: [done R & C]
 	+ tan	: [done R & C]
+	+ ch	: [done R & C]
+	+ acosh	: [done R & C]
+	+ sh	: [done R & C]
+	+ asinh	: [done R & C]
+	+ tanh	: [done R & C]
 	+ log	: [done R & C]
+	+ exp	: [done R & C]
+	+ sqrt	: [done R & C]
+
 	+ sign	: [done R]
 	+ abs	: [done R]
-	+ sqrt	: [done R & C]
 	+ pythag: [done R]
 	+ Log1p : [done R]
-	+ exp	: [done R & C]
 	+ atan2 : [done R]
-	+ ch	: [done R & C]
-	+ sh	: [done R & C]
-	+ tanh	: [done R & C]
+
 
 BJ - Evaluate and draw a graph of function dependences.
-	+ ... (to be continued)
+	+ atanh : Fixme R & C
+	+ atan	: Fixme R & C
+
 
 BJ - Find a way to code complex type taking care of double/float precision.
+	+ C struct		?? Did it this way but easy to change.
+	+ double[2] // float[2] ??
 
 BJ - Listing of atomic call and library dependences.
 
