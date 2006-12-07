@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Thu Nov 30 16:33:40 2006 jofret
-## Last update Thu Dec  7 10:53:28 2006 jofret
+## Last update Thu Dec  7 14:27:32 2006 jofret
 ##
 ## Copyright INRIA 2006
 ##
@@ -44,19 +44,10 @@ $(DCLIB) : $(DCHEAD) $(DCOBJ)
 $(FCLIB) : $(FCHEAD) $(FCOBJ)
 	$(AR) $@ $(FCOBJ)
 	$(RANLIB) $@
-
-$(FCSRC) : $(DCSRC)
-	@echo "--> Generating $@ from $<"
-	@cat $< | sed s/double/float/g | sed s/Double/Float/g > $@
-
-$(FCHEAD) : $(DCHEAD)
-	@echo "--> Generating $@ from $<"
-	@cat $< | sed s/double/float/g | sed s/Double/Float/g > $@
-
 clean:
 	$(RM) $(OBJS)
 
 distclean: clean
-	$(RM) $(NAME) $(LIBS) $(FCSRC) $(FCHEAD)
+	$(RM) $(LIBS)
 
 

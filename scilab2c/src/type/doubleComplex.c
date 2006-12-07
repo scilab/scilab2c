@@ -5,13 +5,12 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Nov 30 16:27:08 2006 jofret
-** Last update Fri Dec  1 15:17:20 2006 jofret
+** Last update Thu Dec  7 11:44:05 2006 jofret
 **
 ** Copyright INRIA 2006
 */
 
 #include "doubleComplex.h"
-
 
 /*
 ** \function real
