@@ -5,12 +5,11 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Thu Nov 30 16:33:40 2006 jofret
-## Last update Mon Dec  4 17:24:37 2006 jofret
+## Last update Thu Dec  7 10:53:28 2006 jofret
 ##
 ## Copyright INRIA 2006
 ##
 
-NAME	=	complex
 RM	=	rm -f
 CC	=	gcc
 CFLAGS	=	-Wall -pedantic -ansi
@@ -24,13 +23,13 @@ LIBS	=	$(DCLIB) $(FCLIB)
 
 
 ### Double Complex
-DCLIB	=	libDoubleComplex.a
+DCLIB	=	../lib/libDoubleComplex.a
 DCSRC	=	doubleComplex.c
 DCHEAD	=	doubleComplex.h
 DCOBJ	=	$(DCSRC:.c=.o)
 
 ### Float Complex
-FCLIB	=	libFloatComplex.a
+FCLIB	=	../lib/libFloatComplex.a
 FCSRC	=	floatComplex.c
 FCHEAD	=	floatComplex.h
 FCOBJ	=	$(FCSRC:.c=.o)
@@ -39,11 +38,11 @@ FCOBJ	=	$(FCSRC:.c=.o)
 all: $(LIBS)
 
 $(DCLIB) : $(DCHEAD) $(DCOBJ)
-	$(AR) $@ $<
+	$(AR) $@ $(DCOBJ)
 	$(RANLIB) $@
 
 $(FCLIB) : $(FCHEAD) $(FCOBJ)
-	$(AR) $@ $<
+	$(AR) $@ $(FCOBJ)
 	$(RANLIB) $@
 
 $(FCSRC) : $(DCSRC)
