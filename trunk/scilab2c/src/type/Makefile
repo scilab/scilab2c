@@ -5,14 +5,14 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Thu Nov 30 16:33:40 2006 jofret
-## Last update Thu Dec  7 14:27:32 2006 jofret
+## Last update Thu Dec  7 15:04:27 2006 jofret
 ##
 ## Copyright INRIA 2006
 ##
 
 RM	=	rm -f
 CC	=	gcc
-CFLAGS	=	-Wall -pedantic -ansi
+CFLAGS	=	-Wall -pedantic -ansi -Werror
 AR	=	ar cru
 RANLIB	=	ranlib
 
@@ -50,4 +50,5 @@ clean:
 distclean: clean
 	$(RM) $(LIBS)
 
+re: clean all
 
