@@ -1,3 +1,22 @@
+2006-12-11  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/test/testCos.c :
+	Add some cosine tests.
+	* src/test/tesSin.c :
+	Add some sine tests.
+	* README :
+	Add some standards and style definitions.
+
+2006-12-08  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/test :
+	Test files for libraries.
+	* src/elementaryFunctions/cos :
+	Cosine functions
+	* src/elementaryFunctions/sin :
+	Sine functions
+
+
 2006-12-04  Bruno JOFRET  <bruno.jofret@inria.fr>
 
 	* Group functions:
