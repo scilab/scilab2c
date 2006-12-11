@@ -5,9 +5,60 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Tue Nov 21 15:21:25 2006 jofret
-## Last update Tue Nov 21 15:22:43 2006 jofret
+## Last update Mon Dec 11 11:25:58 2006 jofret
 ##
 ## Copyright INRIA 2006
 ##
 
 Feel free to add everything you find useful for hArtes and the scilab2c tool.
+
+/*
+** Type definition
+*/
+We define types that way (but it can evolve in the future) :
+I - Scalar
+-----------
+
+ I.1 - Real
+  I.1.1 - Simple precision (float)
+  I.1.2 - Double precision (double)
+
+ I.2 - Complex
+  I.2.1 - Simple precision (float)
+  I.2.2 - Double precision (double)
+
+ I.3 - Integer (NOT IMPLEMENTED YET)
+
+ I.4 - Boolean (NOT IMPLEMENTED YET)
+
+II - Matrix
+------------
+
+ I.1 - Real
+  I.1.1 - Simple precision (float)
+  I.1.2 - Double precision (double)
+
+ I.2 - Complex
+  I.2.1 - Simple precision (float)
+  I.2.2 - Double precision (double)
+
+ I.3 - Integer (NOT IMPLEMENTED YET)
+
+ I.4 - Boolean (NOT IMPLEMENTED YET)
+
+
+/*
+** Functions Naming style
+*/
+We define this coding style for functions names :
+<precision><function_name><variable_type>.
+
+variable_type :
+- 's' : Scalar
+- 'a' : Matrix
+
+precision :
+- 's' : Real simple precision (float)
+- 'd' : Real double precision (double)
+- 'c' : Complex simple precision (float)
+- 'z' : Complex double precision (double)
