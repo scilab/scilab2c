@@ -5,21 +5,52 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:05:44 2006 jofret
-** Last update Fri Dec  8 16:58:25 2006 jofret
+** Last update Mon Dec 11 10:58:24 2006 jofret
 **
 ** Copyright INRIA 2006
 */
 
 #include <stdio.h>
 
+#define PI 3.1415826535
+
 float scoss(float);
+double dcoss(double);
+
 
 void scossTest() {
+  printf(">> Float scalar\n");
   printf("scoss(0) = %f\n", scoss((float) 0));
+  printf("scoss(PI) = %f\n", scoss(PI));
+  printf("scoss(PI/2) = %f\n", scoss(PI/2));
+  printf("scoss(PI/3) = %f\n", scoss(PI/3));
+  printf("scoss(PI/4) = %f\n", scoss(PI/4));
+  printf("scoss(PI/6) = %f\n", scoss(PI/6));
+  printf("scoss(-PI) = %f\n", scoss(-PI));
+  printf("scoss(-PI/2) = %f\n", scoss(-PI/2));
+  printf("scoss(-PI/3) = %f\n", scoss(-PI/3));
+  printf("scoss(-PI/4) = %f\n", scoss(-PI/4));
+  printf("scoss(-PI/6) = %f\n", scoss(-PI/6));
+}
+
+void dcossTest() {
+  printf(">> Double scalar\n");
+  printf("dcoss(0) = %e\n", dcoss((double) 0));
+  printf("dcoss(PI) = %e\n", dcoss(PI));
+  printf("dcoss(PI/2) = %e\n", dcoss(PI/2));
+  printf("dcoss(PI/3) = %e\n", dcoss(PI/3));
+  printf("dcoss(PI/4) = %e\n", dcoss(PI/4));
+  printf("dcoss(PI/6) = %e\n", dcoss(PI/6));
+  printf("dcoss(-PI) = %e\n", dcoss(-PI));
+  printf("dcoss(-PI/2) = %e\n", dcoss(-PI/2));
+  printf("dcoss(-PI/3) = %e\n", dcoss(-PI/3));
+  printf("dcoss(-PI/4) = %e\n", dcoss(-PI/4));
+  printf("dcoss(-PI/6) = %e\n", dcoss(-PI/6));
 }
 
 int testCos() {
-  printf(">> Cosine Tests\n");
+  printf(">>>> Cosine Tests\n");
   scossTest();
+  dcossTest();
   return 0;
 }
