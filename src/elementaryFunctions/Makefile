@@ -5,13 +5,15 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Tue Dec  5 09:19:53 2006 jofret
-## Last update Fri Dec  8 14:05:32 2006 jofret
+## Last update Fri Jan  5 16:12:42 2007 jofret
 ##
 ## Copyright INRIA 2006
 ##
 
 DIRS	=	cos \
- 		sin #\
+		sin \
+		acos \
+		asin#\
 #		cosh \
 # 		sinh \
 # 		tan \
