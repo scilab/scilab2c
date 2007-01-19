@@ -1,3 +1,10 @@
+2007-01-19  Bruno JOFRET  <jofret@agon.inria.fr>
+
+	* src/elementaryFunctions/cosh :
+	Hyperbolic Cosine functions
+	* src/elementaryFunctions/sinh :
+	Hyperbolic Sine functions
+
 2007-01-05  Bruno JOFRET  <bruno.jofret@inria.fr>
 
 	* src/elementaryFunctions/acos :
