@@ -1,4 +1,20 @@
-2007-01-19  Bruno JOFRET  <jofret@agon.inria.fr>
+2007-01-29  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/elementaryFunctions/tan :
+	Tangeant functions
+	* src/elementaryFunctions/tanh :
+	Hyperbolic Tangeant functions
+	* src/test/testCosh.c :
+	Add some Hyperbolic Cosine tests.
+	* src/test/tesSinh.c :
+	Add some Hyperbolic Sine tests.
+	* src/test/testTan.c :
+	Add some Tangeant tests.
+	* src/test/tesTanh.c :
+	Add some Hyperbolic Tangeant tests.
+
+
+2007-01-19  Bruno JOFRET  <bruno.jofret@inria.fr>
 
 	* src/elementaryFunctions/cosh :
 	Hyperbolic Cosine functions

@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 14:53:51 2006 jofret
-** Last update Fri Dec  8 15:04:07 2006 jofret
+** Last update Mon Jan 29 17:24:07 2007 jofret
 **
 ** Copyright INRIA 2006
 */
@@ -18,7 +18,9 @@ void newline() {
 }
 
 int main(int argc, char** argv) {
-  int cosStatus, sinStatus;
+  int cosStatus, coshStatus = 0;
+  int sinStatus, sinhStatus = 0;
+  int tanStatus, tanhStatus = 0;
 
 
   printf("-*- -> Begin test sequence <- -*-");
@@ -26,11 +28,21 @@ int main(int argc, char** argv) {
 
   /* Test Cosine stuffs */
   cosStatus = testCos();
+  /* Test Hyperbolic Cosine stuffs */
+  coshStatus = testCosh();
   /* Test Sine stuffs */
   sinStatus = testSin();
+  /* Test Hyperbolic Sine stuffs */
+  sinStatus = testSinh();
+  /* Test Tangeant stuffs */
+  tanStatus = testTan();
+  /* Test Hyperbolic Tangeant stuffs */
+  tanhStatus = testTanh();
 
   printf("-*- -> End test sequence <- -*-");
   newline();
 
-  return (cosStatus+sinStatus);
+  return (cosStatus+coshStatus+
+	  sinStatus+sinhStatus+
+	  tanStatus+tanhStatus);
 }
