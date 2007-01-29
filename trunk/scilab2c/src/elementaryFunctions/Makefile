@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Tue Dec  5 09:19:53 2006 jofret
-## Last update Fri Jan 19 15:17:32 2007 jofret
+## Last update Mon Jan 29 17:06:19 2007 jofret
 ##
 ## Copyright INRIA 2006
 ##
@@ -15,9 +15,9 @@ DIRS	=	cos \
 		acos \
 		asin \
 		cosh \
- 		sinh #\
-# 		tan \
-# 		tanh \
+		sinh \
+		tan \
+		tanh #\
 # 		exp \
 # 		log
 

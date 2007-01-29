@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Tue Nov 21 15:22:58 2006 jofret
-## Last update Mon Dec  4 16:55:06 2006 jofret
+## Last update Mon Jan 29 17:38:13 2007 jofret
 ##
 ## Copyright INRIA 2006
 ##
@@ -42,6 +42,7 @@ BJ - Evaluate and draw a graph of function dependences.
 BJ - Find a way to code complex type taking care of double/float precision.
 	+ C struct		?? Did it this way but easy to change.
 	+ double[2] // float[2] ??
+	+ Standard C99 		??
 
 BJ - Listing of atomic call and library dependences.
 
