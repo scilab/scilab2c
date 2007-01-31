@@ -5,17 +5,12 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Dec  7 16:12:02 2006 jofret
-** Last update Mon Jan 29 17:04:42 2007 jofret
+** Last update Wed Jan 31 10:56:20 2007 jofret
 **
 ** Copyright INRIA 2006
 */
 
-#ifndef STDC99
 #include "doubleComplex.h"
-#else
-#include <complex.h>
-typedef double complex doubleComplex;
-#endif
 
 doubleComplex ztanhs(doubleComplex);
 

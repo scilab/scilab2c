@@ -5,11 +5,10 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Jan  5 10:25:57 2007 jofret
-** Last update Fri Jan  5 16:23:34 2007 jofret
+** Last update Wed Jan 31 11:15:18 2007 jofret
 **
 ** Copyright INRIA 2007
 */
-
 
 float sasins(float);
 
