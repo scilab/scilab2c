@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Thu Nov 30 16:33:40 2006 jofret
-## Last update Mon Jan 29 17:17:19 2007 jofret
+## Last update Wed Jan 31 09:27:59 2007 jofret
 ##
 ## Copyright INRIA 2006
 ##
@@ -19,7 +19,8 @@ LINK	=	../lib
 LIBS	=	-lm \
 		-lCos -lCosh \
 		-lSin -lSinh \
-		-lTan -lTanh
+		-lTan -lTanh \
+		-lExp
 CFLAGS	=	-Werror -Wall -pedantic -ansi
 CLFLAGS	=	-I$(INCLUDE) -L$(LINK) $(LIBS)
 AR	=	ar cru
@@ -31,6 +32,7 @@ SRC	=	testCos.c \
 		testSinh.c \
 		testTan.c \
 		testTanh.c \
+		testExp.c \
 		test.c
 
 HEAD	=	test.h

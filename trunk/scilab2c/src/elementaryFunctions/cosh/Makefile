@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Thu Nov 30 16:33:40 2006 jofret
-## Last update Fri Jan 19 14:54:57 2007 jofret
+## Last update Wed Jan 31 11:59:11 2007 jofret
 ##
 ## Copyright INRIA 2006
 ##
@@ -16,7 +16,7 @@ RM	=	rm -f
 CC	=	gcc
 INCLUDE	=	../../type
 LINK	=	../../lib
-CFLAGS	=	-Werror -Wall -pedantic -ansi -I $(INCLUDE) -L $(LINK)
+CFLAGS	=	-Werror -Wall -pedantic -ansi -I $(INCLUDE) -L $(LINK) $(STANDARD)
 AR	=	ar cru
 RANLIB	=	ranlib
 
