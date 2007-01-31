@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:00:40 2006 jofret
-** Last update Mon Jan 29 17:16:36 2007 jofret
+** Last update Wed Jan 31 09:26:21 2007 jofret
 **
 ** Copyright INRIA 2006
 */
@@ -40,3 +40,7 @@ int testTan();
 */
 int testTanh();
 
+/*
+** \brief Exponential Test
+*/
+int testExp();

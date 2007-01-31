@@ -1,9 +1,24 @@
+2007-01-31  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/elementaryFunctions/*.c :
+	Remove Multi Complex definition.
+	* src/type/doubleComplex.h :
+	Used as C99 Complex interface or hand-made complex.
+	* src/type/floatComplex.h :
+	Used as C99 Complex interface or hand-made complex.
+	* src/*/Makefile :
+	Add -std=c99 flag for native c99 complex compilation.
+	* src/elementaryFunctions/exp :
+	Exponential functions.
+	* src/test/testExp.c :
+	Add some Exponential functions tests.
+
 2007-01-29  Bruno JOFRET  <bruno.jofret@inria.fr>
 
 	* src/elementaryFunctions/tan :
-	Tangeant functions
+	Tangeant functions.
 	* src/elementaryFunctions/tanh :
-	Hyperbolic Tangeant functions
+	Hyperbolic Tangeant functions.
 	* src/test/testCosh.c :
 	Add some Hyperbolic Cosine tests.
 	* src/test/tesSinh.c :
