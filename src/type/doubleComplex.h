@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Nov 30 16:50:08 2006 jofret
-** Last update Wed Jan 31 10:14:18 2007 jofret
+** Last update Fri Feb  2 15:40:27 2007 jofret
 **
 ** Copyright INRIA 2006
 */
@@ -13,7 +13,6 @@
 #ifndef __DOUBLECOMPLEX_H__
 #define __DOUBLECOMPLEX_H__
 
-#ifndef STDC99
 /*
 ** Hand made Double Complex definition
 ** {
@@ -28,28 +27,13 @@ struct  double_complex
 
 typedef struct double_complex doubleComplex;
 
-double		real(doubleComplex);
-double		imag(doubleComplex);
+double		creal(doubleComplex);
+double		cimag(doubleComplex);
 doubleComplex	DoubleComplex(double, double);
 bool		isreal(doubleComplex);
 bool		isimag(doubleComplex);
 /*
 ** }
 */
-
-#else
-
-/*
-** Use standard C99 Double Complex definition
-** {
-*/
-#include <complex.h>
-
-typedef double complex doubleComplex;
-/*
-** }
-*/
-
-#endif /* !STDC99 */
 
 #endif /* !__DOUBLECOMPLEX_H__ */
