@@ -5,18 +5,34 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Nov 30 16:27:08 2006 jofret
-** Last update Wed Jan 31 16:11:51 2007 jofret
+** Last update Fri Feb  2 15:40:47 2007 jofret
 **
 ** Copyright INRIA 2006
 */
 
-#include "doubleComplex.h"
+#ifdef __STDC_VERSION__
+#  ifndef STDC
+#    define STDC
+#  endif
+#  if __STDC_VERSION__ >= 199901L
+#    ifndef STDC99
+#      define STDC99
+#    endif
+#  endif
+#endif
 
+#ifndef STDC99
+#include "doubleComplex.h"
+#else
+#include "doubleComplexC99.h"
+#endif
+
+#ifndef STDC99
 /*
-** \function real
+** \function creal
 ** \brief Return a Complex Real Part .
 */
-double real(doubleComplex z) {
+double creal(doubleComplex z) {
   return z.real;
 }
 
@@ -24,9 +40,10 @@ double real(doubleComplex z) {
 ** \function imag
 ** \brief Return a Complex Imaginary Part .
 */
-double imag(doubleComplex z) {
+double cimag(doubleComplex z) {
   return z.imag;
 }
+#endif
 
 /*
 ** \function DoubleComplex
@@ -34,8 +51,12 @@ double imag(doubleComplex z) {
 */
 doubleComplex DoubleComplex(double real, double imag) {
   doubleComplex z;
+#ifndef STDC99
   z.real = real;
   z.imag = imag;
+#else
+  z = real + I * imag;
+#endif
   return z;
 }
 
@@ -44,7 +65,7 @@ doubleComplex DoubleComplex(double real, double imag) {
 ** \brief check if complex is real .
 */
 bool isreal(doubleComplex z) {
-  if (z.imag == 0)
+  if (cimag(z) == 0)
     return true;
   return false;
 }
@@ -54,7 +75,7 @@ bool isreal(doubleComplex z) {
 ** \brief check if complex is pure imaginary .
 */
 bool isimag(doubleComplex z) {
-  if (z.real == 0)
+  if (creal(z) == 0)
     return true;
   return false;
 }
