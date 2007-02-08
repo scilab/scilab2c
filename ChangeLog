@@ -1,4 +1,18 @@
-2007-02-06  Bruno JOFRET  <jofret@agon.inria.fr>
+2007-02-08  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/auxiliaryFunctions/sign :
+	Signe of a float or double.
+	* src/auxiliaryFunctions/sign/sign.h :
+	Interface
+	* src/auxiliaryFunctions/sign/{sd}signs.c :
+	Implementation : s(float) d(double)
+
+2007-02-07  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/auxiliaryFunctions :
+	Some misc Functions used in many cases.
+
+2007-02-06  Bruno JOFRET  <bruno.jofret@inria.fr>
 
 	* src/elementaryFunctions/cosh/zcoshs.c
 	Fixed with C99 Complex but Scilab computation.
