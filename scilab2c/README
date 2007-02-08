@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Tue Nov 21 15:21:25 2006 jofret
-## Last update Mon Dec 11 11:25:58 2006 jofret
+## Last update Thu Feb  8 15:58:19 2007 jofret
 ##
 ## Copyright INRIA 2006
 ##
@@ -62,3 +62,9 @@ precision :
 - 'd' : Real double precision (double)
 - 'c' : Complex simple precision (float)
 - 'z' : Complex double precision (double)
+
+/*
+** Auxiliary Functions
+*/
+- sign(x) :
+	Return 1 if x >= 0, Return -1 else.
