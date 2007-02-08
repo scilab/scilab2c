@@ -5,29 +5,14 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Tue Nov 21 15:22:58 2006 jofret
-## Last update Mon Jan 29 17:38:13 2007 jofret
+## Last update Wed Feb  7 10:07:20 2007 jofret
 ##
 ## Copyright INRIA 2006
 ##
 
+BJ - Bench Cosh Vs . Cosh explicit formula.
 
 BJ - Evaluated and drawn - have to be implemented in C :
-	+ cos	: [done R & C]
-	+ acos	: [done R & C]
-	+ sin	: [done R & C]
-	+ asin	: [done R & C]
-	+ tan	: [done R & C]
-	+ atan	: [done R & C]
-	+ ch	: [done R & C]
-	+ acosh	: [done R & C]
-	+ sh	: [done R & C]
-	+ asinh	: [done R & C]
-	+ tanh	: [done R & C]
-	+ atanh : [done R & C]
-	+ log	: [done R & C]
-	+ exp	: [done R & C]
-	+ sqrt	: [done R & C]
-
 	+ sign	: [done R]
 	+ abs	: [done R]
 	+ pythag: [done R]
@@ -35,21 +20,9 @@ BJ - Evaluated and drawn - have to be implemented in C :
 	+ atan2 : [done R]
 
 
-BJ - Evaluate and draw a graph of function dependences.
-	+ ...
-
-
-BJ - Find a way to code complex type taking care of double/float precision.
-	+ C struct		?? Did it this way but easy to change.
-	+ double[2] // float[2] ??
-	+ Standard C99 		??
-
 BJ - Listing of atomic call and library dependences.
-
-BJ - Explore dlamch uses 'e' 'u' 'o'
-     Added help file for dlamch use...
-
-BJ - Start coding C basic functions with libmath link.
 
 BJ - Bench for precision between F77 and C Math lib.
      For example : atan2 / log1p
+
+BJ - Bench Encapsulation vs. Direct function call
