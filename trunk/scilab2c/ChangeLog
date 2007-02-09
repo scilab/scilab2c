@@ -1,3 +1,10 @@
+2007-02-09  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/elementaryFunctions/cexps.c :
+	Implementation.
+	* src/elementaryFunctions/zexps.c :
+	Implementation.
+
 2007-02-08  Bruno JOFRET  <bruno.jofret@inria.fr>
 
 	* src/auxiliaryFunctions/sign :
