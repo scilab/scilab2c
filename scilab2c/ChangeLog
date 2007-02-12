@@ -1,8 +1,15 @@
+2007-02-12  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/elementaryFunctions/sinh/zsinhs.c
+	Fixed with C99 Complex but Scilab computation.
+	* src/elementaryFunctions/sinh/csinhs.c
+	Fixed with C99 Complex but Scilab computation.
+
 2007-02-09  Bruno JOFRET  <bruno.jofret@inria.fr>
 
-	* src/elementaryFunctions/cexps.c :
+	* src/elementaryFunctions/exp/cexps.c :
 	Implementation.
-	* src/elementaryFunctions/zexps.c :
+	* src/elementaryFunctions/exp/zexps.c :
 	Implementation.
 
 2007-02-08  Bruno JOFRET  <bruno.jofret@inria.fr>
@@ -25,9 +32,9 @@
 	Fixed with C99 Complex but Scilab computation.
 	* src/elementaryFunctions/cosh/ccoshs.c
 	Fixed with C99 Complex but Scilab computation.
-	* src/elementaryFunctions/cosh/zsins.c
+	* src/elementaryFunctions/sin/zsins.c
 	Fixed with C99 Complex but Scilab computation.
-	* src/elementaryFunctions/cosh/csins.c
+	* src/elementaryFunctions/sin/csins.c
 	Fixed with C99 Complex but Scilab computation.
 
 2007-02-05  Bruno JOFRET  <bruno.jofret@inria.fr>
