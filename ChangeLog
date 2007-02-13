@@ -1,3 +1,19 @@
+2007-02-13  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/elementaryFunctions/tanh/ztanhs.c :
+	Fixed with C99 Complex but Scilab computation.
+	* src/elementaryFunctions/tanh/ctanhs.c :
+	Fixed with C99 Complex but Scilab computation.
+	* src/auxiliaryFunctions/find :
+	Find not null element in list.
+	* src/auxiliaryFunctions/find/{sdcz}finda.c :
+	Implementation : s(float) d(double)
+			 c(floatComplex) z(doubleComplex)
+	* src/auxiliaryFunctions/find/find.h :
+	Interface.
+	* src/auxiliaryFunctions/find/notFound.h :
+	Constant if all elements are not null.
+
 2007-02-12  Bruno JOFRET  <bruno.jofret@inria.fr>
 
 	* src/elementaryFunctions/sinh/zsinhs.c

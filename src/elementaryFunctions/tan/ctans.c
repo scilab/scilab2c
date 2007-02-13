@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Dec  7 12:04:28 2006 jofret
-** Last update Wed Jan 31 11:11:43 2007 jofret
+** Last update Mon Feb 12 16:57:09 2007 jofret
 **
 ** Copyright INRIA 2006
 */
@@ -13,6 +13,6 @@
 #include "floatComplex.h"
 
 floatComplex		ctans(floatComplex z) {
-  /* FIXME: Dummy... */
+    /* FIXME: Dummy... */
   return z;
 }
