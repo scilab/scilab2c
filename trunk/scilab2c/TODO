@@ -5,10 +5,13 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Tue Nov 21 15:22:58 2006 jofret
-## Last update Wed Feb  7 10:07:20 2007 jofret
+## Last update Tue Feb 13 16:00:07 2007 jofret
 ##
 ## Copyright INRIA 2006
 ##
+
+RN - Clearly specify what the "find" function may return
+BJ   Position in array AND/OR Value.
 
 BJ - Bench Cosh Vs . Cosh explicit formula.
 

@@ -5,12 +5,18 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Tue Dec  5 09:19:53 2006 jofret
-## Last update Thu Feb  8 10:06:18 2007 jofret
+## Last update Tue Feb 13 17:17:02 2007 jofret
 ##
 ## Copyright INRIA 2006
 ##
 
-DIRS	=	sign
+DIRS	=	sign \
+		find #\
+		#isempty #\
+		#isnan #\
+		#rand #\
+		#size #\
+		#type
 
 all: recure
 
