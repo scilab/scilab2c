@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:06:16 2006 jofret
-** Last update Mon Jan 29 16:16:59 2007 jofret
+** Last update Wed Feb 14 17:26:26 2007 jofret
 **
 ** Copyright INRIA 2006
 */
@@ -48,8 +48,17 @@ void dsinhsTest() {
 }
 
 int testSinh() {
-  printf(">>>> Hyperbolic Sine Tests\n");
+  printf("\n>>>> Hyperbolic Sine Tests\n");
   ssinhsTest();
   dsinhsTest();
+  /* FIXME : Implement some test here ... */
+  /*
+    csinhsTest();
+    zsinhsTest();
+    ssinhaTest();
+    dsinhaTest();
+    csinhaTest();
+    zsinhaTest();
+  */
   return 0;
 }

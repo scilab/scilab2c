@@ -5,12 +5,12 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Thu Nov 30 16:33:40 2006 jofret
-## Last update Wed Feb 14 14:07:02 2007 jofret
+## Last update Wed Feb 14 14:38:13 2007 jofret
 ##
 ## Copyright INRIA 2006
 ##
 
-NAME	=	../../lib/libFind.a
+NAME	=	../../lib/libIsEmpty.a
 
 RM	=	rm -f
 CC	=	gcc
@@ -20,12 +20,12 @@ CFLAGS	=	-Werror -Wall -pedantic -ansi $(INCLUDE) $(LINK) $(STANDARD)
 AR	=	ar cru
 RANLIB	=	ranlib
 
-SRC	=	sfinda.c \
-		dfinda.c \
-		cfinda.c \
-		zfinda.c
+SRC	=	sisEmptya.c \
+		disEmptya.c \
+		cisEmptya.c \
+		zisEmptya.c
 
-HEAD	=	find.h
+HEAD	=	isEmpty.h
 OBJ	=	$(SRC:.c=.o)
 
 all: $(NAME)

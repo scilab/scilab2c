@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Thu Nov 30 16:33:40 2006 jofret
-## Last update Wed Jan 31 09:27:59 2007 jofret
+## Last update Wed Feb 14 16:59:45 2007 jofret
 ##
 ## Copyright INRIA 2006
 ##
@@ -14,15 +14,18 @@ NAME	=	alltest
 
 RM	=	rm -f
 CC	=	gcc
-INCLUDE	=	../type
-LINK	=	../lib
+INCLUDE	=	-I ../type -I ../misc
+LINK	=	-L ../lib
 LIBS	=	-lm \
 		-lCos -lCosh \
 		-lSin -lSinh \
 		-lTan -lTanh \
-		-lExp
-CFLAGS	=	-Werror -Wall -pedantic -ansi
-CLFLAGS	=	-I$(INCLUDE) -L$(LINK) $(LIBS)
+		-lExp \
+		-lFind \
+		-lIsEmpty
+
+CFLAGS	=	-Werror -Wall -ansi $(INCLUDE)
+CLFLAGS	=	$(LINK) $(LIBS)
 AR	=	ar cru
 RANLIB	=	ranlib
 
@@ -33,6 +36,8 @@ SRC	=	testCos.c \
 		testTan.c \
 		testTanh.c \
 		testExp.c \
+		testFind.c \
+		testIsEmpty.c \
 		test.c
 
 HEAD	=	test.h

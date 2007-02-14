@@ -1,3 +1,26 @@
+2007-02-14  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/test/test*.c :
+	Add some FIXME in order to remember to code some tests.
+	* src/test/testFind.c :
+	Testing of the find function.
+	* src/test/testIsEmpty.c :
+	Testing of the isEmpty function.
+	* src/misc :
+	Create for misc includes.
+	* src/auxiliaryFunctions/find/notFound.h :
+	Moved
+	* src/misc/notFound.h :
+	Better use here.
+	* */*/Makefile :
+	Modify all Makefiles. Remove -pedantic.
+	Must be crazy to use this...
+	* src/auxiliaryFunctions/isempty :
+	IsEmpty functions implementation.
+	* src/auxiliaryFunctions/isempty/{sdcz}isEmptya.c :
+	Implementation : s(float) d(double)
+			 c(floatComplex) z(doubleComplex)
+
 2007-02-13  Bruno JOFRET  <bruno.jofret@inria.fr>
 
 	* src/elementaryFunctions/tanh/ztanhs.c :

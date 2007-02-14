@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:05:44 2006 jofret
-** Last update Mon Jan 29 17:14:52 2007 jofret
+** Last update Wed Feb 14 17:17:37 2007 jofret
 **
 ** Copyright INRIA 2006
 */
@@ -48,9 +48,45 @@ void dtanhsTest() {
   printf("dtanhs(-PI/6) = %e\n", dtanhs(-PI/6));
 }
 
+void ctanhsTest() {
+  printf(">> Float Complex scalar\n");
+  /* FIXME : Implement some test here ... */
+}
+
+void ztanhsTest() {
+  printf(">> Double Complex scalar\n");
+  /* FIXME : Implement some test here ... */
+}
+
+void stanhaTest() {
+  printf(">> Float array\n");
+  /* FIXME : Implement some test here ... */
+}
+
+void dtanhaTest() {
+  printf(">> Double array\n");
+  /* FIXME : Implement some test here ... */
+}
+
+void ctanhaTest() {
+  printf(">> Float Complex array\n");
+  /* FIXME : Implement some test here ... */
+}
+
+void ztanhaTest() {
+  printf(">> Double Complex array\n");
+  /* FIXME : Implement some test here ... */
+}
+
 int testTanh() {
-  printf(">>>> Hyperbolic Tangeant Tests\n");
+  printf("\n>>>> Hyperbolic Tangeant Tests\n");
   stanhsTest();
   dtanhsTest();
+  ctanhsTest();
+  ztanhsTest();
+  stanhaTest();
+  dtanhaTest();
+  ctanhaTest();
+  ztanhaTest();
   return 0;
 }

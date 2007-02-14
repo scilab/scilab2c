@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:05:44 2006 jofret
-** Last update Wed Jan 31 09:25:30 2007 jofret
+** Last update Wed Feb 14 17:35:58 2007 jofret
 **
 ** Copyright INRIA 2006
 */
@@ -49,8 +49,17 @@ void dexpsTest() {
 }
 
 int testExp() {
-  printf(">>>> Exponential Tests\n");
+  printf("\n>>>> Exponential Tests\n");
   sexpsTest();
   dexpsTest();
+  /* FIXME : Implement some test here ... */
+  /*
+    cexpsTest();
+    zexpsTest();
+    sexpaTest();
+    dexpaTest();
+    cexpaTest();
+    zexpaTest();
+  */
   return 0;
 }
