@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Thu Nov 30 16:33:40 2006 jofret
-## Last update Wed Feb 14 16:59:45 2007 jofret
+## Last update Wed Feb 14 18:00:48 2007 jofret
 ##
 ## Copyright INRIA 2006
 ##
@@ -20,6 +20,7 @@ LIBS	=	-lm \
 		-lCos -lCosh \
 		-lSin -lSinh \
 		-lTan -lTanh \
+		-lSign \
 		-lExp \
 		-lFind \
 		-lIsEmpty
