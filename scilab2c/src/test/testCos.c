@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:05:44 2006 jofret
-** Last update Mon Dec 11 10:58:24 2006 jofret
+** Last update Wed Feb 14 17:37:43 2007 jofret
 **
 ** Copyright INRIA 2006
 */
@@ -48,9 +48,45 @@ void dcossTest() {
   printf("dcoss(-PI/6) = %e\n", dcoss(-PI/6));
 }
 
+void ccossTest() {
+  printf(">> Float Complex scalar\n");
+  /* FIXME : Implement some test here ... */
+}
+
+void zcossTest() {
+  printf(">> Double Complex scalar\n");
+  /* FIXME : Implement some test here ... */
+}
+
+void scosaTest() {
+  printf(">> Float array\n");
+  /* FIXME : Implement some test here ... */
+}
+
+void dcosaTest() {
+  printf(">> Double Array\n");
+  /* FIXME : Implement some test here ... */
+}
+
+void ccosaTest() {
+  printf(">> Float Complex Array\n");
+  /* FIXME : Implement some test here ... */
+}
+
+void zcosaTest() {
+  printf(">> Double Complex Array\n");
+  /* FIXME : Implement some test here ... */
+}
+
 int testCos() {
-  printf(">>>> Cosine Tests\n");
+  printf("\n>>>> Cosine Tests\n");
   scossTest();
   dcossTest();
+  ccossTest();
+  zcossTest();
+  scosaTest();
+  dcosaTest();
+  ccosaTest();
+  zcosaTest();
   return 0;
 }

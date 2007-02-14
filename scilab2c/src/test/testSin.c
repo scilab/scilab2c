@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:06:16 2006 jofret
-** Last update Mon Dec 11 10:59:39 2006 jofret
+** Last update Wed Feb 14 17:31:37 2007 jofret
 **
 ** Copyright INRIA 2006
 */
@@ -48,8 +48,17 @@ void dsinsTest() {
 }
 
 int testSin() {
-  printf(">>>> Sine Tests\n");
+  printf("\n>>>> Sine Tests\n");
   ssinsTest();
   dsinsTest();
+  /* FIXME : Implement some test here ... */
+  /*
+    csinsTest();
+    zsinsTest();
+    ssinaTest();
+    dsinaTest();
+    csinaTest();
+    zsinaTest();
+  */
   return 0;
 }
