@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:05:44 2006 jofret
-** Last update Mon Jan 29 16:15:15 2007 jofret
+** Last update Wed Feb 14 17:36:47 2007 jofret
 **
 ** Copyright INRIA 2006
 */
@@ -49,8 +49,17 @@ void dcoshsTest() {
 }
 
 int testCosh() {
-  printf(">>>> Hyperbolic Cosine Tests\n");
+  printf("\n>>>> Hyperbolic Cosine Tests\n");
   scoshsTest();
   dcoshsTest();
+  /* FIXME : Implement some test here ... */
+  /*
+    ccoshsTest();
+    zcoshsTest();
+    scoshaTest();
+    dcoshaTest();
+    ccoshaTest();
+    zcoshaTest();
+  */
   return 0;
 }

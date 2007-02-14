@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:00:40 2006 jofret
-** Last update Wed Jan 31 09:26:21 2007 jofret
+** Last update Wed Feb 14 15:49:51 2007 jofret
 **
 ** Copyright INRIA 2006
 */
@@ -44,3 +44,13 @@ int testTanh();
 ** \brief Exponential Test
 */
 int testExp();
+
+/*
+** \brief Find Test
+*/
+int testFind();
+
+/*
+** \brief IsEmpty Test
+*/
+int testIsEmpty();

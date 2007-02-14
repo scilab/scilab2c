@@ -5,10 +5,13 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Tue Nov 21 15:22:58 2006 jofret
-## Last update Tue Feb 13 16:00:07 2007 jofret
+## Last update Wed Feb 14 17:39:41 2007 jofret
 ##
 ## Copyright INRIA 2006
 ##
+
+RN - Define for all the future the C Complex Structure.
+BJ
 
 RN - Clearly specify what the "find" function may return
 BJ   Position in array AND/OR Value.
@@ -29,3 +32,5 @@ BJ - Bench for precision between F77 and C Math lib.
      For example : atan2 / log1p
 
 BJ - Bench Encapsulation vs. Direct function call
+
+BJ - Enlarge tests.

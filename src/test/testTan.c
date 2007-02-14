@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:05:44 2006 jofret
-** Last update Mon Jan 29 17:13:12 2007 jofret
+** Last update Wed Feb 14 17:25:09 2007 jofret
 **
 ** Copyright INRIA 2006
 */
@@ -49,8 +49,17 @@ void dtansTest() {
 }
 
 int testTan() {
-  printf(">>>> Tangeant Tests\n");
+  printf("\n>>>> Tangeant Tests\n");
   stansTest();
   dtansTest();
+  /* FIXME : Implement some test here ... */
+  /*
+    ctansTest();
+    ztansTest();
+    stanaTest();
+    dtanaTest();
+    ctanaTest();
+    ztanaTest();
+  */
   return 0;
 }
