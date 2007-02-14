@@ -5,11 +5,11 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Tue Dec  5 09:19:53 2006 jofret
-## Last update Wed Feb 14 18:11:12 2007 jofret
+## Last update Wed Feb 14 18:14:23 2007 jofret
 ##
 ## Copyright INRIA 2006
 ##
-## $Id:$
+## $Id$
 ##
 
 DIRS	=	type \
