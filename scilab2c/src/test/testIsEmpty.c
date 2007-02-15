@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Wed Feb 14 16:07:57 2007 jofret
-** Last update Thu Feb 15 16:32:47 2007 jofret
+** Last update Thu Feb 15 17:17:01 2007 jofret
 **
 ** Copyright INRIA 2007
 */
@@ -40,19 +40,18 @@ int disemptyaTest() {
   printf(">> Double array\n");
 
   double empty[5] = {0., 0., 0., 0., 0.};
-  /*
   double full[5] = {1., 2., 3., 0., 0.};
-  */
+
   if (disEmptya(empty, 5) == false) {
     printf("ERROR ! : Test Failed (empty array)\n");
     return ERROR;
   }
-  /*
+
   if (disEmptya(full, 5) == true) {
     printf("ERROR ! : Test Failed (non empty array)\n");
     return ERROR;
   }
-  */
+
   return 0;
 }
 
