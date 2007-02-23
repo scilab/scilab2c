@@ -5,12 +5,12 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 10:52:14 2006 jofret
-** Last update Fri Dec  8 11:01:32 2006 jofret
+** Last update Fri Feb 23 17:11:53 2007 jofret
 **
 ** Copyright INRIA 2006
 */
 
-float ssins(float);
+#include "sin.h"
 
 void ssina(float* x, int strideX, float* y, int strideY, int size) {
   int i = 0;

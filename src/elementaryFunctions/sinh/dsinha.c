@@ -5,12 +5,12 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 11:02:19 2006 jofret
-** Last update Fri Jan 19 15:20:32 2007 jofret
+** Last update Fri Feb 23 17:17:29 2007 jofret
 **
 ** Copyright INRIA 2006
 */
 
-double dsinhs(double);
+#include "sinh.h"
 
 void dsinha(double* x, int strideX, double* y, int strideY, int size) {
   int i = 0;

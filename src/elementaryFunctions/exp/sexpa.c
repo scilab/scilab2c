@@ -5,12 +5,12 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Dec  7 16:03:27 2006 jofret
-** Last update Wed Jan 31 09:20:32 2007 jofret
+** Last update Fri Feb 23 17:04:29 2007 jofret
 **
 ** Copyright INRIA 2006
 */
 
-float sexps(float);
+#include "exp.h"
 
 void sexpa(float* x, int strideX, float* y, int strideY, int size) {
   int i = 0;

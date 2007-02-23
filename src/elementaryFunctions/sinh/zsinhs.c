@@ -5,19 +5,18 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 12:06:35 2006 jofret
-** Last update Mon Feb 12 16:38:29 2007 jofret
+** Last update Fri Feb 23 17:23:10 2007 jofret
 **
 ** Copyright INRIA 2006
 */
 
-#include "doubleComplex.h"
-
-doubleComplex	zsins(doubleComplex);
+#include "sinh.h"
+#include "sin.h"
 
 doubleComplex	zsinhs(doubleComplex z) {
-  double real = creal(z);
-  double imag = cimag(z);
+  double real = zreals(z);
+  double imag = zimags(z);
 
   doubleComplex result = zsins(DoubleComplex(-imag, real));
-  return (DoubleComplex(cimag(result), -creal(result)));
+  return (DoubleComplex(zimags(result), -zreals(result)));
 }
