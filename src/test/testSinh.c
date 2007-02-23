@@ -5,17 +5,16 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:06:16 2006 jofret
-** Last update Wed Feb 14 17:26:26 2007 jofret
+** Last update Fri Feb 23 18:08:40 2007 jofret
 **
 ** Copyright INRIA 2006
 */
 
 #include <stdio.h>
 
-#define PI 3.1415826535
+#include "sinh.h"
 
-float ssinhs(float);
-double dsinhs(double);
+#define PI 3.1415826535
 
 void ssinhsTest() {
   printf(">> Float scalar\n");

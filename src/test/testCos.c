@@ -5,18 +5,16 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:05:44 2006 jofret
-** Last update Wed Feb 14 17:37:43 2007 jofret
+** Last update Fri Feb 23 18:10:28 2007 jofret
 **
 ** Copyright INRIA 2006
 */
 
 #include <stdio.h>
 
+#include "cos.h"
+
 #define PI 3.1415826535
-
-float scoss(float);
-double dcoss(double);
-
 
 void scossTest() {
   printf(">> Float scalar\n");

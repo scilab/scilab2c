@@ -5,18 +5,16 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Wed Feb 14 16:07:57 2007 jofret
-** Last update Thu Feb 15 17:17:01 2007 jofret
+** Last update Fri Feb 23 18:09:19 2007 jofret
 **
 ** Copyright INRIA 2007
 */
 
 #include <stdio.h>
-#include <stdbool.h>
+
+#include "isEmpty.h"
 
 #define ERROR 51
-
-bool		sisEmptya(float*, int);
-bool		disEmptya(double*, int);
 
 int sisemptyaTest() {
   printf(">> Float array\n");

@@ -5,17 +5,16 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:06:16 2006 jofret
-** Last update Wed Feb 14 17:31:37 2007 jofret
+** Last update Fri Feb 23 18:08:53 2007 jofret
 **
 ** Copyright INRIA 2006
 */
 
 #include <stdio.h>
 
-#define PI 3.1415826535
+#include "sin.h"
 
-float ssins(float);
-double dsins(double);
+#define PI 3.1415826535
 
 void ssinsTest() {
   printf(">> Float scalar\n");

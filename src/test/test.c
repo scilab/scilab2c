@@ -5,12 +5,13 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 14:53:51 2006 jofret
-** Last update Wed Feb 14 16:10:20 2007 jofret
+** Last update Fri Feb 23 18:10:36 2007 jofret
 **
 ** Copyright INRIA 2006
 */
 
 #include <stdio.h>
+
 #include "test.h"
 
 void newline() {

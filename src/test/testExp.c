@@ -5,18 +5,16 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:05:44 2006 jofret
-** Last update Wed Feb 14 17:35:58 2007 jofret
+** Last update Fri Feb 23 18:09:59 2007 jofret
 **
 ** Copyright INRIA 2006
 */
 
 #include <stdio.h>
 
+#include "exp.h"
+
 #define PI 3.1415826535
-
-float sexps(float);
-double dexps(double);
-
 
 void sexpsTest() {
   printf(">> Float scalar\n");
