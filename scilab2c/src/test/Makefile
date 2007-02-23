@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Thu Nov 30 16:33:40 2006 jofret
-## Last update Thu Feb 15 17:16:42 2007 jofret
+## Last update Fri Feb 23 18:11:49 2007 jofret
 ##
 ## Copyright INRIA 2006
 ##
@@ -13,9 +13,16 @@
 NAME	=	alltest
 
 RM	=	rm -f
+
 CC	=	gcc
-INCLUDE	=	-I ../type -I ../misc
+
+INCLUDE	=	-I ../type \
+		-I ../includes \
+		-I ../elementaryFunctions/includes \
+		-I ../auxiliaryFunctions/includes
+
 LINK	=	-L ../lib
+
 LIBS	=	-lm \
 		-lCos -lCosh \
 		-lSin -lSinh \
