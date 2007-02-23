@@ -5,17 +5,16 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Wed Feb 14 15:50:15 2007 jofret
-** Last update Wed Feb 14 17:08:08 2007 jofret
+** Last update Fri Feb 23 18:09:45 2007 jofret
 **
 ** Copyright INRIA 2007
 */
 
 #include <stdio.h>
-#include "notFound.h"
+
+#include "find.h"
 
 #define ERROR 42
-
-int		sfinda(float*, int);
 
 int sfindaTest() {
   printf(">> Floats \n");

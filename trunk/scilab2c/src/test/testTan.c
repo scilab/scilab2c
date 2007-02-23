@@ -5,18 +5,16 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:05:44 2006 jofret
-** Last update Wed Feb 14 17:25:09 2007 jofret
+** Last update Fri Feb 23 18:06:44 2007 jofret
 **
 ** Copyright INRIA 2006
 */
 
 #include <stdio.h>
 
+#include "tan.h"
+
 #define PI 3.1415826535
-
-float stans(float);
-double dtans(double);
-
 
 void stansTest() {
   printf(">> Float scalar\n");

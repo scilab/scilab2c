@@ -5,18 +5,16 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:05:44 2006 jofret
-** Last update Wed Feb 14 17:36:47 2007 jofret
+** Last update Fri Feb 23 18:10:15 2007 jofret
 **
 ** Copyright INRIA 2006
 */
 
 #include <stdio.h>
 
+#include "cosh.h"
+
 #define PI 3.1415826535
-
-float scoshs(float);
-double dcoshs(double);
-
 
 void scoshsTest() {
   printf(">> Float scalar\n");
