@@ -5,34 +5,19 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Nov 30 16:27:08 2006 jofret
-** Last update Mon Feb  5 17:19:08 2007 jofret
+** Last update Fri Feb 23 16:12:01 2007 jofret
 **
 ** Copyright INRIA 2006
 */
 
-#ifdef __STDC_VERSION__
-#  ifndef STDC
-#    define STDC
-#  endif
-#  if __STDC_VERSION__ >= 199901L
-#    ifndef STDC99
-#      define STDC99
-#    endif
-#  endif
-#endif
-
-#ifndef STDC99
 #include "floatComplex.h"
-#else
-#include "floatComplexC99.h"
-#endif
 
 #ifndef STDC99
 /*
 ** \function real
 ** \brief Return a Complex Real Part .
 */
-float creal(floatComplex z) {
+float creals(floatComplex z) {
   return z.real;
 }
 
@@ -40,8 +25,24 @@ float creal(floatComplex z) {
 ** \function imag
 ** \brief Return a Complex Imaginary Part .
 */
-float cimag(floatComplex z) {
+float cimags(floatComplex z) {
   return z.imag;
+}
+#else
+/*
+** \function real
+** \brief Return a Complex Real Part .
+*/
+float creals(floatComplex z) {
+  return creal(z);
+}
+
+/*
+** \function imag
+** \brief Return a Complex Imaginary Part .
+*/
+float cimags(floatComplex z) {
+  return creal(z);
 }
 #endif
 
@@ -65,7 +66,7 @@ floatComplex FloatComplex(float real, float imag) {
 ** \brief check if complex is real .
 */
 bool isreal(floatComplex z) {
-  if (creal(z) == 0)
+  if (creals(z) == 0)
     return true;
   return false;
 }
@@ -75,7 +76,7 @@ bool isreal(floatComplex z) {
 ** \brief check if complex is pure imaginary .
 */
 bool isimag(floatComplex z) {
-  if (cimag(z) == 0)
+  if (cimags(z) == 0)
     return true;
   return false;
 }
