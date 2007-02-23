@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Nov 30 16:50:08 2006 jofret
-** Last update Mon Feb  5 17:11:51 2007 jofret
+** Last update Fri Feb 23 16:10:58 2007 jofret
 **
 ** Copyright INRIA 2006
 */
@@ -27,8 +27,8 @@ struct  float_complex
 
 typedef struct float_complex floatComplex;
 
-float		creal(floatComplex);
-float		cimag(floatComplex);
+float		creals(floatComplex);
+float		cimags(floatComplex);
 floatComplex	FloatComplex(float, float);
 bool		isreal(floatComplex);
 bool		isimag(floatComplex);

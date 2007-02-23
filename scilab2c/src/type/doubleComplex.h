@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Nov 30 16:50:08 2006 jofret
-** Last update Fri Feb  2 15:40:27 2007 jofret
+** Last update Fri Feb 23 16:13:05 2007 jofret
 **
 ** Copyright INRIA 2006
 */
@@ -27,8 +27,8 @@ struct  double_complex
 
 typedef struct double_complex doubleComplex;
 
-double		creal(doubleComplex);
-double		cimag(doubleComplex);
+double		zreals(doubleComplex);
+double		zimags(doubleComplex);
 doubleComplex	DoubleComplex(double, double);
 bool		isreal(doubleComplex);
 bool		isimag(doubleComplex);

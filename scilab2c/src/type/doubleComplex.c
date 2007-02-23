@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Nov 30 16:27:08 2006 jofret
-** Last update Fri Feb  2 15:40:47 2007 jofret
+** Last update Fri Feb 23 16:12:41 2007 jofret
 **
 ** Copyright INRIA 2006
 */
@@ -21,28 +21,42 @@
 #  endif
 #endif
 
-#ifndef STDC99
 #include "doubleComplex.h"
-#else
-#include "doubleComplexC99.h"
-#endif
 
 #ifndef STDC99
 /*
-** \function creal
+** \function zreals
 ** \brief Return a Complex Real Part .
 */
-double creal(doubleComplex z) {
+double zreals(doubleComplex z) {
   return z.real;
 }
 
 /*
-** \function imag
+** \function zimags
 ** \brief Return a Complex Imaginary Part .
 */
-double cimag(doubleComplex z) {
+double zimags(doubleComplex z) {
   return z.imag;
 }
+#else
+/*
+** \function zreals
+** \brief Return a Complex Real Part .
+*/
+double zreals(doubleComplex z) {
+  return creal(z);
+}
+
+/*
+** \function zimags
+** \brief Return a Complex Imaginary Part .
+*/
+double zimags(doubleComplex z) {
+  return creal(z);
+}
+
+
 #endif
 
 /*
@@ -65,7 +79,7 @@ doubleComplex DoubleComplex(double real, double imag) {
 ** \brief check if complex is real .
 */
 bool isreal(doubleComplex z) {
-  if (cimag(z) == 0)
+  if (zimags(z) == 0)
     return true;
   return false;
 }
@@ -75,7 +89,7 @@ bool isreal(doubleComplex z) {
 ** \brief check if complex is pure imaginary .
 */
 bool isimag(doubleComplex z) {
-  if (creal(z) == 0)
+  if (zreals(z) == 0)
     return true;
   return false;
 }
