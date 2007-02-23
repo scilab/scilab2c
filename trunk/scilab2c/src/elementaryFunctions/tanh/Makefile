@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Thu Nov 30 16:33:40 2006 jofret
-## Last update Wed Jan 31 11:58:52 2007 jofret
+## Last update Fri Feb 23 17:28:51 2007 jofret
 ##
 ## Copyright INRIA 2006
 ##
@@ -14,9 +14,9 @@ NAME	=	../../lib/libTanh.a
 
 RM	=	rm -f
 CC	=	gcc
-INCLUDE	=	../../type
-LINK	=	../../lib
-CFLAGS	=	-Werror -Wall -pedantic -ansi -I $(INCLUDE) -L $(LINK) $(STANDARD)
+INCLUDE	=	-I ../../type -I ../includes
+LINK	=	-L ../../lib
+CFLAGS	=	-Werror -Wall -pedantic -ansi $(INCLUDE) $(LINK) $(STANDARD)
 AR	=	ar cru
 RANLIB	=	ranlib
 
@@ -29,7 +29,7 @@ SRC	=	stanhs.c \
 		ctanha.c \
 		ztanha.c
 
-HEAD	=	tanh.h
+HEAD	=	../includes/tanh.h
 OBJ	=	$(SRC:.c=.o)
 
 all: $(NAME)

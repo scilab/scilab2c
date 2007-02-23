@@ -1,14 +1,17 @@
 /*
 **  -*- C -*-
 **
-** sinh.h
+** sin.h
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Tue Dec  5 15:49:18 2006 jofret
-** Last update Fri Jan 19 15:19:49 2007 jofret
+** Last update Fri Feb 23 17:13:32 2007 jofret
 **
 ** Copyright INRIA 2006
 */
+
+#include "floatComplex.h"
+#include "doubleComplex.h"
 
 /*
 ** Compute Sine for different types .
@@ -17,41 +20,41 @@
 /*
 ** \brief Float Sine function
 */
-float		ssinhs(float);
+float		ssins(float);
 
 /*
 ** \brief Double Sine function
 */
-double		dsinhs(double);
+double		dsins(double);
 
 /*
 ** \brief Float Complex Sine function
 */
-floatComplex	csinhs(floatComplex);
+floatComplex	csins(floatComplex);
 
 /*
 ** \brief Double Complex Sine function
 */
-doubleComplex	zsinhs(doubleComplex);
+doubleComplex	zsins(doubleComplex);
 
 /*
 ** \brief Float Matrix Sine function
 */
-void		ssinha(float*, int, float*, int, int);
+void		ssina(float*, int, float*, int, int);
 
 /*
 ** \brief Double Matrix Sine function
 */
-void		dsinha(double*, int, double*, int, int);
+void		dsina(double*, int, double*, int, int);
 
 /*
 ** \brief Float Complex Matrix Sine function
 */
-void		csinha(floatComplex*, int, floatComplex*, int, int);
+void		csina(floatComplex*, int, floatComplex*, int, int);
 
 /*
 ** \brief Double Complex Matrix Sine function
 */
-void		zsinha(doubleComplex*, int, doubleComplex*, int, int);
+void		zsina(doubleComplex*, int, doubleComplex*, int, int);
 
 

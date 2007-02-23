@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Thu Nov 30 16:33:40 2006 jofret
-## Last update Wed Jan 31 11:59:02 2007 jofret
+## Last update Fri Feb 23 17:15:12 2007 jofret
 ##
 ## Copyright INRIA 2006
 ##
@@ -14,9 +14,9 @@ NAME	=	../../lib/libSinh.a
 
 RM	=	rm -f
 CC	=	gcc
-INCLUDE	=	../../type
-LINK	=	../../lib
-CFLAGS	=	-Werror -Wall -pedantic -ansi -I $(INCLUDE) -L $(LINK) $(STANDARD)
+INCLUDE	=	-I ../../type -I ../includes
+LINK	=	-L ../../lib
+CFLAGS	=	-Werror -Wall -pedantic -ansi $(INCLUDE) $(LINK) $(STANDARD)
 AR	=	ar cru
 RANLIB	=	ranlib
 
@@ -29,7 +29,7 @@ SRC	=	ssinhs.c \
 		csinha.c \
 		zsinha.c
 
-HEAD	=	sinh.h
+HEAD	=	../includes/sinh.h
 OBJ	=	$(SRC:.c=.o)
 
 all: $(NAME)

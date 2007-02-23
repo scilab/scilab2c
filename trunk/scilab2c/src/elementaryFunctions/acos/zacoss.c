@@ -5,12 +5,12 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Jan  5 10:24:38 2007 jofret
-** Last update Wed Jan 31 11:15:51 2007 jofret
+** Last update Fri Feb 23 16:36:16 2007 jofret
 **
 ** Copyright INRIA 2007
 */
 
-#include "doubleComplex.h"
+#include "acos.h"
 
 doubleComplex		zacoss(doubleComplex z) {
   /* FIXME: Dummy... */

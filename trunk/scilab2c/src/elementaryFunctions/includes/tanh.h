@@ -5,10 +5,13 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Tue Dec  5 15:49:18 2006 jofret
-** Last update Mon Jan 29 17:04:18 2007 jofret
+** Last update Fri Feb 23 17:32:55 2007 jofret
 **
 ** Copyright INRIA 2006
 */
+
+#include "floatComplex.h"
+#include "doubleComplex.h"
 
 /*
 ** Compute Hyperbolic Tangeant for different types .

@@ -5,10 +5,13 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Tue Dec  5 15:49:18 2006 jofret
-** Last update Wed Jan 31 09:07:56 2007 jofret
+** Last update Fri Feb 23 17:06:25 2007 jofret
 **
 ** Copyright INRIA 2006
 */
+
+#include "floatComplex.h"
+#include "doubleComplex.h"
 
 /*
 ** Compute Exponential for different types .
