@@ -5,14 +5,12 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 13:07:37 2006 jofret
-** Last update Wed Jan 31 11:12:52 2007 jofret
+** Last update Fri Feb 23 17:17:56 2007 jofret
 **
 ** Copyright INRIA 2006
 */
 
-#include "floatComplex.h"
-
-floatComplex csinhs(floatComplex);
+#include "sinh.h"
 
 void csinha(floatComplex* x, int strideX, floatComplex* y, int strideY, int size) {
   int i = 0;

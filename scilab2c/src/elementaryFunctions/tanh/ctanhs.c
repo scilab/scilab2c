@@ -5,20 +5,18 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Dec  7 12:04:28 2006 jofret
-** Last update Tue Feb 13 11:03:07 2007 jofret
+** Last update Fri Feb 23 17:31:52 2007 jofret
 **
 ** Copyright INRIA 2006
 */
 
-#include "floatComplex.h"
-
-floatComplex		ctans(floatComplex);
+#include "tanh.h"
+#include "tan.h"
 
 floatComplex		ctanhs(floatComplex z) {
-  float real = creal(z);
-  float imag = cimag(z);
+  float real = creals(z);
+  float imag = cimags(z);
 
   floatComplex result = ctans(FloatComplex(-imag, real));
-  return (FloatComplex(cimag(result), -creal(result)));
-  return z;
+  return (FloatComplex(cimags(result), -creals(result)));
 }

@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Fri Jan  5 10:19:16 2007 jofret
-## Last update Wed Jan 31 11:59:19 2007 jofret
+## Last update Fri Feb 23 16:38:02 2007 jofret
 ##
 ## Copyright INRIA 2007
 ##
@@ -14,9 +14,9 @@ NAME	=	../../lib/libAcos.a
 
 RM	=	rm -f
 CC	=	gcc
-INCLUDE	=	../../type
-LINK	=	../../lib
-CFLAGS	=	-Werror -Wall -pedantic -ansi -I $(INCLUDE) -L $(LINK) $(STANDARD)
+INCLUDE	=	-I ../../type -I ../includes
+LINK	=	-L ../../lib
+CFLAGS	=	-Werror -Wall -pedantic -ansi $(INCLUDE) $(LINK) $(STANDARD)
 AR	=	ar cru
 RANLIB	=	ranlib
 
@@ -29,7 +29,7 @@ SRC	=	sacoss.c \
 		cacosa.c \
 		zacosa.c
 
-HEAD	=	acos.h
+HEAD	=	../includes/acos.h
 OBJ	=	$(SRC:.c=.o)
 
 all: $(NAME)

@@ -5,10 +5,13 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Jan  5 10:20:35 2007 jofret
-** Last update Fri Jan  5 10:21:28 2007 jofret
+** Last update Fri Feb 23 16:38:45 2007 jofret
 **
 ** Copyright INRIA 2007
 */
+
+#include "floatComplex.h"
+#include "doubleComplex.h"
 
 /*
 ** Compute ArcCosine for different types .

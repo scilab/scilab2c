@@ -5,13 +5,12 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Jan  5 11:29:20 2007 jofret
-** Last update Fri Jan  5 16:23:58 2007 jofret
+** Last update Fri Feb 23 16:39:54 2007 jofret
 **
 ** Copyright INRIA 2007
 */
 
-
-double dasins(double);
+#include "asin.h"
 
 void dasina(double* x, int strideX, double* y, int strideY, int size) {
   int i = 0;

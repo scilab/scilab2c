@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Fri Jan  5 10:19:16 2007 jofret
-## Last update Wed Jan 31 11:59:14 2007 jofret
+## Last update Fri Feb 23 16:40:50 2007 jofret
 ##
 ## Copyright INRIA 2007
 ##
@@ -14,9 +14,9 @@ NAME	=	../../lib/libAsin.a
 
 RM	=	rm -f
 CC	=	gcc
-INCLUDE	=	../../type
-LINK	=	../../lib
-CFLAGS	=	-Werror -Wall -pedantic -ansi -I $(INCLUDE) -L $(LINK) $(STANDARD)
+INCLUDE	=	-I ../../type -I ../includes
+LINK	=	-L ../../lib
+CFLAGS	=	-Werror -Wall -pedantic -ansi $(INCLUDE) $(LINK) $(STANDARD)
 AR	=	ar cru
 RANLIB	=	ranlib
 
@@ -29,7 +29,7 @@ SRC	=	sasins.c \
 		casina.c \
 		zasina.c
 
-HEAD	=	asin.h
+HEAD	=	../includes/asin.h
 OBJ	=	$(SRC:.c=.o)
 
 all: $(NAME)

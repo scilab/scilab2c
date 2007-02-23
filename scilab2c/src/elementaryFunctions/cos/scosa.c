@@ -5,12 +5,12 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Dec  7 16:03:27 2006 jofret
-** Last update Thu Dec  7 17:32:22 2006 jofret
+** Last update Fri Feb 23 16:15:20 2007 jofret
 **
 ** Copyright INRIA 2006
 */
 
-float scoss(float);
+#include "cos.h"
 
 void scosa(float* x, int strideX, float* y, int strideY, int size) {
   int i = 0;

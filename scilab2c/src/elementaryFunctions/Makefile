@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Tue Dec  5 09:19:53 2006 jofret
-## Last update Wed Feb 14 14:03:59 2007 jofret
+## Last update Fri Feb 23 17:23:57 2007 jofret
 ##
 ## Copyright INRIA 2006
 ##
@@ -20,6 +20,7 @@ DIRS	=	cos \
 		tanh \
 		exp #\
 # 		log
+#		sqrt
 
 all: recure
 

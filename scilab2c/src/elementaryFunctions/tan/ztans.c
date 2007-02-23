@@ -5,12 +5,12 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Dec  7 12:05:48 2006 jofret
-** Last update Wed Jan 31 10:55:44 2007 jofret
+** Last update Fri Feb 23 17:25:07 2007 jofret
 **
 ** Copyright INRIA 2006
 */
 
-#include "doubleComplex.h"
+#include "tan.h"
 
 doubleComplex		ztans(doubleComplex z) {
   /* FIXME: Dummy... */

@@ -5,10 +5,13 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Jan  5 10:20:35 2007 jofret
-** Last update Fri Jan  5 16:22:36 2007 jofret
+** Last update Fri Feb 23 16:41:38 2007 jofret
 **
 ** Copyright INRIA 2007
 */
+
+#include "floatComplex.h"
+#include "doubleComplex.h"
 
 /*
 ** Compute ArcSine for different types .
