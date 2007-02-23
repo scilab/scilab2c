@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Nov 30 16:27:08 2006 jofret
-** Last update Fri Feb 23 16:12:01 2007 jofret
+** Last update Fri Feb 23 16:19:54 2007 jofret
 **
 ** Copyright INRIA 2006
 */
@@ -65,7 +65,7 @@ floatComplex FloatComplex(float real, float imag) {
 ** \function isreal
 ** \brief check if complex is real .
 */
-bool isreal(floatComplex z) {
+bool cisreals(floatComplex z) {
   if (creals(z) == 0)
     return true;
   return false;
@@ -75,7 +75,7 @@ bool isreal(floatComplex z) {
 ** \function isimag
 ** \brief check if complex is pure imaginary .
 */
-bool isimag(floatComplex z) {
+bool cisimags(floatComplex z) {
   if (cimags(z) == 0)
     return true;
   return false;
