@@ -1,3 +1,36 @@
+2007-02-23  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/test/*.c :
+	Better dependancies with includes.
+	* src/test/Makedile :
+	Changing includes / headers / link.
+	* src/misc :
+	_MOVED_ : Becoming includes.
+	* src/includes :
+	For general headers includings.
+	* src/auxiliaryFunctions/includes :
+	Add includes directory for profiling functions.
+	* src/auxiliaryFunctions/*/*.h :
+	Moving headers to includes.
+	* src/auxiliaryFunctions/*/*.c :
+	Better dependancies with includes.
+	* src/auxiliaryFunctions/*/Makedile :
+	Changing includes / headers / link.
+	* src/elementaryFunctions/includes :
+	Add includes directory for profiling functions.
+	* src/elementaryFunctions/*/*.h :
+	Moving headers to includes.
+	* src/elementaryFunctions/*/*.c :
+	Better dependancies with includes.
+	* src/elementaryFunctions/*/Makedile :
+	Changing includes / headers / link.
+	* src/type/doubleComplexC99.h :
+	_REMOVED_ : All declarations are put in
+	src/type/doubleComplex.h .
+	* src/type/floatComplexC99.h :
+	_REMOVED_ : All declarations are put in
+	src/type/floatComplex.h .
+
 2007-02-15  Bruno JOFRET  <bruno.jofret@inria.fr>
 
 	* src/test/testIsEmpty.c :
