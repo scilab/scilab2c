@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:05:44 2006 jofret
-** Last update Fri Feb 23 18:10:28 2007 jofret
+** Last update Mon Mar 19 14:45:41 2007 jofret
 **
 ** Copyright INRIA 2006
 */
@@ -47,33 +47,92 @@ void dcossTest() {
 }
 
 void ccossTest() {
+  floatComplex pi_pi = FloatComplex(PI, PI);
+  floatComplex pi_2_pi_2 = FloatComplex(PI/2, PI/2);
+  floatComplex pi_2_pi_3 = FloatComplex(PI/2, PI/3);
+  floatComplex pi_2_pi_4 = FloatComplex(PI/2, PI/4);
+  floatComplex out;
+
   printf(">> Float Complex scalar\n");
-  /* FIXME : Implement some test here ... */
+  out = ccoss(pi_pi);
+  printf("ccoss(PI + I*PI) = %f + I * %f\n", creals(out), cimags(out));
+  out = ccoss(pi_2_pi_2);
+  printf("ccoss(PI/2 + I*PI/2) = %f + I * %f\n", creals(out), cimags(out));
+  out = ccoss(pi_2_pi_3);
+  printf("ccoss(PI/2 + I*PI/3) = %f + I * %f\n", creals(out), cimags(out));
+  out = ccoss(pi_2_pi_4);
+  printf("ccoss(PI/2 + I*PI/4) = %f + I * %f\n", creals(out), cimags(out));
 }
 
 void zcossTest() {
+  doubleComplex pi_pi = DoubleComplex(PI, PI);
+  doubleComplex pi_2_pi_2 = DoubleComplex(PI/2, PI/2);
+  doubleComplex pi_2_pi_3 = DoubleComplex(PI/2, PI/3);
+  doubleComplex pi_2_pi_4 = DoubleComplex(PI/2, PI/4);
+  doubleComplex out;
+
   printf(">> Double Complex scalar\n");
-  /* FIXME : Implement some test here ... */
+  out = zcoss(pi_pi);
+  printf("zcoss(PI + I*PI) = %e + I * %e\n", zreals(out), zimags(out));
+  out = zcoss(pi_2_pi_2);
+  printf("zcoss(PI/2 + I*PI/2) = %e + I * %e\n", zreals(out), zimags(out));
+  out = zcoss(pi_2_pi_3);
+  printf("zcoss(PI/2 + I*PI/3) = %e + I * %e\n", zreals(out), zimags(out));
+  out = zcoss(pi_2_pi_4);
+  printf("zcoss(PI/2 + I*PI/4) = %e + I * %e\n", zreals(out), zimags(out));
 }
 
 void scosaTest() {
+  float out[5];
+  float in[5] = {PI, PI/2, PI/3, PI/4, PI/6};
+  int i = 0;
+
   printf(">> Float array\n");
-  /* FIXME : Implement some test here ... */
+  scosa(in, out, 5);
+  for (i = 0 ; i < 5 ; ++i)
+    printf("scosa(array) = %f\n", out[i]);
 }
 
 void dcosaTest() {
+  double out[5];
+  double in[5] = {PI, PI/2, PI/3, PI/4, PI/6};
+  int i = 0;
+
   printf(">> Double Array\n");
-  /* FIXME : Implement some test here ... */
+  dcosa(in, out, 5);
+  for (i = 0 ; i < 5 ; ++i)
+    printf("scosa(array) = %f\n", out[i]);
+
 }
 
 void ccosaTest() {
+  floatComplex pi_pi = FloatComplex(PI, PI);
+  floatComplex pi_2_pi_2 = FloatComplex(PI/2, PI/2);
+  floatComplex pi_2_pi_3 = FloatComplex(PI/2, PI/3);
+  floatComplex pi_2_pi_4 = FloatComplex(PI/2, PI/4);
+  floatcomplex in[4] = {pi_pi, pi_2_pi_2, pi_2_pi_3, pi_2_pi_4 };
+  floatComplex out[4];
+  int i = 0;
+
+  ccosa(in, out, 4);
   printf(">> Float Complex Array\n");
-  /* FIXME : Implement some test here ... */
+  for (i = 0 ; i < 4 ; ++i)
+    printf("ccosa(array) = %e + I * %e\n", creals(out[i]), cimags(out[i]));
 }
 
 void zcosaTest() {
+  doubleComplex pi_pi = DoubleComplex(PI, PI);
+  doubleComplex pi_2_pi_2 = DoubleComplex(PI/2, PI/2);
+  doubleComplex pi_2_pi_3 = DoubleComplex(PI/2, PI/3);
+  doubleComplex pi_2_pi_4 = DoubleComplex(PI/2, PI/4);
+  doublecomplex in[4] = {pi_pi, pi_2_pi_2, pi_2_pi_3, pi_2_pi_4 };
+  doubleComplex out[4];
+  int i = 0;
+
+  zcosa(in, out, 4);
   printf(">> Double Complex Array\n");
-  /* FIXME : Implement some test here ... */
+  for (i = 0 ; i < 4 ; ++i)
+    printf("zcosa(array) = %e + I * %e\n", zreals(out[i]), zimags(out[i]));
 }
 
 int testCos() {
