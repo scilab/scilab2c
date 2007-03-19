@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Jan  5 10:20:35 2007 jofret
-** Last update Fri Feb 23 16:41:38 2007 jofret
+** Last update Mon Mar 19 13:41:29 2007 jofret
 **
 ** Copyright INRIA 2007
 */
@@ -19,42 +19,58 @@
 
 /*
 ** \brief Float ArcSine function
+** \param in : input value.
 */
-float		sasins(float);
+float		sasins(float in);
 
 /*
 ** \brief Double ArcSine function
+** \param in : input value.
 */
-double		dasins(double);
+double		dasins(double in);
 
 /*
 ** \brief Float Complex ArcSine function
+** \param in : input value.
 */
-floatComplex	casins(floatComplex);
+floatComplex	casins(floatComplex in);
 
 /*
 ** \brief Double Complex ArcSine function
+** \param in : input value.
 */
-doubleComplex	zasins(doubleComplex);
+doubleComplex	zasins(doubleComplex in);
 
 /*
 ** \brief Float Matrix ArcSine function
+** \param in : input array value.
+** \param out : output array value.
+** \param size : the size of in and out arrays.
 */
-void		sasina(float*, int, float*, int, int);
+void		sasina(float* in, float* out, int size);
 
 /*
 ** \brief Double Matrix ArcSine function
+** \param in : input array value.
+** \param out : output array value.
+** \param size : the size of in and out arrays.
 */
-void		dasina(double*, int, double*, int, int);
+void		dasina(double* in, double* out, int size);
 
 /*
 ** \brief Float Complex Matrix ArcSine function
+** \param in : input array value.
+** \param out : output array value.
+** \param size : the size of in and out arrays.
 */
-void		casina(floatComplex*, int, floatComplex*, int, int);
+void		casina(floatComplex* in, floatComplex* out, int size);
 
 /*
 ** \brief Double Complex Matrix ArcSine function
+** \param in : input array value.
+** \param out : output array value.
+** \param size : the size of in and out arrays.
 */
-void		zasina(doubleComplex*, int, doubleComplex*, int, int);
+void		zasina(doubleComplex* in, doubleComplex* out, int size);
 
 
