@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Thu Nov 30 16:33:40 2006 jofret
-## Last update Fri Feb 23 18:11:49 2007 jofret
+## Last update Mon Mar 19 14:21:23 2007 jofret
 ##
 ## Copyright INRIA 2006
 ##
@@ -24,6 +24,7 @@ INCLUDE	=	-I ../type \
 LINK	=	-L ../lib
 
 LIBS	=	-lm \
+		-lDoubleComplex -lFloatComplex \
 		-lCos -lCosh \
 		-lSin -lSinh \
 		-lTan -lTanh \
