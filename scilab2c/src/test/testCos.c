@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:05:44 2006 jofret
-** Last update Mon Mar 19 14:45:41 2007 jofret
+** Last update Tue Mar 20 15:26:26 2007 jofret
 **
 ** Copyright INRIA 2006
 */
@@ -110,7 +110,7 @@ void ccosaTest() {
   floatComplex pi_2_pi_2 = FloatComplex(PI/2, PI/2);
   floatComplex pi_2_pi_3 = FloatComplex(PI/2, PI/3);
   floatComplex pi_2_pi_4 = FloatComplex(PI/2, PI/4);
-  floatcomplex in[4] = {pi_pi, pi_2_pi_2, pi_2_pi_3, pi_2_pi_4 };
+  floatComplex in[4] = {pi_pi, pi_2_pi_2, pi_2_pi_3, pi_2_pi_4};
   floatComplex out[4];
   int i = 0;
 
@@ -125,7 +125,7 @@ void zcosaTest() {
   doubleComplex pi_2_pi_2 = DoubleComplex(PI/2, PI/2);
   doubleComplex pi_2_pi_3 = DoubleComplex(PI/2, PI/3);
   doubleComplex pi_2_pi_4 = DoubleComplex(PI/2, PI/4);
-  doublecomplex in[4] = {pi_pi, pi_2_pi_2, pi_2_pi_3, pi_2_pi_4 };
+  doubleComplex in[4] = {pi_pi, pi_2_pi_2, pi_2_pi_3, pi_2_pi_4 };
   doubleComplex out[4];
   int i = 0;
 
