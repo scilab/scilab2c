@@ -5,12 +5,12 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Thu Nov 30 16:33:40 2006 jofret
-## Last update Fri Mar 23 10:46:35 2007 jofret
+## Last update Fri Mar 23 11:25:39 2007 jofret
 ##
 ## Copyright INRIA 2006
 ##
 
-instdir = $(topdir)/lib
+instdir = $(top_builddir)/lib
 
 inst_LIBRARIES = libDoubleComplex.a libFloatComplex.a
 
