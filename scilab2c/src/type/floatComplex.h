@@ -5,13 +5,24 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Nov 30 16:50:08 2006 jofret
-** Last update Tue Feb 27 09:58:29 2007 jofret
+** Last update Fri Mar 23 17:01:43 2007 jofret
 **
 ** Copyright INRIA 2006
 */
 
 #ifndef __FLOATCOMPLEX_H__
 #define __FLOATCOMPLEX_H__
+
+#ifdef __STDC_VERSION__
+#  ifndef STDC
+#    define STDC
+#  endif
+#  if __STDC_VERSION__ >= 199901L
+#    ifndef STDC99
+#      define STDC99
+#    endif
+#  endif
+#endif
 
 #include <stdbool.h>
 

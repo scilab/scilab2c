@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Nov 30 16:27:08 2006 jofret
-** Last update Fri Feb 23 16:20:09 2007 jofret
+** Last update Fri Mar 23 14:41:36 2007 jofret
 **
 ** Copyright INRIA 2006
 */
@@ -53,7 +53,7 @@ double zreals(doubleComplex z) {
 ** \brief Return a Complex Imaginary Part .
 */
 double zimags(doubleComplex z) {
-  return creal(z);
+  return cimag(z);
 }
 
 
