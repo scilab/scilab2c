@@ -5,9 +5,19 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Thu Mar 22 16:39:30 2007 jofret
-## Last update Thu Mar 22 17:41:32 2007 jofret
+## Last update Sun Mar 25 12:17:35 2007 bruno
 ##
 ## Copyright INRIA 2007
 ##
 
-SUBDIRS=		acos
+SUBDIRS=	cos \
+		sin \
+		tan \
+		cosh \
+		sinh \
+		tanh \
+		acos \
+		asin \
+		exp \
+		log \
+		sqrt
