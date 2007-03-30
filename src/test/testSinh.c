@@ -5,16 +5,12 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:06:16 2006 jofret
-** Last update Fri Feb 23 18:08:40 2007 jofret
+** Last update Fri Mar 30 12:10:15 2007 jofret
 **
 ** Copyright INRIA 2006
 */
 
-#include <stdio.h>
-
-#include "sinh.h"
-
-#define PI 3.1415826535
+#include "testSinh.h"
 
 void ssinhsTest() {
   printf(">> Float scalar\n");
@@ -59,5 +55,10 @@ int testSinh() {
     csinhaTest();
     zsinhaTest();
   */
+  return 0;
+}
+
+int main() {
+  assert(testSinh() == 0);
   return 0;
 }
