@@ -5,16 +5,12 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:05:44 2006 jofret
-** Last update Fri Feb 23 18:06:29 2007 jofret
+** Last update Fri Mar 30 14:07:53 2007 jofret
 **
 ** Copyright INRIA 2006
 */
 
-#include <stdio.h>
-
-#include "tanh.h"
-
-#define PI 3.1415826535
+#include "testTanh.h"
 
 void stanhsTest() {
   printf(">> Float scalar\n");
@@ -86,5 +82,10 @@ int testTanh() {
   dtanhaTest();
   ctanhaTest();
   ztanhaTest();
+  return 0;
+}
+
+int main() {
+  assert(testTanh() == 0);
   return 0;
 }

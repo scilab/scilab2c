@@ -5,16 +5,12 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:06:16 2006 jofret
-** Last update Fri Feb 23 18:08:53 2007 jofret
+** Last update Fri Mar 30 11:12:32 2007 jofret
 **
 ** Copyright INRIA 2006
 */
 
-#include <stdio.h>
-
-#include "sin.h"
-
-#define PI 3.1415826535
+#include "testSin.h"
 
 void ssinsTest() {
   printf(">> Float scalar\n");
@@ -59,5 +55,10 @@ int testSin() {
     csinaTest();
     zsinaTest();
   */
+  return 0;
+}
+
+int main(void) {
+  assert(testSin() == 0);
   return 0;
 }

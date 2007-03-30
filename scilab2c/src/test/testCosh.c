@@ -5,18 +5,14 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:05:44 2006 jofret
-** Last update Fri Feb 23 18:10:15 2007 jofret
+** Last update Fri Mar 30 11:42:57 2007 jofret
 **
 ** Copyright INRIA 2006
 */
 
-#include <stdio.h>
+#include "testCosh.h"
 
-#include "cosh.h"
-
-#define PI 3.1415826535
-
-void scoshsTest() {
+void scoshsTest(void) {
   printf(">> Float scalar\n");
   printf("scoshs(0) = %f\n", scoshs((float) 0));
   printf("scoshs(PI) = %f\n", scoshs(PI));
@@ -31,7 +27,7 @@ void scoshsTest() {
   printf("scoshs(-PI/6) = %f\n", scoshs(-PI/6));
 }
 
-void dcoshsTest() {
+void dcoshsTest(void) {
   printf(">> Double scalar\n");
   printf("dcoshs(0) = %e\n", dcoshs((double) 0));
   printf("dcoshs(PI) = %e\n", dcoshs(PI));
@@ -46,7 +42,7 @@ void dcoshsTest() {
   printf("dcoshs(-PI/6) = %e\n", dcoshs(-PI/6));
 }
 
-int testCosh() {
+int testCosh(void) {
   printf("\n>>>> Hyperbolic Cosine Tests\n");
   scoshsTest();
   dcoshsTest();
@@ -59,5 +55,10 @@ int testCosh() {
     ccoshaTest();
     zcoshaTest();
   */
+  return 0;
+}
+
+int main(void) {
+  assert(testCosh() == 0);
   return 0;
 }
