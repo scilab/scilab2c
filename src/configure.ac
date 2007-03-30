@@ -37,6 +37,11 @@ AC_PROG_CXX
 AC_PROG_CC_C_O
 AC_PROG_F77_C_O
 
+### Need to check for math lib and symbols
+AC_SEARCH_LIBS(atan, m, LIBMATH="-lm")
+AC_SUBST(LIBMATH)
+
+
 #################################
 ## all the --with-* argument help
 #################################
@@ -242,6 +247,7 @@ echo "  DEFS             = $DEFS"
 echo "  LD               = $LD"
 echo "  LDFLAGS          = $LDFLAGS"
 echo "  LIBS             = $LIBS"
+echo "  LIBMATH          = $LIBMATH"
 echo "  CXX              = $CXX"
 echo "  CXXFLAGS         = $CXXFLAGS"
 echo "  F77              = $F77"
