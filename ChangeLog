@@ -1,3 +1,46 @@
+2007-03-25  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/elementaryFunctions/*/Makefile.am :
+	Migration to Autotools.
+	* src/elementaryFunctions/*/Makefile.in :
+	Migration to Autotools.
+
+
+2007-03-23  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/elementaryFunctions/sqrt/* :
+	Adding Square Root module.
+	* src/elementaryfunctions/log/* :
+	Adding Logarithm module.
+
+2007-03-22  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/type/testFloatComplex.c :
+	Best fit C99.
+	* src/type/testFloatComplex.h :
+	Best fit C99.
+	* src/type/testDoubleComplex.c :
+	Best fit C99.
+	* src/type/testDoubleComplex.h :
+	Best fit C99.
+	* src/configure.ac :
+	Enable STD C99 compilation process.
+
+2007-03-20  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/type/Makefile :
+	Removed : delegate to AutoTools.
+	* src/type/Makefile.am :
+	Automake file.
+	* src/type/Makefile.in :
+	Automake generated file : ./configure needed.
+	* src/type/testFloatComplex.c :
+	Test Float Complex generation :
+	Assert + AutoCheck through AutoTools.
+	* src/type/testDoubleComplex.c :
+	Test Double Complex generation :
+	Assert + AutoCheck through AutoTools.
+
 2007-03-19  Bruno JOFRET  <bruno.jofret@inria.fr>
 
 	* src/test/Makefile :
