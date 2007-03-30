@@ -5,18 +5,14 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:05:44 2006 jofret
-** Last update Tue Mar 20 15:26:26 2007 jofret
+** Last update Fri Mar 30 11:12:04 2007 jofret
 **
 ** Copyright INRIA 2006
 */
 
-#include <stdio.h>
+#include "testCos.h"
 
-#include "cos.h"
-
-#define PI 3.1415826535
-
-void scossTest() {
+void scossTest(void) {
   printf(">> Float scalar\n");
   printf("scoss(0) = %f\n", scoss((float) 0));
   printf("scoss(PI) = %f\n", scoss(PI));
@@ -31,7 +27,7 @@ void scossTest() {
   printf("scoss(-PI/6) = %f\n", scoss(-PI/6));
 }
 
-void dcossTest() {
+void dcossTest(void) {
   printf(">> Double scalar\n");
   printf("dcoss(0) = %e\n", dcoss((double) 0));
   printf("dcoss(PI) = %e\n", dcoss(PI));
@@ -46,7 +42,7 @@ void dcossTest() {
   printf("dcoss(-PI/6) = %e\n", dcoss(-PI/6));
 }
 
-void ccossTest() {
+void ccossTest(void) {
   floatComplex pi_pi = FloatComplex(PI, PI);
   floatComplex pi_2_pi_2 = FloatComplex(PI/2, PI/2);
   floatComplex pi_2_pi_3 = FloatComplex(PI/2, PI/3);
@@ -64,7 +60,7 @@ void ccossTest() {
   printf("ccoss(PI/2 + I*PI/4) = %f + I * %f\n", creals(out), cimags(out));
 }
 
-void zcossTest() {
+void zcossTest(void) {
   doubleComplex pi_pi = DoubleComplex(PI, PI);
   doubleComplex pi_2_pi_2 = DoubleComplex(PI/2, PI/2);
   doubleComplex pi_2_pi_3 = DoubleComplex(PI/2, PI/3);
@@ -82,7 +78,7 @@ void zcossTest() {
   printf("zcoss(PI/2 + I*PI/4) = %e + I * %e\n", zreals(out), zimags(out));
 }
 
-void scosaTest() {
+void scosaTest(void) {
   float out[5];
   float in[5] = {PI, PI/2, PI/3, PI/4, PI/6};
   int i = 0;
@@ -93,7 +89,7 @@ void scosaTest() {
     printf("scosa(array) = %f\n", out[i]);
 }
 
-void dcosaTest() {
+void dcosaTest(void) {
   double out[5];
   double in[5] = {PI, PI/2, PI/3, PI/4, PI/6};
   int i = 0;
@@ -105,7 +101,7 @@ void dcosaTest() {
 
 }
 
-void ccosaTest() {
+void ccosaTest(void) {
   floatComplex pi_pi = FloatComplex(PI, PI);
   floatComplex pi_2_pi_2 = FloatComplex(PI/2, PI/2);
   floatComplex pi_2_pi_3 = FloatComplex(PI/2, PI/3);
@@ -120,7 +116,7 @@ void ccosaTest() {
     printf("ccosa(array) = %e + I * %e\n", creals(out[i]), cimags(out[i]));
 }
 
-void zcosaTest() {
+void zcosaTest(void) {
   doubleComplex pi_pi = DoubleComplex(PI, PI);
   doubleComplex pi_2_pi_2 = DoubleComplex(PI/2, PI/2);
   doubleComplex pi_2_pi_3 = DoubleComplex(PI/2, PI/3);
@@ -135,7 +131,7 @@ void zcosaTest() {
     printf("zcosa(array) = %e + I * %e\n", zreals(out[i]), zimags(out[i]));
 }
 
-int testCos() {
+int testCos(void) {
   printf("\n>>>> Cosine Tests\n");
   scossTest();
   dcossTest();
@@ -145,5 +141,10 @@ int testCos() {
   dcosaTest();
   ccosaTest();
   zcosaTest();
+  return 0;
+}
+
+int main(void) {
+  assert(testCos() == 0);
   return 0;
 }

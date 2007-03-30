@@ -35,7 +35,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testCos$(EXEEXT)
+check_PROGRAMS = testCos$(EXEEXT) testSin$(EXEEXT) testTan$(EXEEXT) \
+	testCosh$(EXEEXT) testSinh$(EXEEXT) testTanh$(EXEEXT)
 subdir = test
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -46,9 +47,37 @@ am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/includes/machine.h
 CONFIG_CLEAN_FILES =
-am_testCos_OBJECTS = testCos.$(OBJEXT)
+am_testCos_OBJECTS = testCos-testCos.$(OBJEXT)
 testCos_OBJECTS = $(am_testCos_OBJECTS)
-testCos_DEPENDENCIES = libCos.a libDoubleComplex.a
+testCos_DEPENDENCIES = $(top_builddir)/lib/libDoubleComplex.a \
+	$(top_builddir)/lib/libFloatComplex.a \
+	$(top_builddir)/lib/libCos.a $(top_builddir)/lib/libSin.a \
+	$(top_builddir)/lib/libCosh.a $(top_builddir)/lib/libSinh.a
+am_testCosh_OBJECTS = testCosh-testCosh.$(OBJEXT)
+testCosh_OBJECTS = $(am_testCosh_OBJECTS)
+testCosh_DEPENDENCIES = $(top_builddir)/lib/libDoubleComplex.a \
+	$(top_builddir)/lib/libFloatComplex.a \
+	$(top_builddir)/lib/libCosh.a
+am_testSin_OBJECTS = testSin-testSin.$(OBJEXT)
+testSin_OBJECTS = $(am_testSin_OBJECTS)
+testSin_DEPENDENCIES = $(top_builddir)/lib/libDoubleComplex.a \
+	$(top_builddir)/lib/libFloatComplex.a \
+	$(top_builddir)/lib/libSin.a
+am_testSinh_OBJECTS = testSinh-testSinh.$(OBJEXT)
+testSinh_OBJECTS = $(am_testSinh_OBJECTS)
+testSinh_DEPENDENCIES = $(top_builddir)/lib/libDoubleComplex.a \
+	$(top_builddir)/lib/libFloatComplex.a \
+	$(top_builddir)/lib/libSinh.a
+am_testTan_OBJECTS = testTan-testTan.$(OBJEXT)
+testTan_OBJECTS = $(am_testTan_OBJECTS)
+testTan_DEPENDENCIES = $(top_builddir)/lib/libDoubleComplex.a \
+	$(top_builddir)/lib/libFloatComplex.a \
+	$(top_builddir)/lib/libTan.a
+am_testTanh_OBJECTS = testTanh-testTanh.$(OBJEXT)
+testTanh_OBJECTS = $(am_testTanh_OBJECTS)
+testTanh_DEPENDENCIES = $(top_builddir)/lib/libDoubleComplex.a \
+	$(top_builddir)/lib/libFloatComplex.a \
+	$(top_builddir)/lib/libTanh.a
 DEFAULT_INCLUDES = -I. -I$(srcdir) -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -56,8 +85,11 @@ COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
 LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(testCos_SOURCES)
-DIST_SOURCES = $(testCos_SOURCES)
+SOURCES = $(testCos_SOURCES) $(testCosh_SOURCES) $(testSin_SOURCES) \
+	$(testSinh_SOURCES) $(testTan_SOURCES) $(testTanh_SOURCES)
+DIST_SOURCES = $(testCos_SOURCES) $(testCosh_SOURCES) \
+	$(testSin_SOURCES) $(testSinh_SOURCES) $(testTan_SOURCES) \
+	$(testTanh_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -87,12 +119,12 @@ EGREP = @EGREP@
 EXEEXT = @EXEEXT@
 F77 = @F77@
 FFLAGS = @FFLAGS@
-GREP = @GREP@
 INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
 LDFLAGS = @LDFLAGS@
+LIBMATH = @LIBMATH@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LN_S = @LN_S@
@@ -117,6 +149,8 @@ VERSION = @VERSION@
 ac_ct_CC = @ac_ct_CC@
 ac_ct_CXX = @ac_ct_CXX@
 ac_ct_F77 = @ac_ct_F77@
+ac_ct_RANLIB = @ac_ct_RANLIB@
+ac_ct_STRIP = @ac_ct_STRIP@
 am__fastdepCC_FALSE = @am__fastdepCC_FALSE@
 am__fastdepCC_TRUE = @am__fastdepCC_TRUE@
 am__fastdepCXX_FALSE = @am__fastdepCXX_FALSE@
@@ -133,37 +167,107 @@ build_cpu = @build_cpu@
 build_os = @build_os@
 build_vendor = @build_vendor@
 datadir = @datadir@
-datarootdir = @datarootdir@
-docdir = @docdir@
-dvidir = @dvidir@
 exec_prefix = @exec_prefix@
 host = @host@
 host_alias = @host_alias@
 host_cpu = @host_cpu@
 host_os = @host_os@
 host_vendor = @host_vendor@
-htmldir = @htmldir@
 includedir = @includedir@
 infodir = @infodir@
 install_sh = @install_sh@
 libdir = @libdir@
 libexecdir = @libexecdir@
-localedir = @localedir@
 localstatedir = @localstatedir@
 mandir = @mandir@
 mkdir_p = @mkdir_p@
 oldincludedir = @oldincludedir@
-pdfdir = @pdfdir@
 prefix = @prefix@
 program_transform_name = @program_transform_name@
-psdir = @psdir@
 sbindir = @sbindir@
 sharedstatedir = @sharedstatedir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
+check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/type
+
+#testAcos testAsin testAtan
+#testLog testExp testSqrt
+
+#
+# -*- Cosine Tests -*-
+#
 testCos_SOURCES = testCos.c
-testCos_LDADD = libCos.a libDoubleComplex.a
-TESTS = testCos
+testCos_CFLAGS = $(check_INCLUDES)
+testCos_LDADD = $(top_builddir)/lib/libDoubleComplex.a \
+			$(top_builddir)/lib/libFloatComplex.a \
+			$(top_builddir)/lib/libCos.a \
+			$(top_builddir)/lib/libSin.a \
+			$(top_builddir)/lib/libCosh.a \
+			$(top_builddir)/lib/libSinh.a \
+			@LIBMATH@
+
+
+#
+# -*- Sine Tests -*-
+#
+testSin_SOURCES = testSin.c
+testSin_CFLAGS = $(check_INCLUDES)
+testSin_LDADD = $(top_builddir)/lib/libDoubleComplex.a \
+			$(top_builddir)/lib/libFloatComplex.a \
+			$(top_builddir)/lib/libSin.a \
+			@LIBMATH@
+
+
+#
+# -*- Tangeant Tests -*-
+#
+testTan_SOURCES = testTan.c
+testTan_CFLAGS = $(check_INCLUDES)
+testTan_LDADD = $(top_builddir)/lib/libDoubleComplex.a \
+			$(top_builddir)/lib/libFloatComplex.a \
+			$(top_builddir)/lib/libTan.a \
+			@LIBMATH@
+
+
+#
+# -*- Hyperbolic Cosine Tests -*-
+#
+testCosh_SOURCES = testCosh.c
+testCosh_CFLAGS = $(check_INCLUDES)
+testCosh_LDADD = $(top_builddir)/lib/libDoubleComplex.a \
+			$(top_builddir)/lib/libFloatComplex.a \
+			$(top_builddir)/lib/libCosh.a \
+			@LIBMATH@
+
+#
+# -*- Hyperbolic Sine Tests -*-
+#
+testSinh_SOURCES = testSinh.c
+testSinh_CFLAGS = $(check_INCLUDES)
+testSinh_LDADD = $(top_builddir)/lib/libDoubleComplex.a \
+			$(top_builddir)/lib/libFloatComplex.a \
+			$(top_builddir)/lib/libSinh.a \
+			@LIBMATH@
+
+
+#
+# -*- Hyperbolic Tangeant Tests -*-
+#
+testTanh_SOURCES = testTanh.c
+testTanh_CFLAGS = $(check_INCLUDES)
+testTanh_LDADD = $(top_builddir)/lib/libDoubleComplex.a \
+			$(top_builddir)/lib/libFloatComplex.a \
+			$(top_builddir)/lib/libTanh.a \
+			@LIBMATH@
+
+
+#
+# -*- All tests -*-
+#
+TESTS = testCos testSin testTan \
+			testCosh testSinh testTanh
+
 all: all-am
 
 .SUFFIXES:
@@ -203,6 +307,21 @@ clean-checkPROGRAMS:
 testCos$(EXEEXT): $(testCos_OBJECTS) $(testCos_DEPENDENCIES) 
 	@rm -f testCos$(EXEEXT)
 	$(LINK) $(testCos_LDFLAGS) $(testCos_OBJECTS) $(testCos_LDADD) $(LIBS)
+testCosh$(EXEEXT): $(testCosh_OBJECTS) $(testCosh_DEPENDENCIES) 
+	@rm -f testCosh$(EXEEXT)
+	$(LINK) $(testCosh_LDFLAGS) $(testCosh_OBJECTS) $(testCosh_LDADD) $(LIBS)
+testSin$(EXEEXT): $(testSin_OBJECTS) $(testSin_DEPENDENCIES) 
+	@rm -f testSin$(EXEEXT)
+	$(LINK) $(testSin_LDFLAGS) $(testSin_OBJECTS) $(testSin_LDADD) $(LIBS)
+testSinh$(EXEEXT): $(testSinh_OBJECTS) $(testSinh_DEPENDENCIES) 
+	@rm -f testSinh$(EXEEXT)
+	$(LINK) $(testSinh_LDFLAGS) $(testSinh_OBJECTS) $(testSinh_LDADD) $(LIBS)
+testTan$(EXEEXT): $(testTan_OBJECTS) $(testTan_DEPENDENCIES) 
+	@rm -f testTan$(EXEEXT)
+	$(LINK) $(testTan_LDFLAGS) $(testTan_OBJECTS) $(testTan_LDADD) $(LIBS)
+testTanh$(EXEEXT): $(testTanh_OBJECTS) $(testTanh_DEPENDENCIES) 
+	@rm -f testTanh$(EXEEXT)
+	$(LINK) $(testTanh_LDFLAGS) $(testTanh_OBJECTS) $(testTanh_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -210,7 +329,12 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testCos.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testCos-testCos.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testCosh-testCosh.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testSin-testSin.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testSinh-testSinh.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testTan-testTan.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testTanh-testTanh.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	if $(COMPILE) -MT $@ -MD -MP -MF "$(DEPDIR)/$*.Tpo" -c -o $@ $<; \
@@ -225,6 +349,90 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(COMPILE) -c `$(CYGPATH_W) '$<'`
+
+testCos-testCos.o: testCos.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testCos_CFLAGS) $(CFLAGS) -MT testCos-testCos.o -MD -MP -MF "$(DEPDIR)/testCos-testCos.Tpo" -c -o testCos-testCos.o `test -f 'testCos.c' || echo '$(srcdir)/'`testCos.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/testCos-testCos.Tpo" "$(DEPDIR)/testCos-testCos.Po"; else rm -f "$(DEPDIR)/testCos-testCos.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testCos.c' object='testCos-testCos.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testCos_CFLAGS) $(CFLAGS) -c -o testCos-testCos.o `test -f 'testCos.c' || echo '$(srcdir)/'`testCos.c
+
+testCos-testCos.obj: testCos.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testCos_CFLAGS) $(CFLAGS) -MT testCos-testCos.obj -MD -MP -MF "$(DEPDIR)/testCos-testCos.Tpo" -c -o testCos-testCos.obj `if test -f 'testCos.c'; then $(CYGPATH_W) 'testCos.c'; else $(CYGPATH_W) '$(srcdir)/testCos.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/testCos-testCos.Tpo" "$(DEPDIR)/testCos-testCos.Po"; else rm -f "$(DEPDIR)/testCos-testCos.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testCos.c' object='testCos-testCos.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testCos_CFLAGS) $(CFLAGS) -c -o testCos-testCos.obj `if test -f 'testCos.c'; then $(CYGPATH_W) 'testCos.c'; else $(CYGPATH_W) '$(srcdir)/testCos.c'; fi`
+
+testCosh-testCosh.o: testCosh.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testCosh_CFLAGS) $(CFLAGS) -MT testCosh-testCosh.o -MD -MP -MF "$(DEPDIR)/testCosh-testCosh.Tpo" -c -o testCosh-testCosh.o `test -f 'testCosh.c' || echo '$(srcdir)/'`testCosh.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/testCosh-testCosh.Tpo" "$(DEPDIR)/testCosh-testCosh.Po"; else rm -f "$(DEPDIR)/testCosh-testCosh.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testCosh.c' object='testCosh-testCosh.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testCosh_CFLAGS) $(CFLAGS) -c -o testCosh-testCosh.o `test -f 'testCosh.c' || echo '$(srcdir)/'`testCosh.c
+
+testCosh-testCosh.obj: testCosh.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testCosh_CFLAGS) $(CFLAGS) -MT testCosh-testCosh.obj -MD -MP -MF "$(DEPDIR)/testCosh-testCosh.Tpo" -c -o testCosh-testCosh.obj `if test -f 'testCosh.c'; then $(CYGPATH_W) 'testCosh.c'; else $(CYGPATH_W) '$(srcdir)/testCosh.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/testCosh-testCosh.Tpo" "$(DEPDIR)/testCosh-testCosh.Po"; else rm -f "$(DEPDIR)/testCosh-testCosh.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testCosh.c' object='testCosh-testCosh.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testCosh_CFLAGS) $(CFLAGS) -c -o testCosh-testCosh.obj `if test -f 'testCosh.c'; then $(CYGPATH_W) 'testCosh.c'; else $(CYGPATH_W) '$(srcdir)/testCosh.c'; fi`
+
+testSin-testSin.o: testSin.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSin_CFLAGS) $(CFLAGS) -MT testSin-testSin.o -MD -MP -MF "$(DEPDIR)/testSin-testSin.Tpo" -c -o testSin-testSin.o `test -f 'testSin.c' || echo '$(srcdir)/'`testSin.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/testSin-testSin.Tpo" "$(DEPDIR)/testSin-testSin.Po"; else rm -f "$(DEPDIR)/testSin-testSin.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testSin.c' object='testSin-testSin.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSin_CFLAGS) $(CFLAGS) -c -o testSin-testSin.o `test -f 'testSin.c' || echo '$(srcdir)/'`testSin.c
+
+testSin-testSin.obj: testSin.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSin_CFLAGS) $(CFLAGS) -MT testSin-testSin.obj -MD -MP -MF "$(DEPDIR)/testSin-testSin.Tpo" -c -o testSin-testSin.obj `if test -f 'testSin.c'; then $(CYGPATH_W) 'testSin.c'; else $(CYGPATH_W) '$(srcdir)/testSin.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/testSin-testSin.Tpo" "$(DEPDIR)/testSin-testSin.Po"; else rm -f "$(DEPDIR)/testSin-testSin.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testSin.c' object='testSin-testSin.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSin_CFLAGS) $(CFLAGS) -c -o testSin-testSin.obj `if test -f 'testSin.c'; then $(CYGPATH_W) 'testSin.c'; else $(CYGPATH_W) '$(srcdir)/testSin.c'; fi`
+
+testSinh-testSinh.o: testSinh.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSinh_CFLAGS) $(CFLAGS) -MT testSinh-testSinh.o -MD -MP -MF "$(DEPDIR)/testSinh-testSinh.Tpo" -c -o testSinh-testSinh.o `test -f 'testSinh.c' || echo '$(srcdir)/'`testSinh.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/testSinh-testSinh.Tpo" "$(DEPDIR)/testSinh-testSinh.Po"; else rm -f "$(DEPDIR)/testSinh-testSinh.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testSinh.c' object='testSinh-testSinh.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSinh_CFLAGS) $(CFLAGS) -c -o testSinh-testSinh.o `test -f 'testSinh.c' || echo '$(srcdir)/'`testSinh.c
+
+testSinh-testSinh.obj: testSinh.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSinh_CFLAGS) $(CFLAGS) -MT testSinh-testSinh.obj -MD -MP -MF "$(DEPDIR)/testSinh-testSinh.Tpo" -c -o testSinh-testSinh.obj `if test -f 'testSinh.c'; then $(CYGPATH_W) 'testSinh.c'; else $(CYGPATH_W) '$(srcdir)/testSinh.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/testSinh-testSinh.Tpo" "$(DEPDIR)/testSinh-testSinh.Po"; else rm -f "$(DEPDIR)/testSinh-testSinh.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testSinh.c' object='testSinh-testSinh.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSinh_CFLAGS) $(CFLAGS) -c -o testSinh-testSinh.obj `if test -f 'testSinh.c'; then $(CYGPATH_W) 'testSinh.c'; else $(CYGPATH_W) '$(srcdir)/testSinh.c'; fi`
+
+testTan-testTan.o: testTan.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testTan_CFLAGS) $(CFLAGS) -MT testTan-testTan.o -MD -MP -MF "$(DEPDIR)/testTan-testTan.Tpo" -c -o testTan-testTan.o `test -f 'testTan.c' || echo '$(srcdir)/'`testTan.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/testTan-testTan.Tpo" "$(DEPDIR)/testTan-testTan.Po"; else rm -f "$(DEPDIR)/testTan-testTan.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testTan.c' object='testTan-testTan.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testTan_CFLAGS) $(CFLAGS) -c -o testTan-testTan.o `test -f 'testTan.c' || echo '$(srcdir)/'`testTan.c
+
+testTan-testTan.obj: testTan.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testTan_CFLAGS) $(CFLAGS) -MT testTan-testTan.obj -MD -MP -MF "$(DEPDIR)/testTan-testTan.Tpo" -c -o testTan-testTan.obj `if test -f 'testTan.c'; then $(CYGPATH_W) 'testTan.c'; else $(CYGPATH_W) '$(srcdir)/testTan.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/testTan-testTan.Tpo" "$(DEPDIR)/testTan-testTan.Po"; else rm -f "$(DEPDIR)/testTan-testTan.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testTan.c' object='testTan-testTan.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testTan_CFLAGS) $(CFLAGS) -c -o testTan-testTan.obj `if test -f 'testTan.c'; then $(CYGPATH_W) 'testTan.c'; else $(CYGPATH_W) '$(srcdir)/testTan.c'; fi`
+
+testTanh-testTanh.o: testTanh.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testTanh_CFLAGS) $(CFLAGS) -MT testTanh-testTanh.o -MD -MP -MF "$(DEPDIR)/testTanh-testTanh.Tpo" -c -o testTanh-testTanh.o `test -f 'testTanh.c' || echo '$(srcdir)/'`testTanh.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/testTanh-testTanh.Tpo" "$(DEPDIR)/testTanh-testTanh.Po"; else rm -f "$(DEPDIR)/testTanh-testTanh.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testTanh.c' object='testTanh-testTanh.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testTanh_CFLAGS) $(CFLAGS) -c -o testTanh-testTanh.o `test -f 'testTanh.c' || echo '$(srcdir)/'`testTanh.c
+
+testTanh-testTanh.obj: testTanh.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testTanh_CFLAGS) $(CFLAGS) -MT testTanh-testTanh.obj -MD -MP -MF "$(DEPDIR)/testTanh-testTanh.Tpo" -c -o testTanh-testTanh.obj `if test -f 'testTanh.c'; then $(CYGPATH_W) 'testTanh.c'; else $(CYGPATH_W) '$(srcdir)/testTanh.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/testTanh-testTanh.Tpo" "$(DEPDIR)/testTanh-testTanh.Po"; else rm -f "$(DEPDIR)/testTanh-testTanh.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testTanh.c' object='testTanh-testTanh.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testTanh_CFLAGS) $(CFLAGS) -c -o testTanh-testTanh.obj `if test -f 'testTanh.c'; then $(CYGPATH_W) 'testTanh.c'; else $(CYGPATH_W) '$(srcdir)/testTanh.c'; fi`
 uninstall-info-am:
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
@@ -465,6 +673,8 @@ uninstall-am: uninstall-info-am
 	mostlyclean-generic pdf pdf-am ps ps-am tags uninstall \
 	uninstall-am uninstall-info-am
 
+#testAcos testAsin testAtan
+#testLog testExp testSqrt
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:

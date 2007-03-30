@@ -5,16 +5,12 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:05:44 2006 jofret
-** Last update Fri Feb 23 18:06:44 2007 jofret
+** Last update Fri Mar 30 11:24:54 2007 jofret
 **
 ** Copyright INRIA 2006
 */
 
-#include <stdio.h>
-
-#include "tan.h"
-
-#define PI 3.1415826535
+#include "testTan.h"
 
 void stansTest() {
   printf(">> Float scalar\n");
@@ -59,5 +55,10 @@ int testTan() {
     ctanaTest();
     ztanaTest();
   */
+  return 0;
+}
+
+int main() {
+  assert(testTan() == 0);
   return 0;
 }
