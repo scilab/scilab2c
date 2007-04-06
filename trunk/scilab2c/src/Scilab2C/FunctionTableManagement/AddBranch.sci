@@ -3,13 +3,13 @@ function TreeBase = AddBranch(TreeBase, Branch, CINFO )
 // To understand how this software works the steps are:
 //
 // 1. check if "fn" is stored in the USER2CLib;
-//    a. if "fn" there is, we have to check if "fn.S" there is
-//       i.  if "fn.S" there is, we have to check if "fn.S.R" there is
-//       ii. if "fn.S" there isn't, we can store the Branch
+//    a. if "fn" exists, we have to check if "fn.S" exists
+//       i.  if "fn.S" exists, we have to check if "fn.S.R" exists
+//       ii. if "fn.S" doesn't exist, we can store the Branch
 //          ...
 //       and in the same way for the other case.
 //
-//    b. if "fn" there isn't, we can store all the Branch
+//    b. if "fn" doesn't exist, we can store the whole Branch
 
    getf("SearchFunctionName.sci");
    
@@ -107,7 +107,7 @@ function TreeBase = AddBranch(TreeBase, Branch, CINFO )
       
       if dimension(1) == 1 then
 //
-// If I point to a leaf, I construct a temporany tree before to append the leaf
+// If I point to a leaf, I construct a temporary tree before to append the leaf
 //
 
          TempTreeBase = tlist( ["TempTreeBase", TempLeaf], "ERROR" );
