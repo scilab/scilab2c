@@ -36,22 +36,22 @@ disp('--> Adding the elementary functions to the SCI2C library tree.');
 getf("AddElementaryFunction.sci");
 SCI2CLib = AddElementaryFunction("sin",SCI2CLib);
 SCI2CLib = AddElementaryFunction("cos",SCI2CLib);
-SCI2CLib = AddElementaryFunction("tan",SCI2CLib);
-SCI2CLib = AddElementaryFunction("cotg",SCI2CLib);
-SCI2CLib = AddElementaryFunction("asin",SCI2CLib);
-SCI2CLib = AddElementaryFunction("acos",SCI2CLib);
-SCI2CLib = AddElementaryFunction("sinh",SCI2CLib);
-SCI2CLib = AddElementaryFunction("cosh",SCI2CLib);
-SCI2CLib = AddElementaryFunction("tanh",SCI2CLib);
-SCI2CLib = AddElementaryFunction("asinh",SCI2CLib);
-SCI2CLib = AddElementaryFunction("acosh",SCI2CLib);
-SCI2CLib = AddElementaryFunction("atanh",SCI2CLib);
-SCI2CLib = AddElementaryFunction("exp",SCI2CLib);
-SCI2CLib = AddElementaryFunction("log",SCI2CLib);
-SCI2CLib = AddElementaryFunction("log10",SCI2CLib);
-SCI2CLib = AddElementaryFunction("abs",SCI2CLib);
-SCI2CLib = AddElementaryFunction("inv",SCI2CLib);
-SCI2CLib = AddElementaryFunction("sqrtR",SCI2CLib); 
+// SCI2CLib = AddElementaryFunction("tan",SCI2CLib);
+// SCI2CLib = AddElementaryFunction("cotg",SCI2CLib);
+// SCI2CLib = AddElementaryFunction("asin",SCI2CLib);
+// SCI2CLib = AddElementaryFunction("acos",SCI2CLib);
+// SCI2CLib = AddElementaryFunction("sinh",SCI2CLib);
+// SCI2CLib = AddElementaryFunction("cosh",SCI2CLib);
+// SCI2CLib = AddElementaryFunction("tanh",SCI2CLib);
+// SCI2CLib = AddElementaryFunction("asinh",SCI2CLib);
+// SCI2CLib = AddElementaryFunction("acosh",SCI2CLib);
+// SCI2CLib = AddElementaryFunction("atanh",SCI2CLib);
+// SCI2CLib = AddElementaryFunction("exp",SCI2CLib);
+// SCI2CLib = AddElementaryFunction("log",SCI2CLib);
+// SCI2CLib = AddElementaryFunction("log10",SCI2CLib);
+// SCI2CLib = AddElementaryFunction("abs",SCI2CLib);
+// SCI2CLib = AddElementaryFunction("inv",SCI2CLib);
+// SCI2CLib = AddElementaryFunction("sqrtR",SCI2CLib); 
 // -------------------------------------------------------------------
 // --- End add the elementary functions to the SCI2C library tree. ---
 // -------------------------------------------------------------------
