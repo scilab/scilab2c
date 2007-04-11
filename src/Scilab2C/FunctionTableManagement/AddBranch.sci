@@ -1,4 +1,4 @@
-function TreeBase = AddBranch(TreeBase, Branch, CINFO )
+function TreeBase = AddBranch(TreeBase, Branch, CINFO)
 
 // To understand how this software works the steps are:
 //

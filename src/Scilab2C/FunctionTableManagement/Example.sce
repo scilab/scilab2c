@@ -6,9 +6,155 @@
 
 clear;
 clc;
-   
+mode(0);
 getf("InitializeLibraries.sci");
+getf("GetCFunCall.sci");
 [SCI2CLib, USER2CLib] = InitializeLibraries();
+
+save('SCI2CLib.dat',SCI2CLib);
+save('USER2CLib.dat',USER2CLib);
+   
+disp("Scalar Version:")
+FunName = "cos";
+InArg.Name="inscalar";
+InArg.Type="z";
+InArg.Size=[1,1];
+OutArg.Name = "outscalar";
+CFunCall = GetCFunCall(FunName,InArg,OutArg);
+disp(CFunCall)
+disp(" ")
+disp(" ")
+
+disp("Array Version:")
+FunName = "sin";
+InArg.Name="inmtx";
+InArg.Type="s";
+InArg.Size=[10,7];
+OutArg.Name = "outmtx";
+CFunCall = GetCFunCall(FunName,InArg,OutArg);
+disp(CFunCall)
+disp(" ")
+disp(" ")
+
+
+
+
+// Let's consider the following example
+
+// **************************************
+// The input function to be traslated is:
+// --------------------------------------
+// function y=foo(x)
+
+// y = sin(cos(x));
+
+// endfunction
+// --------------------------------------
+
+// **************************************
+// The corresponding AST is:
+// --------------------------------------
+//    Equal
+//      Expression:
+//        Funcall  : sin
+//          #lhs   : 1
+//          Rhs    :
+//              Funcall  : cos
+//                #lhs   : 1
+//                Rhs    :
+//                    x
+//              EndFuncall
+//        EndFuncall
+//      Lhs       :
+//         y
+//    EndEqual        
+
+// **************************************
+// The AST reader generates the following User-readable Intermediate Representation:
+// --------------------------------------
+// __temp1 = cos(x);
+// __temp2 = sin(__temp1);
+// y = __temp2;
+
+// **************************************
+// The AST reader generates also the following internal Intermediate Representation:
+// --------------------------------------
+FunName = "cos";
+InArg.Name="x";
+InArg.Type="s"; // This parameter is retrieved from annotations.
+InArg.Size=[10,7]; // This parameter is retrieved from annotations.
+OutArg.Number = 1;
+OutArg.Name = "__temp1";
+CFunCall = GetCFunCall(FunName,InArg,OutArg);
+disp(CFunCall)
+disp(" ")
+disp(" ")
+
+FunName = "sin";
+InArg.Name="__temp1";
+InArg.Type="s"; // This parameter is retrieved from annotations.
+InArg.Size=[10,7]; // This parameter is retrieved from annotations.
+OutArg.Number = 1;
+OutArg.Name = "__temp2";
+CFunCall = GetCFunCall(FunName,InArg,OutArg);
+disp(CFunCall)
+disp(" ")
+disp(" ")
+
+
+
+
+
+adf
+
+// Test Scalar Function
+clear In1
+clear Out1
+In1.Name = "inscalar";
+disp("Scalar Version:")
+disp([SCI2CLib.cos.S.C.D.CINFO.NAME,"(",eval(SCI2CLib.cos.S.C.D.CINFO.ARGLIST),")"])
+disp(" ")
+disp(" ")
+
+// Test Array Function
+clear In1
+clear Out1
+In1.Name = "inarray";
+In1.Size = [10,7];
+Out1.Name = "outarray";
+disp("Array Version:")
+disp([SCI2CLib.sin.A.C.D.CINFO.NAME,"(",eval(SCI2CLib.sin.A.C.D.CINFO.ARGLIST),")"])
+
+
+
+
+disp(" ")
+disp(" ")
+disp(" ")
+disp(" ")
+
+stoppami
+
+
+
+                                                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ------------------
 // --- Example 1. ---
@@ -124,7 +270,7 @@ end
 //
 // I add the same function with two outputs:
 //              1. the first output is S.R.D
-//              2. the second output is M.R.D.
+//              2. the second output is A.R.D.
 //
 // Branch=FunctionStructure; 
 // TREE="USER2CLib";
