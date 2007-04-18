@@ -34,3 +34,5 @@ BJ - Bench for precision between F77 and C Math lib.
 BJ - Bench Encapsulation vs. Direct function call
 
 BJ - Enlarge tests.
+
+BJ - Finish migration to autotools
