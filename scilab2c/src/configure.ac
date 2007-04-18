@@ -201,7 +201,6 @@ typedef int BOOL ;
 AC_CONFIG_FILES([
 Makefile
 type/Makefile
-test/Makefile
 elementaryFunctions/Makefile
 elementaryFunctions/cos/Makefile
 elementaryFunctions/sin/Makefile
@@ -214,6 +213,14 @@ elementaryFunctions/asin/Makefile
 elementaryFunctions/log/Makefile
 elementaryFunctions/exp/Makefile
 elementaryFunctions/sqrt/Makefile
+auxiliaryFunctions/Makefile
+auxiliaryFunctions/find/Makefile
+auxiliaryFunctions/isempty/Makefile
+auxiliaryFunctions/isnan/Makefile
+auxiliaryFunctions/rand/Makefile
+auxiliaryFunctions/sign/Makefile
+auxiliaryFunctions/size/Makefile
+auxiliaryFunctions/type/Makefile
 ])
 
 
