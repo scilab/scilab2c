@@ -170,8 +170,7 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 AUTOMAKE_OPTIONS = 1.9 dist-zip dist-bzip2
 SUBDIRS = elementaryFunctions \
-		type \
-		test
+		type
 
 ACLOCAL_AMFLAGS = -I m4/
 all: all-recursive
