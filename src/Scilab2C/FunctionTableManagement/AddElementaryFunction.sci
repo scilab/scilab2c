@@ -3,9 +3,7 @@ function TreeOut = AddElementaryFunction(FunctionName,TreeIn)
 // tree (TreeIn) to which the elementary function "FunctionName" has
 // been added.
 
-getf("GenerateLeafElementary.sci");
-
-disp(['   --> Adding the elementary function: ',FunctionName]);
+disp('   --> Adding the elementary function: '+FunctionName);
 [FuncStruct, CINFO, NumFunc] = GenerateLeafElementary(FunctionName);
 
 TreeOut = TreeIn;

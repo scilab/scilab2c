@@ -11,7 +11,6 @@ function TreeBase = AddBranch(TreeBase, Branch, CINFO)
 //
 //    b. if "fn" doesn't exist, we can store the whole Branch
 
-   getf("SearchFunctionName.sci");
    
 //
 // I have to search the point where to insert the (sub) branch
