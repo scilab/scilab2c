@@ -7,13 +7,6 @@ function CFunCall = GetCFunCall(FunTree,FunName,InArg,OutArg);
 // 06-Apr-2006 -- Nutricato Raffaele: Author.
 // -----------------------------------------------------------------
 
-// ------------
-// --- getf ---
-// ------------
-// ----------------
-// --- End getf ---
-// ----------------
-
 NInputs = size(InArg,1);
 NOutputs = size(OutArg,1);
 
