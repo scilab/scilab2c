@@ -20,15 +20,6 @@ function [FuncStruct, CINFO, NumFunc] = GenerateLeafElementary(FunctionName);
 // 09-Apr-2006 -- Nutricato Raffaele: Tests + Minor changes.
 // -----------------------------------------------------------------
 
-// ------------
-// --- getf ---
-// ------------
-getf("CinfoI1SO1S.sci");
-getf("CinfoI1AO1A.sci");
-// ----------------
-// --- End getf ---
-// ----------------
-
 // Combinations for the elementary functions:
 // 1: S,R,F
 // 2: S,R,D
