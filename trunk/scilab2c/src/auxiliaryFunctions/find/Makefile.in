@@ -61,9 +61,8 @@ ARFLAGS = cru
 libFind_a_AR = $(AR) $(ARFLAGS)
 libFind_a_LIBADD =
 am__objects_1 =
-am__objects_2 = sfinds.$(OBJEXT) dfinds.$(OBJEXT) cfinds.$(OBJEXT) \
-	zfinds.$(OBJEXT) sfinda.$(OBJEXT) dfinda.$(OBJEXT) \
-	cfinda.$(OBJEXT) zfinda.$(OBJEXT)
+am__objects_2 = sfinda.$(OBJEXT) dfinda.$(OBJEXT) cfinda.$(OBJEXT) \
+	zfinda.$(OBJEXT)
 am_libFind_a_OBJECTS = $(am__objects_1) $(am__objects_2)
 libFind_a_OBJECTS = $(am_libFind_a_OBJECTS)
 am_testFind_OBJECTS = testFind-testFind.$(OBJEXT)
@@ -185,11 +184,7 @@ instdir = $(top_builddir)/lib
 inst_LIBRARIES = libFind.a
 noinst_LIBRARIES = libFind.a
 libFind_a_SOURCES = $(HEAD) $(SRC)
-SRC = sfinds.c \
-		dfinds.c \
-		cfinds.c \
-		zfinds.c \
-		sfinda.c \
+SRC = sfinda.c \
 		dfinda.c \
 		cfinda.c \
 		zfinda.c
@@ -297,14 +292,10 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cfinda.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cfinds.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dfinda.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dfinds.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sfinda.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sfinds.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFind-testFind.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zfinda.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zfinds.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	if $(COMPILE) -MT $@ -MD -MP -MF "$(DEPDIR)/$*.Tpo" -c -o $@ $<; \
