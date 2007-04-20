@@ -61,9 +61,8 @@ ARFLAGS = cru
 libSize_a_AR = $(AR) $(ARFLAGS)
 libSize_a_LIBADD =
 am__objects_1 =
-am__objects_2 = ssizes.$(OBJEXT) dsizes.$(OBJEXT) csizes.$(OBJEXT) \
-	zsizes.$(OBJEXT) ssizea.$(OBJEXT) dsizea.$(OBJEXT) \
-	csizea.$(OBJEXT) zsizea.$(OBJEXT)
+am__objects_2 = ssizea.$(OBJEXT) dsizea.$(OBJEXT) csizea.$(OBJEXT) \
+	zsizea.$(OBJEXT)
 am_libSize_a_OBJECTS = $(am__objects_1) $(am__objects_2)
 libSize_a_OBJECTS = $(am_libSize_a_OBJECTS)
 am_testSize_OBJECTS = testSize-testSize.$(OBJEXT)
@@ -185,11 +184,7 @@ instdir = $(top_builddir)/lib
 inst_LIBRARIES = libSize.a
 noinst_LIBRARIES = libSize.a
 libSize_a_SOURCES = $(HEAD) $(SRC)
-SRC = ssizes.c \
-		dsizes.c \
-		csizes.c \
-		zsizes.c \
-		ssizea.c \
+SRC = ssizea.c \
 		dsizea.c \
 		csizea.c \
 		zsizea.c
@@ -297,14 +292,10 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/csizea.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/csizes.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dsizea.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dsizes.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ssizea.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ssizes.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testSize-testSize.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zsizea.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zsizes.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	if $(COMPILE) -MT $@ -MD -MP -MF "$(DEPDIR)/$*.Tpo" -c -o $@ $<; \

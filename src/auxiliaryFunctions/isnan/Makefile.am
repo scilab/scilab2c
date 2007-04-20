@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Fri Jan  5 10:19:16 2007 jofret
-## Last update Wed Apr 18 18:40:43 2007 jofret
+## Last update Fri Apr 20 16:20:05 2007 jofret
 ##
 ## Copyright INRIA 2007
 ##
@@ -24,11 +24,7 @@ libIsnan_a_SOURCES =	$(HEAD) $(SRC)
 SRC	=	sisnans.c \
 		disnans.c \
 		cisnans.c \
-		zisnans.c \
-		sisnana.c \
-		disnana.c \
-		cisnana.c \
-		zisnana.c
+		zisnans.c
 
 HEAD	=	../includes/isnan.h
 
