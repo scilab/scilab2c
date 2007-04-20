@@ -214,6 +214,7 @@ elementaryFunctions/log/Makefile
 elementaryFunctions/exp/Makefile
 elementaryFunctions/sqrt/Makefile
 auxiliaryFunctions/Makefile
+auxiliaryFunctions/abs/Makefile
 auxiliaryFunctions/find/Makefile
 auxiliaryFunctions/isempty/Makefile
 auxiliaryFunctions/isnan/Makefile

@@ -5102,7 +5102,7 @@ fi
 
 
 
-                                                                                                                                                                                                                            ac_config_files="$ac_config_files Makefile type/Makefile elementaryFunctions/Makefile elementaryFunctions/cos/Makefile elementaryFunctions/sin/Makefile elementaryFunctions/tan/Makefile elementaryFunctions/cosh/Makefile elementaryFunctions/sinh/Makefile elementaryFunctions/tanh/Makefile elementaryFunctions/acos/Makefile elementaryFunctions/asin/Makefile elementaryFunctions/log/Makefile elementaryFunctions/exp/Makefile elementaryFunctions/sqrt/Makefile auxiliaryFunctions/Makefile auxiliaryFunctions/find/Makefile auxiliaryFunctions/isempty/Makefile auxiliaryFunctions/isnan/Makefile auxiliaryFunctions/rand/Makefile auxiliaryFunctions/sign/Makefile auxiliaryFunctions/size/Makefile auxiliaryFunctions/type/Makefile"
+                                                                                                                                                                                                                                      ac_config_files="$ac_config_files Makefile type/Makefile elementaryFunctions/Makefile elementaryFunctions/cos/Makefile elementaryFunctions/sin/Makefile elementaryFunctions/tan/Makefile elementaryFunctions/cosh/Makefile elementaryFunctions/sinh/Makefile elementaryFunctions/tanh/Makefile elementaryFunctions/acos/Makefile elementaryFunctions/asin/Makefile elementaryFunctions/log/Makefile elementaryFunctions/exp/Makefile elementaryFunctions/sqrt/Makefile auxiliaryFunctions/Makefile auxiliaryFunctions/abs/Makefile auxiliaryFunctions/find/Makefile auxiliaryFunctions/isempty/Makefile auxiliaryFunctions/isnan/Makefile auxiliaryFunctions/rand/Makefile auxiliaryFunctions/sign/Makefile auxiliaryFunctions/size/Makefile auxiliaryFunctions/type/Makefile"
 
 
 
@@ -5684,6 +5684,7 @@ do
   "elementaryFunctions/exp/Makefile" ) CONFIG_FILES="$CONFIG_FILES elementaryFunctions/exp/Makefile" ;;
   "elementaryFunctions/sqrt/Makefile" ) CONFIG_FILES="$CONFIG_FILES elementaryFunctions/sqrt/Makefile" ;;
   "auxiliaryFunctions/Makefile" ) CONFIG_FILES="$CONFIG_FILES auxiliaryFunctions/Makefile" ;;
+  "auxiliaryFunctions/abs/Makefile" ) CONFIG_FILES="$CONFIG_FILES auxiliaryFunctions/abs/Makefile" ;;
   "auxiliaryFunctions/find/Makefile" ) CONFIG_FILES="$CONFIG_FILES auxiliaryFunctions/find/Makefile" ;;
   "auxiliaryFunctions/isempty/Makefile" ) CONFIG_FILES="$CONFIG_FILES auxiliaryFunctions/isempty/Makefile" ;;
   "auxiliaryFunctions/isnan/Makefile" ) CONFIG_FILES="$CONFIG_FILES auxiliaryFunctions/isnan/Makefile" ;;
