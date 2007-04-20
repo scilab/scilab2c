@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Fri Jan  5 10:19:16 2007 jofret
-## Last update Sun Mar 25 20:57:46 2007 bruno
+## Last update Wed Apr 18 16:52:23 2007 jofret
 ##
 ## Copyright INRIA 2007
 ##
@@ -31,3 +31,24 @@ SRC	=	ssinhs.c \
 		zsinha.c
 
 HEAD	=	../includes/sinh.h
+
+####
+# Checking Part
+####
+
+check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/type
+
+check_PROGRAMS	= 	testSinh
+
+TESTS		=	testSinh
+
+#
+# -*- Hyperbolic Sine Tests -*-
+#
+testSinh_SOURCES = 	testSinh.c
+testSinh_CFLAGS	=	$(check_INCLUDES)
+testSinh_LDADD	=	$(top_builddir)/lib/libDoubleComplex.a \
+			$(top_builddir)/lib/libFloatComplex.a \
+			$(top_builddir)/lib/libSinh.a \
+			@LIBMATH@
