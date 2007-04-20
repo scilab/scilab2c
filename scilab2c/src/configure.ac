@@ -68,7 +68,7 @@ fi
 ######## With GCC ...
 ######################
 if test "$CC" = "gcc"; then
-     CFLAGS="$CFLAGS -Wformat -Wshadow -Wpointer-arith -Wcast-align -Wmissing-prototypes -Wmissing-declarations -g -Wall "
+     CFLAGS="$CFLAGS -Werror -Wformat -Wshadow -Wpointer-arith -Wcast-align -Wmissing-prototypes -Wmissing-declarations -g -Wall "
      # used to be -O
      # -D_FORTIFY_SOURCE=2
 else
