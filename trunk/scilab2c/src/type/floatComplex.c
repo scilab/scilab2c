@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Nov 30 16:27:08 2006 jofret
-** Last update Fri Mar 23 17:06:17 2007 jofret
+** Last update Fri Apr 20 11:03:44 2007 jofret
 **
 ** Copyright INRIA 2006
 */
@@ -63,21 +63,12 @@ float cimags(floatComplex z) {
 ** \brief construct a Float Complex .
 */
 floatComplex FloatComplex(float a, float b) {
-  printf("DEBUG : arg1 = %f \n", a);
-  printf("DEBUG : arg2 = %f \n", b);
-
   floatComplex z;
 #ifndef STDC99
-  printf("-*- Hand made Complex -*-\n");
   z.real = a;
   z.imag = b;
-  printf("DEBUG : real = %f // %f\n", a, creals(z));
-  printf("DEBUG : imag = %f // %f\n", b, cimags(z));
 #else
-  printf("-*- C99 Complex -*-\n");
   z = a + I * b;
-  printf("DEBUG : real = %f // %f\n", a, crealf(z));
-  printf("DEBUG : imag = %f // %f\n", b, cimagf(z));
 #endif
   return z;
 }
