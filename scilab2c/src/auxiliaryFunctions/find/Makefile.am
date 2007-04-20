@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Fri Jan  5 10:19:16 2007 jofret
-## Last update Wed Apr 18 17:20:57 2007 jofret
+## Last update Fri Apr 20 16:13:25 2007 jofret
 ##
 ## Copyright INRIA 2007
 ##
@@ -21,11 +21,7 @@ noinst_LIBRARIES =	libFind.a
 
 libFind_a_SOURCES =	$(HEAD) $(SRC)
 
-SRC	=	sfinds.c \
-		dfinds.c \
-		cfinds.c \
-		zfinds.c \
-		sfinda.c \
+SRC	=	sfinda.c \
 		dfinda.c \
 		cfinda.c \
 		zfinda.c

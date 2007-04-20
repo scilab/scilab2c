@@ -62,8 +62,7 @@ libIsnan_a_AR = $(AR) $(ARFLAGS)
 libIsnan_a_LIBADD =
 am__objects_1 =
 am__objects_2 = sisnans.$(OBJEXT) disnans.$(OBJEXT) cisnans.$(OBJEXT) \
-	zisnans.$(OBJEXT) sisnana.$(OBJEXT) disnana.$(OBJEXT) \
-	cisnana.$(OBJEXT) zisnana.$(OBJEXT)
+	zisnans.$(OBJEXT)
 am_libIsnan_a_OBJECTS = $(am__objects_1) $(am__objects_2)
 libIsnan_a_OBJECTS = $(am_libIsnan_a_OBJECTS)
 am_testIsnan_OBJECTS = testIsnan-testIsnan.$(OBJEXT)
@@ -188,11 +187,7 @@ libIsnan_a_SOURCES = $(HEAD) $(SRC)
 SRC = sisnans.c \
 		disnans.c \
 		cisnans.c \
-		zisnans.c \
-		sisnana.c \
-		disnana.c \
-		cisnana.c \
-		zisnana.c
+		zisnans.c
 
 HEAD = ../includes/isnan.h
 
@@ -296,14 +291,10 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cisnana.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cisnans.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/disnana.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/disnans.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sisnana.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sisnans.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testIsnan-testIsnan.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zisnana.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zisnans.Po@am__quote@
 
 .c.o:

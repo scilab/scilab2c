@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Fri Jan  5 10:19:16 2007 jofret
-## Last update Wed Apr 18 18:46:06 2007 jofret
+## Last update Fri Apr 20 16:24:19 2007 jofret
 ##
 ## Copyright INRIA 2007
 ##
@@ -21,11 +21,7 @@ noinst_LIBRARIES =	libSize.a
 
 libSize_a_SOURCES =	$(HEAD) $(SRC)
 
-SRC	=	ssizes.c \
-		dsizes.c \
-		csizes.c \
-		zsizes.c \
-		ssizea.c \
+SRC	=	ssizea.c \
 		dsizea.c \
 		csizea.c \
 		zsizea.c

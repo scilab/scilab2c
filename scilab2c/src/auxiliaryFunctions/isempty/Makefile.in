@@ -61,9 +61,8 @@ ARFLAGS = cru
 libIsempty_a_AR = $(AR) $(ARFLAGS)
 libIsempty_a_LIBADD =
 am__objects_1 =
-am__objects_2 = sisemptys.$(OBJEXT) disemptys.$(OBJEXT) \
-	cisemptys.$(OBJEXT) zisemptys.$(OBJEXT) sisemptya.$(OBJEXT) \
-	disemptya.$(OBJEXT) cisemptya.$(OBJEXT) zisemptya.$(OBJEXT)
+am__objects_2 = sisemptya.$(OBJEXT) disemptya.$(OBJEXT) \
+	cisemptya.$(OBJEXT) zisemptya.$(OBJEXT)
 am_libIsempty_a_OBJECTS = $(am__objects_1) $(am__objects_2)
 libIsempty_a_OBJECTS = $(am_libIsempty_a_OBJECTS)
 am_testIsempty_OBJECTS = testIsempty-testIsempty.$(OBJEXT)
@@ -185,11 +184,7 @@ instdir = $(top_builddir)/lib
 inst_LIBRARIES = libIsempty.a
 noinst_LIBRARIES = libIsempty.a
 libIsempty_a_SOURCES = $(HEAD) $(SRC)
-SRC = sisemptys.c \
-		disemptys.c \
-		cisemptys.c \
-		zisemptys.c \
-		sisemptya.c \
+SRC = sisemptya.c \
 		disemptya.c \
 		cisemptya.c \
 		zisemptya.c
@@ -297,14 +292,10 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cisemptya.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cisemptys.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/disemptya.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/disemptys.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sisemptya.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sisemptys.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testIsempty-testIsempty.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zisemptya.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zisemptys.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	if $(COMPILE) -MT $@ -MD -MP -MF "$(DEPDIR)/$*.Tpo" -c -o $@ $<; \
