@@ -70,7 +70,8 @@ am_testSin_OBJECTS = testSin-testSin.$(OBJEXT)
 testSin_OBJECTS = $(am_testSin_OBJECTS)
 testSin_DEPENDENCIES = $(top_builddir)/lib/libDoubleComplex.a \
 	$(top_builddir)/lib/libFloatComplex.a \
-	$(top_builddir)/lib/libSin.a
+	$(top_builddir)/lib/libSin.a $(top_builddir)/lib/libCos.a \
+	$(top_builddir)/lib/libSinh.a $(top_builddir)/lib/libCosh.a
 DEFAULT_INCLUDES = -I. -I$(srcdir) -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -212,6 +213,9 @@ testSin_CFLAGS = $(check_INCLUDES)
 testSin_LDADD = $(top_builddir)/lib/libDoubleComplex.a \
 			$(top_builddir)/lib/libFloatComplex.a \
 			$(top_builddir)/lib/libSin.a \
+			$(top_builddir)/lib/libCos.a \
+			$(top_builddir)/lib/libSinh.a \
+			$(top_builddir)/lib/libCosh.a \
 			@LIBMATH@
 
 all: all-am
