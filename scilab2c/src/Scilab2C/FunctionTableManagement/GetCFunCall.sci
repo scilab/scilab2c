@@ -19,7 +19,7 @@ for counterinput = 1:NInputs
    else 
       TreeAccessString = TreeAccessString+".A";   
    end
-   
+
    if InArg(counterinput).Type == "s"
       TreeAccessString = TreeAccessString+".R.F";
    elseif InArg(counterinput).Type == "d"
@@ -29,13 +29,14 @@ for counterinput = 1:NInputs
    elseif InArg(counterinput).Type == "z"
       TreeAccessString = TreeAccessString+".C.D";
    else
-      error("Unknown input argument type");
+      SCI2Cerror("Unknown input argument type");
    end
 end
 
 CFunName = FunTree+"."+TreeAccessString+".CINFO("+mtlb_num2str(NOutputs)+").NAME";
 CFunArgList = FunTree+"."+TreeAccessString+".CINFO("+mtlb_num2str(NOutputs)+").ARGLIST";
 
-CFunCall = [eval(CFunName),"(",eval(eval(CFunArgList)),")"];
+CFunCall = [eval(CFunName),'(',eval(eval(CFunArgList)),');'];
+
 // CFunCall = [execstr(CFunName),"(",eval(eval(CFunArgList)),")"];
 endfunction
