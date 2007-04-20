@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Mon Mar 26 17:21:21 2007 jofret
-** Last update Fri Mar 30 12:04:46 2007 jofret
+** Last update Fri Apr 20 14:47:39 2007 jofret
 **
 ** Copyright INRIA 2007
 */
@@ -21,6 +21,18 @@
 void ssinsTest(void);
 
 void dsinsTest(void);
+
+void csinsTest(void);
+
+void zsinsTest(void);
+
+void ssinaTest(void);
+
+void dsinaTest(void);
+
+void csinaTest(void);
+
+void zsinaTest(void);
 
 int testSin(void);
 
