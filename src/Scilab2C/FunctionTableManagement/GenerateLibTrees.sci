@@ -1,5 +1,5 @@
-function GenerateLibTrees(FileInfoDatFile,SharedInfoDatFile);
-// function GenerateLibTrees(FileInfoDatFile,SharedInfoDatFile);
+function GenerateLibTrees(FileInfoDatFile);
+// function GenerateLibTrees(FileInfoDatFile);
 // -----------------------------------------------------------------
 // This function generates the SCI2C and USER2C library trees.
 // Library trees contain detailed information of the DSP functions
@@ -18,6 +18,15 @@ function GenerateLibTrees(FileInfoDatFile,SharedInfoDatFile);
 // Status:
 // 11-Apr-2007 -- Nutricato Raffaele: Author.
 // -----------------------------------------------------------------
+
+// ---------------------
+// --- Load section. ---
+// ---------------------
+// --- Load File Info Structure. ---
+load(FileInfoDatFile,'FileInfo');
+// -------------------------
+// --- End load section. ---
+// -------------------------
 
 [SCI2CLibTree, USER2CLibTree] = InitializeLibraryTrees(FileInfoDatFile);
 
