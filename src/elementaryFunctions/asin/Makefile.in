@@ -36,6 +36,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
+check_PROGRAMS = testAsin$(EXEEXT)
 subdir = elementaryFunctions/asin
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -65,6 +66,11 @@ am__objects_2 = sasins.$(OBJEXT) dasins.$(OBJEXT) casins.$(OBJEXT) \
 	casina.$(OBJEXT) zasina.$(OBJEXT)
 am_libAsin_a_OBJECTS = $(am__objects_1) $(am__objects_2)
 libAsin_a_OBJECTS = $(am_libAsin_a_OBJECTS)
+am_testAsin_OBJECTS = testAsin-testAsin.$(OBJEXT)
+testAsin_OBJECTS = $(am_testAsin_OBJECTS)
+testAsin_DEPENDENCIES = $(top_builddir)/lib/libDoubleComplex.a \
+	$(top_builddir)/lib/libFloatComplex.a \
+	$(top_builddir)/lib/libAsin.a
 DEFAULT_INCLUDES = -I. -I$(srcdir) -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -72,8 +78,8 @@ COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
 LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(libAsin_a_SOURCES)
-DIST_SOURCES = $(libAsin_a_SOURCES)
+SOURCES = $(libAsin_a_SOURCES) $(testAsin_SOURCES)
+DIST_SOURCES = $(libAsin_a_SOURCES) $(testAsin_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -189,6 +195,25 @@ SRC = sasins.c \
 		zasina.c
 
 HEAD = ../includes/asin.h
+
+####
+# Checking Part
+####
+check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/type
+
+TESTS = testAsin
+
+#
+# -*- ArcSine Tests -*-
+#
+testAsin_SOURCES = testAsin.c
+testAsin_CFLAGS = $(check_INCLUDES)
+testAsin_LDADD = $(top_builddir)/lib/libDoubleComplex.a \
+			$(top_builddir)/lib/libFloatComplex.a \
+			$(top_builddir)/lib/libAsin.a \
+			@LIBMATH@
+
 all: all-am
 
 .SUFFIXES:
@@ -259,6 +284,12 @@ libAsin.a: $(libAsin_a_OBJECTS) $(libAsin_a_DEPENDENCIES)
 	$(libAsin_a_AR) libAsin.a $(libAsin_a_OBJECTS) $(libAsin_a_LIBADD)
 	$(RANLIB) libAsin.a
 
+clean-checkPROGRAMS:
+	-test -z "$(check_PROGRAMS)" || rm -f $(check_PROGRAMS)
+testAsin$(EXEEXT): $(testAsin_OBJECTS) $(testAsin_DEPENDENCIES) 
+	@rm -f testAsin$(EXEEXT)
+	$(LINK) $(testAsin_LDFLAGS) $(testAsin_OBJECTS) $(testAsin_LDADD) $(LIBS)
+
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 
@@ -271,6 +302,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dasins.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sasina.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sasins.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testAsin-testAsin.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zasina.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zasins.Po@am__quote@
 
@@ -287,6 +319,20 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(COMPILE) -c `$(CYGPATH_W) '$<'`
+
+testAsin-testAsin.o: testAsin.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAsin_CFLAGS) $(CFLAGS) -MT testAsin-testAsin.o -MD -MP -MF "$(DEPDIR)/testAsin-testAsin.Tpo" -c -o testAsin-testAsin.o `test -f 'testAsin.c' || echo '$(srcdir)/'`testAsin.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/testAsin-testAsin.Tpo" "$(DEPDIR)/testAsin-testAsin.Po"; else rm -f "$(DEPDIR)/testAsin-testAsin.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testAsin.c' object='testAsin-testAsin.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAsin_CFLAGS) $(CFLAGS) -c -o testAsin-testAsin.o `test -f 'testAsin.c' || echo '$(srcdir)/'`testAsin.c
+
+testAsin-testAsin.obj: testAsin.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAsin_CFLAGS) $(CFLAGS) -MT testAsin-testAsin.obj -MD -MP -MF "$(DEPDIR)/testAsin-testAsin.Tpo" -c -o testAsin-testAsin.obj `if test -f 'testAsin.c'; then $(CYGPATH_W) 'testAsin.c'; else $(CYGPATH_W) '$(srcdir)/testAsin.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/testAsin-testAsin.Tpo" "$(DEPDIR)/testAsin-testAsin.Po"; else rm -f "$(DEPDIR)/testAsin-testAsin.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testAsin.c' object='testAsin-testAsin.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAsin_CFLAGS) $(CFLAGS) -c -o testAsin-testAsin.obj `if test -f 'testAsin.c'; then $(CYGPATH_W) 'testAsin.c'; else $(CYGPATH_W) '$(srcdir)/testAsin.c'; fi`
 uninstall-info-am:
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
@@ -337,6 +383,79 @@ GTAGS:
 distclean-tags:
 	-rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
 
+check-TESTS: $(TESTS)
+	@failed=0; all=0; xfail=0; xpass=0; skip=0; \
+	srcdir=$(srcdir); export srcdir; \
+	list='$(TESTS)'; \
+	if test -n "$$list"; then \
+	  for tst in $$list; do \
+	    if test -f ./$$tst; then dir=./; \
+	    elif test -f $$tst; then dir=; \
+	    else dir="$(srcdir)/"; fi; \
+	    if $(TESTS_ENVIRONMENT) $${dir}$$tst; then \
+	      all=`expr $$all + 1`; \
+	      case " $(XFAIL_TESTS) " in \
+	      *" $$tst "*) \
+		xpass=`expr $$xpass + 1`; \
+		failed=`expr $$failed + 1`; \
+		echo "XPASS: $$tst"; \
+	      ;; \
+	      *) \
+		echo "PASS: $$tst"; \
+	      ;; \
+	      esac; \
+	    elif test $$? -ne 77; then \
+	      all=`expr $$all + 1`; \
+	      case " $(XFAIL_TESTS) " in \
+	      *" $$tst "*) \
+		xfail=`expr $$xfail + 1`; \
+		echo "XFAIL: $$tst"; \
+	      ;; \
+	      *) \
+		failed=`expr $$failed + 1`; \
+		echo "FAIL: $$tst"; \
+	      ;; \
+	      esac; \
+	    else \
+	      skip=`expr $$skip + 1`; \
+	      echo "SKIP: $$tst"; \
+	    fi; \
+	  done; \
+	  if test "$$failed" -eq 0; then \
+	    if test "$$xfail" -eq 0; then \
+	      banner="All $$all tests passed"; \
+	    else \
+	      banner="All $$all tests behaved as expected ($$xfail expected failures)"; \
+	    fi; \
+	  else \
+	    if test "$$xpass" -eq 0; then \
+	      banner="$$failed of $$all tests failed"; \
+	    else \
+	      banner="$$failed of $$all tests did not behave as expected ($$xpass unexpected passes)"; \
+	    fi; \
+	  fi; \
+	  dashes="$$banner"; \
+	  skipped=""; \
+	  if test "$$skip" -ne 0; then \
+	    skipped="($$skip tests were not run)"; \
+	    test `echo "$$skipped" | wc -c` -le `echo "$$banner" | wc -c` || \
+	      dashes="$$skipped"; \
+	  fi; \
+	  report=""; \
+	  if test "$$failed" -ne 0 && test -n "$(PACKAGE_BUGREPORT)"; then \
+	    report="Please report to $(PACKAGE_BUGREPORT)"; \
+	    test `echo "$$report" | wc -c` -le `echo "$$banner" | wc -c` || \
+	      dashes="$$report"; \
+	  fi; \
+	  dashes=`echo "$$dashes" | sed s/./=/g`; \
+	  echo "$$dashes"; \
+	  echo "$$banner"; \
+	  test -z "$$skipped" || echo "$$skipped"; \
+	  test -z "$$report" || echo "$$report"; \
+	  echo "$$dashes"; \
+	  test "$$failed" -eq 0; \
+	else :; fi
+
 distdir: $(DISTFILES)
 	@srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`; \
 	topsrcdirstrip=`echo "$(top_srcdir)" | sed 's|.|.|g'`; \
@@ -365,6 +484,8 @@ distdir: $(DISTFILES)
 	  fi; \
 	done
 check-am: all-am
+	$(MAKE) $(AM_MAKEFLAGS) $(check_PROGRAMS)
+	$(MAKE) $(AM_MAKEFLAGS) check-TESTS
 check: check-am
 all-am: Makefile $(LIBRARIES)
 installdirs:
@@ -397,8 +518,8 @@ maintainer-clean-generic:
 	@echo "it deletes files that may require special tools to rebuild."
 clean: clean-am
 
-clean-am: clean-generic clean-instLIBRARIES clean-noinstLIBRARIES \
-	mostlyclean-am
+clean-am: clean-checkPROGRAMS clean-generic clean-instLIBRARIES \
+	clean-noinstLIBRARIES mostlyclean-am
 
 distclean: distclean-am
 	-rm -rf ./$(DEPDIR)
@@ -445,12 +566,13 @@ ps-am:
 
 uninstall-am: uninstall-info-am uninstall-instLIBRARIES
 
-.PHONY: CTAGS GTAGS all all-am check check-am clean clean-generic \
-	clean-instLIBRARIES clean-noinstLIBRARIES ctags distclean \
-	distclean-compile distclean-generic distclean-tags distdir dvi \
-	dvi-am html html-am info info-am install install-am \
-	install-data install-data-am install-exec install-exec-am \
-	install-info install-info-am install-instLIBRARIES install-man \
+.PHONY: CTAGS GTAGS all all-am check check-TESTS check-am clean \
+	clean-checkPROGRAMS clean-generic clean-instLIBRARIES \
+	clean-noinstLIBRARIES ctags distclean distclean-compile \
+	distclean-generic distclean-tags distdir dvi dvi-am html \
+	html-am info info-am install install-am install-data \
+	install-data-am install-exec install-exec-am install-info \
+	install-info-am install-instLIBRARIES install-man \
 	install-strip installcheck installcheck-am installdirs \
 	maintainer-clean maintainer-clean-generic mostlyclean \
 	mostlyclean-compile mostlyclean-generic pdf pdf-am ps ps-am \
