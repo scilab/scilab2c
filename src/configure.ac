@@ -222,6 +222,7 @@ auxiliaryFunctions/rand/Makefile
 auxiliaryFunctions/sign/Makefile
 auxiliaryFunctions/size/Makefile
 auxiliaryFunctions/type/Makefile
+auxiliaryFunctions/pythag/Makefile
 ])
 
 

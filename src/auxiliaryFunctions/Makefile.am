@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Thu Mar 22 16:39:30 2007 jofret
-## Last update Fri Apr 20 15:57:11 2007 jofret
+## Last update Mon Apr 23 12:10:20 2007 jofret
 ##
 ## Copyright INRIA 2007
 ##
@@ -17,4 +17,5 @@ SUBDIRS=	abs \
 		rand \
 		sign \
 		size \
-		type
+		type \
+		pythag
