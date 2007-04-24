@@ -70,7 +70,7 @@ am_testAbs_OBJECTS = testAbs-testAbs.$(OBJEXT)
 testAbs_OBJECTS = $(am_testAbs_OBJECTS)
 testAbs_DEPENDENCIES = $(top_builddir)/lib/libDoubleComplex.a \
 	$(top_builddir)/lib/libFloatComplex.a \
-	$(top_builddir)/lib/libAbs.a
+	$(top_builddir)/lib/libAbs.a $(top_builddir)/lib/libSqrt.a
 DEFAULT_INCLUDES = -I. -I$(srcdir) -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -179,7 +179,8 @@ sharedstatedir = @sharedstatedir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 AM_CFLAGS = -I ../../type \
-		-I ../includes
+		-I ../includes \
+		-I ../../elementaryFunctions/includes
 
 instdir = $(top_builddir)/lib
 inst_LIBRARIES = libAbs.a
@@ -199,7 +200,8 @@ HEAD = ../includes/abs.h
 ####
 # Checking Part
 ####
-check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
+check_INCLUDES = -I $(top_builddir)/auxiliaryFunctions/includes \
+			-I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
 TESTS = testAbs
@@ -212,6 +214,7 @@ testAbs_CFLAGS = $(check_INCLUDES)
 testAbs_LDADD = $(top_builddir)/lib/libDoubleComplex.a \
 			$(top_builddir)/lib/libFloatComplex.a \
 			$(top_builddir)/lib/libAbs.a \
+			$(top_builddir)/lib/libSqrt.a \
 			@LIBMATH@
 
 all: all-am
