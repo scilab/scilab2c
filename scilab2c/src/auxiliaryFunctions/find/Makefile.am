@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Fri Jan  5 10:19:16 2007 jofret
-## Last update Fri Apr 20 16:13:25 2007 jofret
+## Last update Tue Apr 24 16:05:30 2007 jofret
 ##
 ## Copyright INRIA 2007
 ##
@@ -32,7 +32,7 @@ HEAD	=	../includes/find.h
 # Checking Part
 ####
 
-check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
+check_INCLUDES	=	-I $(top_builddir)/auxiliaryFunctions/includes \
 			-I $(top_builddir)/type
 
 check_PROGRAMS	= 	testFind
