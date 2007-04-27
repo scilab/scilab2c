@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Fri Jan  5 10:19:16 2007 jofret
-## Last update Fri Apr 20 16:15:11 2007 jofret
+## Last update Thu Apr 26 11:10:23 2007 jofret
 ##
 ## Copyright INRIA 2007
 ##
@@ -32,19 +32,20 @@ HEAD	=	../includes/isempty.h
 # Checking Part
 ####
 
-check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
+check_INCLUDES	=	-I $(top_builddir)/auxiliaryFunctions/includes \
 			-I $(top_builddir)/type
 
-check_PROGRAMS	= 	testIsempty
+check_PROGRAMS	= 	testIsEmpty
 
-TESTS		=	testIsempty
+TESTS		=	testIsEmpty
 
 #
 # -*- Isempty Tests -*-
 #
-testIsempty_SOURCES	= 	testIsempty.c
-testIsempty_CFLAGS	=	$(check_INCLUDES)
-testIsempty_LDADD	=	$(top_builddir)/lib/libDoubleComplex.a \
+testIsEmpty_SOURCES	= 	testIsEmpty.c
+testIsEmpty_CFLAGS	=	$(check_INCLUDES)
+testIsEmpty_LDADD	=	$(top_builddir)/lib/libDoubleComplex.a \
 				$(top_builddir)/lib/libFloatComplex.a \
 				$(top_builddir)/lib/libIsempty.a \
+				$(top_builddir)/lib/libFind.a \
 				@LIBMATH@
