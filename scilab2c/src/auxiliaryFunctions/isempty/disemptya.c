@@ -1,19 +1,18 @@
 /*
 **  -*- C -*-
 **
-** disEmptya.c
+** disemptya.c
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Wed Feb 14 15:29:27 2007 jofret
-** Last update Fri Feb 23 18:00:53 2007 jofret
+** Last update Fri Apr 27 08:58:55 2007 jofret
 **
 ** Copyright INRIA 2007
 */
 
-#include "isEmpty.h"
-#include "find.h"
+#include "isempty.h"
 
-bool		disEmptya(double* x, int size) {
+bool		disemptya(double* x, int size) {
   if (dfinda(x, size) == NOT_FOUND) {
     return true;
   }

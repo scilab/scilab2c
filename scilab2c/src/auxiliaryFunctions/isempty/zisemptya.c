@@ -1,19 +1,18 @@
 /*
 **  -*- C -*-
 **
-** zisEmptya.c
+** zisemptya.c
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Wed Feb 14 15:34:28 2007 jofret
-** Last update Fri Feb 23 17:59:54 2007 jofret
+** Last update Fri Apr 27 09:01:49 2007 jofret
 **
 ** Copyright INRIA 2007
 */
 
-#include "isEmpty.h"
-#include "find.h"
+#include "isempty.h"
 
-bool		zisEmptya(doubleComplex* x, int size) {
+bool		zisemptya(doubleComplex* x, int size) {
   if (zfinda(x, size) == NOT_FOUND) {
     return true;
   }

@@ -1,19 +1,18 @@
 /*
 **  -*- C -*-
 **
-** sisEmptya.c
+** sisemptya.c
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Wed Feb 14 14:59:33 2007 jofret
-** Last update Fri Feb 23 18:00:31 2007 jofret
+** Last update Fri Apr 27 08:59:07 2007 jofret
 **
 ** Copyright INRIA 2007
 */
 
-#include "isEmpty.h"
-#include "find.h"
+#include "isempty.h"
 
-bool		sisEmptya(float* x, int size) {
+bool		sisemptya(float* x, int size) {
   if (sfinda(x, size) == NOT_FOUND) {
     return true;
   }

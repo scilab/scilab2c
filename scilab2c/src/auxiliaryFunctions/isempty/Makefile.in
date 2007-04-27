@@ -36,7 +36,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testIsempty$(EXEEXT)
+check_PROGRAMS = testIsEmpty$(EXEEXT)
 subdir = auxiliaryFunctions/isempty
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -65,11 +65,11 @@ am__objects_2 = sisemptya.$(OBJEXT) disemptya.$(OBJEXT) \
 	cisemptya.$(OBJEXT) zisemptya.$(OBJEXT)
 am_libIsempty_a_OBJECTS = $(am__objects_1) $(am__objects_2)
 libIsempty_a_OBJECTS = $(am_libIsempty_a_OBJECTS)
-am_testIsempty_OBJECTS = testIsempty-testIsempty.$(OBJEXT)
-testIsempty_OBJECTS = $(am_testIsempty_OBJECTS)
-testIsempty_DEPENDENCIES = $(top_builddir)/lib/libDoubleComplex.a \
+am_testIsEmpty_OBJECTS = testIsEmpty-testIsEmpty.$(OBJEXT)
+testIsEmpty_OBJECTS = $(am_testIsEmpty_OBJECTS)
+testIsEmpty_DEPENDENCIES = $(top_builddir)/lib/libDoubleComplex.a \
 	$(top_builddir)/lib/libFloatComplex.a \
-	$(top_builddir)/lib/libIsempty.a
+	$(top_builddir)/lib/libIsempty.a $(top_builddir)/lib/libFind.a
 DEFAULT_INCLUDES = -I. -I$(srcdir) -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -77,8 +77,8 @@ COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
 LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(libIsempty_a_SOURCES) $(testIsempty_SOURCES)
-DIST_SOURCES = $(libIsempty_a_SOURCES) $(testIsempty_SOURCES)
+SOURCES = $(libIsempty_a_SOURCES) $(testIsEmpty_SOURCES)
+DIST_SOURCES = $(libIsempty_a_SOURCES) $(testIsEmpty_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -194,19 +194,20 @@ HEAD = ../includes/isempty.h
 ####
 # Checking Part
 ####
-check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
+check_INCLUDES = -I $(top_builddir)/auxiliaryFunctions/includes \
 			-I $(top_builddir)/type
 
-TESTS = testIsempty
+TESTS = testIsEmpty
 
 #
 # -*- Isempty Tests -*-
 #
-testIsempty_SOURCES = testIsempty.c
-testIsempty_CFLAGS = $(check_INCLUDES)
-testIsempty_LDADD = $(top_builddir)/lib/libDoubleComplex.a \
+testIsEmpty_SOURCES = testIsEmpty.c
+testIsEmpty_CFLAGS = $(check_INCLUDES)
+testIsEmpty_LDADD = $(top_builddir)/lib/libDoubleComplex.a \
 				$(top_builddir)/lib/libFloatComplex.a \
 				$(top_builddir)/lib/libIsempty.a \
+				$(top_builddir)/lib/libFind.a \
 				@LIBMATH@
 
 all: all-am
@@ -281,9 +282,9 @@ libIsempty.a: $(libIsempty_a_OBJECTS) $(libIsempty_a_DEPENDENCIES)
 
 clean-checkPROGRAMS:
 	-test -z "$(check_PROGRAMS)" || rm -f $(check_PROGRAMS)
-testIsempty$(EXEEXT): $(testIsempty_OBJECTS) $(testIsempty_DEPENDENCIES) 
-	@rm -f testIsempty$(EXEEXT)
-	$(LINK) $(testIsempty_LDFLAGS) $(testIsempty_OBJECTS) $(testIsempty_LDADD) $(LIBS)
+testIsEmpty$(EXEEXT): $(testIsEmpty_OBJECTS) $(testIsEmpty_DEPENDENCIES) 
+	@rm -f testIsEmpty$(EXEEXT)
+	$(LINK) $(testIsEmpty_LDFLAGS) $(testIsEmpty_OBJECTS) $(testIsEmpty_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -294,7 +295,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cisemptya.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/disemptya.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sisemptya.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testIsempty-testIsempty.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testIsEmpty-testIsEmpty.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zisemptya.Po@am__quote@
 
 .c.o:
@@ -311,19 +312,19 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(COMPILE) -c `$(CYGPATH_W) '$<'`
 
-testIsempty-testIsempty.o: testIsempty.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testIsempty_CFLAGS) $(CFLAGS) -MT testIsempty-testIsempty.o -MD -MP -MF "$(DEPDIR)/testIsempty-testIsempty.Tpo" -c -o testIsempty-testIsempty.o `test -f 'testIsempty.c' || echo '$(srcdir)/'`testIsempty.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/testIsempty-testIsempty.Tpo" "$(DEPDIR)/testIsempty-testIsempty.Po"; else rm -f "$(DEPDIR)/testIsempty-testIsempty.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testIsempty.c' object='testIsempty-testIsempty.o' libtool=no @AMDEPBACKSLASH@
+testIsEmpty-testIsEmpty.o: testIsEmpty.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testIsEmpty_CFLAGS) $(CFLAGS) -MT testIsEmpty-testIsEmpty.o -MD -MP -MF "$(DEPDIR)/testIsEmpty-testIsEmpty.Tpo" -c -o testIsEmpty-testIsEmpty.o `test -f 'testIsEmpty.c' || echo '$(srcdir)/'`testIsEmpty.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/testIsEmpty-testIsEmpty.Tpo" "$(DEPDIR)/testIsEmpty-testIsEmpty.Po"; else rm -f "$(DEPDIR)/testIsEmpty-testIsEmpty.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testIsEmpty.c' object='testIsEmpty-testIsEmpty.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testIsempty_CFLAGS) $(CFLAGS) -c -o testIsempty-testIsempty.o `test -f 'testIsempty.c' || echo '$(srcdir)/'`testIsempty.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testIsEmpty_CFLAGS) $(CFLAGS) -c -o testIsEmpty-testIsEmpty.o `test -f 'testIsEmpty.c' || echo '$(srcdir)/'`testIsEmpty.c
 
-testIsempty-testIsempty.obj: testIsempty.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testIsempty_CFLAGS) $(CFLAGS) -MT testIsempty-testIsempty.obj -MD -MP -MF "$(DEPDIR)/testIsempty-testIsempty.Tpo" -c -o testIsempty-testIsempty.obj `if test -f 'testIsempty.c'; then $(CYGPATH_W) 'testIsempty.c'; else $(CYGPATH_W) '$(srcdir)/testIsempty.c'; fi`; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/testIsempty-testIsempty.Tpo" "$(DEPDIR)/testIsempty-testIsempty.Po"; else rm -f "$(DEPDIR)/testIsempty-testIsempty.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testIsempty.c' object='testIsempty-testIsempty.obj' libtool=no @AMDEPBACKSLASH@
+testIsEmpty-testIsEmpty.obj: testIsEmpty.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testIsEmpty_CFLAGS) $(CFLAGS) -MT testIsEmpty-testIsEmpty.obj -MD -MP -MF "$(DEPDIR)/testIsEmpty-testIsEmpty.Tpo" -c -o testIsEmpty-testIsEmpty.obj `if test -f 'testIsEmpty.c'; then $(CYGPATH_W) 'testIsEmpty.c'; else $(CYGPATH_W) '$(srcdir)/testIsEmpty.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/testIsEmpty-testIsEmpty.Tpo" "$(DEPDIR)/testIsEmpty-testIsEmpty.Po"; else rm -f "$(DEPDIR)/testIsEmpty-testIsEmpty.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testIsEmpty.c' object='testIsEmpty-testIsEmpty.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testIsempty_CFLAGS) $(CFLAGS) -c -o testIsempty-testIsempty.obj `if test -f 'testIsempty.c'; then $(CYGPATH_W) 'testIsempty.c'; else $(CYGPATH_W) '$(srcdir)/testIsempty.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testIsEmpty_CFLAGS) $(CFLAGS) -c -o testIsEmpty-testIsEmpty.obj `if test -f 'testIsEmpty.c'; then $(CYGPATH_W) 'testIsEmpty.c'; else $(CYGPATH_W) '$(srcdir)/testIsEmpty.c'; fi`
 uninstall-info-am:
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
