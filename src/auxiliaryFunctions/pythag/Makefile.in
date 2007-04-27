@@ -66,7 +66,8 @@ am_libPythag_a_OBJECTS = $(am__objects_1) $(am__objects_2)
 libPythag_a_OBJECTS = $(am_libPythag_a_OBJECTS)
 am_testPythag_OBJECTS = testPythag-testPythag.$(OBJEXT)
 testPythag_OBJECTS = $(am_testPythag_OBJECTS)
-testPythag_DEPENDENCIES = $(top_builddir)/lib/libPythag.a
+testPythag_DEPENDENCIES = $(top_builddir)/lib/libPythag.a \
+	$(top_builddir)/lib/libSqrt.a
 DEFAULT_INCLUDES = -I. -I$(srcdir) -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -190,7 +191,8 @@ HEAD = ../includes/pythag.h
 ####
 # Checking Part
 ####
-check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
+check_INCLUDES = -I $(top_builddir)/auxiliaryFunctions/includes \
+			-I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
 TESTS = testPythag
@@ -201,6 +203,7 @@ TESTS = testPythag
 testPythag_SOURCES = testPythag.c
 testPythag_CFLAGS = $(check_INCLUDES)
 testPythag_LDADD = $(top_builddir)/lib/libPythag.a \
+			$(top_builddir)/lib/libSqrt.a \
 			@LIBMATH@
 
 all: all-am

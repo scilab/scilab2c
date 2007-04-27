@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Fri Jan  5 10:19:16 2007 jofret
-## Last update Mon Apr 23 15:43:36 2007 jofret
+## Last update Tue Apr 24 11:59:13 2007 jofret
 ##
 ## Copyright INRIA 2007
 ##
@@ -31,7 +31,8 @@ HEAD	=	../includes/pythag.h
 # Checking Part
 ####
 
-check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
+check_INCLUDES	=	-I $(top_builddir)/auxiliaryFunctions/includes \
+			-I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
 check_PROGRAMS	= 	testPythag
@@ -44,4 +45,5 @@ TESTS		=	testPythag
 testPythag_SOURCES = 	testPythag.c
 testPythag_CFLAGS  =	$(check_INCLUDES)
 testPythag_LDADD   =	$(top_builddir)/lib/libPythag.a \
+			$(top_builddir)/lib/libSqrt.a \
 			@LIBMATH@
