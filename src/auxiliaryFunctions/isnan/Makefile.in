@@ -65,7 +65,7 @@ am__objects_2 = sisnans.$(OBJEXT) disnans.$(OBJEXT) cisnans.$(OBJEXT) \
 	zisnans.$(OBJEXT)
 am_libIsnan_a_OBJECTS = $(am__objects_1) $(am__objects_2)
 libIsnan_a_OBJECTS = $(am_libIsnan_a_OBJECTS)
-am_testIsnan_OBJECTS = testIsnan-testIsnan.$(OBJEXT)
+am_testIsnan_OBJECTS = testIsnan-testIsNan.$(OBJEXT)
 testIsnan_OBJECTS = $(am_testIsnan_OBJECTS)
 testIsnan_DEPENDENCIES = $(top_builddir)/lib/libDoubleComplex.a \
 	$(top_builddir)/lib/libFloatComplex.a \
@@ -194,7 +194,7 @@ HEAD = ../includes/isnan.h
 ####
 # Checking Part
 ####
-check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
+check_INCLUDES = -I $(top_builddir)/auxiliaryFunctions/includes \
 			-I $(top_builddir)/type
 
 TESTS = testIsnan
@@ -202,7 +202,7 @@ TESTS = testIsnan
 #
 # -*- Isnan Tests -*-
 #
-testIsnan_SOURCES = testIsnan.c
+testIsnan_SOURCES = testIsNan.c
 testIsnan_CFLAGS = $(check_INCLUDES)
 testIsnan_LDADD = $(top_builddir)/lib/libDoubleComplex.a \
 			$(top_builddir)/lib/libFloatComplex.a \
@@ -294,7 +294,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cisnans.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/disnans.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sisnans.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testIsnan-testIsnan.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testIsnan-testIsNan.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zisnans.Po@am__quote@
 
 .c.o:
@@ -311,19 +311,19 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(COMPILE) -c `$(CYGPATH_W) '$<'`
 
-testIsnan-testIsnan.o: testIsnan.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testIsnan_CFLAGS) $(CFLAGS) -MT testIsnan-testIsnan.o -MD -MP -MF "$(DEPDIR)/testIsnan-testIsnan.Tpo" -c -o testIsnan-testIsnan.o `test -f 'testIsnan.c' || echo '$(srcdir)/'`testIsnan.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/testIsnan-testIsnan.Tpo" "$(DEPDIR)/testIsnan-testIsnan.Po"; else rm -f "$(DEPDIR)/testIsnan-testIsnan.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testIsnan.c' object='testIsnan-testIsnan.o' libtool=no @AMDEPBACKSLASH@
+testIsnan-testIsNan.o: testIsNan.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testIsnan_CFLAGS) $(CFLAGS) -MT testIsnan-testIsNan.o -MD -MP -MF "$(DEPDIR)/testIsnan-testIsNan.Tpo" -c -o testIsnan-testIsNan.o `test -f 'testIsNan.c' || echo '$(srcdir)/'`testIsNan.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/testIsnan-testIsNan.Tpo" "$(DEPDIR)/testIsnan-testIsNan.Po"; else rm -f "$(DEPDIR)/testIsnan-testIsNan.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testIsNan.c' object='testIsnan-testIsNan.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testIsnan_CFLAGS) $(CFLAGS) -c -o testIsnan-testIsnan.o `test -f 'testIsnan.c' || echo '$(srcdir)/'`testIsnan.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testIsnan_CFLAGS) $(CFLAGS) -c -o testIsnan-testIsNan.o `test -f 'testIsNan.c' || echo '$(srcdir)/'`testIsNan.c
 
-testIsnan-testIsnan.obj: testIsnan.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testIsnan_CFLAGS) $(CFLAGS) -MT testIsnan-testIsnan.obj -MD -MP -MF "$(DEPDIR)/testIsnan-testIsnan.Tpo" -c -o testIsnan-testIsnan.obj `if test -f 'testIsnan.c'; then $(CYGPATH_W) 'testIsnan.c'; else $(CYGPATH_W) '$(srcdir)/testIsnan.c'; fi`; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/testIsnan-testIsnan.Tpo" "$(DEPDIR)/testIsnan-testIsnan.Po"; else rm -f "$(DEPDIR)/testIsnan-testIsnan.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testIsnan.c' object='testIsnan-testIsnan.obj' libtool=no @AMDEPBACKSLASH@
+testIsnan-testIsNan.obj: testIsNan.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testIsnan_CFLAGS) $(CFLAGS) -MT testIsnan-testIsNan.obj -MD -MP -MF "$(DEPDIR)/testIsnan-testIsNan.Tpo" -c -o testIsnan-testIsNan.obj `if test -f 'testIsNan.c'; then $(CYGPATH_W) 'testIsNan.c'; else $(CYGPATH_W) '$(srcdir)/testIsNan.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/testIsnan-testIsNan.Tpo" "$(DEPDIR)/testIsnan-testIsNan.Po"; else rm -f "$(DEPDIR)/testIsnan-testIsNan.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testIsNan.c' object='testIsnan-testIsNan.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testIsnan_CFLAGS) $(CFLAGS) -c -o testIsnan-testIsnan.obj `if test -f 'testIsnan.c'; then $(CYGPATH_W) 'testIsnan.c'; else $(CYGPATH_W) '$(srcdir)/testIsnan.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testIsnan_CFLAGS) $(CFLAGS) -c -o testIsnan-testIsNan.obj `if test -f 'testIsNan.c'; then $(CYGPATH_W) 'testIsNan.c'; else $(CYGPATH_W) '$(srcdir)/testIsNan.c'; fi`
 uninstall-info-am:
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)

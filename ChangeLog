@@ -1,4 +1,36 @@
-2007-04-20  Bruno JOFRET  <jofret@agon.inria.fr>
+2007-05-07  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/AuxiliaryFunctions/isnan :
+	New Nan detection function. Must be improved !
+
+2007-04-27  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/AuxiliaryFunctions/isempty :
+	[RELEASE] Ending IsEmpty implementation AND tests.
+
+2007-04-26  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/AuxiliaryFunctions/find :
+	[RELEASE] Ending Find implementation AND tests.
+
+2007-04-25  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/AuxiliaryFunctions/abs :
+	[RELEASE] Ending Absolute Value implementation AND tests.
+
+2007-04-24  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/AuxiliaryFunctions/find :
+	New find implementation.
+
+2007-04-23  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/AuxiliaryFunctions/abs :
+	New Absolute Value implementation.
+	* src/AuxiliaryFunctions/pythag :
+	New Pythagore function : sqrt(a^2 + b^2)
+
+2007-04-20  Bruno JOFRET  <bruno.jofret@inria.fr>
 
 	* src/ElementaryFunctions/sinh :
 	[RELEASE] Ending Hyperbolic Sine implementation AND tests.

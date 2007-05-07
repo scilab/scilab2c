@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Fri Jan  5 10:19:16 2007 jofret
-## Last update Fri Apr 20 16:20:05 2007 jofret
+## Last update Mon May  7 14:54:27 2007 jofret
 ##
 ## Copyright INRIA 2007
 ##
@@ -32,7 +32,7 @@ HEAD	=	../includes/isnan.h
 # Checking Part
 ####
 
-check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
+check_INCLUDES	=	-I $(top_builddir)/auxiliaryFunctions/includes \
 			-I $(top_builddir)/type
 
 check_PROGRAMS	= 	testIsnan
@@ -42,7 +42,7 @@ TESTS		=	testIsnan
 #
 # -*- Isnan Tests -*-
 #
-testIsnan_SOURCES = 	testIsnan.c
+testIsnan_SOURCES = 	testIsNan.c
 testIsnan_CFLAGS  =	$(check_INCLUDES)
 testIsnan_LDADD	  =	$(top_builddir)/lib/libDoubleComplex.a \
 			$(top_builddir)/lib/libFloatComplex.a \
