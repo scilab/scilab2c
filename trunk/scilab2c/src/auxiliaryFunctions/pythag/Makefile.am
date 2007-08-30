@@ -5,7 +5,7 @@
 ## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 ##
 ## Started on  Fri Jan  5 10:19:16 2007 jofret
-## Last update Tue Apr 24 11:59:13 2007 jofret
+## Last update Thu Aug 16 11:46:20 2007 bruno
 ##
 ## Copyright INRIA 2007
 ##
@@ -23,7 +23,8 @@ noinst_LIBRARIES =	libPythag.a
 libPythag_a_SOURCES =	$(HEAD) $(SRC)
 
 SRC	=	spythags.c \
-		dpythags.c
+		dpythags.c \
+		cpythags.c
 
 HEAD	=	../includes/pythag.h
 
