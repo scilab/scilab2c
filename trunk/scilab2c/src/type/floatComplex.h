@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Nov 30 16:50:08 2006 jofret
-** Last update Fri Mar 23 17:01:43 2007 jofret
+** Last update Thu Aug 16 12:14:57 2007 bruno
 **
 ** Copyright INRIA 2006
 */
@@ -60,5 +60,10 @@ float		cimags(floatComplex);
 floatComplex	FloatComplex(float, float);
 bool		cisreals(floatComplex);
 bool		cisimags(floatComplex);
+
+floatComplex	cadds(floatComplex, floatComplex);
+floatComplex	cdiffs(floatComplex, floatComplex);
+floatComplex	ctimess(floatComplex, floatComplex);
+floatComplex	cdevides(floatComplex, floatComplex);
 
 #endif /* !__FLOATCOMPLEX_H__ */

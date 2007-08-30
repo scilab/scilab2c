@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Nov 30 16:50:08 2006 jofret
-** Last update Fri Mar 23 16:59:54 2007 jofret
+** Last update Thu Aug 16 11:57:12 2007 bruno
 **
 ** Copyright INRIA 2006
 */
@@ -60,4 +60,8 @@ doubleComplex	DoubleComplex(double, double);
 bool		zisreals(doubleComplex);
 bool		zisimags(doubleComplex);
 
+doubleComplex	zadds(doubleComplex, doubleComplex);
+doubleComplex	zdiffs(doubleComplex, doubleComplex);
+doubleComplex	ztimess(doubleComplex, doubleComplex);
+doubleComplex	zdevides(doubleComplex, doubleComplex);
 #endif /* !__DOUBLECOMPLEX_H__ */
