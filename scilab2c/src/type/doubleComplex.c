@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Nov 30 16:27:08 2006 jofret
-** Last update Fri Mar 23 14:41:36 2007 jofret
+** Last update Thu Aug 16 12:25:46 2007 bruno
 **
 ** Copyright INRIA 2006
 */
@@ -93,3 +93,52 @@ bool zisimags(doubleComplex z) {
     return true;
   return false;
 }
+
+/*
+** Operators
+** {
+*/
+
+/*
+** \function zadds
+** \brief add 2 Complex numbers.
+*/
+doubleComplex zadds(doubleComplex z1, doubleComplex z2) {
+#ifndef STDC99
+  return DoubleComplex(z1.real + z2.real, z1.imag + z2.imag);
+#else
+  return z1 + z2;
+#endif
+}
+
+/*
+** \function zdiffs
+** \brief diff 2 Complex numbers.
+*/
+doubleComplex zdiffs(doubleComplex z1, doubleComplex z2) {
+#ifndef STDC99
+  return DoubleComplex(z1.real - z2.real, z1.imag - z2.imag);
+#else
+  return z1 - z2;
+#endif
+}
+
+/*
+** \function ztimess
+** \brief Multiply 2 Complex numbers.
+*/
+doubleComplex ztimess(doubleComplex z1, doubleComplex z2) {
+#ifndef STDC99
+  return DoubleComplex(z1.real*z2.real - z1.imag*z2.imag,
+		       z1.real*z2.imag + z2.real*z1.imag);
+#else
+  return z1 * z2;
+#endif
+}
+
+
+
+
+/*
+** }
+*/
