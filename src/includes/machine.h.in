@@ -6,13 +6,13 @@
 
 
 /* Define C2F without Trailing Underscore */
-#undef C2F(name)
+#undef C2F
 
 /* Cname */
-#undef CNAME(name1,name2)
+#undef CNAME
 
 /* Define C2F without Trailing Underscore */
-#undef F2C(name)
+#undef F2C
 
 /* Define to 1 if your Fortran compiler doesn't accept -c and -o together. */
 #undef F77_NO_MINUS_C_MINUS_O
