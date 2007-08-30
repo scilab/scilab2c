@@ -5,13 +5,15 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Mon Apr 23 11:31:47 2007 jofret
-** Last update Thu Aug 16 12:10:01 2007 bruno
+** Last update Thu Aug 16 12:17:21 2007 bruno
 **
 ** Copyright INRIA 2007
 */
 
+#include "complex.h"
 #include "pythag.h"
 
-float	spythags(float x, float y) {
-  return (ssqrts( (x*x) + (y*y) ));
+floatComplex	cpythags(floatComplex x, floatComplex y) {
+  return (csqrts( cadds(ctimess(x,x),
+			ctimess(y,y)) ));
 }
