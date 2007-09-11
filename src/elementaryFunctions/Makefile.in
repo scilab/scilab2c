@@ -160,15 +160,21 @@ target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 SUBDIRS = cos \
-		sin \
-		tan \
 		cosh \
-		sinh \
-		tanh \
 		acos \
+		acosh \
+		sin \
+		sinh \
 		asin \
+		asinh \
+		tan \
+		tanh \
+		atan \
+		atanh \
 		exp \
+		exp10 \
 		log \
+		log10 \
 		sqrt
 
 all: all-recursive
