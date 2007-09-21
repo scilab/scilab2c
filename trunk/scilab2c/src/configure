@@ -5345,7 +5345,7 @@ fi
 ######## With GCC ...
 ######################
 if test "$CC" = "gcc"; then
-     CFLAGS="$CFLAGS -Werror -Wformat -Wshadow -Wpointer-arith -Wcast-align -Wmissing-prototypes -Wmissing-declarations -g -Wall "
+     CFLAGS="$CFLAGS -pedantic -Werror -Wformat -Wshadow -Wpointer-arith -Wcast-align -Wmissing-prototypes -Wmissing-declarations -g -Wall "
      # used to be -O
      # -D_FORTIFY_SOURCE=2
 else
@@ -5784,7 +5784,7 @@ fi
 
 
 
-ac_config_files="$ac_config_files Makefile type/Makefile elementaryFunctions/Makefile elementaryFunctions/cos/Makefile elementaryFunctions/sin/Makefile elementaryFunctions/tan/Makefile elementaryFunctions/cosh/Makefile elementaryFunctions/sinh/Makefile elementaryFunctions/tanh/Makefile elementaryFunctions/acos/Makefile elementaryFunctions/asin/Makefile elementaryFunctions/log/Makefile elementaryFunctions/exp/Makefile elementaryFunctions/sqrt/Makefile auxiliaryFunctions/Makefile auxiliaryFunctions/abs/Makefile auxiliaryFunctions/find/Makefile auxiliaryFunctions/isempty/Makefile auxiliaryFunctions/isnan/Makefile auxiliaryFunctions/rand/Makefile auxiliaryFunctions/sign/Makefile auxiliaryFunctions/size/Makefile auxiliaryFunctions/type/Makefile auxiliaryFunctions/pythag/Makefile"
+ac_config_files="$ac_config_files Makefile type/Makefile elementaryFunctions/Makefile elementaryFunctions/cos/Makefile elementaryFunctions/cosh/Makefile elementaryFunctions/acos/Makefile elementaryFunctions/acosh/Makefile elementaryFunctions/sin/Makefile elementaryFunctions/sinh/Makefile elementaryFunctions/asin/Makefile elementaryFunctions/asinh/Makefile elementaryFunctions/tan/Makefile elementaryFunctions/tanh/Makefile elementaryFunctions/atan/Makefile elementaryFunctions/atanh/Makefile elementaryFunctions/log/Makefile elementaryFunctions/log10/Makefile elementaryFunctions/exp/Makefile elementaryFunctions/exp10/Makefile elementaryFunctions/sqrt/Makefile auxiliaryFunctions/Makefile auxiliaryFunctions/abs/Makefile auxiliaryFunctions/find/Makefile auxiliaryFunctions/isempty/Makefile auxiliaryFunctions/isnan/Makefile auxiliaryFunctions/rand/Makefile auxiliaryFunctions/sign/Makefile auxiliaryFunctions/size/Makefile auxiliaryFunctions/type/Makefile auxiliaryFunctions/pythag/Makefile"
 
 
 
@@ -6385,15 +6385,21 @@ do
     "type/Makefile") CONFIG_FILES="$CONFIG_FILES type/Makefile" ;;
     "elementaryFunctions/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/Makefile" ;;
     "elementaryFunctions/cos/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/cos/Makefile" ;;
-    "elementaryFunctions/sin/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/sin/Makefile" ;;
-    "elementaryFunctions/tan/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/tan/Makefile" ;;
     "elementaryFunctions/cosh/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/cosh/Makefile" ;;
-    "elementaryFunctions/sinh/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/sinh/Makefile" ;;
-    "elementaryFunctions/tanh/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/tanh/Makefile" ;;
     "elementaryFunctions/acos/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/acos/Makefile" ;;
+    "elementaryFunctions/acosh/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/acosh/Makefile" ;;
+    "elementaryFunctions/sin/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/sin/Makefile" ;;
+    "elementaryFunctions/sinh/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/sinh/Makefile" ;;
     "elementaryFunctions/asin/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/asin/Makefile" ;;
+    "elementaryFunctions/asinh/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/asinh/Makefile" ;;
+    "elementaryFunctions/tan/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/tan/Makefile" ;;
+    "elementaryFunctions/tanh/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/tanh/Makefile" ;;
+    "elementaryFunctions/atan/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/atan/Makefile" ;;
+    "elementaryFunctions/atanh/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/atanh/Makefile" ;;
     "elementaryFunctions/log/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/log/Makefile" ;;
+    "elementaryFunctions/log10/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/log10/Makefile" ;;
     "elementaryFunctions/exp/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/exp/Makefile" ;;
+    "elementaryFunctions/exp10/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/exp10/Makefile" ;;
     "elementaryFunctions/sqrt/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/sqrt/Makefile" ;;
     "auxiliaryFunctions/Makefile") CONFIG_FILES="$CONFIG_FILES auxiliaryFunctions/Makefile" ;;
     "auxiliaryFunctions/abs/Makefile") CONFIG_FILES="$CONFIG_FILES auxiliaryFunctions/abs/Makefile" ;;
