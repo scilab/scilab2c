@@ -68,7 +68,7 @@ fi
 ######## With GCC ...
 ######################
 if test "$CC" = "gcc"; then
-     CFLAGS="$CFLAGS -Werror -Wformat -Wshadow -Wpointer-arith -Wcast-align -Wmissing-prototypes -Wmissing-declarations -g -Wall "
+     CFLAGS="$CFLAGS -pedantic -Werror -Wformat -Wshadow -Wpointer-arith -Wcast-align -Wmissing-prototypes -Wmissing-declarations -g -Wall "
      # used to be -O
      # -D_FORTIFY_SOURCE=2
 else
@@ -203,15 +203,21 @@ Makefile
 type/Makefile
 elementaryFunctions/Makefile
 elementaryFunctions/cos/Makefile
-elementaryFunctions/sin/Makefile
-elementaryFunctions/tan/Makefile
 elementaryFunctions/cosh/Makefile
-elementaryFunctions/sinh/Makefile
-elementaryFunctions/tanh/Makefile
 elementaryFunctions/acos/Makefile
+elementaryFunctions/acosh/Makefile
+elementaryFunctions/sin/Makefile
+elementaryFunctions/sinh/Makefile
 elementaryFunctions/asin/Makefile
+elementaryFunctions/asinh/Makefile
+elementaryFunctions/tan/Makefile
+elementaryFunctions/tanh/Makefile
+elementaryFunctions/atan/Makefile
+elementaryFunctions/atanh/Makefile
 elementaryFunctions/log/Makefile
+elementaryFunctions/log10/Makefile
 elementaryFunctions/exp/Makefile
+elementaryFunctions/exp10/Makefile
 elementaryFunctions/sqrt/Makefile
 auxiliaryFunctions/Makefile
 auxiliaryFunctions/abs/Makefile
