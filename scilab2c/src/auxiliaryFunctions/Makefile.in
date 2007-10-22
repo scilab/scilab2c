@@ -165,8 +165,6 @@ SUBDIRS = abs \
 		isnan \
 		rand \
 		sign \
-		size \
-		type \
 		pythag
 
 all: all-recursive
