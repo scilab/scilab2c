@@ -5,10 +5,13 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Mar 22 08:52:36 2007 jofret
-** Last update Wed Sep  5 17:58:52 2007 bruno
+** Last update Mon Oct 22 09:29:03 2007 bruno
 **
 ** Copyright INRIA 2007
 */
+
+#ifndef __LOG10_H__
+#define __LOG10_H__
 
 #include "floatComplex.h"
 #include "doubleComplex.h"
@@ -47,7 +50,7 @@ doubleComplex	zlog10s(doubleComplex in);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		slog10a(float* in, float* out, int size);
+void		slog10a(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix Ten based Logarithm function
@@ -55,7 +58,7 @@ void		slog10a(float* in, float* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		dlog10a(double* in, double* out, int size);
+void		dlog10a(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix Ten based Logarithm function
@@ -63,7 +66,7 @@ void		dlog10a(double* in, double* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		clog10a(floatComplex* in, floatComplex* out, int size);
+void		clog10a(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix Ten based Logarithm function
@@ -71,6 +74,7 @@ void		clog10a(floatComplex* in, floatComplex* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		zlog10a(doubleComplex* in, doubleComplex* out, int size);
+void		zlog10a(doubleComplex* in, int size, doubleComplex* out);
 
+#endif /* !__LOG10_H__ */
 

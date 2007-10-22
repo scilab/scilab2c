@@ -5,10 +5,13 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Tue Dec  5 15:49:18 2006 jofret
-** Last update Thu Sep  6 17:08:51 2007 bruno
+** Last update Mon Oct 22 09:32:28 2007 bruno
 **
 ** Copyright INRIA 2006
 */
+
+#ifndef __EXP10_H__
+#define __EXP10_H__
 
 #include "floatComplex.h"
 #include "doubleComplex.h"
@@ -47,7 +50,7 @@ doubleComplex	zexp10s(doubleComplex in);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		sexp10a(float* in, float* out, int size);
+void		sexp10a(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix 10 based Exponential function
@@ -55,7 +58,7 @@ void		sexp10a(float* in, float* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		dexp10a(double* in, double* out, int size);
+void		dexp10a(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix 10 based Exponential function
@@ -63,7 +66,7 @@ void		dexp10a(double* in, double* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		cexp10a(floatComplex* in, floatComplex* out, int size);
+void		cexp10a(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix 10 based Exponential function
@@ -71,6 +74,7 @@ void		cexp10a(floatComplex* in, floatComplex* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		zexp10a(doubleComplex* in, doubleComplex* out, int size);
+void		zexp10a(doubleComplex* in, int size, doubleComplex* out);
 
+#endif /* !__EXP10_H__ */
 

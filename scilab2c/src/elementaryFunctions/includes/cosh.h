@@ -5,10 +5,13 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Tue Dec  5 15:49:18 2006 jofret
-** Last update Mon Mar 19 12:08:32 2007 jofret
+** Last update Mon Oct 22 09:33:12 2007 bruno
 **
 ** Copyright INRIA 2006
 */
+
+#ifndef __COSH_H__
+#define __COSH_H__
 
 #include "floatComplex.h"
 #include "doubleComplex.h"
@@ -47,7 +50,7 @@ doubleComplex	zcoshs(doubleComplex in);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		scosha(float* in, float* out, int size);
+void		scosha(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix Cosine function
@@ -55,7 +58,7 @@ void		scosha(float* in, float* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		dcosha(double* in, double* out, int size);
+void		dcosha(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix Cosine function
@@ -63,7 +66,7 @@ void		dcosha(double* in, double* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		ccosha(floatComplex* in, floatComplex* out, int size);
+void		ccosha(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix Cosine function
@@ -71,6 +74,7 @@ void		ccosha(floatComplex* in, floatComplex* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		zcosha(doubleComplex* in, doubleComplex* out, int size);
+void		zcosha(doubleComplex* in, int size, doubleComplex* out);
 
+#endif /* !__COSH_H__ */
 

@@ -5,10 +5,13 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Mar 22 08:52:36 2007 jofret
-** Last update Thu Mar 22 08:54:04 2007 jofret
+** Last update Mon Oct 22 09:27:17 2007 bruno
 **
 ** Copyright INRIA 2007
 */
+
+#ifndef __LOG_H__
+#define __LOG_H__
 
 #include "floatComplex.h"
 #include "doubleComplex.h"
@@ -47,7 +50,7 @@ doubleComplex	zlogs(doubleComplex in);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		sloga(float* in, float* out, int size);
+void		sloga(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix Logarithm function
@@ -55,7 +58,7 @@ void		sloga(float* in, float* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		dloga(double* in, double* out, int size);
+void		dloga(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix Logarithm function
@@ -63,7 +66,7 @@ void		dloga(double* in, double* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		cloga(floatComplex* in, floatComplex* out, int size);
+void		cloga(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix Logarithm function
@@ -71,6 +74,7 @@ void		cloga(floatComplex* in, floatComplex* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		zloga(doubleComplex* in, doubleComplex* out, int size);
+void		zloga(doubleComplex* in, int size, doubleComplex* out);
 
+#endif /* !__LOG_H__ */
 

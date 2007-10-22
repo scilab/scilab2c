@@ -5,10 +5,13 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Tue Dec  5 15:49:18 2006 jofret
-** Last update Mon Mar 19 13:47:48 2007 jofret
+** Last update Mon Oct 22 09:29:44 2007 bruno
 **
 ** Copyright INRIA 2006
 */
+
+#ifndef __EXP_H__
+#define __EXP_H__
 
 #include "floatComplex.h"
 #include "doubleComplex.h"
@@ -47,7 +50,7 @@ doubleComplex	zexps(doubleComplex in);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		sexpa(float* in, float* out, int size);
+void		sexpa(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix Exponential function
@@ -55,7 +58,7 @@ void		sexpa(float* in, float* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		dexpa(double* in, double* out, int size);
+void		dexpa(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix Exponential function
@@ -63,7 +66,7 @@ void		dexpa(double* in, double* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		cexpa(floatComplex* in, floatComplex* out, int size);
+void		cexpa(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix Exponential function
@@ -71,6 +74,7 @@ void		cexpa(floatComplex* in, floatComplex* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		zexpa(doubleComplex* in, doubleComplex* out, int size);
+void		zexpa(doubleComplex* in, int size, doubleComplex* out);
 
+#endif /* !__EXP_H__ */
 
