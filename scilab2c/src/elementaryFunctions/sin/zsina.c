@@ -5,14 +5,14 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 14:02:04 2006 jofret
-** Last update Mon Mar 19 11:36:29 2007 jofret
+** Last update Mon Oct 22 09:49:58 2007 bruno
 **
 ** Copyright INRIA 2006
 */
 
 #include "sin.h"
 
-void zsina(doubleComplex* x, doubleComplex* y, int size) {
+void zsina(doubleComplex* x, int size, doubleComplex* y) {
   int i = 0;
   for (i = 0; i < size; ++i) {
     y[i] = zsins(x[i]);
