@@ -5,10 +5,13 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Tue Dec  5 15:49:18 2006 jofret
-** Last update Wed Sep  5 16:22:20 2007 bruno
+** Last update Mon Oct 22 09:35:16 2007 bruno
 **
 ** Copyright INRIA 2006
 */
+
+#ifndef __ATANH_H__
+#define __ATANH_H__
 
 #include "floatComplex.h"
 #include "doubleComplex.h"
@@ -47,7 +50,7 @@ doubleComplex	zatanhs(doubleComplex in);
 ** \param out : input array value.
 ** \param size : the size of in and out arrays.
 */
-void		satanha(float* in, float* out, int size);
+void		satanha(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix Hyperbolic ArcTangeant function
@@ -55,7 +58,7 @@ void		satanha(float* in, float* out, int size);
 ** \param out : input array value.
 ** \param size : the size of in and out arrays.
 */
-void		datanha(double* in, double* out, int size);
+void		datanha(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix Hyperbolic ArcTangeant function
@@ -63,7 +66,7 @@ void		datanha(double* in, double* out, int size);
 ** \param out : input array value.
 ** \param size : the size of in and out arrays.
 */
-void		catanha(floatComplex* in, floatComplex* out, int size);
+void		catanha(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix Hyperbolic ArcTangeant function
@@ -71,6 +74,7 @@ void		catanha(floatComplex* in, floatComplex* out, int size);
 ** \param out : input array value.
 ** \param size : the size of in and out arrays.
 */
-void		zatanha(doubleComplex* in, doubleComplex* out, int size);
+void		zatanha(doubleComplex* in, int size, doubleComplex* out);
 
+#endif /* !__ATANH_H__ */
 

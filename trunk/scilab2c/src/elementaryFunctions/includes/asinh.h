@@ -5,10 +5,13 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Jan  5 10:20:35 2007 jofret
-** Last update Wed Sep  5 15:32:26 2007 bruno
+** Last update Mon Oct 22 09:38:22 2007 bruno
 **
 ** Copyright INRIA 2007
 */
+
+#ifndef __ASINH_H__
+#define __ASINH_H__
 
 #include "floatComplex.h"
 #include "doubleComplex.h"
@@ -47,7 +50,7 @@ doubleComplex	zasinhs(doubleComplex in);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		sasinha(float* in, float* out, int size);
+void		sasinha(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix Hyperbolic ArcSine function
@@ -55,7 +58,7 @@ void		sasinha(float* in, float* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		dasinha(double* in, double* out, int size);
+void		dasinha(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix Hyperbolic ArcSine function
@@ -63,7 +66,7 @@ void		dasinha(double* in, double* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		casinha(floatComplex* in, floatComplex* out, int size);
+void		casinha(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix Hyperbolic ArcSine function
@@ -71,6 +74,6 @@ void		casinha(floatComplex* in, floatComplex* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		zasinha(doubleComplex* in, doubleComplex* out, int size);
+void		zasinha(doubleComplex* in, int size, doubleComplex* out);
 
-
+#endif /* !__ASINH_H__ */
