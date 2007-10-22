@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Feb  8 10:12:17 2007 jofret
-** Last update Wed Apr 25 11:26:42 2007 jofret
+** Last update Mon Oct 22 10:44:49 2007 bruno
 **
 ** Copyright INRIA 2007
 */
@@ -56,7 +56,7 @@ double	zabss(doubleComplex in);
  ** \param in : the float array we must determine abs.
  ** \param out : the float array result.
  **/
-void	sabsa(float *in, float* out, int size);
+void	sabsa(float *in, int size, float* out);
 
 /**
  ** \brief Double Array Absolute Value function
@@ -64,7 +64,7 @@ void	sabsa(float *in, float* out, int size);
  ** \param in : the double array we must determine abs.
  ** \param out : the double array result.
  **/
-void	dabsa(double *in, double* out, int size);
+void	dabsa(double *in, int size, double* out);
 
 /**
  ** \brief Float Complex Array Absolute Value function
@@ -72,7 +72,7 @@ void	dabsa(double *in, double* out, int size);
  ** \param in : the float complex array we must determine abs i.e. module.
  ** \param out : the float complex array result i.e out[n] = |in[n]|.
  **/
-void	cabsa(floatComplex *in, float* out, int size);
+void	cabsa(floatComplex *in, int size, float* out);
 
 /**
  ** \brief Double Complex Array Absolute Value function
@@ -80,6 +80,6 @@ void	cabsa(floatComplex *in, float* out, int size);
  ** \param in : the double complex array we must determine abs i.e. module.
  ** \param out : the double complex array result  i.e out[n] = |in[n]|.
  **/
-void	zabsa(doubleComplex *in, double* out, int size);
+void	zabsa(doubleComplex *in, int size, double* out);
 
 #endif /* !__ABS_H__ */
