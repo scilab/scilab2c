@@ -5,10 +5,13 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Tue Dec  5 15:49:18 2006 jofret
-** Last update Mon Mar 19 11:56:44 2007 jofret
+** Last update Mon Oct 22 10:02:28 2007 bruno
 **
 ** Copyright INRIA 2006
 */
+
+#ifndef __TAN_H__
+#define __TAN_H__
 
 #include "floatComplex.h"
 #include "doubleComplex.h"
@@ -47,7 +50,7 @@ doubleComplex	ztans(doubleComplex in);
 ** \param out : input array value.
 ** \param size : the size of in and out arrays.
 */
-void		stana(float* in, float* out, int size);
+void		stana(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix Tangeant function
@@ -55,7 +58,7 @@ void		stana(float* in, float* out, int size);
 ** \param out : input array value.
 ** \param size : the size of in and out arrays.
 */
-void		dtana(double* in, double* out, int size);
+void		dtana(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix Tangeant function
@@ -63,7 +66,7 @@ void		dtana(double* in, double* out, int size);
 ** \param out : input array value.
 ** \param size : the size of in and out arrays.
 */
-void		ctana(floatComplex* in, floatComplex* out, int size);
+void		ctana(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix Tangeant function
@@ -71,6 +74,7 @@ void		ctana(floatComplex* in, floatComplex* out, int size);
 ** \param out : input array value.
 ** \param size : the size of in and out arrays.
 */
-void		ztana(doubleComplex* in, doubleComplex* out, int size);
+void		ztana(doubleComplex* in, int size, doubleComplex* out);
 
+#endif /* !__TAN_H__ */
 

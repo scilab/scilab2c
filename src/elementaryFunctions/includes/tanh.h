@@ -5,10 +5,13 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Tue Dec  5 15:49:18 2006 jofret
-** Last update Mon Mar 19 11:47:46 2007 jofret
+** Last update Mon Oct 22 08:55:49 2007 bruno
 **
 ** Copyright INRIA 2006
 */
+
+#ifndef __TANH_H__
+#define __TANH_H__
 
 #include "floatComplex.h"
 #include "doubleComplex.h"
@@ -47,7 +50,7 @@ doubleComplex	ztanhs(doubleComplex in);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		stanha(float* in, float* out, int size);
+void		stanha(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix Hyperbolic Tangeant function
@@ -55,7 +58,7 @@ void		stanha(float* in, float* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		dtanha(double* in, double* out, int size);
+void		dtanha(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix Hyperbolic Tangeant function
@@ -63,7 +66,7 @@ void		dtanha(double* in, double* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		ctanha(floatComplex* in, floatComplex* out, int size);
+void		ctanha(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix Hyperbolic Tangeant function
@@ -71,6 +74,6 @@ void		ctanha(floatComplex* in, floatComplex* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		ztanha(doubleComplex* in, doubleComplex* out, int size);
+void		ztanha(doubleComplex* in, int size, doubleComplex* out);
 
-
+#endif /* !__TANH_H__ */

@@ -5,10 +5,13 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Jan  5 10:20:35 2007 jofret
-** Last update Mon Mar 19 13:43:30 2007 jofret
+** Last update Mon Oct 22 09:42:52 2007 bruno
 **
 ** Copyright INRIA 2007
 */
+
+#ifndef __ACOS_H__
+#define __ACOS_H__
 
 #include "floatComplex.h"
 #include "doubleComplex.h"
@@ -47,7 +50,7 @@ doubleComplex	zacoss(doubleComplex in);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		sacosa(float* in, float* out, int size);
+void		sacosa(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix ArcCosine function
@@ -55,7 +58,7 @@ void		sacosa(float* in, float* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		dacosa(double* in, double* out, int size);
+void		dacosa(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix ArcCosine function
@@ -63,7 +66,7 @@ void		dacosa(double* in, double* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		cacosa(floatComplex* in, floatComplex* out, int size);
+void		cacosa(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix ArcCosine function
@@ -71,6 +74,6 @@ void		cacosa(floatComplex* in, floatComplex* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		zacosa(doubleComplex* in, doubleComplex* out, int size);
+void		zacosa(doubleComplex* in, int size, doubleComplex* out);
 
-
+#endif /* !__ACOS_H__ */

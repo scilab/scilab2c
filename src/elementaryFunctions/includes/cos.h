@@ -5,10 +5,13 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Tue Dec  5 15:49:18 2006 jofret
-** Last update Mon Mar 19 15:07:50 2007 jofret
+** Last update Mon Oct 22 10:01:54 2007 bruno
 **
 ** Copyright INRIA 2006
 */
+
+#ifndef __COS_H__
+#define __COS_H__
 
 #include "floatComplex.h"
 #include "doubleComplex.h"
@@ -47,7 +50,7 @@ doubleComplex	zcoss(doubleComplex in);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		scosa(float* in, float* out, int size);
+void		scosa(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix Cosine function
@@ -55,7 +58,7 @@ void		scosa(float* in, float* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		dcosa(double* in, double* out, int size);
+void		dcosa(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix Cosine function
@@ -63,7 +66,7 @@ void		dcosa(double* in, double* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		ccosa(floatComplex* in, floatComplex* out, int size);
+void		ccosa(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix Cosine function
@@ -71,6 +74,6 @@ void		ccosa(floatComplex* in, floatComplex* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		zcosa(doubleComplex* in, doubleComplex* out, int size);
+void		zcosa(doubleComplex* in, int size, doubleComplex* out);
 
-
+#endif /* !__COS_H__ */

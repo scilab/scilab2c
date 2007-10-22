@@ -5,10 +5,13 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Tue Dec  5 15:49:18 2006 jofret
-** Last update Mon Mar 19 12:00:10 2007 jofret
+** Last update Mon Oct 22 09:24:56 2007 bruno
 **
 ** Copyright INRIA 2006
 */
+
+#ifndef __SIN_H__
+#define __SIN_H__
 
 #include "floatComplex.h"
 #include "doubleComplex.h"
@@ -47,7 +50,7 @@ doubleComplex	zsins(doubleComplex in);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		ssina(float* in, float* out, int size);
+void		ssina(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix Sine function
@@ -55,7 +58,7 @@ void		ssina(float* in, float* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		dsina(double* in, double* out, int size);
+void		dsina(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix Sine function
@@ -63,7 +66,7 @@ void		dsina(double* in, double* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		csina(floatComplex* in, floatComplex* out, int size);
+void		csina(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix Sine function
@@ -71,6 +74,7 @@ void		csina(floatComplex* in, floatComplex* out, int size);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		zsina(doubleComplex* in, doubleComplex* out, int size);
+void		zsina(doubleComplex* in, int size, doubleComplex* out);
 
+#endif /* !__SIN_H__ */
 
