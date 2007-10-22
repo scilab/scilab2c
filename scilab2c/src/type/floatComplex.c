@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Nov 30 16:27:08 2006 jofret
-** Last update Fri Apr 20 11:03:44 2007 jofret
+** Last update Thu Aug 30 09:42:59 2007 bruno
 **
 ** Copyright INRIA 2006
 */
@@ -92,3 +92,52 @@ bool cisimags(floatComplex z) {
     return true;
   return false;
 }
+
+/*
+** Operators
+** {
+*/
+
+/*
+** \function cadds
+** \brief add 2 Complex numbers.
+*/
+floatComplex cadds(floatComplex z1, floatComplex z2) {
+#ifndef STDC99
+  return FloatComplex(z1.real + z2.real, z1.imag + z2.imag);
+#else
+  return z1 + z2;
+#endif
+}
+
+/*
+** \function cdiffs
+** \brief diff 2 Complex numbers.
+*/
+floatComplex cdiffs(floatComplex z1, floatComplex z2) {
+#ifndef STDC99
+  return FloatComplex(z1.real - z2.real, z1.imag - z2.imag);
+#else
+  return z1 - z2;
+#endif
+}
+
+/*
+** \function ctimess
+** \brief Multiply 2 Complex numbers.
+*/
+floatComplex ctimess(floatComplex z1, floatComplex z2) {
+#ifndef STDC99
+  return FloatComplex(z1.real*z2.real - z1.imag*z2.imag,
+		       z1.real*z2.imag + z2.real*z1.imag);
+#else
+  return z1 * z2;
+#endif
+}
+
+
+
+
+/*
+** }
+*/
