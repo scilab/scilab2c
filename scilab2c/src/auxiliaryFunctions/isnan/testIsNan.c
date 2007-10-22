@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Wed Feb 14 16:07:57 2007 jofret
-** Last update Mon May  7 16:07:09 2007 jofret
+** Last update Mon Oct 22 15:59:35 2007 bruno
 **
 ** Copyright INRIA 2007
 */
@@ -17,12 +17,10 @@
 
 int sisnansTest() {
   int result = 0;
-
-  printf(">> Float \n");
-
   float nan = 0. / 0.;
   float full = 1.23456789;
 
+  printf(">> Float \n");
   if (sisnans(nan) == false) {
     printf("ERROR ! : Test Failed (Must be nan)\n");
     result = ERROR;
@@ -40,12 +38,10 @@ int sisnansTest() {
 
 int disnansTest() {
   int result = 0;
-
-  printf(">> Double\n");
-
   double nan = 0. / 0.;
   double full = 1.456789321861;
 
+  printf(">> Double\n");
   if (disnans(nan) == false) {
     printf("ERROR ! : Test Failed (Must be nan)\n");
     result = ERROR;
@@ -63,14 +59,12 @@ int disnansTest() {
 
 int cisnansTest() {
   int result = 0;
-  printf(">> Float Complex\n");
-
   floatComplex nan_nan = FloatComplex(0./0., 0./0.);
   floatComplex nan_real = FloatComplex(0. / 0. , 1.123456789);
   floatComplex real_nan = FloatComplex(1.123456789 , 0. / 0.);
-
   floatComplex full = FloatComplex(0.,1.);
 
+  printf(">> Float Complex\n");
   if (cisnans(nan_nan) == false) {
     printf("ERROR ! : Test Failed (Must be nan)\n");
     result = ERROR;
@@ -101,14 +95,12 @@ int cisnansTest() {
 
 int zisnansTest() {
   int result = 0;
-
-  printf(">> Double Complex\n");
   floatComplex nan_nan = FloatComplex(0./0., 0./0.);
   floatComplex nan_real = FloatComplex(0. / 0. , 1.123456789);
   floatComplex real_nan = FloatComplex(1.123456789 , 0. / 0.);
-
   floatComplex full = FloatComplex(0.,1.);
 
+  printf(">> Double Complex\n");
   if (cisnans(nan_nan) == false) {
     printf("ERROR ! : Test Failed (Must be nan)\n");
     result = ERROR;
