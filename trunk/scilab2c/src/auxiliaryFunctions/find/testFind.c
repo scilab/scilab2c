@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Wed Feb 14 15:50:15 2007 jofret
-** Last update Tue Apr 24 18:13:42 2007 jofret
+** Last update Mon Oct 22 15:47:15 2007 bruno
 **
 ** Copyright INRIA 2007
 */
@@ -14,10 +14,10 @@
 
 int sfindaTest() {
   int result = 0;
-
-  printf(">> Floats \n");
   float goodArray[5] = {0.,2.,3.,5.,10.};
   float badArray[5] = {0.,0.,0.,0.,0.};
+
+  printf(">> Floats \n");
   if (sfinda(goodArray, 5) == NOT_FOUND) {
     printf("ERROR ! : Test Failed (non empty array)\n");
     result = ERROR;
@@ -33,9 +33,10 @@ int sfindaTest() {
 }
 
 int dfindaTest() {
-  printf(">> Doubles \n");
   double goodArray[5] = {0.,2.,3.,5.,10.};
   double badArray[5] = {0.,0.,0.,0.,0.};
+
+  printf(">> Doubles \n");
   assert(dfinda(goodArray, 5) != NOT_FOUND);
   assert(dfinda(goodArray, 5) == 1);
   if (dfinda(goodArray, 5) == NOT_FOUND) {
@@ -52,17 +53,22 @@ int dfindaTest() {
 
 int cfindaTest() {
   int result = 0;
+  floatComplex goodArray[5];
+  floatComplex badArray[5];
+  /* Good values in goodArray */
+  goodArray[0] = FloatComplex(0., 0.);
+  goodArray[1] = FloatComplex(0., 2.);
+  goodArray[2] = FloatComplex(3., 50.);
+  goodArray[3] = FloatComplex(5., 10.);
+  goodArray[4] = FloatComplex(10., -10.);
+  /* Bad values in badArray */
+  badArray[5] = FloatComplex(0., 0.);
+  badArray[5] = FloatComplex(0., 0.);
+  badArray[5] = FloatComplex(0., 0.);
+  badArray[5] = FloatComplex(0., 0.);
+  badArray[5] = FloatComplex(0., 0.);
+
   printf(">> Float Complex \n");
-  floatComplex goodArray[5] = {FloatComplex(0., 0.),
-				FloatComplex(0., 2.),
-				FloatComplex(3., 50.),
-				FloatComplex(5., 10.),
-				FloatComplex(10., -10.)};
-  floatComplex badArray[5] = {FloatComplex(0., 0.),
-			       FloatComplex(0., 0.),
-			       FloatComplex(0., 0.),
-			       FloatComplex(0., 0.),
-			       FloatComplex(0., 0.)};
   if (cfinda(goodArray, 5) == NOT_FOUND) {
     printf("ERROR ! : Test Failed (non empty array)\n");
     result = ERROR;
@@ -78,23 +84,32 @@ int cfindaTest() {
 }
 
 int zfindaTest() {
- int result = 0;
+  int result = 0;
+  doubleComplex goodArray[5];
+  doubleComplex badArray[5];
+  /* Good values in goodArray. */
+  goodArray[0] = DoubleComplex(0., 0.);
+  goodArray[1] = DoubleComplex(0., 2.);
+  goodArray[2] = DoubleComplex(3., 50.);
+  goodArray[3] = DoubleComplex(5., 10.);
+  goodArray[4] = DoubleComplex(10., -10.);
+  /* Bad values in badArray */
+  badArray[0] = DoubleComplex(0., 0.);
+  badArray[1] = DoubleComplex(0., 0.);
+  badArray[2] = DoubleComplex(0., 0.);
+  badArray[3] = DoubleComplex(0., 0.);
+  badArray[4] = DoubleComplex(0., 0.);
+
   printf(">> Double Complex \n");
- doubleComplex goodArray[5] = {DoubleComplex(0., 0.),
-				DoubleComplex(0., 2.),
-				DoubleComplex(3., 50.),
-				DoubleComplex(5., 10.),
-				DoubleComplex(10., -10.)};
-  doubleComplex badArray[5] = {DoubleComplex(0., 0.),
-			       DoubleComplex(0., 0.),
-			       DoubleComplex(0., 0.),
-			       DoubleComplex(0., 0.),
-			       DoubleComplex(0., 0.)};
   if (zfinda(goodArray, 5) == NOT_FOUND) {
     printf("ERROR ! : Test Failed (non empty array)\n");
     result = ERROR;
   }
   assert(zfinda(goodArray, 5) != NOT_FOUND);
+  if (zfinda(goodArray, 5) != 1) {
+    printf("ERROR ! : Test Failed (Element found in place %d instead of 1)\n", zfinda(goodArray, 5));
+    result = ERROR;
+  }
   assert(zfinda(goodArray, 5) == 1);
   if (zfinda(badArray, 5) != NOT_FOUND) {
     printf("ERROR ! : Test Failed (empty array)\n");
