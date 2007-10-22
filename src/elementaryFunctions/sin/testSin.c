@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:06:16 2006 jofret
-** Last update Fri Apr 20 11:25:31 2007 jofret
+** Last update Mon Oct 22 12:05:02 2007 bruno
 **
 ** Copyright INRIA 2006
 */
@@ -84,7 +84,7 @@ void ssinaTest(void) {
   int i = 0;
 
   printf(">> Float array\n");
-  ssina(in, out, 5);
+  ssina(in, 5, out);
   for (i = 0 ; i < 5 ; ++i)
     printf("ssina(array) = %f\n", out[i]);
 }
@@ -95,37 +95,39 @@ void dsinaTest(void) {
   int i = 0;
 
   printf(">> Double Array\n");
-  dsina(in, out, 5);
+  dsina(in, 5, out);
   for (i = 0 ; i < 5 ; ++i)
     printf("ssina(array) = %f\n", out[i]);
 
 }
 
 void csinaTest(void) {
-  floatComplex pi_pi = FloatComplex(PI, PI);
-  floatComplex pi_2_pi_2 = FloatComplex(PI/2, PI/2);
-  floatComplex pi_2_pi_3 = FloatComplex(PI/2, PI/3);
-  floatComplex pi_2_pi_4 = FloatComplex(PI/2, PI/4);
-  floatComplex in[4] = {pi_pi, pi_2_pi_2, pi_2_pi_3, pi_2_pi_4};
+  floatComplex in[4];
   floatComplex out[4];
   int i = 0;
 
-  csina(in, out, 4);
+  in[0] = FloatComplex(PI, PI);
+  in[1] = FloatComplex(PI/2, PI/2);
+  in[2] = FloatComplex(PI/2, PI/3);
+  in[3] = FloatComplex(PI/2, PI/4);
+
+  csina(in, 4, out);
   printf(">> Float Complex Array\n");
   for (i = 0 ; i < 4 ; ++i)
     printf("csina(array) = %e + I * %e\n", creals(out[i]), cimags(out[i]));
 }
 
 void zsinaTest(void) {
-  doubleComplex pi_pi = DoubleComplex(PI, PI);
-  doubleComplex pi_2_pi_2 = DoubleComplex(PI/2, PI/2);
-  doubleComplex pi_2_pi_3 = DoubleComplex(PI/2, PI/3);
-  doubleComplex pi_2_pi_4 = DoubleComplex(PI/2, PI/4);
-  doubleComplex in[4] = {pi_pi, pi_2_pi_2, pi_2_pi_3, pi_2_pi_4 };
+  doubleComplex in[4];
   doubleComplex out[4];
   int i = 0;
 
-  zsina(in, out, 4);
+  in[0] = DoubleComplex(PI, PI);
+  in[1] = DoubleComplex(PI/2, PI/2);
+  in[2] = DoubleComplex(PI/2, PI/3);
+  in[3] = DoubleComplex(PI/2, PI/4);
+
+  zsina(in, 4, out);
   printf(">> Double Complex Array\n");
   for (i = 0 ; i < 4 ; ++i)
     printf("zsina(array) = %e + I * %e\n", zreals(out[i]), zimags(out[i]));
