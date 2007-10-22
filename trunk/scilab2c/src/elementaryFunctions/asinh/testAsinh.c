@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:05:44 2006 jofret
-** Last update Thu Sep  6 11:20:54 2007 bruno
+** Last update Mon Oct 22 14:17:39 2007 bruno
 **
 ** Copyright INRIA 2006
 */
@@ -84,7 +84,7 @@ void sasinhaTest(void) {
   int i = 0;
 
   printf(">> Float array\n");
-  sasinha(in, out, 5);
+  sasinha(in, 5, out);
   for (i = 0 ; i < 5 ; ++i)
     printf("sasinha(array) = %f\n", out[i]);
 }
@@ -95,37 +95,39 @@ void dasinhaTest(void) {
   int i = 0;
 
   printf(">> Double Array\n");
-  dasinha(in, out, 5);
+  dasinha(in, 5, out);
   for (i = 0 ; i < 5 ; ++i)
     printf("sasinha(array) = %f\n", out[i]);
 
 }
 
 void casinhaTest(void) {
-  floatComplex pi_pi = FloatComplex(PI, PI);
-  floatComplex pi_2_pi_2 = FloatComplex(PI/2, PI/2);
-  floatComplex pi_2_pi_3 = FloatComplex(PI/2, PI/3);
-  floatComplex pi_2_pi_4 = FloatComplex(PI/2, PI/4);
-  floatComplex in[4] = {pi_pi, pi_2_pi_2, pi_2_pi_3, pi_2_pi_4};
+  floatComplex in[4];
   floatComplex out[4];
   int i = 0;
 
-  casinha(in, out, 4);
+  in[0] = FloatComplex(PI, PI);
+  in[1] = FloatComplex(PI/2, PI/2);
+  in[2] = FloatComplex(PI/2, PI/3);
+  in[3] = FloatComplex(PI/2, PI/4);
+
+  casinha(in, 4, out);
   printf(">> Float Complex Array\n");
   for (i = 0 ; i < 4 ; ++i)
     printf("casinha(array) = %e + I * %e\n", creals(out[i]), cimags(out[i]));
 }
 
 void zasinhaTest(void) {
-  doubleComplex pi_pi = DoubleComplex(PI, PI);
-  doubleComplex pi_2_pi_2 = DoubleComplex(PI/2, PI/2);
-  doubleComplex pi_2_pi_3 = DoubleComplex(PI/2, PI/3);
-  doubleComplex pi_2_pi_4 = DoubleComplex(PI/2, PI/4);
-  doubleComplex in[4] = {pi_pi, pi_2_pi_2, pi_2_pi_3, pi_2_pi_4 };
+  doubleComplex in[4];
   doubleComplex out[4];
   int i = 0;
 
-  zasinha(in, out, 4);
+  in[0] = DoubleComplex(PI, PI);
+  in[1] = DoubleComplex(PI/2, PI/2);
+  in[2] = DoubleComplex(PI/2, PI/3);
+  in[3] = DoubleComplex(PI/2, PI/4);
+
+  zasinha(in, 4, out);
   printf(">> Double Complex Array\n");
   for (i = 0 ; i < 4 ; ++i)
     printf("zasinha(array) = %e + I * %e\n", zreals(out[i]), zimags(out[i]));

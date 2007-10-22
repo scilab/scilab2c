@@ -5,14 +5,14 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Thu Dec  7 16:03:27 2006 jofret
-** Last update Mon Mar 19 11:33:11 2007 jofret
+** Last update Mon Oct 22 09:46:19 2007 bruno
 **
 ** Copyright INRIA 2006
 */
 
 #include "tan.h"
 
-void stana(float* x, float* y, int size) {
+void stana(float* x, int size, float* y) {
   int i = 0;
   for (i = 0; i < size; ++i) {
     y[i] = stans(x[i]);

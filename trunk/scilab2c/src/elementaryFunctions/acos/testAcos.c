@@ -5,7 +5,7 @@
 ** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
 **
 ** Started on  Fri Dec  8 15:05:44 2006 jofret
-** Last update Fri Apr 20 10:24:42 2007 jofret
+** Last update Mon Oct 22 11:55:22 2007 bruno
 **
 ** Copyright INRIA 2006
 */
@@ -84,7 +84,7 @@ void sacosaTest(void) {
   int i = 0;
 
   printf(">> Float array\n");
-  sacosa(in, out, 5);
+  sacosa(in, 5, out);
   for (i = 0 ; i < 5 ; ++i)
     printf("sacosa(array) = %f\n", out[i]);
 }
@@ -95,37 +95,39 @@ void dacosaTest(void) {
   int i = 0;
 
   printf(">> Double Array\n");
-  dacosa(in, out, 5);
+  dacosa(in, 5, out);
   for (i = 0 ; i < 5 ; ++i)
     printf("sacosa(array) = %f\n", out[i]);
 
 }
 
 void cacosaTest(void) {
-  floatComplex pi_pi = FloatComplex(PI, PI);
-  floatComplex pi_2_pi_2 = FloatComplex(PI/2, PI/2);
-  floatComplex pi_2_pi_3 = FloatComplex(PI/2, PI/3);
-  floatComplex pi_2_pi_4 = FloatComplex(PI/2, PI/4);
-  floatComplex in[4] = {pi_pi, pi_2_pi_2, pi_2_pi_3, pi_2_pi_4};
+  floatComplex in[4];
   floatComplex out[4];
   int i = 0;
 
-  cacosa(in, out, 4);
+  in[0] = FloatComplex(PI, PI);
+  in[1] = FloatComplex(PI/2, PI/2);
+  in[2] = FloatComplex(PI/2, PI/3);
+  in[3] = FloatComplex(PI/2, PI/4);
+
+  cacosa(in, 4, out);
   printf(">> Float Complex Array\n");
   for (i = 0 ; i < 4 ; ++i)
     printf("cacosa(array) = %e + I * %e\n", creals(out[i]), cimags(out[i]));
 }
 
 void zacosaTest(void) {
-  doubleComplex pi_pi = DoubleComplex(PI, PI);
-  doubleComplex pi_2_pi_2 = DoubleComplex(PI/2, PI/2);
-  doubleComplex pi_2_pi_3 = DoubleComplex(PI/2, PI/3);
-  doubleComplex pi_2_pi_4 = DoubleComplex(PI/2, PI/4);
-  doubleComplex in[4] = {pi_pi, pi_2_pi_2, pi_2_pi_3, pi_2_pi_4 };
+  doubleComplex in[4];
   doubleComplex out[4];
   int i = 0;
 
-  zacosa(in, out, 4);
+  in[0] = DoubleComplex(PI, PI);
+  in[1] = DoubleComplex(PI/2, PI/2);
+  in[2] = DoubleComplex(PI/2, PI/3);
+  in[3] = DoubleComplex(PI/2, PI/4);
+
+  zacosa(in, 4, out);
   printf(">> Double Complex Array\n");
   for (i = 0 ; i < 4 ; ++i)
     printf("zacosa(array) = %e + I * %e\n", zreals(out[i]), zimags(out[i]));
