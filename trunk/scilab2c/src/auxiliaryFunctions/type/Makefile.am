@@ -1,25 +1,23 @@
 ##
-##  -*- makefile -*-
+##  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+##  Copyright (C) 2007-2008 - INRIA - Bruno JOFRET
 ##
-## Makefile
-## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
+##  This file must be used under the terms of the CeCILL.
+##  This source file is licensed as described in the file COPYING, which
+##  you should have received as part of this distribution.  The terms
+##  are also available at
+##  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 ##
-## Started on  Fri Jan  5 10:19:16 2007 jofret
-## Last update Wed Apr 18 18:46:31 2007 jofret
-##
-## Copyright INRIA 2007
 ##
 
-AM_CFLAGS =	-I ../../type \
+libType_la_CFLAGS =	-I ../../type \
 		-I ../includes
 
 instdir = $(top_builddir)/lib
 
-inst_LIBRARIES =	libType.a
+pkglib_LTLIBRARIES =	libType.la
 
-noinst_LIBRARIES =	libType.a
-
-libType_a_SOURCES =	$(HEAD) $(SRC)
+libType_la_SOURCES =	$(HEAD) $(SRC)
 
 SRC	=	stypes.c \
 		dtypes.c \
@@ -48,7 +46,7 @@ TESTS		=	testType
 #
 testType_SOURCES = 	testType.c
 testType_CFLAGS	=	$(check_INCLUDES)
-testType_LDADD	=	$(top_builddir)/lib/libDoubleComplex.a \
-			$(top_builddir)/lib/libFloatComplex.a \
-			$(top_builddir)/lib/libType.a \
+testType_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/auxiliaryFunctions/type/libType.la \
 			@LIBMATH@

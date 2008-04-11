@@ -1,13 +1,13 @@
 ##
-##  -*- makefile -*-
+##  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+##  Copyright (C) 2006-2008 - INRIA - Bruno JOFRET
 ##
-## Makefile
-## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
+##  This file must be used under the terms of the CeCILL.
+##  This source file is licensed as described in the file COPYING, which
+##  you should have received as part of this distribution.  The terms
+##  are also available at
+##  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 ##
-## Started on  Fri Jan  5 10:19:16 2007 jofret
-## Last update Tue Apr 24 16:05:30 2007 jofret
-##
-## Copyright INRIA 2007
 ##
 
 AM_CFLAGS =	-I ../../type \
@@ -15,11 +15,9 @@ AM_CFLAGS =	-I ../../type \
 
 instdir = $(top_builddir)/lib
 
-inst_LIBRARIES =	libFind.a
+pkglib_LTLIBRARIES =	libFind.la
 
-noinst_LIBRARIES =	libFind.a
-
-libFind_a_SOURCES =	$(HEAD) $(SRC)
+libFind_la_SOURCES =	$(HEAD) $(SRC)
 
 SRC	=	sfinda.c \
 		dfinda.c \
@@ -44,7 +42,7 @@ TESTS		=	testFind
 #
 testFind_SOURCES = 	testFind.c
 testFind_CFLAGS	=	$(check_INCLUDES)
-testFind_LDADD	=	$(top_builddir)/lib/libDoubleComplex.a \
-			$(top_builddir)/lib/libFloatComplex.a \
-			$(top_builddir)/lib/libFind.a \
+testFind_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/auxiliaryFunctions/find/libFind.la \
 			@LIBMATH@
