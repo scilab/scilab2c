@@ -1,26 +1,24 @@
 ##
-##  -*- makefile -*-
+##  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+##  Copyright (C) 2007-2008 - INRIA - Bruno JOFRET
 ##
-## Makefile
-## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
+##  This file must be used under the terms of the CeCILL.
+##  This source file is licensed as described in the file COPYING, which
+##  you should have received as part of this distribution.  The terms
+##  are also available at
+##  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 ##
-## Started on  Fri Jan  5 10:19:16 2007 jofret
-## Last update Thu Aug 16 11:46:20 2007 bruno
-##
-## Copyright INRIA 2007
 ##
 
-AM_CFLAGS =	-I ../../type \
-		-I ../includes \
-		-I ../../elementaryFunctions/includes
+libPythag_la_CFLAGS =	-I ../../type \
+			-I ../includes \
+			-I ../../elementaryFunctions/includes
 
 instdir = $(top_builddir)/lib
 
-inst_LIBRARIES =	libPythag.a
+pkglib_LTLIBRARIES =	libPythag.la
 
-noinst_LIBRARIES =	libPythag.a
-
-libPythag_a_SOURCES =	$(HEAD) $(SRC)
+libPythag_la_SOURCES =	$(HEAD) $(SRC)
 
 SRC	=	spythags.c \
 		dpythags.c \
@@ -45,6 +43,8 @@ TESTS		=	testPythag
 #
 testPythag_SOURCES = 	testPythag.c
 testPythag_CFLAGS  =	$(check_INCLUDES)
-testPythag_LDADD   =	$(top_builddir)/lib/libPythag.a \
-			$(top_builddir)/lib/libSqrt.a \
+testPythag_LDADD   =	$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
+			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
 			@LIBMATH@
