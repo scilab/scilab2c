@@ -1,6 +1,6 @@
 /*
  *  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
- *  Copyright (C) 2007-2008 - INRIA - Bruno JOFRET
+ *  Copyright (C) 2008-2008 - INRIA - Bruno JOFRET
  *
  *  This file must be used under the terms of the CeCILL.
  *  This source file is licensed as described in the file COPYING, which
@@ -10,15 +10,21 @@
  *
  */
 
+#ifndef __TESTSIGN_H__
+#define __TESTSIGN_H__
+
+#include <stdio.h>
+#include <assert.h>
 #include "sign.h"
 
-int dsigns(double num) {
-  if (num > 0) {
-    return 1;
-  }
-  if (num < 0) {
-    return -1;
-  }
-  /* num == 0 */
-  return 0;
-}
+int ssignsTest(void);
+
+int dsignsTest(void);
+
+int csignsTest(void);
+
+int zsignsTest(void);
+
+int testSign(void);
+
+#endif /* ! __TESTSIGN_H__ */
