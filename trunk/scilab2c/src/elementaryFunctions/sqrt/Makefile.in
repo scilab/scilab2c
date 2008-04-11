@@ -37,8 +37,7 @@ TESTS = testSqrt$(EXEEXT)
 subdir = elementaryFunctions/sqrt
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/m4/fortran.m4 \
-	$(top_srcdir)/configure.ac
+am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(install_sh) -d
@@ -50,40 +49,47 @@ am__vpath_adj = case $$p in \
     *) f=$$p;; \
   esac;
 am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
-am__installdirs = "$(DESTDIR)$(instdir)"
-instLIBRARIES_INSTALL = $(INSTALL_DATA)
-LIBRARIES = $(inst_LIBRARIES) $(noinst_LIBRARIES)
-AR = ar
-ARFLAGS = cru
-libSqrt_a_AR = $(AR) $(ARFLAGS)
-libSqrt_a_LIBADD =
+am__installdirs = "$(DESTDIR)$(pkglibdir)"
+pkglibLTLIBRARIES_INSTALL = $(INSTALL)
+LTLIBRARIES = $(pkglib_LTLIBRARIES)
+libSqrt_la_LIBADD =
 am__objects_1 =
-am__objects_2 = ssqrts.$(OBJEXT) dsqrts.$(OBJEXT) csqrts.$(OBJEXT) \
-	zsqrts.$(OBJEXT) ssqrta.$(OBJEXT) dsqrta.$(OBJEXT) \
-	csqrta.$(OBJEXT) zsqrta.$(OBJEXT)
-am_libSqrt_a_OBJECTS = $(am__objects_1) $(am__objects_2)
-libSqrt_a_OBJECTS = $(am_libSqrt_a_OBJECTS)
+am__objects_2 = libSqrt_la-ssqrts.lo libSqrt_la-dsqrts.lo \
+	libSqrt_la-csqrts.lo libSqrt_la-zsqrts.lo libSqrt_la-ssqrta.lo \
+	libSqrt_la-dsqrta.lo libSqrt_la-csqrta.lo libSqrt_la-zsqrta.lo
+am_libSqrt_la_OBJECTS = $(am__objects_1) $(am__objects_2)
+libSqrt_la_OBJECTS = $(am_libSqrt_la_OBJECTS)
+libSqrt_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libSqrt_la_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_testSqrt_OBJECTS = testSqrt-testSqrt.$(OBJEXT)
 testSqrt_OBJECTS = $(am_testSqrt_OBJECTS)
-testSqrt_DEPENDENCIES = $(top_builddir)/lib/libDoubleComplex.a \
-	$(top_builddir)/lib/libFloatComplex.a \
-	$(top_builddir)/lib/libSqrt.a
-testSqrt_LINK = $(CCLD) $(testSqrt_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+testSqrt_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
+	$(top_builddir)/type/libFloatComplex.la \
+	$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la
+testSqrt_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=link $(CCLD) $(testSqrt_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/includes@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+LTCOMPILE = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
+	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
-LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(libSqrt_a_SOURCES) $(testSqrt_SOURCES)
-DIST_SOURCES = $(libSqrt_a_SOURCES) $(testSqrt_SOURCES)
+LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
+SOURCES = $(libSqrt_la_SOURCES) $(testSqrt_SOURCES)
+DIST_SOURCES = $(libSqrt_la_SOURCES) $(testSqrt_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
 AMTAR = @AMTAR@
+AR = @AR@
 AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
 AUTOMAKE = @AUTOMAKE@
@@ -94,11 +100,13 @@ CFLAGS = @CFLAGS@
 CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
 CXX = @CXX@
+CXXCPP = @CXXCPP@
 CXXDEPMODE = @CXXDEPMODE@
 CXXFLAGS = @CXXFLAGS@
 CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
+ECHO = @ECHO@
 ECHO_C = @ECHO_C@
 ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
@@ -116,6 +124,7 @@ LDFLAGS = @LDFLAGS@
 LIBMATH = @LIBMATH@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
+LIBTOOL = @LIBTOOL@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
@@ -130,6 +139,7 @@ PACKAGE_TARNAME = @PACKAGE_TARNAME@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
 RANLIB = @RANLIB@
+SED = @SED@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STRIP = @STRIP@
@@ -185,13 +195,12 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-AM_CFLAGS = -I ../../type \
+libSqrt_la_CFLAGS = -I ../../type \
 		-I ../includes
 
 instdir = $(top_builddir)/lib
-inst_LIBRARIES = libSqrt.a
-noinst_LIBRARIES = libSqrt.a
-libSqrt_a_SOURCES = $(HEAD) $(SRC)
+pkglib_LTLIBRARIES = libSqrt.la
+libSqrt_la_SOURCES = $(HEAD) $(SRC)
 SRC = ssqrts.c \
 		dsqrts.c \
 		csqrts.c \
@@ -215,15 +224,15 @@ check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
 #
 testSqrt_SOURCES = testSqrt.c
 testSqrt_CFLAGS = $(check_INCLUDES)
-testSqrt_LDADD = $(top_builddir)/lib/libDoubleComplex.a \
-			$(top_builddir)/lib/libFloatComplex.a \
-			$(top_builddir)/lib/libSqrt.a \
+testSqrt_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
 			@LIBMATH@
 
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .c .o .obj
+.SUFFIXES: .c .lo .o .obj
 $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -253,45 +262,42 @@ $(top_srcdir)/configure: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
-install-instLIBRARIES: $(inst_LIBRARIES)
+install-pkglibLTLIBRARIES: $(pkglib_LTLIBRARIES)
 	@$(NORMAL_INSTALL)
-	test -z "$(instdir)" || $(MKDIR_P) "$(DESTDIR)$(instdir)"
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
+	test -z "$(pkglibdir)" || $(MKDIR_P) "$(DESTDIR)$(pkglibdir)"
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
 	  if test -f $$p; then \
 	    f=$(am__strip_dir) \
-	    echo " $(instLIBRARIES_INSTALL) '$$p' '$(DESTDIR)$(instdir)/$$f'"; \
-	    $(instLIBRARIES_INSTALL) "$$p" "$(DESTDIR)$(instdir)/$$f"; \
-	  else :; fi; \
-	done
-	@$(POST_INSTALL)
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
-	  if test -f $$p; then \
-	    p=$(am__strip_dir) \
-	    echo " $(RANLIB) '$(DESTDIR)$(instdir)/$$p'"; \
-	    $(RANLIB) "$(DESTDIR)$(instdir)/$$p"; \
+	    echo " $(LIBTOOL) --mode=install $(pkglibLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) '$$p' '$(DESTDIR)$(pkglibdir)/$$f'"; \
+	    $(LIBTOOL) --mode=install $(pkglibLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) "$$p" "$(DESTDIR)$(pkglibdir)/$$f"; \
 	  else :; fi; \
 	done
 
-uninstall-instLIBRARIES:
+uninstall-pkglibLTLIBRARIES:
 	@$(NORMAL_UNINSTALL)
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
 	  p=$(am__strip_dir) \
-	  echo " rm -f '$(DESTDIR)$(instdir)/$$p'"; \
-	  rm -f "$(DESTDIR)$(instdir)/$$p"; \
+	  echo " $(LIBTOOL) --mode=uninstall rm -f '$(DESTDIR)$(pkglibdir)/$$p'"; \
+	  $(LIBTOOL) --mode=uninstall rm -f "$(DESTDIR)$(pkglibdir)/$$p"; \
 	done
 
-clean-instLIBRARIES:
-	-test -z "$(inst_LIBRARIES)" || rm -f $(inst_LIBRARIES)
-
-clean-noinstLIBRARIES:
-	-test -z "$(noinst_LIBRARIES)" || rm -f $(noinst_LIBRARIES)
-libSqrt.a: $(libSqrt_a_OBJECTS) $(libSqrt_a_DEPENDENCIES) 
-	-rm -f libSqrt.a
-	$(libSqrt_a_AR) libSqrt.a $(libSqrt_a_OBJECTS) $(libSqrt_a_LIBADD)
-	$(RANLIB) libSqrt.a
+clean-pkglibLTLIBRARIES:
+	-test -z "$(pkglib_LTLIBRARIES)" || rm -f $(pkglib_LTLIBRARIES)
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
+	  dir="`echo $$p | sed -e 's|/[^/]*$$||'`"; \
+	  test "$$dir" != "$$p" || dir=.; \
+	  echo "rm -f \"$${dir}/so_locations\""; \
+	  rm -f "$${dir}/so_locations"; \
+	done
+libSqrt.la: $(libSqrt_la_OBJECTS) $(libSqrt_la_DEPENDENCIES) 
+	$(libSqrt_la_LINK) -rpath $(pkglibdir) $(libSqrt_la_OBJECTS) $(libSqrt_la_LIBADD) $(LIBS)
 
 clean-checkPROGRAMS:
-	-test -z "$(check_PROGRAMS)" || rm -f $(check_PROGRAMS)
+	@list='$(check_PROGRAMS)'; for p in $$list; do \
+	  f=`echo $$p|sed 's/$(EXEEXT)$$//'`; \
+	  echo " rm -f $$p $$f"; \
+	  rm -f $$p $$f ; \
+	done
 testSqrt$(EXEEXT): $(testSqrt_OBJECTS) $(testSqrt_DEPENDENCIES) 
 	@rm -f testSqrt$(EXEEXT)
 	$(testSqrt_LINK) $(testSqrt_OBJECTS) $(testSqrt_LDADD) $(LIBS)
@@ -302,15 +308,15 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/csqrta.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/csqrts.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dsqrta.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dsqrts.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ssqrta.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ssqrts.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSqrt_la-csqrta.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSqrt_la-csqrts.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSqrt_la-dsqrta.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSqrt_la-dsqrts.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSqrt_la-ssqrta.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSqrt_la-ssqrts.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSqrt_la-zsqrta.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSqrt_la-zsqrts.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testSqrt-testSqrt.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zsqrta.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zsqrts.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -326,6 +332,69 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(COMPILE) -c `$(CYGPATH_W) '$<'`
 
+.c.lo:
+@am__fastdepCC_TRUE@	$(LTCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
+
+libSqrt_la-ssqrts.lo: ssqrts.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSqrt_la_CFLAGS) $(CFLAGS) -MT libSqrt_la-ssqrts.lo -MD -MP -MF $(DEPDIR)/libSqrt_la-ssqrts.Tpo -c -o libSqrt_la-ssqrts.lo `test -f 'ssqrts.c' || echo '$(srcdir)/'`ssqrts.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSqrt_la-ssqrts.Tpo $(DEPDIR)/libSqrt_la-ssqrts.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ssqrts.c' object='libSqrt_la-ssqrts.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSqrt_la_CFLAGS) $(CFLAGS) -c -o libSqrt_la-ssqrts.lo `test -f 'ssqrts.c' || echo '$(srcdir)/'`ssqrts.c
+
+libSqrt_la-dsqrts.lo: dsqrts.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSqrt_la_CFLAGS) $(CFLAGS) -MT libSqrt_la-dsqrts.lo -MD -MP -MF $(DEPDIR)/libSqrt_la-dsqrts.Tpo -c -o libSqrt_la-dsqrts.lo `test -f 'dsqrts.c' || echo '$(srcdir)/'`dsqrts.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSqrt_la-dsqrts.Tpo $(DEPDIR)/libSqrt_la-dsqrts.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dsqrts.c' object='libSqrt_la-dsqrts.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSqrt_la_CFLAGS) $(CFLAGS) -c -o libSqrt_la-dsqrts.lo `test -f 'dsqrts.c' || echo '$(srcdir)/'`dsqrts.c
+
+libSqrt_la-csqrts.lo: csqrts.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSqrt_la_CFLAGS) $(CFLAGS) -MT libSqrt_la-csqrts.lo -MD -MP -MF $(DEPDIR)/libSqrt_la-csqrts.Tpo -c -o libSqrt_la-csqrts.lo `test -f 'csqrts.c' || echo '$(srcdir)/'`csqrts.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSqrt_la-csqrts.Tpo $(DEPDIR)/libSqrt_la-csqrts.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='csqrts.c' object='libSqrt_la-csqrts.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSqrt_la_CFLAGS) $(CFLAGS) -c -o libSqrt_la-csqrts.lo `test -f 'csqrts.c' || echo '$(srcdir)/'`csqrts.c
+
+libSqrt_la-zsqrts.lo: zsqrts.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSqrt_la_CFLAGS) $(CFLAGS) -MT libSqrt_la-zsqrts.lo -MD -MP -MF $(DEPDIR)/libSqrt_la-zsqrts.Tpo -c -o libSqrt_la-zsqrts.lo `test -f 'zsqrts.c' || echo '$(srcdir)/'`zsqrts.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSqrt_la-zsqrts.Tpo $(DEPDIR)/libSqrt_la-zsqrts.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zsqrts.c' object='libSqrt_la-zsqrts.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSqrt_la_CFLAGS) $(CFLAGS) -c -o libSqrt_la-zsqrts.lo `test -f 'zsqrts.c' || echo '$(srcdir)/'`zsqrts.c
+
+libSqrt_la-ssqrta.lo: ssqrta.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSqrt_la_CFLAGS) $(CFLAGS) -MT libSqrt_la-ssqrta.lo -MD -MP -MF $(DEPDIR)/libSqrt_la-ssqrta.Tpo -c -o libSqrt_la-ssqrta.lo `test -f 'ssqrta.c' || echo '$(srcdir)/'`ssqrta.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSqrt_la-ssqrta.Tpo $(DEPDIR)/libSqrt_la-ssqrta.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ssqrta.c' object='libSqrt_la-ssqrta.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSqrt_la_CFLAGS) $(CFLAGS) -c -o libSqrt_la-ssqrta.lo `test -f 'ssqrta.c' || echo '$(srcdir)/'`ssqrta.c
+
+libSqrt_la-dsqrta.lo: dsqrta.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSqrt_la_CFLAGS) $(CFLAGS) -MT libSqrt_la-dsqrta.lo -MD -MP -MF $(DEPDIR)/libSqrt_la-dsqrta.Tpo -c -o libSqrt_la-dsqrta.lo `test -f 'dsqrta.c' || echo '$(srcdir)/'`dsqrta.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSqrt_la-dsqrta.Tpo $(DEPDIR)/libSqrt_la-dsqrta.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dsqrta.c' object='libSqrt_la-dsqrta.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSqrt_la_CFLAGS) $(CFLAGS) -c -o libSqrt_la-dsqrta.lo `test -f 'dsqrta.c' || echo '$(srcdir)/'`dsqrta.c
+
+libSqrt_la-csqrta.lo: csqrta.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSqrt_la_CFLAGS) $(CFLAGS) -MT libSqrt_la-csqrta.lo -MD -MP -MF $(DEPDIR)/libSqrt_la-csqrta.Tpo -c -o libSqrt_la-csqrta.lo `test -f 'csqrta.c' || echo '$(srcdir)/'`csqrta.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSqrt_la-csqrta.Tpo $(DEPDIR)/libSqrt_la-csqrta.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='csqrta.c' object='libSqrt_la-csqrta.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSqrt_la_CFLAGS) $(CFLAGS) -c -o libSqrt_la-csqrta.lo `test -f 'csqrta.c' || echo '$(srcdir)/'`csqrta.c
+
+libSqrt_la-zsqrta.lo: zsqrta.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSqrt_la_CFLAGS) $(CFLAGS) -MT libSqrt_la-zsqrta.lo -MD -MP -MF $(DEPDIR)/libSqrt_la-zsqrta.Tpo -c -o libSqrt_la-zsqrta.lo `test -f 'zsqrta.c' || echo '$(srcdir)/'`zsqrta.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSqrt_la-zsqrta.Tpo $(DEPDIR)/libSqrt_la-zsqrta.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zsqrta.c' object='libSqrt_la-zsqrta.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSqrt_la_CFLAGS) $(CFLAGS) -c -o libSqrt_la-zsqrta.lo `test -f 'zsqrta.c' || echo '$(srcdir)/'`zsqrta.c
+
 testSqrt-testSqrt.o: testSqrt.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSqrt_CFLAGS) $(CFLAGS) -MT testSqrt-testSqrt.o -MD -MP -MF $(DEPDIR)/testSqrt-testSqrt.Tpo -c -o testSqrt-testSqrt.o `test -f 'testSqrt.c' || echo '$(srcdir)/'`testSqrt.c
 @am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testSqrt-testSqrt.Tpo $(DEPDIR)/testSqrt-testSqrt.Po
@@ -339,6 +408,12 @@ testSqrt-testSqrt.obj: testSqrt.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testSqrt.c' object='testSqrt-testSqrt.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSqrt_CFLAGS) $(CFLAGS) -c -o testSqrt-testSqrt.obj `if test -f 'testSqrt.c'; then $(CYGPATH_W) 'testSqrt.c'; else $(CYGPATH_W) '$(srcdir)/testSqrt.c'; fi`
+
+mostlyclean-libtool:
+	-rm -f *.lo
+
+clean-libtool:
+	-rm -rf .libs _libs
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
@@ -491,9 +566,9 @@ check-am: all-am
 	$(MAKE) $(AM_MAKEFLAGS) $(check_PROGRAMS)
 	$(MAKE) $(AM_MAKEFLAGS) check-TESTS
 check: check-am
-all-am: Makefile $(LIBRARIES)
+all-am: Makefile $(LTLIBRARIES)
 installdirs:
-	for dir in "$(DESTDIR)$(instdir)"; do \
+	for dir in "$(DESTDIR)$(pkglibdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -522,8 +597,8 @@ maintainer-clean-generic:
 	@echo "it deletes files that may require special tools to rebuild."
 clean: clean-am
 
-clean-am: clean-checkPROGRAMS clean-generic clean-instLIBRARIES \
-	clean-noinstLIBRARIES mostlyclean-am
+clean-am: clean-checkPROGRAMS clean-generic clean-libtool \
+	clean-pkglibLTLIBRARIES mostlyclean-am
 
 distclean: distclean-am
 	-rm -rf ./$(DEPDIR)
@@ -541,11 +616,11 @@ info: info-am
 
 info-am:
 
-install-data-am: install-instLIBRARIES
+install-data-am:
 
 install-dvi: install-dvi-am
 
-install-exec-am:
+install-exec-am: install-pkglibLTLIBRARIES
 
 install-html: install-html-am
 
@@ -566,7 +641,8 @@ maintainer-clean-am: distclean-am maintainer-clean-generic
 
 mostlyclean: mostlyclean-am
 
-mostlyclean-am: mostlyclean-compile mostlyclean-generic
+mostlyclean-am: mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool
 
 pdf: pdf-am
 
@@ -576,23 +652,24 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-instLIBRARIES
+uninstall-am: uninstall-pkglibLTLIBRARIES
 
 .MAKE: install-am install-strip
 
 .PHONY: CTAGS GTAGS all all-am check check-TESTS check-am clean \
-	clean-checkPROGRAMS clean-generic clean-instLIBRARIES \
-	clean-noinstLIBRARIES ctags distclean distclean-compile \
-	distclean-generic distclean-tags distdir dvi dvi-am html \
-	html-am info info-am install install-am install-data \
-	install-data-am install-dvi install-dvi-am install-exec \
-	install-exec-am install-html install-html-am install-info \
-	install-info-am install-instLIBRARIES install-man install-pdf \
-	install-pdf-am install-ps install-ps-am install-strip \
-	installcheck installcheck-am installdirs maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-compile \
-	mostlyclean-generic pdf pdf-am ps ps-am tags uninstall \
-	uninstall-am uninstall-instLIBRARIES
+	clean-checkPROGRAMS clean-generic clean-libtool \
+	clean-pkglibLTLIBRARIES ctags distclean distclean-compile \
+	distclean-generic distclean-libtool distclean-tags distdir dvi \
+	dvi-am html html-am info info-am install install-am \
+	install-data install-data-am install-dvi install-dvi-am \
+	install-exec install-exec-am install-html install-html-am \
+	install-info install-info-am install-man install-pdf \
+	install-pdf-am install-pkglibLTLIBRARIES install-ps \
+	install-ps-am install-strip installcheck installcheck-am \
+	installdirs maintainer-clean maintainer-clean-generic \
+	mostlyclean mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool pdf pdf-am ps ps-am tags uninstall \
+	uninstall-am uninstall-pkglibLTLIBRARIES
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

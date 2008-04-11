@@ -37,8 +37,7 @@ TESTS = testCos$(EXEEXT)
 subdir = elementaryFunctions/cos
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/m4/fortran.m4 \
-	$(top_srcdir)/configure.ac
+am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(install_sh) -d
@@ -50,41 +49,50 @@ am__vpath_adj = case $$p in \
     *) f=$$p;; \
   esac;
 am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
-am__installdirs = "$(DESTDIR)$(instdir)"
-instLIBRARIES_INSTALL = $(INSTALL_DATA)
-LIBRARIES = $(inst_LIBRARIES) $(noinst_LIBRARIES)
-AR = ar
-ARFLAGS = cru
-libCos_a_AR = $(AR) $(ARFLAGS)
-libCos_a_LIBADD =
+am__installdirs = "$(DESTDIR)$(pkglibdir)"
+pkglibLTLIBRARIES_INSTALL = $(INSTALL)
+LTLIBRARIES = $(pkglib_LTLIBRARIES)
+libCos_la_LIBADD =
 am__objects_1 =
-am__objects_2 = scoss.$(OBJEXT) dcoss.$(OBJEXT) ccoss.$(OBJEXT) \
-	zcoss.$(OBJEXT) scosa.$(OBJEXT) dcosa.$(OBJEXT) \
-	ccosa.$(OBJEXT) zcosa.$(OBJEXT)
-am_libCos_a_OBJECTS = $(am__objects_1) $(am__objects_2)
-libCos_a_OBJECTS = $(am_libCos_a_OBJECTS)
+am__objects_2 = libCos_la-scoss.lo libCos_la-dcoss.lo \
+	libCos_la-ccoss.lo libCos_la-zcoss.lo libCos_la-scosa.lo \
+	libCos_la-dcosa.lo libCos_la-ccosa.lo libCos_la-zcosa.lo
+am_libCos_la_OBJECTS = $(am__objects_1) $(am__objects_2)
+libCos_la_OBJECTS = $(am_libCos_la_OBJECTS)
+libCos_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libCos_la_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_testCos_OBJECTS = testCos-testCos.$(OBJEXT)
 testCos_OBJECTS = $(am_testCos_OBJECTS)
-testCos_DEPENDENCIES = $(top_builddir)/lib/libDoubleComplex.a \
-	$(top_builddir)/lib/libFloatComplex.a \
-	$(top_builddir)/lib/libCos.a $(top_builddir)/lib/libSin.a \
-	$(top_builddir)/lib/libCosh.a $(top_builddir)/lib/libSinh.a
-testCos_LINK = $(CCLD) $(testCos_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+testCos_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
+	$(top_builddir)/type/libFloatComplex.la \
+	$(top_builddir)/elementaryFunctions/cos/libCos.la \
+	$(top_builddir)/elementaryFunctions/sin/libSin.la \
+	$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
+	$(top_builddir)/elementaryFunctions/sinh/libSinh.la
+testCos_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=link $(CCLD) $(testCos_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/includes@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+LTCOMPILE = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
+	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
-LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(libCos_a_SOURCES) $(testCos_SOURCES)
-DIST_SOURCES = $(libCos_a_SOURCES) $(testCos_SOURCES)
+LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
+SOURCES = $(libCos_la_SOURCES) $(testCos_SOURCES)
+DIST_SOURCES = $(libCos_la_SOURCES) $(testCos_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
 AMTAR = @AMTAR@
+AR = @AR@
 AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
 AUTOMAKE = @AUTOMAKE@
@@ -95,11 +103,13 @@ CFLAGS = @CFLAGS@
 CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
 CXX = @CXX@
+CXXCPP = @CXXCPP@
 CXXDEPMODE = @CXXDEPMODE@
 CXXFLAGS = @CXXFLAGS@
 CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
+ECHO = @ECHO@
 ECHO_C = @ECHO_C@
 ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
@@ -117,6 +127,7 @@ LDFLAGS = @LDFLAGS@
 LIBMATH = @LIBMATH@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
+LIBTOOL = @LIBTOOL@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
@@ -131,6 +142,7 @@ PACKAGE_TARNAME = @PACKAGE_TARNAME@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
 RANLIB = @RANLIB@
+SED = @SED@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STRIP = @STRIP@
@@ -186,13 +198,12 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-AM_CFLAGS = -I ../../type \
+libCos_la_CFLAGS = -I ../../type \
 		-I ../includes
 
 instdir = $(top_builddir)/lib
-inst_LIBRARIES = libCos.a
-noinst_LIBRARIES = libCos.a
-libCos_a_SOURCES = $(HEAD) $(SRC)
+pkglib_LTLIBRARIES = libCos.la
+libCos_la_SOURCES = $(HEAD) $(SRC)
 SRC = scoss.c \
 		dcoss.c \
 		ccoss.c \
@@ -216,18 +227,18 @@ check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
 #
 testCos_SOURCES = testCos.c
 testCos_CFLAGS = $(check_INCLUDES)
-testCos_LDADD = $(top_builddir)/lib/libDoubleComplex.a \
-			$(top_builddir)/lib/libFloatComplex.a \
-			$(top_builddir)/lib/libCos.a \
-			$(top_builddir)/lib/libSin.a \
-			$(top_builddir)/lib/libCosh.a \
-			$(top_builddir)/lib/libSinh.a \
+testCos_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/elementaryFunctions/cos/libCos.la \
+			$(top_builddir)/elementaryFunctions/sin/libSin.la \
+			$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
+			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
 			@LIBMATH@
 
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .c .o .obj
+.SUFFIXES: .c .lo .o .obj
 $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -257,45 +268,42 @@ $(top_srcdir)/configure: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
-install-instLIBRARIES: $(inst_LIBRARIES)
+install-pkglibLTLIBRARIES: $(pkglib_LTLIBRARIES)
 	@$(NORMAL_INSTALL)
-	test -z "$(instdir)" || $(MKDIR_P) "$(DESTDIR)$(instdir)"
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
+	test -z "$(pkglibdir)" || $(MKDIR_P) "$(DESTDIR)$(pkglibdir)"
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
 	  if test -f $$p; then \
 	    f=$(am__strip_dir) \
-	    echo " $(instLIBRARIES_INSTALL) '$$p' '$(DESTDIR)$(instdir)/$$f'"; \
-	    $(instLIBRARIES_INSTALL) "$$p" "$(DESTDIR)$(instdir)/$$f"; \
-	  else :; fi; \
-	done
-	@$(POST_INSTALL)
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
-	  if test -f $$p; then \
-	    p=$(am__strip_dir) \
-	    echo " $(RANLIB) '$(DESTDIR)$(instdir)/$$p'"; \
-	    $(RANLIB) "$(DESTDIR)$(instdir)/$$p"; \
+	    echo " $(LIBTOOL) --mode=install $(pkglibLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) '$$p' '$(DESTDIR)$(pkglibdir)/$$f'"; \
+	    $(LIBTOOL) --mode=install $(pkglibLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) "$$p" "$(DESTDIR)$(pkglibdir)/$$f"; \
 	  else :; fi; \
 	done
 
-uninstall-instLIBRARIES:
+uninstall-pkglibLTLIBRARIES:
 	@$(NORMAL_UNINSTALL)
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
 	  p=$(am__strip_dir) \
-	  echo " rm -f '$(DESTDIR)$(instdir)/$$p'"; \
-	  rm -f "$(DESTDIR)$(instdir)/$$p"; \
+	  echo " $(LIBTOOL) --mode=uninstall rm -f '$(DESTDIR)$(pkglibdir)/$$p'"; \
+	  $(LIBTOOL) --mode=uninstall rm -f "$(DESTDIR)$(pkglibdir)/$$p"; \
 	done
 
-clean-instLIBRARIES:
-	-test -z "$(inst_LIBRARIES)" || rm -f $(inst_LIBRARIES)
-
-clean-noinstLIBRARIES:
-	-test -z "$(noinst_LIBRARIES)" || rm -f $(noinst_LIBRARIES)
-libCos.a: $(libCos_a_OBJECTS) $(libCos_a_DEPENDENCIES) 
-	-rm -f libCos.a
-	$(libCos_a_AR) libCos.a $(libCos_a_OBJECTS) $(libCos_a_LIBADD)
-	$(RANLIB) libCos.a
+clean-pkglibLTLIBRARIES:
+	-test -z "$(pkglib_LTLIBRARIES)" || rm -f $(pkglib_LTLIBRARIES)
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
+	  dir="`echo $$p | sed -e 's|/[^/]*$$||'`"; \
+	  test "$$dir" != "$$p" || dir=.; \
+	  echo "rm -f \"$${dir}/so_locations\""; \
+	  rm -f "$${dir}/so_locations"; \
+	done
+libCos.la: $(libCos_la_OBJECTS) $(libCos_la_DEPENDENCIES) 
+	$(libCos_la_LINK) -rpath $(pkglibdir) $(libCos_la_OBJECTS) $(libCos_la_LIBADD) $(LIBS)
 
 clean-checkPROGRAMS:
-	-test -z "$(check_PROGRAMS)" || rm -f $(check_PROGRAMS)
+	@list='$(check_PROGRAMS)'; for p in $$list; do \
+	  f=`echo $$p|sed 's/$(EXEEXT)$$//'`; \
+	  echo " rm -f $$p $$f"; \
+	  rm -f $$p $$f ; \
+	done
 testCos$(EXEEXT): $(testCos_OBJECTS) $(testCos_DEPENDENCIES) 
 	@rm -f testCos$(EXEEXT)
 	$(testCos_LINK) $(testCos_OBJECTS) $(testCos_LDADD) $(LIBS)
@@ -306,15 +314,15 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ccosa.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ccoss.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dcosa.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dcoss.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/scosa.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/scoss.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCos_la-ccosa.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCos_la-ccoss.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCos_la-dcosa.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCos_la-dcoss.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCos_la-scosa.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCos_la-scoss.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCos_la-zcosa.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCos_la-zcoss.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testCos-testCos.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zcosa.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zcoss.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -330,6 +338,69 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(COMPILE) -c `$(CYGPATH_W) '$<'`
 
+.c.lo:
+@am__fastdepCC_TRUE@	$(LTCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
+
+libCos_la-scoss.lo: scoss.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCos_la_CFLAGS) $(CFLAGS) -MT libCos_la-scoss.lo -MD -MP -MF $(DEPDIR)/libCos_la-scoss.Tpo -c -o libCos_la-scoss.lo `test -f 'scoss.c' || echo '$(srcdir)/'`scoss.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libCos_la-scoss.Tpo $(DEPDIR)/libCos_la-scoss.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scoss.c' object='libCos_la-scoss.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCos_la_CFLAGS) $(CFLAGS) -c -o libCos_la-scoss.lo `test -f 'scoss.c' || echo '$(srcdir)/'`scoss.c
+
+libCos_la-dcoss.lo: dcoss.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCos_la_CFLAGS) $(CFLAGS) -MT libCos_la-dcoss.lo -MD -MP -MF $(DEPDIR)/libCos_la-dcoss.Tpo -c -o libCos_la-dcoss.lo `test -f 'dcoss.c' || echo '$(srcdir)/'`dcoss.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libCos_la-dcoss.Tpo $(DEPDIR)/libCos_la-dcoss.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dcoss.c' object='libCos_la-dcoss.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCos_la_CFLAGS) $(CFLAGS) -c -o libCos_la-dcoss.lo `test -f 'dcoss.c' || echo '$(srcdir)/'`dcoss.c
+
+libCos_la-ccoss.lo: ccoss.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCos_la_CFLAGS) $(CFLAGS) -MT libCos_la-ccoss.lo -MD -MP -MF $(DEPDIR)/libCos_la-ccoss.Tpo -c -o libCos_la-ccoss.lo `test -f 'ccoss.c' || echo '$(srcdir)/'`ccoss.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libCos_la-ccoss.Tpo $(DEPDIR)/libCos_la-ccoss.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ccoss.c' object='libCos_la-ccoss.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCos_la_CFLAGS) $(CFLAGS) -c -o libCos_la-ccoss.lo `test -f 'ccoss.c' || echo '$(srcdir)/'`ccoss.c
+
+libCos_la-zcoss.lo: zcoss.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCos_la_CFLAGS) $(CFLAGS) -MT libCos_la-zcoss.lo -MD -MP -MF $(DEPDIR)/libCos_la-zcoss.Tpo -c -o libCos_la-zcoss.lo `test -f 'zcoss.c' || echo '$(srcdir)/'`zcoss.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libCos_la-zcoss.Tpo $(DEPDIR)/libCos_la-zcoss.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zcoss.c' object='libCos_la-zcoss.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCos_la_CFLAGS) $(CFLAGS) -c -o libCos_la-zcoss.lo `test -f 'zcoss.c' || echo '$(srcdir)/'`zcoss.c
+
+libCos_la-scosa.lo: scosa.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCos_la_CFLAGS) $(CFLAGS) -MT libCos_la-scosa.lo -MD -MP -MF $(DEPDIR)/libCos_la-scosa.Tpo -c -o libCos_la-scosa.lo `test -f 'scosa.c' || echo '$(srcdir)/'`scosa.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libCos_la-scosa.Tpo $(DEPDIR)/libCos_la-scosa.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scosa.c' object='libCos_la-scosa.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCos_la_CFLAGS) $(CFLAGS) -c -o libCos_la-scosa.lo `test -f 'scosa.c' || echo '$(srcdir)/'`scosa.c
+
+libCos_la-dcosa.lo: dcosa.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCos_la_CFLAGS) $(CFLAGS) -MT libCos_la-dcosa.lo -MD -MP -MF $(DEPDIR)/libCos_la-dcosa.Tpo -c -o libCos_la-dcosa.lo `test -f 'dcosa.c' || echo '$(srcdir)/'`dcosa.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libCos_la-dcosa.Tpo $(DEPDIR)/libCos_la-dcosa.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dcosa.c' object='libCos_la-dcosa.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCos_la_CFLAGS) $(CFLAGS) -c -o libCos_la-dcosa.lo `test -f 'dcosa.c' || echo '$(srcdir)/'`dcosa.c
+
+libCos_la-ccosa.lo: ccosa.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCos_la_CFLAGS) $(CFLAGS) -MT libCos_la-ccosa.lo -MD -MP -MF $(DEPDIR)/libCos_la-ccosa.Tpo -c -o libCos_la-ccosa.lo `test -f 'ccosa.c' || echo '$(srcdir)/'`ccosa.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libCos_la-ccosa.Tpo $(DEPDIR)/libCos_la-ccosa.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ccosa.c' object='libCos_la-ccosa.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCos_la_CFLAGS) $(CFLAGS) -c -o libCos_la-ccosa.lo `test -f 'ccosa.c' || echo '$(srcdir)/'`ccosa.c
+
+libCos_la-zcosa.lo: zcosa.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCos_la_CFLAGS) $(CFLAGS) -MT libCos_la-zcosa.lo -MD -MP -MF $(DEPDIR)/libCos_la-zcosa.Tpo -c -o libCos_la-zcosa.lo `test -f 'zcosa.c' || echo '$(srcdir)/'`zcosa.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libCos_la-zcosa.Tpo $(DEPDIR)/libCos_la-zcosa.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zcosa.c' object='libCos_la-zcosa.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCos_la_CFLAGS) $(CFLAGS) -c -o libCos_la-zcosa.lo `test -f 'zcosa.c' || echo '$(srcdir)/'`zcosa.c
+
 testCos-testCos.o: testCos.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testCos_CFLAGS) $(CFLAGS) -MT testCos-testCos.o -MD -MP -MF $(DEPDIR)/testCos-testCos.Tpo -c -o testCos-testCos.o `test -f 'testCos.c' || echo '$(srcdir)/'`testCos.c
 @am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testCos-testCos.Tpo $(DEPDIR)/testCos-testCos.Po
@@ -343,6 +414,12 @@ testCos-testCos.obj: testCos.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testCos.c' object='testCos-testCos.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testCos_CFLAGS) $(CFLAGS) -c -o testCos-testCos.obj `if test -f 'testCos.c'; then $(CYGPATH_W) 'testCos.c'; else $(CYGPATH_W) '$(srcdir)/testCos.c'; fi`
+
+mostlyclean-libtool:
+	-rm -f *.lo
+
+clean-libtool:
+	-rm -rf .libs _libs
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
@@ -495,9 +572,9 @@ check-am: all-am
 	$(MAKE) $(AM_MAKEFLAGS) $(check_PROGRAMS)
 	$(MAKE) $(AM_MAKEFLAGS) check-TESTS
 check: check-am
-all-am: Makefile $(LIBRARIES)
+all-am: Makefile $(LTLIBRARIES)
 installdirs:
-	for dir in "$(DESTDIR)$(instdir)"; do \
+	for dir in "$(DESTDIR)$(pkglibdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -526,8 +603,8 @@ maintainer-clean-generic:
 	@echo "it deletes files that may require special tools to rebuild."
 clean: clean-am
 
-clean-am: clean-checkPROGRAMS clean-generic clean-instLIBRARIES \
-	clean-noinstLIBRARIES mostlyclean-am
+clean-am: clean-checkPROGRAMS clean-generic clean-libtool \
+	clean-pkglibLTLIBRARIES mostlyclean-am
 
 distclean: distclean-am
 	-rm -rf ./$(DEPDIR)
@@ -545,11 +622,11 @@ info: info-am
 
 info-am:
 
-install-data-am: install-instLIBRARIES
+install-data-am:
 
 install-dvi: install-dvi-am
 
-install-exec-am:
+install-exec-am: install-pkglibLTLIBRARIES
 
 install-html: install-html-am
 
@@ -570,7 +647,8 @@ maintainer-clean-am: distclean-am maintainer-clean-generic
 
 mostlyclean: mostlyclean-am
 
-mostlyclean-am: mostlyclean-compile mostlyclean-generic
+mostlyclean-am: mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool
 
 pdf: pdf-am
 
@@ -580,23 +658,24 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-instLIBRARIES
+uninstall-am: uninstall-pkglibLTLIBRARIES
 
 .MAKE: install-am install-strip
 
 .PHONY: CTAGS GTAGS all all-am check check-TESTS check-am clean \
-	clean-checkPROGRAMS clean-generic clean-instLIBRARIES \
-	clean-noinstLIBRARIES ctags distclean distclean-compile \
-	distclean-generic distclean-tags distdir dvi dvi-am html \
-	html-am info info-am install install-am install-data \
-	install-data-am install-dvi install-dvi-am install-exec \
-	install-exec-am install-html install-html-am install-info \
-	install-info-am install-instLIBRARIES install-man install-pdf \
-	install-pdf-am install-ps install-ps-am install-strip \
-	installcheck installcheck-am installdirs maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-compile \
-	mostlyclean-generic pdf pdf-am ps ps-am tags uninstall \
-	uninstall-am uninstall-instLIBRARIES
+	clean-checkPROGRAMS clean-generic clean-libtool \
+	clean-pkglibLTLIBRARIES ctags distclean distclean-compile \
+	distclean-generic distclean-libtool distclean-tags distdir dvi \
+	dvi-am html html-am info info-am install install-am \
+	install-data install-data-am install-dvi install-dvi-am \
+	install-exec install-exec-am install-html install-html-am \
+	install-info install-info-am install-man install-pdf \
+	install-pdf-am install-pkglibLTLIBRARIES install-ps \
+	install-ps-am install-strip installcheck installcheck-am \
+	installdirs maintainer-clean maintainer-clean-generic \
+	mostlyclean mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool pdf pdf-am ps ps-am tags uninstall \
+	uninstall-am uninstall-pkglibLTLIBRARIES
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

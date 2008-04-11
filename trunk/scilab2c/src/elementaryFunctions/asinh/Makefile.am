@@ -1,25 +1,23 @@
 ##
-##  -*- makefile -*-
+##  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+##  Copyright (C) 2006-2008 - INRIA - Bruno JOFRET
 ##
-## Makefile
-## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
+##  This file must be used under the terms of the CeCILL.
+##  This source file is licensed as described in the file COPYING, which
+##  you should have received as part of this distribution.  The terms
+##  are also available at
+##  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 ##
-## Started on  Fri Jan  5 10:19:16 2007 jofret
-## Last update Thu Sep  6 11:18:16 2007 bruno
-##
-## Copyright INRIA 2007
 ##
 
-AM_CFLAGS =	-I ../../type \
-		-I ../includes
+libAsinh_la_CFLAGS =	-I ../../type \
+			-I ../includes
 
 instdir = $(top_builddir)/lib
 
-inst_LIBRARIES =	libAsinh.a
+pkglib_LTLIBRARIES =	libAsinh.la
 
-noinst_LIBRARIES =	libAsinh.a
-
-libAsinh_a_SOURCES =	$(HEAD) $(SRC)
+libAsinh_la_SOURCES =	$(HEAD) $(SRC)
 
 SRC	=	sasinhs.c \
 		dasinhs.c \
@@ -47,8 +45,8 @@ TESTS		=	testAsinh
 # -*- Hyperbolic ArcSine Tests -*-
 #
 testAsinh_SOURCES = 	testAsinh.c
-testAsinh_CFLAGS	=	$(check_INCLUDES)
-testAsinh_LDADD	=	$(top_builddir)/lib/libDoubleComplex.a \
-			$(top_builddir)/lib/libFloatComplex.a \
-			$(top_builddir)/lib/libAsinh.a \
+testAsinh_CFLAGS =	$(check_INCLUDES)
+testAsinh_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/elementaryFunctions/asinh/libAsinh.la \
 			@LIBMATH@
