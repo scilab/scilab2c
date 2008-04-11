@@ -16,16 +16,18 @@ SCIDIRFULL=`cd $SCIDIR && pwd`
 
 AC_CONFIG_HEADERS([includes/machine.h])
 
+
+AM_PROG_INSTALL_STRIP
 AC_PROG_LN_S
 #AC_PACKAGE_VERSION([4.0])
 
 AC_CANONICAL_HOST
 
-AC_PROG_RANLIB
 AM_MAINTAINER_MODE
 AM_INIT_AUTOMAKE([-Wall foreign]) # Not using -Werror because we override {C,F}FLAGS in order to disable optimisation
 
-
+### LibTool
+AC_PROG_LIBTOOL
 ### Fortran Compiler
 AC_PROG_F77
 ### C Compiler
@@ -34,7 +36,7 @@ AC_PROG_CC
 AC_PROG_CXX
 
 # for "subdir-objects"
-AC_PROG_CC_C_O
+AM_PROG_CC_C_O
 AC_PROG_F77_C_O
 
 ### Need to check for math lib and symbols
@@ -129,78 +131,16 @@ else
  	AC_DEFINE([WITH_ATLAS],[],[With the Atlas Lib])
 fi
 
-
-#######################
-## test for underscores (name mangling issues between C and fortran)
-#######################
-AC_CHECK_UNDERSCORE_FORTRAN()
-
-
-
 #######################
 ###### Creation of the header file (machine.h)
 #######################
 
-AH_TOP([#ifndef MACHINE_H
-#define MACHINE_H
-
-])
-
-AH_BOTTOM([
-/*
-   Define integer C type which must fit Fortran integer
-   For Scilab to work, the rule is:
-          size of Fortran double precision = 2 * size of Fortran integer
-
-   At the present time, we suppose:
-       size of Fortran integer = 4 bytes
-       size of Fortran double precision = 8 bytes
-       size of C int = 4 bytes
-*/
-
-typedef int integer;
-
-/* define boolean type */
-#ifdef BOOL
-	#undef BOOL
-#endif
-
-typedef int BOOL ;
-
-#ifdef TRUE
-	#undef TRUE
-#endif
-#define TRUE 1
-
-#ifdef FALSE
-	#undef FALSE
-#endif
-#define FALSE 0
-
-/*  params.h */
-#ifdef __STDC__
-#ifndef  __PARAMS
-#define  __PARAMS(paramlist)		paramlist
-#endif
-#ifndef  _PARAMS
-#define  _PARAMS(paramlist)		paramlist
-#endif
-#else
-#ifndef  __PARAMS
-#define  __PARAMS(paramlist)		()
-#endif
-#ifndef  _PARAMS
-#define  _PARAMS(paramlist)		()
-#endif
-#endif
-
-#endif /* MACHINE_H  */
-])
-
-
 AC_CONFIG_FILES([
 Makefile
+lib/blas/Makefile
+lib/lapack/Makefile
 type/Makefile
+matrixOperations/Makefile
 elementaryFunctions/Makefile
 elementaryFunctions/cos/Makefile
 elementaryFunctions/cosh/Makefile
@@ -215,6 +155,7 @@ elementaryFunctions/tanh/Makefile
 elementaryFunctions/atan/Makefile
 elementaryFunctions/atanh/Makefile
 elementaryFunctions/log/Makefile
+elementaryFunctions/log1p/Makefile
 elementaryFunctions/log10/Makefile
 elementaryFunctions/exp/Makefile
 elementaryFunctions/exp10/Makefile
