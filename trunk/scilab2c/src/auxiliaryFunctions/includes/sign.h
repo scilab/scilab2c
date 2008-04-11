@@ -1,14 +1,14 @@
 /*
-**  -*- C -*-
-**
-** sign.h
-** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
-**
-** Started on  Thu Feb  8 10:12:17 2007 jofret
-** Last update Fri Sep  7 17:37:57 2007 bruno
-**
-** Copyright INRIA 2007
-*/
+ *  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+ *  Copyright (C) 2007-2008 - INRIA - Bruno JOFRET
+ *
+ *  This file must be used under the terms of the CeCILL.
+ *  This source file is licensed as described in the file COPYING, which
+ *  you should have received as part of this distribution.  The terms
+ *  are also available at
+ *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+ *
+ */
 
 #ifndef __SIGN_H__
 #define __SIGN_H__
@@ -24,7 +24,7 @@
  ** \param in : the float we must determine sign.
  ** \return -1 or +1 depending on the sign of in.
  **/
-int	ssigns(float in);
+int		ssigns(float in);
 
 /**
  ** \brief Double Signe function
@@ -32,7 +32,7 @@ int	ssigns(float in);
  ** \param in : the double we must determine sign.
  ** \return -1 or +1 depending on the sign of in.
  **/
-int	dsigns(double in);
+int		dsigns(double in);
 
 /**
  ** \brief Float Complex Signe function
@@ -40,7 +40,7 @@ int	dsigns(double in);
  ** \param in : the float we must determine sign.
  ** \return -1 or +1 depending on the sign of in.
  **/
-int	csigns(floatComplex in);
+floatComplex	csigns(floatComplex in);
 
 /**
  ** \brief Double Complex Signe function
@@ -48,7 +48,7 @@ int	csigns(floatComplex in);
  ** \param in : the double we must determine sign.
  ** \return -1 or +1 depending on the sign of in.
  **/
-int	zsigns(doubleComplex in);
+doubleComplex	zsigns(doubleComplex in);
 
 /**
  ** \brief Float Signe Array function
@@ -57,7 +57,7 @@ int	zsigns(doubleComplex in);
  ** \param size : the number of elements.
  ** \return -1 or +1 depending on the sign of in elements.
  **/
-int	ssigna(float *in, int size);
+void	ssigna(float *in, int size, float *out);
 
 /**
  ** \brief Double Signe Array function
@@ -66,7 +66,7 @@ int	ssigna(float *in, int size);
  ** \param size : the number of elements.
  ** \return -1 or +1 depending on the sign of in elements.
  **/
-int	dsigna(double *in, int size);
+void	dsigna(double *in, int size, double *out);
 
 /**
  ** \brief Float Signe Complex Array function
@@ -75,7 +75,7 @@ int	dsigna(double *in, int size);
  ** \param size : the number of elements.
  ** \return -1 or +1 depending on the sign of in elements.
  **/
-int	csigna(floatComplex *in, int size);
+void	csigna(floatComplex *in, int size, floatComplex *out);
 
 /**
  ** \brief Double Signe Complex Array function
@@ -84,6 +84,6 @@ int	csigna(floatComplex *in, int size);
  ** \param size : the number of elements.
  ** \return -1 or +1 depending on the sign of in elements.
  **/
-int	zsigna(doubleComplex *in, int size);
+void	zsigna(doubleComplex *in, int size, doubleComplex *out);
 
 #endif /* !__SIGN_H__ */
