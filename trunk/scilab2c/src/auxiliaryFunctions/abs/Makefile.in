@@ -37,8 +37,7 @@ TESTS = testAbs$(EXEEXT)
 subdir = auxiliaryFunctions/abs
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/m4/fortran.m4 \
-	$(top_srcdir)/configure.ac
+am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(install_sh) -d
@@ -50,40 +49,48 @@ am__vpath_adj = case $$p in \
     *) f=$$p;; \
   esac;
 am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
-am__installdirs = "$(DESTDIR)$(instdir)"
-instLIBRARIES_INSTALL = $(INSTALL_DATA)
-LIBRARIES = $(inst_LIBRARIES) $(noinst_LIBRARIES)
-AR = ar
-ARFLAGS = cru
-libAbs_a_AR = $(AR) $(ARFLAGS)
-libAbs_a_LIBADD =
+am__installdirs = "$(DESTDIR)$(pkglibdir)"
+pkglibLTLIBRARIES_INSTALL = $(INSTALL)
+LTLIBRARIES = $(pkglib_LTLIBRARIES)
+libAbs_la_LIBADD =
 am__objects_1 =
-am__objects_2 = sabss.$(OBJEXT) dabss.$(OBJEXT) cabss.$(OBJEXT) \
-	zabss.$(OBJEXT) sabsa.$(OBJEXT) dabsa.$(OBJEXT) \
-	cabsa.$(OBJEXT) zabsa.$(OBJEXT)
-am_libAbs_a_OBJECTS = $(am__objects_1) $(am__objects_2)
-libAbs_a_OBJECTS = $(am_libAbs_a_OBJECTS)
+am__objects_2 = libAbs_la-sabss.lo libAbs_la-dabss.lo \
+	libAbs_la-cabss.lo libAbs_la-zabss.lo libAbs_la-sabsa.lo \
+	libAbs_la-dabsa.lo libAbs_la-cabsa.lo libAbs_la-zabsa.lo
+am_libAbs_la_OBJECTS = $(am__objects_1) $(am__objects_2)
+libAbs_la_OBJECTS = $(am_libAbs_la_OBJECTS)
+libAbs_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libAbs_la_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_testAbs_OBJECTS = testAbs-testAbs.$(OBJEXT)
 testAbs_OBJECTS = $(am_testAbs_OBJECTS)
-testAbs_DEPENDENCIES = $(top_builddir)/lib/libDoubleComplex.a \
-	$(top_builddir)/lib/libFloatComplex.a \
-	$(top_builddir)/lib/libAbs.a $(top_builddir)/lib/libSqrt.a
-testAbs_LINK = $(CCLD) $(testAbs_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+testAbs_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
+	$(top_builddir)/type/libFloatComplex.la \
+	$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+	$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la
+testAbs_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=link $(CCLD) $(testAbs_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/includes@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+LTCOMPILE = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
+	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
-LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(libAbs_a_SOURCES) $(testAbs_SOURCES)
-DIST_SOURCES = $(libAbs_a_SOURCES) $(testAbs_SOURCES)
+LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
+SOURCES = $(libAbs_la_SOURCES) $(testAbs_SOURCES)
+DIST_SOURCES = $(libAbs_la_SOURCES) $(testAbs_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
 AMTAR = @AMTAR@
+AR = @AR@
 AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
 AUTOMAKE = @AUTOMAKE@
@@ -94,11 +101,13 @@ CFLAGS = @CFLAGS@
 CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
 CXX = @CXX@
+CXXCPP = @CXXCPP@
 CXXDEPMODE = @CXXDEPMODE@
 CXXFLAGS = @CXXFLAGS@
 CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
+ECHO = @ECHO@
 ECHO_C = @ECHO_C@
 ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
@@ -116,6 +125,7 @@ LDFLAGS = @LDFLAGS@
 LIBMATH = @LIBMATH@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
+LIBTOOL = @LIBTOOL@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
@@ -130,6 +140,7 @@ PACKAGE_TARNAME = @PACKAGE_TARNAME@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
 RANLIB = @RANLIB@
+SED = @SED@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STRIP = @STRIP@
@@ -185,14 +196,13 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-AM_CFLAGS = -I ../../type \
-		-I ../includes \
-		-I ../../elementaryFunctions/includes
+libAbs_la_CFLAGS = -I ../../type \
+			-I ../includes \
+			-I ../../elementaryFunctions/includes
 
 instdir = $(top_builddir)/lib
-inst_LIBRARIES = libAbs.a
-noinst_LIBRARIES = libAbs.a
-libAbs_a_SOURCES = $(HEAD) $(SRC)
+pkglib_LTLIBRARIES = libAbs.la
+libAbs_la_SOURCES = $(HEAD) $(SRC)
 SRC = sabss.c \
 		dabss.c \
 		cabss.c \
@@ -217,16 +227,16 @@ check_INCLUDES = -I $(top_builddir)/auxiliaryFunctions/includes \
 #
 testAbs_SOURCES = testAbs.c
 testAbs_CFLAGS = $(check_INCLUDES)
-testAbs_LDADD = $(top_builddir)/lib/libDoubleComplex.a \
-			$(top_builddir)/lib/libFloatComplex.a \
-			$(top_builddir)/lib/libAbs.a \
-			$(top_builddir)/lib/libSqrt.a \
+testAbs_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
 			@LIBMATH@
 
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .c .o .obj
+.SUFFIXES: .c .lo .o .obj
 $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -256,45 +266,42 @@ $(top_srcdir)/configure: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
-install-instLIBRARIES: $(inst_LIBRARIES)
+install-pkglibLTLIBRARIES: $(pkglib_LTLIBRARIES)
 	@$(NORMAL_INSTALL)
-	test -z "$(instdir)" || $(MKDIR_P) "$(DESTDIR)$(instdir)"
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
+	test -z "$(pkglibdir)" || $(MKDIR_P) "$(DESTDIR)$(pkglibdir)"
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
 	  if test -f $$p; then \
 	    f=$(am__strip_dir) \
-	    echo " $(instLIBRARIES_INSTALL) '$$p' '$(DESTDIR)$(instdir)/$$f'"; \
-	    $(instLIBRARIES_INSTALL) "$$p" "$(DESTDIR)$(instdir)/$$f"; \
-	  else :; fi; \
-	done
-	@$(POST_INSTALL)
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
-	  if test -f $$p; then \
-	    p=$(am__strip_dir) \
-	    echo " $(RANLIB) '$(DESTDIR)$(instdir)/$$p'"; \
-	    $(RANLIB) "$(DESTDIR)$(instdir)/$$p"; \
+	    echo " $(LIBTOOL) --mode=install $(pkglibLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) '$$p' '$(DESTDIR)$(pkglibdir)/$$f'"; \
+	    $(LIBTOOL) --mode=install $(pkglibLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) "$$p" "$(DESTDIR)$(pkglibdir)/$$f"; \
 	  else :; fi; \
 	done
 
-uninstall-instLIBRARIES:
+uninstall-pkglibLTLIBRARIES:
 	@$(NORMAL_UNINSTALL)
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
 	  p=$(am__strip_dir) \
-	  echo " rm -f '$(DESTDIR)$(instdir)/$$p'"; \
-	  rm -f "$(DESTDIR)$(instdir)/$$p"; \
+	  echo " $(LIBTOOL) --mode=uninstall rm -f '$(DESTDIR)$(pkglibdir)/$$p'"; \
+	  $(LIBTOOL) --mode=uninstall rm -f "$(DESTDIR)$(pkglibdir)/$$p"; \
 	done
 
-clean-instLIBRARIES:
-	-test -z "$(inst_LIBRARIES)" || rm -f $(inst_LIBRARIES)
-
-clean-noinstLIBRARIES:
-	-test -z "$(noinst_LIBRARIES)" || rm -f $(noinst_LIBRARIES)
-libAbs.a: $(libAbs_a_OBJECTS) $(libAbs_a_DEPENDENCIES) 
-	-rm -f libAbs.a
-	$(libAbs_a_AR) libAbs.a $(libAbs_a_OBJECTS) $(libAbs_a_LIBADD)
-	$(RANLIB) libAbs.a
+clean-pkglibLTLIBRARIES:
+	-test -z "$(pkglib_LTLIBRARIES)" || rm -f $(pkglib_LTLIBRARIES)
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
+	  dir="`echo $$p | sed -e 's|/[^/]*$$||'`"; \
+	  test "$$dir" != "$$p" || dir=.; \
+	  echo "rm -f \"$${dir}/so_locations\""; \
+	  rm -f "$${dir}/so_locations"; \
+	done
+libAbs.la: $(libAbs_la_OBJECTS) $(libAbs_la_DEPENDENCIES) 
+	$(libAbs_la_LINK) -rpath $(pkglibdir) $(libAbs_la_OBJECTS) $(libAbs_la_LIBADD) $(LIBS)
 
 clean-checkPROGRAMS:
-	-test -z "$(check_PROGRAMS)" || rm -f $(check_PROGRAMS)
+	@list='$(check_PROGRAMS)'; for p in $$list; do \
+	  f=`echo $$p|sed 's/$(EXEEXT)$$//'`; \
+	  echo " rm -f $$p $$f"; \
+	  rm -f $$p $$f ; \
+	done
 testAbs$(EXEEXT): $(testAbs_OBJECTS) $(testAbs_DEPENDENCIES) 
 	@rm -f testAbs$(EXEEXT)
 	$(testAbs_LINK) $(testAbs_OBJECTS) $(testAbs_LDADD) $(LIBS)
@@ -305,15 +312,15 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cabsa.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cabss.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dabsa.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dabss.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sabsa.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sabss.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAbs_la-cabsa.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAbs_la-cabss.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAbs_la-dabsa.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAbs_la-dabss.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAbs_la-sabsa.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAbs_la-sabss.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAbs_la-zabsa.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAbs_la-zabss.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testAbs-testAbs.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zabsa.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zabss.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -329,6 +336,69 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(COMPILE) -c `$(CYGPATH_W) '$<'`
 
+.c.lo:
+@am__fastdepCC_TRUE@	$(LTCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
+
+libAbs_la-sabss.lo: sabss.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAbs_la_CFLAGS) $(CFLAGS) -MT libAbs_la-sabss.lo -MD -MP -MF $(DEPDIR)/libAbs_la-sabss.Tpo -c -o libAbs_la-sabss.lo `test -f 'sabss.c' || echo '$(srcdir)/'`sabss.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAbs_la-sabss.Tpo $(DEPDIR)/libAbs_la-sabss.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sabss.c' object='libAbs_la-sabss.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAbs_la_CFLAGS) $(CFLAGS) -c -o libAbs_la-sabss.lo `test -f 'sabss.c' || echo '$(srcdir)/'`sabss.c
+
+libAbs_la-dabss.lo: dabss.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAbs_la_CFLAGS) $(CFLAGS) -MT libAbs_la-dabss.lo -MD -MP -MF $(DEPDIR)/libAbs_la-dabss.Tpo -c -o libAbs_la-dabss.lo `test -f 'dabss.c' || echo '$(srcdir)/'`dabss.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAbs_la-dabss.Tpo $(DEPDIR)/libAbs_la-dabss.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dabss.c' object='libAbs_la-dabss.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAbs_la_CFLAGS) $(CFLAGS) -c -o libAbs_la-dabss.lo `test -f 'dabss.c' || echo '$(srcdir)/'`dabss.c
+
+libAbs_la-cabss.lo: cabss.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAbs_la_CFLAGS) $(CFLAGS) -MT libAbs_la-cabss.lo -MD -MP -MF $(DEPDIR)/libAbs_la-cabss.Tpo -c -o libAbs_la-cabss.lo `test -f 'cabss.c' || echo '$(srcdir)/'`cabss.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAbs_la-cabss.Tpo $(DEPDIR)/libAbs_la-cabss.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cabss.c' object='libAbs_la-cabss.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAbs_la_CFLAGS) $(CFLAGS) -c -o libAbs_la-cabss.lo `test -f 'cabss.c' || echo '$(srcdir)/'`cabss.c
+
+libAbs_la-zabss.lo: zabss.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAbs_la_CFLAGS) $(CFLAGS) -MT libAbs_la-zabss.lo -MD -MP -MF $(DEPDIR)/libAbs_la-zabss.Tpo -c -o libAbs_la-zabss.lo `test -f 'zabss.c' || echo '$(srcdir)/'`zabss.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAbs_la-zabss.Tpo $(DEPDIR)/libAbs_la-zabss.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zabss.c' object='libAbs_la-zabss.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAbs_la_CFLAGS) $(CFLAGS) -c -o libAbs_la-zabss.lo `test -f 'zabss.c' || echo '$(srcdir)/'`zabss.c
+
+libAbs_la-sabsa.lo: sabsa.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAbs_la_CFLAGS) $(CFLAGS) -MT libAbs_la-sabsa.lo -MD -MP -MF $(DEPDIR)/libAbs_la-sabsa.Tpo -c -o libAbs_la-sabsa.lo `test -f 'sabsa.c' || echo '$(srcdir)/'`sabsa.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAbs_la-sabsa.Tpo $(DEPDIR)/libAbs_la-sabsa.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sabsa.c' object='libAbs_la-sabsa.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAbs_la_CFLAGS) $(CFLAGS) -c -o libAbs_la-sabsa.lo `test -f 'sabsa.c' || echo '$(srcdir)/'`sabsa.c
+
+libAbs_la-dabsa.lo: dabsa.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAbs_la_CFLAGS) $(CFLAGS) -MT libAbs_la-dabsa.lo -MD -MP -MF $(DEPDIR)/libAbs_la-dabsa.Tpo -c -o libAbs_la-dabsa.lo `test -f 'dabsa.c' || echo '$(srcdir)/'`dabsa.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAbs_la-dabsa.Tpo $(DEPDIR)/libAbs_la-dabsa.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dabsa.c' object='libAbs_la-dabsa.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAbs_la_CFLAGS) $(CFLAGS) -c -o libAbs_la-dabsa.lo `test -f 'dabsa.c' || echo '$(srcdir)/'`dabsa.c
+
+libAbs_la-cabsa.lo: cabsa.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAbs_la_CFLAGS) $(CFLAGS) -MT libAbs_la-cabsa.lo -MD -MP -MF $(DEPDIR)/libAbs_la-cabsa.Tpo -c -o libAbs_la-cabsa.lo `test -f 'cabsa.c' || echo '$(srcdir)/'`cabsa.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAbs_la-cabsa.Tpo $(DEPDIR)/libAbs_la-cabsa.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cabsa.c' object='libAbs_la-cabsa.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAbs_la_CFLAGS) $(CFLAGS) -c -o libAbs_la-cabsa.lo `test -f 'cabsa.c' || echo '$(srcdir)/'`cabsa.c
+
+libAbs_la-zabsa.lo: zabsa.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAbs_la_CFLAGS) $(CFLAGS) -MT libAbs_la-zabsa.lo -MD -MP -MF $(DEPDIR)/libAbs_la-zabsa.Tpo -c -o libAbs_la-zabsa.lo `test -f 'zabsa.c' || echo '$(srcdir)/'`zabsa.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAbs_la-zabsa.Tpo $(DEPDIR)/libAbs_la-zabsa.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zabsa.c' object='libAbs_la-zabsa.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAbs_la_CFLAGS) $(CFLAGS) -c -o libAbs_la-zabsa.lo `test -f 'zabsa.c' || echo '$(srcdir)/'`zabsa.c
+
 testAbs-testAbs.o: testAbs.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAbs_CFLAGS) $(CFLAGS) -MT testAbs-testAbs.o -MD -MP -MF $(DEPDIR)/testAbs-testAbs.Tpo -c -o testAbs-testAbs.o `test -f 'testAbs.c' || echo '$(srcdir)/'`testAbs.c
 @am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testAbs-testAbs.Tpo $(DEPDIR)/testAbs-testAbs.Po
@@ -342,6 +412,12 @@ testAbs-testAbs.obj: testAbs.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testAbs.c' object='testAbs-testAbs.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAbs_CFLAGS) $(CFLAGS) -c -o testAbs-testAbs.obj `if test -f 'testAbs.c'; then $(CYGPATH_W) 'testAbs.c'; else $(CYGPATH_W) '$(srcdir)/testAbs.c'; fi`
+
+mostlyclean-libtool:
+	-rm -f *.lo
+
+clean-libtool:
+	-rm -rf .libs _libs
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
@@ -494,9 +570,9 @@ check-am: all-am
 	$(MAKE) $(AM_MAKEFLAGS) $(check_PROGRAMS)
 	$(MAKE) $(AM_MAKEFLAGS) check-TESTS
 check: check-am
-all-am: Makefile $(LIBRARIES)
+all-am: Makefile $(LTLIBRARIES)
 installdirs:
-	for dir in "$(DESTDIR)$(instdir)"; do \
+	for dir in "$(DESTDIR)$(pkglibdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -525,8 +601,8 @@ maintainer-clean-generic:
 	@echo "it deletes files that may require special tools to rebuild."
 clean: clean-am
 
-clean-am: clean-checkPROGRAMS clean-generic clean-instLIBRARIES \
-	clean-noinstLIBRARIES mostlyclean-am
+clean-am: clean-checkPROGRAMS clean-generic clean-libtool \
+	clean-pkglibLTLIBRARIES mostlyclean-am
 
 distclean: distclean-am
 	-rm -rf ./$(DEPDIR)
@@ -544,11 +620,11 @@ info: info-am
 
 info-am:
 
-install-data-am: install-instLIBRARIES
+install-data-am:
 
 install-dvi: install-dvi-am
 
-install-exec-am:
+install-exec-am: install-pkglibLTLIBRARIES
 
 install-html: install-html-am
 
@@ -569,7 +645,8 @@ maintainer-clean-am: distclean-am maintainer-clean-generic
 
 mostlyclean: mostlyclean-am
 
-mostlyclean-am: mostlyclean-compile mostlyclean-generic
+mostlyclean-am: mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool
 
 pdf: pdf-am
 
@@ -579,23 +656,24 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-instLIBRARIES
+uninstall-am: uninstall-pkglibLTLIBRARIES
 
 .MAKE: install-am install-strip
 
 .PHONY: CTAGS GTAGS all all-am check check-TESTS check-am clean \
-	clean-checkPROGRAMS clean-generic clean-instLIBRARIES \
-	clean-noinstLIBRARIES ctags distclean distclean-compile \
-	distclean-generic distclean-tags distdir dvi dvi-am html \
-	html-am info info-am install install-am install-data \
-	install-data-am install-dvi install-dvi-am install-exec \
-	install-exec-am install-html install-html-am install-info \
-	install-info-am install-instLIBRARIES install-man install-pdf \
-	install-pdf-am install-ps install-ps-am install-strip \
-	installcheck installcheck-am installdirs maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-compile \
-	mostlyclean-generic pdf pdf-am ps ps-am tags uninstall \
-	uninstall-am uninstall-instLIBRARIES
+	clean-checkPROGRAMS clean-generic clean-libtool \
+	clean-pkglibLTLIBRARIES ctags distclean distclean-compile \
+	distclean-generic distclean-libtool distclean-tags distdir dvi \
+	dvi-am html html-am info info-am install install-am \
+	install-data install-data-am install-dvi install-dvi-am \
+	install-exec install-exec-am install-html install-html-am \
+	install-info install-info-am install-man install-pdf \
+	install-pdf-am install-pkglibLTLIBRARIES install-ps \
+	install-ps-am install-strip installcheck installcheck-am \
+	installdirs maintainer-clean maintainer-clean-generic \
+	mostlyclean mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool pdf pdf-am ps ps-am tags uninstall \
+	uninstall-am uninstall-pkglibLTLIBRARIES
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
