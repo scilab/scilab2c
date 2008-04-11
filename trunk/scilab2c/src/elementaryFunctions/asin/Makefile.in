@@ -37,8 +37,7 @@ TESTS = testAsin$(EXEEXT)
 subdir = elementaryFunctions/asin
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/m4/fortran.m4 \
-	$(top_srcdir)/configure.ac
+am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(install_sh) -d
@@ -50,40 +49,54 @@ am__vpath_adj = case $$p in \
     *) f=$$p;; \
   esac;
 am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
-am__installdirs = "$(DESTDIR)$(instdir)"
-instLIBRARIES_INSTALL = $(INSTALL_DATA)
-LIBRARIES = $(inst_LIBRARIES) $(noinst_LIBRARIES)
-AR = ar
-ARFLAGS = cru
-libAsin_a_AR = $(AR) $(ARFLAGS)
-libAsin_a_LIBADD =
+am__installdirs = "$(DESTDIR)$(pkglibdir)"
+pkglibLTLIBRARIES_INSTALL = $(INSTALL)
+LTLIBRARIES = $(pkglib_LTLIBRARIES)
+libAsin_la_LIBADD =
 am__objects_1 =
-am__objects_2 = sasins.$(OBJEXT) dasins.$(OBJEXT) casins.$(OBJEXT) \
-	zasins.$(OBJEXT) sasina.$(OBJEXT) dasina.$(OBJEXT) \
-	casina.$(OBJEXT) zasina.$(OBJEXT)
-am_libAsin_a_OBJECTS = $(am__objects_1) $(am__objects_2)
-libAsin_a_OBJECTS = $(am_libAsin_a_OBJECTS)
+am__objects_2 = libAsin_la-sasins.lo libAsin_la-dasins.lo \
+	libAsin_la-casins.lo libAsin_la-zasins.lo libAsin_la-sasina.lo \
+	libAsin_la-dasina.lo libAsin_la-casina.lo libAsin_la-zasina.lo
+am_libAsin_la_OBJECTS = $(am__objects_1) $(am__objects_2)
+libAsin_la_OBJECTS = $(am_libAsin_la_OBJECTS)
+libAsin_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libAsin_la_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_testAsin_OBJECTS = testAsin-testAsin.$(OBJEXT)
 testAsin_OBJECTS = $(am_testAsin_OBJECTS)
-testAsin_DEPENDENCIES = $(top_builddir)/lib/libDoubleComplex.a \
-	$(top_builddir)/lib/libFloatComplex.a \
-	$(top_builddir)/lib/libAsin.a
-testAsin_LINK = $(CCLD) $(testAsin_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+testAsin_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
+	$(top_builddir)/type/libFloatComplex.la \
+	$(top_builddir)/lib/lapack/libscilapack.la \
+	$(top_builddir)/lib/blas/libsciblas.la \
+	$(top_builddir)/elementaryFunctions/asin/libAsin.la \
+	$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
+	$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+	$(top_builddir)/elementaryFunctions/log/libLog.la \
+	$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
+	$(top_builddir)/elementaryFunctions/atan/libAtan.la
+testAsin_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=link $(CCLD) $(testAsin_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/includes@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+LTCOMPILE = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
+	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
-LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(libAsin_a_SOURCES) $(testAsin_SOURCES)
-DIST_SOURCES = $(libAsin_a_SOURCES) $(testAsin_SOURCES)
+LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
+SOURCES = $(libAsin_la_SOURCES) $(testAsin_SOURCES)
+DIST_SOURCES = $(libAsin_la_SOURCES) $(testAsin_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
 AMTAR = @AMTAR@
+AR = @AR@
 AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
 AUTOMAKE = @AUTOMAKE@
@@ -94,11 +107,13 @@ CFLAGS = @CFLAGS@
 CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
 CXX = @CXX@
+CXXCPP = @CXXCPP@
 CXXDEPMODE = @CXXDEPMODE@
 CXXFLAGS = @CXXFLAGS@
 CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
+ECHO = @ECHO@
 ECHO_C = @ECHO_C@
 ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
@@ -116,6 +131,7 @@ LDFLAGS = @LDFLAGS@
 LIBMATH = @LIBMATH@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
+LIBTOOL = @LIBTOOL@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
@@ -130,6 +146,7 @@ PACKAGE_TARNAME = @PACKAGE_TARNAME@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
 RANLIB = @RANLIB@
+SED = @SED@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STRIP = @STRIP@
@@ -185,13 +202,13 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-AM_CFLAGS = -I ../../type \
-		-I ../includes
+libAsin_la_CFLAGS = -I $(top_builddir)/type \
+			-I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/auxiliaryFunctions/includes
 
 instdir = $(top_builddir)/lib
-inst_LIBRARIES = libAsin.a
-noinst_LIBRARIES = libAsin.a
-libAsin_a_SOURCES = $(HEAD) $(SRC)
+pkglib_LTLIBRARIES = libAsin.la
+libAsin_la_SOURCES = $(HEAD) $(SRC)
 SRC = sasins.c \
 		dasins.c \
 		casins.c \
@@ -207,6 +224,7 @@ HEAD = ../includes/asin.h
 # Checking Part
 ####
 check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/auxiliaryFunctions/includes \
 			-I $(top_builddir)/type
 
 
@@ -215,15 +233,22 @@ check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
 #
 testAsin_SOURCES = testAsin.c
 testAsin_CFLAGS = $(check_INCLUDES)
-testAsin_LDADD = $(top_builddir)/lib/libDoubleComplex.a \
-			$(top_builddir)/lib/libFloatComplex.a \
-			$(top_builddir)/lib/libAsin.a \
+testAsin_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/lib/lapack/libscilapack.la \
+			$(top_builddir)/lib/blas/libsciblas.la \
+			$(top_builddir)/elementaryFunctions/asin/libAsin.la \
+			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
+			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/elementaryFunctions/log/libLog.la \
+			$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
+			$(top_builddir)/elementaryFunctions/atan/libAtan.la \
 			@LIBMATH@
 
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .c .o .obj
+.SUFFIXES: .c .lo .o .obj
 $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -253,45 +278,42 @@ $(top_srcdir)/configure: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
-install-instLIBRARIES: $(inst_LIBRARIES)
+install-pkglibLTLIBRARIES: $(pkglib_LTLIBRARIES)
 	@$(NORMAL_INSTALL)
-	test -z "$(instdir)" || $(MKDIR_P) "$(DESTDIR)$(instdir)"
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
+	test -z "$(pkglibdir)" || $(MKDIR_P) "$(DESTDIR)$(pkglibdir)"
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
 	  if test -f $$p; then \
 	    f=$(am__strip_dir) \
-	    echo " $(instLIBRARIES_INSTALL) '$$p' '$(DESTDIR)$(instdir)/$$f'"; \
-	    $(instLIBRARIES_INSTALL) "$$p" "$(DESTDIR)$(instdir)/$$f"; \
-	  else :; fi; \
-	done
-	@$(POST_INSTALL)
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
-	  if test -f $$p; then \
-	    p=$(am__strip_dir) \
-	    echo " $(RANLIB) '$(DESTDIR)$(instdir)/$$p'"; \
-	    $(RANLIB) "$(DESTDIR)$(instdir)/$$p"; \
+	    echo " $(LIBTOOL) --mode=install $(pkglibLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) '$$p' '$(DESTDIR)$(pkglibdir)/$$f'"; \
+	    $(LIBTOOL) --mode=install $(pkglibLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) "$$p" "$(DESTDIR)$(pkglibdir)/$$f"; \
 	  else :; fi; \
 	done
 
-uninstall-instLIBRARIES:
+uninstall-pkglibLTLIBRARIES:
 	@$(NORMAL_UNINSTALL)
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
 	  p=$(am__strip_dir) \
-	  echo " rm -f '$(DESTDIR)$(instdir)/$$p'"; \
-	  rm -f "$(DESTDIR)$(instdir)/$$p"; \
+	  echo " $(LIBTOOL) --mode=uninstall rm -f '$(DESTDIR)$(pkglibdir)/$$p'"; \
+	  $(LIBTOOL) --mode=uninstall rm -f "$(DESTDIR)$(pkglibdir)/$$p"; \
 	done
 
-clean-instLIBRARIES:
-	-test -z "$(inst_LIBRARIES)" || rm -f $(inst_LIBRARIES)
-
-clean-noinstLIBRARIES:
-	-test -z "$(noinst_LIBRARIES)" || rm -f $(noinst_LIBRARIES)
-libAsin.a: $(libAsin_a_OBJECTS) $(libAsin_a_DEPENDENCIES) 
-	-rm -f libAsin.a
-	$(libAsin_a_AR) libAsin.a $(libAsin_a_OBJECTS) $(libAsin_a_LIBADD)
-	$(RANLIB) libAsin.a
+clean-pkglibLTLIBRARIES:
+	-test -z "$(pkglib_LTLIBRARIES)" || rm -f $(pkglib_LTLIBRARIES)
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
+	  dir="`echo $$p | sed -e 's|/[^/]*$$||'`"; \
+	  test "$$dir" != "$$p" || dir=.; \
+	  echo "rm -f \"$${dir}/so_locations\""; \
+	  rm -f "$${dir}/so_locations"; \
+	done
+libAsin.la: $(libAsin_la_OBJECTS) $(libAsin_la_DEPENDENCIES) 
+	$(libAsin_la_LINK) -rpath $(pkglibdir) $(libAsin_la_OBJECTS) $(libAsin_la_LIBADD) $(LIBS)
 
 clean-checkPROGRAMS:
-	-test -z "$(check_PROGRAMS)" || rm -f $(check_PROGRAMS)
+	@list='$(check_PROGRAMS)'; for p in $$list; do \
+	  f=`echo $$p|sed 's/$(EXEEXT)$$//'`; \
+	  echo " rm -f $$p $$f"; \
+	  rm -f $$p $$f ; \
+	done
 testAsin$(EXEEXT): $(testAsin_OBJECTS) $(testAsin_DEPENDENCIES) 
 	@rm -f testAsin$(EXEEXT)
 	$(testAsin_LINK) $(testAsin_OBJECTS) $(testAsin_LDADD) $(LIBS)
@@ -302,15 +324,15 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/casina.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/casins.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dasina.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dasins.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sasina.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sasins.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAsin_la-casina.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAsin_la-casins.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAsin_la-dasina.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAsin_la-dasins.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAsin_la-sasina.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAsin_la-sasins.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAsin_la-zasina.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAsin_la-zasins.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testAsin-testAsin.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zasina.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zasins.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -326,6 +348,69 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(COMPILE) -c `$(CYGPATH_W) '$<'`
 
+.c.lo:
+@am__fastdepCC_TRUE@	$(LTCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
+
+libAsin_la-sasins.lo: sasins.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAsin_la_CFLAGS) $(CFLAGS) -MT libAsin_la-sasins.lo -MD -MP -MF $(DEPDIR)/libAsin_la-sasins.Tpo -c -o libAsin_la-sasins.lo `test -f 'sasins.c' || echo '$(srcdir)/'`sasins.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAsin_la-sasins.Tpo $(DEPDIR)/libAsin_la-sasins.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sasins.c' object='libAsin_la-sasins.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAsin_la_CFLAGS) $(CFLAGS) -c -o libAsin_la-sasins.lo `test -f 'sasins.c' || echo '$(srcdir)/'`sasins.c
+
+libAsin_la-dasins.lo: dasins.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAsin_la_CFLAGS) $(CFLAGS) -MT libAsin_la-dasins.lo -MD -MP -MF $(DEPDIR)/libAsin_la-dasins.Tpo -c -o libAsin_la-dasins.lo `test -f 'dasins.c' || echo '$(srcdir)/'`dasins.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAsin_la-dasins.Tpo $(DEPDIR)/libAsin_la-dasins.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dasins.c' object='libAsin_la-dasins.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAsin_la_CFLAGS) $(CFLAGS) -c -o libAsin_la-dasins.lo `test -f 'dasins.c' || echo '$(srcdir)/'`dasins.c
+
+libAsin_la-casins.lo: casins.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAsin_la_CFLAGS) $(CFLAGS) -MT libAsin_la-casins.lo -MD -MP -MF $(DEPDIR)/libAsin_la-casins.Tpo -c -o libAsin_la-casins.lo `test -f 'casins.c' || echo '$(srcdir)/'`casins.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAsin_la-casins.Tpo $(DEPDIR)/libAsin_la-casins.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='casins.c' object='libAsin_la-casins.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAsin_la_CFLAGS) $(CFLAGS) -c -o libAsin_la-casins.lo `test -f 'casins.c' || echo '$(srcdir)/'`casins.c
+
+libAsin_la-zasins.lo: zasins.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAsin_la_CFLAGS) $(CFLAGS) -MT libAsin_la-zasins.lo -MD -MP -MF $(DEPDIR)/libAsin_la-zasins.Tpo -c -o libAsin_la-zasins.lo `test -f 'zasins.c' || echo '$(srcdir)/'`zasins.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAsin_la-zasins.Tpo $(DEPDIR)/libAsin_la-zasins.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zasins.c' object='libAsin_la-zasins.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAsin_la_CFLAGS) $(CFLAGS) -c -o libAsin_la-zasins.lo `test -f 'zasins.c' || echo '$(srcdir)/'`zasins.c
+
+libAsin_la-sasina.lo: sasina.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAsin_la_CFLAGS) $(CFLAGS) -MT libAsin_la-sasina.lo -MD -MP -MF $(DEPDIR)/libAsin_la-sasina.Tpo -c -o libAsin_la-sasina.lo `test -f 'sasina.c' || echo '$(srcdir)/'`sasina.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAsin_la-sasina.Tpo $(DEPDIR)/libAsin_la-sasina.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sasina.c' object='libAsin_la-sasina.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAsin_la_CFLAGS) $(CFLAGS) -c -o libAsin_la-sasina.lo `test -f 'sasina.c' || echo '$(srcdir)/'`sasina.c
+
+libAsin_la-dasina.lo: dasina.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAsin_la_CFLAGS) $(CFLAGS) -MT libAsin_la-dasina.lo -MD -MP -MF $(DEPDIR)/libAsin_la-dasina.Tpo -c -o libAsin_la-dasina.lo `test -f 'dasina.c' || echo '$(srcdir)/'`dasina.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAsin_la-dasina.Tpo $(DEPDIR)/libAsin_la-dasina.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dasina.c' object='libAsin_la-dasina.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAsin_la_CFLAGS) $(CFLAGS) -c -o libAsin_la-dasina.lo `test -f 'dasina.c' || echo '$(srcdir)/'`dasina.c
+
+libAsin_la-casina.lo: casina.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAsin_la_CFLAGS) $(CFLAGS) -MT libAsin_la-casina.lo -MD -MP -MF $(DEPDIR)/libAsin_la-casina.Tpo -c -o libAsin_la-casina.lo `test -f 'casina.c' || echo '$(srcdir)/'`casina.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAsin_la-casina.Tpo $(DEPDIR)/libAsin_la-casina.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='casina.c' object='libAsin_la-casina.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAsin_la_CFLAGS) $(CFLAGS) -c -o libAsin_la-casina.lo `test -f 'casina.c' || echo '$(srcdir)/'`casina.c
+
+libAsin_la-zasina.lo: zasina.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAsin_la_CFLAGS) $(CFLAGS) -MT libAsin_la-zasina.lo -MD -MP -MF $(DEPDIR)/libAsin_la-zasina.Tpo -c -o libAsin_la-zasina.lo `test -f 'zasina.c' || echo '$(srcdir)/'`zasina.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAsin_la-zasina.Tpo $(DEPDIR)/libAsin_la-zasina.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zasina.c' object='libAsin_la-zasina.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAsin_la_CFLAGS) $(CFLAGS) -c -o libAsin_la-zasina.lo `test -f 'zasina.c' || echo '$(srcdir)/'`zasina.c
+
 testAsin-testAsin.o: testAsin.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAsin_CFLAGS) $(CFLAGS) -MT testAsin-testAsin.o -MD -MP -MF $(DEPDIR)/testAsin-testAsin.Tpo -c -o testAsin-testAsin.o `test -f 'testAsin.c' || echo '$(srcdir)/'`testAsin.c
 @am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testAsin-testAsin.Tpo $(DEPDIR)/testAsin-testAsin.Po
@@ -339,6 +424,12 @@ testAsin-testAsin.obj: testAsin.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testAsin.c' object='testAsin-testAsin.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAsin_CFLAGS) $(CFLAGS) -c -o testAsin-testAsin.obj `if test -f 'testAsin.c'; then $(CYGPATH_W) 'testAsin.c'; else $(CYGPATH_W) '$(srcdir)/testAsin.c'; fi`
+
+mostlyclean-libtool:
+	-rm -f *.lo
+
+clean-libtool:
+	-rm -rf .libs _libs
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
@@ -491,9 +582,9 @@ check-am: all-am
 	$(MAKE) $(AM_MAKEFLAGS) $(check_PROGRAMS)
 	$(MAKE) $(AM_MAKEFLAGS) check-TESTS
 check: check-am
-all-am: Makefile $(LIBRARIES)
+all-am: Makefile $(LTLIBRARIES)
 installdirs:
-	for dir in "$(DESTDIR)$(instdir)"; do \
+	for dir in "$(DESTDIR)$(pkglibdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -522,8 +613,8 @@ maintainer-clean-generic:
 	@echo "it deletes files that may require special tools to rebuild."
 clean: clean-am
 
-clean-am: clean-checkPROGRAMS clean-generic clean-instLIBRARIES \
-	clean-noinstLIBRARIES mostlyclean-am
+clean-am: clean-checkPROGRAMS clean-generic clean-libtool \
+	clean-pkglibLTLIBRARIES mostlyclean-am
 
 distclean: distclean-am
 	-rm -rf ./$(DEPDIR)
@@ -541,11 +632,11 @@ info: info-am
 
 info-am:
 
-install-data-am: install-instLIBRARIES
+install-data-am:
 
 install-dvi: install-dvi-am
 
-install-exec-am:
+install-exec-am: install-pkglibLTLIBRARIES
 
 install-html: install-html-am
 
@@ -566,7 +657,8 @@ maintainer-clean-am: distclean-am maintainer-clean-generic
 
 mostlyclean: mostlyclean-am
 
-mostlyclean-am: mostlyclean-compile mostlyclean-generic
+mostlyclean-am: mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool
 
 pdf: pdf-am
 
@@ -576,23 +668,24 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-instLIBRARIES
+uninstall-am: uninstall-pkglibLTLIBRARIES
 
 .MAKE: install-am install-strip
 
 .PHONY: CTAGS GTAGS all all-am check check-TESTS check-am clean \
-	clean-checkPROGRAMS clean-generic clean-instLIBRARIES \
-	clean-noinstLIBRARIES ctags distclean distclean-compile \
-	distclean-generic distclean-tags distdir dvi dvi-am html \
-	html-am info info-am install install-am install-data \
-	install-data-am install-dvi install-dvi-am install-exec \
-	install-exec-am install-html install-html-am install-info \
-	install-info-am install-instLIBRARIES install-man install-pdf \
-	install-pdf-am install-ps install-ps-am install-strip \
-	installcheck installcheck-am installdirs maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-compile \
-	mostlyclean-generic pdf pdf-am ps ps-am tags uninstall \
-	uninstall-am uninstall-instLIBRARIES
+	clean-checkPROGRAMS clean-generic clean-libtool \
+	clean-pkglibLTLIBRARIES ctags distclean distclean-compile \
+	distclean-generic distclean-libtool distclean-tags distdir dvi \
+	dvi-am html html-am info info-am install install-am \
+	install-data install-data-am install-dvi install-dvi-am \
+	install-exec install-exec-am install-html install-html-am \
+	install-info install-info-am install-man install-pdf \
+	install-pdf-am install-pkglibLTLIBRARIES install-ps \
+	install-ps-am install-strip installcheck installcheck-am \
+	installdirs maintainer-clean maintainer-clean-generic \
+	mostlyclean mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool pdf pdf-am ps ps-am tags uninstall \
+	uninstall-am uninstall-pkglibLTLIBRARIES
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
