@@ -1,24 +1,13 @@
 /* includes/machine.h.in.  Generated from configure.ac by autoheader.  */
 
-#ifndef MACHINE_H
-#define MACHINE_H
-
-
-
-/* Define C2F without Trailing Underscore */
-#undef C2F
-
-/* Cname */
-#undef CNAME
-
-/* Define C2F without Trailing Underscore */
-#undef F2C
-
 /* Define to 1 if your Fortran compiler doesn't accept -c and -o together. */
 #undef F77_NO_MINUS_C_MINUS_O
 
 /* Define to 1 if you have the <complex.h> header file. */
 #undef HAVE_COMPLEX_H
+
+/* Define to 1 if you have the <dlfcn.h> header file. */
+#undef HAVE_DLFCN_H
 
 /* Define to 1 if you have the <inttypes.h> header file. */
 #undef HAVE_INTTYPES_H
@@ -82,60 +71,3 @@
 
 /* With the Atlas Lib */
 #undef WITH_ATLAS
-
-/* If leading underscores */
-#undef WLU
-
-/* If trailing underscores */
-#undef WTU
-
-
-/*
-   Define integer C type which must fit Fortran integer
-   For Scilab to work, the rule is:
-          size of Fortran double precision = 2 * size of Fortran integer
-
-   At the present time, we suppose:
-       size of Fortran integer = 4 bytes
-       size of Fortran double precision = 8 bytes
-       size of C int = 4 bytes
-*/
-
-typedef int integer;
-
-/* define boolean type */
-#ifdef BOOL
-	#undef BOOL
-#endif
-
-typedef int BOOL ;
-
-#ifdef TRUE
-	#undef TRUE
-#endif
-#define TRUE 1
-
-#ifdef FALSE
-	#undef FALSE
-#endif
-#define FALSE 0
-
-/*  params.h */
-#ifdef __STDC__
-#ifndef  __PARAMS
-#define  __PARAMS(paramlist)		paramlist
-#endif
-#ifndef  _PARAMS
-#define  _PARAMS(paramlist)		paramlist
-#endif
-#else
-#ifndef  __PARAMS
-#define  __PARAMS(paramlist)		()
-#endif
-#ifndef  _PARAMS
-#define  _PARAMS(paramlist)		()
-#endif
-#endif
-
-#endif /* MACHINE_H  */
-
