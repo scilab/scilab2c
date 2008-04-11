@@ -37,8 +37,7 @@ TESTS = testPythag$(EXEEXT)
 subdir = auxiliaryFunctions/pythag
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/m4/fortran.m4 \
-	$(top_srcdir)/configure.ac
+am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(install_sh) -d
@@ -50,38 +49,47 @@ am__vpath_adj = case $$p in \
     *) f=$$p;; \
   esac;
 am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
-am__installdirs = "$(DESTDIR)$(instdir)"
-instLIBRARIES_INSTALL = $(INSTALL_DATA)
-LIBRARIES = $(inst_LIBRARIES) $(noinst_LIBRARIES)
-AR = ar
-ARFLAGS = cru
-libPythag_a_AR = $(AR) $(ARFLAGS)
-libPythag_a_LIBADD =
+am__installdirs = "$(DESTDIR)$(pkglibdir)"
+pkglibLTLIBRARIES_INSTALL = $(INSTALL)
+LTLIBRARIES = $(pkglib_LTLIBRARIES)
+libPythag_la_LIBADD =
 am__objects_1 =
-am__objects_2 = spythags.$(OBJEXT) dpythags.$(OBJEXT) \
-	cpythags.$(OBJEXT)
-am_libPythag_a_OBJECTS = $(am__objects_1) $(am__objects_2)
-libPythag_a_OBJECTS = $(am_libPythag_a_OBJECTS)
+am__objects_2 = libPythag_la-spythags.lo libPythag_la-dpythags.lo \
+	libPythag_la-cpythags.lo
+am_libPythag_la_OBJECTS = $(am__objects_1) $(am__objects_2)
+libPythag_la_OBJECTS = $(am_libPythag_la_OBJECTS)
+libPythag_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libPythag_la_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_testPythag_OBJECTS = testPythag-testPythag.$(OBJEXT)
 testPythag_OBJECTS = $(am_testPythag_OBJECTS)
-testPythag_DEPENDENCIES = $(top_builddir)/lib/libPythag.a \
-	$(top_builddir)/lib/libSqrt.a
-testPythag_LINK = $(CCLD) $(testPythag_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
-	$(LDFLAGS) -o $@
+testPythag_DEPENDENCIES = $(top_builddir)/type/libFloatComplex.la \
+	$(top_builddir)/type/libDoubleComplex.la \
+	$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
+	$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la
+testPythag_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testPythag_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/includes@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+LTCOMPILE = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
+	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
-LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(libPythag_a_SOURCES) $(testPythag_SOURCES)
-DIST_SOURCES = $(libPythag_a_SOURCES) $(testPythag_SOURCES)
+LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
+SOURCES = $(libPythag_la_SOURCES) $(testPythag_SOURCES)
+DIST_SOURCES = $(libPythag_la_SOURCES) $(testPythag_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
 AMTAR = @AMTAR@
+AR = @AR@
 AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
 AUTOMAKE = @AUTOMAKE@
@@ -92,11 +100,13 @@ CFLAGS = @CFLAGS@
 CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
 CXX = @CXX@
+CXXCPP = @CXXCPP@
 CXXDEPMODE = @CXXDEPMODE@
 CXXFLAGS = @CXXFLAGS@
 CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
+ECHO = @ECHO@
 ECHO_C = @ECHO_C@
 ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
@@ -114,6 +124,7 @@ LDFLAGS = @LDFLAGS@
 LIBMATH = @LIBMATH@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
+LIBTOOL = @LIBTOOL@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
@@ -128,6 +139,7 @@ PACKAGE_TARNAME = @PACKAGE_TARNAME@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
 RANLIB = @RANLIB@
+SED = @SED@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STRIP = @STRIP@
@@ -183,14 +195,13 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-AM_CFLAGS = -I ../../type \
-		-I ../includes \
-		-I ../../elementaryFunctions/includes
+libPythag_la_CFLAGS = -I ../../type \
+			-I ../includes \
+			-I ../../elementaryFunctions/includes
 
 instdir = $(top_builddir)/lib
-inst_LIBRARIES = libPythag.a
-noinst_LIBRARIES = libPythag.a
-libPythag_a_SOURCES = $(HEAD) $(SRC)
+pkglib_LTLIBRARIES = libPythag.la
+libPythag_la_SOURCES = $(HEAD) $(SRC)
 SRC = spythags.c \
 		dpythags.c \
 		cpythags.c
@@ -210,14 +221,16 @@ check_INCLUDES = -I $(top_builddir)/auxiliaryFunctions/includes \
 #
 testPythag_SOURCES = testPythag.c
 testPythag_CFLAGS = $(check_INCLUDES)
-testPythag_LDADD = $(top_builddir)/lib/libPythag.a \
-			$(top_builddir)/lib/libSqrt.a \
+testPythag_LDADD = $(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
+			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
 			@LIBMATH@
 
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .c .o .obj
+.SUFFIXES: .c .lo .o .obj
 $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -247,45 +260,42 @@ $(top_srcdir)/configure: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
-install-instLIBRARIES: $(inst_LIBRARIES)
+install-pkglibLTLIBRARIES: $(pkglib_LTLIBRARIES)
 	@$(NORMAL_INSTALL)
-	test -z "$(instdir)" || $(MKDIR_P) "$(DESTDIR)$(instdir)"
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
+	test -z "$(pkglibdir)" || $(MKDIR_P) "$(DESTDIR)$(pkglibdir)"
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
 	  if test -f $$p; then \
 	    f=$(am__strip_dir) \
-	    echo " $(instLIBRARIES_INSTALL) '$$p' '$(DESTDIR)$(instdir)/$$f'"; \
-	    $(instLIBRARIES_INSTALL) "$$p" "$(DESTDIR)$(instdir)/$$f"; \
-	  else :; fi; \
-	done
-	@$(POST_INSTALL)
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
-	  if test -f $$p; then \
-	    p=$(am__strip_dir) \
-	    echo " $(RANLIB) '$(DESTDIR)$(instdir)/$$p'"; \
-	    $(RANLIB) "$(DESTDIR)$(instdir)/$$p"; \
+	    echo " $(LIBTOOL) --mode=install $(pkglibLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) '$$p' '$(DESTDIR)$(pkglibdir)/$$f'"; \
+	    $(LIBTOOL) --mode=install $(pkglibLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) "$$p" "$(DESTDIR)$(pkglibdir)/$$f"; \
 	  else :; fi; \
 	done
 
-uninstall-instLIBRARIES:
+uninstall-pkglibLTLIBRARIES:
 	@$(NORMAL_UNINSTALL)
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
 	  p=$(am__strip_dir) \
-	  echo " rm -f '$(DESTDIR)$(instdir)/$$p'"; \
-	  rm -f "$(DESTDIR)$(instdir)/$$p"; \
+	  echo " $(LIBTOOL) --mode=uninstall rm -f '$(DESTDIR)$(pkglibdir)/$$p'"; \
+	  $(LIBTOOL) --mode=uninstall rm -f "$(DESTDIR)$(pkglibdir)/$$p"; \
 	done
 
-clean-instLIBRARIES:
-	-test -z "$(inst_LIBRARIES)" || rm -f $(inst_LIBRARIES)
-
-clean-noinstLIBRARIES:
-	-test -z "$(noinst_LIBRARIES)" || rm -f $(noinst_LIBRARIES)
-libPythag.a: $(libPythag_a_OBJECTS) $(libPythag_a_DEPENDENCIES) 
-	-rm -f libPythag.a
-	$(libPythag_a_AR) libPythag.a $(libPythag_a_OBJECTS) $(libPythag_a_LIBADD)
-	$(RANLIB) libPythag.a
+clean-pkglibLTLIBRARIES:
+	-test -z "$(pkglib_LTLIBRARIES)" || rm -f $(pkglib_LTLIBRARIES)
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
+	  dir="`echo $$p | sed -e 's|/[^/]*$$||'`"; \
+	  test "$$dir" != "$$p" || dir=.; \
+	  echo "rm -f \"$${dir}/so_locations\""; \
+	  rm -f "$${dir}/so_locations"; \
+	done
+libPythag.la: $(libPythag_la_OBJECTS) $(libPythag_la_DEPENDENCIES) 
+	$(libPythag_la_LINK) -rpath $(pkglibdir) $(libPythag_la_OBJECTS) $(libPythag_la_LIBADD) $(LIBS)
 
 clean-checkPROGRAMS:
-	-test -z "$(check_PROGRAMS)" || rm -f $(check_PROGRAMS)
+	@list='$(check_PROGRAMS)'; for p in $$list; do \
+	  f=`echo $$p|sed 's/$(EXEEXT)$$//'`; \
+	  echo " rm -f $$p $$f"; \
+	  rm -f $$p $$f ; \
+	done
 testPythag$(EXEEXT): $(testPythag_OBJECTS) $(testPythag_DEPENDENCIES) 
 	@rm -f testPythag$(EXEEXT)
 	$(testPythag_LINK) $(testPythag_OBJECTS) $(testPythag_LDADD) $(LIBS)
@@ -296,9 +306,9 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cpythags.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dpythags.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/spythags.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libPythag_la-cpythags.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libPythag_la-dpythags.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libPythag_la-spythags.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testPythag-testPythag.Po@am__quote@
 
 .c.o:
@@ -315,6 +325,34 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(COMPILE) -c `$(CYGPATH_W) '$<'`
 
+.c.lo:
+@am__fastdepCC_TRUE@	$(LTCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
+
+libPythag_la-spythags.lo: spythags.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libPythag_la_CFLAGS) $(CFLAGS) -MT libPythag_la-spythags.lo -MD -MP -MF $(DEPDIR)/libPythag_la-spythags.Tpo -c -o libPythag_la-spythags.lo `test -f 'spythags.c' || echo '$(srcdir)/'`spythags.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libPythag_la-spythags.Tpo $(DEPDIR)/libPythag_la-spythags.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='spythags.c' object='libPythag_la-spythags.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libPythag_la_CFLAGS) $(CFLAGS) -c -o libPythag_la-spythags.lo `test -f 'spythags.c' || echo '$(srcdir)/'`spythags.c
+
+libPythag_la-dpythags.lo: dpythags.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libPythag_la_CFLAGS) $(CFLAGS) -MT libPythag_la-dpythags.lo -MD -MP -MF $(DEPDIR)/libPythag_la-dpythags.Tpo -c -o libPythag_la-dpythags.lo `test -f 'dpythags.c' || echo '$(srcdir)/'`dpythags.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libPythag_la-dpythags.Tpo $(DEPDIR)/libPythag_la-dpythags.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dpythags.c' object='libPythag_la-dpythags.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libPythag_la_CFLAGS) $(CFLAGS) -c -o libPythag_la-dpythags.lo `test -f 'dpythags.c' || echo '$(srcdir)/'`dpythags.c
+
+libPythag_la-cpythags.lo: cpythags.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libPythag_la_CFLAGS) $(CFLAGS) -MT libPythag_la-cpythags.lo -MD -MP -MF $(DEPDIR)/libPythag_la-cpythags.Tpo -c -o libPythag_la-cpythags.lo `test -f 'cpythags.c' || echo '$(srcdir)/'`cpythags.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libPythag_la-cpythags.Tpo $(DEPDIR)/libPythag_la-cpythags.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cpythags.c' object='libPythag_la-cpythags.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libPythag_la_CFLAGS) $(CFLAGS) -c -o libPythag_la-cpythags.lo `test -f 'cpythags.c' || echo '$(srcdir)/'`cpythags.c
+
 testPythag-testPythag.o: testPythag.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testPythag_CFLAGS) $(CFLAGS) -MT testPythag-testPythag.o -MD -MP -MF $(DEPDIR)/testPythag-testPythag.Tpo -c -o testPythag-testPythag.o `test -f 'testPythag.c' || echo '$(srcdir)/'`testPythag.c
 @am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testPythag-testPythag.Tpo $(DEPDIR)/testPythag-testPythag.Po
@@ -328,6 +366,12 @@ testPythag-testPythag.obj: testPythag.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testPythag.c' object='testPythag-testPythag.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testPythag_CFLAGS) $(CFLAGS) -c -o testPythag-testPythag.obj `if test -f 'testPythag.c'; then $(CYGPATH_W) 'testPythag.c'; else $(CYGPATH_W) '$(srcdir)/testPythag.c'; fi`
+
+mostlyclean-libtool:
+	-rm -f *.lo
+
+clean-libtool:
+	-rm -rf .libs _libs
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
@@ -480,9 +524,9 @@ check-am: all-am
 	$(MAKE) $(AM_MAKEFLAGS) $(check_PROGRAMS)
 	$(MAKE) $(AM_MAKEFLAGS) check-TESTS
 check: check-am
-all-am: Makefile $(LIBRARIES)
+all-am: Makefile $(LTLIBRARIES)
 installdirs:
-	for dir in "$(DESTDIR)$(instdir)"; do \
+	for dir in "$(DESTDIR)$(pkglibdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -511,8 +555,8 @@ maintainer-clean-generic:
 	@echo "it deletes files that may require special tools to rebuild."
 clean: clean-am
 
-clean-am: clean-checkPROGRAMS clean-generic clean-instLIBRARIES \
-	clean-noinstLIBRARIES mostlyclean-am
+clean-am: clean-checkPROGRAMS clean-generic clean-libtool \
+	clean-pkglibLTLIBRARIES mostlyclean-am
 
 distclean: distclean-am
 	-rm -rf ./$(DEPDIR)
@@ -530,11 +574,11 @@ info: info-am
 
 info-am:
 
-install-data-am: install-instLIBRARIES
+install-data-am:
 
 install-dvi: install-dvi-am
 
-install-exec-am:
+install-exec-am: install-pkglibLTLIBRARIES
 
 install-html: install-html-am
 
@@ -555,7 +599,8 @@ maintainer-clean-am: distclean-am maintainer-clean-generic
 
 mostlyclean: mostlyclean-am
 
-mostlyclean-am: mostlyclean-compile mostlyclean-generic
+mostlyclean-am: mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool
 
 pdf: pdf-am
 
@@ -565,23 +610,24 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-instLIBRARIES
+uninstall-am: uninstall-pkglibLTLIBRARIES
 
 .MAKE: install-am install-strip
 
 .PHONY: CTAGS GTAGS all all-am check check-TESTS check-am clean \
-	clean-checkPROGRAMS clean-generic clean-instLIBRARIES \
-	clean-noinstLIBRARIES ctags distclean distclean-compile \
-	distclean-generic distclean-tags distdir dvi dvi-am html \
-	html-am info info-am install install-am install-data \
-	install-data-am install-dvi install-dvi-am install-exec \
-	install-exec-am install-html install-html-am install-info \
-	install-info-am install-instLIBRARIES install-man install-pdf \
-	install-pdf-am install-ps install-ps-am install-strip \
-	installcheck installcheck-am installdirs maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-compile \
-	mostlyclean-generic pdf pdf-am ps ps-am tags uninstall \
-	uninstall-am uninstall-instLIBRARIES
+	clean-checkPROGRAMS clean-generic clean-libtool \
+	clean-pkglibLTLIBRARIES ctags distclean distclean-compile \
+	distclean-generic distclean-libtool distclean-tags distdir dvi \
+	dvi-am html html-am info info-am install install-am \
+	install-data install-data-am install-dvi install-dvi-am \
+	install-exec install-exec-am install-html install-html-am \
+	install-info install-info-am install-man install-pdf \
+	install-pdf-am install-pkglibLTLIBRARIES install-ps \
+	install-ps-am install-strip installcheck installcheck-am \
+	installdirs maintainer-clean maintainer-clean-generic \
+	mostlyclean mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool pdf pdf-am ps ps-am tags uninstall \
+	uninstall-am uninstall-pkglibLTLIBRARIES
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
