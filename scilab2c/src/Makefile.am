@@ -1,19 +1,19 @@
 ##
-##  -*- makefile -*-
+##  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+##  Copyright (C) 2006-2008 - INRIA - Bruno JOFRET
 ##
-## Makefile.am
-## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
+##  This file must be used under the terms of the CeCILL.
+##  This source file is licensed as described in the file COPYING, which
+##  you should have received as part of this distribution.  The terms
+##  are also available at
+##  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 ##
-## Started on  Thu Mar 22 16:39:30 2007 jofret
-## Last update Fri Apr 20 16:10:39 2007 jofret
-##
-## Copyright INRIA 2007
 ##
 
-AUTOMAKE_OPTIONS = 1.9 dist-zip dist-bzip2
-
-SUBDIRS=	type \
+SUBDIRS=	lib/blas \
+		lib/lapack \
+		type \
 		elementaryFunctions \
-		auxiliaryFunctions
-
-ACLOCAL_AMFLAGS = -I m4/
+		auxiliaryFunctions \
+		matrixOperations #\
+		#operations
