@@ -37,8 +37,7 @@ TESTS = testCosh$(EXEEXT)
 subdir = elementaryFunctions/cosh
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/m4/fortran.m4 \
-	$(top_srcdir)/configure.ac
+am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(install_sh) -d
@@ -50,41 +49,50 @@ am__vpath_adj = case $$p in \
     *) f=$$p;; \
   esac;
 am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
-am__installdirs = "$(DESTDIR)$(instdir)"
-instLIBRARIES_INSTALL = $(INSTALL_DATA)
-LIBRARIES = $(inst_LIBRARIES) $(noinst_LIBRARIES)
-AR = ar
-ARFLAGS = cru
-libCosh_a_AR = $(AR) $(ARFLAGS)
-libCosh_a_LIBADD =
+am__installdirs = "$(DESTDIR)$(pkglibdir)"
+pkglibLTLIBRARIES_INSTALL = $(INSTALL)
+LTLIBRARIES = $(pkglib_LTLIBRARIES)
+libCosh_la_LIBADD =
 am__objects_1 =
-am__objects_2 = scoshs.$(OBJEXT) dcoshs.$(OBJEXT) ccoshs.$(OBJEXT) \
-	zcoshs.$(OBJEXT) scosha.$(OBJEXT) dcosha.$(OBJEXT) \
-	ccosha.$(OBJEXT) zcosha.$(OBJEXT)
-am_libCosh_a_OBJECTS = $(am__objects_1) $(am__objects_2)
-libCosh_a_OBJECTS = $(am_libCosh_a_OBJECTS)
+am__objects_2 = libCosh_la-scoshs.lo libCosh_la-dcoshs.lo \
+	libCosh_la-ccoshs.lo libCosh_la-zcoshs.lo libCosh_la-scosha.lo \
+	libCosh_la-dcosha.lo libCosh_la-ccosha.lo libCosh_la-zcosha.lo
+am_libCosh_la_OBJECTS = $(am__objects_1) $(am__objects_2)
+libCosh_la_OBJECTS = $(am_libCosh_la_OBJECTS)
+libCosh_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libCosh_la_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_testCosh_OBJECTS = testCosh-testCosh.$(OBJEXT)
 testCosh_OBJECTS = $(am_testCosh_OBJECTS)
-testCosh_DEPENDENCIES = $(top_builddir)/lib/libDoubleComplex.a \
-	$(top_builddir)/lib/libFloatComplex.a \
-	$(top_builddir)/lib/libCosh.a $(top_builddir)/lib/libCos.a \
-	$(top_builddir)/lib/libSinh.a $(top_builddir)/lib/libSin.a
-testCosh_LINK = $(CCLD) $(testCosh_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+testCosh_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
+	$(top_builddir)/type/libFloatComplex.la \
+	$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
+	$(top_builddir)/elementaryFunctions/cos/libCos.la \
+	$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
+	$(top_builddir)/elementaryFunctions/sin/libSin.la
+testCosh_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=link $(CCLD) $(testCosh_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/includes@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+LTCOMPILE = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
+	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
-LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(libCosh_a_SOURCES) $(testCosh_SOURCES)
-DIST_SOURCES = $(libCosh_a_SOURCES) $(testCosh_SOURCES)
+LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
+SOURCES = $(libCosh_la_SOURCES) $(testCosh_SOURCES)
+DIST_SOURCES = $(libCosh_la_SOURCES) $(testCosh_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
 AMTAR = @AMTAR@
+AR = @AR@
 AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
 AUTOMAKE = @AUTOMAKE@
@@ -95,11 +103,13 @@ CFLAGS = @CFLAGS@
 CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
 CXX = @CXX@
+CXXCPP = @CXXCPP@
 CXXDEPMODE = @CXXDEPMODE@
 CXXFLAGS = @CXXFLAGS@
 CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
+ECHO = @ECHO@
 ECHO_C = @ECHO_C@
 ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
@@ -117,6 +127,7 @@ LDFLAGS = @LDFLAGS@
 LIBMATH = @LIBMATH@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
+LIBTOOL = @LIBTOOL@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
@@ -131,6 +142,7 @@ PACKAGE_TARNAME = @PACKAGE_TARNAME@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
 RANLIB = @RANLIB@
+SED = @SED@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STRIP = @STRIP@
@@ -186,13 +198,12 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-AM_CFLAGS = -I ../../type \
-		-I ../includes
+libCosh_la_CFLAGS = -I ../../type \
+			-I ../includes
 
 instdir = $(top_builddir)/lib
-inst_LIBRARIES = libCosh.a
-noinst_LIBRARIES = libCosh.a
-libCosh_a_SOURCES = $(HEAD) $(SRC)
+pkglib_LTLIBRARIES = libCosh.la
+libCosh_la_SOURCES = $(HEAD) $(SRC)
 SRC = scoshs.c \
 		dcoshs.c \
 		ccoshs.c \
@@ -216,18 +227,18 @@ check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
 #
 testCosh_SOURCES = testCosh.c
 testCosh_CFLAGS = $(check_INCLUDES)
-testCosh_LDADD = $(top_builddir)/lib/libDoubleComplex.a \
-			$(top_builddir)/lib/libFloatComplex.a \
-			$(top_builddir)/lib/libCosh.a \
-			$(top_builddir)/lib/libCos.a \
-			$(top_builddir)/lib/libSinh.a \
-			$(top_builddir)/lib/libSin.a \
+testCosh_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
+			$(top_builddir)/elementaryFunctions/cos/libCos.la \
+			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
+			$(top_builddir)/elementaryFunctions/sin/libSin.la \
 			@LIBMATH@
 
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .c .o .obj
+.SUFFIXES: .c .lo .o .obj
 $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -257,45 +268,42 @@ $(top_srcdir)/configure: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
-install-instLIBRARIES: $(inst_LIBRARIES)
+install-pkglibLTLIBRARIES: $(pkglib_LTLIBRARIES)
 	@$(NORMAL_INSTALL)
-	test -z "$(instdir)" || $(MKDIR_P) "$(DESTDIR)$(instdir)"
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
+	test -z "$(pkglibdir)" || $(MKDIR_P) "$(DESTDIR)$(pkglibdir)"
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
 	  if test -f $$p; then \
 	    f=$(am__strip_dir) \
-	    echo " $(instLIBRARIES_INSTALL) '$$p' '$(DESTDIR)$(instdir)/$$f'"; \
-	    $(instLIBRARIES_INSTALL) "$$p" "$(DESTDIR)$(instdir)/$$f"; \
-	  else :; fi; \
-	done
-	@$(POST_INSTALL)
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
-	  if test -f $$p; then \
-	    p=$(am__strip_dir) \
-	    echo " $(RANLIB) '$(DESTDIR)$(instdir)/$$p'"; \
-	    $(RANLIB) "$(DESTDIR)$(instdir)/$$p"; \
+	    echo " $(LIBTOOL) --mode=install $(pkglibLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) '$$p' '$(DESTDIR)$(pkglibdir)/$$f'"; \
+	    $(LIBTOOL) --mode=install $(pkglibLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) "$$p" "$(DESTDIR)$(pkglibdir)/$$f"; \
 	  else :; fi; \
 	done
 
-uninstall-instLIBRARIES:
+uninstall-pkglibLTLIBRARIES:
 	@$(NORMAL_UNINSTALL)
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
 	  p=$(am__strip_dir) \
-	  echo " rm -f '$(DESTDIR)$(instdir)/$$p'"; \
-	  rm -f "$(DESTDIR)$(instdir)/$$p"; \
+	  echo " $(LIBTOOL) --mode=uninstall rm -f '$(DESTDIR)$(pkglibdir)/$$p'"; \
+	  $(LIBTOOL) --mode=uninstall rm -f "$(DESTDIR)$(pkglibdir)/$$p"; \
 	done
 
-clean-instLIBRARIES:
-	-test -z "$(inst_LIBRARIES)" || rm -f $(inst_LIBRARIES)
-
-clean-noinstLIBRARIES:
-	-test -z "$(noinst_LIBRARIES)" || rm -f $(noinst_LIBRARIES)
-libCosh.a: $(libCosh_a_OBJECTS) $(libCosh_a_DEPENDENCIES) 
-	-rm -f libCosh.a
-	$(libCosh_a_AR) libCosh.a $(libCosh_a_OBJECTS) $(libCosh_a_LIBADD)
-	$(RANLIB) libCosh.a
+clean-pkglibLTLIBRARIES:
+	-test -z "$(pkglib_LTLIBRARIES)" || rm -f $(pkglib_LTLIBRARIES)
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
+	  dir="`echo $$p | sed -e 's|/[^/]*$$||'`"; \
+	  test "$$dir" != "$$p" || dir=.; \
+	  echo "rm -f \"$${dir}/so_locations\""; \
+	  rm -f "$${dir}/so_locations"; \
+	done
+libCosh.la: $(libCosh_la_OBJECTS) $(libCosh_la_DEPENDENCIES) 
+	$(libCosh_la_LINK) -rpath $(pkglibdir) $(libCosh_la_OBJECTS) $(libCosh_la_LIBADD) $(LIBS)
 
 clean-checkPROGRAMS:
-	-test -z "$(check_PROGRAMS)" || rm -f $(check_PROGRAMS)
+	@list='$(check_PROGRAMS)'; for p in $$list; do \
+	  f=`echo $$p|sed 's/$(EXEEXT)$$//'`; \
+	  echo " rm -f $$p $$f"; \
+	  rm -f $$p $$f ; \
+	done
 testCosh$(EXEEXT): $(testCosh_OBJECTS) $(testCosh_DEPENDENCIES) 
 	@rm -f testCosh$(EXEEXT)
 	$(testCosh_LINK) $(testCosh_OBJECTS) $(testCosh_LDADD) $(LIBS)
@@ -306,15 +314,15 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ccosha.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ccoshs.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dcosha.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dcoshs.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/scosha.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/scoshs.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCosh_la-ccosha.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCosh_la-ccoshs.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCosh_la-dcosha.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCosh_la-dcoshs.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCosh_la-scosha.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCosh_la-scoshs.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCosh_la-zcosha.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCosh_la-zcoshs.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testCosh-testCosh.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zcosha.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zcoshs.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -330,6 +338,69 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(COMPILE) -c `$(CYGPATH_W) '$<'`
 
+.c.lo:
+@am__fastdepCC_TRUE@	$(LTCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
+
+libCosh_la-scoshs.lo: scoshs.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCosh_la_CFLAGS) $(CFLAGS) -MT libCosh_la-scoshs.lo -MD -MP -MF $(DEPDIR)/libCosh_la-scoshs.Tpo -c -o libCosh_la-scoshs.lo `test -f 'scoshs.c' || echo '$(srcdir)/'`scoshs.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libCosh_la-scoshs.Tpo $(DEPDIR)/libCosh_la-scoshs.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scoshs.c' object='libCosh_la-scoshs.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCosh_la_CFLAGS) $(CFLAGS) -c -o libCosh_la-scoshs.lo `test -f 'scoshs.c' || echo '$(srcdir)/'`scoshs.c
+
+libCosh_la-dcoshs.lo: dcoshs.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCosh_la_CFLAGS) $(CFLAGS) -MT libCosh_la-dcoshs.lo -MD -MP -MF $(DEPDIR)/libCosh_la-dcoshs.Tpo -c -o libCosh_la-dcoshs.lo `test -f 'dcoshs.c' || echo '$(srcdir)/'`dcoshs.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libCosh_la-dcoshs.Tpo $(DEPDIR)/libCosh_la-dcoshs.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dcoshs.c' object='libCosh_la-dcoshs.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCosh_la_CFLAGS) $(CFLAGS) -c -o libCosh_la-dcoshs.lo `test -f 'dcoshs.c' || echo '$(srcdir)/'`dcoshs.c
+
+libCosh_la-ccoshs.lo: ccoshs.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCosh_la_CFLAGS) $(CFLAGS) -MT libCosh_la-ccoshs.lo -MD -MP -MF $(DEPDIR)/libCosh_la-ccoshs.Tpo -c -o libCosh_la-ccoshs.lo `test -f 'ccoshs.c' || echo '$(srcdir)/'`ccoshs.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libCosh_la-ccoshs.Tpo $(DEPDIR)/libCosh_la-ccoshs.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ccoshs.c' object='libCosh_la-ccoshs.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCosh_la_CFLAGS) $(CFLAGS) -c -o libCosh_la-ccoshs.lo `test -f 'ccoshs.c' || echo '$(srcdir)/'`ccoshs.c
+
+libCosh_la-zcoshs.lo: zcoshs.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCosh_la_CFLAGS) $(CFLAGS) -MT libCosh_la-zcoshs.lo -MD -MP -MF $(DEPDIR)/libCosh_la-zcoshs.Tpo -c -o libCosh_la-zcoshs.lo `test -f 'zcoshs.c' || echo '$(srcdir)/'`zcoshs.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libCosh_la-zcoshs.Tpo $(DEPDIR)/libCosh_la-zcoshs.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zcoshs.c' object='libCosh_la-zcoshs.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCosh_la_CFLAGS) $(CFLAGS) -c -o libCosh_la-zcoshs.lo `test -f 'zcoshs.c' || echo '$(srcdir)/'`zcoshs.c
+
+libCosh_la-scosha.lo: scosha.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCosh_la_CFLAGS) $(CFLAGS) -MT libCosh_la-scosha.lo -MD -MP -MF $(DEPDIR)/libCosh_la-scosha.Tpo -c -o libCosh_la-scosha.lo `test -f 'scosha.c' || echo '$(srcdir)/'`scosha.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libCosh_la-scosha.Tpo $(DEPDIR)/libCosh_la-scosha.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scosha.c' object='libCosh_la-scosha.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCosh_la_CFLAGS) $(CFLAGS) -c -o libCosh_la-scosha.lo `test -f 'scosha.c' || echo '$(srcdir)/'`scosha.c
+
+libCosh_la-dcosha.lo: dcosha.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCosh_la_CFLAGS) $(CFLAGS) -MT libCosh_la-dcosha.lo -MD -MP -MF $(DEPDIR)/libCosh_la-dcosha.Tpo -c -o libCosh_la-dcosha.lo `test -f 'dcosha.c' || echo '$(srcdir)/'`dcosha.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libCosh_la-dcosha.Tpo $(DEPDIR)/libCosh_la-dcosha.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dcosha.c' object='libCosh_la-dcosha.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCosh_la_CFLAGS) $(CFLAGS) -c -o libCosh_la-dcosha.lo `test -f 'dcosha.c' || echo '$(srcdir)/'`dcosha.c
+
+libCosh_la-ccosha.lo: ccosha.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCosh_la_CFLAGS) $(CFLAGS) -MT libCosh_la-ccosha.lo -MD -MP -MF $(DEPDIR)/libCosh_la-ccosha.Tpo -c -o libCosh_la-ccosha.lo `test -f 'ccosha.c' || echo '$(srcdir)/'`ccosha.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libCosh_la-ccosha.Tpo $(DEPDIR)/libCosh_la-ccosha.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ccosha.c' object='libCosh_la-ccosha.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCosh_la_CFLAGS) $(CFLAGS) -c -o libCosh_la-ccosha.lo `test -f 'ccosha.c' || echo '$(srcdir)/'`ccosha.c
+
+libCosh_la-zcosha.lo: zcosha.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCosh_la_CFLAGS) $(CFLAGS) -MT libCosh_la-zcosha.lo -MD -MP -MF $(DEPDIR)/libCosh_la-zcosha.Tpo -c -o libCosh_la-zcosha.lo `test -f 'zcosha.c' || echo '$(srcdir)/'`zcosha.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libCosh_la-zcosha.Tpo $(DEPDIR)/libCosh_la-zcosha.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zcosha.c' object='libCosh_la-zcosha.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCosh_la_CFLAGS) $(CFLAGS) -c -o libCosh_la-zcosha.lo `test -f 'zcosha.c' || echo '$(srcdir)/'`zcosha.c
+
 testCosh-testCosh.o: testCosh.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testCosh_CFLAGS) $(CFLAGS) -MT testCosh-testCosh.o -MD -MP -MF $(DEPDIR)/testCosh-testCosh.Tpo -c -o testCosh-testCosh.o `test -f 'testCosh.c' || echo '$(srcdir)/'`testCosh.c
 @am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testCosh-testCosh.Tpo $(DEPDIR)/testCosh-testCosh.Po
@@ -343,6 +414,12 @@ testCosh-testCosh.obj: testCosh.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testCosh.c' object='testCosh-testCosh.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testCosh_CFLAGS) $(CFLAGS) -c -o testCosh-testCosh.obj `if test -f 'testCosh.c'; then $(CYGPATH_W) 'testCosh.c'; else $(CYGPATH_W) '$(srcdir)/testCosh.c'; fi`
+
+mostlyclean-libtool:
+	-rm -f *.lo
+
+clean-libtool:
+	-rm -rf .libs _libs
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
@@ -495,9 +572,9 @@ check-am: all-am
 	$(MAKE) $(AM_MAKEFLAGS) $(check_PROGRAMS)
 	$(MAKE) $(AM_MAKEFLAGS) check-TESTS
 check: check-am
-all-am: Makefile $(LIBRARIES)
+all-am: Makefile $(LTLIBRARIES)
 installdirs:
-	for dir in "$(DESTDIR)$(instdir)"; do \
+	for dir in "$(DESTDIR)$(pkglibdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -526,8 +603,8 @@ maintainer-clean-generic:
 	@echo "it deletes files that may require special tools to rebuild."
 clean: clean-am
 
-clean-am: clean-checkPROGRAMS clean-generic clean-instLIBRARIES \
-	clean-noinstLIBRARIES mostlyclean-am
+clean-am: clean-checkPROGRAMS clean-generic clean-libtool \
+	clean-pkglibLTLIBRARIES mostlyclean-am
 
 distclean: distclean-am
 	-rm -rf ./$(DEPDIR)
@@ -545,11 +622,11 @@ info: info-am
 
 info-am:
 
-install-data-am: install-instLIBRARIES
+install-data-am:
 
 install-dvi: install-dvi-am
 
-install-exec-am:
+install-exec-am: install-pkglibLTLIBRARIES
 
 install-html: install-html-am
 
@@ -570,7 +647,8 @@ maintainer-clean-am: distclean-am maintainer-clean-generic
 
 mostlyclean: mostlyclean-am
 
-mostlyclean-am: mostlyclean-compile mostlyclean-generic
+mostlyclean-am: mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool
 
 pdf: pdf-am
 
@@ -580,23 +658,24 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-instLIBRARIES
+uninstall-am: uninstall-pkglibLTLIBRARIES
 
 .MAKE: install-am install-strip
 
 .PHONY: CTAGS GTAGS all all-am check check-TESTS check-am clean \
-	clean-checkPROGRAMS clean-generic clean-instLIBRARIES \
-	clean-noinstLIBRARIES ctags distclean distclean-compile \
-	distclean-generic distclean-tags distdir dvi dvi-am html \
-	html-am info info-am install install-am install-data \
-	install-data-am install-dvi install-dvi-am install-exec \
-	install-exec-am install-html install-html-am install-info \
-	install-info-am install-instLIBRARIES install-man install-pdf \
-	install-pdf-am install-ps install-ps-am install-strip \
-	installcheck installcheck-am installdirs maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-compile \
-	mostlyclean-generic pdf pdf-am ps ps-am tags uninstall \
-	uninstall-am uninstall-instLIBRARIES
+	clean-checkPROGRAMS clean-generic clean-libtool \
+	clean-pkglibLTLIBRARIES ctags distclean distclean-compile \
+	distclean-generic distclean-libtool distclean-tags distdir dvi \
+	dvi-am html html-am info info-am install install-am \
+	install-data install-data-am install-dvi install-dvi-am \
+	install-exec install-exec-am install-html install-html-am \
+	install-info install-info-am install-man install-pdf \
+	install-pdf-am install-pkglibLTLIBRARIES install-ps \
+	install-ps-am install-strip installcheck installcheck-am \
+	installdirs maintainer-clean maintainer-clean-generic \
+	mostlyclean mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool pdf pdf-am ps ps-am tags uninstall \
+	uninstall-am uninstall-pkglibLTLIBRARIES
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

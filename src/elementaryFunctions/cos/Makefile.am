@@ -1,25 +1,23 @@
 ##
-##  -*- makefile -*-
+##  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+##  Copyright (C) 2006-2008 - INRIA - Bruno JOFRET
 ##
-## Makefile
-## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
+##  This file must be used under the terms of the CeCILL.
+##  This source file is licensed as described in the file COPYING, which
+##  you should have received as part of this distribution.  The terms
+##  are also available at
+##  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 ##
-## Started on  Fri Jan  5 10:19:16 2007 jofret
-## Last update Wed Apr 18 16:42:18 2007 jofret
-##
-## Copyright INRIA 2007
 ##
 
-AM_CFLAGS =	-I ../../type \
+libCos_la_CFLAGS =	-I ../../type \
 		-I ../includes
 
 instdir = $(top_builddir)/lib
 
-inst_LIBRARIES =	libCos.a
+pkglib_LTLIBRARIES =	libCos.la
 
-noinst_LIBRARIES =	libCos.a
-
-libCos_a_SOURCES =	$(HEAD) $(SRC)
+libCos_la_SOURCES =	$(HEAD) $(SRC)
 
 SRC	=	scoss.c \
 		dcoss.c \
@@ -48,10 +46,10 @@ TESTS		=	testCos
 #
 testCos_SOURCES = 	testCos.c
 testCos_CFLAGS	=	$(check_INCLUDES)
-testCos_LDADD	=	$(top_builddir)/lib/libDoubleComplex.a \
-			$(top_builddir)/lib/libFloatComplex.a \
-			$(top_builddir)/lib/libCos.a \
-			$(top_builddir)/lib/libSin.a \
-			$(top_builddir)/lib/libCosh.a \
-			$(top_builddir)/lib/libSinh.a \
+testCos_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/elementaryFunctions/cos/libCos.la \
+			$(top_builddir)/elementaryFunctions/sin/libSin.la \
+			$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
+			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
 			@LIBMATH@

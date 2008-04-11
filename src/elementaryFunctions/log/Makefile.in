@@ -35,8 +35,7 @@ host_triplet = @host@
 subdir = elementaryFunctions/log
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/m4/fortran.m4 \
-	$(top_srcdir)/configure.ac
+am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(install_sh) -d
@@ -48,33 +47,39 @@ am__vpath_adj = case $$p in \
     *) f=$$p;; \
   esac;
 am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
-am__installdirs = "$(DESTDIR)$(instdir)"
-instLIBRARIES_INSTALL = $(INSTALL_DATA)
-LIBRARIES = $(inst_LIBRARIES) $(noinst_LIBRARIES)
-AR = ar
-ARFLAGS = cru
-libLog_a_AR = $(AR) $(ARFLAGS)
-libLog_a_LIBADD =
+am__installdirs = "$(DESTDIR)$(pkglibdir)"
+pkglibLTLIBRARIES_INSTALL = $(INSTALL)
+LTLIBRARIES = $(pkglib_LTLIBRARIES)
+libLog_la_LIBADD =
 am__objects_1 =
-am__objects_2 = slogs.$(OBJEXT) dlogs.$(OBJEXT) clogs.$(OBJEXT) \
-	zlogs.$(OBJEXT) sloga.$(OBJEXT) dloga.$(OBJEXT) \
-	cloga.$(OBJEXT) zloga.$(OBJEXT)
-am_libLog_a_OBJECTS = $(am__objects_1) $(am__objects_2)
-libLog_a_OBJECTS = $(am_libLog_a_OBJECTS)
+am__objects_2 = libLog_la-slogs.lo libLog_la-dlogs.lo \
+	libLog_la-clogs.lo libLog_la-zlogs.lo libLog_la-sloga.lo \
+	libLog_la-dloga.lo libLog_la-cloga.lo libLog_la-zloga.lo
+am_libLog_la_OBJECTS = $(am__objects_1) $(am__objects_2)
+libLog_la_OBJECTS = $(am_libLog_la_OBJECTS)
+libLog_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libLog_la_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/includes@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+LTCOMPILE = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
+	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
-LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(libLog_a_SOURCES)
-DIST_SOURCES = $(libLog_a_SOURCES)
+LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
+SOURCES = $(libLog_la_SOURCES)
+DIST_SOURCES = $(libLog_la_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
 AMTAR = @AMTAR@
+AR = @AR@
 AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
 AUTOMAKE = @AUTOMAKE@
@@ -85,11 +90,13 @@ CFLAGS = @CFLAGS@
 CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
 CXX = @CXX@
+CXXCPP = @CXXCPP@
 CXXDEPMODE = @CXXDEPMODE@
 CXXFLAGS = @CXXFLAGS@
 CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
+ECHO = @ECHO@
 ECHO_C = @ECHO_C@
 ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
@@ -107,6 +114,7 @@ LDFLAGS = @LDFLAGS@
 LIBMATH = @LIBMATH@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
+LIBTOOL = @LIBTOOL@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
@@ -121,6 +129,7 @@ PACKAGE_TARNAME = @PACKAGE_TARNAME@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
 RANLIB = @RANLIB@
+SED = @SED@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STRIP = @STRIP@
@@ -176,13 +185,12 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-AM_CFLAGS = -I ../../type \
-		-I ../includes
+libLog_la_CFLAGS = -I ../../type \
+			-I ../includes
 
 instdir = $(top_builddir)/lib
-inst_LIBRARIES = libLog.a
-noinst_LIBRARIES = libLog.a
-libLog_a_SOURCES = $(HEAD) $(SRC)
+pkglib_LTLIBRARIES = libLog.la
+libLog_la_SOURCES = $(HEAD) $(SRC)
 SRC = slogs.c \
 		dlogs.c \
 		clogs.c \
@@ -196,7 +204,7 @@ HEAD = ../includes/log.h
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .c .o .obj
+.SUFFIXES: .c .lo .o .obj
 $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -226,42 +234,35 @@ $(top_srcdir)/configure: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
-install-instLIBRARIES: $(inst_LIBRARIES)
+install-pkglibLTLIBRARIES: $(pkglib_LTLIBRARIES)
 	@$(NORMAL_INSTALL)
-	test -z "$(instdir)" || $(MKDIR_P) "$(DESTDIR)$(instdir)"
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
+	test -z "$(pkglibdir)" || $(MKDIR_P) "$(DESTDIR)$(pkglibdir)"
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
 	  if test -f $$p; then \
 	    f=$(am__strip_dir) \
-	    echo " $(instLIBRARIES_INSTALL) '$$p' '$(DESTDIR)$(instdir)/$$f'"; \
-	    $(instLIBRARIES_INSTALL) "$$p" "$(DESTDIR)$(instdir)/$$f"; \
-	  else :; fi; \
-	done
-	@$(POST_INSTALL)
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
-	  if test -f $$p; then \
-	    p=$(am__strip_dir) \
-	    echo " $(RANLIB) '$(DESTDIR)$(instdir)/$$p'"; \
-	    $(RANLIB) "$(DESTDIR)$(instdir)/$$p"; \
+	    echo " $(LIBTOOL) --mode=install $(pkglibLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) '$$p' '$(DESTDIR)$(pkglibdir)/$$f'"; \
+	    $(LIBTOOL) --mode=install $(pkglibLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) "$$p" "$(DESTDIR)$(pkglibdir)/$$f"; \
 	  else :; fi; \
 	done
 
-uninstall-instLIBRARIES:
+uninstall-pkglibLTLIBRARIES:
 	@$(NORMAL_UNINSTALL)
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
 	  p=$(am__strip_dir) \
-	  echo " rm -f '$(DESTDIR)$(instdir)/$$p'"; \
-	  rm -f "$(DESTDIR)$(instdir)/$$p"; \
+	  echo " $(LIBTOOL) --mode=uninstall rm -f '$(DESTDIR)$(pkglibdir)/$$p'"; \
+	  $(LIBTOOL) --mode=uninstall rm -f "$(DESTDIR)$(pkglibdir)/$$p"; \
 	done
 
-clean-instLIBRARIES:
-	-test -z "$(inst_LIBRARIES)" || rm -f $(inst_LIBRARIES)
-
-clean-noinstLIBRARIES:
-	-test -z "$(noinst_LIBRARIES)" || rm -f $(noinst_LIBRARIES)
-libLog.a: $(libLog_a_OBJECTS) $(libLog_a_DEPENDENCIES) 
-	-rm -f libLog.a
-	$(libLog_a_AR) libLog.a $(libLog_a_OBJECTS) $(libLog_a_LIBADD)
-	$(RANLIB) libLog.a
+clean-pkglibLTLIBRARIES:
+	-test -z "$(pkglib_LTLIBRARIES)" || rm -f $(pkglib_LTLIBRARIES)
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
+	  dir="`echo $$p | sed -e 's|/[^/]*$$||'`"; \
+	  test "$$dir" != "$$p" || dir=.; \
+	  echo "rm -f \"$${dir}/so_locations\""; \
+	  rm -f "$${dir}/so_locations"; \
+	done
+libLog.la: $(libLog_la_OBJECTS) $(libLog_la_DEPENDENCIES) 
+	$(libLog_la_LINK) -rpath $(pkglibdir) $(libLog_la_OBJECTS) $(libLog_la_LIBADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -269,14 +270,14 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cloga.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/clogs.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dloga.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dlogs.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sloga.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/slogs.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zloga.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zlogs.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLog_la-cloga.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLog_la-clogs.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLog_la-dloga.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLog_la-dlogs.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLog_la-sloga.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLog_la-slogs.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLog_la-zloga.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLog_la-zlogs.Plo@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -291,6 +292,75 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(COMPILE) -c `$(CYGPATH_W) '$<'`
+
+.c.lo:
+@am__fastdepCC_TRUE@	$(LTCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
+
+libLog_la-slogs.lo: slogs.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLog_la_CFLAGS) $(CFLAGS) -MT libLog_la-slogs.lo -MD -MP -MF $(DEPDIR)/libLog_la-slogs.Tpo -c -o libLog_la-slogs.lo `test -f 'slogs.c' || echo '$(srcdir)/'`slogs.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLog_la-slogs.Tpo $(DEPDIR)/libLog_la-slogs.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='slogs.c' object='libLog_la-slogs.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLog_la_CFLAGS) $(CFLAGS) -c -o libLog_la-slogs.lo `test -f 'slogs.c' || echo '$(srcdir)/'`slogs.c
+
+libLog_la-dlogs.lo: dlogs.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLog_la_CFLAGS) $(CFLAGS) -MT libLog_la-dlogs.lo -MD -MP -MF $(DEPDIR)/libLog_la-dlogs.Tpo -c -o libLog_la-dlogs.lo `test -f 'dlogs.c' || echo '$(srcdir)/'`dlogs.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLog_la-dlogs.Tpo $(DEPDIR)/libLog_la-dlogs.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dlogs.c' object='libLog_la-dlogs.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLog_la_CFLAGS) $(CFLAGS) -c -o libLog_la-dlogs.lo `test -f 'dlogs.c' || echo '$(srcdir)/'`dlogs.c
+
+libLog_la-clogs.lo: clogs.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLog_la_CFLAGS) $(CFLAGS) -MT libLog_la-clogs.lo -MD -MP -MF $(DEPDIR)/libLog_la-clogs.Tpo -c -o libLog_la-clogs.lo `test -f 'clogs.c' || echo '$(srcdir)/'`clogs.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLog_la-clogs.Tpo $(DEPDIR)/libLog_la-clogs.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='clogs.c' object='libLog_la-clogs.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLog_la_CFLAGS) $(CFLAGS) -c -o libLog_la-clogs.lo `test -f 'clogs.c' || echo '$(srcdir)/'`clogs.c
+
+libLog_la-zlogs.lo: zlogs.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLog_la_CFLAGS) $(CFLAGS) -MT libLog_la-zlogs.lo -MD -MP -MF $(DEPDIR)/libLog_la-zlogs.Tpo -c -o libLog_la-zlogs.lo `test -f 'zlogs.c' || echo '$(srcdir)/'`zlogs.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLog_la-zlogs.Tpo $(DEPDIR)/libLog_la-zlogs.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zlogs.c' object='libLog_la-zlogs.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLog_la_CFLAGS) $(CFLAGS) -c -o libLog_la-zlogs.lo `test -f 'zlogs.c' || echo '$(srcdir)/'`zlogs.c
+
+libLog_la-sloga.lo: sloga.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLog_la_CFLAGS) $(CFLAGS) -MT libLog_la-sloga.lo -MD -MP -MF $(DEPDIR)/libLog_la-sloga.Tpo -c -o libLog_la-sloga.lo `test -f 'sloga.c' || echo '$(srcdir)/'`sloga.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLog_la-sloga.Tpo $(DEPDIR)/libLog_la-sloga.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sloga.c' object='libLog_la-sloga.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLog_la_CFLAGS) $(CFLAGS) -c -o libLog_la-sloga.lo `test -f 'sloga.c' || echo '$(srcdir)/'`sloga.c
+
+libLog_la-dloga.lo: dloga.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLog_la_CFLAGS) $(CFLAGS) -MT libLog_la-dloga.lo -MD -MP -MF $(DEPDIR)/libLog_la-dloga.Tpo -c -o libLog_la-dloga.lo `test -f 'dloga.c' || echo '$(srcdir)/'`dloga.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLog_la-dloga.Tpo $(DEPDIR)/libLog_la-dloga.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dloga.c' object='libLog_la-dloga.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLog_la_CFLAGS) $(CFLAGS) -c -o libLog_la-dloga.lo `test -f 'dloga.c' || echo '$(srcdir)/'`dloga.c
+
+libLog_la-cloga.lo: cloga.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLog_la_CFLAGS) $(CFLAGS) -MT libLog_la-cloga.lo -MD -MP -MF $(DEPDIR)/libLog_la-cloga.Tpo -c -o libLog_la-cloga.lo `test -f 'cloga.c' || echo '$(srcdir)/'`cloga.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLog_la-cloga.Tpo $(DEPDIR)/libLog_la-cloga.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cloga.c' object='libLog_la-cloga.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLog_la_CFLAGS) $(CFLAGS) -c -o libLog_la-cloga.lo `test -f 'cloga.c' || echo '$(srcdir)/'`cloga.c
+
+libLog_la-zloga.lo: zloga.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLog_la_CFLAGS) $(CFLAGS) -MT libLog_la-zloga.lo -MD -MP -MF $(DEPDIR)/libLog_la-zloga.Tpo -c -o libLog_la-zloga.lo `test -f 'zloga.c' || echo '$(srcdir)/'`zloga.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLog_la-zloga.Tpo $(DEPDIR)/libLog_la-zloga.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zloga.c' object='libLog_la-zloga.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLog_la_CFLAGS) $(CFLAGS) -c -o libLog_la-zloga.lo `test -f 'zloga.c' || echo '$(srcdir)/'`zloga.c
+
+mostlyclean-libtool:
+	-rm -f *.lo
+
+clean-libtool:
+	-rm -rf .libs _libs
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
@@ -368,9 +438,9 @@ distdir: $(DISTFILES)
 	done
 check-am: all-am
 check: check-am
-all-am: Makefile $(LIBRARIES)
+all-am: Makefile $(LTLIBRARIES)
 installdirs:
-	for dir in "$(DESTDIR)$(instdir)"; do \
+	for dir in "$(DESTDIR)$(pkglibdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -399,7 +469,7 @@ maintainer-clean-generic:
 	@echo "it deletes files that may require special tools to rebuild."
 clean: clean-am
 
-clean-am: clean-generic clean-instLIBRARIES clean-noinstLIBRARIES \
+clean-am: clean-generic clean-libtool clean-pkglibLTLIBRARIES \
 	mostlyclean-am
 
 distclean: distclean-am
@@ -418,11 +488,11 @@ info: info-am
 
 info-am:
 
-install-data-am: install-instLIBRARIES
+install-data-am:
 
 install-dvi: install-dvi-am
 
-install-exec-am:
+install-exec-am: install-pkglibLTLIBRARIES
 
 install-html: install-html-am
 
@@ -443,7 +513,8 @@ maintainer-clean-am: distclean-am maintainer-clean-generic
 
 mostlyclean: mostlyclean-am
 
-mostlyclean-am: mostlyclean-compile mostlyclean-generic
+mostlyclean-am: mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool
 
 pdf: pdf-am
 
@@ -453,22 +524,23 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-instLIBRARIES
+uninstall-am: uninstall-pkglibLTLIBRARIES
 
 .MAKE: install-am install-strip
 
 .PHONY: CTAGS GTAGS all all-am check check-am clean clean-generic \
-	clean-instLIBRARIES clean-noinstLIBRARIES ctags distclean \
-	distclean-compile distclean-generic distclean-tags distdir dvi \
-	dvi-am html html-am info info-am install install-am \
-	install-data install-data-am install-dvi install-dvi-am \
-	install-exec install-exec-am install-html install-html-am \
-	install-info install-info-am install-instLIBRARIES install-man \
-	install-pdf install-pdf-am install-ps install-ps-am \
-	install-strip installcheck installcheck-am installdirs \
-	maintainer-clean maintainer-clean-generic mostlyclean \
-	mostlyclean-compile mostlyclean-generic pdf pdf-am ps ps-am \
-	tags uninstall uninstall-am uninstall-instLIBRARIES
+	clean-libtool clean-pkglibLTLIBRARIES ctags distclean \
+	distclean-compile distclean-generic distclean-libtool \
+	distclean-tags distdir dvi dvi-am html html-am info info-am \
+	install install-am install-data install-data-am install-dvi \
+	install-dvi-am install-exec install-exec-am install-html \
+	install-html-am install-info install-info-am install-man \
+	install-pdf install-pdf-am install-pkglibLTLIBRARIES \
+	install-ps install-ps-am install-strip installcheck \
+	installcheck-am installdirs maintainer-clean \
+	maintainer-clean-generic mostlyclean mostlyclean-compile \
+	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
+	tags uninstall uninstall-am uninstall-pkglibLTLIBRARIES
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

@@ -37,8 +37,7 @@ TESTS = testExp10$(EXEEXT)
 subdir = elementaryFunctions/exp10
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/m4/fortran.m4 \
-	$(top_srcdir)/configure.ac
+am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(install_sh) -d
@@ -50,40 +49,52 @@ am__vpath_adj = case $$p in \
     *) f=$$p;; \
   esac;
 am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
-am__installdirs = "$(DESTDIR)$(instdir)"
-instLIBRARIES_INSTALL = $(INSTALL_DATA)
-LIBRARIES = $(inst_LIBRARIES) $(noinst_LIBRARIES)
-AR = ar
-ARFLAGS = cru
-libExp10_a_AR = $(AR) $(ARFLAGS)
-libExp10_a_LIBADD =
+am__installdirs = "$(DESTDIR)$(pkglibdir)"
+pkglibLTLIBRARIES_INSTALL = $(INSTALL)
+LTLIBRARIES = $(pkglib_LTLIBRARIES)
+libExp10_la_LIBADD =
 am__objects_1 =
-am__objects_2 = sexp10s.$(OBJEXT) dexp10s.$(OBJEXT) cexp10s.$(OBJEXT) \
-	zexp10s.$(OBJEXT) sexp10a.$(OBJEXT) dexp10a.$(OBJEXT) \
-	cexp10a.$(OBJEXT) zexp10a.$(OBJEXT)
-am_libExp10_a_OBJECTS = $(am__objects_1) $(am__objects_2)
-libExp10_a_OBJECTS = $(am_libExp10_a_OBJECTS)
+am__objects_2 = libExp10_la-sexp10s.lo libExp10_la-dexp10s.lo \
+	libExp10_la-cexp10s.lo libExp10_la-zexp10s.lo \
+	libExp10_la-sexp10a.lo libExp10_la-dexp10a.lo \
+	libExp10_la-cexp10a.lo libExp10_la-zexp10a.lo
+am_libExp10_la_OBJECTS = $(am__objects_1) $(am__objects_2)
+libExp10_la_OBJECTS = $(am_libExp10_la_OBJECTS)
+libExp10_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libExp10_la_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_testExp10_OBJECTS = testExp10-testExp10.$(OBJEXT)
 testExp10_OBJECTS = $(am_testExp10_OBJECTS)
-testExp10_DEPENDENCIES = $(top_builddir)/lib/libDoubleComplex.a \
-	$(top_builddir)/lib/libFloatComplex.a \
-	$(top_builddir)/lib/libExp10.a
-testExp10_LINK = $(CCLD) $(testExp10_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
-	$(LDFLAGS) -o $@
+testExp10_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
+	$(top_builddir)/type/libFloatComplex.la \
+	$(top_builddir)/elementaryFunctions/cos/libCos.la \
+	$(top_builddir)/elementaryFunctions/sin/libSin.la \
+	$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
+	$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
+	$(top_builddir)/elementaryFunctions/exp10/libExp10.la
+testExp10_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testExp10_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/includes@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+LTCOMPILE = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
+	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
-LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(libExp10_a_SOURCES) $(testExp10_SOURCES)
-DIST_SOURCES = $(libExp10_a_SOURCES) $(testExp10_SOURCES)
+LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
+SOURCES = $(libExp10_la_SOURCES) $(testExp10_SOURCES)
+DIST_SOURCES = $(libExp10_la_SOURCES) $(testExp10_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
 AMTAR = @AMTAR@
+AR = @AR@
 AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
 AUTOMAKE = @AUTOMAKE@
@@ -94,11 +105,13 @@ CFLAGS = @CFLAGS@
 CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
 CXX = @CXX@
+CXXCPP = @CXXCPP@
 CXXDEPMODE = @CXXDEPMODE@
 CXXFLAGS = @CXXFLAGS@
 CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
+ECHO = @ECHO@
 ECHO_C = @ECHO_C@
 ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
@@ -116,6 +129,7 @@ LDFLAGS = @LDFLAGS@
 LIBMATH = @LIBMATH@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
+LIBTOOL = @LIBTOOL@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
@@ -130,6 +144,7 @@ PACKAGE_TARNAME = @PACKAGE_TARNAME@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
 RANLIB = @RANLIB@
+SED = @SED@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STRIP = @STRIP@
@@ -185,13 +200,12 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-AM_CFLAGS = -I ../../type \
-		-I ../includes
+libExp10_la_CFLAGS = -I ../../type \
+			-I ../includes
 
 instdir = $(top_builddir)/lib
-inst_LIBRARIES = libExp10.a
-noinst_LIBRARIES = libExp10.a
-libExp10_a_SOURCES = $(HEAD) $(SRC)
+pkglib_LTLIBRARIES = libExp10.la
+libExp10_la_SOURCES = $(HEAD) $(SRC)
 SRC = sexp10s.c \
 		dexp10s.c \
 		cexp10s.c \
@@ -211,15 +225,19 @@ check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
 
 testExp10_SOURCES = testExp10.c
 testExp10_CFLAGS = $(check_INCLUDES)
-testExp10_LDADD = $(top_builddir)/lib/libDoubleComplex.a \
-			$(top_builddir)/lib/libFloatComplex.a \
-			$(top_builddir)/lib/libExp10.a \
+testExp10_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/elementaryFunctions/cos/libCos.la \
+			$(top_builddir)/elementaryFunctions/sin/libSin.la \
+			$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
+			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
+			$(top_builddir)/elementaryFunctions/exp10/libExp10.la \
 			@LIBMATH@
 
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .c .o .obj
+.SUFFIXES: .c .lo .o .obj
 $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -249,45 +267,42 @@ $(top_srcdir)/configure: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
-install-instLIBRARIES: $(inst_LIBRARIES)
+install-pkglibLTLIBRARIES: $(pkglib_LTLIBRARIES)
 	@$(NORMAL_INSTALL)
-	test -z "$(instdir)" || $(MKDIR_P) "$(DESTDIR)$(instdir)"
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
+	test -z "$(pkglibdir)" || $(MKDIR_P) "$(DESTDIR)$(pkglibdir)"
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
 	  if test -f $$p; then \
 	    f=$(am__strip_dir) \
-	    echo " $(instLIBRARIES_INSTALL) '$$p' '$(DESTDIR)$(instdir)/$$f'"; \
-	    $(instLIBRARIES_INSTALL) "$$p" "$(DESTDIR)$(instdir)/$$f"; \
-	  else :; fi; \
-	done
-	@$(POST_INSTALL)
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
-	  if test -f $$p; then \
-	    p=$(am__strip_dir) \
-	    echo " $(RANLIB) '$(DESTDIR)$(instdir)/$$p'"; \
-	    $(RANLIB) "$(DESTDIR)$(instdir)/$$p"; \
+	    echo " $(LIBTOOL) --mode=install $(pkglibLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) '$$p' '$(DESTDIR)$(pkglibdir)/$$f'"; \
+	    $(LIBTOOL) --mode=install $(pkglibLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) "$$p" "$(DESTDIR)$(pkglibdir)/$$f"; \
 	  else :; fi; \
 	done
 
-uninstall-instLIBRARIES:
+uninstall-pkglibLTLIBRARIES:
 	@$(NORMAL_UNINSTALL)
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
 	  p=$(am__strip_dir) \
-	  echo " rm -f '$(DESTDIR)$(instdir)/$$p'"; \
-	  rm -f "$(DESTDIR)$(instdir)/$$p"; \
+	  echo " $(LIBTOOL) --mode=uninstall rm -f '$(DESTDIR)$(pkglibdir)/$$p'"; \
+	  $(LIBTOOL) --mode=uninstall rm -f "$(DESTDIR)$(pkglibdir)/$$p"; \
 	done
 
-clean-instLIBRARIES:
-	-test -z "$(inst_LIBRARIES)" || rm -f $(inst_LIBRARIES)
-
-clean-noinstLIBRARIES:
-	-test -z "$(noinst_LIBRARIES)" || rm -f $(noinst_LIBRARIES)
-libExp10.a: $(libExp10_a_OBJECTS) $(libExp10_a_DEPENDENCIES) 
-	-rm -f libExp10.a
-	$(libExp10_a_AR) libExp10.a $(libExp10_a_OBJECTS) $(libExp10_a_LIBADD)
-	$(RANLIB) libExp10.a
+clean-pkglibLTLIBRARIES:
+	-test -z "$(pkglib_LTLIBRARIES)" || rm -f $(pkglib_LTLIBRARIES)
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
+	  dir="`echo $$p | sed -e 's|/[^/]*$$||'`"; \
+	  test "$$dir" != "$$p" || dir=.; \
+	  echo "rm -f \"$${dir}/so_locations\""; \
+	  rm -f "$${dir}/so_locations"; \
+	done
+libExp10.la: $(libExp10_la_OBJECTS) $(libExp10_la_DEPENDENCIES) 
+	$(libExp10_la_LINK) -rpath $(pkglibdir) $(libExp10_la_OBJECTS) $(libExp10_la_LIBADD) $(LIBS)
 
 clean-checkPROGRAMS:
-	-test -z "$(check_PROGRAMS)" || rm -f $(check_PROGRAMS)
+	@list='$(check_PROGRAMS)'; for p in $$list; do \
+	  f=`echo $$p|sed 's/$(EXEEXT)$$//'`; \
+	  echo " rm -f $$p $$f"; \
+	  rm -f $$p $$f ; \
+	done
 testExp10$(EXEEXT): $(testExp10_OBJECTS) $(testExp10_DEPENDENCIES) 
 	@rm -f testExp10$(EXEEXT)
 	$(testExp10_LINK) $(testExp10_OBJECTS) $(testExp10_LDADD) $(LIBS)
@@ -298,15 +313,15 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cexp10a.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cexp10s.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dexp10a.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dexp10s.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sexp10a.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sexp10s.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libExp10_la-cexp10a.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libExp10_la-cexp10s.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libExp10_la-dexp10a.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libExp10_la-dexp10s.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libExp10_la-sexp10a.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libExp10_la-sexp10s.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libExp10_la-zexp10a.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libExp10_la-zexp10s.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testExp10-testExp10.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zexp10a.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zexp10s.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -322,6 +337,69 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(COMPILE) -c `$(CYGPATH_W) '$<'`
 
+.c.lo:
+@am__fastdepCC_TRUE@	$(LTCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
+
+libExp10_la-sexp10s.lo: sexp10s.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libExp10_la_CFLAGS) $(CFLAGS) -MT libExp10_la-sexp10s.lo -MD -MP -MF $(DEPDIR)/libExp10_la-sexp10s.Tpo -c -o libExp10_la-sexp10s.lo `test -f 'sexp10s.c' || echo '$(srcdir)/'`sexp10s.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libExp10_la-sexp10s.Tpo $(DEPDIR)/libExp10_la-sexp10s.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sexp10s.c' object='libExp10_la-sexp10s.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libExp10_la_CFLAGS) $(CFLAGS) -c -o libExp10_la-sexp10s.lo `test -f 'sexp10s.c' || echo '$(srcdir)/'`sexp10s.c
+
+libExp10_la-dexp10s.lo: dexp10s.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libExp10_la_CFLAGS) $(CFLAGS) -MT libExp10_la-dexp10s.lo -MD -MP -MF $(DEPDIR)/libExp10_la-dexp10s.Tpo -c -o libExp10_la-dexp10s.lo `test -f 'dexp10s.c' || echo '$(srcdir)/'`dexp10s.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libExp10_la-dexp10s.Tpo $(DEPDIR)/libExp10_la-dexp10s.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dexp10s.c' object='libExp10_la-dexp10s.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libExp10_la_CFLAGS) $(CFLAGS) -c -o libExp10_la-dexp10s.lo `test -f 'dexp10s.c' || echo '$(srcdir)/'`dexp10s.c
+
+libExp10_la-cexp10s.lo: cexp10s.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libExp10_la_CFLAGS) $(CFLAGS) -MT libExp10_la-cexp10s.lo -MD -MP -MF $(DEPDIR)/libExp10_la-cexp10s.Tpo -c -o libExp10_la-cexp10s.lo `test -f 'cexp10s.c' || echo '$(srcdir)/'`cexp10s.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libExp10_la-cexp10s.Tpo $(DEPDIR)/libExp10_la-cexp10s.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cexp10s.c' object='libExp10_la-cexp10s.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libExp10_la_CFLAGS) $(CFLAGS) -c -o libExp10_la-cexp10s.lo `test -f 'cexp10s.c' || echo '$(srcdir)/'`cexp10s.c
+
+libExp10_la-zexp10s.lo: zexp10s.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libExp10_la_CFLAGS) $(CFLAGS) -MT libExp10_la-zexp10s.lo -MD -MP -MF $(DEPDIR)/libExp10_la-zexp10s.Tpo -c -o libExp10_la-zexp10s.lo `test -f 'zexp10s.c' || echo '$(srcdir)/'`zexp10s.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libExp10_la-zexp10s.Tpo $(DEPDIR)/libExp10_la-zexp10s.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zexp10s.c' object='libExp10_la-zexp10s.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libExp10_la_CFLAGS) $(CFLAGS) -c -o libExp10_la-zexp10s.lo `test -f 'zexp10s.c' || echo '$(srcdir)/'`zexp10s.c
+
+libExp10_la-sexp10a.lo: sexp10a.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libExp10_la_CFLAGS) $(CFLAGS) -MT libExp10_la-sexp10a.lo -MD -MP -MF $(DEPDIR)/libExp10_la-sexp10a.Tpo -c -o libExp10_la-sexp10a.lo `test -f 'sexp10a.c' || echo '$(srcdir)/'`sexp10a.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libExp10_la-sexp10a.Tpo $(DEPDIR)/libExp10_la-sexp10a.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sexp10a.c' object='libExp10_la-sexp10a.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libExp10_la_CFLAGS) $(CFLAGS) -c -o libExp10_la-sexp10a.lo `test -f 'sexp10a.c' || echo '$(srcdir)/'`sexp10a.c
+
+libExp10_la-dexp10a.lo: dexp10a.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libExp10_la_CFLAGS) $(CFLAGS) -MT libExp10_la-dexp10a.lo -MD -MP -MF $(DEPDIR)/libExp10_la-dexp10a.Tpo -c -o libExp10_la-dexp10a.lo `test -f 'dexp10a.c' || echo '$(srcdir)/'`dexp10a.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libExp10_la-dexp10a.Tpo $(DEPDIR)/libExp10_la-dexp10a.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dexp10a.c' object='libExp10_la-dexp10a.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libExp10_la_CFLAGS) $(CFLAGS) -c -o libExp10_la-dexp10a.lo `test -f 'dexp10a.c' || echo '$(srcdir)/'`dexp10a.c
+
+libExp10_la-cexp10a.lo: cexp10a.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libExp10_la_CFLAGS) $(CFLAGS) -MT libExp10_la-cexp10a.lo -MD -MP -MF $(DEPDIR)/libExp10_la-cexp10a.Tpo -c -o libExp10_la-cexp10a.lo `test -f 'cexp10a.c' || echo '$(srcdir)/'`cexp10a.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libExp10_la-cexp10a.Tpo $(DEPDIR)/libExp10_la-cexp10a.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cexp10a.c' object='libExp10_la-cexp10a.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libExp10_la_CFLAGS) $(CFLAGS) -c -o libExp10_la-cexp10a.lo `test -f 'cexp10a.c' || echo '$(srcdir)/'`cexp10a.c
+
+libExp10_la-zexp10a.lo: zexp10a.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libExp10_la_CFLAGS) $(CFLAGS) -MT libExp10_la-zexp10a.lo -MD -MP -MF $(DEPDIR)/libExp10_la-zexp10a.Tpo -c -o libExp10_la-zexp10a.lo `test -f 'zexp10a.c' || echo '$(srcdir)/'`zexp10a.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libExp10_la-zexp10a.Tpo $(DEPDIR)/libExp10_la-zexp10a.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zexp10a.c' object='libExp10_la-zexp10a.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libExp10_la_CFLAGS) $(CFLAGS) -c -o libExp10_la-zexp10a.lo `test -f 'zexp10a.c' || echo '$(srcdir)/'`zexp10a.c
+
 testExp10-testExp10.o: testExp10.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testExp10_CFLAGS) $(CFLAGS) -MT testExp10-testExp10.o -MD -MP -MF $(DEPDIR)/testExp10-testExp10.Tpo -c -o testExp10-testExp10.o `test -f 'testExp10.c' || echo '$(srcdir)/'`testExp10.c
 @am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testExp10-testExp10.Tpo $(DEPDIR)/testExp10-testExp10.Po
@@ -335,6 +413,12 @@ testExp10-testExp10.obj: testExp10.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testExp10.c' object='testExp10-testExp10.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testExp10_CFLAGS) $(CFLAGS) -c -o testExp10-testExp10.obj `if test -f 'testExp10.c'; then $(CYGPATH_W) 'testExp10.c'; else $(CYGPATH_W) '$(srcdir)/testExp10.c'; fi`
+
+mostlyclean-libtool:
+	-rm -f *.lo
+
+clean-libtool:
+	-rm -rf .libs _libs
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
@@ -487,9 +571,9 @@ check-am: all-am
 	$(MAKE) $(AM_MAKEFLAGS) $(check_PROGRAMS)
 	$(MAKE) $(AM_MAKEFLAGS) check-TESTS
 check: check-am
-all-am: Makefile $(LIBRARIES)
+all-am: Makefile $(LTLIBRARIES)
 installdirs:
-	for dir in "$(DESTDIR)$(instdir)"; do \
+	for dir in "$(DESTDIR)$(pkglibdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -518,8 +602,8 @@ maintainer-clean-generic:
 	@echo "it deletes files that may require special tools to rebuild."
 clean: clean-am
 
-clean-am: clean-checkPROGRAMS clean-generic clean-instLIBRARIES \
-	clean-noinstLIBRARIES mostlyclean-am
+clean-am: clean-checkPROGRAMS clean-generic clean-libtool \
+	clean-pkglibLTLIBRARIES mostlyclean-am
 
 distclean: distclean-am
 	-rm -rf ./$(DEPDIR)
@@ -537,11 +621,11 @@ info: info-am
 
 info-am:
 
-install-data-am: install-instLIBRARIES
+install-data-am:
 
 install-dvi: install-dvi-am
 
-install-exec-am:
+install-exec-am: install-pkglibLTLIBRARIES
 
 install-html: install-html-am
 
@@ -562,7 +646,8 @@ maintainer-clean-am: distclean-am maintainer-clean-generic
 
 mostlyclean: mostlyclean-am
 
-mostlyclean-am: mostlyclean-compile mostlyclean-generic
+mostlyclean-am: mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool
 
 pdf: pdf-am
 
@@ -572,23 +657,24 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-instLIBRARIES
+uninstall-am: uninstall-pkglibLTLIBRARIES
 
 .MAKE: install-am install-strip
 
 .PHONY: CTAGS GTAGS all all-am check check-TESTS check-am clean \
-	clean-checkPROGRAMS clean-generic clean-instLIBRARIES \
-	clean-noinstLIBRARIES ctags distclean distclean-compile \
-	distclean-generic distclean-tags distdir dvi dvi-am html \
-	html-am info info-am install install-am install-data \
-	install-data-am install-dvi install-dvi-am install-exec \
-	install-exec-am install-html install-html-am install-info \
-	install-info-am install-instLIBRARIES install-man install-pdf \
-	install-pdf-am install-ps install-ps-am install-strip \
-	installcheck installcheck-am installdirs maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-compile \
-	mostlyclean-generic pdf pdf-am ps ps-am tags uninstall \
-	uninstall-am uninstall-instLIBRARIES
+	clean-checkPROGRAMS clean-generic clean-libtool \
+	clean-pkglibLTLIBRARIES ctags distclean distclean-compile \
+	distclean-generic distclean-libtool distclean-tags distdir dvi \
+	dvi-am html html-am info info-am install install-am \
+	install-data install-data-am install-dvi install-dvi-am \
+	install-exec install-exec-am install-html install-html-am \
+	install-info install-info-am install-man install-pdf \
+	install-pdf-am install-pkglibLTLIBRARIES install-ps \
+	install-ps-am install-strip installcheck installcheck-am \
+	installdirs maintainer-clean maintainer-clean-generic \
+	mostlyclean mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool pdf pdf-am ps ps-am tags uninstall \
+	uninstall-am uninstall-pkglibLTLIBRARIES
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

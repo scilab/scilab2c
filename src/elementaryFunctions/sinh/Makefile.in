@@ -37,8 +37,7 @@ TESTS = testSinh$(EXEEXT)
 subdir = elementaryFunctions/sinh
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/m4/fortran.m4 \
-	$(top_srcdir)/configure.ac
+am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(install_sh) -d
@@ -50,41 +49,50 @@ am__vpath_adj = case $$p in \
     *) f=$$p;; \
   esac;
 am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
-am__installdirs = "$(DESTDIR)$(instdir)"
-instLIBRARIES_INSTALL = $(INSTALL_DATA)
-LIBRARIES = $(inst_LIBRARIES) $(noinst_LIBRARIES)
-AR = ar
-ARFLAGS = cru
-libSinh_a_AR = $(AR) $(ARFLAGS)
-libSinh_a_LIBADD =
+am__installdirs = "$(DESTDIR)$(pkglibdir)"
+pkglibLTLIBRARIES_INSTALL = $(INSTALL)
+LTLIBRARIES = $(pkglib_LTLIBRARIES)
+libSinh_la_LIBADD =
 am__objects_1 =
-am__objects_2 = ssinhs.$(OBJEXT) dsinhs.$(OBJEXT) csinhs.$(OBJEXT) \
-	zsinhs.$(OBJEXT) ssinha.$(OBJEXT) dsinha.$(OBJEXT) \
-	csinha.$(OBJEXT) zsinha.$(OBJEXT)
-am_libSinh_a_OBJECTS = $(am__objects_1) $(am__objects_2)
-libSinh_a_OBJECTS = $(am_libSinh_a_OBJECTS)
+am__objects_2 = libSinh_la-ssinhs.lo libSinh_la-dsinhs.lo \
+	libSinh_la-csinhs.lo libSinh_la-zsinhs.lo libSinh_la-ssinha.lo \
+	libSinh_la-dsinha.lo libSinh_la-csinha.lo libSinh_la-zsinha.lo
+am_libSinh_la_OBJECTS = $(am__objects_1) $(am__objects_2)
+libSinh_la_OBJECTS = $(am_libSinh_la_OBJECTS)
+libSinh_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libSinh_la_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_testSinh_OBJECTS = testSinh-testSinh.$(OBJEXT)
 testSinh_OBJECTS = $(am_testSinh_OBJECTS)
-testSinh_DEPENDENCIES = $(top_builddir)/lib/libDoubleComplex.a \
-	$(top_builddir)/lib/libFloatComplex.a \
-	$(top_builddir)/lib/libSinh.a $(top_builddir)/lib/libSin.a \
-	$(top_builddir)/lib/libCosh.a $(top_builddir)/lib/libCos.a
-testSinh_LINK = $(CCLD) $(testSinh_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+testSinh_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
+	$(top_builddir)/type/libFloatComplex.la \
+	$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
+	$(top_builddir)/elementaryFunctions/sin/libSin.la \
+	$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
+	$(top_builddir)/elementaryFunctions/cos/libCos.la
+testSinh_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=link $(CCLD) $(testSinh_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/includes@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+LTCOMPILE = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
+	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
-LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(libSinh_a_SOURCES) $(testSinh_SOURCES)
-DIST_SOURCES = $(libSinh_a_SOURCES) $(testSinh_SOURCES)
+LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
+SOURCES = $(libSinh_la_SOURCES) $(testSinh_SOURCES)
+DIST_SOURCES = $(libSinh_la_SOURCES) $(testSinh_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
 AMTAR = @AMTAR@
+AR = @AR@
 AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
 AUTOMAKE = @AUTOMAKE@
@@ -95,11 +103,13 @@ CFLAGS = @CFLAGS@
 CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
 CXX = @CXX@
+CXXCPP = @CXXCPP@
 CXXDEPMODE = @CXXDEPMODE@
 CXXFLAGS = @CXXFLAGS@
 CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
+ECHO = @ECHO@
 ECHO_C = @ECHO_C@
 ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
@@ -117,6 +127,7 @@ LDFLAGS = @LDFLAGS@
 LIBMATH = @LIBMATH@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
+LIBTOOL = @LIBTOOL@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
@@ -131,6 +142,7 @@ PACKAGE_TARNAME = @PACKAGE_TARNAME@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
 RANLIB = @RANLIB@
+SED = @SED@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STRIP = @STRIP@
@@ -186,13 +198,12 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-AM_CFLAGS = -I ../../type \
+libSinh_la_CFLAGS = -I ../../type \
 		-I ../includes
 
 instdir = $(top_builddir)/lib
-inst_LIBRARIES = libSinh.a
-noinst_LIBRARIES = libSinh.a
-libSinh_a_SOURCES = $(HEAD) $(SRC)
+pkglib_LTLIBRARIES = libSinh.la
+libSinh_la_SOURCES = $(HEAD) $(SRC)
 SRC = ssinhs.c \
 		dsinhs.c \
 		csinhs.c \
@@ -216,18 +227,18 @@ check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
 #
 testSinh_SOURCES = testSinh.c
 testSinh_CFLAGS = $(check_INCLUDES)
-testSinh_LDADD = $(top_builddir)/lib/libDoubleComplex.a \
-			$(top_builddir)/lib/libFloatComplex.a \
-			$(top_builddir)/lib/libSinh.a \
-			$(top_builddir)/lib/libSin.a \
-			$(top_builddir)/lib/libCosh.a \
-			$(top_builddir)/lib/libCos.a \
+testSinh_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
+			$(top_builddir)/elementaryFunctions/sin/libSin.la \
+			$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
+			$(top_builddir)/elementaryFunctions/cos/libCos.la \
 			@LIBMATH@
 
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .c .o .obj
+.SUFFIXES: .c .lo .o .obj
 $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -257,45 +268,42 @@ $(top_srcdir)/configure: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
-install-instLIBRARIES: $(inst_LIBRARIES)
+install-pkglibLTLIBRARIES: $(pkglib_LTLIBRARIES)
 	@$(NORMAL_INSTALL)
-	test -z "$(instdir)" || $(MKDIR_P) "$(DESTDIR)$(instdir)"
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
+	test -z "$(pkglibdir)" || $(MKDIR_P) "$(DESTDIR)$(pkglibdir)"
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
 	  if test -f $$p; then \
 	    f=$(am__strip_dir) \
-	    echo " $(instLIBRARIES_INSTALL) '$$p' '$(DESTDIR)$(instdir)/$$f'"; \
-	    $(instLIBRARIES_INSTALL) "$$p" "$(DESTDIR)$(instdir)/$$f"; \
-	  else :; fi; \
-	done
-	@$(POST_INSTALL)
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
-	  if test -f $$p; then \
-	    p=$(am__strip_dir) \
-	    echo " $(RANLIB) '$(DESTDIR)$(instdir)/$$p'"; \
-	    $(RANLIB) "$(DESTDIR)$(instdir)/$$p"; \
+	    echo " $(LIBTOOL) --mode=install $(pkglibLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) '$$p' '$(DESTDIR)$(pkglibdir)/$$f'"; \
+	    $(LIBTOOL) --mode=install $(pkglibLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) "$$p" "$(DESTDIR)$(pkglibdir)/$$f"; \
 	  else :; fi; \
 	done
 
-uninstall-instLIBRARIES:
+uninstall-pkglibLTLIBRARIES:
 	@$(NORMAL_UNINSTALL)
-	@list='$(inst_LIBRARIES)'; for p in $$list; do \
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
 	  p=$(am__strip_dir) \
-	  echo " rm -f '$(DESTDIR)$(instdir)/$$p'"; \
-	  rm -f "$(DESTDIR)$(instdir)/$$p"; \
+	  echo " $(LIBTOOL) --mode=uninstall rm -f '$(DESTDIR)$(pkglibdir)/$$p'"; \
+	  $(LIBTOOL) --mode=uninstall rm -f "$(DESTDIR)$(pkglibdir)/$$p"; \
 	done
 
-clean-instLIBRARIES:
-	-test -z "$(inst_LIBRARIES)" || rm -f $(inst_LIBRARIES)
-
-clean-noinstLIBRARIES:
-	-test -z "$(noinst_LIBRARIES)" || rm -f $(noinst_LIBRARIES)
-libSinh.a: $(libSinh_a_OBJECTS) $(libSinh_a_DEPENDENCIES) 
-	-rm -f libSinh.a
-	$(libSinh_a_AR) libSinh.a $(libSinh_a_OBJECTS) $(libSinh_a_LIBADD)
-	$(RANLIB) libSinh.a
+clean-pkglibLTLIBRARIES:
+	-test -z "$(pkglib_LTLIBRARIES)" || rm -f $(pkglib_LTLIBRARIES)
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
+	  dir="`echo $$p | sed -e 's|/[^/]*$$||'`"; \
+	  test "$$dir" != "$$p" || dir=.; \
+	  echo "rm -f \"$${dir}/so_locations\""; \
+	  rm -f "$${dir}/so_locations"; \
+	done
+libSinh.la: $(libSinh_la_OBJECTS) $(libSinh_la_DEPENDENCIES) 
+	$(libSinh_la_LINK) -rpath $(pkglibdir) $(libSinh_la_OBJECTS) $(libSinh_la_LIBADD) $(LIBS)
 
 clean-checkPROGRAMS:
-	-test -z "$(check_PROGRAMS)" || rm -f $(check_PROGRAMS)
+	@list='$(check_PROGRAMS)'; for p in $$list; do \
+	  f=`echo $$p|sed 's/$(EXEEXT)$$//'`; \
+	  echo " rm -f $$p $$f"; \
+	  rm -f $$p $$f ; \
+	done
 testSinh$(EXEEXT): $(testSinh_OBJECTS) $(testSinh_DEPENDENCIES) 
 	@rm -f testSinh$(EXEEXT)
 	$(testSinh_LINK) $(testSinh_OBJECTS) $(testSinh_LDADD) $(LIBS)
@@ -306,15 +314,15 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/csinha.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/csinhs.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dsinha.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dsinhs.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ssinha.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ssinhs.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSinh_la-csinha.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSinh_la-csinhs.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSinh_la-dsinha.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSinh_la-dsinhs.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSinh_la-ssinha.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSinh_la-ssinhs.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSinh_la-zsinha.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSinh_la-zsinhs.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testSinh-testSinh.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zsinha.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zsinhs.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -330,6 +338,69 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(COMPILE) -c `$(CYGPATH_W) '$<'`
 
+.c.lo:
+@am__fastdepCC_TRUE@	$(LTCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
+
+libSinh_la-ssinhs.lo: ssinhs.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSinh_la_CFLAGS) $(CFLAGS) -MT libSinh_la-ssinhs.lo -MD -MP -MF $(DEPDIR)/libSinh_la-ssinhs.Tpo -c -o libSinh_la-ssinhs.lo `test -f 'ssinhs.c' || echo '$(srcdir)/'`ssinhs.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSinh_la-ssinhs.Tpo $(DEPDIR)/libSinh_la-ssinhs.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ssinhs.c' object='libSinh_la-ssinhs.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSinh_la_CFLAGS) $(CFLAGS) -c -o libSinh_la-ssinhs.lo `test -f 'ssinhs.c' || echo '$(srcdir)/'`ssinhs.c
+
+libSinh_la-dsinhs.lo: dsinhs.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSinh_la_CFLAGS) $(CFLAGS) -MT libSinh_la-dsinhs.lo -MD -MP -MF $(DEPDIR)/libSinh_la-dsinhs.Tpo -c -o libSinh_la-dsinhs.lo `test -f 'dsinhs.c' || echo '$(srcdir)/'`dsinhs.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSinh_la-dsinhs.Tpo $(DEPDIR)/libSinh_la-dsinhs.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dsinhs.c' object='libSinh_la-dsinhs.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSinh_la_CFLAGS) $(CFLAGS) -c -o libSinh_la-dsinhs.lo `test -f 'dsinhs.c' || echo '$(srcdir)/'`dsinhs.c
+
+libSinh_la-csinhs.lo: csinhs.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSinh_la_CFLAGS) $(CFLAGS) -MT libSinh_la-csinhs.lo -MD -MP -MF $(DEPDIR)/libSinh_la-csinhs.Tpo -c -o libSinh_la-csinhs.lo `test -f 'csinhs.c' || echo '$(srcdir)/'`csinhs.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSinh_la-csinhs.Tpo $(DEPDIR)/libSinh_la-csinhs.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='csinhs.c' object='libSinh_la-csinhs.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSinh_la_CFLAGS) $(CFLAGS) -c -o libSinh_la-csinhs.lo `test -f 'csinhs.c' || echo '$(srcdir)/'`csinhs.c
+
+libSinh_la-zsinhs.lo: zsinhs.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSinh_la_CFLAGS) $(CFLAGS) -MT libSinh_la-zsinhs.lo -MD -MP -MF $(DEPDIR)/libSinh_la-zsinhs.Tpo -c -o libSinh_la-zsinhs.lo `test -f 'zsinhs.c' || echo '$(srcdir)/'`zsinhs.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSinh_la-zsinhs.Tpo $(DEPDIR)/libSinh_la-zsinhs.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zsinhs.c' object='libSinh_la-zsinhs.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSinh_la_CFLAGS) $(CFLAGS) -c -o libSinh_la-zsinhs.lo `test -f 'zsinhs.c' || echo '$(srcdir)/'`zsinhs.c
+
+libSinh_la-ssinha.lo: ssinha.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSinh_la_CFLAGS) $(CFLAGS) -MT libSinh_la-ssinha.lo -MD -MP -MF $(DEPDIR)/libSinh_la-ssinha.Tpo -c -o libSinh_la-ssinha.lo `test -f 'ssinha.c' || echo '$(srcdir)/'`ssinha.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSinh_la-ssinha.Tpo $(DEPDIR)/libSinh_la-ssinha.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ssinha.c' object='libSinh_la-ssinha.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSinh_la_CFLAGS) $(CFLAGS) -c -o libSinh_la-ssinha.lo `test -f 'ssinha.c' || echo '$(srcdir)/'`ssinha.c
+
+libSinh_la-dsinha.lo: dsinha.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSinh_la_CFLAGS) $(CFLAGS) -MT libSinh_la-dsinha.lo -MD -MP -MF $(DEPDIR)/libSinh_la-dsinha.Tpo -c -o libSinh_la-dsinha.lo `test -f 'dsinha.c' || echo '$(srcdir)/'`dsinha.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSinh_la-dsinha.Tpo $(DEPDIR)/libSinh_la-dsinha.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dsinha.c' object='libSinh_la-dsinha.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSinh_la_CFLAGS) $(CFLAGS) -c -o libSinh_la-dsinha.lo `test -f 'dsinha.c' || echo '$(srcdir)/'`dsinha.c
+
+libSinh_la-csinha.lo: csinha.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSinh_la_CFLAGS) $(CFLAGS) -MT libSinh_la-csinha.lo -MD -MP -MF $(DEPDIR)/libSinh_la-csinha.Tpo -c -o libSinh_la-csinha.lo `test -f 'csinha.c' || echo '$(srcdir)/'`csinha.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSinh_la-csinha.Tpo $(DEPDIR)/libSinh_la-csinha.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='csinha.c' object='libSinh_la-csinha.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSinh_la_CFLAGS) $(CFLAGS) -c -o libSinh_la-csinha.lo `test -f 'csinha.c' || echo '$(srcdir)/'`csinha.c
+
+libSinh_la-zsinha.lo: zsinha.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSinh_la_CFLAGS) $(CFLAGS) -MT libSinh_la-zsinha.lo -MD -MP -MF $(DEPDIR)/libSinh_la-zsinha.Tpo -c -o libSinh_la-zsinha.lo `test -f 'zsinha.c' || echo '$(srcdir)/'`zsinha.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSinh_la-zsinha.Tpo $(DEPDIR)/libSinh_la-zsinha.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zsinha.c' object='libSinh_la-zsinha.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSinh_la_CFLAGS) $(CFLAGS) -c -o libSinh_la-zsinha.lo `test -f 'zsinha.c' || echo '$(srcdir)/'`zsinha.c
+
 testSinh-testSinh.o: testSinh.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSinh_CFLAGS) $(CFLAGS) -MT testSinh-testSinh.o -MD -MP -MF $(DEPDIR)/testSinh-testSinh.Tpo -c -o testSinh-testSinh.o `test -f 'testSinh.c' || echo '$(srcdir)/'`testSinh.c
 @am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testSinh-testSinh.Tpo $(DEPDIR)/testSinh-testSinh.Po
@@ -343,6 +414,12 @@ testSinh-testSinh.obj: testSinh.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testSinh.c' object='testSinh-testSinh.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSinh_CFLAGS) $(CFLAGS) -c -o testSinh-testSinh.obj `if test -f 'testSinh.c'; then $(CYGPATH_W) 'testSinh.c'; else $(CYGPATH_W) '$(srcdir)/testSinh.c'; fi`
+
+mostlyclean-libtool:
+	-rm -f *.lo
+
+clean-libtool:
+	-rm -rf .libs _libs
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
@@ -495,9 +572,9 @@ check-am: all-am
 	$(MAKE) $(AM_MAKEFLAGS) $(check_PROGRAMS)
 	$(MAKE) $(AM_MAKEFLAGS) check-TESTS
 check: check-am
-all-am: Makefile $(LIBRARIES)
+all-am: Makefile $(LTLIBRARIES)
 installdirs:
-	for dir in "$(DESTDIR)$(instdir)"; do \
+	for dir in "$(DESTDIR)$(pkglibdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -526,8 +603,8 @@ maintainer-clean-generic:
 	@echo "it deletes files that may require special tools to rebuild."
 clean: clean-am
 
-clean-am: clean-checkPROGRAMS clean-generic clean-instLIBRARIES \
-	clean-noinstLIBRARIES mostlyclean-am
+clean-am: clean-checkPROGRAMS clean-generic clean-libtool \
+	clean-pkglibLTLIBRARIES mostlyclean-am
 
 distclean: distclean-am
 	-rm -rf ./$(DEPDIR)
@@ -545,11 +622,11 @@ info: info-am
 
 info-am:
 
-install-data-am: install-instLIBRARIES
+install-data-am:
 
 install-dvi: install-dvi-am
 
-install-exec-am:
+install-exec-am: install-pkglibLTLIBRARIES
 
 install-html: install-html-am
 
@@ -570,7 +647,8 @@ maintainer-clean-am: distclean-am maintainer-clean-generic
 
 mostlyclean: mostlyclean-am
 
-mostlyclean-am: mostlyclean-compile mostlyclean-generic
+mostlyclean-am: mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool
 
 pdf: pdf-am
 
@@ -580,23 +658,24 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-instLIBRARIES
+uninstall-am: uninstall-pkglibLTLIBRARIES
 
 .MAKE: install-am install-strip
 
 .PHONY: CTAGS GTAGS all all-am check check-TESTS check-am clean \
-	clean-checkPROGRAMS clean-generic clean-instLIBRARIES \
-	clean-noinstLIBRARIES ctags distclean distclean-compile \
-	distclean-generic distclean-tags distdir dvi dvi-am html \
-	html-am info info-am install install-am install-data \
-	install-data-am install-dvi install-dvi-am install-exec \
-	install-exec-am install-html install-html-am install-info \
-	install-info-am install-instLIBRARIES install-man install-pdf \
-	install-pdf-am install-ps install-ps-am install-strip \
-	installcheck installcheck-am installdirs maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-compile \
-	mostlyclean-generic pdf pdf-am ps ps-am tags uninstall \
-	uninstall-am uninstall-instLIBRARIES
+	clean-checkPROGRAMS clean-generic clean-libtool \
+	clean-pkglibLTLIBRARIES ctags distclean distclean-compile \
+	distclean-generic distclean-libtool distclean-tags distdir dvi \
+	dvi-am html html-am info info-am install install-am \
+	install-data install-data-am install-dvi install-dvi-am \
+	install-exec install-exec-am install-html install-html-am \
+	install-info install-info-am install-man install-pdf \
+	install-pdf-am install-pkglibLTLIBRARIES install-ps \
+	install-ps-am install-strip installcheck installcheck-am \
+	installdirs maintainer-clean maintainer-clean-generic \
+	mostlyclean mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool pdf pdf-am ps ps-am tags uninstall \
+	uninstall-am uninstall-pkglibLTLIBRARIES
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

@@ -1,25 +1,23 @@
 ##
-##  -*- makefile -*-
+##  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+##  Copyright (C) 2007-2008 - INRIA - Bruno JOFRET
 ##
-## Makefile
-## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
+##  This file must be used under the terms of the CeCILL.
+##  This source file is licensed as described in the file COPYING, which
+##  you should have received as part of this distribution.  The terms
+##  are also available at
+##  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 ##
-## Started on  Fri Jan  5 10:19:16 2007 jofret
-## Last update Thu Sep  6 11:52:29 2007 bruno
-##
-## Copyright INRIA 2007
 ##
 
-AM_CFLAGS =	-I ../../type \
-		-I ../includes
+libAtan_la_CFLAGS =	-I ../../type \
+			-I ../includes
 
 instdir = $(top_builddir)/lib
 
-inst_LIBRARIES =	libAtan.a
+pkglib_LTLIBRARIES =	libAtan.la
 
-noinst_LIBRARIES =	libAtan.a
-
-libAtan_a_SOURCES =	$(HEAD) $(SRC)
+libAtan_la_SOURCES =	$(HEAD) $(SRC)
 
 SRC	=	satans.c \
 		datans.c \
@@ -48,7 +46,7 @@ TESTS		=	testAtan
 #
 testAtan_SOURCES = 	testAtan.c
 testAtan_CFLAGS	=	$(check_INCLUDES)
-testAtan_LDADD	=	$(top_builddir)/lib/libDoubleComplex.a \
-			$(top_builddir)/lib/libFloatComplex.a \
-			$(top_builddir)/lib/libAtan.a \
+testAtan_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/elementaryFunctions/atan/libAtan.la \
 			@LIBMATH@
