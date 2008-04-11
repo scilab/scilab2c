@@ -1,18 +1,18 @@
 /*
-**  -*- C -*-
-**
-** zsigns.c
-** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
-**
-** Started on  Fri Sep  7 17:29:33 2007 bruno
-** Last update Fri Sep  7 17:30:33 2007 bruno
-**
-** Copyright INRIA 2007
-*/
+ *  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+ *  Copyright (C) 2007-2008 - INRIA - Bruno JOFRET
+ *
+ *  This file must be used under the terms of the CeCILL.
+ *  This source file is licensed as described in the file COPYING, which
+ *  you should have received as part of this distribution.  The terms
+ *  are also available at
+ *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+ *
+ */
 
 #include "sign.h"
+#include "abs.h"
 
-int zsigns(doubleComplex in) {
-/* FIXME : Dummy... */
-  return -1;
+doubleComplex zsigns(doubleComplex in) {
+  return DoubleComplex(zreals(in) / zabss(in), zimags(in) / zabss(in));
 }

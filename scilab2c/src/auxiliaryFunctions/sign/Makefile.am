@@ -1,25 +1,24 @@
 ##
-##  -*- makefile -*-
+##  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+##  Copyright (C) 2007-2008 - INRIA - Bruno JOFRET
 ##
-## Makefile
-## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
+##  This file must be used under the terms of the CeCILL.
+##  This source file is licensed as described in the file COPYING, which
+##  you should have received as part of this distribution.  The terms
+##  are also available at
+##  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 ##
-## Started on  Fri Jan  5 10:19:16 2007 jofret
-## Last update Wed Apr 18 18:45:11 2007 jofret
-##
-## Copyright INRIA 2007
 ##
 
-AM_CFLAGS =	-I ../../type \
-		-I ../includes
+libSign_la_CFLAGS =	-I $(top_builddir)/type \
+			-I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/auxiliaryFunctions/includes
 
 instdir = $(top_builddir)/lib
 
-inst_LIBRARIES =	libSign.a
+pkglib_LTLIBRARIES =	libSign.la
 
-noinst_LIBRARIES =	libSign.a
-
-libSign_a_SOURCES =	$(HEAD) $(SRC)
+libSign_la_SOURCES =	$(HEAD) $(SRC)
 
 SRC	=	ssigns.c \
 		dsigns.c \
@@ -37,7 +36,8 @@ HEAD	=	../includes/sign.h
 ####
 
 check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
-			-I $(top_builddir)/type
+			-I $(top_builddir)/type \
+			-I $(top_builddir)/auxiliaryFunctions/includes
 
 check_PROGRAMS	= 	testSign
 
@@ -48,7 +48,9 @@ TESTS		=	testSign
 #
 testSign_SOURCES = 	testSign.c
 testSign_CFLAGS	=	$(check_INCLUDES)
-testSign_LDADD	=	$(top_builddir)/lib/libDoubleComplex.a \
-			$(top_builddir)/lib/libFloatComplex.a \
-			$(top_builddir)/lib/libSign.a \
+testSign_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
+			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/auxiliaryFunctions/sign/libSign.la \
 			@LIBMATH@
