@@ -37,16 +37,22 @@ HEAD	=	../includes/acos.h
 check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-check_PROGRAMS	= 	testAcos
+check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/elementaryFunctions/acos/libAcos.la \
+			@LIBMATH@
 
-TESTS		=	testAcos
+check_PROGRAMS	= 	testFloatAcos testDoubleAcos
+
+TESTS		=	testFloatAcos testDoubleAcos
 
 #
 # -*- Acosine Tests -*-
 #
-testAcos_SOURCES = 	testAcos.c
-testAcos_CFLAGS	=	$(check_INCLUDES)
-testAcos_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/elementaryFunctions/acos/libAcos.la \
-			@LIBMATH@
+testFloatAcos_SOURCES = 	testFloatAcos.c
+testFloatAcos_CFLAGS	=	$(check_INCLUDES)
+testFloatAcos_LDADD	=	$(check_LDADD)
+
+testDoubleAcos_SOURCES = 	testDoubleAcos.c
+testDoubleAcos_CFLAGS	=	$(check_INCLUDES)
+testDoubleAcos_LDADD	=	$(check_LDADD)
