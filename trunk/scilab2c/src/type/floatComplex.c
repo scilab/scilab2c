@@ -1,14 +1,14 @@
 /*
-**  -*- C -*-
-**
-** floatComplex.c
-** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
-**
-** Started on  Thu Nov 30 16:27:08 2006 jofret
-** Last update Thu Aug 30 09:42:59 2007 bruno
-**
-** Copyright INRIA 2006
-*/
+ *  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+ *  Copyright (C) 2006-2008 - INRIA - Bruno JOFRET
+ *
+ *  This file must be used under the terms of the CeCILL.
+ *  This source file is licensed as described in the file COPYING, which
+ *  you should have received as part of this distribution.  The terms
+ *  are also available at
+ *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+ *
+ */
 
 #ifdef __STDC_VERSION__
 #  ifndef STDC
