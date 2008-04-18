@@ -32,8 +32,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testAcos$(EXEEXT)
-TESTS = testAcos$(EXEEXT)
+check_PROGRAMS = testFloatAcos$(EXEEXT) testDoubleAcos$(EXEEXT)
+TESTS = testFloatAcos$(EXEEXT) testDoubleAcos$(EXEEXT)
 subdir = elementaryFunctions/acos
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -62,14 +62,21 @@ libAcos_la_OBJECTS = $(am_libAcos_la_OBJECTS)
 libAcos_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libAcos_la_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testAcos_OBJECTS = testAcos-testAcos.$(OBJEXT)
-testAcos_OBJECTS = $(am_testAcos_OBJECTS)
-testAcos_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
+am_testDoubleAcos_OBJECTS = testDoubleAcos-testDoubleAcos.$(OBJEXT)
+testDoubleAcos_OBJECTS = $(am_testDoubleAcos_OBJECTS)
+am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/type/libFloatComplex.la \
 	$(top_builddir)/elementaryFunctions/acos/libAcos.la
-testAcos_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
-	--mode=link $(CCLD) $(testAcos_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
-	$(LDFLAGS) -o $@
+testDoubleAcos_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testDoubleAcos_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleAcos_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testFloatAcos_OBJECTS = testFloatAcos-testFloatAcos.$(OBJEXT)
+testFloatAcos_OBJECTS = $(am_testFloatAcos_OBJECTS)
+testFloatAcos_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testFloatAcos_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatAcos_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/includes@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -82,8 +89,10 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libAcos_la_SOURCES) $(testAcos_SOURCES)
-DIST_SOURCES = $(libAcos_la_SOURCES) $(testAcos_SOURCES)
+SOURCES = $(libAcos_la_SOURCES) $(testDoubleAcos_SOURCES) \
+	$(testFloatAcos_SOURCES)
+DIST_SOURCES = $(libAcos_la_SOURCES) $(testDoubleAcos_SOURCES) \
+	$(testFloatAcos_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -218,17 +227,21 @@ HEAD = ../includes/acos.h
 check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-
-#
-# -*- Acosine Tests -*-
-#
-testAcos_SOURCES = testAcos.c
-testAcos_CFLAGS = $(check_INCLUDES)
-testAcos_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/elementaryFunctions/acos/libAcos.la \
 			@LIBMATH@
 
+
+#
+# -*- Acosine Tests -*-
+#
+testFloatAcos_SOURCES = testFloatAcos.c
+testFloatAcos_CFLAGS = $(check_INCLUDES)
+testFloatAcos_LDADD = $(check_LDADD)
+testDoubleAcos_SOURCES = testDoubleAcos.c
+testDoubleAcos_CFLAGS = $(check_INCLUDES)
+testDoubleAcos_LDADD = $(check_LDADD)
 all: all-am
 
 .SUFFIXES:
@@ -298,9 +311,12 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testAcos$(EXEEXT): $(testAcos_OBJECTS) $(testAcos_DEPENDENCIES) 
-	@rm -f testAcos$(EXEEXT)
-	$(testAcos_LINK) $(testAcos_OBJECTS) $(testAcos_LDADD) $(LIBS)
+testDoubleAcos$(EXEEXT): $(testDoubleAcos_OBJECTS) $(testDoubleAcos_DEPENDENCIES) 
+	@rm -f testDoubleAcos$(EXEEXT)
+	$(testDoubleAcos_LINK) $(testDoubleAcos_OBJECTS) $(testDoubleAcos_LDADD) $(LIBS)
+testFloatAcos$(EXEEXT): $(testFloatAcos_OBJECTS) $(testFloatAcos_DEPENDENCIES) 
+	@rm -f testFloatAcos$(EXEEXT)
+	$(testFloatAcos_LINK) $(testFloatAcos_OBJECTS) $(testFloatAcos_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -316,7 +332,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAcos_la-sacoss.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAcos_la-zacosa.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAcos_la-zacoss.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testAcos-testAcos.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleAcos-testDoubleAcos.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatAcos-testFloatAcos.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -395,19 +412,33 @@ libAcos_la-zacosa.lo: zacosa.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAcos_la_CFLAGS) $(CFLAGS) -c -o libAcos_la-zacosa.lo `test -f 'zacosa.c' || echo '$(srcdir)/'`zacosa.c
 
-testAcos-testAcos.o: testAcos.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAcos_CFLAGS) $(CFLAGS) -MT testAcos-testAcos.o -MD -MP -MF $(DEPDIR)/testAcos-testAcos.Tpo -c -o testAcos-testAcos.o `test -f 'testAcos.c' || echo '$(srcdir)/'`testAcos.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testAcos-testAcos.Tpo $(DEPDIR)/testAcos-testAcos.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testAcos.c' object='testAcos-testAcos.o' libtool=no @AMDEPBACKSLASH@
+testDoubleAcos-testDoubleAcos.o: testDoubleAcos.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleAcos_CFLAGS) $(CFLAGS) -MT testDoubleAcos-testDoubleAcos.o -MD -MP -MF $(DEPDIR)/testDoubleAcos-testDoubleAcos.Tpo -c -o testDoubleAcos-testDoubleAcos.o `test -f 'testDoubleAcos.c' || echo '$(srcdir)/'`testDoubleAcos.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleAcos-testDoubleAcos.Tpo $(DEPDIR)/testDoubleAcos-testDoubleAcos.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleAcos.c' object='testDoubleAcos-testDoubleAcos.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAcos_CFLAGS) $(CFLAGS) -c -o testAcos-testAcos.o `test -f 'testAcos.c' || echo '$(srcdir)/'`testAcos.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleAcos_CFLAGS) $(CFLAGS) -c -o testDoubleAcos-testDoubleAcos.o `test -f 'testDoubleAcos.c' || echo '$(srcdir)/'`testDoubleAcos.c
 
-testAcos-testAcos.obj: testAcos.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAcos_CFLAGS) $(CFLAGS) -MT testAcos-testAcos.obj -MD -MP -MF $(DEPDIR)/testAcos-testAcos.Tpo -c -o testAcos-testAcos.obj `if test -f 'testAcos.c'; then $(CYGPATH_W) 'testAcos.c'; else $(CYGPATH_W) '$(srcdir)/testAcos.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testAcos-testAcos.Tpo $(DEPDIR)/testAcos-testAcos.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testAcos.c' object='testAcos-testAcos.obj' libtool=no @AMDEPBACKSLASH@
+testDoubleAcos-testDoubleAcos.obj: testDoubleAcos.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleAcos_CFLAGS) $(CFLAGS) -MT testDoubleAcos-testDoubleAcos.obj -MD -MP -MF $(DEPDIR)/testDoubleAcos-testDoubleAcos.Tpo -c -o testDoubleAcos-testDoubleAcos.obj `if test -f 'testDoubleAcos.c'; then $(CYGPATH_W) 'testDoubleAcos.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleAcos.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleAcos-testDoubleAcos.Tpo $(DEPDIR)/testDoubleAcos-testDoubleAcos.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleAcos.c' object='testDoubleAcos-testDoubleAcos.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAcos_CFLAGS) $(CFLAGS) -c -o testAcos-testAcos.obj `if test -f 'testAcos.c'; then $(CYGPATH_W) 'testAcos.c'; else $(CYGPATH_W) '$(srcdir)/testAcos.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleAcos_CFLAGS) $(CFLAGS) -c -o testDoubleAcos-testDoubleAcos.obj `if test -f 'testDoubleAcos.c'; then $(CYGPATH_W) 'testDoubleAcos.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleAcos.c'; fi`
+
+testFloatAcos-testFloatAcos.o: testFloatAcos.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatAcos_CFLAGS) $(CFLAGS) -MT testFloatAcos-testFloatAcos.o -MD -MP -MF $(DEPDIR)/testFloatAcos-testFloatAcos.Tpo -c -o testFloatAcos-testFloatAcos.o `test -f 'testFloatAcos.c' || echo '$(srcdir)/'`testFloatAcos.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatAcos-testFloatAcos.Tpo $(DEPDIR)/testFloatAcos-testFloatAcos.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatAcos.c' object='testFloatAcos-testFloatAcos.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatAcos_CFLAGS) $(CFLAGS) -c -o testFloatAcos-testFloatAcos.o `test -f 'testFloatAcos.c' || echo '$(srcdir)/'`testFloatAcos.c
+
+testFloatAcos-testFloatAcos.obj: testFloatAcos.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatAcos_CFLAGS) $(CFLAGS) -MT testFloatAcos-testFloatAcos.obj -MD -MP -MF $(DEPDIR)/testFloatAcos-testFloatAcos.Tpo -c -o testFloatAcos-testFloatAcos.obj `if test -f 'testFloatAcos.c'; then $(CYGPATH_W) 'testFloatAcos.c'; else $(CYGPATH_W) '$(srcdir)/testFloatAcos.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatAcos-testFloatAcos.Tpo $(DEPDIR)/testFloatAcos-testFloatAcos.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatAcos.c' object='testFloatAcos-testFloatAcos.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatAcos_CFLAGS) $(CFLAGS) -c -o testFloatAcos-testFloatAcos.obj `if test -f 'testFloatAcos.c'; then $(CYGPATH_W) 'testFloatAcos.c'; else $(CYGPATH_W) '$(srcdir)/testFloatAcos.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
