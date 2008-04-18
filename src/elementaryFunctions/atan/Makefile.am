@@ -37,16 +37,22 @@ HEAD	=	../includes/atan.h
 check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-check_PROGRAMS	= 	testAtan
-
-TESTS		=	testAtan
-
-#
-# -*- Atangeant Tests -*-
-#
-testAtan_SOURCES = 	testAtan.c
-testAtan_CFLAGS	=	$(check_INCLUDES)
-testAtan_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
+check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/elementaryFunctions/atan/libAtan.la \
 			@LIBMATH@
+
+check_PROGRAMS	= 	testFloatAtan testDoubleAtan
+
+TESTS		=	testFloatAtan testDoubleAtan
+
+#
+# -*- Arc tangeant Tests -*-
+#
+testFloatAtan_SOURCES = 	testFloatAtan.c
+testFloatAtan_CFLAGS	=	$(check_INCLUDES)
+testFloatAtan_LDADD	=	$(check_LDADD)
+
+testDoubleAtan_SOURCES = 	testDoubleAtan.c
+testDoubleAtan_CFLAGS	=	$(check_INCLUDES)
+testDoubleAtan_LDADD	=	$(check_LDADD)

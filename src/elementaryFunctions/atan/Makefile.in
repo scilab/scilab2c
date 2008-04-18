@@ -32,8 +32,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testAtan$(EXEEXT)
-TESTS = testAtan$(EXEEXT)
+check_PROGRAMS = testFloatAtan$(EXEEXT) testDoubleAtan$(EXEEXT)
+TESTS = testFloatAtan$(EXEEXT) testDoubleAtan$(EXEEXT)
 subdir = elementaryFunctions/atan
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -62,14 +62,21 @@ libAtan_la_OBJECTS = $(am_libAtan_la_OBJECTS)
 libAtan_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libAtan_la_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testAtan_OBJECTS = testAtan-testAtan.$(OBJEXT)
-testAtan_OBJECTS = $(am_testAtan_OBJECTS)
-testAtan_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
+am_testDoubleAtan_OBJECTS = testDoubleAtan-testDoubleAtan.$(OBJEXT)
+testDoubleAtan_OBJECTS = $(am_testDoubleAtan_OBJECTS)
+am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/type/libFloatComplex.la \
 	$(top_builddir)/elementaryFunctions/atan/libAtan.la
-testAtan_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
-	--mode=link $(CCLD) $(testAtan_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
-	$(LDFLAGS) -o $@
+testDoubleAtan_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testDoubleAtan_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleAtan_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testFloatAtan_OBJECTS = testFloatAtan-testFloatAtan.$(OBJEXT)
+testFloatAtan_OBJECTS = $(am_testFloatAtan_OBJECTS)
+testFloatAtan_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testFloatAtan_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatAtan_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/includes@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -82,8 +89,10 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libAtan_la_SOURCES) $(testAtan_SOURCES)
-DIST_SOURCES = $(libAtan_la_SOURCES) $(testAtan_SOURCES)
+SOURCES = $(libAtan_la_SOURCES) $(testDoubleAtan_SOURCES) \
+	$(testFloatAtan_SOURCES)
+DIST_SOURCES = $(libAtan_la_SOURCES) $(testDoubleAtan_SOURCES) \
+	$(testFloatAtan_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -218,17 +227,21 @@ HEAD = ../includes/atan.h
 check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-
-#
-# -*- Atangeant Tests -*-
-#
-testAtan_SOURCES = testAtan.c
-testAtan_CFLAGS = $(check_INCLUDES)
-testAtan_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/elementaryFunctions/atan/libAtan.la \
 			@LIBMATH@
 
+
+#
+# -*- Arc tangeant Tests -*-
+#
+testFloatAtan_SOURCES = testFloatAtan.c
+testFloatAtan_CFLAGS = $(check_INCLUDES)
+testFloatAtan_LDADD = $(check_LDADD)
+testDoubleAtan_SOURCES = testDoubleAtan.c
+testDoubleAtan_CFLAGS = $(check_INCLUDES)
+testDoubleAtan_LDADD = $(check_LDADD)
 all: all-am
 
 .SUFFIXES:
@@ -298,9 +311,12 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testAtan$(EXEEXT): $(testAtan_OBJECTS) $(testAtan_DEPENDENCIES) 
-	@rm -f testAtan$(EXEEXT)
-	$(testAtan_LINK) $(testAtan_OBJECTS) $(testAtan_LDADD) $(LIBS)
+testDoubleAtan$(EXEEXT): $(testDoubleAtan_OBJECTS) $(testDoubleAtan_DEPENDENCIES) 
+	@rm -f testDoubleAtan$(EXEEXT)
+	$(testDoubleAtan_LINK) $(testDoubleAtan_OBJECTS) $(testDoubleAtan_LDADD) $(LIBS)
+testFloatAtan$(EXEEXT): $(testFloatAtan_OBJECTS) $(testFloatAtan_DEPENDENCIES) 
+	@rm -f testFloatAtan$(EXEEXT)
+	$(testFloatAtan_LINK) $(testFloatAtan_OBJECTS) $(testFloatAtan_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -316,7 +332,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAtan_la-satans.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAtan_la-zatana.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAtan_la-zatans.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testAtan-testAtan.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleAtan-testDoubleAtan.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatAtan-testFloatAtan.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -395,19 +412,33 @@ libAtan_la-zatana.lo: zatana.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAtan_la_CFLAGS) $(CFLAGS) -c -o libAtan_la-zatana.lo `test -f 'zatana.c' || echo '$(srcdir)/'`zatana.c
 
-testAtan-testAtan.o: testAtan.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAtan_CFLAGS) $(CFLAGS) -MT testAtan-testAtan.o -MD -MP -MF $(DEPDIR)/testAtan-testAtan.Tpo -c -o testAtan-testAtan.o `test -f 'testAtan.c' || echo '$(srcdir)/'`testAtan.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testAtan-testAtan.Tpo $(DEPDIR)/testAtan-testAtan.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testAtan.c' object='testAtan-testAtan.o' libtool=no @AMDEPBACKSLASH@
+testDoubleAtan-testDoubleAtan.o: testDoubleAtan.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleAtan_CFLAGS) $(CFLAGS) -MT testDoubleAtan-testDoubleAtan.o -MD -MP -MF $(DEPDIR)/testDoubleAtan-testDoubleAtan.Tpo -c -o testDoubleAtan-testDoubleAtan.o `test -f 'testDoubleAtan.c' || echo '$(srcdir)/'`testDoubleAtan.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleAtan-testDoubleAtan.Tpo $(DEPDIR)/testDoubleAtan-testDoubleAtan.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleAtan.c' object='testDoubleAtan-testDoubleAtan.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAtan_CFLAGS) $(CFLAGS) -c -o testAtan-testAtan.o `test -f 'testAtan.c' || echo '$(srcdir)/'`testAtan.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleAtan_CFLAGS) $(CFLAGS) -c -o testDoubleAtan-testDoubleAtan.o `test -f 'testDoubleAtan.c' || echo '$(srcdir)/'`testDoubleAtan.c
 
-testAtan-testAtan.obj: testAtan.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAtan_CFLAGS) $(CFLAGS) -MT testAtan-testAtan.obj -MD -MP -MF $(DEPDIR)/testAtan-testAtan.Tpo -c -o testAtan-testAtan.obj `if test -f 'testAtan.c'; then $(CYGPATH_W) 'testAtan.c'; else $(CYGPATH_W) '$(srcdir)/testAtan.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testAtan-testAtan.Tpo $(DEPDIR)/testAtan-testAtan.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testAtan.c' object='testAtan-testAtan.obj' libtool=no @AMDEPBACKSLASH@
+testDoubleAtan-testDoubleAtan.obj: testDoubleAtan.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleAtan_CFLAGS) $(CFLAGS) -MT testDoubleAtan-testDoubleAtan.obj -MD -MP -MF $(DEPDIR)/testDoubleAtan-testDoubleAtan.Tpo -c -o testDoubleAtan-testDoubleAtan.obj `if test -f 'testDoubleAtan.c'; then $(CYGPATH_W) 'testDoubleAtan.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleAtan.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleAtan-testDoubleAtan.Tpo $(DEPDIR)/testDoubleAtan-testDoubleAtan.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleAtan.c' object='testDoubleAtan-testDoubleAtan.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAtan_CFLAGS) $(CFLAGS) -c -o testAtan-testAtan.obj `if test -f 'testAtan.c'; then $(CYGPATH_W) 'testAtan.c'; else $(CYGPATH_W) '$(srcdir)/testAtan.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleAtan_CFLAGS) $(CFLAGS) -c -o testDoubleAtan-testDoubleAtan.obj `if test -f 'testDoubleAtan.c'; then $(CYGPATH_W) 'testDoubleAtan.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleAtan.c'; fi`
+
+testFloatAtan-testFloatAtan.o: testFloatAtan.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatAtan_CFLAGS) $(CFLAGS) -MT testFloatAtan-testFloatAtan.o -MD -MP -MF $(DEPDIR)/testFloatAtan-testFloatAtan.Tpo -c -o testFloatAtan-testFloatAtan.o `test -f 'testFloatAtan.c' || echo '$(srcdir)/'`testFloatAtan.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatAtan-testFloatAtan.Tpo $(DEPDIR)/testFloatAtan-testFloatAtan.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatAtan.c' object='testFloatAtan-testFloatAtan.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatAtan_CFLAGS) $(CFLAGS) -c -o testFloatAtan-testFloatAtan.o `test -f 'testFloatAtan.c' || echo '$(srcdir)/'`testFloatAtan.c
+
+testFloatAtan-testFloatAtan.obj: testFloatAtan.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatAtan_CFLAGS) $(CFLAGS) -MT testFloatAtan-testFloatAtan.obj -MD -MP -MF $(DEPDIR)/testFloatAtan-testFloatAtan.Tpo -c -o testFloatAtan-testFloatAtan.obj `if test -f 'testFloatAtan.c'; then $(CYGPATH_W) 'testFloatAtan.c'; else $(CYGPATH_W) '$(srcdir)/testFloatAtan.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatAtan-testFloatAtan.Tpo $(DEPDIR)/testFloatAtan-testFloatAtan.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatAtan.c' object='testFloatAtan-testFloatAtan.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatAtan_CFLAGS) $(CFLAGS) -c -o testFloatAtan-testFloatAtan.obj `if test -f 'testFloatAtan.c'; then $(CYGPATH_W) 'testFloatAtan.c'; else $(CYGPATH_W) '$(srcdir)/testFloatAtan.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
