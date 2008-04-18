@@ -37,19 +37,25 @@ HEAD	=	../includes/cos.h
 check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-check_PROGRAMS	= 	testCos
-
-TESTS		=	testCos
-
-#
-# -*- Cosine Tests -*-
-#
-testCos_SOURCES = 	testCos.c
-testCos_CFLAGS	=	$(check_INCLUDES)
-testCos_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
+check_LDADD	=	 $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/elementaryFunctions/cos/libCos.la \
 			$(top_builddir)/elementaryFunctions/sin/libSin.la \
 			$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
 			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
 			@LIBMATH@
+
+check_PROGRAMS	= 	testFloatCos testDoubleCos
+
+TESTS		=	testFloatCos testDoubleCos
+
+#
+# -*- Cosine Tests -*-
+#
+testFloatCos_SOURCES = 	testFloatCos.c
+testFloatCos_CFLAGS =	$(check_INCLUDES)
+testFloatCos_LDADD =	$(check_LDADD)
+
+testDoubleCos_SOURCES =	testDoubleCos.c
+testDoubleCos_CFLAGS =	$(check_INCLUDES)
+testDoubleCos_LDADD =	$(check_LDADD)
