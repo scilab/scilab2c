@@ -32,8 +32,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testCosh$(EXEEXT)
-TESTS = testCosh$(EXEEXT)
+check_PROGRAMS = testFloatCosh$(EXEEXT) testDoubleCosh$(EXEEXT)
+TESTS = testFloatCosh$(EXEEXT) testDoubleCosh$(EXEEXT)
 subdir = elementaryFunctions/cosh
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -62,17 +62,24 @@ libCosh_la_OBJECTS = $(am_libCosh_la_OBJECTS)
 libCosh_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libCosh_la_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testCosh_OBJECTS = testCosh-testCosh.$(OBJEXT)
-testCosh_OBJECTS = $(am_testCosh_OBJECTS)
-testCosh_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
+am_testDoubleCosh_OBJECTS = testDoubleCosh-testDoubleCosh.$(OBJEXT)
+testDoubleCosh_OBJECTS = $(am_testDoubleCosh_OBJECTS)
+am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/type/libFloatComplex.la \
 	$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
 	$(top_builddir)/elementaryFunctions/cos/libCos.la \
 	$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
 	$(top_builddir)/elementaryFunctions/sin/libSin.la
-testCosh_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
-	--mode=link $(CCLD) $(testCosh_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
-	$(LDFLAGS) -o $@
+testDoubleCosh_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testDoubleCosh_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleCosh_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testFloatCosh_OBJECTS = testFloatCosh-testFloatCosh.$(OBJEXT)
+testFloatCosh_OBJECTS = $(am_testFloatCosh_OBJECTS)
+testFloatCosh_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testFloatCosh_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatCosh_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/includes@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -85,8 +92,10 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libCosh_la_SOURCES) $(testCosh_SOURCES)
-DIST_SOURCES = $(libCosh_la_SOURCES) $(testCosh_SOURCES)
+SOURCES = $(libCosh_la_SOURCES) $(testDoubleCosh_SOURCES) \
+	$(testFloatCosh_SOURCES)
+DIST_SOURCES = $(libCosh_la_SOURCES) $(testDoubleCosh_SOURCES) \
+	$(testFloatCosh_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -221,13 +230,7 @@ HEAD = ../includes/cosh.h
 check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-
-#
-# -*- Hyperbolic Cosine Tests -*-
-#
-testCosh_SOURCES = testCosh.c
-testCosh_CFLAGS = $(check_INCLUDES)
-testCosh_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
 			$(top_builddir)/elementaryFunctions/cos/libCos.la \
@@ -235,6 +238,16 @@ testCosh_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/elementaryFunctions/sin/libSin.la \
 			@LIBMATH@
 
+
+#
+# -*- Hyperbolic Cosine Tests -*-
+#
+testFloatCosh_SOURCES = testFloatCosh.c
+testFloatCosh_CFLAGS = $(check_INCLUDES)
+testFloatCosh_LDADD = $(check_LDADD)
+testDoubleCosh_SOURCES = testDoubleCosh.c
+testDoubleCosh_CFLAGS = $(check_INCLUDES)
+testDoubleCosh_LDADD = $(check_LDADD)
 all: all-am
 
 .SUFFIXES:
@@ -304,9 +317,12 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testCosh$(EXEEXT): $(testCosh_OBJECTS) $(testCosh_DEPENDENCIES) 
-	@rm -f testCosh$(EXEEXT)
-	$(testCosh_LINK) $(testCosh_OBJECTS) $(testCosh_LDADD) $(LIBS)
+testDoubleCosh$(EXEEXT): $(testDoubleCosh_OBJECTS) $(testDoubleCosh_DEPENDENCIES) 
+	@rm -f testDoubleCosh$(EXEEXT)
+	$(testDoubleCosh_LINK) $(testDoubleCosh_OBJECTS) $(testDoubleCosh_LDADD) $(LIBS)
+testFloatCosh$(EXEEXT): $(testFloatCosh_OBJECTS) $(testFloatCosh_DEPENDENCIES) 
+	@rm -f testFloatCosh$(EXEEXT)
+	$(testFloatCosh_LINK) $(testFloatCosh_OBJECTS) $(testFloatCosh_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -322,7 +338,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCosh_la-scoshs.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCosh_la-zcosha.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCosh_la-zcoshs.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testCosh-testCosh.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleCosh-testDoubleCosh.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatCosh-testFloatCosh.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -401,19 +418,33 @@ libCosh_la-zcosha.lo: zcosha.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCosh_la_CFLAGS) $(CFLAGS) -c -o libCosh_la-zcosha.lo `test -f 'zcosha.c' || echo '$(srcdir)/'`zcosha.c
 
-testCosh-testCosh.o: testCosh.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testCosh_CFLAGS) $(CFLAGS) -MT testCosh-testCosh.o -MD -MP -MF $(DEPDIR)/testCosh-testCosh.Tpo -c -o testCosh-testCosh.o `test -f 'testCosh.c' || echo '$(srcdir)/'`testCosh.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testCosh-testCosh.Tpo $(DEPDIR)/testCosh-testCosh.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testCosh.c' object='testCosh-testCosh.o' libtool=no @AMDEPBACKSLASH@
+testDoubleCosh-testDoubleCosh.o: testDoubleCosh.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleCosh_CFLAGS) $(CFLAGS) -MT testDoubleCosh-testDoubleCosh.o -MD -MP -MF $(DEPDIR)/testDoubleCosh-testDoubleCosh.Tpo -c -o testDoubleCosh-testDoubleCosh.o `test -f 'testDoubleCosh.c' || echo '$(srcdir)/'`testDoubleCosh.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleCosh-testDoubleCosh.Tpo $(DEPDIR)/testDoubleCosh-testDoubleCosh.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleCosh.c' object='testDoubleCosh-testDoubleCosh.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testCosh_CFLAGS) $(CFLAGS) -c -o testCosh-testCosh.o `test -f 'testCosh.c' || echo '$(srcdir)/'`testCosh.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleCosh_CFLAGS) $(CFLAGS) -c -o testDoubleCosh-testDoubleCosh.o `test -f 'testDoubleCosh.c' || echo '$(srcdir)/'`testDoubleCosh.c
 
-testCosh-testCosh.obj: testCosh.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testCosh_CFLAGS) $(CFLAGS) -MT testCosh-testCosh.obj -MD -MP -MF $(DEPDIR)/testCosh-testCosh.Tpo -c -o testCosh-testCosh.obj `if test -f 'testCosh.c'; then $(CYGPATH_W) 'testCosh.c'; else $(CYGPATH_W) '$(srcdir)/testCosh.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testCosh-testCosh.Tpo $(DEPDIR)/testCosh-testCosh.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testCosh.c' object='testCosh-testCosh.obj' libtool=no @AMDEPBACKSLASH@
+testDoubleCosh-testDoubleCosh.obj: testDoubleCosh.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleCosh_CFLAGS) $(CFLAGS) -MT testDoubleCosh-testDoubleCosh.obj -MD -MP -MF $(DEPDIR)/testDoubleCosh-testDoubleCosh.Tpo -c -o testDoubleCosh-testDoubleCosh.obj `if test -f 'testDoubleCosh.c'; then $(CYGPATH_W) 'testDoubleCosh.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleCosh.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleCosh-testDoubleCosh.Tpo $(DEPDIR)/testDoubleCosh-testDoubleCosh.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleCosh.c' object='testDoubleCosh-testDoubleCosh.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testCosh_CFLAGS) $(CFLAGS) -c -o testCosh-testCosh.obj `if test -f 'testCosh.c'; then $(CYGPATH_W) 'testCosh.c'; else $(CYGPATH_W) '$(srcdir)/testCosh.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleCosh_CFLAGS) $(CFLAGS) -c -o testDoubleCosh-testDoubleCosh.obj `if test -f 'testDoubleCosh.c'; then $(CYGPATH_W) 'testDoubleCosh.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleCosh.c'; fi`
+
+testFloatCosh-testFloatCosh.o: testFloatCosh.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatCosh_CFLAGS) $(CFLAGS) -MT testFloatCosh-testFloatCosh.o -MD -MP -MF $(DEPDIR)/testFloatCosh-testFloatCosh.Tpo -c -o testFloatCosh-testFloatCosh.o `test -f 'testFloatCosh.c' || echo '$(srcdir)/'`testFloatCosh.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatCosh-testFloatCosh.Tpo $(DEPDIR)/testFloatCosh-testFloatCosh.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatCosh.c' object='testFloatCosh-testFloatCosh.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatCosh_CFLAGS) $(CFLAGS) -c -o testFloatCosh-testFloatCosh.o `test -f 'testFloatCosh.c' || echo '$(srcdir)/'`testFloatCosh.c
+
+testFloatCosh-testFloatCosh.obj: testFloatCosh.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatCosh_CFLAGS) $(CFLAGS) -MT testFloatCosh-testFloatCosh.obj -MD -MP -MF $(DEPDIR)/testFloatCosh-testFloatCosh.Tpo -c -o testFloatCosh-testFloatCosh.obj `if test -f 'testFloatCosh.c'; then $(CYGPATH_W) 'testFloatCosh.c'; else $(CYGPATH_W) '$(srcdir)/testFloatCosh.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatCosh-testFloatCosh.Tpo $(DEPDIR)/testFloatCosh-testFloatCosh.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatCosh.c' object='testFloatCosh-testFloatCosh.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatCosh_CFLAGS) $(CFLAGS) -c -o testFloatCosh-testFloatCosh.obj `if test -f 'testFloatCosh.c'; then $(CYGPATH_W) 'testFloatCosh.c'; else $(CYGPATH_W) '$(srcdir)/testFloatCosh.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo

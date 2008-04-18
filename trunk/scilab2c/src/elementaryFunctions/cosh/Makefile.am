@@ -37,19 +37,25 @@ HEAD	=	../includes/cosh.h
 check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-check_PROGRAMS	= 	testCosh
-
-TESTS		=	testCosh
-
-#
-# -*- Hyperbolic Cosine Tests -*-
-#
-testCosh_SOURCES = 	testCosh.c
-testCosh_CFLAGS	=	$(check_INCLUDES)
-testCosh_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
+check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
 			$(top_builddir)/elementaryFunctions/cos/libCos.la \
 			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
 			$(top_builddir)/elementaryFunctions/sin/libSin.la \
 			@LIBMATH@
+
+check_PROGRAMS	= 	testFloatCosh testDoubleCosh
+
+TESTS		=	testFloatCosh testDoubleCosh
+
+#
+# -*- Hyperbolic Cosine Tests -*-
+#
+testFloatCosh_SOURCES = 	testFloatCosh.c
+testFloatCosh_CFLAGS	=	$(check_INCLUDES)
+testFloatCosh_LDADD	=	$(check_LDADD)
+
+testDoubleCosh_SOURCES = 	testDoubleCosh.c
+testDoubleCosh_CFLAGS	=	$(check_INCLUDES)
+testDoubleCosh_LDADD	=	$(check_LDADD)
