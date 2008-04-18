@@ -32,8 +32,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testCos$(EXEEXT)
-TESTS = testCos$(EXEEXT)
+check_PROGRAMS = testFloatCos$(EXEEXT) testDoubleCos$(EXEEXT)
+TESTS = testFloatCos$(EXEEXT) testDoubleCos$(EXEEXT)
 subdir = elementaryFunctions/cos
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -62,17 +62,24 @@ libCos_la_OBJECTS = $(am_libCos_la_OBJECTS)
 libCos_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libCos_la_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testCos_OBJECTS = testCos-testCos.$(OBJEXT)
-testCos_OBJECTS = $(am_testCos_OBJECTS)
-testCos_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
+am_testDoubleCos_OBJECTS = testDoubleCos-testDoubleCos.$(OBJEXT)
+testDoubleCos_OBJECTS = $(am_testDoubleCos_OBJECTS)
+am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/type/libFloatComplex.la \
 	$(top_builddir)/elementaryFunctions/cos/libCos.la \
 	$(top_builddir)/elementaryFunctions/sin/libSin.la \
 	$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
 	$(top_builddir)/elementaryFunctions/sinh/libSinh.la
-testCos_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
-	--mode=link $(CCLD) $(testCos_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
-	$(LDFLAGS) -o $@
+testDoubleCos_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testDoubleCos_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleCos_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testFloatCos_OBJECTS = testFloatCos-testFloatCos.$(OBJEXT)
+testFloatCos_OBJECTS = $(am_testFloatCos_OBJECTS)
+testFloatCos_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testFloatCos_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatCos_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/includes@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -85,8 +92,10 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libCos_la_SOURCES) $(testCos_SOURCES)
-DIST_SOURCES = $(libCos_la_SOURCES) $(testCos_SOURCES)
+SOURCES = $(libCos_la_SOURCES) $(testDoubleCos_SOURCES) \
+	$(testFloatCos_SOURCES)
+DIST_SOURCES = $(libCos_la_SOURCES) $(testDoubleCos_SOURCES) \
+	$(testFloatCos_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -221,13 +230,7 @@ HEAD = ../includes/cos.h
 check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-
-#
-# -*- Cosine Tests -*-
-#
-testCos_SOURCES = testCos.c
-testCos_CFLAGS = $(check_INCLUDES)
-testCos_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/elementaryFunctions/cos/libCos.la \
 			$(top_builddir)/elementaryFunctions/sin/libSin.la \
@@ -235,6 +238,16 @@ testCos_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
 			@LIBMATH@
 
+
+#
+# -*- Cosine Tests -*-
+#
+testFloatCos_SOURCES = testFloatCos.c
+testFloatCos_CFLAGS = $(check_INCLUDES)
+testFloatCos_LDADD = $(check_LDADD)
+testDoubleCos_SOURCES = testDoubleCos.c
+testDoubleCos_CFLAGS = $(check_INCLUDES)
+testDoubleCos_LDADD = $(check_LDADD)
 all: all-am
 
 .SUFFIXES:
@@ -304,9 +317,12 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testCos$(EXEEXT): $(testCos_OBJECTS) $(testCos_DEPENDENCIES) 
-	@rm -f testCos$(EXEEXT)
-	$(testCos_LINK) $(testCos_OBJECTS) $(testCos_LDADD) $(LIBS)
+testDoubleCos$(EXEEXT): $(testDoubleCos_OBJECTS) $(testDoubleCos_DEPENDENCIES) 
+	@rm -f testDoubleCos$(EXEEXT)
+	$(testDoubleCos_LINK) $(testDoubleCos_OBJECTS) $(testDoubleCos_LDADD) $(LIBS)
+testFloatCos$(EXEEXT): $(testFloatCos_OBJECTS) $(testFloatCos_DEPENDENCIES) 
+	@rm -f testFloatCos$(EXEEXT)
+	$(testFloatCos_LINK) $(testFloatCos_OBJECTS) $(testFloatCos_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -322,7 +338,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCos_la-scoss.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCos_la-zcosa.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCos_la-zcoss.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testCos-testCos.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleCos-testDoubleCos.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatCos-testFloatCos.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -401,19 +418,33 @@ libCos_la-zcosa.lo: zcosa.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCos_la_CFLAGS) $(CFLAGS) -c -o libCos_la-zcosa.lo `test -f 'zcosa.c' || echo '$(srcdir)/'`zcosa.c
 
-testCos-testCos.o: testCos.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testCos_CFLAGS) $(CFLAGS) -MT testCos-testCos.o -MD -MP -MF $(DEPDIR)/testCos-testCos.Tpo -c -o testCos-testCos.o `test -f 'testCos.c' || echo '$(srcdir)/'`testCos.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testCos-testCos.Tpo $(DEPDIR)/testCos-testCos.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testCos.c' object='testCos-testCos.o' libtool=no @AMDEPBACKSLASH@
+testDoubleCos-testDoubleCos.o: testDoubleCos.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleCos_CFLAGS) $(CFLAGS) -MT testDoubleCos-testDoubleCos.o -MD -MP -MF $(DEPDIR)/testDoubleCos-testDoubleCos.Tpo -c -o testDoubleCos-testDoubleCos.o `test -f 'testDoubleCos.c' || echo '$(srcdir)/'`testDoubleCos.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleCos-testDoubleCos.Tpo $(DEPDIR)/testDoubleCos-testDoubleCos.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleCos.c' object='testDoubleCos-testDoubleCos.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testCos_CFLAGS) $(CFLAGS) -c -o testCos-testCos.o `test -f 'testCos.c' || echo '$(srcdir)/'`testCos.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleCos_CFLAGS) $(CFLAGS) -c -o testDoubleCos-testDoubleCos.o `test -f 'testDoubleCos.c' || echo '$(srcdir)/'`testDoubleCos.c
 
-testCos-testCos.obj: testCos.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testCos_CFLAGS) $(CFLAGS) -MT testCos-testCos.obj -MD -MP -MF $(DEPDIR)/testCos-testCos.Tpo -c -o testCos-testCos.obj `if test -f 'testCos.c'; then $(CYGPATH_W) 'testCos.c'; else $(CYGPATH_W) '$(srcdir)/testCos.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testCos-testCos.Tpo $(DEPDIR)/testCos-testCos.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testCos.c' object='testCos-testCos.obj' libtool=no @AMDEPBACKSLASH@
+testDoubleCos-testDoubleCos.obj: testDoubleCos.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleCos_CFLAGS) $(CFLAGS) -MT testDoubleCos-testDoubleCos.obj -MD -MP -MF $(DEPDIR)/testDoubleCos-testDoubleCos.Tpo -c -o testDoubleCos-testDoubleCos.obj `if test -f 'testDoubleCos.c'; then $(CYGPATH_W) 'testDoubleCos.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleCos.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleCos-testDoubleCos.Tpo $(DEPDIR)/testDoubleCos-testDoubleCos.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleCos.c' object='testDoubleCos-testDoubleCos.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testCos_CFLAGS) $(CFLAGS) -c -o testCos-testCos.obj `if test -f 'testCos.c'; then $(CYGPATH_W) 'testCos.c'; else $(CYGPATH_W) '$(srcdir)/testCos.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleCos_CFLAGS) $(CFLAGS) -c -o testDoubleCos-testDoubleCos.obj `if test -f 'testDoubleCos.c'; then $(CYGPATH_W) 'testDoubleCos.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleCos.c'; fi`
+
+testFloatCos-testFloatCos.o: testFloatCos.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatCos_CFLAGS) $(CFLAGS) -MT testFloatCos-testFloatCos.o -MD -MP -MF $(DEPDIR)/testFloatCos-testFloatCos.Tpo -c -o testFloatCos-testFloatCos.o `test -f 'testFloatCos.c' || echo '$(srcdir)/'`testFloatCos.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatCos-testFloatCos.Tpo $(DEPDIR)/testFloatCos-testFloatCos.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatCos.c' object='testFloatCos-testFloatCos.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatCos_CFLAGS) $(CFLAGS) -c -o testFloatCos-testFloatCos.o `test -f 'testFloatCos.c' || echo '$(srcdir)/'`testFloatCos.c
+
+testFloatCos-testFloatCos.obj: testFloatCos.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatCos_CFLAGS) $(CFLAGS) -MT testFloatCos-testFloatCos.obj -MD -MP -MF $(DEPDIR)/testFloatCos-testFloatCos.Tpo -c -o testFloatCos-testFloatCos.obj `if test -f 'testFloatCos.c'; then $(CYGPATH_W) 'testFloatCos.c'; else $(CYGPATH_W) '$(srcdir)/testFloatCos.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatCos-testFloatCos.Tpo $(DEPDIR)/testFloatCos-testFloatCos.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatCos.c' object='testFloatCos-testFloatCos.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatCos_CFLAGS) $(CFLAGS) -c -o testFloatCos-testFloatCos.obj `if test -f 'testFloatCos.c'; then $(CYGPATH_W) 'testFloatCos.c'; else $(CYGPATH_W) '$(srcdir)/testFloatCos.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
