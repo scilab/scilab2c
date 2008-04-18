@@ -37,16 +37,22 @@ HEAD	=	../includes/asinh.h
 check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-check_PROGRAMS	= 	testAsinh
+check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/elementaryFunctions/asinh/libAsinh.la \
+			@LIBMATH@
 
-TESTS		=	testAsinh
+check_PROGRAMS	= 	testFloatAsinh testDoubleAsinh
+
+TESTS		=	testFloatAsinh testDoubleAsinh
 
 #
 # -*- Hyperbolic ArcSine Tests -*-
 #
-testAsinh_SOURCES = 	testAsinh.c
-testAsinh_CFLAGS =	$(check_INCLUDES)
-testAsinh_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/elementaryFunctions/asinh/libAsinh.la \
-			@LIBMATH@
+testFloatAsinh_SOURCES = 	testFloatAsinh.c
+testFloatAsinh_CFLAGS =	$(check_INCLUDES)
+testFloatAsinh_LDADD	=	$(check_LDADD)
+
+testDoubleAsinh_SOURCES = 	testDoubleAsinh.c
+testDoubleAsinh_CFLAGS =	$(check_INCLUDES)
+testDoubleAsinh_LDADD	=	$(check_LDADD)
