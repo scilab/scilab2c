@@ -32,8 +32,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testTan$(EXEEXT)
-TESTS = testTan$(EXEEXT)
+check_PROGRAMS = testFloatTan$(EXEEXT) testDoubleTan$(EXEEXT)
+TESTS = testFloatTan$(EXEEXT) testDoubleTan$(EXEEXT)
 subdir = elementaryFunctions/tan
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -62,14 +62,21 @@ libTan_la_OBJECTS = $(am_libTan_la_OBJECTS)
 libTan_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libTan_la_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testTan_OBJECTS = testTan-testTan.$(OBJEXT)
-testTan_OBJECTS = $(am_testTan_OBJECTS)
-testTan_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
+am_testDoubleTan_OBJECTS = testDoubleTan-testDoubleTan.$(OBJEXT)
+testDoubleTan_OBJECTS = $(am_testDoubleTan_OBJECTS)
+am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/type/libFloatComplex.la \
 	$(top_builddir)/elementaryFunctions/tan/libTan.la
-testTan_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
-	--mode=link $(CCLD) $(testTan_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
-	$(LDFLAGS) -o $@
+testDoubleTan_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testDoubleTan_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleTan_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testFloatTan_OBJECTS = testFloatTan-testFloatTan.$(OBJEXT)
+testFloatTan_OBJECTS = $(am_testFloatTan_OBJECTS)
+testFloatTan_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testFloatTan_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatTan_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/includes@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -82,8 +89,10 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libTan_la_SOURCES) $(testTan_SOURCES)
-DIST_SOURCES = $(libTan_la_SOURCES) $(testTan_SOURCES)
+SOURCES = $(libTan_la_SOURCES) $(testDoubleTan_SOURCES) \
+	$(testFloatTan_SOURCES)
+DIST_SOURCES = $(libTan_la_SOURCES) $(testDoubleTan_SOURCES) \
+	$(testFloatTan_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -218,17 +227,21 @@ HEAD = ../includes/tan.h
 check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-
-#
-# -*- Tangeant Tests -*-
-#
-testTan_SOURCES = testTan.c
-testTan_CFLAGS = $(check_INCLUDES)
-testTan_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/elementaryFunctions/tan/libTan.la \
 			@LIBMATH@
 
+
+#
+# -*- Tangeant Tests -*-
+#
+testFloatTan_SOURCES = testFloatTan.c
+testFloatTan_CFLAGS = $(check_INCLUDES)
+testFloatTan_LDADD = $(check_LDADD)
+testDoubleTan_SOURCES = testDoubleTan.c
+testDoubleTan_CFLAGS = $(check_INCLUDES)
+testDoubleTan_LDADD = $(check_LDADD)
 all: all-am
 
 .SUFFIXES:
@@ -298,9 +311,12 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testTan$(EXEEXT): $(testTan_OBJECTS) $(testTan_DEPENDENCIES) 
-	@rm -f testTan$(EXEEXT)
-	$(testTan_LINK) $(testTan_OBJECTS) $(testTan_LDADD) $(LIBS)
+testDoubleTan$(EXEEXT): $(testDoubleTan_OBJECTS) $(testDoubleTan_DEPENDENCIES) 
+	@rm -f testDoubleTan$(EXEEXT)
+	$(testDoubleTan_LINK) $(testDoubleTan_OBJECTS) $(testDoubleTan_LDADD) $(LIBS)
+testFloatTan$(EXEEXT): $(testFloatTan_OBJECTS) $(testFloatTan_DEPENDENCIES) 
+	@rm -f testFloatTan$(EXEEXT)
+	$(testFloatTan_LINK) $(testFloatTan_OBJECTS) $(testFloatTan_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -316,7 +332,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libTan_la-stans.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libTan_la-ztana.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libTan_la-ztans.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testTan-testTan.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleTan-testDoubleTan.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatTan-testFloatTan.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -395,19 +412,33 @@ libTan_la-ztana.lo: ztana.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libTan_la_CFLAGS) $(CFLAGS) -c -o libTan_la-ztana.lo `test -f 'ztana.c' || echo '$(srcdir)/'`ztana.c
 
-testTan-testTan.o: testTan.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testTan_CFLAGS) $(CFLAGS) -MT testTan-testTan.o -MD -MP -MF $(DEPDIR)/testTan-testTan.Tpo -c -o testTan-testTan.o `test -f 'testTan.c' || echo '$(srcdir)/'`testTan.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testTan-testTan.Tpo $(DEPDIR)/testTan-testTan.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testTan.c' object='testTan-testTan.o' libtool=no @AMDEPBACKSLASH@
+testDoubleTan-testDoubleTan.o: testDoubleTan.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleTan_CFLAGS) $(CFLAGS) -MT testDoubleTan-testDoubleTan.o -MD -MP -MF $(DEPDIR)/testDoubleTan-testDoubleTan.Tpo -c -o testDoubleTan-testDoubleTan.o `test -f 'testDoubleTan.c' || echo '$(srcdir)/'`testDoubleTan.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleTan-testDoubleTan.Tpo $(DEPDIR)/testDoubleTan-testDoubleTan.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleTan.c' object='testDoubleTan-testDoubleTan.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testTan_CFLAGS) $(CFLAGS) -c -o testTan-testTan.o `test -f 'testTan.c' || echo '$(srcdir)/'`testTan.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleTan_CFLAGS) $(CFLAGS) -c -o testDoubleTan-testDoubleTan.o `test -f 'testDoubleTan.c' || echo '$(srcdir)/'`testDoubleTan.c
 
-testTan-testTan.obj: testTan.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testTan_CFLAGS) $(CFLAGS) -MT testTan-testTan.obj -MD -MP -MF $(DEPDIR)/testTan-testTan.Tpo -c -o testTan-testTan.obj `if test -f 'testTan.c'; then $(CYGPATH_W) 'testTan.c'; else $(CYGPATH_W) '$(srcdir)/testTan.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testTan-testTan.Tpo $(DEPDIR)/testTan-testTan.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testTan.c' object='testTan-testTan.obj' libtool=no @AMDEPBACKSLASH@
+testDoubleTan-testDoubleTan.obj: testDoubleTan.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleTan_CFLAGS) $(CFLAGS) -MT testDoubleTan-testDoubleTan.obj -MD -MP -MF $(DEPDIR)/testDoubleTan-testDoubleTan.Tpo -c -o testDoubleTan-testDoubleTan.obj `if test -f 'testDoubleTan.c'; then $(CYGPATH_W) 'testDoubleTan.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleTan.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleTan-testDoubleTan.Tpo $(DEPDIR)/testDoubleTan-testDoubleTan.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleTan.c' object='testDoubleTan-testDoubleTan.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testTan_CFLAGS) $(CFLAGS) -c -o testTan-testTan.obj `if test -f 'testTan.c'; then $(CYGPATH_W) 'testTan.c'; else $(CYGPATH_W) '$(srcdir)/testTan.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleTan_CFLAGS) $(CFLAGS) -c -o testDoubleTan-testDoubleTan.obj `if test -f 'testDoubleTan.c'; then $(CYGPATH_W) 'testDoubleTan.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleTan.c'; fi`
+
+testFloatTan-testFloatTan.o: testFloatTan.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatTan_CFLAGS) $(CFLAGS) -MT testFloatTan-testFloatTan.o -MD -MP -MF $(DEPDIR)/testFloatTan-testFloatTan.Tpo -c -o testFloatTan-testFloatTan.o `test -f 'testFloatTan.c' || echo '$(srcdir)/'`testFloatTan.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatTan-testFloatTan.Tpo $(DEPDIR)/testFloatTan-testFloatTan.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatTan.c' object='testFloatTan-testFloatTan.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatTan_CFLAGS) $(CFLAGS) -c -o testFloatTan-testFloatTan.o `test -f 'testFloatTan.c' || echo '$(srcdir)/'`testFloatTan.c
+
+testFloatTan-testFloatTan.obj: testFloatTan.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatTan_CFLAGS) $(CFLAGS) -MT testFloatTan-testFloatTan.obj -MD -MP -MF $(DEPDIR)/testFloatTan-testFloatTan.Tpo -c -o testFloatTan-testFloatTan.obj `if test -f 'testFloatTan.c'; then $(CYGPATH_W) 'testFloatTan.c'; else $(CYGPATH_W) '$(srcdir)/testFloatTan.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatTan-testFloatTan.Tpo $(DEPDIR)/testFloatTan-testFloatTan.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatTan.c' object='testFloatTan-testFloatTan.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatTan_CFLAGS) $(CFLAGS) -c -o testFloatTan-testFloatTan.obj `if test -f 'testFloatTan.c'; then $(CYGPATH_W) 'testFloatTan.c'; else $(CYGPATH_W) '$(srcdir)/testFloatTan.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo

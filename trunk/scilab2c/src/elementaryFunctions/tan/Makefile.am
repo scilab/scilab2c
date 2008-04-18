@@ -37,16 +37,22 @@ HEAD	=	../includes/tan.h
 check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-check_PROGRAMS	= 	testTan
+check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/elementaryFunctions/tan/libTan.la \
+			@LIBMATH@
 
-TESTS		=	testTan
+check_PROGRAMS	= 	testFloatTan testDoubleTan
+
+TESTS		=	testFloatTan testDoubleTan
 
 #
 # -*- Tangeant Tests -*-
 #
-testTan_SOURCES = 	testTan.c
-testTan_CFLAGS	=	$(check_INCLUDES)
-testTan_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/elementaryFunctions/tan/libTan.la \
-			@LIBMATH@
+testFloatTan_SOURCES 	= 	testFloatTan.c
+testFloatTan_CFLAGS	=	$(check_INCLUDES)
+testFloatTan_LDADD	=	$(check_LDADD)
+
+testDoubleTan_SOURCES 	= 	testDoubleTan.c
+testDoubleTan_CFLAGS	=	$(check_INCLUDES)
+testDoubleTan_LDADD	=	$(check_LDADD)
