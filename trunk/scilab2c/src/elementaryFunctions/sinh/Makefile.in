@@ -32,8 +32,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testSinh$(EXEEXT)
-TESTS = testSinh$(EXEEXT)
+check_PROGRAMS = testFloatSinh$(EXEEXT) testDoubleSinh$(EXEEXT)
+TESTS = testFloatSinh$(EXEEXT) testDoubleSinh$(EXEEXT)
 subdir = elementaryFunctions/sinh
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -62,17 +62,24 @@ libSinh_la_OBJECTS = $(am_libSinh_la_OBJECTS)
 libSinh_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libSinh_la_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testSinh_OBJECTS = testSinh-testSinh.$(OBJEXT)
-testSinh_OBJECTS = $(am_testSinh_OBJECTS)
-testSinh_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
+am_testDoubleSinh_OBJECTS = testDoubleSinh-testDoubleSinh.$(OBJEXT)
+testDoubleSinh_OBJECTS = $(am_testDoubleSinh_OBJECTS)
+am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/type/libFloatComplex.la \
 	$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
 	$(top_builddir)/elementaryFunctions/sin/libSin.la \
 	$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
 	$(top_builddir)/elementaryFunctions/cos/libCos.la
-testSinh_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
-	--mode=link $(CCLD) $(testSinh_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
-	$(LDFLAGS) -o $@
+testDoubleSinh_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testDoubleSinh_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleSinh_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testFloatSinh_OBJECTS = testFloatSinh-testFloatSinh.$(OBJEXT)
+testFloatSinh_OBJECTS = $(am_testFloatSinh_OBJECTS)
+testFloatSinh_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testFloatSinh_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatSinh_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/includes@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -85,8 +92,10 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libSinh_la_SOURCES) $(testSinh_SOURCES)
-DIST_SOURCES = $(libSinh_la_SOURCES) $(testSinh_SOURCES)
+SOURCES = $(libSinh_la_SOURCES) $(testDoubleSinh_SOURCES) \
+	$(testFloatSinh_SOURCES)
+DIST_SOURCES = $(libSinh_la_SOURCES) $(testDoubleSinh_SOURCES) \
+	$(testFloatSinh_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -221,13 +230,7 @@ HEAD = ../includes/sinh.h
 check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-
-#
-# -*- Hyperbolic Sine Tests -*-
-#
-testSinh_SOURCES = testSinh.c
-testSinh_CFLAGS = $(check_INCLUDES)
-testSinh_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
 			$(top_builddir)/elementaryFunctions/sin/libSin.la \
@@ -235,6 +238,16 @@ testSinh_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/elementaryFunctions/cos/libCos.la \
 			@LIBMATH@
 
+
+#
+# -*- Hyperbolic Sine Tests -*-
+#
+testFloatSinh_SOURCES = testFloatSinh.c
+testFloatSinh_CFLAGS = $(check_INCLUDES)
+testFloatSinh_LDADD = $(check_LDADD)
+testDoubleSinh_SOURCES = testDoubleSinh.c
+testDoubleSinh_CFLAGS = $(check_INCLUDES)
+testDoubleSinh_LDADD = $(check_LDADD)
 all: all-am
 
 .SUFFIXES:
@@ -304,9 +317,12 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testSinh$(EXEEXT): $(testSinh_OBJECTS) $(testSinh_DEPENDENCIES) 
-	@rm -f testSinh$(EXEEXT)
-	$(testSinh_LINK) $(testSinh_OBJECTS) $(testSinh_LDADD) $(LIBS)
+testDoubleSinh$(EXEEXT): $(testDoubleSinh_OBJECTS) $(testDoubleSinh_DEPENDENCIES) 
+	@rm -f testDoubleSinh$(EXEEXT)
+	$(testDoubleSinh_LINK) $(testDoubleSinh_OBJECTS) $(testDoubleSinh_LDADD) $(LIBS)
+testFloatSinh$(EXEEXT): $(testFloatSinh_OBJECTS) $(testFloatSinh_DEPENDENCIES) 
+	@rm -f testFloatSinh$(EXEEXT)
+	$(testFloatSinh_LINK) $(testFloatSinh_OBJECTS) $(testFloatSinh_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -322,7 +338,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSinh_la-ssinhs.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSinh_la-zsinha.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSinh_la-zsinhs.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testSinh-testSinh.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleSinh-testDoubleSinh.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatSinh-testFloatSinh.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -401,19 +418,33 @@ libSinh_la-zsinha.lo: zsinha.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSinh_la_CFLAGS) $(CFLAGS) -c -o libSinh_la-zsinha.lo `test -f 'zsinha.c' || echo '$(srcdir)/'`zsinha.c
 
-testSinh-testSinh.o: testSinh.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSinh_CFLAGS) $(CFLAGS) -MT testSinh-testSinh.o -MD -MP -MF $(DEPDIR)/testSinh-testSinh.Tpo -c -o testSinh-testSinh.o `test -f 'testSinh.c' || echo '$(srcdir)/'`testSinh.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testSinh-testSinh.Tpo $(DEPDIR)/testSinh-testSinh.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testSinh.c' object='testSinh-testSinh.o' libtool=no @AMDEPBACKSLASH@
+testDoubleSinh-testDoubleSinh.o: testDoubleSinh.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleSinh_CFLAGS) $(CFLAGS) -MT testDoubleSinh-testDoubleSinh.o -MD -MP -MF $(DEPDIR)/testDoubleSinh-testDoubleSinh.Tpo -c -o testDoubleSinh-testDoubleSinh.o `test -f 'testDoubleSinh.c' || echo '$(srcdir)/'`testDoubleSinh.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleSinh-testDoubleSinh.Tpo $(DEPDIR)/testDoubleSinh-testDoubleSinh.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleSinh.c' object='testDoubleSinh-testDoubleSinh.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSinh_CFLAGS) $(CFLAGS) -c -o testSinh-testSinh.o `test -f 'testSinh.c' || echo '$(srcdir)/'`testSinh.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleSinh_CFLAGS) $(CFLAGS) -c -o testDoubleSinh-testDoubleSinh.o `test -f 'testDoubleSinh.c' || echo '$(srcdir)/'`testDoubleSinh.c
 
-testSinh-testSinh.obj: testSinh.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSinh_CFLAGS) $(CFLAGS) -MT testSinh-testSinh.obj -MD -MP -MF $(DEPDIR)/testSinh-testSinh.Tpo -c -o testSinh-testSinh.obj `if test -f 'testSinh.c'; then $(CYGPATH_W) 'testSinh.c'; else $(CYGPATH_W) '$(srcdir)/testSinh.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testSinh-testSinh.Tpo $(DEPDIR)/testSinh-testSinh.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testSinh.c' object='testSinh-testSinh.obj' libtool=no @AMDEPBACKSLASH@
+testDoubleSinh-testDoubleSinh.obj: testDoubleSinh.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleSinh_CFLAGS) $(CFLAGS) -MT testDoubleSinh-testDoubleSinh.obj -MD -MP -MF $(DEPDIR)/testDoubleSinh-testDoubleSinh.Tpo -c -o testDoubleSinh-testDoubleSinh.obj `if test -f 'testDoubleSinh.c'; then $(CYGPATH_W) 'testDoubleSinh.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleSinh.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleSinh-testDoubleSinh.Tpo $(DEPDIR)/testDoubleSinh-testDoubleSinh.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleSinh.c' object='testDoubleSinh-testDoubleSinh.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSinh_CFLAGS) $(CFLAGS) -c -o testSinh-testSinh.obj `if test -f 'testSinh.c'; then $(CYGPATH_W) 'testSinh.c'; else $(CYGPATH_W) '$(srcdir)/testSinh.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleSinh_CFLAGS) $(CFLAGS) -c -o testDoubleSinh-testDoubleSinh.obj `if test -f 'testDoubleSinh.c'; then $(CYGPATH_W) 'testDoubleSinh.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleSinh.c'; fi`
+
+testFloatSinh-testFloatSinh.o: testFloatSinh.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatSinh_CFLAGS) $(CFLAGS) -MT testFloatSinh-testFloatSinh.o -MD -MP -MF $(DEPDIR)/testFloatSinh-testFloatSinh.Tpo -c -o testFloatSinh-testFloatSinh.o `test -f 'testFloatSinh.c' || echo '$(srcdir)/'`testFloatSinh.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatSinh-testFloatSinh.Tpo $(DEPDIR)/testFloatSinh-testFloatSinh.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatSinh.c' object='testFloatSinh-testFloatSinh.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatSinh_CFLAGS) $(CFLAGS) -c -o testFloatSinh-testFloatSinh.o `test -f 'testFloatSinh.c' || echo '$(srcdir)/'`testFloatSinh.c
+
+testFloatSinh-testFloatSinh.obj: testFloatSinh.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatSinh_CFLAGS) $(CFLAGS) -MT testFloatSinh-testFloatSinh.obj -MD -MP -MF $(DEPDIR)/testFloatSinh-testFloatSinh.Tpo -c -o testFloatSinh-testFloatSinh.obj `if test -f 'testFloatSinh.c'; then $(CYGPATH_W) 'testFloatSinh.c'; else $(CYGPATH_W) '$(srcdir)/testFloatSinh.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatSinh-testFloatSinh.Tpo $(DEPDIR)/testFloatSinh-testFloatSinh.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatSinh.c' object='testFloatSinh-testFloatSinh.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatSinh_CFLAGS) $(CFLAGS) -c -o testFloatSinh-testFloatSinh.obj `if test -f 'testFloatSinh.c'; then $(CYGPATH_W) 'testFloatSinh.c'; else $(CYGPATH_W) '$(srcdir)/testFloatSinh.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
