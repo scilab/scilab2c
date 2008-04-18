@@ -37,19 +37,23 @@ HEAD	=	../includes/tanh.h
 check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-check_PROGRAMS	= 	testTanh
-
-TESTS		=	testTanh
-
-#
-# -*- Hyperbolic Tangeant Tests -*-
-#
-testTanh_SOURCES = 	testTanh.c
-testTanh_CFLAGS	=	$(check_INCLUDES)
-testTanh_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
+check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/elementaryFunctions/tan/libTan.la \
 			$(top_builddir)/elementaryFunctions/tanh/libTanh.la \
 			@LIBMATH@
 
+check_PROGRAMS	= 	testFloatTanh testDoubleTanh
 
+TESTS		=	testFloatTanh testDoubleTanh
+
+#
+# -*- Hyperbolic Tangeant Tests -*-
+#
+testFloatTanh_SOURCES = 	testFloatTanh.c
+testFloatTanh_CFLAGS	=	$(check_INCLUDES)
+testFloatTanh_LDADD	=	$(check_LDADD)
+
+testDoubleTanh_SOURCES = 	testDoubleTanh.c
+testDoubleTanh_CFLAGS	=	$(check_INCLUDES)
+testDoubleTanh_LDADD	=	$(check_LDADD)
