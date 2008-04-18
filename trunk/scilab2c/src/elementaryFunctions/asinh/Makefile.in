@@ -32,8 +32,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testAsinh$(EXEEXT)
-TESTS = testAsinh$(EXEEXT)
+check_PROGRAMS = testFloatAsinh$(EXEEXT) testDoubleAsinh$(EXEEXT)
+TESTS = testFloatAsinh$(EXEEXT) testDoubleAsinh$(EXEEXT)
 subdir = elementaryFunctions/asinh
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -63,13 +63,21 @@ libAsinh_la_OBJECTS = $(am_libAsinh_la_OBJECTS)
 libAsinh_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libAsinh_la_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testAsinh_OBJECTS = testAsinh-testAsinh.$(OBJEXT)
-testAsinh_OBJECTS = $(am_testAsinh_OBJECTS)
-testAsinh_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
+am_testDoubleAsinh_OBJECTS =  \
+	testDoubleAsinh-testDoubleAsinh.$(OBJEXT)
+testDoubleAsinh_OBJECTS = $(am_testDoubleAsinh_OBJECTS)
+am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/type/libFloatComplex.la \
 	$(top_builddir)/elementaryFunctions/asinh/libAsinh.la
-testAsinh_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testAsinh_CFLAGS) \
+testDoubleAsinh_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testDoubleAsinh_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleAsinh_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testFloatAsinh_OBJECTS = testFloatAsinh-testFloatAsinh.$(OBJEXT)
+testFloatAsinh_OBJECTS = $(am_testFloatAsinh_OBJECTS)
+testFloatAsinh_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testFloatAsinh_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatAsinh_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/includes@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
@@ -83,8 +91,10 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libAsinh_la_SOURCES) $(testAsinh_SOURCES)
-DIST_SOURCES = $(libAsinh_la_SOURCES) $(testAsinh_SOURCES)
+SOURCES = $(libAsinh_la_SOURCES) $(testDoubleAsinh_SOURCES) \
+	$(testFloatAsinh_SOURCES)
+DIST_SOURCES = $(libAsinh_la_SOURCES) $(testDoubleAsinh_SOURCES) \
+	$(testFloatAsinh_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -219,17 +229,21 @@ HEAD = ../includes/asinh.h
 check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-
-#
-# -*- Hyperbolic ArcSine Tests -*-
-#
-testAsinh_SOURCES = testAsinh.c
-testAsinh_CFLAGS = $(check_INCLUDES)
-testAsinh_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/elementaryFunctions/asinh/libAsinh.la \
 			@LIBMATH@
 
+
+#
+# -*- Hyperbolic ArcSine Tests -*-
+#
+testFloatAsinh_SOURCES = testFloatAsinh.c
+testFloatAsinh_CFLAGS = $(check_INCLUDES)
+testFloatAsinh_LDADD = $(check_LDADD)
+testDoubleAsinh_SOURCES = testDoubleAsinh.c
+testDoubleAsinh_CFLAGS = $(check_INCLUDES)
+testDoubleAsinh_LDADD = $(check_LDADD)
 all: all-am
 
 .SUFFIXES:
@@ -299,9 +313,12 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testAsinh$(EXEEXT): $(testAsinh_OBJECTS) $(testAsinh_DEPENDENCIES) 
-	@rm -f testAsinh$(EXEEXT)
-	$(testAsinh_LINK) $(testAsinh_OBJECTS) $(testAsinh_LDADD) $(LIBS)
+testDoubleAsinh$(EXEEXT): $(testDoubleAsinh_OBJECTS) $(testDoubleAsinh_DEPENDENCIES) 
+	@rm -f testDoubleAsinh$(EXEEXT)
+	$(testDoubleAsinh_LINK) $(testDoubleAsinh_OBJECTS) $(testDoubleAsinh_LDADD) $(LIBS)
+testFloatAsinh$(EXEEXT): $(testFloatAsinh_OBJECTS) $(testFloatAsinh_DEPENDENCIES) 
+	@rm -f testFloatAsinh$(EXEEXT)
+	$(testFloatAsinh_LINK) $(testFloatAsinh_OBJECTS) $(testFloatAsinh_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -317,7 +334,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAsinh_la-sasinhs.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAsinh_la-zasinha.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAsinh_la-zasinhs.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testAsinh-testAsinh.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleAsinh-testDoubleAsinh.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatAsinh-testFloatAsinh.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -396,19 +414,33 @@ libAsinh_la-zasinha.lo: zasinha.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAsinh_la_CFLAGS) $(CFLAGS) -c -o libAsinh_la-zasinha.lo `test -f 'zasinha.c' || echo '$(srcdir)/'`zasinha.c
 
-testAsinh-testAsinh.o: testAsinh.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAsinh_CFLAGS) $(CFLAGS) -MT testAsinh-testAsinh.o -MD -MP -MF $(DEPDIR)/testAsinh-testAsinh.Tpo -c -o testAsinh-testAsinh.o `test -f 'testAsinh.c' || echo '$(srcdir)/'`testAsinh.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testAsinh-testAsinh.Tpo $(DEPDIR)/testAsinh-testAsinh.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testAsinh.c' object='testAsinh-testAsinh.o' libtool=no @AMDEPBACKSLASH@
+testDoubleAsinh-testDoubleAsinh.o: testDoubleAsinh.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleAsinh_CFLAGS) $(CFLAGS) -MT testDoubleAsinh-testDoubleAsinh.o -MD -MP -MF $(DEPDIR)/testDoubleAsinh-testDoubleAsinh.Tpo -c -o testDoubleAsinh-testDoubleAsinh.o `test -f 'testDoubleAsinh.c' || echo '$(srcdir)/'`testDoubleAsinh.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleAsinh-testDoubleAsinh.Tpo $(DEPDIR)/testDoubleAsinh-testDoubleAsinh.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleAsinh.c' object='testDoubleAsinh-testDoubleAsinh.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAsinh_CFLAGS) $(CFLAGS) -c -o testAsinh-testAsinh.o `test -f 'testAsinh.c' || echo '$(srcdir)/'`testAsinh.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleAsinh_CFLAGS) $(CFLAGS) -c -o testDoubleAsinh-testDoubleAsinh.o `test -f 'testDoubleAsinh.c' || echo '$(srcdir)/'`testDoubleAsinh.c
 
-testAsinh-testAsinh.obj: testAsinh.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAsinh_CFLAGS) $(CFLAGS) -MT testAsinh-testAsinh.obj -MD -MP -MF $(DEPDIR)/testAsinh-testAsinh.Tpo -c -o testAsinh-testAsinh.obj `if test -f 'testAsinh.c'; then $(CYGPATH_W) 'testAsinh.c'; else $(CYGPATH_W) '$(srcdir)/testAsinh.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testAsinh-testAsinh.Tpo $(DEPDIR)/testAsinh-testAsinh.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testAsinh.c' object='testAsinh-testAsinh.obj' libtool=no @AMDEPBACKSLASH@
+testDoubleAsinh-testDoubleAsinh.obj: testDoubleAsinh.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleAsinh_CFLAGS) $(CFLAGS) -MT testDoubleAsinh-testDoubleAsinh.obj -MD -MP -MF $(DEPDIR)/testDoubleAsinh-testDoubleAsinh.Tpo -c -o testDoubleAsinh-testDoubleAsinh.obj `if test -f 'testDoubleAsinh.c'; then $(CYGPATH_W) 'testDoubleAsinh.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleAsinh.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleAsinh-testDoubleAsinh.Tpo $(DEPDIR)/testDoubleAsinh-testDoubleAsinh.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleAsinh.c' object='testDoubleAsinh-testDoubleAsinh.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAsinh_CFLAGS) $(CFLAGS) -c -o testAsinh-testAsinh.obj `if test -f 'testAsinh.c'; then $(CYGPATH_W) 'testAsinh.c'; else $(CYGPATH_W) '$(srcdir)/testAsinh.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleAsinh_CFLAGS) $(CFLAGS) -c -o testDoubleAsinh-testDoubleAsinh.obj `if test -f 'testDoubleAsinh.c'; then $(CYGPATH_W) 'testDoubleAsinh.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleAsinh.c'; fi`
+
+testFloatAsinh-testFloatAsinh.o: testFloatAsinh.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatAsinh_CFLAGS) $(CFLAGS) -MT testFloatAsinh-testFloatAsinh.o -MD -MP -MF $(DEPDIR)/testFloatAsinh-testFloatAsinh.Tpo -c -o testFloatAsinh-testFloatAsinh.o `test -f 'testFloatAsinh.c' || echo '$(srcdir)/'`testFloatAsinh.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatAsinh-testFloatAsinh.Tpo $(DEPDIR)/testFloatAsinh-testFloatAsinh.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatAsinh.c' object='testFloatAsinh-testFloatAsinh.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatAsinh_CFLAGS) $(CFLAGS) -c -o testFloatAsinh-testFloatAsinh.o `test -f 'testFloatAsinh.c' || echo '$(srcdir)/'`testFloatAsinh.c
+
+testFloatAsinh-testFloatAsinh.obj: testFloatAsinh.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatAsinh_CFLAGS) $(CFLAGS) -MT testFloatAsinh-testFloatAsinh.obj -MD -MP -MF $(DEPDIR)/testFloatAsinh-testFloatAsinh.Tpo -c -o testFloatAsinh-testFloatAsinh.obj `if test -f 'testFloatAsinh.c'; then $(CYGPATH_W) 'testFloatAsinh.c'; else $(CYGPATH_W) '$(srcdir)/testFloatAsinh.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatAsinh-testFloatAsinh.Tpo $(DEPDIR)/testFloatAsinh-testFloatAsinh.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatAsinh.c' object='testFloatAsinh-testFloatAsinh.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatAsinh_CFLAGS) $(CFLAGS) -c -o testFloatAsinh-testFloatAsinh.obj `if test -f 'testFloatAsinh.c'; then $(CYGPATH_W) 'testFloatAsinh.c'; else $(CYGPATH_W) '$(srcdir)/testFloatAsinh.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
