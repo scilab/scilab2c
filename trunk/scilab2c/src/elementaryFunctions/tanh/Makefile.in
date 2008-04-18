@@ -32,8 +32,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testTanh$(EXEEXT)
-TESTS = testTanh$(EXEEXT)
+check_PROGRAMS = testFloatTanh$(EXEEXT) testDoubleTanh$(EXEEXT)
+TESTS = testFloatTanh$(EXEEXT) testDoubleTanh$(EXEEXT)
 subdir = elementaryFunctions/tanh
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -62,15 +62,22 @@ libTanh_la_OBJECTS = $(am_libTanh_la_OBJECTS)
 libTanh_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libTanh_la_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testTanh_OBJECTS = testTanh-testTanh.$(OBJEXT)
-testTanh_OBJECTS = $(am_testTanh_OBJECTS)
-testTanh_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
+am_testDoubleTanh_OBJECTS = testDoubleTanh-testDoubleTanh.$(OBJEXT)
+testDoubleTanh_OBJECTS = $(am_testDoubleTanh_OBJECTS)
+am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/type/libFloatComplex.la \
 	$(top_builddir)/elementaryFunctions/tan/libTan.la \
 	$(top_builddir)/elementaryFunctions/tanh/libTanh.la
-testTanh_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
-	--mode=link $(CCLD) $(testTanh_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
-	$(LDFLAGS) -o $@
+testDoubleTanh_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testDoubleTanh_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleTanh_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testFloatTanh_OBJECTS = testFloatTanh-testFloatTanh.$(OBJEXT)
+testFloatTanh_OBJECTS = $(am_testFloatTanh_OBJECTS)
+testFloatTanh_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testFloatTanh_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatTanh_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/includes@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -83,8 +90,10 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libTanh_la_SOURCES) $(testTanh_SOURCES)
-DIST_SOURCES = $(libTanh_la_SOURCES) $(testTanh_SOURCES)
+SOURCES = $(libTanh_la_SOURCES) $(testDoubleTanh_SOURCES) \
+	$(testFloatTanh_SOURCES)
+DIST_SOURCES = $(libTanh_la_SOURCES) $(testDoubleTanh_SOURCES) \
+	$(testFloatTanh_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -219,18 +228,22 @@ HEAD = ../includes/tanh.h
 check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-
-#
-# -*- Hyperbolic Tangeant Tests -*-
-#
-testTanh_SOURCES = testTanh.c
-testTanh_CFLAGS = $(check_INCLUDES)
-testTanh_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/elementaryFunctions/tan/libTan.la \
 			$(top_builddir)/elementaryFunctions/tanh/libTanh.la \
 			@LIBMATH@
 
+
+#
+# -*- Hyperbolic Tangeant Tests -*-
+#
+testFloatTanh_SOURCES = testFloatTanh.c
+testFloatTanh_CFLAGS = $(check_INCLUDES)
+testFloatTanh_LDADD = $(check_LDADD)
+testDoubleTanh_SOURCES = testDoubleTanh.c
+testDoubleTanh_CFLAGS = $(check_INCLUDES)
+testDoubleTanh_LDADD = $(check_LDADD)
 all: all-am
 
 .SUFFIXES:
@@ -300,9 +313,12 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testTanh$(EXEEXT): $(testTanh_OBJECTS) $(testTanh_DEPENDENCIES) 
-	@rm -f testTanh$(EXEEXT)
-	$(testTanh_LINK) $(testTanh_OBJECTS) $(testTanh_LDADD) $(LIBS)
+testDoubleTanh$(EXEEXT): $(testDoubleTanh_OBJECTS) $(testDoubleTanh_DEPENDENCIES) 
+	@rm -f testDoubleTanh$(EXEEXT)
+	$(testDoubleTanh_LINK) $(testDoubleTanh_OBJECTS) $(testDoubleTanh_LDADD) $(LIBS)
+testFloatTanh$(EXEEXT): $(testFloatTanh_OBJECTS) $(testFloatTanh_DEPENDENCIES) 
+	@rm -f testFloatTanh$(EXEEXT)
+	$(testFloatTanh_LINK) $(testFloatTanh_OBJECTS) $(testFloatTanh_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -318,7 +334,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libTanh_la-stanhs.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libTanh_la-ztanha.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libTanh_la-ztanhs.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testTanh-testTanh.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleTanh-testDoubleTanh.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatTanh-testFloatTanh.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -397,19 +414,33 @@ libTanh_la-ztanha.lo: ztanha.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libTanh_la_CFLAGS) $(CFLAGS) -c -o libTanh_la-ztanha.lo `test -f 'ztanha.c' || echo '$(srcdir)/'`ztanha.c
 
-testTanh-testTanh.o: testTanh.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testTanh_CFLAGS) $(CFLAGS) -MT testTanh-testTanh.o -MD -MP -MF $(DEPDIR)/testTanh-testTanh.Tpo -c -o testTanh-testTanh.o `test -f 'testTanh.c' || echo '$(srcdir)/'`testTanh.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testTanh-testTanh.Tpo $(DEPDIR)/testTanh-testTanh.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testTanh.c' object='testTanh-testTanh.o' libtool=no @AMDEPBACKSLASH@
+testDoubleTanh-testDoubleTanh.o: testDoubleTanh.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleTanh_CFLAGS) $(CFLAGS) -MT testDoubleTanh-testDoubleTanh.o -MD -MP -MF $(DEPDIR)/testDoubleTanh-testDoubleTanh.Tpo -c -o testDoubleTanh-testDoubleTanh.o `test -f 'testDoubleTanh.c' || echo '$(srcdir)/'`testDoubleTanh.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleTanh-testDoubleTanh.Tpo $(DEPDIR)/testDoubleTanh-testDoubleTanh.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleTanh.c' object='testDoubleTanh-testDoubleTanh.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testTanh_CFLAGS) $(CFLAGS) -c -o testTanh-testTanh.o `test -f 'testTanh.c' || echo '$(srcdir)/'`testTanh.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleTanh_CFLAGS) $(CFLAGS) -c -o testDoubleTanh-testDoubleTanh.o `test -f 'testDoubleTanh.c' || echo '$(srcdir)/'`testDoubleTanh.c
 
-testTanh-testTanh.obj: testTanh.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testTanh_CFLAGS) $(CFLAGS) -MT testTanh-testTanh.obj -MD -MP -MF $(DEPDIR)/testTanh-testTanh.Tpo -c -o testTanh-testTanh.obj `if test -f 'testTanh.c'; then $(CYGPATH_W) 'testTanh.c'; else $(CYGPATH_W) '$(srcdir)/testTanh.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testTanh-testTanh.Tpo $(DEPDIR)/testTanh-testTanh.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testTanh.c' object='testTanh-testTanh.obj' libtool=no @AMDEPBACKSLASH@
+testDoubleTanh-testDoubleTanh.obj: testDoubleTanh.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleTanh_CFLAGS) $(CFLAGS) -MT testDoubleTanh-testDoubleTanh.obj -MD -MP -MF $(DEPDIR)/testDoubleTanh-testDoubleTanh.Tpo -c -o testDoubleTanh-testDoubleTanh.obj `if test -f 'testDoubleTanh.c'; then $(CYGPATH_W) 'testDoubleTanh.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleTanh.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleTanh-testDoubleTanh.Tpo $(DEPDIR)/testDoubleTanh-testDoubleTanh.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleTanh.c' object='testDoubleTanh-testDoubleTanh.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testTanh_CFLAGS) $(CFLAGS) -c -o testTanh-testTanh.obj `if test -f 'testTanh.c'; then $(CYGPATH_W) 'testTanh.c'; else $(CYGPATH_W) '$(srcdir)/testTanh.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleTanh_CFLAGS) $(CFLAGS) -c -o testDoubleTanh-testDoubleTanh.obj `if test -f 'testDoubleTanh.c'; then $(CYGPATH_W) 'testDoubleTanh.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleTanh.c'; fi`
+
+testFloatTanh-testFloatTanh.o: testFloatTanh.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatTanh_CFLAGS) $(CFLAGS) -MT testFloatTanh-testFloatTanh.o -MD -MP -MF $(DEPDIR)/testFloatTanh-testFloatTanh.Tpo -c -o testFloatTanh-testFloatTanh.o `test -f 'testFloatTanh.c' || echo '$(srcdir)/'`testFloatTanh.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatTanh-testFloatTanh.Tpo $(DEPDIR)/testFloatTanh-testFloatTanh.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatTanh.c' object='testFloatTanh-testFloatTanh.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatTanh_CFLAGS) $(CFLAGS) -c -o testFloatTanh-testFloatTanh.o `test -f 'testFloatTanh.c' || echo '$(srcdir)/'`testFloatTanh.c
+
+testFloatTanh-testFloatTanh.obj: testFloatTanh.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatTanh_CFLAGS) $(CFLAGS) -MT testFloatTanh-testFloatTanh.obj -MD -MP -MF $(DEPDIR)/testFloatTanh-testFloatTanh.Tpo -c -o testFloatTanh-testFloatTanh.obj `if test -f 'testFloatTanh.c'; then $(CYGPATH_W) 'testFloatTanh.c'; else $(CYGPATH_W) '$(srcdir)/testFloatTanh.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatTanh-testFloatTanh.Tpo $(DEPDIR)/testFloatTanh-testFloatTanh.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatTanh.c' object='testFloatTanh-testFloatTanh.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatTanh_CFLAGS) $(CFLAGS) -c -o testFloatTanh-testFloatTanh.obj `if test -f 'testFloatTanh.c'; then $(CYGPATH_W) 'testFloatTanh.c'; else $(CYGPATH_W) '$(srcdir)/testFloatTanh.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
