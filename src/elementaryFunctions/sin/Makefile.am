@@ -37,19 +37,25 @@ HEAD	=	../includes/sin.h
 check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-check_PROGRAMS	= 	testSin
-
-TESTS		=	testSin
-
-#
-# -*- Sine Tests -*-
-#
-testSin_SOURCES = 	testSin.c
-testSin_CFLAGS	=	$(check_INCLUDES)
-testSin_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
+check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/elementaryFunctions/sin/libSin.la \
 			$(top_builddir)/elementaryFunctions/cos/libCos.la \
 			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
 			$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
 			@LIBMATH@
+
+check_PROGRAMS	= 	testFloatSin testDoubleSin
+
+TESTS		=	testFloatSin testDoubleSin
+
+#
+# -*- Sine Tests -*-
+#
+testFloatSin_SOURCES = 	testFloatSin.c
+testFloatSin_CFLAGS	=	$(check_INCLUDES)
+testFloatSin_LDADD	=	$(check_LDADD)
+
+testDoubleSin_SOURCES = 	testDoubleSin.c
+testDoubleSin_CFLAGS	=	$(check_INCLUDES)
+testDoubleSin_LDADD	=	$(check_LDADD)
