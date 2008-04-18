@@ -37,16 +37,22 @@ HEAD	=	../includes/acosh.h
 check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-check_PROGRAMS	= 	testAcosh
+check_LDADD	  =	$(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/elementaryFunctions/acosh/libAcosh.la \
+			@LIBMATH@
 
-TESTS		=	testAcosh
+check_PROGRAMS	= 	testFloatAcosh testDoubleAcosh
+
+TESTS		=	testFloatAcosh testDoubleAcosh
 
 #
 # -*- Hyperbolic Acosine Tests -*-
 #
-testAcosh_SOURCES = 	testAcosh.c
-testAcosh_CFLAGS  =	$(check_INCLUDES)
-testAcosh_LDADD	  =	$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/elementaryFunctions/acosh/libAcosh.la \
-			@LIBMATH@
+testFloatAcosh_SOURCES = 	testFloatAcosh.c
+testFloatAcosh_CFLAGS  =	$(check_INCLUDES)
+testFloatAcosh_LDADD	  =	$(check_LDADD)
+
+testDoubleAcosh_SOURCES = 	testDoubleAcosh.c
+testDoubleAcosh_CFLAGS  =	$(check_INCLUDES)
+testDoubleAcosh_LDADD	  =	$(check_LDADD)

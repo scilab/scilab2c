@@ -32,8 +32,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testAcosh$(EXEEXT)
-TESTS = testAcosh$(EXEEXT)
+check_PROGRAMS = testFloatAcosh$(EXEEXT) testDoubleAcosh$(EXEEXT)
+TESTS = testFloatAcosh$(EXEEXT) testDoubleAcosh$(EXEEXT)
 subdir = elementaryFunctions/acosh
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -63,13 +63,21 @@ libAcosh_la_OBJECTS = $(am_libAcosh_la_OBJECTS)
 libAcosh_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libAcosh_la_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testAcosh_OBJECTS = testAcosh-testAcosh.$(OBJEXT)
-testAcosh_OBJECTS = $(am_testAcosh_OBJECTS)
-testAcosh_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
+am_testDoubleAcosh_OBJECTS =  \
+	testDoubleAcosh-testDoubleAcosh.$(OBJEXT)
+testDoubleAcosh_OBJECTS = $(am_testDoubleAcosh_OBJECTS)
+am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/type/libFloatComplex.la \
 	$(top_builddir)/elementaryFunctions/acosh/libAcosh.la
-testAcosh_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testAcosh_CFLAGS) \
+testDoubleAcosh_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testDoubleAcosh_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleAcosh_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testFloatAcosh_OBJECTS = testFloatAcosh-testFloatAcosh.$(OBJEXT)
+testFloatAcosh_OBJECTS = $(am_testFloatAcosh_OBJECTS)
+testFloatAcosh_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testFloatAcosh_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatAcosh_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/includes@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
@@ -83,8 +91,10 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libAcosh_la_SOURCES) $(testAcosh_SOURCES)
-DIST_SOURCES = $(libAcosh_la_SOURCES) $(testAcosh_SOURCES)
+SOURCES = $(libAcosh_la_SOURCES) $(testDoubleAcosh_SOURCES) \
+	$(testFloatAcosh_SOURCES)
+DIST_SOURCES = $(libAcosh_la_SOURCES) $(testDoubleAcosh_SOURCES) \
+	$(testFloatAcosh_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -219,17 +229,21 @@ HEAD = ../includes/acosh.h
 check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-
-#
-# -*- Hyperbolic Acosine Tests -*-
-#
-testAcosh_SOURCES = testAcosh.c
-testAcosh_CFLAGS = $(check_INCLUDES)
-testAcosh_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/elementaryFunctions/acosh/libAcosh.la \
 			@LIBMATH@
 
+
+#
+# -*- Hyperbolic Acosine Tests -*-
+#
+testFloatAcosh_SOURCES = testFloatAcosh.c
+testFloatAcosh_CFLAGS = $(check_INCLUDES)
+testFloatAcosh_LDADD = $(check_LDADD)
+testDoubleAcosh_SOURCES = testDoubleAcosh.c
+testDoubleAcosh_CFLAGS = $(check_INCLUDES)
+testDoubleAcosh_LDADD = $(check_LDADD)
 all: all-am
 
 .SUFFIXES:
@@ -299,9 +313,12 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testAcosh$(EXEEXT): $(testAcosh_OBJECTS) $(testAcosh_DEPENDENCIES) 
-	@rm -f testAcosh$(EXEEXT)
-	$(testAcosh_LINK) $(testAcosh_OBJECTS) $(testAcosh_LDADD) $(LIBS)
+testDoubleAcosh$(EXEEXT): $(testDoubleAcosh_OBJECTS) $(testDoubleAcosh_DEPENDENCIES) 
+	@rm -f testDoubleAcosh$(EXEEXT)
+	$(testDoubleAcosh_LINK) $(testDoubleAcosh_OBJECTS) $(testDoubleAcosh_LDADD) $(LIBS)
+testFloatAcosh$(EXEEXT): $(testFloatAcosh_OBJECTS) $(testFloatAcosh_DEPENDENCIES) 
+	@rm -f testFloatAcosh$(EXEEXT)
+	$(testFloatAcosh_LINK) $(testFloatAcosh_OBJECTS) $(testFloatAcosh_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -317,7 +334,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAcosh_la-sacoshs.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAcosh_la-zacosha.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAcosh_la-zacoshs.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testAcosh-testAcosh.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleAcosh-testDoubleAcosh.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatAcosh-testFloatAcosh.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -396,19 +414,33 @@ libAcosh_la-zacosha.lo: zacosha.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAcosh_la_CFLAGS) $(CFLAGS) -c -o libAcosh_la-zacosha.lo `test -f 'zacosha.c' || echo '$(srcdir)/'`zacosha.c
 
-testAcosh-testAcosh.o: testAcosh.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAcosh_CFLAGS) $(CFLAGS) -MT testAcosh-testAcosh.o -MD -MP -MF $(DEPDIR)/testAcosh-testAcosh.Tpo -c -o testAcosh-testAcosh.o `test -f 'testAcosh.c' || echo '$(srcdir)/'`testAcosh.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testAcosh-testAcosh.Tpo $(DEPDIR)/testAcosh-testAcosh.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testAcosh.c' object='testAcosh-testAcosh.o' libtool=no @AMDEPBACKSLASH@
+testDoubleAcosh-testDoubleAcosh.o: testDoubleAcosh.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleAcosh_CFLAGS) $(CFLAGS) -MT testDoubleAcosh-testDoubleAcosh.o -MD -MP -MF $(DEPDIR)/testDoubleAcosh-testDoubleAcosh.Tpo -c -o testDoubleAcosh-testDoubleAcosh.o `test -f 'testDoubleAcosh.c' || echo '$(srcdir)/'`testDoubleAcosh.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleAcosh-testDoubleAcosh.Tpo $(DEPDIR)/testDoubleAcosh-testDoubleAcosh.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleAcosh.c' object='testDoubleAcosh-testDoubleAcosh.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAcosh_CFLAGS) $(CFLAGS) -c -o testAcosh-testAcosh.o `test -f 'testAcosh.c' || echo '$(srcdir)/'`testAcosh.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleAcosh_CFLAGS) $(CFLAGS) -c -o testDoubleAcosh-testDoubleAcosh.o `test -f 'testDoubleAcosh.c' || echo '$(srcdir)/'`testDoubleAcosh.c
 
-testAcosh-testAcosh.obj: testAcosh.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAcosh_CFLAGS) $(CFLAGS) -MT testAcosh-testAcosh.obj -MD -MP -MF $(DEPDIR)/testAcosh-testAcosh.Tpo -c -o testAcosh-testAcosh.obj `if test -f 'testAcosh.c'; then $(CYGPATH_W) 'testAcosh.c'; else $(CYGPATH_W) '$(srcdir)/testAcosh.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testAcosh-testAcosh.Tpo $(DEPDIR)/testAcosh-testAcosh.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testAcosh.c' object='testAcosh-testAcosh.obj' libtool=no @AMDEPBACKSLASH@
+testDoubleAcosh-testDoubleAcosh.obj: testDoubleAcosh.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleAcosh_CFLAGS) $(CFLAGS) -MT testDoubleAcosh-testDoubleAcosh.obj -MD -MP -MF $(DEPDIR)/testDoubleAcosh-testDoubleAcosh.Tpo -c -o testDoubleAcosh-testDoubleAcosh.obj `if test -f 'testDoubleAcosh.c'; then $(CYGPATH_W) 'testDoubleAcosh.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleAcosh.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleAcosh-testDoubleAcosh.Tpo $(DEPDIR)/testDoubleAcosh-testDoubleAcosh.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleAcosh.c' object='testDoubleAcosh-testDoubleAcosh.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAcosh_CFLAGS) $(CFLAGS) -c -o testAcosh-testAcosh.obj `if test -f 'testAcosh.c'; then $(CYGPATH_W) 'testAcosh.c'; else $(CYGPATH_W) '$(srcdir)/testAcosh.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleAcosh_CFLAGS) $(CFLAGS) -c -o testDoubleAcosh-testDoubleAcosh.obj `if test -f 'testDoubleAcosh.c'; then $(CYGPATH_W) 'testDoubleAcosh.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleAcosh.c'; fi`
+
+testFloatAcosh-testFloatAcosh.o: testFloatAcosh.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatAcosh_CFLAGS) $(CFLAGS) -MT testFloatAcosh-testFloatAcosh.o -MD -MP -MF $(DEPDIR)/testFloatAcosh-testFloatAcosh.Tpo -c -o testFloatAcosh-testFloatAcosh.o `test -f 'testFloatAcosh.c' || echo '$(srcdir)/'`testFloatAcosh.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatAcosh-testFloatAcosh.Tpo $(DEPDIR)/testFloatAcosh-testFloatAcosh.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatAcosh.c' object='testFloatAcosh-testFloatAcosh.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatAcosh_CFLAGS) $(CFLAGS) -c -o testFloatAcosh-testFloatAcosh.o `test -f 'testFloatAcosh.c' || echo '$(srcdir)/'`testFloatAcosh.c
+
+testFloatAcosh-testFloatAcosh.obj: testFloatAcosh.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatAcosh_CFLAGS) $(CFLAGS) -MT testFloatAcosh-testFloatAcosh.obj -MD -MP -MF $(DEPDIR)/testFloatAcosh-testFloatAcosh.Tpo -c -o testFloatAcosh-testFloatAcosh.obj `if test -f 'testFloatAcosh.c'; then $(CYGPATH_W) 'testFloatAcosh.c'; else $(CYGPATH_W) '$(srcdir)/testFloatAcosh.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatAcosh-testFloatAcosh.Tpo $(DEPDIR)/testFloatAcosh-testFloatAcosh.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatAcosh.c' object='testFloatAcosh-testFloatAcosh.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatAcosh_CFLAGS) $(CFLAGS) -c -o testFloatAcosh-testFloatAcosh.obj `if test -f 'testFloatAcosh.c'; then $(CYGPATH_W) 'testFloatAcosh.c'; else $(CYGPATH_W) '$(srcdir)/testFloatAcosh.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
