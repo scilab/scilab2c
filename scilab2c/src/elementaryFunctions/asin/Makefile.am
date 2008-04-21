@@ -40,16 +40,7 @@ check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/auxiliaryFunctions/includes \
 			-I $(top_builddir)/type
 
-check_PROGRAMS	= 	testAsin
-
-TESTS		=	testAsin
-
-#
-# -*- ArcSine Tests -*-
-#
-testAsin_SOURCES = 	testAsin.c
-testAsin_CFLAGS	=	$(check_INCLUDES)
-testAsin_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
+check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/lib/blas/libsciblas.la \
@@ -60,3 +51,18 @@ testAsin_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
 			$(top_builddir)/elementaryFunctions/atan/libAtan.la \
 			@LIBMATH@
+
+check_PROGRAMS	= 	testFloatAsin testDoubleAsin
+
+TESTS		=	testFloatAsin testDoubleAsin
+
+#
+# -*- ArcSine Tests -*-
+#
+testFloatAsin_SOURCES =	testFloatAsin.c
+testFloatAsin_CFLAGS =	$(check_INCLUDES)
+testFloatAsin_LDADD =	$(check_LDADD)
+
+testDoubleAsin_SOURCES = testDoubleAsin.c
+testDoubleAsin_CFLAGS =	$(check_INCLUDES)
+testDoubleAsin_LDADD =	$(check_LDADD)

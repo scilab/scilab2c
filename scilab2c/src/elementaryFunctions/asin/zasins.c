@@ -20,8 +20,7 @@
  *           Vol 23, No. 3, Sept 1997, p. 299-335
  */
 
-#include <stdio.h>
-
+#include "lapack.h"
 #include "asin.h"
 #include "atan.h"
 #include "sqrt.h"
@@ -31,20 +30,15 @@
 #include "min.h"
 #include "max.h"
 
-/*
-** FIXME
-*/
-extern double dlamch_(char *CMACH, unsigned long int);
-
 doubleComplex		zasins(doubleComplex z) {
   static double sdblPi_2	= 1.5707963267948966192313216;
   static double sdblLn2		= 0.6931471805599453094172321;
   static double sdblAcross	= 1.5;
   static double sdblBcross	= 0.6417;
 
-  double dblLsup = dsqrts(dlamch_("o",1L))/8.0;
-  double dblLinf = 4 * dsqrts(dlamch_("u",1L));
-  double dblEpsm = dsqrts(dlamch_("e",1L));
+  double dblLsup = dsqrts(getOverflowThreshold())/8.0;
+  double dblLinf = 4 * dsqrts(getUnderflowThreshold());
+  double dblEpsm = dsqrts(getRelativeMachinePrecision());
 
   double _dblReal	= zreals(z);
   double _dblImg	= zimags(z);
