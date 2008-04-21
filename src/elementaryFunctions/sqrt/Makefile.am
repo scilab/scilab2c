@@ -37,16 +37,22 @@ HEAD	=	../includes/sqrt.h
 check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-check_PROGRAMS	= 	testSqrt
+check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
+			@LIBMATH@
 
-TESTS		=	testSqrt
+check_PROGRAMS	= 	testFloatSqrt testDoubleSqrt
+
+TESTS		=	testFloatSqrt testDoubleSqrt
 
 #
 # -*- Square Root Tests -*-
 #
-testSqrt_SOURCES = 	testSqrt.c
-testSqrt_CFLAGS	=	$(check_INCLUDES)
-testSqrt_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-			@LIBMATH@
+testFloatSqrt_SOURCES = 	testFloatSqrt.c
+testFloatSqrt_CFLAGS	=	$(check_INCLUDES)
+testFloatSqrt_LDADD	=	$(check_LDADD)
+
+testDoubleSqrt_SOURCES = 	testDoubleSqrt.c
+testDoubleSqrt_CFLAGS	=	$(check_INCLUDES)
+testDoubleSqrt_LDADD	=	$(check_LDADD)
