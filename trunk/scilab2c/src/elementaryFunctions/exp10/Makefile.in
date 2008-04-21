@@ -32,8 +32,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testExp10$(EXEEXT)
-TESTS = testExp10$(EXEEXT)
+check_PROGRAMS = testFloatExp10$(EXEEXT) testDoubleExp10$(EXEEXT)
+TESTS = testFloatExp10$(EXEEXT) testDoubleExp10$(EXEEXT)
 subdir = elementaryFunctions/exp10
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -63,17 +63,25 @@ libExp10_la_OBJECTS = $(am_libExp10_la_OBJECTS)
 libExp10_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libExp10_la_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testExp10_OBJECTS = testExp10-testExp10.$(OBJEXT)
-testExp10_OBJECTS = $(am_testExp10_OBJECTS)
-testExp10_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
+am_testDoubleExp10_OBJECTS =  \
+	testDoubleExp10-testDoubleExp10.$(OBJEXT)
+testDoubleExp10_OBJECTS = $(am_testDoubleExp10_OBJECTS)
+am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/type/libFloatComplex.la \
 	$(top_builddir)/elementaryFunctions/cos/libCos.la \
 	$(top_builddir)/elementaryFunctions/sin/libSin.la \
 	$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
 	$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
 	$(top_builddir)/elementaryFunctions/exp10/libExp10.la
-testExp10_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testExp10_CFLAGS) \
+testDoubleExp10_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testDoubleExp10_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleExp10_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testFloatExp10_OBJECTS = testFloatExp10-testFloatExp10.$(OBJEXT)
+testFloatExp10_OBJECTS = $(am_testFloatExp10_OBJECTS)
+testFloatExp10_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testFloatExp10_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatExp10_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/includes@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
@@ -87,8 +95,10 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libExp10_la_SOURCES) $(testExp10_SOURCES)
-DIST_SOURCES = $(libExp10_la_SOURCES) $(testExp10_SOURCES)
+SOURCES = $(libExp10_la_SOURCES) $(testDoubleExp10_SOURCES) \
+	$(testFloatExp10_SOURCES)
+DIST_SOURCES = $(libExp10_la_SOURCES) $(testDoubleExp10_SOURCES) \
+	$(testFloatExp10_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -223,9 +233,7 @@ HEAD = ../includes/exp10.h
 check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-testExp10_SOURCES = testExp10.c
-testExp10_CFLAGS = $(check_INCLUDES)
-testExp10_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/elementaryFunctions/cos/libCos.la \
 			$(top_builddir)/elementaryFunctions/sin/libSin.la \
@@ -234,6 +242,12 @@ testExp10_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/elementaryFunctions/exp10/libExp10.la \
 			@LIBMATH@
 
+testFloatExp10_SOURCES = testFloatExp10.c
+testFloatExp10_CFLAGS = $(check_INCLUDES)
+testFloatExp10_LDADD = $(check_LDADD)
+testDoubleExp10_SOURCES = testDoubleExp10.c
+testDoubleExp10_CFLAGS = $(check_INCLUDES)
+testDoubleExp10_LDADD = $(check_LDADD)
 all: all-am
 
 .SUFFIXES:
@@ -303,9 +317,12 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testExp10$(EXEEXT): $(testExp10_OBJECTS) $(testExp10_DEPENDENCIES) 
-	@rm -f testExp10$(EXEEXT)
-	$(testExp10_LINK) $(testExp10_OBJECTS) $(testExp10_LDADD) $(LIBS)
+testDoubleExp10$(EXEEXT): $(testDoubleExp10_OBJECTS) $(testDoubleExp10_DEPENDENCIES) 
+	@rm -f testDoubleExp10$(EXEEXT)
+	$(testDoubleExp10_LINK) $(testDoubleExp10_OBJECTS) $(testDoubleExp10_LDADD) $(LIBS)
+testFloatExp10$(EXEEXT): $(testFloatExp10_OBJECTS) $(testFloatExp10_DEPENDENCIES) 
+	@rm -f testFloatExp10$(EXEEXT)
+	$(testFloatExp10_LINK) $(testFloatExp10_OBJECTS) $(testFloatExp10_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -321,7 +338,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libExp10_la-sexp10s.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libExp10_la-zexp10a.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libExp10_la-zexp10s.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testExp10-testExp10.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleExp10-testDoubleExp10.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatExp10-testFloatExp10.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -400,19 +418,33 @@ libExp10_la-zexp10a.lo: zexp10a.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libExp10_la_CFLAGS) $(CFLAGS) -c -o libExp10_la-zexp10a.lo `test -f 'zexp10a.c' || echo '$(srcdir)/'`zexp10a.c
 
-testExp10-testExp10.o: testExp10.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testExp10_CFLAGS) $(CFLAGS) -MT testExp10-testExp10.o -MD -MP -MF $(DEPDIR)/testExp10-testExp10.Tpo -c -o testExp10-testExp10.o `test -f 'testExp10.c' || echo '$(srcdir)/'`testExp10.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testExp10-testExp10.Tpo $(DEPDIR)/testExp10-testExp10.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testExp10.c' object='testExp10-testExp10.o' libtool=no @AMDEPBACKSLASH@
+testDoubleExp10-testDoubleExp10.o: testDoubleExp10.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleExp10_CFLAGS) $(CFLAGS) -MT testDoubleExp10-testDoubleExp10.o -MD -MP -MF $(DEPDIR)/testDoubleExp10-testDoubleExp10.Tpo -c -o testDoubleExp10-testDoubleExp10.o `test -f 'testDoubleExp10.c' || echo '$(srcdir)/'`testDoubleExp10.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleExp10-testDoubleExp10.Tpo $(DEPDIR)/testDoubleExp10-testDoubleExp10.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleExp10.c' object='testDoubleExp10-testDoubleExp10.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testExp10_CFLAGS) $(CFLAGS) -c -o testExp10-testExp10.o `test -f 'testExp10.c' || echo '$(srcdir)/'`testExp10.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleExp10_CFLAGS) $(CFLAGS) -c -o testDoubleExp10-testDoubleExp10.o `test -f 'testDoubleExp10.c' || echo '$(srcdir)/'`testDoubleExp10.c
 
-testExp10-testExp10.obj: testExp10.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testExp10_CFLAGS) $(CFLAGS) -MT testExp10-testExp10.obj -MD -MP -MF $(DEPDIR)/testExp10-testExp10.Tpo -c -o testExp10-testExp10.obj `if test -f 'testExp10.c'; then $(CYGPATH_W) 'testExp10.c'; else $(CYGPATH_W) '$(srcdir)/testExp10.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testExp10-testExp10.Tpo $(DEPDIR)/testExp10-testExp10.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testExp10.c' object='testExp10-testExp10.obj' libtool=no @AMDEPBACKSLASH@
+testDoubleExp10-testDoubleExp10.obj: testDoubleExp10.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleExp10_CFLAGS) $(CFLAGS) -MT testDoubleExp10-testDoubleExp10.obj -MD -MP -MF $(DEPDIR)/testDoubleExp10-testDoubleExp10.Tpo -c -o testDoubleExp10-testDoubleExp10.obj `if test -f 'testDoubleExp10.c'; then $(CYGPATH_W) 'testDoubleExp10.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleExp10.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleExp10-testDoubleExp10.Tpo $(DEPDIR)/testDoubleExp10-testDoubleExp10.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleExp10.c' object='testDoubleExp10-testDoubleExp10.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testExp10_CFLAGS) $(CFLAGS) -c -o testExp10-testExp10.obj `if test -f 'testExp10.c'; then $(CYGPATH_W) 'testExp10.c'; else $(CYGPATH_W) '$(srcdir)/testExp10.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleExp10_CFLAGS) $(CFLAGS) -c -o testDoubleExp10-testDoubleExp10.obj `if test -f 'testDoubleExp10.c'; then $(CYGPATH_W) 'testDoubleExp10.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleExp10.c'; fi`
+
+testFloatExp10-testFloatExp10.o: testFloatExp10.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatExp10_CFLAGS) $(CFLAGS) -MT testFloatExp10-testFloatExp10.o -MD -MP -MF $(DEPDIR)/testFloatExp10-testFloatExp10.Tpo -c -o testFloatExp10-testFloatExp10.o `test -f 'testFloatExp10.c' || echo '$(srcdir)/'`testFloatExp10.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatExp10-testFloatExp10.Tpo $(DEPDIR)/testFloatExp10-testFloatExp10.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatExp10.c' object='testFloatExp10-testFloatExp10.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatExp10_CFLAGS) $(CFLAGS) -c -o testFloatExp10-testFloatExp10.o `test -f 'testFloatExp10.c' || echo '$(srcdir)/'`testFloatExp10.c
+
+testFloatExp10-testFloatExp10.obj: testFloatExp10.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatExp10_CFLAGS) $(CFLAGS) -MT testFloatExp10-testFloatExp10.obj -MD -MP -MF $(DEPDIR)/testFloatExp10-testFloatExp10.Tpo -c -o testFloatExp10-testFloatExp10.obj `if test -f 'testFloatExp10.c'; then $(CYGPATH_W) 'testFloatExp10.c'; else $(CYGPATH_W) '$(srcdir)/testFloatExp10.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatExp10-testFloatExp10.Tpo $(DEPDIR)/testFloatExp10-testFloatExp10.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatExp10.c' object='testFloatExp10-testFloatExp10.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatExp10_CFLAGS) $(CFLAGS) -c -o testFloatExp10-testFloatExp10.obj `if test -f 'testFloatExp10.c'; then $(CYGPATH_W) 'testFloatExp10.c'; else $(CYGPATH_W) '$(srcdir)/testFloatExp10.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
