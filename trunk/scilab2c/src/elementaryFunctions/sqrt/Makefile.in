@@ -32,8 +32,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testSqrt$(EXEEXT)
-TESTS = testSqrt$(EXEEXT)
+check_PROGRAMS = testFloatSqrt$(EXEEXT) testDoubleSqrt$(EXEEXT)
+TESTS = testFloatSqrt$(EXEEXT) testDoubleSqrt$(EXEEXT)
 subdir = elementaryFunctions/sqrt
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -62,14 +62,21 @@ libSqrt_la_OBJECTS = $(am_libSqrt_la_OBJECTS)
 libSqrt_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libSqrt_la_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testSqrt_OBJECTS = testSqrt-testSqrt.$(OBJEXT)
-testSqrt_OBJECTS = $(am_testSqrt_OBJECTS)
-testSqrt_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
+am_testDoubleSqrt_OBJECTS = testDoubleSqrt-testDoubleSqrt.$(OBJEXT)
+testDoubleSqrt_OBJECTS = $(am_testDoubleSqrt_OBJECTS)
+am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/type/libFloatComplex.la \
 	$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la
-testSqrt_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
-	--mode=link $(CCLD) $(testSqrt_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
-	$(LDFLAGS) -o $@
+testDoubleSqrt_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testDoubleSqrt_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleSqrt_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testFloatSqrt_OBJECTS = testFloatSqrt-testFloatSqrt.$(OBJEXT)
+testFloatSqrt_OBJECTS = $(am_testFloatSqrt_OBJECTS)
+testFloatSqrt_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testFloatSqrt_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatSqrt_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/includes@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -82,8 +89,10 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libSqrt_la_SOURCES) $(testSqrt_SOURCES)
-DIST_SOURCES = $(libSqrt_la_SOURCES) $(testSqrt_SOURCES)
+SOURCES = $(libSqrt_la_SOURCES) $(testDoubleSqrt_SOURCES) \
+	$(testFloatSqrt_SOURCES)
+DIST_SOURCES = $(libSqrt_la_SOURCES) $(testDoubleSqrt_SOURCES) \
+	$(testFloatSqrt_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -218,17 +227,21 @@ HEAD = ../includes/sqrt.h
 check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-
-#
-# -*- Square Root Tests -*-
-#
-testSqrt_SOURCES = testSqrt.c
-testSqrt_CFLAGS = $(check_INCLUDES)
-testSqrt_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
 			@LIBMATH@
 
+
+#
+# -*- Square Root Tests -*-
+#
+testFloatSqrt_SOURCES = testFloatSqrt.c
+testFloatSqrt_CFLAGS = $(check_INCLUDES)
+testFloatSqrt_LDADD = $(check_LDADD)
+testDoubleSqrt_SOURCES = testDoubleSqrt.c
+testDoubleSqrt_CFLAGS = $(check_INCLUDES)
+testDoubleSqrt_LDADD = $(check_LDADD)
 all: all-am
 
 .SUFFIXES:
@@ -298,9 +311,12 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testSqrt$(EXEEXT): $(testSqrt_OBJECTS) $(testSqrt_DEPENDENCIES) 
-	@rm -f testSqrt$(EXEEXT)
-	$(testSqrt_LINK) $(testSqrt_OBJECTS) $(testSqrt_LDADD) $(LIBS)
+testDoubleSqrt$(EXEEXT): $(testDoubleSqrt_OBJECTS) $(testDoubleSqrt_DEPENDENCIES) 
+	@rm -f testDoubleSqrt$(EXEEXT)
+	$(testDoubleSqrt_LINK) $(testDoubleSqrt_OBJECTS) $(testDoubleSqrt_LDADD) $(LIBS)
+testFloatSqrt$(EXEEXT): $(testFloatSqrt_OBJECTS) $(testFloatSqrt_DEPENDENCIES) 
+	@rm -f testFloatSqrt$(EXEEXT)
+	$(testFloatSqrt_LINK) $(testFloatSqrt_OBJECTS) $(testFloatSqrt_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -316,7 +332,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSqrt_la-ssqrts.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSqrt_la-zsqrta.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSqrt_la-zsqrts.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testSqrt-testSqrt.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleSqrt-testDoubleSqrt.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatSqrt-testFloatSqrt.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -395,19 +412,33 @@ libSqrt_la-zsqrta.lo: zsqrta.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSqrt_la_CFLAGS) $(CFLAGS) -c -o libSqrt_la-zsqrta.lo `test -f 'zsqrta.c' || echo '$(srcdir)/'`zsqrta.c
 
-testSqrt-testSqrt.o: testSqrt.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSqrt_CFLAGS) $(CFLAGS) -MT testSqrt-testSqrt.o -MD -MP -MF $(DEPDIR)/testSqrt-testSqrt.Tpo -c -o testSqrt-testSqrt.o `test -f 'testSqrt.c' || echo '$(srcdir)/'`testSqrt.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testSqrt-testSqrt.Tpo $(DEPDIR)/testSqrt-testSqrt.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testSqrt.c' object='testSqrt-testSqrt.o' libtool=no @AMDEPBACKSLASH@
+testDoubleSqrt-testDoubleSqrt.o: testDoubleSqrt.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleSqrt_CFLAGS) $(CFLAGS) -MT testDoubleSqrt-testDoubleSqrt.o -MD -MP -MF $(DEPDIR)/testDoubleSqrt-testDoubleSqrt.Tpo -c -o testDoubleSqrt-testDoubleSqrt.o `test -f 'testDoubleSqrt.c' || echo '$(srcdir)/'`testDoubleSqrt.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleSqrt-testDoubleSqrt.Tpo $(DEPDIR)/testDoubleSqrt-testDoubleSqrt.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleSqrt.c' object='testDoubleSqrt-testDoubleSqrt.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSqrt_CFLAGS) $(CFLAGS) -c -o testSqrt-testSqrt.o `test -f 'testSqrt.c' || echo '$(srcdir)/'`testSqrt.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleSqrt_CFLAGS) $(CFLAGS) -c -o testDoubleSqrt-testDoubleSqrt.o `test -f 'testDoubleSqrt.c' || echo '$(srcdir)/'`testDoubleSqrt.c
 
-testSqrt-testSqrt.obj: testSqrt.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSqrt_CFLAGS) $(CFLAGS) -MT testSqrt-testSqrt.obj -MD -MP -MF $(DEPDIR)/testSqrt-testSqrt.Tpo -c -o testSqrt-testSqrt.obj `if test -f 'testSqrt.c'; then $(CYGPATH_W) 'testSqrt.c'; else $(CYGPATH_W) '$(srcdir)/testSqrt.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testSqrt-testSqrt.Tpo $(DEPDIR)/testSqrt-testSqrt.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testSqrt.c' object='testSqrt-testSqrt.obj' libtool=no @AMDEPBACKSLASH@
+testDoubleSqrt-testDoubleSqrt.obj: testDoubleSqrt.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleSqrt_CFLAGS) $(CFLAGS) -MT testDoubleSqrt-testDoubleSqrt.obj -MD -MP -MF $(DEPDIR)/testDoubleSqrt-testDoubleSqrt.Tpo -c -o testDoubleSqrt-testDoubleSqrt.obj `if test -f 'testDoubleSqrt.c'; then $(CYGPATH_W) 'testDoubleSqrt.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleSqrt.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleSqrt-testDoubleSqrt.Tpo $(DEPDIR)/testDoubleSqrt-testDoubleSqrt.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleSqrt.c' object='testDoubleSqrt-testDoubleSqrt.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSqrt_CFLAGS) $(CFLAGS) -c -o testSqrt-testSqrt.obj `if test -f 'testSqrt.c'; then $(CYGPATH_W) 'testSqrt.c'; else $(CYGPATH_W) '$(srcdir)/testSqrt.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleSqrt_CFLAGS) $(CFLAGS) -c -o testDoubleSqrt-testDoubleSqrt.obj `if test -f 'testDoubleSqrt.c'; then $(CYGPATH_W) 'testDoubleSqrt.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleSqrt.c'; fi`
+
+testFloatSqrt-testFloatSqrt.o: testFloatSqrt.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatSqrt_CFLAGS) $(CFLAGS) -MT testFloatSqrt-testFloatSqrt.o -MD -MP -MF $(DEPDIR)/testFloatSqrt-testFloatSqrt.Tpo -c -o testFloatSqrt-testFloatSqrt.o `test -f 'testFloatSqrt.c' || echo '$(srcdir)/'`testFloatSqrt.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatSqrt-testFloatSqrt.Tpo $(DEPDIR)/testFloatSqrt-testFloatSqrt.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatSqrt.c' object='testFloatSqrt-testFloatSqrt.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatSqrt_CFLAGS) $(CFLAGS) -c -o testFloatSqrt-testFloatSqrt.o `test -f 'testFloatSqrt.c' || echo '$(srcdir)/'`testFloatSqrt.c
+
+testFloatSqrt-testFloatSqrt.obj: testFloatSqrt.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatSqrt_CFLAGS) $(CFLAGS) -MT testFloatSqrt-testFloatSqrt.obj -MD -MP -MF $(DEPDIR)/testFloatSqrt-testFloatSqrt.Tpo -c -o testFloatSqrt-testFloatSqrt.obj `if test -f 'testFloatSqrt.c'; then $(CYGPATH_W) 'testFloatSqrt.c'; else $(CYGPATH_W) '$(srcdir)/testFloatSqrt.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatSqrt-testFloatSqrt.Tpo $(DEPDIR)/testFloatSqrt-testFloatSqrt.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatSqrt.c' object='testFloatSqrt-testFloatSqrt.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatSqrt_CFLAGS) $(CFLAGS) -c -o testFloatSqrt-testFloatSqrt.obj `if test -f 'testFloatSqrt.c'; then $(CYGPATH_W) 'testFloatSqrt.c'; else $(CYGPATH_W) '$(srcdir)/testFloatSqrt.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
