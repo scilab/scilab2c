@@ -1,14 +1,14 @@
 /*
-**  -*- C -*-
-**
-** testIsNan.c
-** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
-**
-** Started on  Wed Feb 14 16:07:57 2007 jofret
-** Last update Mon Oct 22 15:59:35 2007 bruno
-**
-** Copyright INRIA 2007
-*/
+ *  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+ *  Copyright (C) 2008-2008 - INRIA - Bruno JOFRET
+ *
+ *  This file must be used under the terms of the CeCILL.
+ *  This source file is licensed as described in the file COPYING, which
+ *  you should have received as part of this distribution.  The terms
+ *  are also available at
+ *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+ *
+ */
 
 /* FIXME : Must improve isnan rules and remove define. */
 #define NDEBUG
@@ -17,8 +17,8 @@
 
 int sisnansTest() {
   int result = 0;
-  float nan = 0. / 0.;
-  float full = 1.23456789;
+  float nan = 0.0f / 0.0f;
+  float full = 1.23456789f;
 
   printf(">> Float \n");
   if (sisnans(nan) == false) {
@@ -59,10 +59,10 @@ int disnansTest() {
 
 int cisnansTest() {
   int result = 0;
-  floatComplex nan_nan = FloatComplex(0./0., 0./0.);
-  floatComplex nan_real = FloatComplex(0. / 0. , 1.123456789);
-  floatComplex real_nan = FloatComplex(1.123456789 , 0. / 0.);
-  floatComplex full = FloatComplex(0.,1.);
+  floatComplex nan_nan = FloatComplex(0.0f/0.0f, 0.0f/0.0f);
+  floatComplex nan_real = FloatComplex(0.0f/0.0f, 1.123456789f);
+  floatComplex real_nan = FloatComplex(1.123456789f, 0.0f/ 0.0f);
+  floatComplex full = FloatComplex(0.0f,1.0f);
 
   printf(">> Float Complex\n");
   if (cisnans(nan_nan) == false) {
@@ -95,10 +95,10 @@ int cisnansTest() {
 
 int zisnansTest() {
   int result = 0;
-  floatComplex nan_nan = FloatComplex(0./0., 0./0.);
-  floatComplex nan_real = FloatComplex(0. / 0. , 1.123456789);
-  floatComplex real_nan = FloatComplex(1.123456789 , 0. / 0.);
-  floatComplex full = FloatComplex(0.,1.);
+  floatComplex nan_nan = FloatComplex(0.0f/0.0f, 0.0f/0.0f);
+  floatComplex nan_real = FloatComplex(0.0f/0.0f, 1.123456789f);
+  floatComplex real_nan = FloatComplex(1.123456789f , 0.0f/0.0f);
+  floatComplex full = FloatComplex(0.0f,1.0f);
 
   printf(">> Double Complex\n");
   if (cisnans(nan_nan) == false) {
