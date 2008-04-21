@@ -37,13 +37,7 @@ HEAD	=	../includes/exp.h
 check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-check_PROGRAMS	= 	testExp
-
-TESTS		=	testExp
-
-testExp_SOURCES = 	testExp.c
-testExp_CFLAGS	=	$(check_INCLUDES)
-testExp_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
+check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/elementaryFunctions/cos/libCos.la \
 			$(top_builddir)/elementaryFunctions/sin/libSin.la \
@@ -51,3 +45,15 @@ testExp_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
 			$(top_builddir)/elementaryFunctions/exp/libExp.la \
 			@LIBMATH@
+
+check_PROGRAMS	= 	testFloatExp testDoubleExp
+
+TESTS		=	testFloatExp testDoubleExp
+
+testFloatExp_SOURCES = 	testFloatExp.c
+testFloatExp_CFLAGS =	$(check_INCLUDES)
+testFloatExp_LDADD =	$(check_LDADD)
+
+testDoubleExp_SOURCES = testDoubleExp.c
+testDoubleExp_CFLAGS =	$(check_INCLUDES)
+testDoubleExp_LDADD =	$(check_LDADD)
