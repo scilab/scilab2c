@@ -54,9 +54,7 @@ pkglibLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkglib_LTLIBRARIES)
 libSize_la_LIBADD =
 am__objects_1 =
-am__objects_2 = libSize_la-ssizea.lo libSize_la-dsizea.lo \
-	libSize_la-csizea.lo libSize_la-zsizea.lo
-am_libSize_la_OBJECTS = $(am__objects_1) $(am__objects_2)
+am_libSize_la_OBJECTS = $(am__objects_1)
 libSize_la_OBJECTS = $(am_libSize_la_OBJECTS)
 libSize_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libSize_la_CFLAGS) \
@@ -65,7 +63,7 @@ am_testSize_OBJECTS = testSize-testSize.$(OBJEXT)
 testSize_OBJECTS = $(am_testSize_OBJECTS)
 testSize_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/type/libFloatComplex.la \
-	$(top_builddir)/auxiliaryFunctions/libSize.la
+	$(top_builddir)/auxiliaryFunctions/size/libSize.la
 testSize_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(testSize_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
@@ -195,22 +193,17 @@ target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 libSize_la_CFLAGS = -I ../../type \
-		-I ../includes
+			-I ../includes
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libSize.la
-libSize_la_SOURCES = $(HEAD) $(SRC)
-SRC = ssizea.c \
-		dsizea.c \
-		csizea.c \
-		zsizea.c
-
+libSize_la_SOURCES = $(HEAD)
 HEAD = ../includes/size.h
 
 ####
 # Checking Part
 ####
-check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
+check_INCLUDES = -I $(top_builddir)/auxiliaryFunctions/includes \
 			-I $(top_builddir)/type
 
 
@@ -221,7 +214,7 @@ testSize_SOURCES = testSize.c
 testSize_CFLAGS = $(check_INCLUDES)
 testSize_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/auxiliaryFunctions/libSize.la \
+			$(top_builddir)/auxiliaryFunctions/size/libSize.la \
 			@LIBMATH@
 
 all: all-am
@@ -303,10 +296,6 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSize_la-csizea.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSize_la-dsizea.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSize_la-ssizea.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSize_la-zsizea.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testSize-testSize.Po@am__quote@
 
 .c.o:
@@ -329,34 +318,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
-
-libSize_la-ssizea.lo: ssizea.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSize_la_CFLAGS) $(CFLAGS) -MT libSize_la-ssizea.lo -MD -MP -MF $(DEPDIR)/libSize_la-ssizea.Tpo -c -o libSize_la-ssizea.lo `test -f 'ssizea.c' || echo '$(srcdir)/'`ssizea.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSize_la-ssizea.Tpo $(DEPDIR)/libSize_la-ssizea.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ssizea.c' object='libSize_la-ssizea.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSize_la_CFLAGS) $(CFLAGS) -c -o libSize_la-ssizea.lo `test -f 'ssizea.c' || echo '$(srcdir)/'`ssizea.c
-
-libSize_la-dsizea.lo: dsizea.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSize_la_CFLAGS) $(CFLAGS) -MT libSize_la-dsizea.lo -MD -MP -MF $(DEPDIR)/libSize_la-dsizea.Tpo -c -o libSize_la-dsizea.lo `test -f 'dsizea.c' || echo '$(srcdir)/'`dsizea.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSize_la-dsizea.Tpo $(DEPDIR)/libSize_la-dsizea.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dsizea.c' object='libSize_la-dsizea.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSize_la_CFLAGS) $(CFLAGS) -c -o libSize_la-dsizea.lo `test -f 'dsizea.c' || echo '$(srcdir)/'`dsizea.c
-
-libSize_la-csizea.lo: csizea.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSize_la_CFLAGS) $(CFLAGS) -MT libSize_la-csizea.lo -MD -MP -MF $(DEPDIR)/libSize_la-csizea.Tpo -c -o libSize_la-csizea.lo `test -f 'csizea.c' || echo '$(srcdir)/'`csizea.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSize_la-csizea.Tpo $(DEPDIR)/libSize_la-csizea.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='csizea.c' object='libSize_la-csizea.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSize_la_CFLAGS) $(CFLAGS) -c -o libSize_la-csizea.lo `test -f 'csizea.c' || echo '$(srcdir)/'`csizea.c
-
-libSize_la-zsizea.lo: zsizea.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSize_la_CFLAGS) $(CFLAGS) -MT libSize_la-zsizea.lo -MD -MP -MF $(DEPDIR)/libSize_la-zsizea.Tpo -c -o libSize_la-zsizea.lo `test -f 'zsizea.c' || echo '$(srcdir)/'`zsizea.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSize_la-zsizea.Tpo $(DEPDIR)/libSize_la-zsizea.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zsizea.c' object='libSize_la-zsizea.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSize_la_CFLAGS) $(CFLAGS) -c -o libSize_la-zsizea.lo `test -f 'zsizea.c' || echo '$(srcdir)/'`zsizea.c
 
 testSize-testSize.o: testSize.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSize_CFLAGS) $(CFLAGS) -MT testSize-testSize.o -MD -MP -MF $(DEPDIR)/testSize-testSize.Tpo -c -o testSize-testSize.o `test -f 'testSize.c' || echo '$(srcdir)/'`testSize.c
