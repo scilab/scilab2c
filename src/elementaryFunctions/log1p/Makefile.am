@@ -29,3 +29,31 @@ SRC	=	slog1ps.c \
 		zlog1pa.c
 
 HEAD	=	../includes/log1p.h
+
+####
+# Checking Part
+####
+
+check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/type
+
+check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
+			$(top_builddir)/elementaryFunctions/log/libLog.la \
+			@LIBMATH@
+
+check_PROGRAMS	= 	testFloatLog1p testDoubleLog1p
+
+TESTS		=	testFloatLog1p testDoubleLog1p
+
+#
+# -*- Log1p Tests -*-
+#
+testFloatLog1p_SOURCES = 	testFloatLog1p.c
+testFloatLog1p_CFLAGS =		$(check_INCLUDES)
+testFloatLog1p_LDADD	=	$(check_LDADD)
+
+testDoubleLog1p_SOURCES = 	testDoubleLog1p.c
+testDoubleLog1p_CFLAGS =	$(check_INCLUDES)
+testDoubleLog1p_LDADD	=	$(check_LDADD)
