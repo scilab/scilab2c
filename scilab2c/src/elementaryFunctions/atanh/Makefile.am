@@ -37,16 +37,22 @@ HEAD	=	../includes/atanh.h
 check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-check_PROGRAMS	= 	testAtanh
-
-TESTS		=	testAtanh
-
-#
-# -*- Atanhgeant Tests -*-
-#
-testAtanh_SOURCES = 	testAtanh.c
-testAtanh_CFLAGS	=	$(check_INCLUDES)
-testAtanh_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
+check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/elementaryFunctions/atanh/libAtanh.la \
 			@LIBMATH@
+
+check_PROGRAMS	= 	testFloatAtanh testDoubleAtanh
+
+TESTS		=	testFloatAtanh testDoubleAtanh
+
+#
+# -*- Hyperbolic ArcTangeant Tests -*-
+#
+testFloatAtanh_SOURCES = 	testFloatAtanh.c
+testFloatAtanh_CFLAGS =		$(check_INCLUDES)
+testFloatAtanh_LDADD =		$(check_LDADD)
+
+testDoubleAtanh_SOURCES = 	testDoubleAtanh.c
+testDoubleAtanh_CFLAGS =	$(check_INCLUDES)
+testDoubleAtanh_LDADD =		$(check_LDADD)
