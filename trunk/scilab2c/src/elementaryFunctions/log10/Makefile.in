@@ -32,8 +32,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testLog10$(EXEEXT)
-TESTS = testLog10$(EXEEXT)
+check_PROGRAMS = testFloatLog10$(EXEEXT) testDoubleLog10$(EXEEXT)
+TESTS = testFloatLog10$(EXEEXT) testDoubleLog10$(EXEEXT)
 subdir = elementaryFunctions/log10
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -63,13 +63,21 @@ libLog10_la_OBJECTS = $(am_libLog10_la_OBJECTS)
 libLog10_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libLog10_la_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testLog10_OBJECTS = testLog10-testLog10.$(OBJEXT)
-testLog10_OBJECTS = $(am_testLog10_OBJECTS)
-testLog10_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
+am_testDoubleLog10_OBJECTS =  \
+	testDoubleLog10-testDoubleLog10.$(OBJEXT)
+testDoubleLog10_OBJECTS = $(am_testDoubleLog10_OBJECTS)
+am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/type/libFloatComplex.la \
 	$(top_builddir)/elementaryFunctions/log10/libLog10.la
-testLog10_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testLog10_CFLAGS) \
+testDoubleLog10_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testDoubleLog10_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleLog10_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testFloatLog10_OBJECTS = testFloatLog10-testFloatLog10.$(OBJEXT)
+testFloatLog10_OBJECTS = $(am_testFloatLog10_OBJECTS)
+testFloatLog10_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testFloatLog10_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatLog10_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/includes@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
@@ -83,8 +91,10 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libLog10_la_SOURCES) $(testLog10_SOURCES)
-DIST_SOURCES = $(libLog10_la_SOURCES) $(testLog10_SOURCES)
+SOURCES = $(libLog10_la_SOURCES) $(testDoubleLog10_SOURCES) \
+	$(testFloatLog10_SOURCES)
+DIST_SOURCES = $(libLog10_la_SOURCES) $(testDoubleLog10_SOURCES) \
+	$(testFloatLog10_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -219,17 +229,21 @@ HEAD = ../includes/log10.h
 check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-
-#
-# -*- Acosine Tests -*-
-#
-testLog10_SOURCES = testLog10.c
-testLog10_CFLAGS = $(check_INCLUDES)
-testLog10_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/elementaryFunctions/log10/libLog10.la \
 			@LIBMATH@
 
+
+#
+# -*- 10-Base Logarithm Tests -*-
+#
+testFloatLog10_SOURCES = testFloatLog10.c
+testFloatLog10_CFLAGS = $(check_INCLUDES)
+testFloatLog10_LDADD = $(check_LDADD)
+testDoubleLog10_SOURCES = testDoubleLog10.c
+testDoubleLog10_CFLAGS = $(check_INCLUDES)
+testDoubleLog10_LDADD = $(check_LDADD)
 all: all-am
 
 .SUFFIXES:
@@ -299,9 +313,12 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testLog10$(EXEEXT): $(testLog10_OBJECTS) $(testLog10_DEPENDENCIES) 
-	@rm -f testLog10$(EXEEXT)
-	$(testLog10_LINK) $(testLog10_OBJECTS) $(testLog10_LDADD) $(LIBS)
+testDoubleLog10$(EXEEXT): $(testDoubleLog10_OBJECTS) $(testDoubleLog10_DEPENDENCIES) 
+	@rm -f testDoubleLog10$(EXEEXT)
+	$(testDoubleLog10_LINK) $(testDoubleLog10_OBJECTS) $(testDoubleLog10_LDADD) $(LIBS)
+testFloatLog10$(EXEEXT): $(testFloatLog10_OBJECTS) $(testFloatLog10_DEPENDENCIES) 
+	@rm -f testFloatLog10$(EXEEXT)
+	$(testFloatLog10_LINK) $(testFloatLog10_OBJECTS) $(testFloatLog10_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -317,7 +334,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLog10_la-slog10s.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLog10_la-zlog10a.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLog10_la-zlog10s.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testLog10-testLog10.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleLog10-testDoubleLog10.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatLog10-testFloatLog10.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -396,19 +414,33 @@ libLog10_la-zlog10a.lo: zlog10a.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLog10_la_CFLAGS) $(CFLAGS) -c -o libLog10_la-zlog10a.lo `test -f 'zlog10a.c' || echo '$(srcdir)/'`zlog10a.c
 
-testLog10-testLog10.o: testLog10.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testLog10_CFLAGS) $(CFLAGS) -MT testLog10-testLog10.o -MD -MP -MF $(DEPDIR)/testLog10-testLog10.Tpo -c -o testLog10-testLog10.o `test -f 'testLog10.c' || echo '$(srcdir)/'`testLog10.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testLog10-testLog10.Tpo $(DEPDIR)/testLog10-testLog10.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testLog10.c' object='testLog10-testLog10.o' libtool=no @AMDEPBACKSLASH@
+testDoubleLog10-testDoubleLog10.o: testDoubleLog10.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleLog10_CFLAGS) $(CFLAGS) -MT testDoubleLog10-testDoubleLog10.o -MD -MP -MF $(DEPDIR)/testDoubleLog10-testDoubleLog10.Tpo -c -o testDoubleLog10-testDoubleLog10.o `test -f 'testDoubleLog10.c' || echo '$(srcdir)/'`testDoubleLog10.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleLog10-testDoubleLog10.Tpo $(DEPDIR)/testDoubleLog10-testDoubleLog10.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleLog10.c' object='testDoubleLog10-testDoubleLog10.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testLog10_CFLAGS) $(CFLAGS) -c -o testLog10-testLog10.o `test -f 'testLog10.c' || echo '$(srcdir)/'`testLog10.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleLog10_CFLAGS) $(CFLAGS) -c -o testDoubleLog10-testDoubleLog10.o `test -f 'testDoubleLog10.c' || echo '$(srcdir)/'`testDoubleLog10.c
 
-testLog10-testLog10.obj: testLog10.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testLog10_CFLAGS) $(CFLAGS) -MT testLog10-testLog10.obj -MD -MP -MF $(DEPDIR)/testLog10-testLog10.Tpo -c -o testLog10-testLog10.obj `if test -f 'testLog10.c'; then $(CYGPATH_W) 'testLog10.c'; else $(CYGPATH_W) '$(srcdir)/testLog10.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testLog10-testLog10.Tpo $(DEPDIR)/testLog10-testLog10.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testLog10.c' object='testLog10-testLog10.obj' libtool=no @AMDEPBACKSLASH@
+testDoubleLog10-testDoubleLog10.obj: testDoubleLog10.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleLog10_CFLAGS) $(CFLAGS) -MT testDoubleLog10-testDoubleLog10.obj -MD -MP -MF $(DEPDIR)/testDoubleLog10-testDoubleLog10.Tpo -c -o testDoubleLog10-testDoubleLog10.obj `if test -f 'testDoubleLog10.c'; then $(CYGPATH_W) 'testDoubleLog10.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleLog10.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleLog10-testDoubleLog10.Tpo $(DEPDIR)/testDoubleLog10-testDoubleLog10.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleLog10.c' object='testDoubleLog10-testDoubleLog10.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testLog10_CFLAGS) $(CFLAGS) -c -o testLog10-testLog10.obj `if test -f 'testLog10.c'; then $(CYGPATH_W) 'testLog10.c'; else $(CYGPATH_W) '$(srcdir)/testLog10.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleLog10_CFLAGS) $(CFLAGS) -c -o testDoubleLog10-testDoubleLog10.obj `if test -f 'testDoubleLog10.c'; then $(CYGPATH_W) 'testDoubleLog10.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleLog10.c'; fi`
+
+testFloatLog10-testFloatLog10.o: testFloatLog10.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatLog10_CFLAGS) $(CFLAGS) -MT testFloatLog10-testFloatLog10.o -MD -MP -MF $(DEPDIR)/testFloatLog10-testFloatLog10.Tpo -c -o testFloatLog10-testFloatLog10.o `test -f 'testFloatLog10.c' || echo '$(srcdir)/'`testFloatLog10.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatLog10-testFloatLog10.Tpo $(DEPDIR)/testFloatLog10-testFloatLog10.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatLog10.c' object='testFloatLog10-testFloatLog10.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatLog10_CFLAGS) $(CFLAGS) -c -o testFloatLog10-testFloatLog10.o `test -f 'testFloatLog10.c' || echo '$(srcdir)/'`testFloatLog10.c
+
+testFloatLog10-testFloatLog10.obj: testFloatLog10.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatLog10_CFLAGS) $(CFLAGS) -MT testFloatLog10-testFloatLog10.obj -MD -MP -MF $(DEPDIR)/testFloatLog10-testFloatLog10.Tpo -c -o testFloatLog10-testFloatLog10.obj `if test -f 'testFloatLog10.c'; then $(CYGPATH_W) 'testFloatLog10.c'; else $(CYGPATH_W) '$(srcdir)/testFloatLog10.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatLog10-testFloatLog10.Tpo $(DEPDIR)/testFloatLog10-testFloatLog10.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatLog10.c' object='testFloatLog10-testFloatLog10.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatLog10_CFLAGS) $(CFLAGS) -c -o testFloatLog10-testFloatLog10.obj `if test -f 'testFloatLog10.c'; then $(CYGPATH_W) 'testFloatLog10.c'; else $(CYGPATH_W) '$(srcdir)/testFloatLog10.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
