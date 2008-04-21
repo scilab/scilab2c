@@ -14,7 +14,7 @@
 
 int srandsTest() {
 
-  float nan = 0. / 0.;
+  float nan = 0.0f / 0.0f;
   float result = nan;
 
   printf(">> Float \n");
@@ -26,7 +26,7 @@ int srandsTest() {
 
 int drandsTest() {
 
-  double nan = 0. / 0.;
+  double nan = 0.0 / 0.0;
   double result = nan;
 
   printf(">> Double\n");
@@ -39,7 +39,7 @@ int drandsTest() {
 
 int crandsTest() {
 
-  floatComplex nan_nan = FloatComplex(0./0., 0./0.);
+  floatComplex nan_nan = FloatComplex(0.0f/0.0f, 0.0f/0.0f);
   floatComplex result = nan_nan;
 
   printf(">> Float Complex\n");
