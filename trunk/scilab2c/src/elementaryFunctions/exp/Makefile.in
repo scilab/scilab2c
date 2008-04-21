@@ -32,8 +32,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testExp$(EXEEXT)
-TESTS = testExp$(EXEEXT)
+check_PROGRAMS = testFloatExp$(EXEEXT) testDoubleExp$(EXEEXT)
+TESTS = testFloatExp$(EXEEXT) testDoubleExp$(EXEEXT)
 subdir = elementaryFunctions/exp
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -62,18 +62,25 @@ libExp_la_OBJECTS = $(am_libExp_la_OBJECTS)
 libExp_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libExp_la_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testExp_OBJECTS = testExp-testExp.$(OBJEXT)
-testExp_OBJECTS = $(am_testExp_OBJECTS)
-testExp_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
+am_testDoubleExp_OBJECTS = testDoubleExp-testDoubleExp.$(OBJEXT)
+testDoubleExp_OBJECTS = $(am_testDoubleExp_OBJECTS)
+am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/type/libFloatComplex.la \
 	$(top_builddir)/elementaryFunctions/cos/libCos.la \
 	$(top_builddir)/elementaryFunctions/sin/libSin.la \
 	$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
 	$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
 	$(top_builddir)/elementaryFunctions/exp/libExp.la
-testExp_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
-	--mode=link $(CCLD) $(testExp_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
-	$(LDFLAGS) -o $@
+testDoubleExp_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testDoubleExp_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleExp_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testFloatExp_OBJECTS = testFloatExp-testFloatExp.$(OBJEXT)
+testFloatExp_OBJECTS = $(am_testFloatExp_OBJECTS)
+testFloatExp_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testFloatExp_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatExp_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/includes@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -86,8 +93,10 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libExp_la_SOURCES) $(testExp_SOURCES)
-DIST_SOURCES = $(libExp_la_SOURCES) $(testExp_SOURCES)
+SOURCES = $(libExp_la_SOURCES) $(testDoubleExp_SOURCES) \
+	$(testFloatExp_SOURCES)
+DIST_SOURCES = $(libExp_la_SOURCES) $(testDoubleExp_SOURCES) \
+	$(testFloatExp_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -222,9 +231,7 @@ HEAD = ../includes/exp.h
 check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-testExp_SOURCES = testExp.c
-testExp_CFLAGS = $(check_INCLUDES)
-testExp_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/elementaryFunctions/cos/libCos.la \
 			$(top_builddir)/elementaryFunctions/sin/libSin.la \
@@ -233,6 +240,12 @@ testExp_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/elementaryFunctions/exp/libExp.la \
 			@LIBMATH@
 
+testFloatExp_SOURCES = testFloatExp.c
+testFloatExp_CFLAGS = $(check_INCLUDES)
+testFloatExp_LDADD = $(check_LDADD)
+testDoubleExp_SOURCES = testDoubleExp.c
+testDoubleExp_CFLAGS = $(check_INCLUDES)
+testDoubleExp_LDADD = $(check_LDADD)
 all: all-am
 
 .SUFFIXES:
@@ -302,9 +315,12 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testExp$(EXEEXT): $(testExp_OBJECTS) $(testExp_DEPENDENCIES) 
-	@rm -f testExp$(EXEEXT)
-	$(testExp_LINK) $(testExp_OBJECTS) $(testExp_LDADD) $(LIBS)
+testDoubleExp$(EXEEXT): $(testDoubleExp_OBJECTS) $(testDoubleExp_DEPENDENCIES) 
+	@rm -f testDoubleExp$(EXEEXT)
+	$(testDoubleExp_LINK) $(testDoubleExp_OBJECTS) $(testDoubleExp_LDADD) $(LIBS)
+testFloatExp$(EXEEXT): $(testFloatExp_OBJECTS) $(testFloatExp_DEPENDENCIES) 
+	@rm -f testFloatExp$(EXEEXT)
+	$(testFloatExp_LINK) $(testFloatExp_OBJECTS) $(testFloatExp_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -320,7 +336,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libExp_la-sexps.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libExp_la-zexpa.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libExp_la-zexps.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testExp-testExp.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleExp-testDoubleExp.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatExp-testFloatExp.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -399,19 +416,33 @@ libExp_la-zexpa.lo: zexpa.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libExp_la_CFLAGS) $(CFLAGS) -c -o libExp_la-zexpa.lo `test -f 'zexpa.c' || echo '$(srcdir)/'`zexpa.c
 
-testExp-testExp.o: testExp.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testExp_CFLAGS) $(CFLAGS) -MT testExp-testExp.o -MD -MP -MF $(DEPDIR)/testExp-testExp.Tpo -c -o testExp-testExp.o `test -f 'testExp.c' || echo '$(srcdir)/'`testExp.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testExp-testExp.Tpo $(DEPDIR)/testExp-testExp.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testExp.c' object='testExp-testExp.o' libtool=no @AMDEPBACKSLASH@
+testDoubleExp-testDoubleExp.o: testDoubleExp.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleExp_CFLAGS) $(CFLAGS) -MT testDoubleExp-testDoubleExp.o -MD -MP -MF $(DEPDIR)/testDoubleExp-testDoubleExp.Tpo -c -o testDoubleExp-testDoubleExp.o `test -f 'testDoubleExp.c' || echo '$(srcdir)/'`testDoubleExp.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleExp-testDoubleExp.Tpo $(DEPDIR)/testDoubleExp-testDoubleExp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleExp.c' object='testDoubleExp-testDoubleExp.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testExp_CFLAGS) $(CFLAGS) -c -o testExp-testExp.o `test -f 'testExp.c' || echo '$(srcdir)/'`testExp.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleExp_CFLAGS) $(CFLAGS) -c -o testDoubleExp-testDoubleExp.o `test -f 'testDoubleExp.c' || echo '$(srcdir)/'`testDoubleExp.c
 
-testExp-testExp.obj: testExp.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testExp_CFLAGS) $(CFLAGS) -MT testExp-testExp.obj -MD -MP -MF $(DEPDIR)/testExp-testExp.Tpo -c -o testExp-testExp.obj `if test -f 'testExp.c'; then $(CYGPATH_W) 'testExp.c'; else $(CYGPATH_W) '$(srcdir)/testExp.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testExp-testExp.Tpo $(DEPDIR)/testExp-testExp.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testExp.c' object='testExp-testExp.obj' libtool=no @AMDEPBACKSLASH@
+testDoubleExp-testDoubleExp.obj: testDoubleExp.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleExp_CFLAGS) $(CFLAGS) -MT testDoubleExp-testDoubleExp.obj -MD -MP -MF $(DEPDIR)/testDoubleExp-testDoubleExp.Tpo -c -o testDoubleExp-testDoubleExp.obj `if test -f 'testDoubleExp.c'; then $(CYGPATH_W) 'testDoubleExp.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleExp.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleExp-testDoubleExp.Tpo $(DEPDIR)/testDoubleExp-testDoubleExp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleExp.c' object='testDoubleExp-testDoubleExp.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testExp_CFLAGS) $(CFLAGS) -c -o testExp-testExp.obj `if test -f 'testExp.c'; then $(CYGPATH_W) 'testExp.c'; else $(CYGPATH_W) '$(srcdir)/testExp.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleExp_CFLAGS) $(CFLAGS) -c -o testDoubleExp-testDoubleExp.obj `if test -f 'testDoubleExp.c'; then $(CYGPATH_W) 'testDoubleExp.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleExp.c'; fi`
+
+testFloatExp-testFloatExp.o: testFloatExp.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatExp_CFLAGS) $(CFLAGS) -MT testFloatExp-testFloatExp.o -MD -MP -MF $(DEPDIR)/testFloatExp-testFloatExp.Tpo -c -o testFloatExp-testFloatExp.o `test -f 'testFloatExp.c' || echo '$(srcdir)/'`testFloatExp.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatExp-testFloatExp.Tpo $(DEPDIR)/testFloatExp-testFloatExp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatExp.c' object='testFloatExp-testFloatExp.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatExp_CFLAGS) $(CFLAGS) -c -o testFloatExp-testFloatExp.o `test -f 'testFloatExp.c' || echo '$(srcdir)/'`testFloatExp.c
+
+testFloatExp-testFloatExp.obj: testFloatExp.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatExp_CFLAGS) $(CFLAGS) -MT testFloatExp-testFloatExp.obj -MD -MP -MF $(DEPDIR)/testFloatExp-testFloatExp.Tpo -c -o testFloatExp-testFloatExp.obj `if test -f 'testFloatExp.c'; then $(CYGPATH_W) 'testFloatExp.c'; else $(CYGPATH_W) '$(srcdir)/testFloatExp.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatExp-testFloatExp.Tpo $(DEPDIR)/testFloatExp-testFloatExp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatExp.c' object='testFloatExp-testFloatExp.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatExp_CFLAGS) $(CFLAGS) -c -o testFloatExp-testFloatExp.obj `if test -f 'testFloatExp.c'; then $(CYGPATH_W) 'testFloatExp.c'; else $(CYGPATH_W) '$(srcdir)/testFloatExp.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
