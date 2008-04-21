@@ -29,3 +29,30 @@ SRC	=	slog10s.c \
 		zlog10a.c
 
 HEAD	=	../includes/log10.h
+
+####
+# Checking Part
+####
+
+check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/type
+
+check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/elementaryFunctions/log10/libLog10.la \
+			@LIBMATH@
+
+check_PROGRAMS	= 	testFloatLog10 testDoubleLog10
+
+TESTS		=	testFloatLog10 testDoubleLog10
+
+#
+# -*- 10-Base Logarithm Tests -*-
+#
+testFloatLog10_SOURCES = 	testFloatLog10.c
+testFloatLog10_CFLAGS =		$(check_INCLUDES)
+testFloatLog10_LDADD =		$(check_LDADD)
+
+testDoubleLog10_SOURCES = 	testDoubleLog10.c
+testDoubleLog10_CFLAGS =	$(check_INCLUDES)
+testDoubleLog10_LDADD =		$(check_LDADD)
