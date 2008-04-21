@@ -32,8 +32,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testAsin$(EXEEXT)
-TESTS = testAsin$(EXEEXT)
+check_PROGRAMS = testFloatAsin$(EXEEXT) testDoubleAsin$(EXEEXT)
+TESTS = testFloatAsin$(EXEEXT) testDoubleAsin$(EXEEXT)
 subdir = elementaryFunctions/asin
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -62,9 +62,9 @@ libAsin_la_OBJECTS = $(am_libAsin_la_OBJECTS)
 libAsin_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libAsin_la_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testAsin_OBJECTS = testAsin-testAsin.$(OBJEXT)
-testAsin_OBJECTS = $(am_testAsin_OBJECTS)
-testAsin_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
+am_testDoubleAsin_OBJECTS = testDoubleAsin-testDoubleAsin.$(OBJEXT)
+testDoubleAsin_OBJECTS = $(am_testDoubleAsin_OBJECTS)
+am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/type/libFloatComplex.la \
 	$(top_builddir)/lib/lapack/libscilapack.la \
 	$(top_builddir)/lib/blas/libsciblas.la \
@@ -74,9 +74,16 @@ testAsin_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/elementaryFunctions/log/libLog.la \
 	$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
 	$(top_builddir)/elementaryFunctions/atan/libAtan.la
-testAsin_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
-	--mode=link $(CCLD) $(testAsin_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
-	$(LDFLAGS) -o $@
+testDoubleAsin_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testDoubleAsin_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleAsin_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testFloatAsin_OBJECTS = testFloatAsin-testFloatAsin.$(OBJEXT)
+testFloatAsin_OBJECTS = $(am_testFloatAsin_OBJECTS)
+testFloatAsin_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testFloatAsin_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatAsin_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/includes@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -89,8 +96,10 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libAsin_la_SOURCES) $(testAsin_SOURCES)
-DIST_SOURCES = $(libAsin_la_SOURCES) $(testAsin_SOURCES)
+SOURCES = $(libAsin_la_SOURCES) $(testDoubleAsin_SOURCES) \
+	$(testFloatAsin_SOURCES)
+DIST_SOURCES = $(libAsin_la_SOURCES) $(testDoubleAsin_SOURCES) \
+	$(testFloatAsin_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -227,13 +236,7 @@ check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/auxiliaryFunctions/includes \
 			-I $(top_builddir)/type
 
-
-#
-# -*- ArcSine Tests -*-
-#
-testAsin_SOURCES = testAsin.c
-testAsin_CFLAGS = $(check_INCLUDES)
-testAsin_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/lib/blas/libsciblas.la \
@@ -245,6 +248,16 @@ testAsin_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/elementaryFunctions/atan/libAtan.la \
 			@LIBMATH@
 
+
+#
+# -*- ArcSine Tests -*-
+#
+testFloatAsin_SOURCES = testFloatAsin.c
+testFloatAsin_CFLAGS = $(check_INCLUDES)
+testFloatAsin_LDADD = $(check_LDADD)
+testDoubleAsin_SOURCES = testDoubleAsin.c
+testDoubleAsin_CFLAGS = $(check_INCLUDES)
+testDoubleAsin_LDADD = $(check_LDADD)
 all: all-am
 
 .SUFFIXES:
@@ -314,9 +327,12 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testAsin$(EXEEXT): $(testAsin_OBJECTS) $(testAsin_DEPENDENCIES) 
-	@rm -f testAsin$(EXEEXT)
-	$(testAsin_LINK) $(testAsin_OBJECTS) $(testAsin_LDADD) $(LIBS)
+testDoubleAsin$(EXEEXT): $(testDoubleAsin_OBJECTS) $(testDoubleAsin_DEPENDENCIES) 
+	@rm -f testDoubleAsin$(EXEEXT)
+	$(testDoubleAsin_LINK) $(testDoubleAsin_OBJECTS) $(testDoubleAsin_LDADD) $(LIBS)
+testFloatAsin$(EXEEXT): $(testFloatAsin_OBJECTS) $(testFloatAsin_DEPENDENCIES) 
+	@rm -f testFloatAsin$(EXEEXT)
+	$(testFloatAsin_LINK) $(testFloatAsin_OBJECTS) $(testFloatAsin_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -332,7 +348,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAsin_la-sasins.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAsin_la-zasina.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAsin_la-zasins.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testAsin-testAsin.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleAsin-testDoubleAsin.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatAsin-testFloatAsin.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -411,19 +428,33 @@ libAsin_la-zasina.lo: zasina.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAsin_la_CFLAGS) $(CFLAGS) -c -o libAsin_la-zasina.lo `test -f 'zasina.c' || echo '$(srcdir)/'`zasina.c
 
-testAsin-testAsin.o: testAsin.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAsin_CFLAGS) $(CFLAGS) -MT testAsin-testAsin.o -MD -MP -MF $(DEPDIR)/testAsin-testAsin.Tpo -c -o testAsin-testAsin.o `test -f 'testAsin.c' || echo '$(srcdir)/'`testAsin.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testAsin-testAsin.Tpo $(DEPDIR)/testAsin-testAsin.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testAsin.c' object='testAsin-testAsin.o' libtool=no @AMDEPBACKSLASH@
+testDoubleAsin-testDoubleAsin.o: testDoubleAsin.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleAsin_CFLAGS) $(CFLAGS) -MT testDoubleAsin-testDoubleAsin.o -MD -MP -MF $(DEPDIR)/testDoubleAsin-testDoubleAsin.Tpo -c -o testDoubleAsin-testDoubleAsin.o `test -f 'testDoubleAsin.c' || echo '$(srcdir)/'`testDoubleAsin.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleAsin-testDoubleAsin.Tpo $(DEPDIR)/testDoubleAsin-testDoubleAsin.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleAsin.c' object='testDoubleAsin-testDoubleAsin.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAsin_CFLAGS) $(CFLAGS) -c -o testAsin-testAsin.o `test -f 'testAsin.c' || echo '$(srcdir)/'`testAsin.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleAsin_CFLAGS) $(CFLAGS) -c -o testDoubleAsin-testDoubleAsin.o `test -f 'testDoubleAsin.c' || echo '$(srcdir)/'`testDoubleAsin.c
 
-testAsin-testAsin.obj: testAsin.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAsin_CFLAGS) $(CFLAGS) -MT testAsin-testAsin.obj -MD -MP -MF $(DEPDIR)/testAsin-testAsin.Tpo -c -o testAsin-testAsin.obj `if test -f 'testAsin.c'; then $(CYGPATH_W) 'testAsin.c'; else $(CYGPATH_W) '$(srcdir)/testAsin.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testAsin-testAsin.Tpo $(DEPDIR)/testAsin-testAsin.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testAsin.c' object='testAsin-testAsin.obj' libtool=no @AMDEPBACKSLASH@
+testDoubleAsin-testDoubleAsin.obj: testDoubleAsin.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleAsin_CFLAGS) $(CFLAGS) -MT testDoubleAsin-testDoubleAsin.obj -MD -MP -MF $(DEPDIR)/testDoubleAsin-testDoubleAsin.Tpo -c -o testDoubleAsin-testDoubleAsin.obj `if test -f 'testDoubleAsin.c'; then $(CYGPATH_W) 'testDoubleAsin.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleAsin.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleAsin-testDoubleAsin.Tpo $(DEPDIR)/testDoubleAsin-testDoubleAsin.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleAsin.c' object='testDoubleAsin-testDoubleAsin.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAsin_CFLAGS) $(CFLAGS) -c -o testAsin-testAsin.obj `if test -f 'testAsin.c'; then $(CYGPATH_W) 'testAsin.c'; else $(CYGPATH_W) '$(srcdir)/testAsin.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleAsin_CFLAGS) $(CFLAGS) -c -o testDoubleAsin-testDoubleAsin.obj `if test -f 'testDoubleAsin.c'; then $(CYGPATH_W) 'testDoubleAsin.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleAsin.c'; fi`
+
+testFloatAsin-testFloatAsin.o: testFloatAsin.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatAsin_CFLAGS) $(CFLAGS) -MT testFloatAsin-testFloatAsin.o -MD -MP -MF $(DEPDIR)/testFloatAsin-testFloatAsin.Tpo -c -o testFloatAsin-testFloatAsin.o `test -f 'testFloatAsin.c' || echo '$(srcdir)/'`testFloatAsin.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatAsin-testFloatAsin.Tpo $(DEPDIR)/testFloatAsin-testFloatAsin.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatAsin.c' object='testFloatAsin-testFloatAsin.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatAsin_CFLAGS) $(CFLAGS) -c -o testFloatAsin-testFloatAsin.o `test -f 'testFloatAsin.c' || echo '$(srcdir)/'`testFloatAsin.c
+
+testFloatAsin-testFloatAsin.obj: testFloatAsin.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatAsin_CFLAGS) $(CFLAGS) -MT testFloatAsin-testFloatAsin.obj -MD -MP -MF $(DEPDIR)/testFloatAsin-testFloatAsin.Tpo -c -o testFloatAsin-testFloatAsin.obj `if test -f 'testFloatAsin.c'; then $(CYGPATH_W) 'testFloatAsin.c'; else $(CYGPATH_W) '$(srcdir)/testFloatAsin.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatAsin-testFloatAsin.Tpo $(DEPDIR)/testFloatAsin-testFloatAsin.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatAsin.c' object='testFloatAsin-testFloatAsin.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatAsin_CFLAGS) $(CFLAGS) -c -o testFloatAsin-testFloatAsin.obj `if test -f 'testFloatAsin.c'; then $(CYGPATH_W) 'testFloatAsin.c'; else $(CYGPATH_W) '$(srcdir)/testFloatAsin.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
