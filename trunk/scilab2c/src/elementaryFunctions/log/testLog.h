@@ -1,6 +1,6 @@
 /*
  *  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
- *  Copyright (C) 2007-2008 - INRIA - Bruno JOFRET
+ *  Copyright (C) 2008-2008 - INRIA - Bruno JOFRET
  *
  *  This file must be used under the terms of the CeCILL.
  *  This source file is licensed as described in the file COPYING, which
@@ -10,9 +10,29 @@
  *
  */
 
+#ifndef _TESTLOG_H_
+#define _TESTLOG_H_
+
+#include <stdio.h>
+#include <assert.h>
 #include "log.h"
 
-floatComplex	clogs(floatComplex in) {
-  /* FIXME : Implementation */
-  return in;
-}
+void slogsTest(void);
+
+void dlogsTest(void);
+
+void clogsTest(void);
+
+void zlogsTest(void);
+
+void slogaTest(void);
+
+void dlogaTest(void);
+
+void clogaTest(void);
+
+void zlogaTest(void);
+
+int testLog(void);
+
+#endif /* ! _TESTLOG_H_ */

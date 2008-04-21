@@ -1,20 +1,20 @@
 /*
-**  -*- C -*-
-**
-** dloga.c
-** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
-**
-** Started on  Fri Sep  7 10:31:35 2007 bruno
-** Last update Mon Oct 22 09:51:49 2007 bruno
-**
-** Copyright INRIA 2007
-*/
+ *  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+ *  Copyright (C) 2008-2008 - INRIA - Bruno JOFRET
+ *
+ *  This file must be used under the terms of the CeCILL.
+ *  This source file is licensed as described in the file COPYING, which
+ *  you should have received as part of this distribution.  The terms
+ *  are also available at
+ *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+ *
+ */
 
 #include "log.h"
 
 void dloga(double* x, int size, double* y) {
   int i = 0;
   for (i = 0; i < size; ++i) {
-    y[i] = slogs(x[i]);
+    y[i] = dlogs(x[i]);
   }
 }
