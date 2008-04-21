@@ -10,8 +10,8 @@
 ##
 ##
 
-libLog_la_CFLAGS =	-I ../../type \
-			-I ../includes
+libLog_la_CFLAGS =	-I $(top_builddir)/type \
+			-I $(top_builddir)/elementaryFunctions/includes
 
 instdir = $(top_builddir)/lib
 
@@ -28,4 +28,28 @@ SRC	=	slogs.c \
 		cloga.c \
 		zloga.c
 
-HEAD	=	../includes/log.h
+HEAD	=	$(top_builddir)/elementaryFunctions/includes/log.h
+
+####
+# Checking Part
+####
+
+check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/type
+
+check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/elementaryFunctions/log/libLog.la \
+			@LIBMATH@
+
+check_PROGRAMS	= 	testFloatLog testDoubleLog
+
+TESTS		=	testFloatLog testDoubleLog
+
+testFloatLog_SOURCES = 	testFloatLog.c
+testFloatLog_CFLAGS =	$(check_INCLUDES)
+testFloatLog_LDADD =	$(check_LDADD)
+
+testDoubleLog_SOURCES = 	testDoubleLog.c
+testDoubleLog_CFLAGS	=	$(check_INCLUDES)
+testDoubleLog_LDADD	=	$(check_LDADD)
