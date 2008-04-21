@@ -62,11 +62,11 @@ int cfindaTest() {
   goodArray[3] = FloatComplex(5., 10.);
   goodArray[4] = FloatComplex(10., -10.);
   /* Bad values in badArray */
-  badArray[5] = FloatComplex(0., 0.);
-  badArray[5] = FloatComplex(0., 0.);
-  badArray[5] = FloatComplex(0., 0.);
-  badArray[5] = FloatComplex(0., 0.);
-  badArray[5] = FloatComplex(0., 0.);
+  badArray[0] = FloatComplex(0., 0.);
+  badArray[1] = FloatComplex(0., 0.);
+  badArray[2] = FloatComplex(0., 0.);
+  badArray[3] = FloatComplex(0., 0.);
+  badArray[4] = FloatComplex(0., 0.);
 
   printf(">> Float Complex \n");
   if (cfinda(goodArray, 5) == NOT_FOUND) {
