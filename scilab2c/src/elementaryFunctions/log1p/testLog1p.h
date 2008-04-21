@@ -10,11 +10,29 @@
  *
  */
 
+#ifndef _TESTLOG1P_H_
+#define _TESTLOG1P_H_
+
+#include <stdio.h>
+#include <assert.h>
 #include "log1p.h"
 
-void dlog1pa(double* x, int size, double* y) {
-  int i = 0;
-  for (i = 0; i < size; ++i) {
-    y[i] = dlog1ps(x[i]);
-  }
-}
+void slog1psTest(void);
+
+void dlog1psTest(void);
+
+void clog1psTest(void);
+
+void zlog1psTest(void);
+
+void slog1paTest(void);
+
+void dlog1paTest(void);
+
+void clog1paTest(void);
+
+void zlog1paTest(void);
+
+int testLog1p(void);
+
+#endif /* ! _TESTLOG1P_H_ */
