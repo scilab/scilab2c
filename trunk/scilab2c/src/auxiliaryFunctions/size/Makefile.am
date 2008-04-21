@@ -11,18 +11,13 @@
 ##
 
 libSize_la_CFLAGS =	-I ../../type \
-		-I ../includes
+			-I ../includes
 
 instdir = $(top_builddir)/lib
 
 pkglib_LTLIBRARIES =	libSize.la
 
-libSize_la_SOURCES =	$(HEAD) $(SRC)
-
-SRC	=	ssizea.c \
-		dsizea.c \
-		csizea.c \
-		zsizea.c
+libSize_la_SOURCES =	$(HEAD)
 
 HEAD	=	../includes/size.h
 
@@ -30,7 +25,7 @@ HEAD	=	../includes/size.h
 # Checking Part
 ####
 
-check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
+check_INCLUDES	=	-I $(top_builddir)/auxiliaryFunctions/includes \
 			-I $(top_builddir)/type
 
 check_PROGRAMS	= 	testSize
@@ -44,5 +39,5 @@ testSize_SOURCES = 	testSize.c
 testSize_CFLAGS	=	$(check_INCLUDES)
 testSize_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/auxiliaryFunctions/libSize.la \
+			$(top_builddir)/auxiliaryFunctions/size/libSize.la \
 			@LIBMATH@
