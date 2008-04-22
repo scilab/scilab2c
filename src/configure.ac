@@ -1,10 +1,14 @@
-##########
-### Bruno JOFRET
-### INRIA - Scilab 2007
-##########
-
-## Copyright INRIA 2007
-
+##
+##  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+##  Copyright (C) 2007-2008 - INRIA - Bruno JOFRET
+##
+##  This file must be used under the terms of the CeCILL.
+##  This source file is licensed as described in the file COPYING, which
+##  you should have received as part of this distribution.  The terms
+##  are also available at
+##  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+##
+##
 
 AC_INIT([sci2c],[1.0],[])
 AC_CONFIG_AUX_DIR(config)
@@ -48,10 +52,24 @@ AC_SUBST(LIBMATH)
 ## all the --with-* argument help
 #################################
 AC_ARG_WITH(stdc99,
-   [  --with-stdc99           Enable standard C99 (Used in complex implementation)])
+   AC_HELP_STRING([--with-stdc99],[Enable standard C99 (Used in complex implementation)]))
 if test "$with_stdc99" = yes; then
    AC_CHECK_HEADERS([complex.h])
    CFLAGS="$CFLAGS -std=c99"
+fi
+
+AC_ARG_ENABLE(debug,
+   AC_HELP_STRING([--enable-debug],[Use verbose messages through compilation process]))
+if test "$enable_debug" = yes; then
+   CFLAGS="$CFLAGS -Wall -Wextra -pedantic -Wconversion -Wformat -Wshadow \
+   -Wpointer-arith -Wcast-align -Wmissing-prototypes \
+   -Wmissing-declarations"
+fi
+
+AC_ARG_ENABLE(stopOnWarning,
+   AC_HELP_STRING([--enable-stop-on-warning],[Stop the compilation on the first warning found in the C/C++ code]))
+if test "$enable_stop_on_warning" = yes; then
+   CFLAGS="$CFLAGS -Werror"
 fi
 
 ########### FORTRAN FLAGS ######################
@@ -70,12 +88,12 @@ fi
 ######## With GCC ...
 ######################
 if test "$CC" = "gcc"; then
-     CFLAGS="$CFLAGS -pedantic -Werror -Wformat -Wshadow -Wpointer-arith -Wcast-align -Wmissing-prototypes -Wmissing-declarations -g -Wall "
+     CFLAGS="$CFLAGS"
      # used to be -O
      # -D_FORTIFY_SOURCE=2
 else
 		## CC compiler (not GCC)
-		     CFLAGS="$CFLAGS -g"
+		     CFLAGS="-g"
 fi
 
 
