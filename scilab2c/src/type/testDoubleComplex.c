@@ -14,7 +14,28 @@
 #include <assert.h>
 #include "doubleComplex.h"
 
-int main(void) {
+int matrixCreation(void);
+int addAndDiff(void);
+
+int matrixCreation(void) {
+  double real[6] = {1., 2., 3., 4., 5., 6.};
+  double imag[6] = {6., 5., 4., 3., 2., 1.};
+
+  doubleComplex *Z = DoubleComplexMatrix(real, imag, 6);
+
+  int i = 0;
+
+  for (i = 0; i < 6; ++i)
+    {
+      printf("Partie reelle = %f\n", zreals(Z[i]));
+      printf("Partie imaginaire = %f\n", zimags(Z[i]));
+    }
+
+
+  return 0;
+}
+
+int addAndDiff(void) {
   /* z = -3 + 25*%i */
   doubleComplex z = DoubleComplex(3,-25);
   /* y = -3.123456 + 25.123456*%i */
@@ -48,5 +69,11 @@ int main(void) {
   assert(zreals(u) == (double)3 - (double)-3.123456);
   printf("Partie imaginaire = %f\n", zimags(u));
   assert(zimags(u) == (double)-25 - (double)25.123456);
+  return 0;
+}
+
+int main(void) {
+  addAndDiff();
+  matrixCreation();
   return 0;
 }
