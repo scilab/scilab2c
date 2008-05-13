@@ -1,14 +1,14 @@
 /*
-**  -*- C -*-
-**
-** doubleComplex.c
-** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
-**
-** Started on  Thu Nov 30 16:27:08 2006 jofret
-** Last update Thu Aug 16 12:25:46 2007 bruno
-**
-** Copyright INRIA 2006
-*/
+ *  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+ *  Copyright (C) 2006-2008 - INRIA - Bruno JOFRET
+ *
+ *  This file must be used under the terms of the CeCILL.
+ *  This source file is licensed as described in the file COPYING, which
+ *  you should have received as part of this distribution.  The terms
+ *  are also available at
+ *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+ *
+ */
 
 #ifdef __STDC_VERSION__
 #  ifndef STDC
@@ -71,6 +71,21 @@ doubleComplex DoubleComplex(double real, double imag) {
 #else
   z = real + I * imag;
 #endif
+  return z;
+}
+
+/*
+** \function DoubleComplex
+** \brief construct a Double Complex Matrix.
+*/
+doubleComplex *DoubleComplexMatrix(double* real, double* imag, int size) {
+  doubleComplex *z = malloc((uint) size * sizeof(doubleComplex));
+  int i = 0;
+
+  for(i = 0; i < size; ++i)
+    {
+      z[i] = DoubleComplex(real[i], imag[i]);
+    }
   return z;
 }
 
