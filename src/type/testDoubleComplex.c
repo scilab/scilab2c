@@ -18,17 +18,26 @@ int matrixCreation(void);
 int addAndDiff(void);
 
 int matrixCreation(void) {
-  double real[6] = {1., 2., 3., 4., 5., 6.};
-  double imag[6] = {6., 5., 4., 3., 2., 1.};
-
-  doubleComplex *Z = DoubleComplexMatrix(real, imag, 6);
+  int size = 10000;
+  double real[size];
+  double imag[size];
 
   int i = 0;
 
-  for (i = 0; i < 6; ++i)
+   for (i = 0; i < size; ++i)
+    {
+      real[i] = i;
+      imag[i] = size - i;
+    }
+
+  doubleComplex *Z = DoubleComplexMatrix(real, imag, size);
+
+  for (i = 0; i < size; ++i)
     {
       printf("Partie reelle = %f\n", zreals(Z[i]));
+      assert(zreals(Z[i]) == i);
       printf("Partie imaginaire = %f\n", zimags(Z[i]));
+      assert(zimags(Z[i]) == size - i);
     }
 
 
