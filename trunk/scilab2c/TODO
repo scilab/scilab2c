@@ -1,38 +1,29 @@
 ##
+##  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+##  Copyright (C) 2006-2008 - INRIA - Bruno JOFRET
+##
+##  This file must be used under the terms of the CeCILL.
+##  This source file is licensed as described in the file COPYING, which
+##  you should have received as part of this distribution.  The terms
+##  are also available at
+##  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 ##
 ##
-## TODO
-## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
-##
-## Started on  Tue Nov 21 15:22:58 2006 jofret
-## Last update Wed Feb 14 17:39:41 2007 jofret
-##
-## Copyright INRIA 2006
-##
-
-RN - Define for all the future the C Complex Structure.
-BJ
 
 RN - Clearly specify what the "find" function may return
 BJ   Position in array AND/OR Value.
 
 BJ - Bench Cosh Vs . Cosh explicit formula.
 
-BJ - Evaluated and drawn - have to be implemented in C :
-	+ sign	: [done R]
-	+ abs	: [done R]
-	+ pythag: [done R]
-	+ Log1p : [done R]
-	+ atan2 : [done R]
-
-
-BJ - Listing of atomic call and library dependences.
-
 BJ - Bench for precision between F77 and C Math lib.
      For example : atan2 / log1p
+
+BJ - 'atan2' is not available in Scilab...
 
 BJ - Bench Encapsulation vs. Direct function call
 
 BJ - Enlarge tests.
 
-BJ - Finish migration to autotools
+BJ - Released functions :
+     + acos   : [done R and C]
+     + acosh  : [done R and C]
