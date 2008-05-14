@@ -64,7 +64,10 @@ precision :
 - 'z' : Complex double precision (double)
 
 /*
-** Auxiliary Functions
+** Transtyping functions
+** FIXME : Add it into the users limitations.
 */
-- sign(x) :
-	Return 1 if x >= 0, Return -1 else.
+
+- acosh(x) : Real input.
+	Return a Real value	if  x E ] 1 ; +inf [.
+	Return a Complex value	if x E ] -inf ; 1 ].
