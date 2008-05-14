@@ -10,9 +10,22 @@
  *
  */
 
+//  METHOD
+//     based on the formula :
+//
+//     acosh(z) = sign(-imag(acos(z)) i acos(z)
+//
+//	sign(x) =	1	if x >= 0
+//		|	-1	if x < 0
+
 #include "acosh.h"
+#include "acos.h"
+
+#define localSign(x) x >= 0 ? 1.0 : -1.0
 
 doubleComplex		zacoshs(doubleComplex z) {
-  /* FIXME: Dummy... */
-  return z;
+  doubleComplex acos_z = zacoss(z);
+  double sign = localSign(-zimags(acos_z));
+
+  return DoubleComplex(-sign * zimags(acos_z), sign * zreals(acos_z));
 }
