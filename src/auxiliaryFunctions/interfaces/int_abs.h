@@ -1,7 +1,7 @@
 /*
 **  -*- C -*-
 **
-** int_sqrt.h
+** int_abs.h
 ** Made by  Raffaele Nutricato <raffaele.nutricato@tiscali.it>
 **
 **
