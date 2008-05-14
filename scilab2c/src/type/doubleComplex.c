@@ -75,7 +75,7 @@ doubleComplex DoubleComplex(double real, double imag) {
 }
 
 /*
-** \function DoubleComplex
+** \function DoubleComplexMatrix
 ** \brief construct a Double Complex Matrix.
 */
 doubleComplex *DoubleComplexMatrix(double* real, double* imag, int size) {

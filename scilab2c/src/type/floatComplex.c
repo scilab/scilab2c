@@ -22,6 +22,7 @@
 #endif
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "floatComplex.h"
 
 #ifndef STDC99
@@ -70,6 +71,21 @@ floatComplex FloatComplex(float a, float b) {
 #else
   z = a + I * b;
 #endif
+  return z;
+}
+
+/*
+** \function FloatComplexMatrix
+** \brief construct a Float Complex Matrix.
+*/
+floatComplex *FloatComplexMatrix(float* real, float* imag, int size) {
+  floatComplex *z = malloc((uint) size * sizeof(floatComplex));
+  int i = 0;
+
+  for(i = 0; i < size; ++i)
+    {
+      z[i] = FloatComplex(real[i], imag[i]);
+    }
   return z;
 }
 
