@@ -39,7 +39,14 @@ check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
 
 check_LDADD	  =	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/lib/lapack/libscilapack.la \
+			$(top_builddir)/elementaryFunctions/acos/libAcos.la \
 			$(top_builddir)/elementaryFunctions/acosh/libAcosh.la \
+			$(top_builddir)/elementaryFunctions/atan/libAtan.la \
+			$(top_builddir)/elementaryFunctions/log/libLog.la \
+			$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
+			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
+			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
 			@LIBMATH@
 
 check_PROGRAMS	= 	testFloatAcosh testDoubleAcosh

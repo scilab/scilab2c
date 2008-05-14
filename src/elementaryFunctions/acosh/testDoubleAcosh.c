@@ -15,6 +15,7 @@
 void dacoshsTest(void) {
   printf(">> Double scalar\n");
   printf("dacoshs(0) = %e\n", dacoshs(0.0));
+  printf("dacoshs(0.1) = %e\n", dacoshs(0.1));
   printf("dacoshs(PI) = %e\n", dacoshs(DPI));
   printf("dacoshs(PI/2) = %e\n", dacoshs(DPI/2));
   printf("dacoshs(PI/3) = %e\n", dacoshs(DPI/3));
@@ -28,6 +29,7 @@ void dacoshsTest(void) {
 }
 
 void zacoshsTest(void) {
+  doubleComplex dot_one = DoubleComplex(0.1, 0.0);
   doubleComplex pi_pi = DoubleComplex(DPI, DPI);
   doubleComplex pi_2_pi_2 = DoubleComplex(DPI/2, DPI/2);
   doubleComplex pi_2_pi_3 = DoubleComplex(DPI/2, DPI/3);
@@ -35,6 +37,8 @@ void zacoshsTest(void) {
   doubleComplex out;
 
   printf(">> Double Complex scalar\n");
+  out = zacoshs(dot_one);
+  printf("zacoshs(0.1 + I*0) = %e + I * %e\n", zreals(out), zimags(out));
   out = zacoshs(pi_pi);
   printf("zacoshs(PI + I*PI) = %e + I * %e\n", zreals(out), zimags(out));
   out = zacoshs(pi_2_pi_2);
