@@ -65,6 +65,6 @@ zlengtha(inptr, insizeptr[0]*insizeptr[1])
 #define g2lengths0(inptr,insizeptr) \
 slengtha(inptr, insizeptr[0]*insizeptr[1])
 
-#define g2lengths0(inptr,insizeptr) \
+#define g2lengthd0(inptr,insizeptr) \
 dlengtha(inptr, insizeptr[0]*insizeptr[1])
 #endif /* !__INT_LENGTH_H__ */
