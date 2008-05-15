@@ -10,9 +10,15 @@
  *
  */
 
-#include <math.h>
+//
+//  METHOD
+//     based on the formula  asinh(z) = -i asin(i z)
+//     In real case asinh(z) = imag(asin(i z))
+//
+
 #include "asinh.h"
+#include "asin.h"
 
 float		sasinhs(float x) {
-  return (asinhf(x));
+  return cimags(casins(FloatComplex(0.0f, x)));
 }

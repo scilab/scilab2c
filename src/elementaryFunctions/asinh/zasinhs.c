@@ -10,9 +10,17 @@
  *
  */
 
+//
+//  METHOD
+//     based on the formula  asinh(z) = -i asin(i z)
+//
+
 #include "asinh.h"
+#include "asin.h"
 
 doubleComplex		zasinhs(doubleComplex z) {
-  /* FIXME: Dummy... */
-  return z;
+  doubleComplex i_z = DoubleComplex(-zimags(z), zreals(z));
+  doubleComplex asin_i_z = zasins(i_z);
+
+  return DoubleComplex(zimags(asin_i_z), zreals(asin_i_z));
 }
