@@ -10,9 +10,9 @@
  *
  */
 
-#include <math.h>
 #include "atanh.h"
+#include "atan.h"
 
 float		satanhs(float x) {
-  return (atanhf(x));
+  return (-cimags(catans(FloatComplex(0.0, -x))));
 }

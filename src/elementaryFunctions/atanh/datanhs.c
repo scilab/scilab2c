@@ -1,18 +1,23 @@
 /*
-**  -*- C -*-
-**
-** datanhs.c
-** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
-**
-** Started on  Thu Dec  7 12:02:41 2006 jofret
-** Last update Thu Sep  6 15:12:05 2007 bruno
-**
-** Copyright INRIA 2006
-*/
+ *  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+ *  Copyright (C) 2006-2008 - INRIA - Bruno JOFRET
+ *
+ *  This file must be used under the terms of the CeCILL.
+ *  This source file is licensed as described in the file COPYING, which
+ *  you should have received as part of this distribution.  The terms
+ *  are also available at
+ *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+ *
+ */
 
-#include <math.h>
 #include "atanh.h"
-
+#include "atan.h"
+/*
+//  METHOD
+//     based on the formula  atanh(z) = i atan(-i z)
+//
+// Real case : atanh(x) = -imag(atan(-i x))
+*/
 double	       datanhs(double x) {
-  return (atanh(x));
+  return (-zimags(zatans(DoubleComplex(0.0, -x))));
 }
