@@ -10,9 +10,16 @@
  *
  */
 
+/*
+//  METHOD
+//     based on the formula  atanh(z) = i atan(-i z)
+*/
+
 #include "atanh.h"
+#include "atan.h"
 
 doubleComplex		zatanhs(doubleComplex z) {
-  /* FIXME: Dummy... */
-  return z;
+  doubleComplex minus_i_z = DoubleComplex(zimags(z), -zreals(z));
+  doubleComplex atan_minus_i_z = zatans(minus_i_z);
+  return DoubleComplex(-zimags(atan_minus_i_z), zreals(atan_minus_i_z));
 }

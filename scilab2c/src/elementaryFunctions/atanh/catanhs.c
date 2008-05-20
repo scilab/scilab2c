@@ -11,8 +11,10 @@
  */
 
 #include "atanh.h"
+#include "atan.h"
 
 floatComplex		catanhs(floatComplex z) {
-  /* FIXME : Let's code...  */
-  return z;
+  floatComplex minus_i_z = FloatComplex(cimags(z), -creals(z));
+  floatComplex atan_minus_i_z = catans(minus_i_z);
+  return FloatComplex(-cimags(atan_minus_i_z), creals(atan_minus_i_z));
 }
