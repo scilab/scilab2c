@@ -66,7 +66,10 @@ am_testDoubleAtan_OBJECTS = testDoubleAtan-testDoubleAtan.$(OBJEXT)
 testDoubleAtan_OBJECTS = $(am_testDoubleAtan_OBJECTS)
 am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/type/libFloatComplex.la \
-	$(top_builddir)/elementaryFunctions/atan/libAtan.la
+	$(top_builddir)/lib/lapack/libscilapack.la \
+	$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
+	$(top_builddir)/elementaryFunctions/atan/libAtan.la \
+	$(top_builddir)/auxiliaryFunctions/abs/libAbs.la
 testDoubleAtan_DEPENDENCIES = $(am__DEPENDENCIES_1)
 testDoubleAtan_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleAtan_CFLAGS) \
@@ -206,8 +209,9 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libAtan_la_CFLAGS = -I ../../type \
-			-I ../includes
+libAtan_la_CFLAGS = -I $(top_builddir)/type \
+			-I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/auxiliaryFunctions/includes
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libAtan.la
@@ -231,7 +235,10 @@ check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
 
 check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/lib/lapack/libscilapack.la \
+			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
 			$(top_builddir)/elementaryFunctions/atan/libAtan.la \
+			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
 			@LIBMATH@
 
 
