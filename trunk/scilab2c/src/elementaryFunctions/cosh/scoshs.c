@@ -10,9 +10,17 @@
  *
  */
 
+/*
+//         cosh(z) = 0.5 (exp(|z|) + exp(-|z|))
+//                 = 0.5 ( y + 1/y ) with y = exp(|z|)
+*/
+
 #include <math.h>
 #include "cosh.h"
+#include "exp.h"
+#include "abs.h"
 
 float		scoshs(float x) {
-  return (coshf(x));
+  float y = sexps(sabss(x));
+  return (0.5f * (y + 1.0f / y));
 }
