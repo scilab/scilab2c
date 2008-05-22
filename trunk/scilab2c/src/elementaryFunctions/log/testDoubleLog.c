@@ -13,17 +13,33 @@
 #include "testLog.h"
 
 void dlogsTest(void) {
-  /* FIXME : Implement some test here ... */
+  double value = 0;
+  double maxValue = 1;
+  double increment = 1e-3;
   printf(">> Double scalar\n");
-  printf("dlogs(0) = %e\n", dlogs(0.0));
+  while (value <= maxValue)
+    {
+      printf("dlogs(%e) = %e\n", value, dlogs(value));
+      value += increment;
+    }
+}
+
+void zlogsTest(void) {
+  doubleComplex result;
+
+  printf(">> Complex Double scalar\n");
+  result =  zlogs(DoubleComplex(-0.1, 0));
+  printf("dlogs(-0.1) = %e + %e I \n", zreals(result), zimags(result));
+  result =  zlogs(DoubleComplex(0, 0));
+  printf("dlogs(-0.1) = %e + %e I \n", zreals(result), zimags(result));
 }
 
 int testLog(void) {
   printf("\n>>>> Double Logarithm Tests\n");
   dlogsTest();
+  zlogsTest();
   /* FIXME : Implement some test here ... */
   /*
-    zlogsTest();
     dlogaTest();
     zlogaTest();
   */
