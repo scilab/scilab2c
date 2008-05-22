@@ -11,8 +11,9 @@
  */
 
 #include "log10.h"
+#include "log.h"
 
 floatComplex	clog10s(floatComplex in) {
-  /* FIXME : Implementation */
-  return in;
+  floatComplex log_z = clogs(in);
+  return FloatComplex(creals(log_z) / slogs(10.0f), cimags(log_z) / slogs(10.0f));
 }

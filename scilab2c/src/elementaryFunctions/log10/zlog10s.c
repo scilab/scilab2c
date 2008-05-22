@@ -11,8 +11,9 @@
  */
 
 #include "log10.h"
+#include "log.h"
 
 doubleComplex	zlog10s(doubleComplex in) {
-  /* FIXME : Implementation */
-  return in;
+  doubleComplex log_z = zlogs(in);
+  return DoubleComplex(zreals(log_z) / dlogs(10.0), zimags(log_z) / dlogs(10.0));
 }
