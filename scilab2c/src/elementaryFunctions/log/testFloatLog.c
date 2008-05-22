@@ -15,7 +15,7 @@
 void slogsTest(void) {
   /* FIXME : Implement some test here ... */
   printf(">> Float scalar\n");
-  printf("slogs(0) = %f\n", slogs(0.0f));
+  printf("slogs(0.1) = %f\n", slogs(0.1f));
 }
 
 int testLog(void) {
