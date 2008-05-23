@@ -69,7 +69,10 @@ am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/elementaryFunctions/sin/libSin.la \
 	$(top_builddir)/elementaryFunctions/cos/libCos.la \
 	$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
-	$(top_builddir)/elementaryFunctions/cosh/libCosh.la
+	$(top_builddir)/elementaryFunctions/exp/libExp.la \
+	$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
+	$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
+	$(top_builddir)/auxiliaryFunctions/abs/libAbs.la
 testDoubleSin_DEPENDENCIES = $(am__DEPENDENCIES_1)
 testDoubleSin_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleSin_CFLAGS) \
@@ -210,7 +213,7 @@ target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 libSin_la_CFLAGS = -I ../../type \
-		-I ../includes
+			-I ../includes
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libSin.la
@@ -237,7 +240,10 @@ check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/elementaryFunctions/sin/libSin.la \
 			$(top_builddir)/elementaryFunctions/cos/libCos.la \
 			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
+			$(top_builddir)/elementaryFunctions/exp/libExp.la \
 			$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
+			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
+			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
 			@LIBMATH@
 
 
