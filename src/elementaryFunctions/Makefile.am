@@ -27,4 +27,5 @@ SUBDIRS=	cos \
 		log1p \
 		log10 \
 		sqrt \
-		asin
+		asin \
+		lnp1m1
