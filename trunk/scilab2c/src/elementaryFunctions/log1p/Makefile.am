@@ -39,8 +39,11 @@ check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
 
 check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
+			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
 			$(top_builddir)/elementaryFunctions/log/libLog.la \
+			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
 			@LIBMATH@
 
 check_PROGRAMS	= 	testFloatLog1p testDoubleLog1p
