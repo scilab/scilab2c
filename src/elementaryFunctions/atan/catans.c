@@ -148,73 +148,10 @@
 #include <math.h>
 #include "atan.h"
 #include "abs.h"
+#include "lnp1m1.h"
 #include "lapack.h"
 
 #define _sign(a, b) b >=0 ? a : -a
-
-/*
-	PURPOSE :  Compute   v = log ( (1 + s)/(1 - s) )
-	for small s, this is for |s| < SLIM = 0.20
-
-	ALGORITHM :
-	1/ if |s| is "very small" we use a truncated
-	taylor dvp (by keeping 3 terms) from :
-	2        4          6
-	t = 2 * s * ( 1 + 1/3 s  + 1/5 s  + [ 1/7 s  + ....] )
-	2        4
-	t = 2 * s * ( 1 + 1/3 s  + 1/5 s  + er)
-
-	The limit E until we use this formula may be simply
-	gotten so that the negliged part er is such that :
-	2        4
-	(#) er <= epsm * ( 1 + 1/3 s  + 1/5 s )   for all |s|<= E
-
-	As  er  = 1/7 s^6 + 1/9 s^8 + ...
-	er <= 1/7 * s^6 ( 1 + s^2 + s^4 + ...) = 1/7  s^6/(1-s^2)
-
-	the inequality (#) is forced if :
-
-	1/7  s^6 / (1-s^2)  <= epsm * ( 1 + 1/3 s^2  + 1/5 s^4 )
-
-	s^6 <= 7 epsm * (1 - 2/3 s^2 - 3/15 s^4 - 1/5 s^6)
-
-	So that E is very near (7 epsm)^(1/6) (approximately 3.032d-3):
-
-	2/ For larger |s| we used a minimax polynome :
-
-	yi = s * (2  + d3 s^3 + d5 s^5 .... + d13 s^13 + d15 s^15)
-
-	This polynome was computed (by some remes algorithm) following
-	(*) the sin(x) example (p 39) of the book :
-
-	"ELEMENTARY FUNCTIONS"
-	"Algorithms and implementation"
-	J.M. Muller (Birkhauser)
-
-	(*) without the additionnal raffinement to get the first coefs
-	very near floating point numbers)
-*/
-static float lnp1m1(float _dblVar)
-{
-	static float sdblD3	= 0.66666666666672679472f;
-	static float sdblD5	= 0.39999999996176889299f;
-	static float sdblD7	= 0.28571429392829380980f;
-	static float sdblD9	= 0.22222138684562683797f;
-	static float sdblD11	= 0.18186349187499222459f;
-	static float sdblD13	= 0.15250315884469364710f;
-	static float sdblD15	= 0.15367270224757008114f;
-	static float sdblE	= 3.032E-3f;
-	static float sdblC3	= 2.0f/3.0f;
-	static float sdblC5	= 2.0f/5.0f;
-
-	float dblS2 = _dblVar * _dblVar;
-	if( dabss(_dblVar) <= sdblE)
-		return _dblVar * (2 + dblS2 * (sdblC3 + sdblC5 * dblS2));
-	else
-		return _dblVar * (2 + dblS2 * (sdblD3 + dblS2 * (sdblD5 + dblS2 * (sdblD7 + dblS2 * (sdblD9 + dblS2 * (sdblD11 + dblS2 * (sdblD13 + dblS2 * sdblD15)))))));
-}
-
-
 
 floatComplex		catans(floatComplex z) {
   static float sSlim	= 0.2f;
@@ -268,7 +205,7 @@ floatComplex		catans(floatComplex z) {
 	    D- = D(center = [0; -1/slim], radius = sqrt(1/slim**2 - 1)) if b < 0
 	    use the special evaluation of log((1+s)/(1-s)) (5)
 	  */
-	  _outImg = lnp1m1(S) * 0.25f;
+	  _outImg = slnp1m1s(S) * 0.25f;
 	}
       else
 	{
