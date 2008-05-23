@@ -10,10 +10,10 @@
  *
  */
 
-//
+/*
 //  METHOD
 //     based on the formula  asinh(z) = -i asin(i z)
-//
+*/
 
 #include "asinh.h"
 #include "asin.h"
