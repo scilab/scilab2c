@@ -46,10 +46,12 @@ check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/lib/blas/libsciblas.la \
 			$(top_builddir)/elementaryFunctions/asin/libAsin.la \
 			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
 			$(top_builddir)/elementaryFunctions/log/libLog.la \
 			$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
 			$(top_builddir)/elementaryFunctions/atan/libAtan.la \
+			$(top_builddir)/elementaryFunctions/lnp1m1/libLnp1m1.la \
+			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
 			@LIBMATH@
 
 check_PROGRAMS	= 	testFloatAsin testDoubleAsin
