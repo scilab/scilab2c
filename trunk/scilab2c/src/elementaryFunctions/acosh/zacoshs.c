@@ -10,6 +10,7 @@
  *
  */
 
+/*
 //  METHOD
 //     based on the formula :
 //
@@ -17,6 +18,7 @@
 //
 //	sign(x) =	1	if x >= 0
 //		|	-1	if x < 0
+*/
 
 #include "acosh.h"
 #include "acos.h"
