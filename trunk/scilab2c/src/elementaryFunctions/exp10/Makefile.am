@@ -44,6 +44,9 @@ check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
 			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
 			$(top_builddir)/elementaryFunctions/exp10/libExp10.la \
+			$(top_builddir)/elementaryFunctions/exp/libExp.la \
+			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
+			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
 			@LIBMATH@
 
 check_PROGRAMS	= 	testFloatExp10 testDoubleExp10
