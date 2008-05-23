@@ -178,6 +178,7 @@ elementaryFunctions/log10/Makefile
 elementaryFunctions/exp/Makefile
 elementaryFunctions/exp10/Makefile
 elementaryFunctions/sqrt/Makefile
+elementaryFunctions/lnp1m1/Makefile
 auxiliaryFunctions/Makefile
 auxiliaryFunctions/abs/Makefile
 auxiliaryFunctions/find/Makefile
