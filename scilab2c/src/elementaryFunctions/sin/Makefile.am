@@ -11,7 +11,7 @@
 ##
 
 libSin_la_CFLAGS =	-I ../../type \
-		-I ../includes
+			-I ../includes
 
 instdir = $(top_builddir)/lib
 
@@ -42,7 +42,10 @@ check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/elementaryFunctions/sin/libSin.la \
 			$(top_builddir)/elementaryFunctions/cos/libCos.la \
 			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
+			$(top_builddir)/elementaryFunctions/exp/libExp.la \
 			$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
+			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
+			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
 			@LIBMATH@
 
 check_PROGRAMS	= 	testFloatSin testDoubleSin
