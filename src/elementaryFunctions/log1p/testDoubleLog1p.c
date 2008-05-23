@@ -16,6 +16,9 @@ void dlog1psTest(void) {
   /* FIXME : Implement some test here ... */
   printf(">> Double scalar\n");
   printf("dlog1ps(0) = %e\n", dlog1ps((double) 0));
+  printf("dlog1ps(-1) = %e\n", dlog1ps(-1.0));
+  printf("dlog1ps(-2) = %e\n", dlog1ps(-2.0));
+  printf("dlog1ps(-0.9) = %e\n", dlog1ps(-0.9));
 }
 
 int testLog1p(void) {
