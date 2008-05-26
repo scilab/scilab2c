@@ -15,7 +15,7 @@
 #ifndef __INT_EXP_H__
 #define __INT_EXP_H__
 
-#define s0expd0(in)			sexps(in)
+#define s0exps0(in)			sexps(in)
 
 #define d0expd0(in)			dexps(in)
 
