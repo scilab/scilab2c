@@ -46,6 +46,7 @@ check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/elementaryFunctions/atan/libAtan.la \
 			$(top_builddir)/elementaryFunctions/lnp1m1/libLnp1m1.la \
 			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
 			@LIBMATH@
 
 check_PROGRAMS	= 	testFloatAtan testDoubleAtan
