@@ -44,6 +44,7 @@ check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
 			$(top_builddir)/elementaryFunctions/log/libLog.la \
 			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
+			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
 			@LIBMATH@
 
 check_PROGRAMS	= 	testFloatLog1p testDoubleLog1p
