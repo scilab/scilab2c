@@ -73,6 +73,7 @@ am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/elementaryFunctions/log10/libLog10.la \
 	$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
 	$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
+	$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
 	$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la
 testDoubleLog10_DEPENDENCIES = $(am__DEPENDENCIES_1)
 testDoubleLog10_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
@@ -243,6 +244,7 @@ check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/elementaryFunctions/log10/libLog10.la \
 			$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
 			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
+			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
 			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
 			@LIBMATH@
 
