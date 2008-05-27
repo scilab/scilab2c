@@ -68,6 +68,7 @@ am_testDoubleExp10_OBJECTS =  \
 testDoubleExp10_OBJECTS = $(am_testDoubleExp10_OBJECTS)
 am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/type/libFloatComplex.la \
+	$(top_builddir)/lib/lapack/libscilapack.la \
 	$(top_builddir)/elementaryFunctions/cos/libCos.la \
 	$(top_builddir)/elementaryFunctions/sin/libSin.la \
 	$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
@@ -75,7 +76,8 @@ am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/elementaryFunctions/exp10/libExp10.la \
 	$(top_builddir)/elementaryFunctions/exp/libExp.la \
 	$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-	$(top_builddir)/auxiliaryFunctions/abs/libAbs.la
+	$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+	$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la
 testDoubleExp10_DEPENDENCIES = $(am__DEPENDENCIES_1)
 testDoubleExp10_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleExp10_CFLAGS) \
@@ -240,6 +242,7 @@ check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
 
 check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/elementaryFunctions/cos/libCos.la \
 			$(top_builddir)/elementaryFunctions/sin/libSin.la \
 			$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
@@ -248,6 +251,7 @@ check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/elementaryFunctions/exp/libExp.la \
 			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
 			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
 			@LIBMATH@
 
 testFloatExp10_SOURCES = testFloatExp10.c
