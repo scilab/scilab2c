@@ -15,5 +15,6 @@ SUBDIRS=	lib/blas \
 		type \
 		elementaryFunctions \
 		auxiliaryFunctions \
+		statisticsFunctions \
 		matrixOperations #\
 		#operations
