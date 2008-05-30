@@ -16,23 +16,26 @@
 #include <complex.h>
 #include "floatComplex.h"
 
+#define size 10000
+
 int matrixCreation(void);
 int addAndDiff(void);
 
 int matrixCreation(void) {
-  int size = 10000;
   float real[size];
   float imag[size];
 
+  floatComplex *Z;
+
   int i = 0;
 
-   for (i = 0; i < size; ++i)
+  for (i = 0; i < size; ++i)
     {
-      real[i] = i;
-      imag[i] = size - i;
+      real[i] = (float) i;
+      imag[i] = (float) (size - i);
     }
 
-  floatComplex *Z = FloatComplexMatrix(real, imag, size);
+  Z = FloatComplexMatrix(real, imag, size);
 
   for (i = 0; i < size; ++i)
     {

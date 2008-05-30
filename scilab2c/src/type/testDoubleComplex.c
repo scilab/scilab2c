@@ -14,13 +14,16 @@
 #include <assert.h>
 #include "doubleComplex.h"
 
+#define size 10000
+
 int matrixCreation(void);
 int addAndDiff(void);
 
 int matrixCreation(void) {
-  int size = 10000;
   double real[size];
   double imag[size];
+
+  doubleComplex *Z;
 
   int i = 0;
 
@@ -30,7 +33,7 @@ int matrixCreation(void) {
       imag[i] = size - i;
     }
 
-  doubleComplex *Z = DoubleComplexMatrix(real, imag, size);
+  Z = DoubleComplexMatrix(real, imag, size);
 
   for (i = 0; i < size; ++i)
     {
