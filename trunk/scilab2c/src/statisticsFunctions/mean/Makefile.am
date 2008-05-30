@@ -43,7 +43,7 @@ check_PROGRAMS	= 	testFloatMean testDoubleMean
 TESTS		=	testFloatMean testDoubleMean
 
 #
-# -*- Meanine Tests -*-
+# -*- Mean Tests -*-
 #
 testFloatMean_SOURCES = testFloatMean.c
 testFloatMean_CFLAGS =	$(check_INCLUDES)
