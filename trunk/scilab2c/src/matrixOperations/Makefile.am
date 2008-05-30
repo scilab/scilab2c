@@ -58,7 +58,7 @@ ADDITIONHEAD = matrixAddition.h
 ADDITIONSRC = matrixAddition.c
 
 SUBTRACTIONHEAD = matrixSubtraction.h
-SUNTRACTIONSRC = matrixSubtraction.c
+SUBTRACTIONSRC = matrixSubtraction.c
 
 #MULTIPLICATIONHEAD = matrixMultiplication.h
 #MULTIPLICATIONSRC = matrixMultiplication.c
