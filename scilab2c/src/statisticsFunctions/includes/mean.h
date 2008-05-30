@@ -12,36 +12,72 @@
 
 #ifndef __MEAN_H__
 #define __MEAN_H__
-/*
-** \brief Mean of a scalar element, just returns it
-*/
-#define smeans(in)			in
-#define srowmeans(in)			in
-#define scolumnsmeans(in)		in
-#define smatlabmeans(in)		in
+
+#include "floatComplex.h"
+#include "doubleComplex.h"
 
 /*
 ** \brief Mean of a scalar element, just returns it
 */
-#define dmeans(in)			in
-#define drowmeans(in)			in
-#define dcolumnsmeans(in)		in
-#define dmatlabmeans(in)		in
+#define		smeans(in)			in
+#define		srowmeans(in)			in
+#define		scolumnsmeans(in)		in
+#define		smatlabmeans(in)		in
 
 /*
 ** \brief Mean of a scalar element, just returns it
 */
-#define cmeans(in)			in
-#define crowmeans(in)			in
-#define ccolumnsmeans(in)		in
-#define cmatlabmeans(in)		in
+#define		dmeans(in)			in
+#define		drowmeans(in)			in
+#define		dcolumnsmeans(in)		in
+#define		dmatlabmeans(in)		in
 
 /*
 ** \brief Mean of a scalar element, just returns it
 */
-#define zmeans(in)			in
-#define zrowmeans(in)			in
-#define zcolumnsmeans(in)		in
-#define zmatlabmeans(in)		in
+#define		cmeans(in)			in
+#define		crowmeans(in)			in
+#define		ccolumnsmeans(in)		in
+#define		cmatlabmeans(in)		in
+
+/*
+** \brief Mean of a scalar element, just returns it
+*/
+#define		zmeans(in)			in
+#define		zrowmeans(in)			in
+#define		zcolumnsmeans(in)		in
+#define		zmatlabmeans(in)		in
+
+/*
+** \brief Mean of a float array
+** \param in the float array to process
+** \param size, the size of the array
+** \returns the mean.
+*/
+float		smeana(float *in, int size);
+
+/*
+** \brief Mean of a float array
+** \param in the double array to process
+** \param size, the size of the array
+** \returns the mean.
+*/
+double		dmeana(double *in, int size);
+
+/*
+** \brief Mean of a float complex array
+** \param in the float array to process
+** \param size, the size of the array
+** \returns the mean.
+*/
+floatComplex	cmeana(floatComplex *in, int size);
+
+/*
+** \brief Mean of a double complex array
+** \param in the double array to process
+** \param size, the size of the array
+** \returns the mean.
+*/
+doubleComplex	zmeana(doubleComplex *in, int size);
 
 #endif /* !__MEAN_H__ */
