@@ -65,8 +65,11 @@ am_testPythag_OBJECTS = testPythag-testPythag.$(OBJEXT)
 testPythag_OBJECTS = $(am_testPythag_OBJECTS)
 testPythag_DEPENDENCIES = $(top_builddir)/type/libFloatComplex.la \
 	$(top_builddir)/type/libDoubleComplex.la \
+	$(top_builddir)/lib/lapack/libscilapack.la \
 	$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-	$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la
+	$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
+	$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+	$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la
 testPythag_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testPythag_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
@@ -197,9 +200,9 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libPythag_la_CFLAGS = -I ../../type \
-			-I ../includes \
-			-I ../../elementaryFunctions/includes
+libPythag_la_CFLAGS = -I  $(top_builddir)/type \
+			-I  $(top_builddir)/auxiliaryFunctions/includes \
+			-I  $(top_builddir)/elementaryFunctions/includes
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libPythag.la
@@ -225,8 +228,11 @@ testPythag_SOURCES = testPythag.c
 testPythag_CFLAGS = $(check_INCLUDES)
 testPythag_LDADD = $(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
 			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
+			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
 			@LIBMATH@
 
 all: all-am
