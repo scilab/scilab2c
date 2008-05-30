@@ -22141,7 +22141,7 @@ fi
 ###### Creation of the header file (machine.h)
 #######################
 
-ac_config_files="$ac_config_files Makefile lib/blas/Makefile lib/lapack/Makefile type/Makefile matrixOperations/Makefile elementaryFunctions/Makefile elementaryFunctions/cos/Makefile elementaryFunctions/cosh/Makefile elementaryFunctions/acos/Makefile elementaryFunctions/acosh/Makefile elementaryFunctions/sin/Makefile elementaryFunctions/sinh/Makefile elementaryFunctions/asin/Makefile elementaryFunctions/asinh/Makefile elementaryFunctions/tan/Makefile elementaryFunctions/tanh/Makefile elementaryFunctions/atan/Makefile elementaryFunctions/atanh/Makefile elementaryFunctions/log/Makefile elementaryFunctions/log1p/Makefile elementaryFunctions/log10/Makefile elementaryFunctions/exp/Makefile elementaryFunctions/exp10/Makefile elementaryFunctions/sqrt/Makefile elementaryFunctions/lnp1m1/Makefile auxiliaryFunctions/Makefile auxiliaryFunctions/abs/Makefile auxiliaryFunctions/find/Makefile auxiliaryFunctions/isempty/Makefile auxiliaryFunctions/isnan/Makefile auxiliaryFunctions/rand/Makefile auxiliaryFunctions/sign/Makefile auxiliaryFunctions/size/Makefile auxiliaryFunctions/type/Makefile auxiliaryFunctions/pythag/Makefile"
+ac_config_files="$ac_config_files Makefile lib/blas/Makefile lib/lapack/Makefile type/Makefile matrixOperations/Makefile elementaryFunctions/Makefile elementaryFunctions/cos/Makefile elementaryFunctions/cosh/Makefile elementaryFunctions/acos/Makefile elementaryFunctions/acosh/Makefile elementaryFunctions/sin/Makefile elementaryFunctions/sinh/Makefile elementaryFunctions/asin/Makefile elementaryFunctions/asinh/Makefile elementaryFunctions/tan/Makefile elementaryFunctions/tanh/Makefile elementaryFunctions/atan/Makefile elementaryFunctions/atanh/Makefile elementaryFunctions/log/Makefile elementaryFunctions/log1p/Makefile elementaryFunctions/log10/Makefile elementaryFunctions/exp/Makefile elementaryFunctions/exp10/Makefile elementaryFunctions/sqrt/Makefile elementaryFunctions/lnp1m1/Makefile auxiliaryFunctions/Makefile auxiliaryFunctions/abs/Makefile auxiliaryFunctions/find/Makefile auxiliaryFunctions/isempty/Makefile auxiliaryFunctions/isnan/Makefile auxiliaryFunctions/rand/Makefile auxiliaryFunctions/sign/Makefile auxiliaryFunctions/size/Makefile auxiliaryFunctions/type/Makefile auxiliaryFunctions/pythag/Makefile statisticsFunctions/Makefile statisticsFunctions/mean/Makefile"
 
 
 
@@ -22787,6 +22787,8 @@ do
     "auxiliaryFunctions/size/Makefile") CONFIG_FILES="$CONFIG_FILES auxiliaryFunctions/size/Makefile" ;;
     "auxiliaryFunctions/type/Makefile") CONFIG_FILES="$CONFIG_FILES auxiliaryFunctions/type/Makefile" ;;
     "auxiliaryFunctions/pythag/Makefile") CONFIG_FILES="$CONFIG_FILES auxiliaryFunctions/pythag/Makefile" ;;
+    "statisticsFunctions/Makefile") CONFIG_FILES="$CONFIG_FILES statisticsFunctions/Makefile" ;;
+    "statisticsFunctions/mean/Makefile") CONFIG_FILES="$CONFIG_FILES statisticsFunctions/mean/Makefile" ;;
 
   *) { { echo "$as_me:$LINENO: error: invalid argument: $ac_config_target" >&5
 echo "$as_me: error: invalid argument: $ac_config_target" >&2;}
