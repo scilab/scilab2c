@@ -10,7 +10,7 @@
 ##
 ##
 
-libMatrixOperations_la_CFLAGS =	-I ../type \
+libMatrixOperations_la_CFLAGS =	-I  $(top_builddir)/type \
 				-I .
 
 instdir = $(top_builddir)/lib
@@ -18,46 +18,50 @@ instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libMatrixOperations.la
 
 libMatrixOperations_la_SOURCES = $(ADDITIONHEAD) $(ADDITIONSRC) \
-				$(SUBTRACTIONHEAD) $(SUNTRACTIONSRC) #\
+				$(SUBTRACTIONHEAD) $(SUBTRACTIONSRC) #\
 				#$(MULTIPLICATIONHEAD) $(MULTIPLICATIONSRC) #\
 				#$(DIVISIONHEAD) $(DIVISIONSRC)
 
 check_PROGRAMS = 	testMatrixAddition \
-			testMatrixMultiplication \
-			testMatrixDivision \
-			testMatrixSubtraction
+			testMatrixSubtraction #\
+			#testMatrixDivision #\
+			#testMatrixMultiplication
+
+check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la
+
+check_INCLUDES =	-I  $(top_builddir)/type \
+			-I .
 
 testMatrixAddition_SOURCES = testMatrixAddition.c
-testMatrixAddition_LDADD = libMatrixOperations.la
-
-testMatrixMultiplication_SOURCES = testMatrixMultiplication.c
-testMatrixMultiplication_LDADD = libMatrixOperations.la
-
-testMatrixDivision_SOURCES = testMatrixAddition.c
-testMatrixDivision_LDADD = libMatrixOperations.la
+testMatrixAddition_LDADD = $(check_LDADD) libMatrixOperations.la
+testMatrixAddition_CFLAGS = $(check_INCLUDES)
 
 testMatrixSubtraction_SOURCES = testMatrixSubtraction.c
-testMatrixSubtraction_LDADD = libMatrixOperations.la
+testMatrixSubtraction_LDADD = $(check_LDADD) libMatrixOperations.la
+testMatrixSubtraction_CFLAGS = $(check_INCLUDES)
+
+#testMatrixMultiplication_SOURCES = testMatrixMultiplication.c
+#testMatrixMultiplication_LDADD = $(check_LDADD) libMatrixOperations.la
+
+#testMatrixDivision_SOURCES = testMatrixAddition.c
+#testMatrixDivision_LDADD = libMatrixOperations.la
 
 
 TESTS =  	testMatrixAddition \
-		testMatrixMultiplication \
-		testMatrixDivision \
-		testMatrixSubtraction
+		testMatrixSubtraction #\
+		#testMatrixMultiplication #\
+		#testMatrixDivision
 
 
 ADDITIONHEAD = matrixAddition.h
-
 ADDITIONSRC = matrixAddition.c
 
 SUBTRACTIONHEAD = matrixSubtraction.h
-
 SUNTRACTIONSRC = matrixSubtraction.c
 
-MULTIPLICATIONHEAD = matrixMultiplication.h
+#MULTIPLICATIONHEAD = matrixMultiplication.h
+#MULTIPLICATIONSRC = matrixMultiplication.c
 
-MULTIPLICATIONSRC = matrixMultiplication.c
-
-DIVISIONHEAD = matrixDivision.h
-
-DIVISIONSRC = matrixDivision.c
+#DIVISIONHEAD = matrixDivision.h
+#DIVISIONSRC = matrixDivision.c
