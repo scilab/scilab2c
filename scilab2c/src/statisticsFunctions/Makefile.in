@@ -165,7 +165,9 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-SUBDIRS = mean
+SUBDIRS = mean \
+		sum
+
 all: all-recursive
 
 .SUFFIXES:
