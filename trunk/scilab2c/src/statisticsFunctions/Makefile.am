@@ -10,4 +10,5 @@
 ##
 ##
 
-SUBDIRS=	mean
+SUBDIRS=	mean \
+		sum
