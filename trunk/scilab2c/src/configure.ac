@@ -191,6 +191,7 @@ auxiliaryFunctions/type/Makefile
 auxiliaryFunctions/pythag/Makefile
 statisticsFunctions/Makefile
 statisticsFunctions/mean/Makefile
+statisticsFunctions/sum/Makefile
 ])
 
 
