@@ -1,0 +1,15 @@
+NIN=          0
+NOUT=         1
+OUT(1).TP=    FA_TP_USER
+OUT(1).SZ(1)= '1'
+OUT(1).SZ(2)= '1'
+NIN=          1
+NOUT=         1
+OUT(1).TP=    FA_TP_USER
+OUT(1).SZ(1)= FA_SZ_1(IN(1).SZ)
+OUT(1).SZ(2)= FA_SZ_2(IN(1).SZ)
+NIN=          2
+NOUT=         1
+OUT(1).TP=    FA_TP_USER
+OUT(1).SZ(1)= IN(1).VAL
+OUT(1).SZ(2)= IN(2).VAL
