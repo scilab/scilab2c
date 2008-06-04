@@ -1,0 +1,33 @@
+function Sci2AnnotationFile(SciFileName,ClsFileName,AnnFileName,AnnSpecifier,ReportFileName)
+// function Sci2AnnotationFile(SciFileName,ClsFileName,AnnFileName,AnnSpecifier,ReportFileName)
+// --------------------------------------------------------------------------------
+//
+// Status:
+// 25-Jun-2007 -- Nutricato Raffaele: Author.
+//
+// Copyright 2007 Raffaele Nutricato.
+// Contact: raffaele.nutricato@tiscali.it
+// -----------------------------------------------------------------
+
+SCI2CNInArgCheck(argn(2),5,5);
+
+[tmppath,tmpfunname,tmpext] = fileparts(SciFileName);
+
+inscifid = SCI2COpenFileRead(SciFileName);
+
+line_position = 0;
+L_AnnSpecifierP1 = length(AnnSpecifier)+1;
+while (meof(inscifid) == 0)
+   check_string = stripblanks(mgetl(inscifid,1));
+   line_position = line_position + 1;
+   L_string = length(check_string);
+   if (L_string >= 1)
+      if (SCI2Cstrncmps1size(AnnSpecifier,check_string))
+         tmpannotation = stripblanks(part(check_string,L_AnnSpecifierP1:L_string));
+         PrintStringInfo(tmpannotation,ClsFileName,'file','y');
+      end
+   end
+end
+mclose(inscifid);
+PrintStringInfo('CLASS: '+tmpfunname,AnnFileName,'file','y');
+endfunction
