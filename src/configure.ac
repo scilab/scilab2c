@@ -187,6 +187,7 @@ auxiliaryFunctions/isnan/Makefile
 auxiliaryFunctions/rand/Makefile
 auxiliaryFunctions/sign/Makefile
 auxiliaryFunctions/size/Makefile
+auxiliaryFunctions/length/Makefile
 auxiliaryFunctions/type/Makefile
 auxiliaryFunctions/pythag/Makefile
 statisticsFunctions/Makefile
