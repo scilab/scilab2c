@@ -18,4 +18,5 @@ SUBDIRS=	abs \
 		sign \
 		pythag \
 		size \
-		type
+		type \
+		length
