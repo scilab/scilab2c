@@ -173,8 +173,7 @@ SUBDIRS = abs \
 		sign \
 		pythag \
 		size \
-		type \
-		length
+		type
 
 all: all-recursive
 
