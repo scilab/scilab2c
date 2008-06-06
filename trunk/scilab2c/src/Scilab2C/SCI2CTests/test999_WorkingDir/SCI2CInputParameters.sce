@@ -20,9 +20,10 @@
 // ------------------------------------------
 //
 // FIXME : Must be a relative path or user input but neither absolute path.
+// FIXED : Need to be tested
 //
 //UserSciCodeMainDir = 'D:\NutricatoGAPSVN\PROGETTI_APERTI\POLIBA\hArtes\WP2_SCI2C\Software\Version_alpha\SCI2CTests\test999_WorkingDir';
-UserSciCodeMainDir = '/home/bruno/work/hArtes/scilab2c/src/Scilab2C/SCI2CTests/test999_WorkingDir';
+UserSciCodeMainDir = '../SCI2CTests/test999_WorkingDir';
 
 // --- Path + filename of the .sci main file of the code to be translated. ---
 // It is the entry point.
