@@ -57,7 +57,7 @@ disp('--- Executing your SCILAB code. ---');
 disp('-----------------------------------');
 [tmppath,tmpfile,tmpext] = fileparts(UserScilabMainFile);
 cd(tmppath);
-execstr(tmpfile+tmpext);
+exec(tmpfile+tmpext);
 cd(RunSci2CMainDir);
 disp('------------------------------------------');
 disp('--- End Execution of your SCILAB code. ---');
