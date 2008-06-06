@@ -9,8 +9,14 @@ disp('Starting full reset...')
 clc;
 clear
 //mclose('all');
+
+//
+// LOL !!!!
+// Well... I'm pretty sure this is totally useless.
+//
 // Assuming that max 50 figures are currently open
-for counter =1:50
-   close
-end
+//for counter =1:50
+//   close
+//end
+
 lines(0)
