@@ -1,14 +1,14 @@
 /*
-**  -*- C -*-
-**
-** pythag.h
-** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
-**
-** Started on  Thu Feb  8 10:12:17 2007 jofret
-** Last update Thu Aug 16 12:18:00 2007 bruno
-**
-** Copyright INRIA 2007
-*/
+ *  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+ *  Copyright (C) 2006-2008 - INRIA - Bruno JOFRET
+ *
+ *  This file must be used under the terms of the CeCILL.
+ *  This source file is licensed as described in the file COPYING, which
+ *  you should have received as part of this distribution.  The terms
+ *  are also available at
+ *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+ *
+ */
 
 #ifndef __PYTHAG_H__
 #define __PYTHAG_H__
@@ -33,7 +33,6 @@ floatComplex	cpythags(floatComplex x, floatComplex y);
 /*
 ** \brief Double Complex Pythag function
 */
-//NUTRICATO: BRUNO, NOT IMPLEMENTED YET!!!!!!
 doubleComplex	zpythags(doubleComplex x, doubleComplex y);
 
 #endif /* !__PYTHAG_H__ */
