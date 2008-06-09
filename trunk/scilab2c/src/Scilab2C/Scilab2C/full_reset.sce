@@ -18,5 +18,5 @@ clear
 //for counter =1:50
 //   close
 //end
-
+//YES BUT I NEED HOW TO PERFORM THE CLOSE ALL ACTION!!!
 lines(0)
