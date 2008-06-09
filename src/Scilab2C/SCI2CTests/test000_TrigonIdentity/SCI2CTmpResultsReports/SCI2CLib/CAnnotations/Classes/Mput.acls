@@ -1,0 +1,7 @@
+NIN=          3
+NOUT=         0       
+NIN=          3
+NOUT=         1       
+OUT(1).TP=    'i'
+OUT(1).SZ(1)= '1'
+OUT(1).SZ(2)= '1'
