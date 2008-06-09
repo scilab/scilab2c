@@ -1,0 +1,5 @@
+NIN=          3
+NOUT=         1
+OUT(1).TP=    'g'
+OUT(1).SZ(1)= '1'
+OUT(1).SZ(2)= FA_SZ_RTMAX(FA_MUL(IN(1).SZ(2),IN(3).SZ(2)))
