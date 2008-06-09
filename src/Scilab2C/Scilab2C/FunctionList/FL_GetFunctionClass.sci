@@ -10,7 +10,9 @@ function SCI2CClassName = FL_GetFunctionClass(FunFileName,SCI2CClassSpecifier,Re
 // -----------------------------------------------------------------
 
 SCI2CNInArgCheck(argn(2),3,3);
+
 inannfid = SCI2COpenFileRead(FunFileName);
+
 FoundClass = 0;
 if (meof(inannfid) == 0)
    check_string = stripblanks(mgetl(inannfid,1));
@@ -29,3 +31,4 @@ if (FoundClass == 0)
 end
 
 endfunction
+   
