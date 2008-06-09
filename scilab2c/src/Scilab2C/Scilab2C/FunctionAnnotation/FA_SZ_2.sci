@@ -8,4 +8,3 @@ function outsize = FA_SZ_2(insize)
 // -----------------------------------------------------------------
 
 outsize = insize(2);
-endfunction

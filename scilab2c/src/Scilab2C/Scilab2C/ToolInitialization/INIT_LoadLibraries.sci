@@ -20,7 +20,7 @@ load(FileInfo.SharedInfoDatFile,'SharedInfo');
 PrintStepInfo('Load SCI2C and USER2C Libraries.',FileInfo.GeneralReport,'both');
 SCI2CAvailableC                  = [];
 USER2CAvailableC                 = [];
-Converted                        = [];
+Converted                        = []; 
 ToBeConverted(1).SCIFunctionName = SharedInfo.NextSCIFunName;
 ToBeConverted(1).CFunctionName   = SharedInfo.NextCFunName;
 
@@ -30,10 +30,10 @@ ToBeConverted(1).CFunctionName   = SharedInfo.NextCFunName;
 [USER2CAvailableC,USER2CNElem] = FL_ExtractFuncList(FileInfo.USER2CLibCFLFun,FileInfo.USER2CLibCFLCls,...
    SharedInfo.Annotations.FUNCLASS,SharedInfo.Extension.FuncListClasses,FileInfo.GeneralReport);
 Available = SCI2CAvailableC;
-save(FileInfo.FunctionList.SCI2CAvailableCDat,Available);
+save(FileInfo.FunctionList.SCI2CAvailableCDat,Available); 
 Available = USER2CAvailableC;
-save(FileInfo.FunctionList.USER2CAvailableCDat,Available);
-save(FileInfo.FunctionList.ConvertedDat,Converted);
-save(FileInfo.FunctionList.ToBeConvertedDat,ToBeConverted);
+save(FileInfo.FunctionList.USER2CAvailableCDat,Available); 
+save(FileInfo.FunctionList.ConvertedDat,Converted); 
+save(FileInfo.FunctionList.ToBeConvertedDat,ToBeConverted); 
 
 endfunction

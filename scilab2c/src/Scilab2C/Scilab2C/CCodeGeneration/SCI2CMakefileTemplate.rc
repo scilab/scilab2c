@@ -73,6 +73,14 @@ SWSRCS	=	\
 	$(CSRCDIR)/dabsa.c \
 	$(CSRCDIR)/cabsa.c \
 	$(CSRCDIR)/zabsa.c \
+	$(CSRCDIR)/smeana.c \
+	$(CSRCDIR)/dmeana.c \
+	$(CSRCDIR)/cmeana.c \
+	$(CSRCDIR)/zmeana.c \
+	$(CSRCDIR)/ssuma.c \
+	$(CSRCDIR)/dsuma.c \
+	$(CSRCDIR)/csuma.c \
+	$(CSRCDIR)/zsuma.c \
 	$(CSRCDIR)/sexps.c \
 	$(CSRCDIR)/dexps.c \
 	$(CSRCDIR)/cexps.c \
@@ -80,7 +88,32 @@ SWSRCS	=	\
 	$(CSRCDIR)/sexpa.c \
 	$(CSRCDIR)/dexpa.c \
 	$(CSRCDIR)/cexpa.c \
-	$(CSRCDIR)/zexpa.c
+	$(CSRCDIR)/zexpa.c \
+	$(CSRCDIR)/slog10s.c \
+	$(CSRCDIR)/dlog10s.c \
+	$(CSRCDIR)/slog10a.c \
+	$(CSRCDIR)/dlog10a.c \
+	$(CSRCDIR)/slogs.c \
+	$(CSRCDIR)/dlogs.c \
+	$(CSRCDIR)/sloga.c \
+	$(CSRCDIR)/dloga.c \
+	$(CSRCDIR)/slog1ps.c \
+	$(CSRCDIR)/dlog1ps.c \
+	$(CSRCDIR)/slog1pa.c \
+	$(CSRCDIR)/dlog1pa.c \
+
+#	$(CSRCDIR)/clog10s.c \
+#	$(CSRCDIR)/zlog10s.c \
+#	$(CSRCDIR)/clog10a.c \
+#	$(CSRCDIR)/zlog10a.c \
+#	$(CSRCDIR)/cloga.c \
+#	$(CSRCDIR)/zloga.c \
+#	$(CSRCDIR)/clogs.c \
+#	$(CSRCDIR)/zlogs.c \
+#	$(CSRCDIR)/clog1ps.c \
+#	$(CSRCDIR)/zlog1ps.c \
+#	$(CSRCDIR)/clog1pa.c \
+#	$(CSRCDIR)/zlog1pa.c   
 
 SWOBJS	=	$(SWSRCS:.c=.o)
 
