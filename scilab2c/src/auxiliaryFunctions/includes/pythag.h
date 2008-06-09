@@ -33,6 +33,7 @@ floatComplex	cpythags(floatComplex x, floatComplex y);
 /*
 ** \brief Double Complex Pythag function
 */
+//NUTRICATO: BRUNO, NOT IMPLEMENTED YET!!!!!!
 doubleComplex	zpythags(doubleComplex x, doubleComplex y);
 
 #endif /* !__PYTHAG_H__ */
