@@ -23,12 +23,12 @@
 
 #define z0meanz0(in)			zmeans(in)
 
-#define s2means2(in,size,out)		smeana(in, size[0]*size[1], out)
+#define s2means0(in,size)		smeana(in, size[0]*size[1])
 
-#define d2meand2(in,size,out)		dmeana(in, size[0]*size[1], out)
+#define d2meand0(in,size)		dmeana(in, size[0]*size[1])
 
-#define c2meanc2(in,size,out)		cmeana(in, size[0]*size[1], out)
+#define c2meanc0(in,size)		cmeana(in, size[0]*size[1])
 
-#define z2meanz2(in,size,out)		zmeana(in, size[0]*size[1], out)
+#define z2meanz0(in,size)		zmeana(in, size[0]*size[1])
 
 #endif /* !__INT_MEAN_H__ */
