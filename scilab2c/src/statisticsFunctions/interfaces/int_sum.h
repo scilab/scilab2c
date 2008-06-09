@@ -23,12 +23,12 @@
 
 #define z0sumz0(in)			zsums(in)
 
-#define s2sums2(in,size,out)		ssuma(in, size[0]*size[1], out)
+#define s2sums0(in,size)		ssuma(in, size[0]*size[1])
 
-#define d2sumd2(in,size,out)		dsuma(in, size[0]*size[1], out)
+#define d2sumd0(in,size)		dsuma(in, size[0]*size[1])
 
-#define c2sumc2(in,size,out)		csuma(in, size[0]*size[1], out)
+#define c2sumc0(in,size)		csuma(in, size[0]*size[1])
 
-#define z2sumz2(in,size,out)		zsuma(in, size[0]*size[1], out)
+#define z2sumz0(in,size)		zsuma(in, size[0]*size[1])
 
 #endif /* !__INT_SUM_H__ */
