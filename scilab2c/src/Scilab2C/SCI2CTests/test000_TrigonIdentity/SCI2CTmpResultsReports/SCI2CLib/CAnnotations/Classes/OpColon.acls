@@ -1,0 +1,10 @@
+NIN=          2
+NOUT=         1
+OUT(1).TP=    IN(1).TP
+OUT(1).SZ(1)= '1'
+OUT(1).SZ(2)= FA_INT(FA_ADD(FA_SUB(IN(2).VAL,IN(1).VAL),'1'))
+NIN=          3
+NOUT=         1
+OUT(1).TP=    IN(1).TP
+OUT(1).SZ(1)= '1'
+OUT(1).SZ(2)= FA_INT(FA_ADD(FA_DIV(FA_SUB(IN(3).VAL,IN(1).VAL),IN(2).VAL),'1'))
