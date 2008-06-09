@@ -1,0 +1,193 @@
+ 
+ 
+             ***************************
+         ==> SCI2C hArtes/POLIBA Tool!!!
+             ***************************
+ 
+ 
+ 
+             **************************************
+         ==> Initialize SCI2C and USER2C Libraries.
+             **************************************
+ 
+   Adding Class: Global.
+      Adding Function: global.
+   Adding Class: Float.
+      Adding Function: float.
+   Adding Class: Double.
+      Adding Function: double.
+   Adding Class: FloatComplex.
+      Adding Function: floatcomplex.
+   Adding Class: DoubleComplex.
+      Adding Function: doublecomplex.
+   Adding Class: Sin.
+      Adding Function: sin.
+      Adding Function: sinh.
+      Adding Function: asinh.
+      Adding Function: cos.
+      Adding Function: cosh.
+      Adding Function: tan.
+      Adding Function: tanh.
+      Adding Function: exp.
+      Adding Function: conj.
+      Adding Function: inv.
+      Adding Function: ceil.
+      Adding Function: fix.
+      Adding Function: floor.
+      Adding Function: round.
+      Adding Function: int.
+      Adding Function: OpLogNot.
+   Adding Class: Atan.
+      Adding Function: atan.
+   Adding Class: Sqrt.
+      Adding Function: asin.
+      Adding Function: acos.
+      Adding Function: acosh.
+      Adding Function: atanh.
+      Adding Function: sqrt.
+      Adding Function: log.
+      Adding Function: log10.
+   Adding Class: Zeros.
+      Adding Function: zeros.
+      Adding Function: ones.
+      Adding Function: eye.
+      Adding Function: rand.
+   Adding Class: Sum.
+      Adding Function: sum.
+      Adding Function: prod.
+      Adding Function: mean.
+      Adding Function: st_deviation.
+      Adding Function: variance.
+      Adding Function: max.
+      Adding Function: min.
+   Adding Class: Abs.
+      Adding Function: abs.
+      Adding Function: real.
+      Adding Function: imag.
+   Adding Class: OpDotStar.
+      Adding Function: OpDotStar.
+      Adding Function: OpDotSlash.
+   Adding Class: OpDotHat.
+      Adding Function: OpDotHat.
+      Adding Function: OpHat.
+      Adding Function: OpDotBackSlash.
+      Adding Function: OpLogLt.
+      Adding Function: OpLogLe.
+      Adding Function: OpLogGt.
+      Adding Function: OpLogGe.
+      Adding Function: OpLogAnd.
+      Adding Function: OpLogOr.
+   Adding Class: OpLogEq.
+      Adding Function: OpLogEq.
+      Adding Function: OpLogNe.
+   Adding Class: OpStar.
+      Adding Function: OpStar.
+   Adding Class: OpApex.
+      Adding Function: OpApex.
+      Adding Function: OpDotApex.
+      Adding Function: isnan.
+   Adding Class: OpPlus.
+      Adding Function: OpPlus.
+   Adding Class: OpMinus.
+      Adding Function: OpMinus.
+   Adding Class: OpRc.
+      Adding Function: OpRc.
+   Adding Class: OpCc.
+      Adding Function: OpCc.
+   Adding Class: Find.
+      Adding Function: find.
+   Adding Class: Length.
+      Adding Function: length.
+   Adding Class: Size.
+      Adding Function: size.
+   Adding Class: Return.
+      Adding Function: return.
+   Adding Class: OpColon.
+      Adding Function: OpColon.
+   Adding Class: IsEmpty.
+      Adding Function: isempty.
+   Adding Class: Trace.
+      Adding Function: trace.
+      Adding Function: det.
+   Adding Class: OpIns.
+      Adding Function: OpIns.
+   Adding Class: OpExt.
+      Adding Function: OpExt.
+   Adding Class: Disp.
+      Adding Function: disp.
+   Adding Class: OpEqual.
+      Adding Function: OpEqual.
+   Adding Class: Mopen.
+      Adding Function: mopen.
+   Adding Class: Mput.
+      Adding Function: mput.
+   Adding Class: Mget.
+      Adding Function: mget.
+   Adding Class: Mclose.
+      Adding Function: mclose.
+   Adding Class: Mseek.
+      Adding Function: mseek.
+   Adding Class: Convol.
+      Adding Function: convol.
+   Adding Class: IFFT.
+      Adding Function: ifft.
+   Adding Class: FFT.
+      Adding Function: fft.
+   Adding Class: FFTShift.
+      Adding Function: fftshift.
+   Adding Class: Meanf.
+      Adding Function: meanf.
+      Adding Function: variancef.
+      Adding Function: stdevf.
+   Adding Class: Frmag.
+      Adding Function: frmag.
+   Adding Class: Lev.
+      Adding Function: lev.
+   Adding Class: OpBackSlash.
+      Adding Function: OpBackSlash.
+   Adding Class: Cepstrum.
+      Adding Function: Cepstrum.
+   Adding Class: Spec.
+      Adding Function: Spec.
+   Adding Class: Part.
+      Adding Function: part.
+   Adding Class: Strindex.
+      Adding Function: strindex.
+   Adding Class: StrSubSt.
+      Adding Function: strsubst.
+ 
+ 
+             ********************************
+         ==> Load SCI2C and USER2C Libraries.
+             ********************************
+ 
+ 
+ 
+             ********************************************
+         ==> Start translation of function "mainfunction"
+             ********************************************
+ 
+ 
+ 
+             *****************************************************************************************************************************************************************************************
+         ==> Generate the AST in D:\Nutricato_GAPSVN\PROGETTI_APERTI\POLIBA\hArtes\WP2_SCI2C\Software\Version_alpha\SCI2CTests\test999_WorkingDir\SCI2CTmpResultsReports\mainfunction\mainfunction.ast
+             *****************************************************************************************************************************************************************************************
+ 
+ 
+ 
+             *************************************************************************************************************************************************
+         ==> Generate C code in D:\Nutricato_GAPSVN\PROGETTI_APERTI\POLIBA\hArtes\WP2_SCI2C\Software\Version_alpha\SCI2CTests\test999_WorkingDir\C_Code\main.c
+             *************************************************************************************************************************************************
+ 
+ 
+ 
+             ****************************************************************************************************************************************************
+         ==> Generating Makefile d:\Nutricato_GAPSVN\PROGETTI_APERTI\POLIBA\hArtes\WP2_SCI2C\Software\Version_alpha\SCI2CTests\test999_WorkingDir\C_Code\Makefile
+             ****************************************************************************************************************************************************
+ 
+ 
+ 
+             *************************************
+         ==> Translation Successfully Completed!!!
+             *************************************
+ 
