@@ -18,7 +18,8 @@
 // ------------------------------------------
 // --- Specify Paths of User Scilab code. ---
 // ------------------------------------------
-UserSciCodeMainDir = 'D:\Nutricato_GAPSVN\PROGETTI_APERTI\POLIBA\hArtes\WP2_SCI2C\Software\Version_alpha\SCI2CTests\test999_WorkingDir';
+// UserSciCodeMainDir = 'D:\Nutricato\OpenProjects\FP6_hArtes\WP2_SCI2C\Software\svnhartes\src\Scilab2C\SCI2CTests\test999_WorkingDir';
+UserSciCodeMainDir = '../SCI2CTests/test999_WorkingDir';
 
 // --- Path + filename of the .sci main file of the code to be translated. ---
 // It is the entry point.
@@ -81,7 +82,8 @@ CopySciCodeIntoCCode = 1;
 CCompilerPathStyle   = 'cygwin';
 
 // --- Path + File name of the main SCI2C library header file.
-Sci2CLibMainHeaderFName = 'D:\Nutricato_GAPSVN\PROGETTI_APERTI\POLIBA\hArtes\WP2_SCI2C\Software\Version_alpha\Scilab2C\CFiles\sci2cincludes\sci2clib.h';
+// Sci2CLibMainHeaderFName = 'D:\Nutricato\OpenProjects\FP6_hArtes\WP2_SCI2C\Software\svnhartes\src\Scilab2C\Scilab2C\CFiles\sci2cincludes\sci2clib.h';
+Sci2CLibMainHeaderFName = '../../../Scilab2C/CFiles/sci2cincludes/sci2clib.h';
 // --------------------------------
 // --- End Translation Options. ---
 // --------------------------------
