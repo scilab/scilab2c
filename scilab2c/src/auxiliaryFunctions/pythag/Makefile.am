@@ -22,7 +22,8 @@ libPythag_la_SOURCES =	$(HEAD) $(SRC)
 
 SRC	=	spythags.c \
 		dpythags.c \
-		cpythags.c
+		cpythags.c \
+		zpythags.c
 
 HEAD	=	../includes/pythag.h
 

@@ -1,6 +1,6 @@
 /*
  *  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
- *  Copyright (C) 2007-2008 - INRIA - Bruno JOFRET
+ *  Copyright (C) 2006-2008 - INRIA - Bruno JOFRET
  *
  *  This file must be used under the terms of the CeCILL.
  *  This source file is licensed as described in the file COPYING, which
@@ -10,8 +10,10 @@
  *
  */
 
+#include "complex.h"
 #include "pythag.h"
 
-float	spythags(float x, float y) {
-  return (ssqrts( (x*x) + (y*y) ));
+doubleComplex	zpythags(doubleComplex x, doubleComplex y) {
+  return (zsqrts( zadds(ztimess(x,x),
+			ztimess(y,y)) ));
 }
