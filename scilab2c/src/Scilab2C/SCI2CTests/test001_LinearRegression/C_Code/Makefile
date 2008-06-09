@@ -5,10 +5,10 @@
 # --- USER PARAMETERS ---
 # -----------------------
 # --- DIRECTORIES AND FILES ---
-OBJDIR      = /cygdrive/d/Nutricato_GAPSVN/PROGETTI_APERTI/POLIBA/hArtes/WP2_SCI2C/Software/Version_alpha/Scilab2C/CFiles/sci2cobj
-CSRCDIR     = /cygdrive/d/Nutricato_GAPSVN/PROGETTI_APERTI/POLIBA/hArtes/WP2_SCI2C/Software/Version_alpha/Scilab2C/CFiles/sci2ccode
-HSRCDIR     = /cygdrive/d/Nutricato_GAPSVN/PROGETTI_APERTI/POLIBA/hArtes/WP2_SCI2C/Software/Version_alpha/Scilab2C/CFiles/sci2cincludes
-ISRCDIR     = /cygdrive/d/Nutricato_GAPSVN/PROGETTI_APERTI/POLIBA/hArtes/WP2_SCI2C/Software/Version_alpha/Scilab2C/CFiles/sci2cinterfaces
+OBJDIR      = /cygdrive/d/Nutricato/OpenProjects/FP6_hArtes/WP2_SCI2C/Software/svnhartes/src/Scilab2C/Scilab2C/CFiles/sci2cobj
+CSRCDIR     = /cygdrive/d/Nutricato/OpenProjects/FP6_hArtes/WP2_SCI2C/Software/svnhartes/src/Scilab2C/Scilab2C/CFiles/sci2ccode
+HSRCDIR     = /cygdrive/d/Nutricato/OpenProjects/FP6_hArtes/WP2_SCI2C/Software/svnhartes/src/Scilab2C/Scilab2C/CFiles/sci2cincludes
+ISRCDIR     = /cygdrive/d/Nutricato/OpenProjects/FP6_hArtes/WP2_SCI2C/Software/svnhartes/src/Scilab2C/Scilab2C/CFiles/sci2cinterfaces
 SCI2CDIR    = .
 EXEFILENAME = mytest.exe
 
