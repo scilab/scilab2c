@@ -57,7 +57,7 @@ disp('--- Executing your SCILAB code. ---');
 disp('-----------------------------------');
 [tmppath,tmpfile,tmpext] = fileparts(UserScilabMainFile);
 cd(tmppath);
-exec(tmpfile+tmpext);
+execstr(tmpfile+tmpext); // BRUNO exec doesn't work here. It doesn't run the code
 cd(RunSci2CMainDir);
 disp('------------------------------------------');
 disp('--- End Execution of your SCILAB code. ---');
