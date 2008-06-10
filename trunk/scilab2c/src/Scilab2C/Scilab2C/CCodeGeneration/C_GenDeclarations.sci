@@ -1,9 +1,9 @@
 function Cdeclaration = C_GenDeclarations(ArgStruct,CDeclarationFileName,IndentLevel,ReportFileName,FlagExt)
 // function Cdeclaration = C_GenDeclarations(ArgStruct,CDeclarationFileName,IndentLevel,ReportFileName,FlagExt)
 // -----------------------------------------------------------------
-//
 // Status:
 // 27-Oct-2007 -- Raffaele Nutricato: Author.
+// 10-Jun-2008 -- Raffaele Nutricato: adapted to work with realloc function.
 //
 // Copyright 2007 Raffaele Nutricato.
 // Contact: raffaele.nutricato@tiscali.it
@@ -14,8 +14,9 @@ function Cdeclaration = C_GenDeclarations(ArgStruct,CDeclarationFileName,IndentL
 // ------------------------------
 SCI2CNInArgCheck(argn(2),5,5);
 
-//NUT: ilnome di questa funzione va cambiato perche' le dichiarazioni le fanno anche i for e i while.
 
+PrintStringInfo(' ',ReportFileName,'file','y');
+PrintStringInfo('***Generating C declaration***',ReportFileName,'file','y');
 
 Cdeclaration = '';
 NDeclarations = 0;
@@ -27,8 +28,6 @@ if (ArgStruct.Dimension > 0)
       Cdeclaration(1) = '';
       Cdeclaration(2) = '';
    end
-   //NUT: vedi Mem_Alloc_Out per maggiori info sulla rimozione della temp nella if
-   // if ((ArgStruct.Scope=='Temp') | (ArgStruct.FindLike == -1) | (SCI2Cisnum(ArgStruct.Size(1))==%F) | (SCI2Cisnum(ArgStruct.Size(2))==%F))
    if (ArgStruct.Type=='g')
       if (isnan(ArgStruct.Value))
          Cdeclaration(1) = Cdeclaration(1)+C_Type(ArgStruct.Type)+...
@@ -42,7 +41,7 @@ if (ArgStruct.Dimension > 0)
    elseif ((ArgStruct.FindLike == -1) | (SCI2Cisnum(ArgStruct.Size(1))==%F) | (SCI2Cisnum(ArgStruct.Size(2))==%F))
       // Generate only the pointer that will be used by the malloc function.
       Cdeclaration(1) = Cdeclaration(1)+C_Type(ArgStruct.Type)+'* '+...
-      ArgStruct.Name+';';
+      ArgStruct.Name+' = NULL;';
       // Declare the Size array
       Cdeclaration(2) = Cdeclaration(2)+C_Type('i')+' __'+ArgStruct.Name+'Size[2];';
       NDeclarations   = 2;
@@ -82,11 +81,10 @@ end
 for cntdecl = 1:NDeclarations
    PrintStringInfo('   '+Cdeclaration(cntdecl),ReportFileName,'file','y');
 end
+PrintStringInfo('   Writing C declaration in: '+CDeclarationFileName,ReportFileName,'file','y');
 for cntdecl = 1:NDeclarations
    PrintStringInfo(C_IndentBlanks(IndentLevel)+Cdeclaration(cntdecl),CDeclarationFileName,'file','y');
 end
 PrintStringInfo(' ',CDeclarationFileName,'file','y');
 
 endfunction
-//NUT: dove sta il controllo che verifica se dopo aver dichiarato una local A[10] essa viene utilizzata
-//NUT: per memorizzare un A = sin(B) dove B[11]??
