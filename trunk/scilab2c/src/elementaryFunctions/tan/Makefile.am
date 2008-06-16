@@ -10,8 +10,9 @@
 ##
 ##
 
-libTan_la_CFLAGS =	-I ../../type \
-			-I ../includes
+libTan_la_CFLAGS =	-I $(top_builddir)/type \
+			-I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/auxiliaryFunctions/includes
 
 instdir = $(top_builddir)/lib
 
@@ -37,9 +38,20 @@ HEAD	=	../includes/tan.h
 check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/type
 
-check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
+check_LDADD	=	$(top_builddir)/lib/lapack/libscilapack.la \
+			$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/elementaryFunctions/tan/libTan.la \
+			$(top_builddir)/elementaryFunctions/sin/libSin.la \
+			$(top_builddir)/elementaryFunctions/cos/libCos.la \
+			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
+			$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
+			$(top_builddir)/elementaryFunctions/exp/libExp.la \
+			$(top_builddir)/elementaryFunctions/log/libLog.la \
+			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
+			$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
+			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
 			@LIBMATH@
 
 check_PROGRAMS	= 	testFloatTan testDoubleTan
@@ -50,9 +62,9 @@ TESTS		=	testFloatTan testDoubleTan
 # -*- Tangeant Tests -*-
 #
 testFloatTan_SOURCES 	= 	testFloatTan.c
-testFloatTan_CFLAGS	=	$(check_INCLUDES)
+testFloatTan_CFLAGS	=	$(check_INCLUDES) -g
 testFloatTan_LDADD	=	$(check_LDADD)
 
 testDoubleTan_SOURCES 	= 	testDoubleTan.c
-testDoubleTan_CFLAGS	=	$(check_INCLUDES)
+testDoubleTan_CFLAGS	=	$(check_INCLUDES) -g
 testDoubleTan_LDADD	=	$(check_LDADD)
