@@ -58,6 +58,12 @@ if test "$with_stdc99" = yes; then
    CFLAGS="$CFLAGS -std=c99"
 fi
 
+AC_ARG_WITH(blas,
+   AC_HELP_STRING([--with-blas],[Enable call to blas library (Used in matrix operations)]))
+if test "$with_blas" = no; then
+   CFLAGS="$CFLAGS -DWITHOUT_BLAS"
+fi
+
 AC_ARG_ENABLE(debug,
    AC_HELP_STRING([--enable-debug],[Use verbose messages through compilation process]))
 if test "$enable_debug" = yes; then
