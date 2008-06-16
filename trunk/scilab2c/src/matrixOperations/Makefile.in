@@ -76,8 +76,8 @@ testMatrixAddition_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(testMatrixAddition_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-am_testMatrixMultiplication_OBJECTS =  \
-	testMatrixMultiplication-testMatrixMultiplication.$(OBJEXT)
+am_testMatrixMultiplication_OBJECTS = testMatrixMultiplication-testFloatMatrixMultiplication.$(OBJEXT) \
+	testMatrixMultiplication-testDoubleMatrixMultiplication.$(OBJEXT)
 testMatrixMultiplication_OBJECTS =  \
 	$(am_testMatrixMultiplication_OBJECTS)
 testMatrixMultiplication_DEPENDENCIES = $(check_LDADD)
@@ -250,7 +250,7 @@ testMatrixAddition_CFLAGS = $(check_INCLUDES)
 testMatrixSubtraction_SOURCES = testMatrixSubtraction.c
 testMatrixSubtraction_LDADD = $(check_LDADD)
 testMatrixSubtraction_CFLAGS = $(check_INCLUDES)
-testMatrixMultiplication_SOURCES = testMatrixMultiplication.c
+testMatrixMultiplication_SOURCES = testFloatMatrixMultiplication.c testDoubleMatrixMultiplication.c
 testMatrixMultiplication_LDADD = $(check_LDADD)
 testMatrixMultiplication_CFLAGS = $(check_INCLUDES)
 ADDITIONHEAD = matrixAddition.h
@@ -348,7 +348,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixOperations_la-matrixMultiplication.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixOperations_la-matrixSubtraction.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testMatrixAddition-testMatrixAddition.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testMatrixMultiplication-testMatrixMultiplication.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testMatrixMultiplication-testDoubleMatrixMultiplication.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testMatrixMultiplication-testFloatMatrixMultiplication.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testMatrixSubtraction-testMatrixSubtraction.Po@am__quote@
 
 .c.o:
@@ -407,19 +408,33 @@ testMatrixAddition-testMatrixAddition.obj: testMatrixAddition.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixAddition_CFLAGS) $(CFLAGS) -c -o testMatrixAddition-testMatrixAddition.obj `if test -f 'testMatrixAddition.c'; then $(CYGPATH_W) 'testMatrixAddition.c'; else $(CYGPATH_W) '$(srcdir)/testMatrixAddition.c'; fi`
 
-testMatrixMultiplication-testMatrixMultiplication.o: testMatrixMultiplication.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixMultiplication_CFLAGS) $(CFLAGS) -MT testMatrixMultiplication-testMatrixMultiplication.o -MD -MP -MF $(DEPDIR)/testMatrixMultiplication-testMatrixMultiplication.Tpo -c -o testMatrixMultiplication-testMatrixMultiplication.o `test -f 'testMatrixMultiplication.c' || echo '$(srcdir)/'`testMatrixMultiplication.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatrixMultiplication-testMatrixMultiplication.Tpo $(DEPDIR)/testMatrixMultiplication-testMatrixMultiplication.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMatrixMultiplication.c' object='testMatrixMultiplication-testMatrixMultiplication.o' libtool=no @AMDEPBACKSLASH@
+testMatrixMultiplication-testFloatMatrixMultiplication.o: testFloatMatrixMultiplication.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixMultiplication_CFLAGS) $(CFLAGS) -MT testMatrixMultiplication-testFloatMatrixMultiplication.o -MD -MP -MF $(DEPDIR)/testMatrixMultiplication-testFloatMatrixMultiplication.Tpo -c -o testMatrixMultiplication-testFloatMatrixMultiplication.o `test -f 'testFloatMatrixMultiplication.c' || echo '$(srcdir)/'`testFloatMatrixMultiplication.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatrixMultiplication-testFloatMatrixMultiplication.Tpo $(DEPDIR)/testMatrixMultiplication-testFloatMatrixMultiplication.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatMatrixMultiplication.c' object='testMatrixMultiplication-testFloatMatrixMultiplication.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixMultiplication_CFLAGS) $(CFLAGS) -c -o testMatrixMultiplication-testMatrixMultiplication.o `test -f 'testMatrixMultiplication.c' || echo '$(srcdir)/'`testMatrixMultiplication.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixMultiplication_CFLAGS) $(CFLAGS) -c -o testMatrixMultiplication-testFloatMatrixMultiplication.o `test -f 'testFloatMatrixMultiplication.c' || echo '$(srcdir)/'`testFloatMatrixMultiplication.c
 
-testMatrixMultiplication-testMatrixMultiplication.obj: testMatrixMultiplication.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixMultiplication_CFLAGS) $(CFLAGS) -MT testMatrixMultiplication-testMatrixMultiplication.obj -MD -MP -MF $(DEPDIR)/testMatrixMultiplication-testMatrixMultiplication.Tpo -c -o testMatrixMultiplication-testMatrixMultiplication.obj `if test -f 'testMatrixMultiplication.c'; then $(CYGPATH_W) 'testMatrixMultiplication.c'; else $(CYGPATH_W) '$(srcdir)/testMatrixMultiplication.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatrixMultiplication-testMatrixMultiplication.Tpo $(DEPDIR)/testMatrixMultiplication-testMatrixMultiplication.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMatrixMultiplication.c' object='testMatrixMultiplication-testMatrixMultiplication.obj' libtool=no @AMDEPBACKSLASH@
+testMatrixMultiplication-testFloatMatrixMultiplication.obj: testFloatMatrixMultiplication.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixMultiplication_CFLAGS) $(CFLAGS) -MT testMatrixMultiplication-testFloatMatrixMultiplication.obj -MD -MP -MF $(DEPDIR)/testMatrixMultiplication-testFloatMatrixMultiplication.Tpo -c -o testMatrixMultiplication-testFloatMatrixMultiplication.obj `if test -f 'testFloatMatrixMultiplication.c'; then $(CYGPATH_W) 'testFloatMatrixMultiplication.c'; else $(CYGPATH_W) '$(srcdir)/testFloatMatrixMultiplication.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatrixMultiplication-testFloatMatrixMultiplication.Tpo $(DEPDIR)/testMatrixMultiplication-testFloatMatrixMultiplication.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatMatrixMultiplication.c' object='testMatrixMultiplication-testFloatMatrixMultiplication.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixMultiplication_CFLAGS) $(CFLAGS) -c -o testMatrixMultiplication-testMatrixMultiplication.obj `if test -f 'testMatrixMultiplication.c'; then $(CYGPATH_W) 'testMatrixMultiplication.c'; else $(CYGPATH_W) '$(srcdir)/testMatrixMultiplication.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixMultiplication_CFLAGS) $(CFLAGS) -c -o testMatrixMultiplication-testFloatMatrixMultiplication.obj `if test -f 'testFloatMatrixMultiplication.c'; then $(CYGPATH_W) 'testFloatMatrixMultiplication.c'; else $(CYGPATH_W) '$(srcdir)/testFloatMatrixMultiplication.c'; fi`
+
+testMatrixMultiplication-testDoubleMatrixMultiplication.o: testDoubleMatrixMultiplication.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixMultiplication_CFLAGS) $(CFLAGS) -MT testMatrixMultiplication-testDoubleMatrixMultiplication.o -MD -MP -MF $(DEPDIR)/testMatrixMultiplication-testDoubleMatrixMultiplication.Tpo -c -o testMatrixMultiplication-testDoubleMatrixMultiplication.o `test -f 'testDoubleMatrixMultiplication.c' || echo '$(srcdir)/'`testDoubleMatrixMultiplication.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatrixMultiplication-testDoubleMatrixMultiplication.Tpo $(DEPDIR)/testMatrixMultiplication-testDoubleMatrixMultiplication.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleMatrixMultiplication.c' object='testMatrixMultiplication-testDoubleMatrixMultiplication.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixMultiplication_CFLAGS) $(CFLAGS) -c -o testMatrixMultiplication-testDoubleMatrixMultiplication.o `test -f 'testDoubleMatrixMultiplication.c' || echo '$(srcdir)/'`testDoubleMatrixMultiplication.c
+
+testMatrixMultiplication-testDoubleMatrixMultiplication.obj: testDoubleMatrixMultiplication.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixMultiplication_CFLAGS) $(CFLAGS) -MT testMatrixMultiplication-testDoubleMatrixMultiplication.obj -MD -MP -MF $(DEPDIR)/testMatrixMultiplication-testDoubleMatrixMultiplication.Tpo -c -o testMatrixMultiplication-testDoubleMatrixMultiplication.obj `if test -f 'testDoubleMatrixMultiplication.c'; then $(CYGPATH_W) 'testDoubleMatrixMultiplication.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleMatrixMultiplication.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatrixMultiplication-testDoubleMatrixMultiplication.Tpo $(DEPDIR)/testMatrixMultiplication-testDoubleMatrixMultiplication.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleMatrixMultiplication.c' object='testMatrixMultiplication-testDoubleMatrixMultiplication.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixMultiplication_CFLAGS) $(CFLAGS) -c -o testMatrixMultiplication-testDoubleMatrixMultiplication.obj `if test -f 'testDoubleMatrixMultiplication.c'; then $(CYGPATH_W) 'testDoubleMatrixMultiplication.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleMatrixMultiplication.c'; fi`
 
 testMatrixSubtraction-testMatrixSubtraction.o: testMatrixSubtraction.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixSubtraction_CFLAGS) $(CFLAGS) -MT testMatrixSubtraction-testMatrixSubtraction.o -MD -MP -MF $(DEPDIR)/testMatrixSubtraction-testMatrixSubtraction.Tpo -c -o testMatrixSubtraction-testMatrixSubtraction.o `test -f 'testMatrixSubtraction.c' || echo '$(srcdir)/'`testMatrixSubtraction.c
