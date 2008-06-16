@@ -10,7 +10,10 @@
  *
  */
 
+#include <math.h>
 #include "testTan.h"
+
+double dtans(double);
 
 void dtansTest() {
   printf(">> Double scalar\n");
