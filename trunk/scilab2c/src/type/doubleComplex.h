@@ -57,6 +57,8 @@ typedef double complex doubleComplex;
 
 double		zreals(doubleComplex);
 double		zimags(doubleComplex);
+void		zreala(doubleComplex *in, int size, double *out);
+void		zimaga(doubleComplex *in, int size, doubleg *out);
 doubleComplex	DoubleComplex(double, double);
 doubleComplex*	DoubleComplexMatrix(double*, double*, int);
 bool		zisreals(doubleComplex);
