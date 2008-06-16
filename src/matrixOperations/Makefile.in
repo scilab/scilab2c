@@ -33,8 +33,10 @@ POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
 check_PROGRAMS = testMatrixAddition$(EXEEXT) \
-	testMatrixSubtraction$(EXEEXT)
-TESTS = testMatrixAddition$(EXEEXT) testMatrixSubtraction$(EXEEXT)
+	testMatrixSubtraction$(EXEEXT) \
+	testMatrixMultiplication$(EXEEXT)
+TESTS = testMatrixAddition$(EXEEXT) testMatrixSubtraction$(EXEEXT) \
+	testMatrixMultiplication$(EXEEXT)
 subdir = matrixOperations
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -57,8 +59,10 @@ libMatrixOperations_la_LIBADD =
 am__objects_1 =
 am__objects_2 = libMatrixOperations_la-matrixAddition.lo
 am__objects_3 = libMatrixOperations_la-matrixSubtraction.lo
+am__objects_4 = libMatrixOperations_la-matrixMultiplication.lo
 am_libMatrixOperations_la_OBJECTS = $(am__objects_1) $(am__objects_2) \
-	$(am__objects_1) $(am__objects_3)
+	$(am__objects_1) $(am__objects_3) $(am__objects_1) \
+	$(am__objects_4)
 libMatrixOperations_la_OBJECTS = $(am_libMatrixOperations_la_OBJECTS)
 libMatrixOperations_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
@@ -67,17 +71,24 @@ libMatrixOperations_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 am_testMatrixAddition_OBJECTS =  \
 	testMatrixAddition-testMatrixAddition.$(OBJEXT)
 testMatrixAddition_OBJECTS = $(am_testMatrixAddition_OBJECTS)
-testMatrixAddition_DEPENDENCIES = $(check_LDADD) \
-	libMatrixOperations.la
+testMatrixAddition_DEPENDENCIES = $(check_LDADD)
 testMatrixAddition_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(testMatrixAddition_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
+am_testMatrixMultiplication_OBJECTS =  \
+	testMatrixMultiplication-testMatrixMultiplication.$(OBJEXT)
+testMatrixMultiplication_OBJECTS =  \
+	$(am_testMatrixMultiplication_OBJECTS)
+testMatrixMultiplication_DEPENDENCIES = $(check_LDADD)
+testMatrixMultiplication_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
+	$(testMatrixMultiplication_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
 am_testMatrixSubtraction_OBJECTS =  \
 	testMatrixSubtraction-testMatrixSubtraction.$(OBJEXT)
 testMatrixSubtraction_OBJECTS = $(am_testMatrixSubtraction_OBJECTS)
-testMatrixSubtraction_DEPENDENCIES = $(check_LDADD) \
-	libMatrixOperations.la
+testMatrixSubtraction_DEPENDENCIES = $(check_LDADD)
 testMatrixSubtraction_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(testMatrixSubtraction_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
@@ -95,9 +106,13 @@ LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
 SOURCES = $(libMatrixOperations_la_SOURCES) \
-	$(testMatrixAddition_SOURCES) $(testMatrixSubtraction_SOURCES)
+	$(testMatrixAddition_SOURCES) \
+	$(testMatrixMultiplication_SOURCES) \
+	$(testMatrixSubtraction_SOURCES)
 DIST_SOURCES = $(libMatrixOperations_la_SOURCES) \
-	$(testMatrixAddition_SOURCES) $(testMatrixSubtraction_SOURCES)
+	$(testMatrixAddition_SOURCES) \
+	$(testMatrixMultiplication_SOURCES) \
+	$(testMatrixSubtraction_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -217,26 +232,33 @@ libMatrixOperations_la_CFLAGS = -I  $(top_builddir)/type \
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libMatrixOperations.la
 libMatrixOperations_la_SOURCES = $(ADDITIONHEAD) $(ADDITIONSRC) \
-				$(SUBTRACTIONHEAD) $(SUBTRACTIONSRC) #\
-				#$(MULTIPLICATIONHEAD) $(MULTIPLICATIONSRC) #\
+				$(SUBTRACTIONHEAD) $(SUBTRACTIONSRC) \
+				$(MULTIPLICATIONHEAD) $(MULTIPLICATIONSRC) #\
 				#$(DIVISIONHEAD) $(DIVISIONSRC)
 
 check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/lib/blas/libsciblas.la \
+			libMatrixOperations.la
 
 check_INCLUDES = -I  $(top_builddir)/type \
 			-I .
 
 testMatrixAddition_SOURCES = testMatrixAddition.c
-testMatrixAddition_LDADD = $(check_LDADD) libMatrixOperations.la
+testMatrixAddition_LDADD = $(check_LDADD)
 testMatrixAddition_CFLAGS = $(check_INCLUDES)
 testMatrixSubtraction_SOURCES = testMatrixSubtraction.c
-testMatrixSubtraction_LDADD = $(check_LDADD) libMatrixOperations.la
+testMatrixSubtraction_LDADD = $(check_LDADD)
 testMatrixSubtraction_CFLAGS = $(check_INCLUDES)
+testMatrixMultiplication_SOURCES = testMatrixMultiplication.c
+testMatrixMultiplication_LDADD = $(check_LDADD)
+testMatrixMultiplication_CFLAGS = $(check_INCLUDES)
 ADDITIONHEAD = matrixAddition.h
 ADDITIONSRC = matrixAddition.c
 SUBTRACTIONHEAD = matrixSubtraction.h
 SUBTRACTIONSRC = matrixSubtraction.c
+MULTIPLICATIONHEAD = matrixMultiplication.h
+MULTIPLICATIONSRC = matrixMultiplication.c
 all: all-am
 
 .SUFFIXES:
@@ -309,6 +331,9 @@ clean-checkPROGRAMS:
 testMatrixAddition$(EXEEXT): $(testMatrixAddition_OBJECTS) $(testMatrixAddition_DEPENDENCIES) 
 	@rm -f testMatrixAddition$(EXEEXT)
 	$(testMatrixAddition_LINK) $(testMatrixAddition_OBJECTS) $(testMatrixAddition_LDADD) $(LIBS)
+testMatrixMultiplication$(EXEEXT): $(testMatrixMultiplication_OBJECTS) $(testMatrixMultiplication_DEPENDENCIES) 
+	@rm -f testMatrixMultiplication$(EXEEXT)
+	$(testMatrixMultiplication_LINK) $(testMatrixMultiplication_OBJECTS) $(testMatrixMultiplication_LDADD) $(LIBS)
 testMatrixSubtraction$(EXEEXT): $(testMatrixSubtraction_OBJECTS) $(testMatrixSubtraction_DEPENDENCIES) 
 	@rm -f testMatrixSubtraction$(EXEEXT)
 	$(testMatrixSubtraction_LINK) $(testMatrixSubtraction_OBJECTS) $(testMatrixSubtraction_LDADD) $(LIBS)
@@ -320,8 +345,10 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixOperations_la-matrixAddition.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixOperations_la-matrixMultiplication.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixOperations_la-matrixSubtraction.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testMatrixAddition-testMatrixAddition.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testMatrixMultiplication-testMatrixMultiplication.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testMatrixSubtraction-testMatrixSubtraction.Po@am__quote@
 
 .c.o:
@@ -359,6 +386,13 @@ libMatrixOperations_la-matrixSubtraction.lo: matrixSubtraction.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixOperations_la_CFLAGS) $(CFLAGS) -c -o libMatrixOperations_la-matrixSubtraction.lo `test -f 'matrixSubtraction.c' || echo '$(srcdir)/'`matrixSubtraction.c
 
+libMatrixOperations_la-matrixMultiplication.lo: matrixMultiplication.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixOperations_la_CFLAGS) $(CFLAGS) -MT libMatrixOperations_la-matrixMultiplication.lo -MD -MP -MF $(DEPDIR)/libMatrixOperations_la-matrixMultiplication.Tpo -c -o libMatrixOperations_la-matrixMultiplication.lo `test -f 'matrixMultiplication.c' || echo '$(srcdir)/'`matrixMultiplication.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixOperations_la-matrixMultiplication.Tpo $(DEPDIR)/libMatrixOperations_la-matrixMultiplication.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='matrixMultiplication.c' object='libMatrixOperations_la-matrixMultiplication.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixOperations_la_CFLAGS) $(CFLAGS) -c -o libMatrixOperations_la-matrixMultiplication.lo `test -f 'matrixMultiplication.c' || echo '$(srcdir)/'`matrixMultiplication.c
+
 testMatrixAddition-testMatrixAddition.o: testMatrixAddition.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixAddition_CFLAGS) $(CFLAGS) -MT testMatrixAddition-testMatrixAddition.o -MD -MP -MF $(DEPDIR)/testMatrixAddition-testMatrixAddition.Tpo -c -o testMatrixAddition-testMatrixAddition.o `test -f 'testMatrixAddition.c' || echo '$(srcdir)/'`testMatrixAddition.c
 @am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatrixAddition-testMatrixAddition.Tpo $(DEPDIR)/testMatrixAddition-testMatrixAddition.Po
@@ -372,6 +406,20 @@ testMatrixAddition-testMatrixAddition.obj: testMatrixAddition.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMatrixAddition.c' object='testMatrixAddition-testMatrixAddition.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixAddition_CFLAGS) $(CFLAGS) -c -o testMatrixAddition-testMatrixAddition.obj `if test -f 'testMatrixAddition.c'; then $(CYGPATH_W) 'testMatrixAddition.c'; else $(CYGPATH_W) '$(srcdir)/testMatrixAddition.c'; fi`
+
+testMatrixMultiplication-testMatrixMultiplication.o: testMatrixMultiplication.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixMultiplication_CFLAGS) $(CFLAGS) -MT testMatrixMultiplication-testMatrixMultiplication.o -MD -MP -MF $(DEPDIR)/testMatrixMultiplication-testMatrixMultiplication.Tpo -c -o testMatrixMultiplication-testMatrixMultiplication.o `test -f 'testMatrixMultiplication.c' || echo '$(srcdir)/'`testMatrixMultiplication.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatrixMultiplication-testMatrixMultiplication.Tpo $(DEPDIR)/testMatrixMultiplication-testMatrixMultiplication.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMatrixMultiplication.c' object='testMatrixMultiplication-testMatrixMultiplication.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixMultiplication_CFLAGS) $(CFLAGS) -c -o testMatrixMultiplication-testMatrixMultiplication.o `test -f 'testMatrixMultiplication.c' || echo '$(srcdir)/'`testMatrixMultiplication.c
+
+testMatrixMultiplication-testMatrixMultiplication.obj: testMatrixMultiplication.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixMultiplication_CFLAGS) $(CFLAGS) -MT testMatrixMultiplication-testMatrixMultiplication.obj -MD -MP -MF $(DEPDIR)/testMatrixMultiplication-testMatrixMultiplication.Tpo -c -o testMatrixMultiplication-testMatrixMultiplication.obj `if test -f 'testMatrixMultiplication.c'; then $(CYGPATH_W) 'testMatrixMultiplication.c'; else $(CYGPATH_W) '$(srcdir)/testMatrixMultiplication.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatrixMultiplication-testMatrixMultiplication.Tpo $(DEPDIR)/testMatrixMultiplication-testMatrixMultiplication.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMatrixMultiplication.c' object='testMatrixMultiplication-testMatrixMultiplication.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixMultiplication_CFLAGS) $(CFLAGS) -c -o testMatrixMultiplication-testMatrixMultiplication.obj `if test -f 'testMatrixMultiplication.c'; then $(CYGPATH_W) 'testMatrixMultiplication.c'; else $(CYGPATH_W) '$(srcdir)/testMatrixMultiplication.c'; fi`
 
 testMatrixSubtraction-testMatrixSubtraction.o: testMatrixSubtraction.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixSubtraction_CFLAGS) $(CFLAGS) -MT testMatrixSubtraction-testMatrixSubtraction.o -MD -MP -MF $(DEPDIR)/testMatrixSubtraction-testMatrixSubtraction.Tpo -c -o testMatrixSubtraction-testMatrixSubtraction.o `test -f 'testMatrixSubtraction.c' || echo '$(srcdir)/'`testMatrixSubtraction.c
@@ -648,9 +696,6 @@ uninstall-am: uninstall-pkglibLTLIBRARIES
 	mostlyclean-libtool pdf pdf-am ps ps-am tags uninstall \
 	uninstall-am uninstall-pkglibLTLIBRARIES
 
-
-#MULTIPLICATIONHEAD = matrixMultiplication.h
-#MULTIPLICATIONSRC = matrixMultiplication.c
 
 #DIVISIONHEAD = matrixDivision.h
 #DIVISIONSRC = matrixDivision.c
