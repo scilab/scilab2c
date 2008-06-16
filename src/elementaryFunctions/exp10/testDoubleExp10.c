@@ -27,12 +27,21 @@ void dexp10sTest(void) {
   printf("dexp10s(-PI/6) = %e\n", dexp10s(-DPI/6));
 }
 
+void zexp10sTest(void) {
+  doubleComplex result;
+
+  printf(">> Double complex scalar\n");
+  result = zexp10s(DoubleComplex(1.0, 1.0));
+  printf("dexp10s(0) = %e + %e i\n", zreals(result), zimags(result));
+
+}
+
 int testExp10(void) {
   printf("\n>>>> Double 10-Base Exponential Tests\n");
   dexp10sTest();
+  zexp10sTest();
   /* FIXME : Implement some test here ... */
   /*
-    zexp10sTest();
     dexp10aTest();
     zexp10aTest();
   */
