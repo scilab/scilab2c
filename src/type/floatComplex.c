@@ -60,6 +60,32 @@ float cimags(floatComplex z) {
 #endif
 
 /*
+** \function creala
+** \brief Return a Complex Real Part array.
+*/
+void creala(floatComplex* z, int size, float* out) {
+  int i = 0;
+
+  for (i = 0 ; i < size ; ++i)
+    {
+      out[i] = creals(z[i]);
+    }
+}
+
+/*
+** \function cimaga
+** \brief Return a Complex Imaginary Part array.
+*/
+void cimaga(floatComplex* z, int size, float* out) {
+  int i = 0;
+
+  for (i = 0 ; i < size ; ++i)
+    {
+      out[i] = cimags(z[i]);
+    }
+}
+
+/*
 ** \function FloatComplex
 ** \brief construct a Float Complex .
 */
