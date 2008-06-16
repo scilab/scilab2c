@@ -13,8 +13,8 @@
 #ifndef __CONSTANT_H__
 #define __CONSTANT_H__
 
-#define FPI 3.1415826535f
-#define DPI 3.1415826535
+#define FPI 3.1415926535897931159980f
+#define DPI 3.1415926535897931159980
 
 #endif /* !__CONSTANT_H__ */
 
