@@ -43,7 +43,7 @@ testMatrixSubtraction_SOURCES = testMatrixSubtraction.c
 testMatrixSubtraction_LDADD = $(check_LDADD)
 testMatrixSubtraction_CFLAGS = $(check_INCLUDES)
 
-testMatrixMultiplication_SOURCES = testMatrixMultiplication.c
+testMatrixMultiplication_SOURCES = testFloatMatrixMultiplication.c testDoubleMatrixMultiplication.c
 testMatrixMultiplication_LDADD = $(check_LDADD)
 testMatrixMultiplication_CFLAGS = $(check_INCLUDES)
 

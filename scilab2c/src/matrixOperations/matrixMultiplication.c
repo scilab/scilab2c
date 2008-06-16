@@ -10,8 +10,9 @@
  *
  */
 
-#include <assert.h>
+#ifndef WITHOUT_BLAS
 #include "blas.h"
+#endif
 #include "matrixMultiplication.h"
 
 /*
@@ -32,15 +33,19 @@ void	smulma(float *in1, int lines1, int columns1,
   int k = 0;
   float accu = 0;
 
-#define in1(a, b)	in1[a+b*lines1]
-#define in2(c, d)	in2[c+d*lines2]
+  /*
+  **  How to convert 2 index matrixes to one.
+  ** #define in1(a, b)	in1[a+b*lines1]
+  ** #define in2(c, d)	in2[c+d*lines2]
+  */
 
   for (i = 0 ; i < lines1 * columns2 ; ++i)
     {
       accu = 0;
       for (k = 0; k < columns1 ; ++k)
 	{
-	  accu += in1(i % lines1, k) * in2(k, i / lines1);
+	  accu += in1[i % lines1 + k * lines1]
+	    * in2[k + (i / lines1) * lines2];
 	}
       out[i] = accu;
     }
@@ -61,12 +66,41 @@ void	dmulma(double *in1, int lines1, int columns1,
 	       double *in2, int lines2, int columns2,
 	       double *out)
 {
+#ifndef WITHOUT_BLAS
+  /*
+  ** USES BLAS DGEMM FUNCTION.
+  */
   double One		= 1;
   double Zero		= 0;
 
   /* Cr <-  1*Ar*Br + 0*Cr */
   dgemm_("N","N", &columns2, &columns2, &columns1, &One,
 	 in1 , &lines1, in2, &lines2, &Zero, out, &columns2);
+#else
+  /*
+  ** DO NOT USE ANY BLAS FUNCTION.
+  */
+  int i = 0;
+  int k = 0;
+  double accu = 0;
+
+  /*
+  **  How to convert 2 index matrixes to one.
+  ** #define in1(a, b)	in1[a+b*lines1]
+  ** #define in2(c, d)	in2[c+d*lines2]
+  */
+
+  for (i = 0 ; i < lines1 * columns2 ; ++i)
+    {
+      accu = 0;
+      for (k = 0; k < columns1 ; ++k)
+	{
+	  accu += in1[i % lines1 + k * lines1]
+	    * in2[k + (i / lines1) * lines2];
+	}
+      out[i] = accu;
+    }
+#endif
 }
 
 /*
@@ -92,7 +126,9 @@ void	cmulma(floatComplex *in1, int lines1, int columns1,
       accu = FloatComplex(0,0);
       for (k = 0; k < columns1 ; ++k)
 	{
-	  cadds(accu, ctimess(in1(i % lines1, k) , in2(k, i / lines1)));
+	  accu = cadds(accu,
+		ctimess(in1[i % lines1 + k *lines1] ,
+			in2[k + (i / lines1) *lines2] ));
 	}
       out[i] = accu;
     }
@@ -112,6 +148,11 @@ void	zmulma(doubleComplex *in1, int lines1, int columns1,
 	       doubleComplex *in2, int lines2, int columns2,
 	       doubleComplex *out)
 {
+#ifndef WITHOUT_BLAS
+  /*
+  ** USES BLAS DGEMM FUNCTION.
+  */
+  int i = 0;
   double One		= 1;
   double MinusOne	= -1;
   double Zero		= 0;
@@ -141,13 +182,40 @@ void	zmulma(doubleComplex *in1, int lines1, int columns1,
   dgemm_("N","N", &lines1, &columns2, &columns1, &One,
 	 in1Real, &lines1, in2Imag, &lines2, &Zero, ImagOut, &lines1);
 
-  /*Ci <-  1*Ai*Br + 1*Ci */
+  /* Ci <-  1*Ai*Br + 1*Ci */
   dgemm_("N","N", &lines1, &columns2, &columns1, &One,
 	 in1Imag, &lines1, in2Real, &lines2, &One, ImagOut, &lines1);
 
-  out = DoubleComplexMatrix(RealOut, ImagOut, lines1 * columns2);
+  /* Now fill output matrix */
+  for(i = 0 ; i < lines1 * columns2 ; ++i)
+    {
+      out[i] = DoubleComplex(RealOut[i], ImagOut[i]);
+    }
+  /* FREE allocated variables */
   free(in1Real);
   free(in2Real);
   free(in1Imag);
-  free(in1Imag);
+  free(in2Imag);
+  free(RealOut);
+  free(ImagOut);
+#else
+  /*
+  ** DO NOT USE ANY BLAS FUNCTION.
+  */
+  int i = 0;
+  int k = 0;
+  doubleComplex accu = DoubleComplex(0, 0);
+
+  for (i = 0 ; i < lines1 * columns2 ; ++i)
+    {
+      accu = DoubleComplex(0,0);
+      for (k = 0; k < columns1 ; ++k)
+	{
+	  accu = zadds(accu,
+		ztimess(in1[i % lines1 + k *lines1] ,
+			in2[k + (i / lines1) *lines2] ));
+	}
+      out[i] = accu;
+    }
+#endif
 }
