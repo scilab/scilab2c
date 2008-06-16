@@ -11,13 +11,8 @@
  */
 
 #include "exp10.h"
-#include "cos.h"
-#include "sin.h"
+#include "pow.h"
 
 doubleComplex		zexp10s(doubleComplex z) {
-  double real = zreals(z);
-  double imag = zimags(z);
-
-  return DoubleComplex(dexp10s(real)*dcoss(imag),
-		      dexp10s(real)*dsins(imag));
+  return zpows(DoubleComplex(10.0, 0.0), z);
 }

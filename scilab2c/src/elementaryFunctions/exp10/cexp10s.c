@@ -11,11 +11,8 @@
  */
 
 #include "exp10.h"
+#include "pow.h"
 
 floatComplex		cexp10s(floatComplex z) {
-  float real = creals(z);
-  float imag = cimags(z);
-
-  /* FIXME : Let's code... */
-  return FloatComplex(real, imag);
+  return cpows(FloatComplex(10.0f, 0.0f), z);
 }
