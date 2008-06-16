@@ -24,6 +24,8 @@ int matrixCreation(void) {
   double imag[size];
 
   doubleComplex *Z;
+  double extractedReal[size];
+  double extractedImag[size];
 
   int i = 0;
 
@@ -43,6 +45,15 @@ int matrixCreation(void) {
       assert(zimags(Z[i]) == size - i);
     }
 
+  zreala(Z, size, extractedReal);
+  zimaga(Z, size, extractedImag);
+  for (i = 0; i < size; ++i)
+    {
+      printf("Partie reelle = %f\n", extractedReal[i]);
+      assert(extractedReal[i] == i);
+      printf("Partie imaginaire = %f\n", extractedImag[i]);
+      assert(extractedImag[i] == size - i);
+   }
 
   return 0;
 }

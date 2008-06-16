@@ -55,9 +55,33 @@ double zreals(doubleComplex z) {
 double zimags(doubleComplex z) {
   return cimag(z);
 }
-
-
 #endif
+
+/*
+** \function creala
+** \brief Return a Complex Real Part array.
+*/
+void zreala(doubleComplex* z, int size, double* out) {
+  int i = 0;
+
+  for (i = 0 ; i < size ; ++i)
+    {
+      out[i] = zreals(z[i]);
+    }
+}
+
+/*
+** \function cimaga
+** \brief Return a Complex Imaginary Part array.
+*/
+void zimaga(doubleComplex* z, int size, double* out) {
+  int i = 0;
+
+  for (i = 0 ; i < size ; ++i)
+    {
+      out[i] = zimags(z[i]);
+    }
+}
 
 /*
 ** \function DoubleComplex
