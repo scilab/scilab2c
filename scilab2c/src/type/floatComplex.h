@@ -57,6 +57,8 @@ typedef float complex floatComplex;
 
 float		creals(floatComplex);
 float		cimags(floatComplex);
+void		creala(floatComplex *in, int size, float *out);
+void		cimaga(floatComplex *in, int size, float *out);
 floatComplex	FloatComplex(float, float);
 floatComplex*	FloatComplexMatrix(float*, float*, int);
 bool		cisreals(floatComplex);
