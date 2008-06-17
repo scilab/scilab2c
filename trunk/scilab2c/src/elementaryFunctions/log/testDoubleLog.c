@@ -10,6 +10,8 @@
  *
  */
 
+#include <assert.h>
+#include <math.h>
 #include "testLog.h"
 
 void dlogsTest(void) {
@@ -20,18 +22,27 @@ void dlogsTest(void) {
   while (value <= maxValue)
     {
       printf("dlogs(%e) = %e\n", value, dlogs(value));
+      assert(dlogs(value) == log(value));
       value += increment;
     }
 }
 
 void zlogsTest(void) {
+  doubleComplex z;
   doubleComplex result;
+  double real_z = 0;
+  double imag_z = 1;
+  double increment = 1e-3;
 
   printf(">> Complex Double scalar\n");
-  result =  zlogs(DoubleComplex(-0.1, 0));
-  printf("dlogs(-0.1) = %e + %e I \n", zreals(result), zimags(result));
-  result =  zlogs(DoubleComplex(0, 0));
-  printf("dlogs(-0.1) = %e + %e I \n", zreals(result), zimags(result));
+  while (imag_z > 0)
+    {
+      z = DoubleComplex(real_z, imag_z);
+      result =  zlogs(z);
+      printf("dlogs(%e +  %e I) = %e + %e I \n", real_z, imag_z, zreals(result), zimags(result));
+      real_z += increment;
+      imag_z -= increment;
+    }
 }
 
 int testLog(void) {
