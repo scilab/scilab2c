@@ -10,9 +10,24 @@
  *
  */
 
-#include <math.h>
 #include "log1p.h"
+#include "log.h"
+#include "lnp1m1.h"
 
 float		slog1ps(float in) {
-  return (log1pf(in));
+  static double A = -1.0/3.0;
+  static double B = 0.5;
+
+  if(in < -1)
+    {/* got NaN */
+      return (in - in) / (in - in); /* NaN */
+    }
+  else if(A <= in && in <= B)
+    {/* use the function log((1+g)/(1-g)) with g = x/(x + 2) */
+      return slnp1m1s(in / (in + 2));
+    }
+  else
+    {/* use the standard formula */
+      return slogs(in + 1);
+    }
 }

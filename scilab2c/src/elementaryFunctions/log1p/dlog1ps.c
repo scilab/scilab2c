@@ -12,6 +12,7 @@
 
 #include "log1p.h"
 #include "log.h"
+#include "lnp1m1.h"
 
 double		dlog1ps(double in) {
   static double A = -1.0/3.0;
@@ -23,12 +24,7 @@ double		dlog1ps(double in) {
     }
   else if(A <= in && in <= B)
     {/* use the function log((1+g)/(1-g)) with g = x/(x + 2) */
-      double Temp = 0;
-      Temp = in / ( in + 2);
-      /*
-return lnp1m1(Temp);
-      */
-      return 0;
+      return dlnp1m1s(in / (in + 2));
     }
   else
     {/* use the standard formula */
