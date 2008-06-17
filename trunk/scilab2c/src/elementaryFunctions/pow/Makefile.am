@@ -44,6 +44,7 @@ check_LDADD	=	$(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/elementaryFunctions/exp/libExp.la \
 			$(top_builddir)/elementaryFunctions/log/libLog.la \
 			$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
+			$(top_builddir)/elementaryFunctions/lnp1m1/libLnp1m1.la \
 			$(top_builddir)/elementaryFunctions/sin/libSin.la \
 			$(top_builddir)/elementaryFunctions/cos/libCos.la \
 			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
