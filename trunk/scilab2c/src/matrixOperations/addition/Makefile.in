@@ -53,8 +53,9 @@ am__installdirs = "$(DESTDIR)$(pkglibdir)"
 pkglibLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkglib_LTLIBRARIES)
 libMatrixAddition_la_LIBADD =
-am_libMatrixAddition_la_OBJECTS =  \
-	libMatrixAddition_la-matrixAddition.lo
+am_libMatrixAddition_la_OBJECTS = libMatrixAddition_la-saddma.lo \
+	libMatrixAddition_la-daddma.lo libMatrixAddition_la-caddma.lo \
+	libMatrixAddition_la-zaddma.lo
 libMatrixAddition_la_OBJECTS = $(am_libMatrixAddition_la_OBJECTS)
 libMatrixAddition_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
@@ -202,7 +203,11 @@ libMatrixAddition_la_CFLAGS = -I $(top_builddir)/type \
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libMatrixAddition.la
-libMatrixAddition_la_SOURCES = matrixAddition.c
+libMatrixAddition_la_SOURCES = saddma.c \
+				daddma.c \
+				caddma.c \
+				zaddma.c
+
 check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			libMatrixAddition.la
@@ -292,7 +297,10 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixAddition_la-matrixAddition.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixAddition_la-caddma.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixAddition_la-daddma.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixAddition_la-saddma.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixAddition_la-zaddma.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testMatrixAddition-testMatrixAddition.Po@am__quote@
 
 .c.o:
@@ -316,12 +324,33 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
-libMatrixAddition_la-matrixAddition.lo: matrixAddition.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixAddition_la_CFLAGS) $(CFLAGS) -MT libMatrixAddition_la-matrixAddition.lo -MD -MP -MF $(DEPDIR)/libMatrixAddition_la-matrixAddition.Tpo -c -o libMatrixAddition_la-matrixAddition.lo `test -f 'matrixAddition.c' || echo '$(srcdir)/'`matrixAddition.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixAddition_la-matrixAddition.Tpo $(DEPDIR)/libMatrixAddition_la-matrixAddition.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='matrixAddition.c' object='libMatrixAddition_la-matrixAddition.lo' libtool=yes @AMDEPBACKSLASH@
+libMatrixAddition_la-saddma.lo: saddma.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixAddition_la_CFLAGS) $(CFLAGS) -MT libMatrixAddition_la-saddma.lo -MD -MP -MF $(DEPDIR)/libMatrixAddition_la-saddma.Tpo -c -o libMatrixAddition_la-saddma.lo `test -f 'saddma.c' || echo '$(srcdir)/'`saddma.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixAddition_la-saddma.Tpo $(DEPDIR)/libMatrixAddition_la-saddma.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='saddma.c' object='libMatrixAddition_la-saddma.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixAddition_la_CFLAGS) $(CFLAGS) -c -o libMatrixAddition_la-matrixAddition.lo `test -f 'matrixAddition.c' || echo '$(srcdir)/'`matrixAddition.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixAddition_la_CFLAGS) $(CFLAGS) -c -o libMatrixAddition_la-saddma.lo `test -f 'saddma.c' || echo '$(srcdir)/'`saddma.c
+
+libMatrixAddition_la-daddma.lo: daddma.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixAddition_la_CFLAGS) $(CFLAGS) -MT libMatrixAddition_la-daddma.lo -MD -MP -MF $(DEPDIR)/libMatrixAddition_la-daddma.Tpo -c -o libMatrixAddition_la-daddma.lo `test -f 'daddma.c' || echo '$(srcdir)/'`daddma.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixAddition_la-daddma.Tpo $(DEPDIR)/libMatrixAddition_la-daddma.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='daddma.c' object='libMatrixAddition_la-daddma.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixAddition_la_CFLAGS) $(CFLAGS) -c -o libMatrixAddition_la-daddma.lo `test -f 'daddma.c' || echo '$(srcdir)/'`daddma.c
+
+libMatrixAddition_la-caddma.lo: caddma.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixAddition_la_CFLAGS) $(CFLAGS) -MT libMatrixAddition_la-caddma.lo -MD -MP -MF $(DEPDIR)/libMatrixAddition_la-caddma.Tpo -c -o libMatrixAddition_la-caddma.lo `test -f 'caddma.c' || echo '$(srcdir)/'`caddma.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixAddition_la-caddma.Tpo $(DEPDIR)/libMatrixAddition_la-caddma.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='caddma.c' object='libMatrixAddition_la-caddma.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixAddition_la_CFLAGS) $(CFLAGS) -c -o libMatrixAddition_la-caddma.lo `test -f 'caddma.c' || echo '$(srcdir)/'`caddma.c
+
+libMatrixAddition_la-zaddma.lo: zaddma.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixAddition_la_CFLAGS) $(CFLAGS) -MT libMatrixAddition_la-zaddma.lo -MD -MP -MF $(DEPDIR)/libMatrixAddition_la-zaddma.Tpo -c -o libMatrixAddition_la-zaddma.lo `test -f 'zaddma.c' || echo '$(srcdir)/'`zaddma.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixAddition_la-zaddma.Tpo $(DEPDIR)/libMatrixAddition_la-zaddma.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zaddma.c' object='libMatrixAddition_la-zaddma.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixAddition_la_CFLAGS) $(CFLAGS) -c -o libMatrixAddition_la-zaddma.lo `test -f 'zaddma.c' || echo '$(srcdir)/'`zaddma.c
 
 testMatrixAddition-testMatrixAddition.o: testMatrixAddition.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixAddition_CFLAGS) $(CFLAGS) -MT testMatrixAddition-testMatrixAddition.o -MD -MP -MF $(DEPDIR)/testMatrixAddition-testMatrixAddition.Tpo -c -o testMatrixAddition-testMatrixAddition.o `test -f 'testMatrixAddition.c' || echo '$(srcdir)/'`testMatrixAddition.c
