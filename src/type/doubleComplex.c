@@ -175,7 +175,18 @@ doubleComplex ztimess(doubleComplex z1, doubleComplex z2) {
 #endif
 }
 
-
+/*
+** \function zdivides
+** \brief Divide 2 Complex numbers.
+*/
+doubleComplex zdevides(doubleComplex z1, doubleComplex z2) {
+#ifndef STDC99
+  return DoubleComplex((z1.real*z2.real + z1.imag*z2.imag) / (z2.real*z2.real + z2.imag* z2.imag),
+		       (z1.imag*z2.real - z1.real*z2.imag) / (z2.real*z2.real + z2.imag* z2.imag));
+#else
+  return z1 / z2;
+#endif
+}
 
 
 /*
