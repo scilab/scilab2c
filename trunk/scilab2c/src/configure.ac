@@ -165,6 +165,11 @@ lib/blas/Makefile
 lib/lapack/Makefile
 type/Makefile
 matrixOperations/Makefile
+matrixOperations/addition/Makefile
+matrixOperations/subtraction/Makefile
+matrixOperations/multiplication/Makefile
+matrixOperations/division/Makefile
+implicitList/Makefile
 elementaryFunctions/Makefile
 elementaryFunctions/cos/Makefile
 elementaryFunctions/cosh/Makefile
