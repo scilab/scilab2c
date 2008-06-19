@@ -17,7 +17,10 @@ instdir = $(top_builddir)/lib
 
 pkglib_LTLIBRARIES = libMatrixSubtraction.la
 
-libMatrixSubtraction_la_SOURCES = matrixSubtraction.c
+libMatrixSubtraction_la_SOURCES = 	sdiffma.c \
+					ddiffma.c \
+					cdiffma.c \
+					zdiffma.c
 
 check_PROGRAMS = 	testMatrixSubtraction
 
