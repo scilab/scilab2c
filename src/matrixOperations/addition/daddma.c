@@ -13,16 +13,16 @@
 #include "matrixAddition.h"
 
 /*
-** \brief Compute an addition element ways for floats.
+** \brief Compute an addition element ways for double.
 ** \param in1 : input array.
 ** \param size1 : size of in1 array.
 ** \param in2 : input arry.
 ** \param size2 : size of in2 array.
 ** \param out : array that contains the addition in1 + in2.
 */
-void	saddma(float *in1, int size1,
-	       float *in2, int size2,
-	       float *out)
+void	daddma(double *in1, int size1,
+	       double *in2, int size2,
+	       double * out)
 {
   int i = 0;
 
