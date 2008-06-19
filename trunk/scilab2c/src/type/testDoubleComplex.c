@@ -16,10 +16,7 @@
 
 #define size 10000
 
-int matrixCreation(void);
-int addAndDiff(void);
-
-int matrixCreation(void) {
+static int matrixCreation(void) {
   double real[size];
   double imag[size];
 
@@ -58,9 +55,9 @@ int matrixCreation(void) {
   return 0;
 }
 
-int addAndDiff(void) {
+static int addAndDiff(void) {
   /* z = -3 + 25*%i */
-  doubleComplex z = DoubleComplex(3,-25);
+  doubleComplex z = DoubleComplex(3.0,-25.0);
   /* y = -3.123456 + 25.123456*%i */
   doubleComplex y = DoubleComplex(-3.123456,25.123456);
   /* t = z + y */
@@ -71,32 +68,55 @@ int addAndDiff(void) {
 
   /* z = -3 + 25*%i */
   printf("Partie reelle = %f\n", zreals(z));
-  assert(zreals(z) == (double)3);
+  assert(zreals(z) == 3.0);
   printf("Partie imaginaire = %f\n", zimags(z));
-  assert(zimags(z) == (double)-25);
+  assert(zimags(z) == -25.0);
 
   /* y = -3.123456 + 25.123456*%i */
   printf("Partie reelle = %f\n", zreals(y));
-  assert(zreals(y) == (double)-3.123456);
+  assert(zreals(y) == -3.123456);
   printf("Partie imaginaire = %f\n", zimags(y));
-  assert(zimags(y) == (double)25.123456);
+  assert(zimags(y) == 25.123456);
 
   /* Try to have somme addition */
   printf("Partie reelle = %f\n", zreals(t));
-  assert(zreals(t) == (double)3 + (double)-3.123456);
+  assert(zreals(t) == 3.0 + -3.123456);
   printf("Partie imaginaire = %f\n", zimags(t));
-  assert(zimags(t) == (double)-25 + (double)25.123456);
+  assert(zimags(t) == -25.0 + 25.123456);
 
   /* Try to have somme diff */
   printf("Partie reelle = %f\n", zreals(u));
-  assert(zreals(u) == (double)3 - (double)-3.123456);
+  assert(zreals(u) == 3.0 - -3.123456);
   printf("Partie imaginaire = %f\n", zimags(u));
-  assert(zimags(u) == (double)-25 - (double)25.123456);
+  assert(zimags(u) == -25.0 - 25.123456);
+  return 0;
+}
+
+static int timesAndDevide(void) {
+  /* z1 = 1 + i */
+  doubleComplex z1 = DoubleComplex(1.0, 1.0);
+  /* z2 = 2 + i */
+  doubleComplex z2 = DoubleComplex(2.0, 1.0);
+
+  doubleComplex z1_times_z2 = ztimess(z1, z2);
+  doubleComplex z1_devide_z2 = zdevides(z1, z2);
+
+  /* z1 * z2 = 1 + 3i */
+  printf("z1_times_z2 = %e + %ei\n", zreals(z1_times_z2), zimags(z1_times_z2));
+  assert(zreals(z1_times_z2) == 1.0);
+  assert(zimags(z1_times_z2) == 3.0);
+
+  /* z1 / z2 = 0.6 + 0.2i */
+  printf("z1_devide_z2 = %e + %ei\n", zreals(z1_devide_z2), zimags(z1_devide_z2));
+  assert(zreals(z1_devide_z2) == 0.6);
+  assert(zimags(z1_devide_z2) == 0.2);
+
   return 0;
 }
 
 int main(void) {
-  addAndDiff();
   matrixCreation();
+  addAndDiff();
+  timesAndDevide();
   return 0;
 }

@@ -18,10 +18,7 @@
 
 #define size 10000
 
-int matrixCreation(void);
-int addAndDiff(void);
-
-int matrixCreation(void) {
+static int matrixCreation(void) {
   float real[size];
   float imag[size];
 
@@ -60,7 +57,7 @@ int matrixCreation(void) {
   return 0;
 }
 
-int addAndDiff(void) {
+static int addAndDiff(void) {
   /* z = -3 + 25*%i */
   floatComplex z = FloatComplex((float)3, (float)-25);
   /* y = -3.123456 + 25.123456*%i */
@@ -98,8 +95,31 @@ int addAndDiff(void) {
   return 0;
 }
 
+static int timesAndDevide(void) {
+  /* z1 = 1 + i */
+  floatComplex z1 = FloatComplex(1.0f, 1.0f);
+  /* z2 = 2 + i */
+  floatComplex z2 = FloatComplex(2.0f, 1.0f);
+
+  floatComplex z1_times_z2 = ctimess(z1, z2);
+  floatComplex z1_devide_z2 = cdevides(z1, z2);
+
+  /* z1 * z2 = 1 + 3i */
+  printf("z1_times_z2 = %e + %ei\n", creals(z1_times_z2), cimags(z1_times_z2));
+  assert(creals(z1_times_z2) == 1.0f);
+  assert(cimags(z1_times_z2) == 3.0f);
+
+  /* z1 / z2 = 0.6 + 0.2i */
+  printf("z1_devide_z2 = %e + %ei\n", creals(z1_devide_z2), cimags(z1_devide_z2));
+  assert(creals(z1_devide_z2) == 0.6f);
+  assert(cimags(z1_devide_z2) == 0.2f);
+
+  return 0;
+}
+
 int main(void) {
-  addAndDiff();
   matrixCreation();
+  addAndDiff();
+  timesAndDevide();
   return 0;
 }
