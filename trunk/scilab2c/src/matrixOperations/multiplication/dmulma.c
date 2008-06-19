@@ -10,10 +10,13 @@
  *
  */
 
+#ifndef WITHOUT_BLAS
+#include "blas.h"
+#endif
 #include "matrixMultiplication.h"
 
 /*
-** \brief Compute a multiplication for floats matrixes.
+** \brief Compute a multiplication for doubles matrixes.
 ** \param in1 : input matrix.
 ** \param lines1 : lines of in1 matrix.
 ** \param columns1 : columns of in1 matrix.
@@ -22,13 +25,27 @@
 ** \param columns2 : columns of in2 matrix.
 ** \param out : Matrix that contains the multiplication in1 * in2.
 */
-void	smulma(float *in1, int lines1, int columns1,
-	       float *in2, int lines2, int columns2,
-	       float *out)
+void	dmulma(double *in1, int lines1, int columns1,
+	       double *in2, int lines2, int columns2,
+	       double *out)
 {
+#ifndef WITHOUT_BLAS
+  /*
+  ** USES BLAS DGEMM FUNCTION.
+  */
+  double One		= 1;
+  double Zero		= 0;
+
+  /* Cr <-  1*Ar*Br + 0*Cr */
+  dgemm_("N","N", &columns2, &columns2, &columns1, &One,
+	 in1 , &lines1, in2, &lines2, &Zero, out, &columns2);
+#else
+  /*
+  ** DO NOT USE ANY BLAS FUNCTION.
+  */
   int i = 0;
   int k = 0;
-  float accu = 0;
+  double accu = 0;
 
   /*
   **  How to convert 2 index matrixes to one.
@@ -46,4 +63,5 @@ void	smulma(float *in1, int lines1, int columns1,
 	}
       out[i] = accu;
     }
+#endif
 }

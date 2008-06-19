@@ -17,7 +17,10 @@ instdir = $(top_builddir)/lib
 
 pkglib_LTLIBRARIES = libMatrixMultiplication.la
 
-libMatrixMultiplication_la_SOURCES = matrixMultiplication.c
+libMatrixMultiplication_la_SOURCES = 	smulma.c \
+					dmulma.c \
+					cmulma.c \
+					zmulma.c
 
 check_PROGRAMS = 	testMatrixMultiplication
 
