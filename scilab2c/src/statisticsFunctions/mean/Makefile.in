@@ -54,8 +54,12 @@ pkglibLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkglib_LTLIBRARIES)
 libMean_la_LIBADD =
 am__objects_1 =
-am__objects_2 = libMean_la-smeana.lo libMean_la-dmeana.lo \
-	libMean_la-cmeana.lo libMean_la-zmeana.lo
+am__objects_2 = libMean_la-smeana.lo libMean_la-srowmeana.lo \
+	libMean_la-scolumnmeana.lo libMean_la-dmeana.lo \
+	libMean_la-drowmeana.lo libMean_la-dcolumnmeana.lo \
+	libMean_la-cmeana.lo libMean_la-crowmeana.lo \
+	libMean_la-ccolumnmeana.lo libMean_la-zmeana.lo \
+	libMean_la-zrowmeana.lo libMean_la-zcolumnmeana.lo
 am_libMean_la_OBJECTS = $(am__objects_1) $(am__objects_2)
 libMean_la_OBJECTS = $(am_libMean_la_OBJECTS)
 libMean_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
@@ -65,7 +69,8 @@ am_testDoubleMean_OBJECTS = testDoubleMean-testDoubleMean.$(OBJEXT)
 testDoubleMean_OBJECTS = $(am_testDoubleMean_OBJECTS)
 am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/type/libFloatComplex.la \
-	$(top_builddir)/statisticsFunctions/mean/libMean.la
+	$(top_builddir)/statisticsFunctions/mean/libMean.la \
+	$(top_builddir)/statisticsFunctions/sum/libSum.la
 testDoubleMean_DEPENDENCIES = $(am__DEPENDENCIES_1)
 testDoubleMean_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleMean_CFLAGS) \
@@ -212,9 +217,17 @@ instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libMean.la
 libMean_la_SOURCES = $(HEAD) $(SRC)
 SRC = smeana.c \
+		srowmeana.c \
+		scolumnmeana.c \
 		dmeana.c \
+		drowmeana.c \
+		dcolumnmeana.c \
 		cmeana.c \
-		zmeana.c
+		crowmeana.c \
+		ccolumnmeana.c \
+		zmeana.c \
+		zrowmeana.c \
+		zcolumnmeana.c
 
 HEAD = ../includes/mean.h
 
@@ -227,6 +240,7 @@ check_INCLUDES = -I $(top_builddir)/statisticsFunctions/includes \
 check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/statisticsFunctions/mean/libMean.la \
+			$(top_builddir)/statisticsFunctions/sum/libSum.la \
 			@LIBMATH@
 
 
@@ -321,10 +335,18 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMean_la-ccolumnmeana.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMean_la-cmeana.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMean_la-crowmeana.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMean_la-dcolumnmeana.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMean_la-dmeana.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMean_la-drowmeana.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMean_la-scolumnmeana.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMean_la-smeana.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMean_la-srowmeana.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMean_la-zcolumnmeana.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMean_la-zmeana.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMean_la-zrowmeana.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleMean-testDoubleMean.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatMean-testFloatMean.Po@am__quote@
 
@@ -356,12 +378,40 @@ libMean_la-smeana.lo: smeana.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMean_la_CFLAGS) $(CFLAGS) -c -o libMean_la-smeana.lo `test -f 'smeana.c' || echo '$(srcdir)/'`smeana.c
 
+libMean_la-srowmeana.lo: srowmeana.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMean_la_CFLAGS) $(CFLAGS) -MT libMean_la-srowmeana.lo -MD -MP -MF $(DEPDIR)/libMean_la-srowmeana.Tpo -c -o libMean_la-srowmeana.lo `test -f 'srowmeana.c' || echo '$(srcdir)/'`srowmeana.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMean_la-srowmeana.Tpo $(DEPDIR)/libMean_la-srowmeana.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='srowmeana.c' object='libMean_la-srowmeana.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMean_la_CFLAGS) $(CFLAGS) -c -o libMean_la-srowmeana.lo `test -f 'srowmeana.c' || echo '$(srcdir)/'`srowmeana.c
+
+libMean_la-scolumnmeana.lo: scolumnmeana.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMean_la_CFLAGS) $(CFLAGS) -MT libMean_la-scolumnmeana.lo -MD -MP -MF $(DEPDIR)/libMean_la-scolumnmeana.Tpo -c -o libMean_la-scolumnmeana.lo `test -f 'scolumnmeana.c' || echo '$(srcdir)/'`scolumnmeana.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMean_la-scolumnmeana.Tpo $(DEPDIR)/libMean_la-scolumnmeana.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scolumnmeana.c' object='libMean_la-scolumnmeana.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMean_la_CFLAGS) $(CFLAGS) -c -o libMean_la-scolumnmeana.lo `test -f 'scolumnmeana.c' || echo '$(srcdir)/'`scolumnmeana.c
+
 libMean_la-dmeana.lo: dmeana.c
 @am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMean_la_CFLAGS) $(CFLAGS) -MT libMean_la-dmeana.lo -MD -MP -MF $(DEPDIR)/libMean_la-dmeana.Tpo -c -o libMean_la-dmeana.lo `test -f 'dmeana.c' || echo '$(srcdir)/'`dmeana.c
 @am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMean_la-dmeana.Tpo $(DEPDIR)/libMean_la-dmeana.Plo
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dmeana.c' object='libMean_la-dmeana.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMean_la_CFLAGS) $(CFLAGS) -c -o libMean_la-dmeana.lo `test -f 'dmeana.c' || echo '$(srcdir)/'`dmeana.c
+
+libMean_la-drowmeana.lo: drowmeana.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMean_la_CFLAGS) $(CFLAGS) -MT libMean_la-drowmeana.lo -MD -MP -MF $(DEPDIR)/libMean_la-drowmeana.Tpo -c -o libMean_la-drowmeana.lo `test -f 'drowmeana.c' || echo '$(srcdir)/'`drowmeana.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMean_la-drowmeana.Tpo $(DEPDIR)/libMean_la-drowmeana.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='drowmeana.c' object='libMean_la-drowmeana.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMean_la_CFLAGS) $(CFLAGS) -c -o libMean_la-drowmeana.lo `test -f 'drowmeana.c' || echo '$(srcdir)/'`drowmeana.c
+
+libMean_la-dcolumnmeana.lo: dcolumnmeana.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMean_la_CFLAGS) $(CFLAGS) -MT libMean_la-dcolumnmeana.lo -MD -MP -MF $(DEPDIR)/libMean_la-dcolumnmeana.Tpo -c -o libMean_la-dcolumnmeana.lo `test -f 'dcolumnmeana.c' || echo '$(srcdir)/'`dcolumnmeana.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMean_la-dcolumnmeana.Tpo $(DEPDIR)/libMean_la-dcolumnmeana.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dcolumnmeana.c' object='libMean_la-dcolumnmeana.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMean_la_CFLAGS) $(CFLAGS) -c -o libMean_la-dcolumnmeana.lo `test -f 'dcolumnmeana.c' || echo '$(srcdir)/'`dcolumnmeana.c
 
 libMean_la-cmeana.lo: cmeana.c
 @am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMean_la_CFLAGS) $(CFLAGS) -MT libMean_la-cmeana.lo -MD -MP -MF $(DEPDIR)/libMean_la-cmeana.Tpo -c -o libMean_la-cmeana.lo `test -f 'cmeana.c' || echo '$(srcdir)/'`cmeana.c
@@ -370,12 +420,40 @@ libMean_la-cmeana.lo: cmeana.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMean_la_CFLAGS) $(CFLAGS) -c -o libMean_la-cmeana.lo `test -f 'cmeana.c' || echo '$(srcdir)/'`cmeana.c
 
+libMean_la-crowmeana.lo: crowmeana.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMean_la_CFLAGS) $(CFLAGS) -MT libMean_la-crowmeana.lo -MD -MP -MF $(DEPDIR)/libMean_la-crowmeana.Tpo -c -o libMean_la-crowmeana.lo `test -f 'crowmeana.c' || echo '$(srcdir)/'`crowmeana.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMean_la-crowmeana.Tpo $(DEPDIR)/libMean_la-crowmeana.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crowmeana.c' object='libMean_la-crowmeana.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMean_la_CFLAGS) $(CFLAGS) -c -o libMean_la-crowmeana.lo `test -f 'crowmeana.c' || echo '$(srcdir)/'`crowmeana.c
+
+libMean_la-ccolumnmeana.lo: ccolumnmeana.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMean_la_CFLAGS) $(CFLAGS) -MT libMean_la-ccolumnmeana.lo -MD -MP -MF $(DEPDIR)/libMean_la-ccolumnmeana.Tpo -c -o libMean_la-ccolumnmeana.lo `test -f 'ccolumnmeana.c' || echo '$(srcdir)/'`ccolumnmeana.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMean_la-ccolumnmeana.Tpo $(DEPDIR)/libMean_la-ccolumnmeana.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ccolumnmeana.c' object='libMean_la-ccolumnmeana.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMean_la_CFLAGS) $(CFLAGS) -c -o libMean_la-ccolumnmeana.lo `test -f 'ccolumnmeana.c' || echo '$(srcdir)/'`ccolumnmeana.c
+
 libMean_la-zmeana.lo: zmeana.c
 @am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMean_la_CFLAGS) $(CFLAGS) -MT libMean_la-zmeana.lo -MD -MP -MF $(DEPDIR)/libMean_la-zmeana.Tpo -c -o libMean_la-zmeana.lo `test -f 'zmeana.c' || echo '$(srcdir)/'`zmeana.c
 @am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMean_la-zmeana.Tpo $(DEPDIR)/libMean_la-zmeana.Plo
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zmeana.c' object='libMean_la-zmeana.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMean_la_CFLAGS) $(CFLAGS) -c -o libMean_la-zmeana.lo `test -f 'zmeana.c' || echo '$(srcdir)/'`zmeana.c
+
+libMean_la-zrowmeana.lo: zrowmeana.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMean_la_CFLAGS) $(CFLAGS) -MT libMean_la-zrowmeana.lo -MD -MP -MF $(DEPDIR)/libMean_la-zrowmeana.Tpo -c -o libMean_la-zrowmeana.lo `test -f 'zrowmeana.c' || echo '$(srcdir)/'`zrowmeana.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMean_la-zrowmeana.Tpo $(DEPDIR)/libMean_la-zrowmeana.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zrowmeana.c' object='libMean_la-zrowmeana.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMean_la_CFLAGS) $(CFLAGS) -c -o libMean_la-zrowmeana.lo `test -f 'zrowmeana.c' || echo '$(srcdir)/'`zrowmeana.c
+
+libMean_la-zcolumnmeana.lo: zcolumnmeana.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMean_la_CFLAGS) $(CFLAGS) -MT libMean_la-zcolumnmeana.lo -MD -MP -MF $(DEPDIR)/libMean_la-zcolumnmeana.Tpo -c -o libMean_la-zcolumnmeana.lo `test -f 'zcolumnmeana.c' || echo '$(srcdir)/'`zcolumnmeana.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMean_la-zcolumnmeana.Tpo $(DEPDIR)/libMean_la-zcolumnmeana.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zcolumnmeana.c' object='libMean_la-zcolumnmeana.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMean_la_CFLAGS) $(CFLAGS) -c -o libMean_la-zcolumnmeana.lo `test -f 'zcolumnmeana.c' || echo '$(srcdir)/'`zcolumnmeana.c
 
 testDoubleMean-testDoubleMean.o: testDoubleMean.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleMean_CFLAGS) $(CFLAGS) -MT testDoubleMean-testDoubleMean.o -MD -MP -MF $(DEPDIR)/testDoubleMean-testDoubleMean.Tpo -c -o testDoubleMean-testDoubleMean.o `test -f 'testDoubleMean.c' || echo '$(srcdir)/'`testDoubleMean.c
