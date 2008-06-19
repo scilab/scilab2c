@@ -20,9 +20,17 @@ pkglib_LTLIBRARIES =	libMean.la
 libMean_la_SOURCES =	$(HEAD) $(SRC)
 
 SRC	=	smeana.c \
+		srowmeana.c \
+		scolumnmeana.c \
 		dmeana.c \
+		drowmeana.c \
+		dcolumnmeana.c \
 		cmeana.c \
-		zmeana.c
+		crowmeana.c \
+		ccolumnmeana.c \
+		zmeana.c \
+		zrowmeana.c \
+		zcolumnmeana.c
 
 HEAD	=	../includes/mean.h
 
@@ -36,6 +44,7 @@ check_INCLUDES	=	-I $(top_builddir)/statisticsFunctions/includes \
 check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/statisticsFunctions/mean/libMean.la \
+			$(top_builddir)/statisticsFunctions/sum/libSum.la \
 			@LIBMATH@
 
 check_PROGRAMS	= 	testFloatMean testDoubleMean
