@@ -20,9 +20,17 @@ pkglib_LTLIBRARIES =	libSum.la
 libSum_la_SOURCES =	$(HEAD) $(SRC)
 
 SRC	=	ssuma.c \
+		srowsuma.c \
+		scolumnsuma.c \
 		dsuma.c \
+		drowsuma.c \
+		dcolumnsuma.c \
 		csuma.c \
-		zsuma.c
+		crowsuma.c \
+		ccolumnsuma.c \
+		zsuma.c \
+		zrowsuma.c \
+		zcolumnsuma.c
 
 HEAD	=	../includes/sum.h
 
