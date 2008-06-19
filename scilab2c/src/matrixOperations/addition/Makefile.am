@@ -17,7 +17,10 @@ instdir = $(top_builddir)/lib
 
 pkglib_LTLIBRARIES = libMatrixAddition.la
 
-libMatrixAddition_la_SOURCES = matrixAddition.c
+libMatrixAddition_la_SOURCES = 	saddma.c \
+				daddma.c \
+				caddma.c \
+				zaddma.c
 
 check_PROGRAMS = 	testMatrixAddition
 
