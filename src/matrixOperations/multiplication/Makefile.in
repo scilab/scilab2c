@@ -54,7 +54,10 @@ pkglibLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkglib_LTLIBRARIES)
 libMatrixMultiplication_la_LIBADD =
 am_libMatrixMultiplication_la_OBJECTS =  \
-	libMatrixMultiplication_la-matrixMultiplication.lo
+	libMatrixMultiplication_la-smulma.lo \
+	libMatrixMultiplication_la-dmulma.lo \
+	libMatrixMultiplication_la-cmulma.lo \
+	libMatrixMultiplication_la-zmulma.lo
 libMatrixMultiplication_la_OBJECTS =  \
 	$(am_libMatrixMultiplication_la_OBJECTS)
 libMatrixMultiplication_la_LINK = $(LIBTOOL) --tag=CC \
@@ -204,7 +207,11 @@ libMatrixMultiplication_la_CFLAGS = -I $(top_builddir)/type \
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libMatrixMultiplication.la
-libMatrixMultiplication_la_SOURCES = matrixMultiplication.c
+libMatrixMultiplication_la_SOURCES = smulma.c \
+					dmulma.c \
+					cmulma.c \
+					zmulma.c
+
 check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/lib/blas/libsciblas.la \
@@ -297,7 +304,10 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixMultiplication_la-matrixMultiplication.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixMultiplication_la-cmulma.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixMultiplication_la-dmulma.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixMultiplication_la-smulma.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixMultiplication_la-zmulma.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testMatrixMultiplication-testDoubleMatrixMultiplication.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testMatrixMultiplication-testFloatMatrixMultiplication.Po@am__quote@
 
@@ -322,12 +332,33 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
-libMatrixMultiplication_la-matrixMultiplication.lo: matrixMultiplication.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixMultiplication_la_CFLAGS) $(CFLAGS) -MT libMatrixMultiplication_la-matrixMultiplication.lo -MD -MP -MF $(DEPDIR)/libMatrixMultiplication_la-matrixMultiplication.Tpo -c -o libMatrixMultiplication_la-matrixMultiplication.lo `test -f 'matrixMultiplication.c' || echo '$(srcdir)/'`matrixMultiplication.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixMultiplication_la-matrixMultiplication.Tpo $(DEPDIR)/libMatrixMultiplication_la-matrixMultiplication.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='matrixMultiplication.c' object='libMatrixMultiplication_la-matrixMultiplication.lo' libtool=yes @AMDEPBACKSLASH@
+libMatrixMultiplication_la-smulma.lo: smulma.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixMultiplication_la_CFLAGS) $(CFLAGS) -MT libMatrixMultiplication_la-smulma.lo -MD -MP -MF $(DEPDIR)/libMatrixMultiplication_la-smulma.Tpo -c -o libMatrixMultiplication_la-smulma.lo `test -f 'smulma.c' || echo '$(srcdir)/'`smulma.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixMultiplication_la-smulma.Tpo $(DEPDIR)/libMatrixMultiplication_la-smulma.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='smulma.c' object='libMatrixMultiplication_la-smulma.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixMultiplication_la_CFLAGS) $(CFLAGS) -c -o libMatrixMultiplication_la-matrixMultiplication.lo `test -f 'matrixMultiplication.c' || echo '$(srcdir)/'`matrixMultiplication.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixMultiplication_la_CFLAGS) $(CFLAGS) -c -o libMatrixMultiplication_la-smulma.lo `test -f 'smulma.c' || echo '$(srcdir)/'`smulma.c
+
+libMatrixMultiplication_la-dmulma.lo: dmulma.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixMultiplication_la_CFLAGS) $(CFLAGS) -MT libMatrixMultiplication_la-dmulma.lo -MD -MP -MF $(DEPDIR)/libMatrixMultiplication_la-dmulma.Tpo -c -o libMatrixMultiplication_la-dmulma.lo `test -f 'dmulma.c' || echo '$(srcdir)/'`dmulma.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixMultiplication_la-dmulma.Tpo $(DEPDIR)/libMatrixMultiplication_la-dmulma.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dmulma.c' object='libMatrixMultiplication_la-dmulma.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixMultiplication_la_CFLAGS) $(CFLAGS) -c -o libMatrixMultiplication_la-dmulma.lo `test -f 'dmulma.c' || echo '$(srcdir)/'`dmulma.c
+
+libMatrixMultiplication_la-cmulma.lo: cmulma.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixMultiplication_la_CFLAGS) $(CFLAGS) -MT libMatrixMultiplication_la-cmulma.lo -MD -MP -MF $(DEPDIR)/libMatrixMultiplication_la-cmulma.Tpo -c -o libMatrixMultiplication_la-cmulma.lo `test -f 'cmulma.c' || echo '$(srcdir)/'`cmulma.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixMultiplication_la-cmulma.Tpo $(DEPDIR)/libMatrixMultiplication_la-cmulma.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cmulma.c' object='libMatrixMultiplication_la-cmulma.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixMultiplication_la_CFLAGS) $(CFLAGS) -c -o libMatrixMultiplication_la-cmulma.lo `test -f 'cmulma.c' || echo '$(srcdir)/'`cmulma.c
+
+libMatrixMultiplication_la-zmulma.lo: zmulma.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixMultiplication_la_CFLAGS) $(CFLAGS) -MT libMatrixMultiplication_la-zmulma.lo -MD -MP -MF $(DEPDIR)/libMatrixMultiplication_la-zmulma.Tpo -c -o libMatrixMultiplication_la-zmulma.lo `test -f 'zmulma.c' || echo '$(srcdir)/'`zmulma.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixMultiplication_la-zmulma.Tpo $(DEPDIR)/libMatrixMultiplication_la-zmulma.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zmulma.c' object='libMatrixMultiplication_la-zmulma.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixMultiplication_la_CFLAGS) $(CFLAGS) -c -o libMatrixMultiplication_la-zmulma.lo `test -f 'zmulma.c' || echo '$(srcdir)/'`zmulma.c
 
 testMatrixMultiplication-testFloatMatrixMultiplication.o: testFloatMatrixMultiplication.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixMultiplication_CFLAGS) $(CFLAGS) -MT testMatrixMultiplication-testFloatMatrixMultiplication.o -MD -MP -MF $(DEPDIR)/testMatrixMultiplication-testFloatMatrixMultiplication.Tpo -c -o testMatrixMultiplication-testFloatMatrixMultiplication.o `test -f 'testFloatMatrixMultiplication.c' || echo '$(srcdir)/'`testFloatMatrixMultiplication.c
