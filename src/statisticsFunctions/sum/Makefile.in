@@ -54,8 +54,12 @@ pkglibLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkglib_LTLIBRARIES)
 libSum_la_LIBADD =
 am__objects_1 =
-am__objects_2 = libSum_la-ssuma.lo libSum_la-dsuma.lo \
-	libSum_la-csuma.lo libSum_la-zsuma.lo
+am__objects_2 = libSum_la-ssuma.lo libSum_la-srowsuma.lo \
+	libSum_la-scolumnsuma.lo libSum_la-dsuma.lo \
+	libSum_la-drowsuma.lo libSum_la-dcolumnsuma.lo \
+	libSum_la-csuma.lo libSum_la-crowsuma.lo \
+	libSum_la-ccolumnsuma.lo libSum_la-zsuma.lo \
+	libSum_la-zrowsuma.lo libSum_la-zcolumnsuma.lo
 am_libSum_la_OBJECTS = $(am__objects_1) $(am__objects_2)
 libSum_la_OBJECTS = $(am_libSum_la_OBJECTS)
 libSum_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
@@ -212,9 +216,17 @@ instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libSum.la
 libSum_la_SOURCES = $(HEAD) $(SRC)
 SRC = ssuma.c \
+		srowsuma.c \
+		scolumnsuma.c \
 		dsuma.c \
+		drowsuma.c \
+		dcolumnsuma.c \
 		csuma.c \
-		zsuma.c
+		crowsuma.c \
+		ccolumnsuma.c \
+		zsuma.c \
+		zrowsuma.c \
+		zcolumnsuma.c
 
 HEAD = ../includes/sum.h
 
@@ -321,9 +333,17 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSum_la-ccolumnsuma.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSum_la-crowsuma.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSum_la-csuma.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSum_la-dcolumnsuma.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSum_la-drowsuma.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSum_la-dsuma.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSum_la-scolumnsuma.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSum_la-srowsuma.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSum_la-ssuma.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSum_la-zcolumnsuma.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSum_la-zrowsuma.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSum_la-zsuma.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleSum-testDoubleSum.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatSum-testFloatSum.Po@am__quote@
@@ -356,12 +376,40 @@ libSum_la-ssuma.lo: ssuma.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSum_la_CFLAGS) $(CFLAGS) -c -o libSum_la-ssuma.lo `test -f 'ssuma.c' || echo '$(srcdir)/'`ssuma.c
 
+libSum_la-srowsuma.lo: srowsuma.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSum_la_CFLAGS) $(CFLAGS) -MT libSum_la-srowsuma.lo -MD -MP -MF $(DEPDIR)/libSum_la-srowsuma.Tpo -c -o libSum_la-srowsuma.lo `test -f 'srowsuma.c' || echo '$(srcdir)/'`srowsuma.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSum_la-srowsuma.Tpo $(DEPDIR)/libSum_la-srowsuma.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='srowsuma.c' object='libSum_la-srowsuma.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSum_la_CFLAGS) $(CFLAGS) -c -o libSum_la-srowsuma.lo `test -f 'srowsuma.c' || echo '$(srcdir)/'`srowsuma.c
+
+libSum_la-scolumnsuma.lo: scolumnsuma.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSum_la_CFLAGS) $(CFLAGS) -MT libSum_la-scolumnsuma.lo -MD -MP -MF $(DEPDIR)/libSum_la-scolumnsuma.Tpo -c -o libSum_la-scolumnsuma.lo `test -f 'scolumnsuma.c' || echo '$(srcdir)/'`scolumnsuma.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSum_la-scolumnsuma.Tpo $(DEPDIR)/libSum_la-scolumnsuma.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scolumnsuma.c' object='libSum_la-scolumnsuma.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSum_la_CFLAGS) $(CFLAGS) -c -o libSum_la-scolumnsuma.lo `test -f 'scolumnsuma.c' || echo '$(srcdir)/'`scolumnsuma.c
+
 libSum_la-dsuma.lo: dsuma.c
 @am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSum_la_CFLAGS) $(CFLAGS) -MT libSum_la-dsuma.lo -MD -MP -MF $(DEPDIR)/libSum_la-dsuma.Tpo -c -o libSum_la-dsuma.lo `test -f 'dsuma.c' || echo '$(srcdir)/'`dsuma.c
 @am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSum_la-dsuma.Tpo $(DEPDIR)/libSum_la-dsuma.Plo
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dsuma.c' object='libSum_la-dsuma.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSum_la_CFLAGS) $(CFLAGS) -c -o libSum_la-dsuma.lo `test -f 'dsuma.c' || echo '$(srcdir)/'`dsuma.c
+
+libSum_la-drowsuma.lo: drowsuma.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSum_la_CFLAGS) $(CFLAGS) -MT libSum_la-drowsuma.lo -MD -MP -MF $(DEPDIR)/libSum_la-drowsuma.Tpo -c -o libSum_la-drowsuma.lo `test -f 'drowsuma.c' || echo '$(srcdir)/'`drowsuma.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSum_la-drowsuma.Tpo $(DEPDIR)/libSum_la-drowsuma.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='drowsuma.c' object='libSum_la-drowsuma.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSum_la_CFLAGS) $(CFLAGS) -c -o libSum_la-drowsuma.lo `test -f 'drowsuma.c' || echo '$(srcdir)/'`drowsuma.c
+
+libSum_la-dcolumnsuma.lo: dcolumnsuma.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSum_la_CFLAGS) $(CFLAGS) -MT libSum_la-dcolumnsuma.lo -MD -MP -MF $(DEPDIR)/libSum_la-dcolumnsuma.Tpo -c -o libSum_la-dcolumnsuma.lo `test -f 'dcolumnsuma.c' || echo '$(srcdir)/'`dcolumnsuma.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSum_la-dcolumnsuma.Tpo $(DEPDIR)/libSum_la-dcolumnsuma.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dcolumnsuma.c' object='libSum_la-dcolumnsuma.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSum_la_CFLAGS) $(CFLAGS) -c -o libSum_la-dcolumnsuma.lo `test -f 'dcolumnsuma.c' || echo '$(srcdir)/'`dcolumnsuma.c
 
 libSum_la-csuma.lo: csuma.c
 @am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSum_la_CFLAGS) $(CFLAGS) -MT libSum_la-csuma.lo -MD -MP -MF $(DEPDIR)/libSum_la-csuma.Tpo -c -o libSum_la-csuma.lo `test -f 'csuma.c' || echo '$(srcdir)/'`csuma.c
@@ -370,12 +418,40 @@ libSum_la-csuma.lo: csuma.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSum_la_CFLAGS) $(CFLAGS) -c -o libSum_la-csuma.lo `test -f 'csuma.c' || echo '$(srcdir)/'`csuma.c
 
+libSum_la-crowsuma.lo: crowsuma.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSum_la_CFLAGS) $(CFLAGS) -MT libSum_la-crowsuma.lo -MD -MP -MF $(DEPDIR)/libSum_la-crowsuma.Tpo -c -o libSum_la-crowsuma.lo `test -f 'crowsuma.c' || echo '$(srcdir)/'`crowsuma.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSum_la-crowsuma.Tpo $(DEPDIR)/libSum_la-crowsuma.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crowsuma.c' object='libSum_la-crowsuma.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSum_la_CFLAGS) $(CFLAGS) -c -o libSum_la-crowsuma.lo `test -f 'crowsuma.c' || echo '$(srcdir)/'`crowsuma.c
+
+libSum_la-ccolumnsuma.lo: ccolumnsuma.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSum_la_CFLAGS) $(CFLAGS) -MT libSum_la-ccolumnsuma.lo -MD -MP -MF $(DEPDIR)/libSum_la-ccolumnsuma.Tpo -c -o libSum_la-ccolumnsuma.lo `test -f 'ccolumnsuma.c' || echo '$(srcdir)/'`ccolumnsuma.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSum_la-ccolumnsuma.Tpo $(DEPDIR)/libSum_la-ccolumnsuma.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ccolumnsuma.c' object='libSum_la-ccolumnsuma.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSum_la_CFLAGS) $(CFLAGS) -c -o libSum_la-ccolumnsuma.lo `test -f 'ccolumnsuma.c' || echo '$(srcdir)/'`ccolumnsuma.c
+
 libSum_la-zsuma.lo: zsuma.c
 @am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSum_la_CFLAGS) $(CFLAGS) -MT libSum_la-zsuma.lo -MD -MP -MF $(DEPDIR)/libSum_la-zsuma.Tpo -c -o libSum_la-zsuma.lo `test -f 'zsuma.c' || echo '$(srcdir)/'`zsuma.c
 @am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSum_la-zsuma.Tpo $(DEPDIR)/libSum_la-zsuma.Plo
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zsuma.c' object='libSum_la-zsuma.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSum_la_CFLAGS) $(CFLAGS) -c -o libSum_la-zsuma.lo `test -f 'zsuma.c' || echo '$(srcdir)/'`zsuma.c
+
+libSum_la-zrowsuma.lo: zrowsuma.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSum_la_CFLAGS) $(CFLAGS) -MT libSum_la-zrowsuma.lo -MD -MP -MF $(DEPDIR)/libSum_la-zrowsuma.Tpo -c -o libSum_la-zrowsuma.lo `test -f 'zrowsuma.c' || echo '$(srcdir)/'`zrowsuma.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSum_la-zrowsuma.Tpo $(DEPDIR)/libSum_la-zrowsuma.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zrowsuma.c' object='libSum_la-zrowsuma.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSum_la_CFLAGS) $(CFLAGS) -c -o libSum_la-zrowsuma.lo `test -f 'zrowsuma.c' || echo '$(srcdir)/'`zrowsuma.c
+
+libSum_la-zcolumnsuma.lo: zcolumnsuma.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSum_la_CFLAGS) $(CFLAGS) -MT libSum_la-zcolumnsuma.lo -MD -MP -MF $(DEPDIR)/libSum_la-zcolumnsuma.Tpo -c -o libSum_la-zcolumnsuma.lo `test -f 'zcolumnsuma.c' || echo '$(srcdir)/'`zcolumnsuma.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSum_la-zcolumnsuma.Tpo $(DEPDIR)/libSum_la-zcolumnsuma.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zcolumnsuma.c' object='libSum_la-zcolumnsuma.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSum_la_CFLAGS) $(CFLAGS) -c -o libSum_la-zcolumnsuma.lo `test -f 'zcolumnsuma.c' || echo '$(srcdir)/'`zcolumnsuma.c
 
 testDoubleSum-testDoubleSum.o: testDoubleSum.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleSum_CFLAGS) $(CFLAGS) -MT testDoubleSum-testDoubleSum.o -MD -MP -MF $(DEPDIR)/testDoubleSum-testDoubleSum.Tpo -c -o testDoubleSum-testDoubleSum.o `test -f 'testDoubleSum.c' || echo '$(srcdir)/'`testDoubleSum.c
