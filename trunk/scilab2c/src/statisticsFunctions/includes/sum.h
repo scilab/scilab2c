@@ -55,14 +55,18 @@
 ** \returns the sum.
 */
 float		ssuma(float *in, int size);
+void		srowsuma(float *in, int lines, int columns, float* out);
+void		scolumnsuma(float *in, int lines, int columns, float* out);
 
 /*
-** \brief Sum of a float array
+** \brief Sum of a double array
 ** \param in the double array to process
 ** \param size, the size of the array
 ** \returns the sum.
 */
 double		dsuma(double *in, int size);
+void		drowsuma(double *in, int lines, int columns, double* out);
+void		dcolumnsuma(double *in, int lines, int columns, double* out);
 
 /*
 ** \brief Sum of a float complex array
@@ -71,6 +75,8 @@ double		dsuma(double *in, int size);
 ** \returns the sum.
 */
 floatComplex	csuma(floatComplex *in, int size);
+void		crowsuma(floatComplex *in, int lines, int columns, floatComplex* out);
+void		ccolumnsuma(floatComplex *in, int lines, int columns, floatComplex* out);
 
 /*
 ** \brief Sum of a double complex array
@@ -79,5 +85,7 @@ floatComplex	csuma(floatComplex *in, int size);
 ** \returns the sum.
 */
 doubleComplex	zsuma(doubleComplex *in, int size);
+void		zrowsuma(doubleComplex *in, int lines, int columns, doubleComplex* out);
+void		zcolumnsuma(doubleComplex *in, int lines, int columns, doubleComplex* out);
 
 #endif /* !__SUM_H__ */

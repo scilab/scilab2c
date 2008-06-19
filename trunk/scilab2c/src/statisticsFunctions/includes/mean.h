@@ -55,14 +55,18 @@
 ** \returns the mean.
 */
 float		smeana(float *in, int size);
+void		srowmeana(float *in, int lines, int columns, float* out);
+void		scolumnmeana(float *in, int lines, int columns, float* out);
 
 /*
-** \brief Mean of a float array
+** \brief Mean of a double array
 ** \param in the double array to process
 ** \param size, the size of the array
 ** \returns the mean.
 */
 double		dmeana(double *in, int size);
+void		drowmeana(double *in, int lines, int columns, double* out);
+void		dcolumnmeana(double *in, int lines, int columns, double* out);
 
 /*
 ** \brief Mean of a float complex array
@@ -71,6 +75,8 @@ double		dmeana(double *in, int size);
 ** \returns the mean.
 */
 floatComplex	cmeana(floatComplex *in, int size);
+void		crowmeana(floatComplex *in, int lines, int columns, floatComplex* out);
+void		ccolumnmeana(floatComplex *in, int lines, int columns, floatComplex* out);
 
 /*
 ** \brief Mean of a double complex array
@@ -79,5 +85,6 @@ floatComplex	cmeana(floatComplex *in, int size);
 ** \returns the mean.
 */
 doubleComplex	zmeana(doubleComplex *in, int size);
-
+void		zrowmeana(doubleComplex *in, int lines, int columns, doubleComplex* out);
+void		zcolumnmeana(doubleComplex *in, int lines, int columns, doubleComplex* out);
 #endif /* !__MEAN_H__ */
