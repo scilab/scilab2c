@@ -12,5 +12,6 @@
 
 SUBDIRS= 	addition \
 		subtraction \
-		multiplication #\
-		#division
+		multiplication \
+		cat
+
