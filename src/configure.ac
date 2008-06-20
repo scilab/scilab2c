@@ -169,6 +169,7 @@ matrixOperations/addition/Makefile
 matrixOperations/subtraction/Makefile
 matrixOperations/multiplication/Makefile
 matrixOperations/division/Makefile
+matrixOperations/cat/Makefile
 implicitList/Makefile
 elementaryFunctions/Makefile
 elementaryFunctions/cos/Makefile
