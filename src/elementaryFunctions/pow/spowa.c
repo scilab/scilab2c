@@ -10,11 +10,11 @@
  *
  */
 
-#include "exp.h"
+#include "pow.h"
 
-void sexpa(float* x, int size, float* y) {
+void spowa(float* x, int size, float y, float *out) {
   int i = 0;
   for (i = 0; i < size; ++i) {
-    y[i] = sexps(x[i]);
+    out[i] = spows(x[i], y);
   }
 }
