@@ -35,7 +35,7 @@ TESTS		=	testType
 #
 # -*- Type Tests -*-
 #
-testType_SOURCES = 	testType.c
+testType_SOURCES = 	testType.h testType.c
 testType_CFLAGS	=	$(check_INCLUDES)
 testType_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
