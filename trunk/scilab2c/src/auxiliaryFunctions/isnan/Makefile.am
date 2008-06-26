@@ -40,7 +40,7 @@ TESTS		=	testIsnan
 #
 # -*- Isnan Tests -*-
 #
-testIsnan_SOURCES = 	testIsNan.c
+testIsnan_SOURCES = 	testIsNan.h testIsNan.c
 testIsnan_CFLAGS  =	$(check_INCLUDES)
 testIsnan_LDADD	  =	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \

@@ -40,7 +40,7 @@ TESTS		=	testIsEmpty
 #
 # -*- Isempty Tests -*-
 #
-testIsEmpty_SOURCES	= 	testIsEmpty.c
+testIsEmpty_SOURCES	= 	testIsEmpty.h testIsEmpty.c
 testIsEmpty_CFLAGS	=	$(check_INCLUDES)
 testIsEmpty_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 				$(top_builddir)/type/libFloatComplex.la \
