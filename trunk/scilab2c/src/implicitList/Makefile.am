@@ -17,7 +17,10 @@ instdir = $(top_builddir)/lib
 
 pkglib_LTLIBRARIES = libImplicitlist.la
 
-libImplicitlist_la_SOURCES = 	simplicitLists.c \
+HEAD = implicitList.h
+
+libImplicitlist_la_SOURCES = 	$(HEAD) \
+				simplicitLists.c \
 				dimplicitLists.c \
 				cimplicitLists.c \
 				zimplicitLists.c
