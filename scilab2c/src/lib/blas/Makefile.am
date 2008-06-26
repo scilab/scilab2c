@@ -80,5 +80,7 @@ instdir = $(top_builddir)/lib
 
 pkglib_LTLIBRARIES = libsciblas.la
 
-libsciblas_la_SOURCES = $(BLAS_FORTRAN_SOURCES)
+HEAD = $(top_builddir)/includes/blas.h
+
+libsciblas_la_SOURCES = $(HEAD) $(BLAS_FORTRAN_SOURCES)
 
