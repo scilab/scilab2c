@@ -301,7 +301,9 @@ zlaqr1.f \
 dlaqr2.f \
 dlaqr1.f
 
-libscilapack_la_SOURCES = $(LAPACK_FORTRAN_SOURCES)
+HEAD = $(top_builddir)/includes/lapack.h
+
+libscilapack_la_SOURCES = $(HEAD) $(LAPACK_FORTRAN_SOURCES)
 
 libdummy_lapack_la_SOURCES = dlamch.f slamch.f
 
