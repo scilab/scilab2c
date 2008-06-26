@@ -56,10 +56,10 @@ TESTS		=	testFloatLog10 testDoubleLog10
 #
 # -*- 10-Base Logarithm Tests -*-
 #
-testFloatLog10_SOURCES = 	testFloatLog10.c
+testFloatLog10_SOURCES = 	testLog10.h testFloatLog10.c
 testFloatLog10_CFLAGS =		$(check_INCLUDES)
 testFloatLog10_LDADD =		$(check_LDADD)
 
-testDoubleLog10_SOURCES = 	testDoubleLog10.c
+testDoubleLog10_SOURCES = 	testLog10.h testDoubleLog10.c
 testDoubleLog10_CFLAGS =	$(check_INCLUDES)
 testDoubleLog10_LDADD =		$(check_LDADD)

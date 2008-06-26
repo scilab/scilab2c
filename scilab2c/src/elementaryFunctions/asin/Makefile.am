@@ -61,10 +61,10 @@ TESTS		=	testFloatAsin testDoubleAsin
 #
 # -*- ArcSine Tests -*-
 #
-testFloatAsin_SOURCES =	testFloatAsin.c
+testFloatAsin_SOURCES =	testAsin.h testFloatAsin.c
 testFloatAsin_CFLAGS =	$(check_INCLUDES)
 testFloatAsin_LDADD =	$(check_LDADD)
 
-testDoubleAsin_SOURCES = testDoubleAsin.c
+testDoubleAsin_SOURCES = testAsin.h testDoubleAsin.c
 testDoubleAsin_CFLAGS =	$(check_INCLUDES)
 testDoubleAsin_LDADD =	$(check_LDADD)

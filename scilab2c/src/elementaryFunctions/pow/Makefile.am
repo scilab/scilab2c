@@ -58,10 +58,10 @@ check_PROGRAMS	= 	testFloatPow testDoublePow
 
 TESTS		=	testFloatPow testDoublePow
 
-testFloatPow_SOURCES = 	testFloatPow.c
+testFloatPow_SOURCES = 	testPow.h testFloatPow.c
 testFloatPow_CFLAGS =	$(check_INCLUDES)
 testFloatPow_LDADD =	$(check_LDADD)
 
-testDoublePow_SOURCES = testDoublePow.c
+testDoublePow_SOURCES = testPow.h testDoublePow.c
 testDoublePow_CFLAGS =	$(check_INCLUDES)
 testDoublePow_LDADD =	$(check_LDADD)

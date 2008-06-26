@@ -45,10 +45,10 @@ check_PROGRAMS	= 	testFloatLnp1m1 testDoubleLnp1m1
 
 TESTS		=	testFloatLnp1m1 testDoubleLnp1m1
 
-testFloatLnp1m1_SOURCES = 	testFloatLnp1m1.c
+testFloatLnp1m1_SOURCES = 	testLnp1m1.h testFloatLnp1m1.c
 testFloatLnp1m1_CFLAGS =	$(check_INCLUDES)
 testFloatLnp1m1_LDADD =	$(check_LDADD)
 
-testDoubleLnp1m1_SOURCES = 	testDoubleLnp1m1.c
+testDoubleLnp1m1_SOURCES = 	testLnp1m1.h testDoubleLnp1m1.c
 testDoubleLnp1m1_CFLAGS	=	$(check_INCLUDES)
 testDoubleLnp1m1_LDADD	=	$(check_LDADD)

@@ -53,10 +53,10 @@ check_PROGRAMS	= 	testFloatLog testDoubleLog
 
 TESTS		=	testFloatLog testDoubleLog
 
-testFloatLog_SOURCES = 	testFloatLog.c
+testFloatLog_SOURCES = 	testLog.h testFloatLog.c
 testFloatLog_CFLAGS =	$(check_INCLUDES)
 testFloatLog_LDADD =	$(check_LDADD)
 
-testDoubleLog_SOURCES = 	testDoubleLog.c
+testDoubleLog_SOURCES = 	testLog.h testDoubleLog.c
 testDoubleLog_CFLAGS	=	$(check_INCLUDES)
 testDoubleLog_LDADD	=	$(check_LDADD)

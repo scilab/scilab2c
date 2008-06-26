@@ -58,10 +58,10 @@ TESTS		=	testFloatAcosh testDoubleAcosh
 #
 # -*- Hyperbolic Acosine Tests -*-
 #
-testFloatAcosh_SOURCES = 	testFloatAcosh.c
+testFloatAcosh_SOURCES = 	testAcosh.h testFloatAcosh.c
 testFloatAcosh_CFLAGS  =	$(check_INCLUDES)
 testFloatAcosh_LDADD	  =	$(check_LDADD)
 
-testDoubleAcosh_SOURCES = 	testDoubleAcosh.c
+testDoubleAcosh_SOURCES = 	testAcosh.h testDoubleAcosh.c
 testDoubleAcosh_CFLAGS  =	$(check_INCLUDES)
 testDoubleAcosh_LDADD	  =	$(check_LDADD)
