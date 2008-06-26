@@ -65,7 +65,8 @@ libdummy_lapack_la_LINK = $(LIBTOOL) --tag=F77 $(AM_LIBTOOLFLAGS) \
 	$(LDFLAGS) -o $@
 libscilapack_la_DEPENDENCIES = libdummy-lapack.la \
 	$(top_builddir)/lib/blas/libsciblas.la
-am__objects_1 = dlasv2.lo zgeqpf.lo zrot.lo dpotrf.lo zunmr3.lo \
+am__objects_1 =
+am__objects_2 = dlasv2.lo zgeqpf.lo zrot.lo dpotrf.lo zunmr3.lo \
 	zlanhs.lo zgebak.lo zbdsqr.lo zunmrz.lo dgetc2.lo zlaqp2.lo \
 	dsytrd.lo dsytd2.lo zlange.lo dlansp.lo dhgeqz.lo dlasq2.lo \
 	dtrevc.lo dgelsy.lo zladiv.lo dlaswp.lo dormlq.lo dorml2.lo \
@@ -114,7 +115,7 @@ am__objects_1 = dlasv2.lo zgeqpf.lo zrot.lo dpotrf.lo zunmr3.lo \
 	iparmq.lo disnan.lo dlaisnan.lo dlahr2.lo zlaqr3.lo zlaqr4.lo \
 	zlaqr5.lo dlazq4.lo dlaqr3.lo dlaqr4.lo dlaqr5.lo zlaqr2.lo \
 	zlaqr1.lo dlaqr2.lo dlaqr1.lo
-am_libscilapack_la_OBJECTS = $(am__objects_1)
+am_libscilapack_la_OBJECTS = $(am__objects_1) $(am__objects_2)
 libscilapack_la_OBJECTS = $(am_libscilapack_la_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/includes
 F77COMPILE = $(F77) $(AM_FFLAGS) $(FFLAGS)
@@ -123,6 +124,15 @@ LTF77COMPILE = $(LIBTOOL) --tag=F77 $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 F77LD = $(F77)
 F77LINK = $(LIBTOOL) --tag=F77 $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(F77LD) $(AM_FFLAGS) $(FFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
+COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
+	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+LTCOMPILE = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
+	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+CCLD = $(CC)
+LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
 SOURCES = $(libdummy_lapack_la_SOURCES) $(libscilapack_la_SOURCES)
 DIST_SOURCES = $(libdummy_lapack_la_SOURCES) \
@@ -536,7 +546,8 @@ zlaqr1.f \
 dlaqr2.f \
 dlaqr1.f
 
-libscilapack_la_SOURCES = $(LAPACK_FORTRAN_SOURCES)
+HEAD = $(top_builddir)/includes/lapack.h
+libscilapack_la_SOURCES = $(HEAD) $(LAPACK_FORTRAN_SOURCES)
 libdummy_lapack_la_SOURCES = dlamch.f slamch.f
 libdummy_lapack_la_FFLAGS = `echo "@FFLAGS@"| sed -e 's|-O[0-9+]|-O0|'`
 libscilapack_la_LIBADD = libdummy-lapack.la \
