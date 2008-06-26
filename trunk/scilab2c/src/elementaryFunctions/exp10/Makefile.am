@@ -59,10 +59,10 @@ check_PROGRAMS	= 	testFloatExp10 testDoubleExp10
 
 TESTS		=	testFloatExp10 testDoubleExp10
 
-testFloatExp10_SOURCES = 	testFloatExp10.c
+testFloatExp10_SOURCES = 	testExp10.h testFloatExp10.c
 testFloatExp10_CFLAGS =		$(check_INCLUDES)
 testFloatExp10_LDADD	=	$(check_LDADD)
 
-testDoubleExp10_SOURCES = 	testDoubleExp10.c
+testDoubleExp10_SOURCES = 	testExp10.h testDoubleExp10.c
 testDoubleExp10_CFLAGS =	$(check_INCLUDES)
 testDoubleExp10_LDADD	=	$(check_LDADD)

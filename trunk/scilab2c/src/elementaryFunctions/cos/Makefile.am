@@ -10,14 +10,18 @@
 ##
 ##
 
-libCos_la_CFLAGS =	-I ../../type \
-		-I ../includes
+
+
+libCos_la_CFLAGS =	-I $(top_builddir)/type \
+			-I $(top_builddir)/elementaryFunctions/includes
 
 instdir = $(top_builddir)/lib
 
 pkglib_LTLIBRARIES =	libCos.la
 
-libCos_la_SOURCES =	$(HEAD) $(SRC)
+libCos_la_SOURCES =  $(HEAD) $(SRC)
+
+HEAD =	../includes/cos.h
 
 SRC	=	scoss.c \
 		dcoss.c \
@@ -27,8 +31,6 @@ SRC	=	scoss.c \
 		dcosa.c \
 		ccosa.c \
 		zcosa.c
-
-HEAD	=	../includes/cos.h
 
 ####
 # Checking Part
@@ -57,10 +59,10 @@ TESTS		=	testFloatCos testDoubleCos
 #
 # -*- Cosine Tests -*-
 #
-testFloatCos_SOURCES = 	testFloatCos.c
+testFloatCos_SOURCES = 	../../includes/constant.h testCos.h testFloatCos.c
 testFloatCos_CFLAGS =	$(check_INCLUDES)
 testFloatCos_LDADD =	$(check_LDADD)
 
-testDoubleCos_SOURCES =	testDoubleCos.c
+testDoubleCos_SOURCES =	../../includes/constant.h testCos.h testDoubleCos.c
 testDoubleCos_CFLAGS =	$(check_INCLUDES)
 testDoubleCos_LDADD =	$(check_LDADD)

@@ -56,10 +56,10 @@ TESTS		=	testFloatAtan testDoubleAtan
 #
 # -*- Arc tangeant Tests -*-
 #
-testFloatAtan_SOURCES = 	testFloatAtan.c
+testFloatAtan_SOURCES = 	testAtan.h testFloatAtan.c
 testFloatAtan_CFLAGS	=	$(check_INCLUDES)
 testFloatAtan_LDADD	=	$(check_LDADD)
 
-testDoubleAtan_SOURCES = 	testDoubleAtan.c
+testDoubleAtan_SOURCES = 	testAtan.h testDoubleAtan.c
 testDoubleAtan_CFLAGS	=	$(check_INCLUDES)
 testDoubleAtan_LDADD	=	$(check_LDADD)

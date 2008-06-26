@@ -58,10 +58,10 @@ TESTS		=	testFloatAsinh testDoubleAsinh
 #
 # -*- Hyperbolic ArcSine Tests -*-
 #
-testFloatAsinh_SOURCES = 	testFloatAsinh.c
+testFloatAsinh_SOURCES = 	testAsinh.h testFloatAsinh.c
 testFloatAsinh_CFLAGS =	$(check_INCLUDES)
 testFloatAsinh_LDADD	=	$(check_LDADD)
 
-testDoubleAsinh_SOURCES = 	testDoubleAsinh.c
+testDoubleAsinh_SOURCES = 	testAsinh.h testDoubleAsinh.c
 testDoubleAsinh_CFLAGS =	$(check_INCLUDES)
 testDoubleAsinh_LDADD	=	$(check_LDADD)

@@ -263,10 +263,10 @@ check_LDADD = $(top_builddir)/lib/lapack/libscilapack.la \
 #
 # -*- Tangeant Tests -*-
 #
-testFloatTan_SOURCES = testFloatTan.c
+testFloatTan_SOURCES = testTan.h testFloatTan.c
 testFloatTan_CFLAGS = $(check_INCLUDES) -g
 testFloatTan_LDADD = $(check_LDADD)
-testDoubleTan_SOURCES = testDoubleTan.c
+testDoubleTan_SOURCES = testTan.h testDoubleTan.c
 testDoubleTan_CFLAGS = $(check_INCLUDES) -g
 testDoubleTan_LDADD = $(check_LDADD)
 all: all-am
