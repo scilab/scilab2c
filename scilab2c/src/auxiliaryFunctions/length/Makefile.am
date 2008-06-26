@@ -35,9 +35,9 @@ TESTS		=	testLength
 #
 # -*- Length Tests -*-
 #
-testLength_SOURCES = 	testLength.c
+testLength_SOURCES = 	testLength.h testLength.c
 testLength_CFLAGS	=	$(check_INCLUDES)
 testLength_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/auxiliaryFunctions/length/libLength.la \
-			@LIBMATH@
+				$(top_builddir)/type/libFloatComplex.la \
+				$(top_builddir)/auxiliaryFunctions/length/libLength.la \
+				@LIBMATH@

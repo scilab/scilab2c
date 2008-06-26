@@ -42,7 +42,7 @@ TESTS		=	testPythag
 #
 # -*- Pythag Tests -*-
 #
-testPythag_SOURCES = 	testPythag.c
+testPythag_SOURCES = 	testPythag.h testPythag.c
 testPythag_CFLAGS  =	$(check_INCLUDES)
 testPythag_LDADD   =	$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/type/libDoubleComplex.la \

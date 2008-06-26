@@ -35,7 +35,7 @@ TESTS		=	testSize
 #
 # -*- Size Tests -*-
 #
-testSize_SOURCES = 	testSize.c
+testSize_SOURCES = 	testSize.h testSize.c
 testSize_CFLAGS	=	$(check_INCLUDES)
 testSize_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \

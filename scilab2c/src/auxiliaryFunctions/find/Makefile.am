@@ -24,7 +24,8 @@ SRC	=	sfinda.c \
 		cfinda.c \
 		zfinda.c
 
-HEAD	=	../includes/find.h
+HEAD	=	../includes/find.h \
+		../../includes/notFound.h
 
 ####
 # Checking Part
@@ -40,7 +41,7 @@ TESTS		=	testFind
 #
 # -*- Find Tests -*-
 #
-testFind_SOURCES = 	testFind.c
+testFind_SOURCES = 	testFind.h testFind.c
 testFind_CFLAGS	=	$(check_INCLUDES)
 testFind_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \

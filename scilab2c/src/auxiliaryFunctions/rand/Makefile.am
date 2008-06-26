@@ -44,7 +44,7 @@ TESTS		=	testRand
 #
 # -*- Rand Tests -*-
 #
-testRand_SOURCES = 	testRand.c
+testRand_SOURCES = 	testRand.h testRand.c
 testRand_CFLAGS	=	$(check_INCLUDES)
 testRand_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \

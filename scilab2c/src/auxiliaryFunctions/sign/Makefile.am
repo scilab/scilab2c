@@ -46,7 +46,7 @@ TESTS		=	testSign
 #
 # -*- Sign Tests -*-
 #
-testSign_SOURCES = 	testSign.c
+testSign_SOURCES = 	testSign.h testSign.c
 testSign_CFLAGS	=	$(check_INCLUDES)
 testSign_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \

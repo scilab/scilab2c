@@ -54,10 +54,10 @@ TESTS		=	testFloatAbs testDoubleAbs
 #
 # -*- Abs Tests -*-
 #
-testFloatAbs_SOURCES = 	testFloatAbs.c
+testFloatAbs_SOURCES = 	testAbs.h testFloatAbs.c
 testFloatAbs_CFLAGS =	$(check_INCLUDES)
 testFloatAbs_LDADD =	$(check_LDADD)
 
-testDoubleAbs_SOURCES =	testDoubleAbs.c
+testDoubleAbs_SOURCES =	testAbs.h testDoubleAbs.c
 testDoubleAbs_CFLAGS =	$(check_INCLUDES)
 testDoubleAbs_LDADD =	$(check_LDADD)
