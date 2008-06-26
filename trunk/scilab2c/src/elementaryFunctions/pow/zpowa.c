@@ -10,11 +10,11 @@
  *
  */
 
-#include "exp.h"
+#include "pow.h"
 
-void zexpa(doubleComplex* x, int size, doubleComplex* y) {
+void zpowa(doubleComplex* x, int size, doubleComplex y, doubleComplex *out) {
   int i = 0;
   for (i = 0; i < size; ++i) {
-    y[i] = zexps(x[i]);
+    out[i] = zpows(x[i], y);
   }
 }
