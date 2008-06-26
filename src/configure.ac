@@ -10,7 +10,7 @@
 ##
 ##
 
-AC_INIT([sci2c],[1.0],[])
+AC_INIT([sci2cLibrary],[0.1],[])
 AC_CONFIG_AUX_DIR(config)
 AC_PREREQ(2.55)
 
@@ -168,7 +168,6 @@ matrixOperations/Makefile
 matrixOperations/addition/Makefile
 matrixOperations/subtraction/Makefile
 matrixOperations/multiplication/Makefile
-matrixOperations/division/Makefile
 matrixOperations/cat/Makefile
 implicitList/Makefile
 elementaryFunctions/Makefile

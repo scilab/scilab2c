@@ -54,7 +54,9 @@ am__installdirs = "$(DESTDIR)$(pkglibdir)"
 pkglibLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkglib_LTLIBRARIES)
 libImplicitlist_la_LIBADD =
-am_libImplicitlist_la_OBJECTS = libImplicitlist_la-simplicitLists.lo \
+am__objects_1 =
+am_libImplicitlist_la_OBJECTS = $(am__objects_1) \
+	libImplicitlist_la-simplicitLists.lo \
 	libImplicitlist_la-dimplicitLists.lo \
 	libImplicitlist_la-cimplicitLists.lo \
 	libImplicitlist_la-zimplicitLists.lo
@@ -215,7 +217,9 @@ libImplicitlist_la_CFLAGS = -I  $(top_builddir)/type \
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libImplicitlist.la
-libImplicitlist_la_SOURCES = simplicitLists.c \
+HEAD = implicitList.h
+libImplicitlist_la_SOURCES = $(HEAD) \
+				simplicitLists.c \
 				dimplicitLists.c \
 				cimplicitLists.c \
 				zimplicitLists.c
