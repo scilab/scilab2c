@@ -17,7 +17,10 @@ instdir = $(top_builddir)/lib
 
 pkglib_LTLIBRARIES = libMatrixAddition.la
 
-libMatrixAddition_la_SOURCES = 	saddma.c \
+HEAD = ../includes/matrixAddition.h
+
+libMatrixAddition_la_SOURCES = 	$(HEAD) \
+				saddma.c \
 				daddma.c \
 				caddma.c \
 				zaddma.c

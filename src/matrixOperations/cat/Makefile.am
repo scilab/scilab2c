@@ -17,7 +17,10 @@ instdir = $(top_builddir)/lib
 
 pkglib_LTLIBRARIES = libMatrixConcatenation.la
 
-libMatrixConcatenation_la_SOURCES = 	scats.c \
+HEAD = ../includes/cat.h
+
+libMatrixConcatenation_la_SOURCES = 	$(HEAD) \
+					scats.c \
 					scata.c \
 					dcats.c \
 					dcata.c \

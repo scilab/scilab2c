@@ -53,9 +53,10 @@ am__installdirs = "$(DESTDIR)$(pkglibdir)"
 pkglibLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkglib_LTLIBRARIES)
 libMatrixAddition_la_LIBADD =
-am_libMatrixAddition_la_OBJECTS = libMatrixAddition_la-saddma.lo \
-	libMatrixAddition_la-daddma.lo libMatrixAddition_la-caddma.lo \
-	libMatrixAddition_la-zaddma.lo
+am__objects_1 =
+am_libMatrixAddition_la_OBJECTS = $(am__objects_1) \
+	libMatrixAddition_la-saddma.lo libMatrixAddition_la-daddma.lo \
+	libMatrixAddition_la-caddma.lo libMatrixAddition_la-zaddma.lo
 libMatrixAddition_la_OBJECTS = $(am_libMatrixAddition_la_OBJECTS)
 libMatrixAddition_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
@@ -203,7 +204,9 @@ libMatrixAddition_la_CFLAGS = -I $(top_builddir)/type \
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libMatrixAddition.la
-libMatrixAddition_la_SOURCES = saddma.c \
+HEAD = ../includes/matrixAddition.h
+libMatrixAddition_la_SOURCES = $(HEAD) \
+				saddma.c \
 				daddma.c \
 				caddma.c \
 				zaddma.c
