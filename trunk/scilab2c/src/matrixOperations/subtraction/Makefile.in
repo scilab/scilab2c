@@ -53,7 +53,8 @@ am__installdirs = "$(DESTDIR)$(pkglibdir)"
 pkglibLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkglib_LTLIBRARIES)
 libMatrixSubtraction_la_LIBADD =
-am_libMatrixSubtraction_la_OBJECTS =  \
+am__objects_1 =
+am_libMatrixSubtraction_la_OBJECTS = $(am__objects_1) \
 	libMatrixSubtraction_la-sdiffma.lo \
 	libMatrixSubtraction_la-ddiffma.lo \
 	libMatrixSubtraction_la-cdiffma.lo \
@@ -206,7 +207,9 @@ libMatrixSubtraction_la_CFLAGS = -I $(top_builddir)/type \
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libMatrixSubtraction.la
-libMatrixSubtraction_la_SOURCES = sdiffma.c \
+HEAD = ../includes/matrixSubtraction.h
+libMatrixSubtraction_la_SOURCES = $(HEAD) \
+					sdiffma.c \
 					ddiffma.c \
 					cdiffma.c \
 					zdiffma.c

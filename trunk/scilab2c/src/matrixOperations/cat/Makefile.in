@@ -55,7 +55,8 @@ am__installdirs = "$(DESTDIR)$(pkglibdir)"
 pkglibLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkglib_LTLIBRARIES)
 libMatrixConcatenation_la_LIBADD =
-am_libMatrixConcatenation_la_OBJECTS =  \
+am__objects_1 =
+am_libMatrixConcatenation_la_OBJECTS = $(am__objects_1) \
 	libMatrixConcatenation_la-scats.lo \
 	libMatrixConcatenation_la-scata.lo \
 	libMatrixConcatenation_la-dcats.lo \
@@ -222,7 +223,9 @@ libMatrixConcatenation_la_CFLAGS = -I $(top_builddir)/type \
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libMatrixConcatenation.la
-libMatrixConcatenation_la_SOURCES = scats.c \
+HEAD = ../includes/cat.h
+libMatrixConcatenation_la_SOURCES = $(HEAD) \
+					scats.c \
 					scata.c \
 					dcats.c \
 					dcata.c \
