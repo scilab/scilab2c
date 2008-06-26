@@ -17,7 +17,10 @@ instdir = $(top_builddir)/lib
 
 pkglib_LTLIBRARIES = libMatrixDivision.la
 
-libMatrixDivision_la_SOURCES = matrixDivision.c
+HEAD = ../includes/matrixDivision.h
+
+libMatrixDivision_la_SOURCES = 	$(HEAD) \
+				matrixDivision.c
 
 check_PROGRAMS = 	testMatrixDivision
 
