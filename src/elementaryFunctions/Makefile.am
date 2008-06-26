@@ -10,6 +10,8 @@
 ##
 ##
 
+dist_SUBDIRS=	includes
+
 SUBDIRS=	cos \
 		cosh \
 		acos \

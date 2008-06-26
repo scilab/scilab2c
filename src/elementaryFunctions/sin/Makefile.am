@@ -57,10 +57,10 @@ TESTS		=	testFloatSin testDoubleSin
 #
 # -*- Sine Tests -*-
 #
-testFloatSin_SOURCES = 	testFloatSin.c
+testFloatSin_SOURCES = 	testSin.h testFloatSin.c
 testFloatSin_CFLAGS	=	$(check_INCLUDES)
 testFloatSin_LDADD	=	$(check_LDADD)
 
-testDoubleSin_SOURCES = 	testDoubleSin.c
+testDoubleSin_SOURCES = 	testSin.h testDoubleSin.c
 testDoubleSin_CFLAGS	=	$(check_INCLUDES)
 testDoubleSin_LDADD	=	$(check_LDADD)

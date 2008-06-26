@@ -54,10 +54,10 @@ check_PROGRAMS	= 	testFloatExp testDoubleExp
 
 TESTS		=	testFloatExp testDoubleExp
 
-testFloatExp_SOURCES = 	testFloatExp.c
+testFloatExp_SOURCES = 	testExp.h testFloatExp.c
 testFloatExp_CFLAGS =	$(check_INCLUDES)
 testFloatExp_LDADD =	$(check_LDADD)
 
-testDoubleExp_SOURCES = testDoubleExp.c
+testDoubleExp_SOURCES = testExp.h testDoubleExp.c
 testDoubleExp_CFLAGS =	$(check_INCLUDES)
 testDoubleExp_LDADD =	$(check_LDADD)

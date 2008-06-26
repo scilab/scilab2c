@@ -57,10 +57,10 @@ TESTS		=	testFloatSinh testDoubleSinh
 #
 # -*- Hyperbolic Sine Tests -*-
 #
-testFloatSinh_SOURCES = 	testFloatSinh.c
+testFloatSinh_SOURCES = 	testSinh.h testFloatSinh.c
 testFloatSinh_CFLAGS	=	$(check_INCLUDES)
 testFloatSinh_LDADD	=	$(check_LDADD)
 
-testDoubleSinh_SOURCES = 	testDoubleSinh.c
+testDoubleSinh_SOURCES = 	testSinh.h testDoubleSinh.c
 testDoubleSinh_CFLAGS	=	$(check_INCLUDES)
 testDoubleSinh_LDADD	=	$(check_LDADD)

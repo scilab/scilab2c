@@ -55,10 +55,10 @@ TESTS		=	testFloatAtanh testDoubleAtanh
 #
 # -*- Hyperbolic ArcTangeant Tests -*-
 #
-testFloatAtanh_SOURCES = 	testFloatAtanh.c
+testFloatAtanh_SOURCES = 	testAtanh.h testFloatAtanh.c
 testFloatAtanh_CFLAGS =		$(check_INCLUDES)
 testFloatAtanh_LDADD =		$(check_LDADD)
 
-testDoubleAtanh_SOURCES = 	testDoubleAtanh.c
+testDoubleAtanh_SOURCES = 	testAtanh.h testDoubleAtanh.c
 testDoubleAtanh_CFLAGS =	$(check_INCLUDES)
 testDoubleAtanh_LDADD =		$(check_LDADD)

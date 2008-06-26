@@ -165,6 +165,7 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
+dist_SUBDIRS = includes
 SUBDIRS = cos \
 		cosh \
 		acos \

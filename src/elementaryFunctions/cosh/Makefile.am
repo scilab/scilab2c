@@ -58,10 +58,10 @@ TESTS		=	testFloatCosh testDoubleCosh
 #
 # -*- Hyperbolic Cosine Tests -*-
 #
-testFloatCosh_SOURCES = 	testFloatCosh.c
+testFloatCosh_SOURCES = 	testCosh.h testFloatCosh.c
 testFloatCosh_CFLAGS	=	$(check_INCLUDES)
 testFloatCosh_LDADD	=	$(check_LDADD)
 
-testDoubleCosh_SOURCES = 	testDoubleCosh.c
+testDoubleCosh_SOURCES = 	testCosh.h testDoubleCosh.c
 testDoubleCosh_CFLAGS	=	$(check_INCLUDES)
 testDoubleCosh_LDADD	=	$(check_LDADD)

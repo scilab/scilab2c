@@ -62,10 +62,10 @@ TESTS		=	testFloatTanh testDoubleTanh
 #
 # -*- Hyperbolic Tangeant Tests -*-
 #
-testFloatTanh_SOURCES = 	testFloatTanh.c
+testFloatTanh_SOURCES = 	testTanh.h testFloatTanh.c
 testFloatTanh_CFLAGS	=	$(check_INCLUDES)
 testFloatTanh_LDADD	=	$(check_LDADD)
 
-testDoubleTanh_SOURCES = 	testDoubleTanh.c
+testDoubleTanh_SOURCES = 	testTanh.h testDoubleTanh.c
 testDoubleTanh_CFLAGS	=	$(check_INCLUDES)
 testDoubleTanh_LDADD	=	$(check_LDADD)

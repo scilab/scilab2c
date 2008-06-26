@@ -55,10 +55,10 @@ TESTS		=	testFloatLog1p testDoubleLog1p
 #
 # -*- Log1p Tests -*-
 #
-testFloatLog1p_SOURCES = 	testFloatLog1p.c
+testFloatLog1p_SOURCES = 	testLog1p.h testFloatLog1p.c
 testFloatLog1p_CFLAGS =		$(check_INCLUDES)
 testFloatLog1p_LDADD	=	$(check_LDADD)
 
-testDoubleLog1p_SOURCES = 	testDoubleLog1p.c
+testDoubleLog1p_SOURCES = 	testLog1p.h testDoubleLog1p.c
 testDoubleLog1p_CFLAGS =	$(check_INCLUDES)
 testDoubleLog1p_LDADD	=	$(check_LDADD)

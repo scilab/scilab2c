@@ -53,10 +53,10 @@ TESTS		=	testFloatSqrt testDoubleSqrt
 #
 # -*- Square Root Tests -*-
 #
-testFloatSqrt_SOURCES = 	testFloatSqrt.c
+testFloatSqrt_SOURCES = 	testSqrt.h testFloatSqrt.c
 testFloatSqrt_CFLAGS	=	$(check_INCLUDES)
 testFloatSqrt_LDADD	=	$(check_LDADD)
 
-testDoubleSqrt_SOURCES = 	testDoubleSqrt.c
+testDoubleSqrt_SOURCES = 	testSqrt.h testDoubleSqrt.c
 testDoubleSqrt_CFLAGS	=	$(check_INCLUDES)
 testDoubleSqrt_LDADD	=	$(check_LDADD)

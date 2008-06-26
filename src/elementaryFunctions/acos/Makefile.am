@@ -29,7 +29,9 @@ SRC	=	sacoss.c \
 		cacosa.c \
 		zacosa.c
 
-HEAD	=	../includes/acos.h
+HEAD	=	../includes/acos.h \
+		../../auxiliaryFunctions/includes/min.h \
+		../../auxiliaryFunctions/includes/max.h
 
 ####
 # Checking Part
@@ -58,10 +60,10 @@ TESTS		=	testFloatAcos testDoubleAcos
 #
 # -*- Acosine Tests -*-
 #
-testFloatAcos_SOURCES = 	testFloatAcos.c
+testFloatAcos_SOURCES = 	testAcos.h testFloatAcos.c
 testFloatAcos_CFLAGS	=	$(check_INCLUDES)
 testFloatAcos_LDADD	=	$(check_LDADD)
 
-testDoubleAcos_SOURCES = 	testDoubleAcos.c
+testDoubleAcos_SOURCES = 	testAcos.h testDoubleAcos.c
 testDoubleAcos_CFLAGS	=	$(check_INCLUDES)
 testDoubleAcos_LDADD	=	$(check_LDADD)
