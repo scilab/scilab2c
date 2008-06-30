@@ -40,7 +40,7 @@ if (userchoice == 'y')
    cd(SCI2CDirectory)
 end
 
-// --- GO BACK TO THE START DIRECTORY. ---
+// --- GO BACK TO THE ORIGINAL DIRECTORY. ---
 cd (RunsDirectory);
 
 // --- CLOSE ALL FILES. ---
