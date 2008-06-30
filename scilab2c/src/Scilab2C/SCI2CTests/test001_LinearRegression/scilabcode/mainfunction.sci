@@ -33,14 +33,23 @@ aeq = mean(y)-mean(x)*beq;
 
 C = 10 .^a;
 gamma = -b;
+
 disp('C')
 disp(C)
+
 disp('gamma');
 disp(gamma);
-disp('a-aeq');
-disp(a-aeq)
-disp('b-beq')
-disp(b-beq)
+
+disp('a');
+disp(a)
+disp('aeq');
+disp(aeq)
+
+disp('b');
+disp(b)
+disp('beq');
+disp(beq)
+
 // plot(Volume,Pressure);
 // plot(Volume,(C ./(Volume.^gamma)),'r')
 endfunction
