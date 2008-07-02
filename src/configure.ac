@@ -205,6 +205,9 @@ auxiliaryFunctions/pythag/Makefile
 statisticsFunctions/Makefile
 statisticsFunctions/mean/Makefile
 statisticsFunctions/sum/Makefile
+string/Makefile
+string/disp/Makefile
+string/string/Makefile
 ])
 
 
