@@ -1,0 +1,7 @@
+
+SUBDIRS = \
+	disp\
+	string
+
+## File created by the gnome-build tools
+
