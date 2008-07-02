@@ -32,9 +32,10 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
+check_PROGRAMS = testFloatDisp$(EXEEXT) testDoubleDisp$(EXEEXT)
+TESTS = testFloatDisp$(EXEEXT) testDoubleDisp$(EXEEXT)
 subdir = string/disp
-DIST_COMMON = $(disp.h_HEADERS) $(srcdir)/Makefile.am \
-	$(srcdir)/Makefile.in
+DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -42,17 +43,55 @@ am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/includes/machine.h
 CONFIG_CLEAN_FILES =
-SOURCES =
-DIST_SOURCES =
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
 am__vpath_adj = case $$p in \
     $(srcdir)/*) f=`echo "$$p" | sed "s|^$$srcdirstrip/||"`;; \
     *) f=$$p;; \
   esac;
 am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
-am__installdirs = "$(DESTDIR)$(disp.hdir)"
-disp.hHEADERS_INSTALL = $(INSTALL_HEADER)
-HEADERS = $(disp.h_HEADERS)
+am__installdirs = "$(DESTDIR)$(pkglibdir)"
+pkglibLTLIBRARIES_INSTALL = $(INSTALL)
+LTLIBRARIES = $(pkglib_LTLIBRARIES)
+libDisp_la_LIBADD =
+am__objects_1 =
+am__objects_2 = libDisp_la-sdisps.lo libDisp_la-ddisps.lo \
+	libDisp_la-cdisps.lo libDisp_la-zdisps.lo libDisp_la-sdispa.lo \
+	libDisp_la-ddispa.lo libDisp_la-cdispa.lo libDisp_la-zdispa.lo
+am_libDisp_la_OBJECTS = $(am__objects_1) $(am__objects_2)
+libDisp_la_OBJECTS = $(am_libDisp_la_OBJECTS)
+libDisp_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libDisp_la_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testDoubleDisp_OBJECTS = testDoubleDisp-testDoubleDisp.$(OBJEXT)
+testDoubleDisp_OBJECTS = $(am_testDoubleDisp_OBJECTS)
+testDoubleDisp_DEPENDENCIES = $(check_LDADD)
+testDoubleDisp_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleDisp_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testFloatDisp_OBJECTS = testFloatDisp-testFloatDisp.$(OBJEXT)
+testFloatDisp_OBJECTS = $(am_testFloatDisp_OBJECTS)
+testFloatDisp_DEPENDENCIES = $(check_LDADD)
+testFloatDisp_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatDisp_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/includes
+depcomp = $(SHELL) $(top_srcdir)/config/depcomp
+am__depfiles_maybe = depfiles
+COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
+	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+LTCOMPILE = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
+	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+CCLD = $(CC)
+LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
+SOURCES = $(libDisp_la_SOURCES) $(testDoubleDisp_SOURCES) \
+	$(testFloatDisp_SOURCES)
+DIST_SOURCES = $(libDisp_la_SOURCES) $(testDoubleDisp_SOURCES) \
+	$(testFloatDisp_SOURCES)
+ETAGS = etags
+CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
 AMTAR = @AMTAR@
@@ -164,16 +203,46 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-disp.h_HEADERS = 
-disp.hdir = \
-	$(pkgincludedir)
+libDisp_la_CFLAGS = -I $(top_builddir)/type \
+			-I $(top_builddir)/string/includes
 
-EXTRA_DIST = \
-	$(disp.h_HEADERS)
+pkglib_LTLIBRARIES = libDisp.la
+libDisp_la_SOURCES = $(HEAD) $(SRC)
+SRC = sdisps.c \
+		ddisps.c \
+		cdisps.c \
+		zdisps.c \
+		sdispa.c \
+		ddispa.c \
+		cdispa.c \
+		zdispa.c
 
+HEAD = ../includes/disp.h
+
+####
+# Checking Part
+####
+check_INCLUDES = -I $(top_builddir)/string/includes \
+			-I $(top_builddir)/type
+
+check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/string/disp/libDisp.la
+
+
+#
+# -*- Dispine Tests -*-
+#
+testFloatDisp_SOURCES = testDisp.h testFloatDisp.c
+testFloatDisp_CFLAGS = $(check_INCLUDES)
+testFloatDisp_LDADD = $(check_LDADD)
+testDoubleDisp_SOURCES = testDisp.h testDoubleDisp.c
+testDoubleDisp_CFLAGS = $(check_INCLUDES)
+testDoubleDisp_LDADD = $(check_LDADD)
 all: all-am
 
 .SUFFIXES:
+.SUFFIXES: .c .lo .o .obj
 $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -203,35 +272,296 @@ $(top_srcdir)/configure: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
+install-pkglibLTLIBRARIES: $(pkglib_LTLIBRARIES)
+	@$(NORMAL_INSTALL)
+	test -z "$(pkglibdir)" || $(MKDIR_P) "$(DESTDIR)$(pkglibdir)"
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
+	  if test -f $$p; then \
+	    f=$(am__strip_dir) \
+	    echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(pkglibLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) '$$p' '$(DESTDIR)$(pkglibdir)/$$f'"; \
+	    $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(pkglibLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) "$$p" "$(DESTDIR)$(pkglibdir)/$$f"; \
+	  else :; fi; \
+	done
+
+uninstall-pkglibLTLIBRARIES:
+	@$(NORMAL_UNINSTALL)
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
+	  p=$(am__strip_dir) \
+	  echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f '$(DESTDIR)$(pkglibdir)/$$p'"; \
+	  $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f "$(DESTDIR)$(pkglibdir)/$$p"; \
+	done
+
+clean-pkglibLTLIBRARIES:
+	-test -z "$(pkglib_LTLIBRARIES)" || rm -f $(pkglib_LTLIBRARIES)
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
+	  dir="`echo $$p | sed -e 's|/[^/]*$$||'`"; \
+	  test "$$dir" != "$$p" || dir=.; \
+	  echo "rm -f \"$${dir}/so_locations\""; \
+	  rm -f "$${dir}/so_locations"; \
+	done
+libDisp.la: $(libDisp_la_OBJECTS) $(libDisp_la_DEPENDENCIES) 
+	$(libDisp_la_LINK) -rpath $(pkglibdir) $(libDisp_la_OBJECTS) $(libDisp_la_LIBADD) $(LIBS)
+
+clean-checkPROGRAMS:
+	@list='$(check_PROGRAMS)'; for p in $$list; do \
+	  f=`echo $$p|sed 's/$(EXEEXT)$$//'`; \
+	  echo " rm -f $$p $$f"; \
+	  rm -f $$p $$f ; \
+	done
+testDoubleDisp$(EXEEXT): $(testDoubleDisp_OBJECTS) $(testDoubleDisp_DEPENDENCIES) 
+	@rm -f testDoubleDisp$(EXEEXT)
+	$(testDoubleDisp_LINK) $(testDoubleDisp_OBJECTS) $(testDoubleDisp_LDADD) $(LIBS)
+testFloatDisp$(EXEEXT): $(testFloatDisp_OBJECTS) $(testFloatDisp_DEPENDENCIES) 
+	@rm -f testFloatDisp$(EXEEXT)
+	$(testFloatDisp_LINK) $(testFloatDisp_OBJECTS) $(testFloatDisp_LDADD) $(LIBS)
+
+mostlyclean-compile:
+	-rm -f *.$(OBJEXT)
+
+distclean-compile:
+	-rm -f *.tab.c
+
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDisp_la-cdispa.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDisp_la-cdisps.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDisp_la-ddispa.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDisp_la-ddisps.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDisp_la-sdispa.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDisp_la-sdisps.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDisp_la-zdispa.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDisp_la-zdisps.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleDisp-testDoubleDisp.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatDisp-testFloatDisp.Po@am__quote@
+
+.c.o:
+@am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(COMPILE) -c $<
+
+.c.obj:
+@am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ `$(CYGPATH_W) '$<'`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(COMPILE) -c `$(CYGPATH_W) '$<'`
+
+.c.lo:
+@am__fastdepCC_TRUE@	$(LTCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
+
+libDisp_la-sdisps.lo: sdisps.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDisp_la_CFLAGS) $(CFLAGS) -MT libDisp_la-sdisps.lo -MD -MP -MF $(DEPDIR)/libDisp_la-sdisps.Tpo -c -o libDisp_la-sdisps.lo `test -f 'sdisps.c' || echo '$(srcdir)/'`sdisps.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libDisp_la-sdisps.Tpo $(DEPDIR)/libDisp_la-sdisps.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sdisps.c' object='libDisp_la-sdisps.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDisp_la_CFLAGS) $(CFLAGS) -c -o libDisp_la-sdisps.lo `test -f 'sdisps.c' || echo '$(srcdir)/'`sdisps.c
+
+libDisp_la-ddisps.lo: ddisps.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDisp_la_CFLAGS) $(CFLAGS) -MT libDisp_la-ddisps.lo -MD -MP -MF $(DEPDIR)/libDisp_la-ddisps.Tpo -c -o libDisp_la-ddisps.lo `test -f 'ddisps.c' || echo '$(srcdir)/'`ddisps.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libDisp_la-ddisps.Tpo $(DEPDIR)/libDisp_la-ddisps.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ddisps.c' object='libDisp_la-ddisps.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDisp_la_CFLAGS) $(CFLAGS) -c -o libDisp_la-ddisps.lo `test -f 'ddisps.c' || echo '$(srcdir)/'`ddisps.c
+
+libDisp_la-cdisps.lo: cdisps.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDisp_la_CFLAGS) $(CFLAGS) -MT libDisp_la-cdisps.lo -MD -MP -MF $(DEPDIR)/libDisp_la-cdisps.Tpo -c -o libDisp_la-cdisps.lo `test -f 'cdisps.c' || echo '$(srcdir)/'`cdisps.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libDisp_la-cdisps.Tpo $(DEPDIR)/libDisp_la-cdisps.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cdisps.c' object='libDisp_la-cdisps.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDisp_la_CFLAGS) $(CFLAGS) -c -o libDisp_la-cdisps.lo `test -f 'cdisps.c' || echo '$(srcdir)/'`cdisps.c
+
+libDisp_la-zdisps.lo: zdisps.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDisp_la_CFLAGS) $(CFLAGS) -MT libDisp_la-zdisps.lo -MD -MP -MF $(DEPDIR)/libDisp_la-zdisps.Tpo -c -o libDisp_la-zdisps.lo `test -f 'zdisps.c' || echo '$(srcdir)/'`zdisps.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libDisp_la-zdisps.Tpo $(DEPDIR)/libDisp_la-zdisps.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zdisps.c' object='libDisp_la-zdisps.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDisp_la_CFLAGS) $(CFLAGS) -c -o libDisp_la-zdisps.lo `test -f 'zdisps.c' || echo '$(srcdir)/'`zdisps.c
+
+libDisp_la-sdispa.lo: sdispa.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDisp_la_CFLAGS) $(CFLAGS) -MT libDisp_la-sdispa.lo -MD -MP -MF $(DEPDIR)/libDisp_la-sdispa.Tpo -c -o libDisp_la-sdispa.lo `test -f 'sdispa.c' || echo '$(srcdir)/'`sdispa.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libDisp_la-sdispa.Tpo $(DEPDIR)/libDisp_la-sdispa.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sdispa.c' object='libDisp_la-sdispa.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDisp_la_CFLAGS) $(CFLAGS) -c -o libDisp_la-sdispa.lo `test -f 'sdispa.c' || echo '$(srcdir)/'`sdispa.c
+
+libDisp_la-ddispa.lo: ddispa.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDisp_la_CFLAGS) $(CFLAGS) -MT libDisp_la-ddispa.lo -MD -MP -MF $(DEPDIR)/libDisp_la-ddispa.Tpo -c -o libDisp_la-ddispa.lo `test -f 'ddispa.c' || echo '$(srcdir)/'`ddispa.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libDisp_la-ddispa.Tpo $(DEPDIR)/libDisp_la-ddispa.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ddispa.c' object='libDisp_la-ddispa.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDisp_la_CFLAGS) $(CFLAGS) -c -o libDisp_la-ddispa.lo `test -f 'ddispa.c' || echo '$(srcdir)/'`ddispa.c
+
+libDisp_la-cdispa.lo: cdispa.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDisp_la_CFLAGS) $(CFLAGS) -MT libDisp_la-cdispa.lo -MD -MP -MF $(DEPDIR)/libDisp_la-cdispa.Tpo -c -o libDisp_la-cdispa.lo `test -f 'cdispa.c' || echo '$(srcdir)/'`cdispa.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libDisp_la-cdispa.Tpo $(DEPDIR)/libDisp_la-cdispa.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cdispa.c' object='libDisp_la-cdispa.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDisp_la_CFLAGS) $(CFLAGS) -c -o libDisp_la-cdispa.lo `test -f 'cdispa.c' || echo '$(srcdir)/'`cdispa.c
+
+libDisp_la-zdispa.lo: zdispa.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDisp_la_CFLAGS) $(CFLAGS) -MT libDisp_la-zdispa.lo -MD -MP -MF $(DEPDIR)/libDisp_la-zdispa.Tpo -c -o libDisp_la-zdispa.lo `test -f 'zdispa.c' || echo '$(srcdir)/'`zdispa.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libDisp_la-zdispa.Tpo $(DEPDIR)/libDisp_la-zdispa.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zdispa.c' object='libDisp_la-zdispa.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDisp_la_CFLAGS) $(CFLAGS) -c -o libDisp_la-zdispa.lo `test -f 'zdispa.c' || echo '$(srcdir)/'`zdispa.c
+
+testDoubleDisp-testDoubleDisp.o: testDoubleDisp.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleDisp_CFLAGS) $(CFLAGS) -MT testDoubleDisp-testDoubleDisp.o -MD -MP -MF $(DEPDIR)/testDoubleDisp-testDoubleDisp.Tpo -c -o testDoubleDisp-testDoubleDisp.o `test -f 'testDoubleDisp.c' || echo '$(srcdir)/'`testDoubleDisp.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleDisp-testDoubleDisp.Tpo $(DEPDIR)/testDoubleDisp-testDoubleDisp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleDisp.c' object='testDoubleDisp-testDoubleDisp.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleDisp_CFLAGS) $(CFLAGS) -c -o testDoubleDisp-testDoubleDisp.o `test -f 'testDoubleDisp.c' || echo '$(srcdir)/'`testDoubleDisp.c
+
+testDoubleDisp-testDoubleDisp.obj: testDoubleDisp.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleDisp_CFLAGS) $(CFLAGS) -MT testDoubleDisp-testDoubleDisp.obj -MD -MP -MF $(DEPDIR)/testDoubleDisp-testDoubleDisp.Tpo -c -o testDoubleDisp-testDoubleDisp.obj `if test -f 'testDoubleDisp.c'; then $(CYGPATH_W) 'testDoubleDisp.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleDisp.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleDisp-testDoubleDisp.Tpo $(DEPDIR)/testDoubleDisp-testDoubleDisp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleDisp.c' object='testDoubleDisp-testDoubleDisp.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleDisp_CFLAGS) $(CFLAGS) -c -o testDoubleDisp-testDoubleDisp.obj `if test -f 'testDoubleDisp.c'; then $(CYGPATH_W) 'testDoubleDisp.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleDisp.c'; fi`
+
+testFloatDisp-testFloatDisp.o: testFloatDisp.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatDisp_CFLAGS) $(CFLAGS) -MT testFloatDisp-testFloatDisp.o -MD -MP -MF $(DEPDIR)/testFloatDisp-testFloatDisp.Tpo -c -o testFloatDisp-testFloatDisp.o `test -f 'testFloatDisp.c' || echo '$(srcdir)/'`testFloatDisp.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatDisp-testFloatDisp.Tpo $(DEPDIR)/testFloatDisp-testFloatDisp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatDisp.c' object='testFloatDisp-testFloatDisp.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatDisp_CFLAGS) $(CFLAGS) -c -o testFloatDisp-testFloatDisp.o `test -f 'testFloatDisp.c' || echo '$(srcdir)/'`testFloatDisp.c
+
+testFloatDisp-testFloatDisp.obj: testFloatDisp.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatDisp_CFLAGS) $(CFLAGS) -MT testFloatDisp-testFloatDisp.obj -MD -MP -MF $(DEPDIR)/testFloatDisp-testFloatDisp.Tpo -c -o testFloatDisp-testFloatDisp.obj `if test -f 'testFloatDisp.c'; then $(CYGPATH_W) 'testFloatDisp.c'; else $(CYGPATH_W) '$(srcdir)/testFloatDisp.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatDisp-testFloatDisp.Tpo $(DEPDIR)/testFloatDisp-testFloatDisp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatDisp.c' object='testFloatDisp-testFloatDisp.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatDisp_CFLAGS) $(CFLAGS) -c -o testFloatDisp-testFloatDisp.obj `if test -f 'testFloatDisp.c'; then $(CYGPATH_W) 'testFloatDisp.c'; else $(CYGPATH_W) '$(srcdir)/testFloatDisp.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
 
 clean-libtool:
 	-rm -rf .libs _libs
-install-disp.hHEADERS: $(disp.h_HEADERS)
-	@$(NORMAL_INSTALL)
-	test -z "$(disp.hdir)" || $(MKDIR_P) "$(DESTDIR)$(disp.hdir)"
-	@list='$(disp.h_HEADERS)'; for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  f=$(am__strip_dir) \
-	  echo " $(disp.hHEADERS_INSTALL) '$$d$$p' '$(DESTDIR)$(disp.hdir)/$$f'"; \
-	  $(disp.hHEADERS_INSTALL) "$$d$$p" "$(DESTDIR)$(disp.hdir)/$$f"; \
-	done
 
-uninstall-disp.hHEADERS:
-	@$(NORMAL_UNINSTALL)
-	@list='$(disp.h_HEADERS)'; for p in $$list; do \
-	  f=$(am__strip_dir) \
-	  echo " rm -f '$(DESTDIR)$(disp.hdir)/$$f'"; \
-	  rm -f "$(DESTDIR)$(disp.hdir)/$$f"; \
-	done
+ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
+	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
+	unique=`for i in $$list; do \
+	    if test -f "$$i"; then echo $$i; else echo $(srcdir)/$$i; fi; \
+	  done | \
+	  $(AWK) '{ files[$$0] = 1; nonemtpy = 1; } \
+	      END { if (nonempty) { for (i in files) print i; }; }'`; \
+	mkid -fID $$unique
 tags: TAGS
-TAGS:
 
+TAGS:  $(HEADERS) $(SOURCES)  $(TAGS_DEPENDENCIES) \
+		$(TAGS_FILES) $(LISP)
+	tags=; \
+	here=`pwd`; \
+	list='$(SOURCES) $(HEADERS)  $(LISP) $(TAGS_FILES)'; \
+	unique=`for i in $$list; do \
+	    if test -f "$$i"; then echo $$i; else echo $(srcdir)/$$i; fi; \
+	  done | \
+	  $(AWK) '{ files[$$0] = 1; nonempty = 1; } \
+	      END { if (nonempty) { for (i in files) print i; }; }'`; \
+	if test -z "$(ETAGS_ARGS)$$tags$$unique"; then :; else \
+	  test -n "$$unique" || unique=$$empty_fix; \
+	  $(ETAGS) $(ETAGSFLAGS) $(AM_ETAGSFLAGS) $(ETAGS_ARGS) \
+	    $$tags $$unique; \
+	fi
 ctags: CTAGS
-CTAGS:
+CTAGS:  $(HEADERS) $(SOURCES)  $(TAGS_DEPENDENCIES) \
+		$(TAGS_FILES) $(LISP)
+	tags=; \
+	list='$(SOURCES) $(HEADERS)  $(LISP) $(TAGS_FILES)'; \
+	unique=`for i in $$list; do \
+	    if test -f "$$i"; then echo $$i; else echo $(srcdir)/$$i; fi; \
+	  done | \
+	  $(AWK) '{ files[$$0] = 1; nonempty = 1; } \
+	      END { if (nonempty) { for (i in files) print i; }; }'`; \
+	test -z "$(CTAGS_ARGS)$$tags$$unique" \
+	  || $(CTAGS) $(CTAGSFLAGS) $(AM_CTAGSFLAGS) $(CTAGS_ARGS) \
+	     $$tags $$unique
 
+GTAGS:
+	here=`$(am__cd) $(top_builddir) && pwd` \
+	  && cd $(top_srcdir) \
+	  && gtags -i $(GTAGS_ARGS) $$here
+
+distclean-tags:
+	-rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+
+check-TESTS: $(TESTS)
+	@failed=0; all=0; xfail=0; xpass=0; skip=0; ws='[	 ]'; \
+	srcdir=$(srcdir); export srcdir; \
+	list=' $(TESTS) '; \
+	if test -n "$$list"; then \
+	  for tst in $$list; do \
+	    if test -f ./$$tst; then dir=./; \
+	    elif test -f $$tst; then dir=; \
+	    else dir="$(srcdir)/"; fi; \
+	    if $(TESTS_ENVIRONMENT) $${dir}$$tst; then \
+	      all=`expr $$all + 1`; \
+	      case " $(XFAIL_TESTS) " in \
+	      *$$ws$$tst$$ws*) \
+		xpass=`expr $$xpass + 1`; \
+		failed=`expr $$failed + 1`; \
+		echo "XPASS: $$tst"; \
+	      ;; \
+	      *) \
+		echo "PASS: $$tst"; \
+	      ;; \
+	      esac; \
+	    elif test $$? -ne 77; then \
+	      all=`expr $$all + 1`; \
+	      case " $(XFAIL_TESTS) " in \
+	      *$$ws$$tst$$ws*) \
+		xfail=`expr $$xfail + 1`; \
+		echo "XFAIL: $$tst"; \
+	      ;; \
+	      *) \
+		failed=`expr $$failed + 1`; \
+		echo "FAIL: $$tst"; \
+	      ;; \
+	      esac; \
+	    else \
+	      skip=`expr $$skip + 1`; \
+	      echo "SKIP: $$tst"; \
+	    fi; \
+	  done; \
+	  if test "$$failed" -eq 0; then \
+	    if test "$$xfail" -eq 0; then \
+	      banner="All $$all tests passed"; \
+	    else \
+	      banner="All $$all tests behaved as expected ($$xfail expected failures)"; \
+	    fi; \
+	  else \
+	    if test "$$xpass" -eq 0; then \
+	      banner="$$failed of $$all tests failed"; \
+	    else \
+	      banner="$$failed of $$all tests did not behave as expected ($$xpass unexpected passes)"; \
+	    fi; \
+	  fi; \
+	  dashes="$$banner"; \
+	  skipped=""; \
+	  if test "$$skip" -ne 0; then \
+	    skipped="($$skip tests were not run)"; \
+	    test `echo "$$skipped" | wc -c` -le `echo "$$banner" | wc -c` || \
+	      dashes="$$skipped"; \
+	  fi; \
+	  report=""; \
+	  if test "$$failed" -ne 0 && test -n "$(PACKAGE_BUGREPORT)"; then \
+	    report="Please report to $(PACKAGE_BUGREPORT)"; \
+	    test `echo "$$report" | wc -c` -le `echo "$$banner" | wc -c` || \
+	      dashes="$$report"; \
+	  fi; \
+	  dashes=`echo "$$dashes" | sed s/./=/g`; \
+	  echo "$$dashes"; \
+	  echo "$$banner"; \
+	  test -z "$$skipped" || echo "$$skipped"; \
+	  test -z "$$report" || echo "$$report"; \
+	  echo "$$dashes"; \
+	  test "$$failed" -eq 0; \
+	else :; fi
 
 distdir: $(DISTFILES)
 	@srcdirstrip=`echo "$(srcdir)" | sed 's/[].[^$$\\*]/\\\\&/g'`; \
@@ -260,10 +590,12 @@ distdir: $(DISTFILES)
 	  fi; \
 	done
 check-am: all-am
+	$(MAKE) $(AM_MAKEFLAGS) $(check_PROGRAMS)
+	$(MAKE) $(AM_MAKEFLAGS) check-TESTS
 check: check-am
-all-am: Makefile $(HEADERS)
+all-am: Makefile $(LTLIBRARIES)
 installdirs:
-	for dir in "$(DESTDIR)$(disp.hdir)"; do \
+	for dir in "$(DESTDIR)$(pkglibdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -292,11 +624,14 @@ maintainer-clean-generic:
 	@echo "it deletes files that may require special tools to rebuild."
 clean: clean-am
 
-clean-am: clean-generic clean-libtool mostlyclean-am
+clean-am: clean-checkPROGRAMS clean-generic clean-libtool \
+	clean-pkglibLTLIBRARIES mostlyclean-am
 
 distclean: distclean-am
+	-rm -rf ./$(DEPDIR)
 	-rm -f Makefile
-distclean-am: clean-am distclean-generic
+distclean-am: clean-am distclean-compile distclean-generic \
+	distclean-tags
 
 dvi: dvi-am
 
@@ -308,11 +643,11 @@ info: info-am
 
 info-am:
 
-install-data-am: install-disp.hHEADERS
+install-data-am:
 
 install-dvi: install-dvi-am
 
-install-exec-am:
+install-exec-am: install-pkglibLTLIBRARIES
 
 install-html: install-html-am
 
@@ -327,12 +662,14 @@ install-ps: install-ps-am
 installcheck-am:
 
 maintainer-clean: maintainer-clean-am
+	-rm -rf ./$(DEPDIR)
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 
 mostlyclean: mostlyclean-am
 
-mostlyclean-am: mostlyclean-generic mostlyclean-libtool
+mostlyclean-am: mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool
 
 pdf: pdf-am
 
@@ -342,21 +679,24 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-disp.hHEADERS
+uninstall-am: uninstall-pkglibLTLIBRARIES
 
 .MAKE: install-am install-strip
 
-.PHONY: all all-am check check-am clean clean-generic clean-libtool \
-	distclean distclean-generic distclean-libtool distdir dvi \
+.PHONY: CTAGS GTAGS all all-am check check-TESTS check-am clean \
+	clean-checkPROGRAMS clean-generic clean-libtool \
+	clean-pkglibLTLIBRARIES ctags distclean distclean-compile \
+	distclean-generic distclean-libtool distclean-tags distdir dvi \
 	dvi-am html html-am info info-am install install-am \
-	install-data install-data-am install-disp.hHEADERS install-dvi \
-	install-dvi-am install-exec install-exec-am install-html \
-	install-html-am install-info install-info-am install-man \
-	install-pdf install-pdf-am install-ps install-ps-am \
-	install-strip installcheck installcheck-am installdirs \
-	maintainer-clean maintainer-clean-generic mostlyclean \
-	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
-	uninstall uninstall-am uninstall-disp.hHEADERS
+	install-data install-data-am install-dvi install-dvi-am \
+	install-exec install-exec-am install-html install-html-am \
+	install-info install-info-am install-man install-pdf \
+	install-pdf-am install-pkglibLTLIBRARIES install-ps \
+	install-ps-am install-strip installcheck installcheck-am \
+	installdirs maintainer-clean maintainer-clean-generic \
+	mostlyclean mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool pdf pdf-am ps ps-am tags uninstall \
+	uninstall-am uninstall-pkglibLTLIBRARIES
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

@@ -1,12 +1,55 @@
+##
+##  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+##  Copyright (C) 2007-2008 - INRIA - Bruno JOFRET
+##
+##  This file must be used under the terms of the CeCILL.
+##  This source file is licensed as described in the file COPYING, which
+##  you should have received as part of this distribution.  The terms
+##  are also available at
+##  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+##
+##
 
-disp.h_HEADERS = 
+libDisp_la_CFLAGS =	-I $(top_builddir)/type \
+			-I $(top_builddir)/string/includes
 
-disp.hdir = \
-	$(pkgincludedir)
+pkglib_LTLIBRARIES =	libDisp.la
 
-EXTRA_DIST = \
-	$(disp.h_HEADERS)
+libDisp_la_SOURCES =	$(HEAD) $(SRC)
 
+SRC	=	sdisps.c \
+		ddisps.c \
+		cdisps.c \
+		zdisps.c \
+		sdispa.c \
+		ddispa.c \
+		cdispa.c \
+		zdispa.c
 
-## File created by the gnome-build tools
+HEAD	=	../includes/disp.h
 
+####
+# Checking Part
+####
+
+check_INCLUDES	=	-I $(top_builddir)/string/includes \
+			-I $(top_builddir)/type
+
+check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/string/disp/libDisp.la
+
+check_PROGRAMS	= 	testFloatDisp testDoubleDisp
+
+TESTS		=	testFloatDisp testDoubleDisp
+
+#
+# -*- Dispine Tests -*-
+#
+testFloatDisp_SOURCES = 	testDisp.h testFloatDisp.c
+testFloatDisp_CFLAGS	=	$(check_INCLUDES)
+testFloatDisp_LDADD	=	$(check_LDADD)
+
+testDoubleDisp_SOURCES = 	testDisp.h testDoubleDisp.c
+testDoubleDisp_CFLAGS	=	$(check_INCLUDES)
+testDoubleDisp_LDADD	=	$(check_LDADD)
