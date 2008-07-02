@@ -10,10 +10,14 @@
  *
  */
 
+
+
 #ifndef __DISP_H__
 #define __DISP_H__
 
 #include <stdio.h>
+#include "floatComplex.h"
+#include "doubleComplex.h"
 
 void sdips (float in);
 

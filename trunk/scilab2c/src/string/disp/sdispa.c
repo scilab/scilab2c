@@ -10,7 +10,7 @@
  *
  */
 
-#include "dips.h" 
+#include "disp.h" 
 
 void sdipsa (float* in, int size){
 	int i = 0;
