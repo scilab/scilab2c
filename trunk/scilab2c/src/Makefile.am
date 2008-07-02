@@ -17,5 +17,5 @@ SUBDIRS=	lib/blas \
 		auxiliaryFunctions \
 		statisticsFunctions \
 		matrixOperations \
-		implicitList #\
-		#operations
+		implicitList \
+		string
