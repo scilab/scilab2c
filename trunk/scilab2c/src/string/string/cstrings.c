@@ -9,3 +9,14 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
+#include <stdio.h>
+#include "string.h" 
+
+void cstrings (floatComplex in, char* out) {
+	
+	float RealIn = creals(in);
+    float ImgIn = cimags(in);
+	
+	sprintf ( out, "%e + %ei" ,RealIn ,ImgIn );	
+
+}

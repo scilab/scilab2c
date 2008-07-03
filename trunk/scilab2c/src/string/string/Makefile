@@ -32,7 +32,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = i686-pc-linux-gnu
 host_triplet = i686-pc-linux-gnu
-bin_PROGRAMS = string.h$(EXEEXT)
+check_PROGRAMS = testFloatString$(EXEEXT) testDoubleString$(EXEEXT)
+TESTS = testFloatString$(EXEEXT) testDoubleString$(EXEEXT)
 subdir = string/string
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -42,13 +43,43 @@ am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/includes/machine.h
 CONFIG_CLEAN_FILES =
-am__installdirs = "$(DESTDIR)$(bindir)"
-binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
-PROGRAMS = $(bin_PROGRAMS)
-am_string_h_OBJECTS =
-string_h_OBJECTS = $(am_string_h_OBJECTS)
-string_h_LDADD = $(LDADD)
+am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
+am__vpath_adj = case $$p in \
+    $(srcdir)/*) f=`echo "$$p" | sed "s|^$$srcdirstrip/||"`;; \
+    *) f=$$p;; \
+  esac;
+am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
+am__installdirs = "$(DESTDIR)$(pkglibdir)"
+pkglibLTLIBRARIES_INSTALL = $(INSTALL)
+LTLIBRARIES = $(pkglib_LTLIBRARIES)
+libString_la_LIBADD =
+am__objects_1 =
+am__objects_2 = libString_la-sstrings.lo libString_la-dstrings.lo \
+	libString_la-cstrings.lo libString_la-zstrings.lo \
+	libString_la-sstringa.lo libString_la-dstringa.lo \
+	libString_la-cstringa.lo libString_la-zstringa.lo
+am_libString_la_OBJECTS = $(am__objects_1) $(am__objects_2)
+libString_la_OBJECTS = $(am_libString_la_OBJECTS)
+libString_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libString_la_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testDoubleString_OBJECTS =  \
+	testDoubleString-testDoubleString.$(OBJEXT)
+testDoubleString_OBJECTS = $(am_testDoubleString_OBJECTS)
+testDoubleString_DEPENDENCIES = $(check_LDADD)
+testDoubleString_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleString_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testFloatString_OBJECTS =  \
+	testFloatString-testFloatString.$(OBJEXT)
+testFloatString_OBJECTS = $(am_testFloatString_OBJECTS)
+testFloatString_DEPENDENCIES = $(check_LDADD)
+testFloatString_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatString_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/includes
+depcomp = $(SHELL) $(top_srcdir)/config/depcomp
+am__depfiles_maybe = depfiles
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 LTCOMPILE = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
@@ -58,8 +89,12 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(string_h_SOURCES)
-DIST_SOURCES = $(string_h_SOURCES)
+SOURCES = $(libString_la_SOURCES) $(testDoubleString_SOURCES) \
+	$(testFloatString_SOURCES)
+DIST_SOURCES = $(libString_la_SOURCES) $(testDoubleString_SOURCES) \
+	$(testFloatString_SOURCES)
+ETAGS = etags
+CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = ${SHELL} /home/allan/scilab/scilab2c/src/config/missing --run aclocal-1.10
 AMTAR = ${SHELL} /home/allan/scilab/scilab2c/src/config/missing --run tar
@@ -70,7 +105,7 @@ AUTOMAKE = ${SHELL} /home/allan/scilab/scilab2c/src/config/missing --run automak
 AWK = mawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
-CFLAGS = -g -O2
+CFLAGS = -g -O2 -Wall -Wextra -pedantic -Wconversion -Wformat -Wshadow    -Wpointer-arith -Wcast-align -Wmissing-prototypes    -Wmissing-declarations -Werror
 CPP = gcc -E
 CPPFLAGS = 
 CXX = g++
@@ -102,7 +137,7 @@ LIBS = -lm
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LN_S = ln -s
 LTLIBOBJS = 
-MAINT = #
+MAINT = 
 MAKEINFO = ${SHELL} /home/allan/scilab/scilab2c/src/config/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
 NMEDIT = 
@@ -171,11 +206,47 @@ sysconfdir = ${prefix}/etc
 target_alias = 
 top_builddir = ../..
 top_srcdir = ../..
-string_h_SOURCES = 
+libString_la_CFLAGS = -I $(top_builddir)/type \
+			-I $(top_builddir)/string/includes
+
+pkglib_LTLIBRARIES = libString.la
+libString_la_SOURCES = $(HEAD) $(SRC)
+SRC = sstrings.c \
+		dstrings.c \
+		cstrings.c \
+		zstrings.c \
+		sstringa.c \
+		dstringa.c \
+		cstringa.c \
+		zstringa.c
+
+HEAD = ../includes/string.h
+
+####
+# Checking Part
+####
+check_INCLUDES = -I $(top_builddir)/string/includes \
+			-I $(top_builddir)/type
+
+check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/string/string/libString.la
+
+
+#
+# -*- Dispine Tests -*-
+#
+testFloatString_SOURCES = testString.h testFloatString.c
+testFloatString_CFLAGS = $(check_INCLUDES)
+testFloatString_LDADD = $(check_LDADD)
+testDoubleString_SOURCES = testString.h testDoubleString.c
+testDoubleString_CFLAGS = $(check_INCLUDES)
+testDoubleString_LDADD = $(check_LDADD)
 all: all-am
 
 .SUFFIXES:
-$(srcdir)/Makefile.in: # $(srcdir)/Makefile.am  $(am__configure_deps)
+.SUFFIXES: .c .lo .o .obj
+$(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
 	    *$$dep*) \
@@ -200,41 +271,52 @@ Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 $(top_builddir)/config.status: $(top_srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 
-$(top_srcdir)/configure: # $(am__configure_deps)
+$(top_srcdir)/configure:  $(am__configure_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
-$(ACLOCAL_M4): # $(am__aclocal_m4_deps)
+$(ACLOCAL_M4):  $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
-install-binPROGRAMS: $(bin_PROGRAMS)
+install-pkglibLTLIBRARIES: $(pkglib_LTLIBRARIES)
 	@$(NORMAL_INSTALL)
-	test -z "$(bindir)" || $(MKDIR_P) "$(DESTDIR)$(bindir)"
-	@list='$(bin_PROGRAMS)'; for p in $$list; do \
-	  p1=`echo $$p|sed 's/$(EXEEXT)$$//'`; \
-	  if test -f $$p \
-	     || test -f $$p1 \
-	  ; then \
-	    f=`echo "$$p1" | sed 's,^.*/,,;$(transform);s/$$/$(EXEEXT)/'`; \
-	   echo " $(INSTALL_PROGRAM_ENV) $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(binPROGRAMS_INSTALL) '$$p' '$(DESTDIR)$(bindir)/$$f'"; \
-	   $(INSTALL_PROGRAM_ENV) $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(binPROGRAMS_INSTALL) "$$p" "$(DESTDIR)$(bindir)/$$f" || exit 1; \
+	test -z "$(pkglibdir)" || $(MKDIR_P) "$(DESTDIR)$(pkglibdir)"
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
+	  if test -f $$p; then \
+	    f=$(am__strip_dir) \
+	    echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(pkglibLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) '$$p' '$(DESTDIR)$(pkglibdir)/$$f'"; \
+	    $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(pkglibLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) "$$p" "$(DESTDIR)$(pkglibdir)/$$f"; \
 	  else :; fi; \
 	done
 
-uninstall-binPROGRAMS:
+uninstall-pkglibLTLIBRARIES:
 	@$(NORMAL_UNINSTALL)
-	@list='$(bin_PROGRAMS)'; for p in $$list; do \
-	  f=`echo "$$p" | sed 's,^.*/,,;s/$(EXEEXT)$$//;$(transform);s/$$/$(EXEEXT)/'`; \
-	  echo " rm -f '$(DESTDIR)$(bindir)/$$f'"; \
-	  rm -f "$(DESTDIR)$(bindir)/$$f"; \
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
+	  p=$(am__strip_dir) \
+	  echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f '$(DESTDIR)$(pkglibdir)/$$p'"; \
+	  $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f "$(DESTDIR)$(pkglibdir)/$$p"; \
 	done
 
-clean-binPROGRAMS:
-	@list='$(bin_PROGRAMS)'; for p in $$list; do \
+clean-pkglibLTLIBRARIES:
+	-test -z "$(pkglib_LTLIBRARIES)" || rm -f $(pkglib_LTLIBRARIES)
+	@list='$(pkglib_LTLIBRARIES)'; for p in $$list; do \
+	  dir="`echo $$p | sed -e 's|/[^/]*$$||'`"; \
+	  test "$$dir" != "$$p" || dir=.; \
+	  echo "rm -f \"$${dir}/so_locations\""; \
+	  rm -f "$${dir}/so_locations"; \
+	done
+libString.la: $(libString_la_OBJECTS) $(libString_la_DEPENDENCIES) 
+	$(libString_la_LINK) -rpath $(pkglibdir) $(libString_la_OBJECTS) $(libString_la_LIBADD) $(LIBS)
+
+clean-checkPROGRAMS:
+	@list='$(check_PROGRAMS)'; for p in $$list; do \
 	  f=`echo $$p|sed 's/$(EXEEXT)$$//'`; \
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-string.h$(EXEEXT): $(string_h_OBJECTS) $(string_h_DEPENDENCIES) 
-	@rm -f string.h$(EXEEXT)
-	$(LINK) $(string_h_OBJECTS) $(string_h_LDADD) $(LIBS)
+testDoubleString$(EXEEXT): $(testDoubleString_OBJECTS) $(testDoubleString_DEPENDENCIES) 
+	@rm -f testDoubleString$(EXEEXT)
+	$(testDoubleString_LINK) $(testDoubleString_OBJECTS) $(testDoubleString_LDADD) $(LIBS)
+testFloatString$(EXEEXT): $(testFloatString_OBJECTS) $(testFloatString_DEPENDENCIES) 
+	@rm -f testFloatString$(EXEEXT)
+	$(testFloatString_LINK) $(testFloatString_OBJECTS) $(testFloatString_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -242,17 +324,247 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+include ./$(DEPDIR)/libString_la-cstringa.Plo
+include ./$(DEPDIR)/libString_la-cstrings.Plo
+include ./$(DEPDIR)/libString_la-dstringa.Plo
+include ./$(DEPDIR)/libString_la-dstrings.Plo
+include ./$(DEPDIR)/libString_la-sstringa.Plo
+include ./$(DEPDIR)/libString_la-sstrings.Plo
+include ./$(DEPDIR)/libString_la-zstringa.Plo
+include ./$(DEPDIR)/libString_la-zstrings.Plo
+include ./$(DEPDIR)/testDoubleString-testDoubleString.Po
+include ./$(DEPDIR)/testFloatString-testFloatString.Po
+
+.c.o:
+	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+	mv -f $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+#	source='$<' object='$@' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(COMPILE) -c $<
+
+.c.obj:
+	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ `$(CYGPATH_W) '$<'`
+	mv -f $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+#	source='$<' object='$@' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(COMPILE) -c `$(CYGPATH_W) '$<'`
+
+.c.lo:
+	$(LTCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+	mv -f $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Plo
+#	source='$<' object='$@' libtool=yes \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(LTCOMPILE) -c -o $@ $<
+
+libString_la-sstrings.lo: sstrings.c
+	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libString_la_CFLAGS) $(CFLAGS) -MT libString_la-sstrings.lo -MD -MP -MF $(DEPDIR)/libString_la-sstrings.Tpo -c -o libString_la-sstrings.lo `test -f 'sstrings.c' || echo '$(srcdir)/'`sstrings.c
+	mv -f $(DEPDIR)/libString_la-sstrings.Tpo $(DEPDIR)/libString_la-sstrings.Plo
+#	source='sstrings.c' object='libString_la-sstrings.lo' libtool=yes \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libString_la_CFLAGS) $(CFLAGS) -c -o libString_la-sstrings.lo `test -f 'sstrings.c' || echo '$(srcdir)/'`sstrings.c
+
+libString_la-dstrings.lo: dstrings.c
+	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libString_la_CFLAGS) $(CFLAGS) -MT libString_la-dstrings.lo -MD -MP -MF $(DEPDIR)/libString_la-dstrings.Tpo -c -o libString_la-dstrings.lo `test -f 'dstrings.c' || echo '$(srcdir)/'`dstrings.c
+	mv -f $(DEPDIR)/libString_la-dstrings.Tpo $(DEPDIR)/libString_la-dstrings.Plo
+#	source='dstrings.c' object='libString_la-dstrings.lo' libtool=yes \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libString_la_CFLAGS) $(CFLAGS) -c -o libString_la-dstrings.lo `test -f 'dstrings.c' || echo '$(srcdir)/'`dstrings.c
+
+libString_la-cstrings.lo: cstrings.c
+	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libString_la_CFLAGS) $(CFLAGS) -MT libString_la-cstrings.lo -MD -MP -MF $(DEPDIR)/libString_la-cstrings.Tpo -c -o libString_la-cstrings.lo `test -f 'cstrings.c' || echo '$(srcdir)/'`cstrings.c
+	mv -f $(DEPDIR)/libString_la-cstrings.Tpo $(DEPDIR)/libString_la-cstrings.Plo
+#	source='cstrings.c' object='libString_la-cstrings.lo' libtool=yes \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libString_la_CFLAGS) $(CFLAGS) -c -o libString_la-cstrings.lo `test -f 'cstrings.c' || echo '$(srcdir)/'`cstrings.c
+
+libString_la-zstrings.lo: zstrings.c
+	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libString_la_CFLAGS) $(CFLAGS) -MT libString_la-zstrings.lo -MD -MP -MF $(DEPDIR)/libString_la-zstrings.Tpo -c -o libString_la-zstrings.lo `test -f 'zstrings.c' || echo '$(srcdir)/'`zstrings.c
+	mv -f $(DEPDIR)/libString_la-zstrings.Tpo $(DEPDIR)/libString_la-zstrings.Plo
+#	source='zstrings.c' object='libString_la-zstrings.lo' libtool=yes \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libString_la_CFLAGS) $(CFLAGS) -c -o libString_la-zstrings.lo `test -f 'zstrings.c' || echo '$(srcdir)/'`zstrings.c
+
+libString_la-sstringa.lo: sstringa.c
+	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libString_la_CFLAGS) $(CFLAGS) -MT libString_la-sstringa.lo -MD -MP -MF $(DEPDIR)/libString_la-sstringa.Tpo -c -o libString_la-sstringa.lo `test -f 'sstringa.c' || echo '$(srcdir)/'`sstringa.c
+	mv -f $(DEPDIR)/libString_la-sstringa.Tpo $(DEPDIR)/libString_la-sstringa.Plo
+#	source='sstringa.c' object='libString_la-sstringa.lo' libtool=yes \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libString_la_CFLAGS) $(CFLAGS) -c -o libString_la-sstringa.lo `test -f 'sstringa.c' || echo '$(srcdir)/'`sstringa.c
+
+libString_la-dstringa.lo: dstringa.c
+	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libString_la_CFLAGS) $(CFLAGS) -MT libString_la-dstringa.lo -MD -MP -MF $(DEPDIR)/libString_la-dstringa.Tpo -c -o libString_la-dstringa.lo `test -f 'dstringa.c' || echo '$(srcdir)/'`dstringa.c
+	mv -f $(DEPDIR)/libString_la-dstringa.Tpo $(DEPDIR)/libString_la-dstringa.Plo
+#	source='dstringa.c' object='libString_la-dstringa.lo' libtool=yes \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libString_la_CFLAGS) $(CFLAGS) -c -o libString_la-dstringa.lo `test -f 'dstringa.c' || echo '$(srcdir)/'`dstringa.c
+
+libString_la-cstringa.lo: cstringa.c
+	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libString_la_CFLAGS) $(CFLAGS) -MT libString_la-cstringa.lo -MD -MP -MF $(DEPDIR)/libString_la-cstringa.Tpo -c -o libString_la-cstringa.lo `test -f 'cstringa.c' || echo '$(srcdir)/'`cstringa.c
+	mv -f $(DEPDIR)/libString_la-cstringa.Tpo $(DEPDIR)/libString_la-cstringa.Plo
+#	source='cstringa.c' object='libString_la-cstringa.lo' libtool=yes \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libString_la_CFLAGS) $(CFLAGS) -c -o libString_la-cstringa.lo `test -f 'cstringa.c' || echo '$(srcdir)/'`cstringa.c
+
+libString_la-zstringa.lo: zstringa.c
+	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libString_la_CFLAGS) $(CFLAGS) -MT libString_la-zstringa.lo -MD -MP -MF $(DEPDIR)/libString_la-zstringa.Tpo -c -o libString_la-zstringa.lo `test -f 'zstringa.c' || echo '$(srcdir)/'`zstringa.c
+	mv -f $(DEPDIR)/libString_la-zstringa.Tpo $(DEPDIR)/libString_la-zstringa.Plo
+#	source='zstringa.c' object='libString_la-zstringa.lo' libtool=yes \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libString_la_CFLAGS) $(CFLAGS) -c -o libString_la-zstringa.lo `test -f 'zstringa.c' || echo '$(srcdir)/'`zstringa.c
+
+testDoubleString-testDoubleString.o: testDoubleString.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleString_CFLAGS) $(CFLAGS) -MT testDoubleString-testDoubleString.o -MD -MP -MF $(DEPDIR)/testDoubleString-testDoubleString.Tpo -c -o testDoubleString-testDoubleString.o `test -f 'testDoubleString.c' || echo '$(srcdir)/'`testDoubleString.c
+	mv -f $(DEPDIR)/testDoubleString-testDoubleString.Tpo $(DEPDIR)/testDoubleString-testDoubleString.Po
+#	source='testDoubleString.c' object='testDoubleString-testDoubleString.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleString_CFLAGS) $(CFLAGS) -c -o testDoubleString-testDoubleString.o `test -f 'testDoubleString.c' || echo '$(srcdir)/'`testDoubleString.c
+
+testDoubleString-testDoubleString.obj: testDoubleString.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleString_CFLAGS) $(CFLAGS) -MT testDoubleString-testDoubleString.obj -MD -MP -MF $(DEPDIR)/testDoubleString-testDoubleString.Tpo -c -o testDoubleString-testDoubleString.obj `if test -f 'testDoubleString.c'; then $(CYGPATH_W) 'testDoubleString.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleString.c'; fi`
+	mv -f $(DEPDIR)/testDoubleString-testDoubleString.Tpo $(DEPDIR)/testDoubleString-testDoubleString.Po
+#	source='testDoubleString.c' object='testDoubleString-testDoubleString.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleString_CFLAGS) $(CFLAGS) -c -o testDoubleString-testDoubleString.obj `if test -f 'testDoubleString.c'; then $(CYGPATH_W) 'testDoubleString.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleString.c'; fi`
+
+testFloatString-testFloatString.o: testFloatString.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatString_CFLAGS) $(CFLAGS) -MT testFloatString-testFloatString.o -MD -MP -MF $(DEPDIR)/testFloatString-testFloatString.Tpo -c -o testFloatString-testFloatString.o `test -f 'testFloatString.c' || echo '$(srcdir)/'`testFloatString.c
+	mv -f $(DEPDIR)/testFloatString-testFloatString.Tpo $(DEPDIR)/testFloatString-testFloatString.Po
+#	source='testFloatString.c' object='testFloatString-testFloatString.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatString_CFLAGS) $(CFLAGS) -c -o testFloatString-testFloatString.o `test -f 'testFloatString.c' || echo '$(srcdir)/'`testFloatString.c
+
+testFloatString-testFloatString.obj: testFloatString.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatString_CFLAGS) $(CFLAGS) -MT testFloatString-testFloatString.obj -MD -MP -MF $(DEPDIR)/testFloatString-testFloatString.Tpo -c -o testFloatString-testFloatString.obj `if test -f 'testFloatString.c'; then $(CYGPATH_W) 'testFloatString.c'; else $(CYGPATH_W) '$(srcdir)/testFloatString.c'; fi`
+	mv -f $(DEPDIR)/testFloatString-testFloatString.Tpo $(DEPDIR)/testFloatString-testFloatString.Po
+#	source='testFloatString.c' object='testFloatString-testFloatString.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatString_CFLAGS) $(CFLAGS) -c -o testFloatString-testFloatString.obj `if test -f 'testFloatString.c'; then $(CYGPATH_W) 'testFloatString.c'; else $(CYGPATH_W) '$(srcdir)/testFloatString.c'; fi`
+
 mostlyclean-libtool:
 	-rm -f *.lo
 
 clean-libtool:
 	-rm -rf .libs _libs
+
+ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
+	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
+	unique=`for i in $$list; do \
+	    if test -f "$$i"; then echo $$i; else echo $(srcdir)/$$i; fi; \
+	  done | \
+	  $(AWK) '{ files[$$0] = 1; nonemtpy = 1; } \
+	      END { if (nonempty) { for (i in files) print i; }; }'`; \
+	mkid -fID $$unique
 tags: TAGS
-TAGS:
 
+TAGS:  $(HEADERS) $(SOURCES)  $(TAGS_DEPENDENCIES) \
+		$(TAGS_FILES) $(LISP)
+	tags=; \
+	here=`pwd`; \
+	list='$(SOURCES) $(HEADERS)  $(LISP) $(TAGS_FILES)'; \
+	unique=`for i in $$list; do \
+	    if test -f "$$i"; then echo $$i; else echo $(srcdir)/$$i; fi; \
+	  done | \
+	  $(AWK) '{ files[$$0] = 1; nonempty = 1; } \
+	      END { if (nonempty) { for (i in files) print i; }; }'`; \
+	if test -z "$(ETAGS_ARGS)$$tags$$unique"; then :; else \
+	  test -n "$$unique" || unique=$$empty_fix; \
+	  $(ETAGS) $(ETAGSFLAGS) $(AM_ETAGSFLAGS) $(ETAGS_ARGS) \
+	    $$tags $$unique; \
+	fi
 ctags: CTAGS
-CTAGS:
+CTAGS:  $(HEADERS) $(SOURCES)  $(TAGS_DEPENDENCIES) \
+		$(TAGS_FILES) $(LISP)
+	tags=; \
+	list='$(SOURCES) $(HEADERS)  $(LISP) $(TAGS_FILES)'; \
+	unique=`for i in $$list; do \
+	    if test -f "$$i"; then echo $$i; else echo $(srcdir)/$$i; fi; \
+	  done | \
+	  $(AWK) '{ files[$$0] = 1; nonempty = 1; } \
+	      END { if (nonempty) { for (i in files) print i; }; }'`; \
+	test -z "$(CTAGS_ARGS)$$tags$$unique" \
+	  || $(CTAGS) $(CTAGSFLAGS) $(AM_CTAGSFLAGS) $(CTAGS_ARGS) \
+	     $$tags $$unique
 
+GTAGS:
+	here=`$(am__cd) $(top_builddir) && pwd` \
+	  && cd $(top_srcdir) \
+	  && gtags -i $(GTAGS_ARGS) $$here
+
+distclean-tags:
+	-rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+
+check-TESTS: $(TESTS)
+	@failed=0; all=0; xfail=0; xpass=0; skip=0; ws='[	 ]'; \
+	srcdir=$(srcdir); export srcdir; \
+	list=' $(TESTS) '; \
+	if test -n "$$list"; then \
+	  for tst in $$list; do \
+	    if test -f ./$$tst; then dir=./; \
+	    elif test -f $$tst; then dir=; \
+	    else dir="$(srcdir)/"; fi; \
+	    if $(TESTS_ENVIRONMENT) $${dir}$$tst; then \
+	      all=`expr $$all + 1`; \
+	      case " $(XFAIL_TESTS) " in \
+	      *$$ws$$tst$$ws*) \
+		xpass=`expr $$xpass + 1`; \
+		failed=`expr $$failed + 1`; \
+		echo "XPASS: $$tst"; \
+	      ;; \
+	      *) \
+		echo "PASS: $$tst"; \
+	      ;; \
+	      esac; \
+	    elif test $$? -ne 77; then \
+	      all=`expr $$all + 1`; \
+	      case " $(XFAIL_TESTS) " in \
+	      *$$ws$$tst$$ws*) \
+		xfail=`expr $$xfail + 1`; \
+		echo "XFAIL: $$tst"; \
+	      ;; \
+	      *) \
+		failed=`expr $$failed + 1`; \
+		echo "FAIL: $$tst"; \
+	      ;; \
+	      esac; \
+	    else \
+	      skip=`expr $$skip + 1`; \
+	      echo "SKIP: $$tst"; \
+	    fi; \
+	  done; \
+	  if test "$$failed" -eq 0; then \
+	    if test "$$xfail" -eq 0; then \
+	      banner="All $$all tests passed"; \
+	    else \
+	      banner="All $$all tests behaved as expected ($$xfail expected failures)"; \
+	    fi; \
+	  else \
+	    if test "$$xpass" -eq 0; then \
+	      banner="$$failed of $$all tests failed"; \
+	    else \
+	      banner="$$failed of $$all tests did not behave as expected ($$xpass unexpected passes)"; \
+	    fi; \
+	  fi; \
+	  dashes="$$banner"; \
+	  skipped=""; \
+	  if test "$$skip" -ne 0; then \
+	    skipped="($$skip tests were not run)"; \
+	    test `echo "$$skipped" | wc -c` -le `echo "$$banner" | wc -c` || \
+	      dashes="$$skipped"; \
+	  fi; \
+	  report=""; \
+	  if test "$$failed" -ne 0 && test -n "$(PACKAGE_BUGREPORT)"; then \
+	    report="Please report to $(PACKAGE_BUGREPORT)"; \
+	    test `echo "$$report" | wc -c` -le `echo "$$banner" | wc -c` || \
+	      dashes="$$report"; \
+	  fi; \
+	  dashes=`echo "$$dashes" | sed s/./=/g`; \
+	  echo "$$dashes"; \
+	  echo "$$banner"; \
+	  test -z "$$skipped" || echo "$$skipped"; \
+	  test -z "$$report" || echo "$$report"; \
+	  echo "$$dashes"; \
+	  test "$$failed" -eq 0; \
+	else :; fi
 
 distdir: $(DISTFILES)
 	@srcdirstrip=`echo "$(srcdir)" | sed 's/[].[^$$\\*]/\\\\&/g'`; \
@@ -281,10 +593,12 @@ distdir: $(DISTFILES)
 	  fi; \
 	done
 check-am: all-am
+	$(MAKE) $(AM_MAKEFLAGS) $(check_PROGRAMS)
+	$(MAKE) $(AM_MAKEFLAGS) check-TESTS
 check: check-am
-all-am: Makefile $(PROGRAMS)
+all-am: Makefile $(LTLIBRARIES)
 installdirs:
-	for dir in "$(DESTDIR)$(bindir)"; do \
+	for dir in "$(DESTDIR)$(pkglibdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -313,11 +627,14 @@ maintainer-clean-generic:
 	@echo "it deletes files that may require special tools to rebuild."
 clean: clean-am
 
-clean-am: clean-binPROGRAMS clean-generic clean-libtool mostlyclean-am
+clean-am: clean-checkPROGRAMS clean-generic clean-libtool \
+	clean-pkglibLTLIBRARIES mostlyclean-am
 
 distclean: distclean-am
+	-rm -rf ./$(DEPDIR)
 	-rm -f Makefile
-distclean-am: clean-am distclean-compile distclean-generic
+distclean-am: clean-am distclean-compile distclean-generic \
+	distclean-tags
 
 dvi: dvi-am
 
@@ -333,7 +650,7 @@ install-data-am:
 
 install-dvi: install-dvi-am
 
-install-exec-am: install-binPROGRAMS
+install-exec-am: install-pkglibLTLIBRARIES
 
 install-html: install-html-am
 
@@ -348,6 +665,7 @@ install-ps: install-ps-am
 installcheck-am:
 
 maintainer-clean: maintainer-clean-am
+	-rm -rf ./$(DEPDIR)
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 
@@ -364,22 +682,24 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-binPROGRAMS
+uninstall-am: uninstall-pkglibLTLIBRARIES
 
 .MAKE: install-am install-strip
 
-.PHONY: all all-am check check-am clean clean-binPROGRAMS \
-	clean-generic clean-libtool distclean distclean-compile \
-	distclean-generic distclean-libtool distdir dvi dvi-am html \
-	html-am info info-am install install-am install-binPROGRAMS \
+.PHONY: CTAGS GTAGS all all-am check check-TESTS check-am clean \
+	clean-checkPROGRAMS clean-generic clean-libtool \
+	clean-pkglibLTLIBRARIES ctags distclean distclean-compile \
+	distclean-generic distclean-libtool distclean-tags distdir dvi \
+	dvi-am html html-am info info-am install install-am \
 	install-data install-data-am install-dvi install-dvi-am \
 	install-exec install-exec-am install-html install-html-am \
 	install-info install-info-am install-man install-pdf \
-	install-pdf-am install-ps install-ps-am install-strip \
-	installcheck installcheck-am installdirs maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-compile \
-	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
-	uninstall uninstall-am uninstall-binPROGRAMS
+	install-pdf-am install-pkglibLTLIBRARIES install-ps \
+	install-ps-am install-strip installcheck installcheck-am \
+	installdirs maintainer-clean maintainer-clean-generic \
+	mostlyclean mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool pdf pdf-am ps ps-am tags uninstall \
+	uninstall-am uninstall-pkglibLTLIBRARIES
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

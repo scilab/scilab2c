@@ -9,3 +9,14 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
+
+#include "string.h" 
+
+void dstringa (double* in, int size, char** out){
+
+   int i = 0;
+   for (i = 0; i < size; ++i)
+      {
+         dstrings (in[i], out[i]);
+	  } 
+}
