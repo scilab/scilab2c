@@ -12,7 +12,7 @@
 
 #include "disp.h"
 
-void ddipsa (double* in, int size) {
+void ddispa (double* in, int size) {
 	int i = 0;
 	for (i = 0; i < size; ++i) {
 		ddisps (in[i]);

@@ -12,6 +12,6 @@
 
 #include "disp.h"
 
-void ddips (double in) {	
-	printf ("%lf", in);
+void ddisps (double in) {	
+	printf ("%f", in);
 }

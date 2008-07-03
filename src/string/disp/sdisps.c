@@ -12,6 +12,6 @@
 
 #include "disp.h"
 
-void sdips (float in) {	
+void sdisps (float in) {	
 	printf ("%f", in);
 }
