@@ -12,7 +12,7 @@
 
 #include "disp.h"
 
-void cdips (floatComplex in){
+void cdisps (floatComplex in){
 	
   float RealIn = creals(in);
   float ImgIn = cimags(in);
