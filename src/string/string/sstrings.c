@@ -9,3 +9,11 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
+
+#include <stdio.h>
+#include "string.h" 
+
+void sstrings (float in, char* out) {
+		
+	sprintf (out, "%e" ,in );	
+}
