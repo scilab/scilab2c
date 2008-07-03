@@ -55,16 +55,16 @@ ETAGS = etags
 CTAGS = ctags
 DIST_SUBDIRS = $(SUBDIRS)
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/allan/scilab/scilab2c/src/config/missing --run aclocal-1.10
-AMTAR = ${SHELL} /home/allan/scilab/scilab2c/src/config/missing --run tar
+ACLOCAL = ${SHELL} /home/bruno/work/hArtes/scilab2c/src/config/missing --run aclocal-1.10
+AMTAR = ${SHELL} /home/bruno/work/hArtes/scilab2c/src/config/missing --run tar
 AR = ar
-AUTOCONF = ${SHELL} /home/allan/scilab/scilab2c/src/config/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/allan/scilab/scilab2c/src/config/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/allan/scilab/scilab2c/src/config/missing --run automake-1.10
+AUTOCONF = ${SHELL} /home/bruno/work/hArtes/scilab2c/src/config/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/bruno/work/hArtes/scilab2c/src/config/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/bruno/work/hArtes/scilab2c/src/config/missing --run automake-1.10
 AWK = mawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
-CFLAGS = -g -O2
+CFLAGS = -g -O2 -Wall -Wextra -pedantic -Wconversion -Wformat -Wshadow    -Wpointer-arith -Wcast-align -Wmissing-prototypes    -Wmissing-declarations -Werror
 CPP = gcc -E
 CPPFLAGS = 
 CXX = g++
@@ -96,8 +96,8 @@ LIBS = -lm
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LN_S = ln -s
 LTLIBOBJS = 
-MAINT = #
-MAKEINFO = ${SHELL} /home/allan/scilab/scilab2c/src/config/missing --run makeinfo
+MAINT = 
+MAKEINFO = ${SHELL} /home/bruno/work/hArtes/scilab2c/src/config/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
 NMEDIT = 
 OBJEXT = o
@@ -114,12 +114,12 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = strip
 VERSION = 0.1
-abs_builddir = /home/allan/scilab/scilab2c/src/string
-abs_srcdir = /home/allan/scilab/scilab2c/src/string
-abs_top_builddir = /home/allan/scilab/scilab2c/src
-abs_top_srcdir = /home/allan/scilab/scilab2c/src
+abs_builddir = /home/bruno/work/hArtes/scilab2c/src/string
+abs_srcdir = /home/bruno/work/hArtes/scilab2c/src/string
+abs_top_builddir = /home/bruno/work/hArtes/scilab2c/src
+abs_top_srcdir = /home/bruno/work/hArtes/scilab2c/src
 ac_ct_CC = gcc
-ac_ct_CXX = g++
+ac_ct_CXX = 
 ac_ct_F77 = g77
 am__include = include
 am__leading_dot = .
@@ -146,7 +146,7 @@ host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = $(SHELL) /home/allan/scilab/scilab2c/src/config/install-sh
+install_sh = $(SHELL) /home/bruno/work/hArtes/scilab2c/src/config/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -165,15 +165,13 @@ sysconfdir = ${prefix}/etc
 target_alias = 
 top_builddir = ..
 top_srcdir = ..
-SUBDIRS = \
-	disp\
-	string \
-	include
+SUBDIRS = disp \
+		#string
 
 all: all-recursive
 
 .SUFFIXES:
-$(srcdir)/Makefile.in: # $(srcdir)/Makefile.am  $(am__configure_deps)
+$(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
 	    *$$dep*) \
@@ -198,9 +196,9 @@ Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 $(top_builddir)/config.status: $(top_srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 
-$(top_srcdir)/configure: # $(am__configure_deps)
+$(top_srcdir)/configure:  $(am__configure_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
-$(ACLOCAL_M4): # $(am__aclocal_m4_deps)
+$(ACLOCAL_M4):  $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 
 mostlyclean-libtool:
