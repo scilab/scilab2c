@@ -9,3 +9,14 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
+
+#include <stdio.h>
+#include "string.h" 
+
+void zstrings (doubleComplex in, char* out) {
+	
+	double RealIn = zreals(in);
+    double ImgIn = zimags(in);
+	
+	sprintf (out, "%e + %ei" ,RealIn ,ImgIn );	
+}

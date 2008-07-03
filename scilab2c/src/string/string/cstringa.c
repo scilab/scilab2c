@@ -9,3 +9,15 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
+#include "string.h" 
+
+void cstringa (floatComplex* in, int size ,char** out){
+	 
+   int i = 0;
+   for (i = 0; i < size; ++i) 
+      {
+         cstrings (in[i], out[i]);
+      }
+
+
+}
