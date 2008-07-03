@@ -19,22 +19,22 @@
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
-void sdips (float in);
+void sdisps (float in);
 
-void ddips (double in);
+void ddisps (double in);
 
-void cdips (floatComplex in);
+void cdisps (floatComplex in);
 
-void zdips (doubleComplex in);
+void zdisps (doubleComplex in);
 
 
 
-void sdipsa (float* in, int size);
+void sdispa (float* in, int size);
 
-void ddipsa (double* in, int size);
+void ddispa (double* in, int size);
 
 void cdispa (floatComplex* in, int size);
 
-void zdipsa (doubleComplex* in, int size);
+void zdispa (doubleComplex* in, int size);
 
 #endif /* !__DISP_H__ */
