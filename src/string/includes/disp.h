@@ -19,22 +19,52 @@
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+/*
+** \brief display of a float scalar 
+*/
 void sdisps (float in);
 
+/*
+** \brief display of a double scalar
+*/
 void ddisps (double in);
 
+/*
+** \brief display of a float complex
+*/
 void cdisps (floatComplex in);
 
+/*
+** \brief display of a double complex
+*/
 void zdisps (doubleComplex in);
 
-
-
+/*
+** \brief display of a float scalar array
+** \param in the float scalar array to display
+** \param size the size of the array
+*/
 void sdispa (float* in, int size);
 
+/*
+** \brief display of a double scalar array
+** \param in the double scalar array to display
+** \param size the size of the array
+*/
 void ddispa (double* in, int size);
 
+/*
+** \brief display of a float complex array
+** \param in the float complex array to display
+** \param size the size of the array
+*/
 void cdispa (floatComplex* in, int size);
 
+/*
+** \brief display of a double complex array
+** \param in the double complex array to display
+** \param size the size of the array
+*/
 void zdispa (doubleComplex* in, int size);
 
 #endif /* !__DISP_H__ */
