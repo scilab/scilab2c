@@ -18,5 +18,5 @@ void zstrings (doubleComplex in, char* out) {
 	double RealIn = zreals(in);
     double ImgIn = zimags(in);
 	
-	sprintf (out, "%e + %ei" ,RealIn ,ImgIn );	
+	sprintf (out, "%5.20e + %5.20ei" ,RealIn ,ImgIn );	
 }

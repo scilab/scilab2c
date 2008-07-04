@@ -17,6 +17,6 @@ void cstrings (floatComplex in, char* out) {
 	float RealIn = creals(in);
     float ImgIn = cimags(in);
 	
-	sprintf ( out, "%e + %ei" ,RealIn ,ImgIn );	
+	sprintf ( out, "%5.20e + %5.20ei" ,RealIn ,ImgIn );	
 
 }

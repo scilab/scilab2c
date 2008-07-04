@@ -32,8 +32,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testFloatString$(EXEEXT) testDoubleString$(EXEEXT)
-TESTS = testFloatString$(EXEEXT) testDoubleString$(EXEEXT)
+check_PROGRAMS = testString$(EXEEXT)
+TESTS = testString$(EXEEXT)
 subdir = string/string
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -63,19 +63,11 @@ libString_la_OBJECTS = $(am_libString_la_OBJECTS)
 libString_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libString_la_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testDoubleString_OBJECTS =  \
-	testDoubleString-testDoubleString.$(OBJEXT)
-testDoubleString_OBJECTS = $(am_testDoubleString_OBJECTS)
-testDoubleString_DEPENDENCIES = $(check_LDADD)
-testDoubleString_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleString_CFLAGS) \
-	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testFloatString_OBJECTS =  \
-	testFloatString-testFloatString.$(OBJEXT)
-testFloatString_OBJECTS = $(am_testFloatString_OBJECTS)
-testFloatString_DEPENDENCIES = $(check_LDADD)
-testFloatString_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatString_CFLAGS) \
+am_testString_OBJECTS = testString-testString.$(OBJEXT)
+testString_OBJECTS = $(am_testString_OBJECTS)
+testString_DEPENDENCIES = $(check_LDADD)
+testString_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testString_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
@@ -89,10 +81,8 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libString_la_SOURCES) $(testDoubleString_SOURCES) \
-	$(testFloatString_SOURCES)
-DIST_SOURCES = $(libString_la_SOURCES) $(testDoubleString_SOURCES) \
-	$(testFloatString_SOURCES)
+SOURCES = $(libString_la_SOURCES) $(testString_SOURCES)
+DIST_SOURCES = $(libString_la_SOURCES) $(testString_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -236,12 +226,9 @@ check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 #
 # -*- Dispine Tests -*-
 #
-testFloatString_SOURCES = testString.h testFloatString.c
-testFloatString_CFLAGS = $(check_INCLUDES)
-testFloatString_LDADD = $(check_LDADD)
-testDoubleString_SOURCES = testString.h testDoubleString.c
-testDoubleString_CFLAGS = $(check_INCLUDES)
-testDoubleString_LDADD = $(check_LDADD)
+testString_SOURCES = testString.c
+testString_CFLAGS = $(check_INCLUDES)
+testString_LDADD = $(check_LDADD)
 all: all-am
 
 .SUFFIXES:
@@ -311,12 +298,9 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testDoubleString$(EXEEXT): $(testDoubleString_OBJECTS) $(testDoubleString_DEPENDENCIES) 
-	@rm -f testDoubleString$(EXEEXT)
-	$(testDoubleString_LINK) $(testDoubleString_OBJECTS) $(testDoubleString_LDADD) $(LIBS)
-testFloatString$(EXEEXT): $(testFloatString_OBJECTS) $(testFloatString_DEPENDENCIES) 
-	@rm -f testFloatString$(EXEEXT)
-	$(testFloatString_LINK) $(testFloatString_OBJECTS) $(testFloatString_LDADD) $(LIBS)
+testString$(EXEEXT): $(testString_OBJECTS) $(testString_DEPENDENCIES) 
+	@rm -f testString$(EXEEXT)
+	$(testString_LINK) $(testString_OBJECTS) $(testString_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -332,8 +316,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libString_la-sstrings.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libString_la-zstringa.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libString_la-zstrings.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleString-testDoubleString.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatString-testFloatString.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testString-testString.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -412,33 +395,19 @@ libString_la-zstringa.lo: zstringa.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libString_la_CFLAGS) $(CFLAGS) -c -o libString_la-zstringa.lo `test -f 'zstringa.c' || echo '$(srcdir)/'`zstringa.c
 
-testDoubleString-testDoubleString.o: testDoubleString.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleString_CFLAGS) $(CFLAGS) -MT testDoubleString-testDoubleString.o -MD -MP -MF $(DEPDIR)/testDoubleString-testDoubleString.Tpo -c -o testDoubleString-testDoubleString.o `test -f 'testDoubleString.c' || echo '$(srcdir)/'`testDoubleString.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleString-testDoubleString.Tpo $(DEPDIR)/testDoubleString-testDoubleString.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleString.c' object='testDoubleString-testDoubleString.o' libtool=no @AMDEPBACKSLASH@
+testString-testString.o: testString.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testString_CFLAGS) $(CFLAGS) -MT testString-testString.o -MD -MP -MF $(DEPDIR)/testString-testString.Tpo -c -o testString-testString.o `test -f 'testString.c' || echo '$(srcdir)/'`testString.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testString-testString.Tpo $(DEPDIR)/testString-testString.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testString.c' object='testString-testString.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleString_CFLAGS) $(CFLAGS) -c -o testDoubleString-testDoubleString.o `test -f 'testDoubleString.c' || echo '$(srcdir)/'`testDoubleString.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testString_CFLAGS) $(CFLAGS) -c -o testString-testString.o `test -f 'testString.c' || echo '$(srcdir)/'`testString.c
 
-testDoubleString-testDoubleString.obj: testDoubleString.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleString_CFLAGS) $(CFLAGS) -MT testDoubleString-testDoubleString.obj -MD -MP -MF $(DEPDIR)/testDoubleString-testDoubleString.Tpo -c -o testDoubleString-testDoubleString.obj `if test -f 'testDoubleString.c'; then $(CYGPATH_W) 'testDoubleString.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleString.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleString-testDoubleString.Tpo $(DEPDIR)/testDoubleString-testDoubleString.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleString.c' object='testDoubleString-testDoubleString.obj' libtool=no @AMDEPBACKSLASH@
+testString-testString.obj: testString.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testString_CFLAGS) $(CFLAGS) -MT testString-testString.obj -MD -MP -MF $(DEPDIR)/testString-testString.Tpo -c -o testString-testString.obj `if test -f 'testString.c'; then $(CYGPATH_W) 'testString.c'; else $(CYGPATH_W) '$(srcdir)/testString.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testString-testString.Tpo $(DEPDIR)/testString-testString.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testString.c' object='testString-testString.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleString_CFLAGS) $(CFLAGS) -c -o testDoubleString-testDoubleString.obj `if test -f 'testDoubleString.c'; then $(CYGPATH_W) 'testDoubleString.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleString.c'; fi`
-
-testFloatString-testFloatString.o: testFloatString.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatString_CFLAGS) $(CFLAGS) -MT testFloatString-testFloatString.o -MD -MP -MF $(DEPDIR)/testFloatString-testFloatString.Tpo -c -o testFloatString-testFloatString.o `test -f 'testFloatString.c' || echo '$(srcdir)/'`testFloatString.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatString-testFloatString.Tpo $(DEPDIR)/testFloatString-testFloatString.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatString.c' object='testFloatString-testFloatString.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatString_CFLAGS) $(CFLAGS) -c -o testFloatString-testFloatString.o `test -f 'testFloatString.c' || echo '$(srcdir)/'`testFloatString.c
-
-testFloatString-testFloatString.obj: testFloatString.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatString_CFLAGS) $(CFLAGS) -MT testFloatString-testFloatString.obj -MD -MP -MF $(DEPDIR)/testFloatString-testFloatString.Tpo -c -o testFloatString-testFloatString.obj `if test -f 'testFloatString.c'; then $(CYGPATH_W) 'testFloatString.c'; else $(CYGPATH_W) '$(srcdir)/testFloatString.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatString-testFloatString.Tpo $(DEPDIR)/testFloatString-testFloatString.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatString.c' object='testFloatString-testFloatString.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatString_CFLAGS) $(CFLAGS) -c -o testFloatString-testFloatString.obj `if test -f 'testFloatString.c'; then $(CYGPATH_W) 'testFloatString.c'; else $(CYGPATH_W) '$(srcdir)/testFloatString.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testString_CFLAGS) $(CFLAGS) -c -o testString-testString.obj `if test -f 'testString.c'; then $(CYGPATH_W) 'testString.c'; else $(CYGPATH_W) '$(srcdir)/testString.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
