@@ -39,17 +39,14 @@ check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/string/disp/libDisp.la
 
-check_PROGRAMS	= 	testFloatDisp testDoubleDisp
+check_PROGRAMS	= 	testDisp
 
-TESTS		=	testFloatDisp testDoubleDisp
+TESTS		=	testDisp
 
 #
 # -*- Dispine Tests -*-
 #
-testFloatDisp_SOURCES = 	testDisp.h testFloatDisp.c
-testFloatDisp_CFLAGS	=	$(check_INCLUDES)
-testFloatDisp_LDADD	=	$(check_LDADD)
+testDisp_SOURCES = 	testDisp.c
+testDisp_CFLAGS	=	$(check_INCLUDES)
+testDisp_LDADD	=	$(check_LDADD)
 
-testDoubleDisp_SOURCES = 	testDisp.h testDoubleDisp.c
-testDoubleDisp_CFLAGS	=	$(check_INCLUDES)
-testDoubleDisp_LDADD	=	$(check_LDADD)

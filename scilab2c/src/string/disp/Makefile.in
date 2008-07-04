@@ -32,8 +32,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testFloatDisp$(EXEEXT) testDoubleDisp$(EXEEXT)
-TESTS = testFloatDisp$(EXEEXT) testDoubleDisp$(EXEEXT)
+check_PROGRAMS = testDisp$(EXEEXT)
+TESTS = testDisp$(EXEEXT)
 subdir = string/disp
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -62,18 +62,12 @@ libDisp_la_OBJECTS = $(am_libDisp_la_OBJECTS)
 libDisp_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libDisp_la_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testDoubleDisp_OBJECTS = testDoubleDisp-testDoubleDisp.$(OBJEXT)
-testDoubleDisp_OBJECTS = $(am_testDoubleDisp_OBJECTS)
-testDoubleDisp_DEPENDENCIES = $(check_LDADD)
-testDoubleDisp_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleDisp_CFLAGS) \
-	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testFloatDisp_OBJECTS = testFloatDisp-testFloatDisp.$(OBJEXT)
-testFloatDisp_OBJECTS = $(am_testFloatDisp_OBJECTS)
-testFloatDisp_DEPENDENCIES = $(check_LDADD)
-testFloatDisp_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatDisp_CFLAGS) \
-	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testDisp_OBJECTS = testDisp-testDisp.$(OBJEXT)
+testDisp_OBJECTS = $(am_testDisp_OBJECTS)
+testDisp_DEPENDENCIES = $(check_LDADD)
+testDisp_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=link $(CCLD) $(testDisp_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -86,10 +80,8 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libDisp_la_SOURCES) $(testDoubleDisp_SOURCES) \
-	$(testFloatDisp_SOURCES)
-DIST_SOURCES = $(libDisp_la_SOURCES) $(testDoubleDisp_SOURCES) \
-	$(testFloatDisp_SOURCES)
+SOURCES = $(libDisp_la_SOURCES) $(testDisp_SOURCES)
+DIST_SOURCES = $(libDisp_la_SOURCES) $(testDisp_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -233,12 +225,9 @@ check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 #
 # -*- Dispine Tests -*-
 #
-testFloatDisp_SOURCES = testDisp.h testFloatDisp.c
-testFloatDisp_CFLAGS = $(check_INCLUDES)
-testFloatDisp_LDADD = $(check_LDADD)
-testDoubleDisp_SOURCES = testDisp.h testDoubleDisp.c
-testDoubleDisp_CFLAGS = $(check_INCLUDES)
-testDoubleDisp_LDADD = $(check_LDADD)
+testDisp_SOURCES = testDisp.c
+testDisp_CFLAGS = $(check_INCLUDES)
+testDisp_LDADD = $(check_LDADD)
 all: all-am
 
 .SUFFIXES:
@@ -308,12 +297,9 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testDoubleDisp$(EXEEXT): $(testDoubleDisp_OBJECTS) $(testDoubleDisp_DEPENDENCIES) 
-	@rm -f testDoubleDisp$(EXEEXT)
-	$(testDoubleDisp_LINK) $(testDoubleDisp_OBJECTS) $(testDoubleDisp_LDADD) $(LIBS)
-testFloatDisp$(EXEEXT): $(testFloatDisp_OBJECTS) $(testFloatDisp_DEPENDENCIES) 
-	@rm -f testFloatDisp$(EXEEXT)
-	$(testFloatDisp_LINK) $(testFloatDisp_OBJECTS) $(testFloatDisp_LDADD) $(LIBS)
+testDisp$(EXEEXT): $(testDisp_OBJECTS) $(testDisp_DEPENDENCIES) 
+	@rm -f testDisp$(EXEEXT)
+	$(testDisp_LINK) $(testDisp_OBJECTS) $(testDisp_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -329,8 +315,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDisp_la-sdisps.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDisp_la-zdispa.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDisp_la-zdisps.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleDisp-testDoubleDisp.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatDisp-testFloatDisp.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDisp-testDisp.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -409,33 +394,19 @@ libDisp_la-zdispa.lo: zdispa.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDisp_la_CFLAGS) $(CFLAGS) -c -o libDisp_la-zdispa.lo `test -f 'zdispa.c' || echo '$(srcdir)/'`zdispa.c
 
-testDoubleDisp-testDoubleDisp.o: testDoubleDisp.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleDisp_CFLAGS) $(CFLAGS) -MT testDoubleDisp-testDoubleDisp.o -MD -MP -MF $(DEPDIR)/testDoubleDisp-testDoubleDisp.Tpo -c -o testDoubleDisp-testDoubleDisp.o `test -f 'testDoubleDisp.c' || echo '$(srcdir)/'`testDoubleDisp.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleDisp-testDoubleDisp.Tpo $(DEPDIR)/testDoubleDisp-testDoubleDisp.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleDisp.c' object='testDoubleDisp-testDoubleDisp.o' libtool=no @AMDEPBACKSLASH@
+testDisp-testDisp.o: testDisp.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDisp_CFLAGS) $(CFLAGS) -MT testDisp-testDisp.o -MD -MP -MF $(DEPDIR)/testDisp-testDisp.Tpo -c -o testDisp-testDisp.o `test -f 'testDisp.c' || echo '$(srcdir)/'`testDisp.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDisp-testDisp.Tpo $(DEPDIR)/testDisp-testDisp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDisp.c' object='testDisp-testDisp.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleDisp_CFLAGS) $(CFLAGS) -c -o testDoubleDisp-testDoubleDisp.o `test -f 'testDoubleDisp.c' || echo '$(srcdir)/'`testDoubleDisp.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDisp_CFLAGS) $(CFLAGS) -c -o testDisp-testDisp.o `test -f 'testDisp.c' || echo '$(srcdir)/'`testDisp.c
 
-testDoubleDisp-testDoubleDisp.obj: testDoubleDisp.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleDisp_CFLAGS) $(CFLAGS) -MT testDoubleDisp-testDoubleDisp.obj -MD -MP -MF $(DEPDIR)/testDoubleDisp-testDoubleDisp.Tpo -c -o testDoubleDisp-testDoubleDisp.obj `if test -f 'testDoubleDisp.c'; then $(CYGPATH_W) 'testDoubleDisp.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleDisp.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleDisp-testDoubleDisp.Tpo $(DEPDIR)/testDoubleDisp-testDoubleDisp.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleDisp.c' object='testDoubleDisp-testDoubleDisp.obj' libtool=no @AMDEPBACKSLASH@
+testDisp-testDisp.obj: testDisp.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDisp_CFLAGS) $(CFLAGS) -MT testDisp-testDisp.obj -MD -MP -MF $(DEPDIR)/testDisp-testDisp.Tpo -c -o testDisp-testDisp.obj `if test -f 'testDisp.c'; then $(CYGPATH_W) 'testDisp.c'; else $(CYGPATH_W) '$(srcdir)/testDisp.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDisp-testDisp.Tpo $(DEPDIR)/testDisp-testDisp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDisp.c' object='testDisp-testDisp.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleDisp_CFLAGS) $(CFLAGS) -c -o testDoubleDisp-testDoubleDisp.obj `if test -f 'testDoubleDisp.c'; then $(CYGPATH_W) 'testDoubleDisp.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleDisp.c'; fi`
-
-testFloatDisp-testFloatDisp.o: testFloatDisp.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatDisp_CFLAGS) $(CFLAGS) -MT testFloatDisp-testFloatDisp.o -MD -MP -MF $(DEPDIR)/testFloatDisp-testFloatDisp.Tpo -c -o testFloatDisp-testFloatDisp.o `test -f 'testFloatDisp.c' || echo '$(srcdir)/'`testFloatDisp.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatDisp-testFloatDisp.Tpo $(DEPDIR)/testFloatDisp-testFloatDisp.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatDisp.c' object='testFloatDisp-testFloatDisp.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatDisp_CFLAGS) $(CFLAGS) -c -o testFloatDisp-testFloatDisp.o `test -f 'testFloatDisp.c' || echo '$(srcdir)/'`testFloatDisp.c
-
-testFloatDisp-testFloatDisp.obj: testFloatDisp.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatDisp_CFLAGS) $(CFLAGS) -MT testFloatDisp-testFloatDisp.obj -MD -MP -MF $(DEPDIR)/testFloatDisp-testFloatDisp.Tpo -c -o testFloatDisp-testFloatDisp.obj `if test -f 'testFloatDisp.c'; then $(CYGPATH_W) 'testFloatDisp.c'; else $(CYGPATH_W) '$(srcdir)/testFloatDisp.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatDisp-testFloatDisp.Tpo $(DEPDIR)/testFloatDisp-testFloatDisp.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatDisp.c' object='testFloatDisp-testFloatDisp.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatDisp_CFLAGS) $(CFLAGS) -c -o testFloatDisp-testFloatDisp.obj `if test -f 'testFloatDisp.c'; then $(CYGPATH_W) 'testFloatDisp.c'; else $(CYGPATH_W) '$(srcdir)/testFloatDisp.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDisp_CFLAGS) $(CFLAGS) -c -o testDisp-testDisp.obj `if test -f 'testDisp.c'; then $(CYGPATH_W) 'testDisp.c'; else $(CYGPATH_W) '$(srcdir)/testDisp.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
