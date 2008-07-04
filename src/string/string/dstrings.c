@@ -15,5 +15,5 @@
 
 void dstrings (double in, char* out) {
 		
-	sprintf (out, "%e" ,in );		
+	sprintf (out, "%5.20e" ,in );		
 }

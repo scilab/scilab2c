@@ -39,17 +39,14 @@ check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/string/string/libString.la
 
-check_PROGRAMS	= 	testFloatString testDoubleString
+check_PROGRAMS	= 	testString
 
-TESTS		=	testFloatString testDoubleString
+TESTS		=	testString
 
 #
 # -*- Dispine Tests -*-
 #
-testFloatString_SOURCES = 	testString.h testFloatString.c
-testFloatString_CFLAGS	=	$(check_INCLUDES)
-testFloatString_LDADD	=	$(check_LDADD)
+testString_SOURCES  = 	testString.c
+testString_CFLAGS	=	$(check_INCLUDES)
+testString_LDADD	=	$(check_LDADD)
 
-testDoubleString_SOURCES = 	testString.h testDoubleString.c
-testDoubleString_CFLAGS	=	$(check_INCLUDES)
-testDoubleString_LDADD	=	$(check_LDADD)
