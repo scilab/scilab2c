@@ -31,4 +31,5 @@ SUBDIRS=	cos \
 		sqrt \
 		asin \
 		lnp1m1 \
-		pow
+		pow \
+		atan2
