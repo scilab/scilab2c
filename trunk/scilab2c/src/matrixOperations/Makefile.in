@@ -168,7 +168,8 @@ top_srcdir = @top_srcdir@
 SUBDIRS = addition \
 		subtraction \
 		multiplication \
-		cat
+		cat \
+		transpose
 
 all: all-recursive
 
