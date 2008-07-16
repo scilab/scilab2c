@@ -13,6 +13,7 @@
 SUBDIRS= 	addition \
 		subtraction \
 		multiplication \
+		division \
 		cat \
 		transpose
 

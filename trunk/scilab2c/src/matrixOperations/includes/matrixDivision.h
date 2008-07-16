@@ -16,45 +16,45 @@
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
-void srdiva (	float * in1, int it1, 
-				float * in2, int it2, 
-				float *out, int  itOut, int size)) ;		
-							
-void sldiva (	float * in1, int it1, 
-				float * in2, int it2, 
-				float * out, int  itOut, int size)) ;
+void srdiva (	float * in1, int it1,
+				float * in2, int it2,
+				float *out, int  itOut, int size) ;
+
+void sldiva (	float * in1, int it1,
+				float * in2, int it2,
+				float * out, int  itOut, int size) ;
 
 
-				
-				
-void drdiva (	double * in1, int it1, 
-				double * in2, int it2, 
-				double * out, int itOut, int size)) ;
-				
-void dldiva (	double * in1, int it1, 
-				double * in2, int it2, 
-				double * out, int itOut, int size)) ;
-				
 
-				
-				
-void crdiva (	floatComplex * in1, int it1, 
-				floatComplex * in2, int it2, 
-				floatComplex * out, int itOut, int size)) ;		
-				
-				
-void cldiva (	floatComplex * in1, int it1, 
-				floatComplex * in2, int it2, 
-				floatComplex * out, int itOut, int size)) ;
 
-				
-				
-void zrdiva (	doubleComplex * in1, int it1, 
-				doubleComplex * in2, int it2, 
-				doubleComplex * out, int itOut, int size)) ;
-				
-void zldiva (	doubleComplex * in1, int it1, 
-				doubleComplex * in2, int it2, 
-				doubleComplex * out, int itOut, int size)) ;
+void drdiva (	double * in1, int it1,
+				double * in2, int it2,
+				double * out, int itOut, int size) ;
+
+void dldiva (	double * in1, int it1,
+				double * in2, int it2,
+				double * out, int itOut, int size) ;
+
+
+
+
+void crdiva (	floatComplex * in1, int it1,
+				floatComplex * in2, int it2,
+				floatComplex * out, int itOut, int size) ;
+
+
+void cldiva (	floatComplex * in1, int it1,
+				floatComplex * in2, int it2,
+				floatComplex * out, int itOut, int size) ;
+
+
+
+void zrdiva (	doubleComplex * in1, int it1,
+				doubleComplex * in2, int it2,
+				doubleComplex * out, int itOut, int size) ;
+
+void zldiva (	doubleComplex * in1, int it1,
+				doubleComplex * in2, int it2,
+				doubleComplex * out, int itOut, int size) ;
 
 #endif /* !__MATRIXDIVISION_H__ */
