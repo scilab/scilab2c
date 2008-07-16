@@ -46,10 +46,14 @@ void drdiva (	double* in1, int lines1, int columns1 ,
 
 
 					 
-	double* transpOfIn1 = 	(double*) malloc(sizeof(double) * (unsigned int)  lines1 * (unsigned int)  columns1);
-	double* transpOfIn2 = 	(double*) malloc(sizeof(double) * (unsigned int)  lines2 * (unsigned int)  columns2);
+	double* transpOfIn1 = 	(double*) malloc(sizeof(double) * (unsigned int)  lines1
+											 				* (unsigned int)  columns1);
 					 
-	double* copyOfTransIn1 = 	(double*) malloc( sizeof(double) * (unsigned int)  lines1 * (unsigned int)  columns1);
+	double* transpOfIn2 = 	(double*) malloc(sizeof(double) * (unsigned int)  lines2
+											                * (unsigned int)  columns2);
+					 
+	double* copyOfTransIn1 = (double*) malloc( sizeof(double) * (unsigned int)  lines1
+												  			  * (unsigned int)  columns1);
 					 
 
 					 
@@ -94,7 +98,8 @@ void drdiva (	double* in1, int lines1, int columns1 ,
 		drowcata ( in1, lines1, columns1, NULL, 0 , 0 , copyOfTransIn1 ) ;
 		
 		
-		/*/ put here algo of LU fact of in1 dgetrf ( &columns1 , &columns1 , in1 , &columns1 , pIpiv , &info )
+		/*/ put here algo of LU fact of in1
+		dgetrf ( &columns1 , &columns1 , in1 , &columns1 , pIpiv , &info )
 		//return value in pIpiv*/
 		dgetrf_ ( &columns1 , &columns1 , in1 , &columns1 , pIpiv , &info );
 		
@@ -105,7 +110,8 @@ void drdiva (	double* in1, int lines1, int columns1 ,
 					&rcond, work, pIwork, &info);
 			
 			if ( rcond > sqrt(epsilon ))
-				{/* put here algo to resolv linear equation  in1 * X = in2  , the return value go in in2
+				{/* put here algo to resolv linear equation  in1 * X = in2  ,
+					 the return value go in in2
 				// put here algo to copy in2 in out */
 				resolveSystemLinear (&columns1, &lines2, copyOfTransIn1, pIpiv,
 									 transpOfIn2, &info)	;
