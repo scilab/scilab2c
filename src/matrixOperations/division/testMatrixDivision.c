@@ -15,8 +15,8 @@
 #include <stdio.h>
 
 #define LINES1  2
-#define LINES2  1
-#define COLUMNS 3
+#define LINES2  2
+#define COLUMNS 2
 /*
 static void sdivaTest ( void ) 
 {
@@ -221,18 +221,18 @@ static void ddivaTest ( void )
 {
 	int i = 0 ; 
 	
-	double in1[] = { 1 , 2 , 3 , 4 ,5 , 6 } ;
+	double in1[] = { 1 , 2 , 3 , 4 } ;
 		
 
-double in2[] =  { 7 , 8 , 9 } ;
+double in2[] =  { 1 , 2 ,3 ,4 } ;
 		
 
 	
-double result[] = { 0.25773195876288651 , 0.62886597938144329 };
+double result[] = { 1 ,0 , 0 , 1 };
 	
 
 double out [(COLUMNS)*(LINES2)] ;
-	printf("\n>rentre dans fonction \n");	
+
 	drdiva ( in1 , LINES1 , COLUMNS , in2 , LINES2 , COLUMNS , out ) ;
 	printf("\n\n\t>>>>>debut assert\n");	
 	for ( i = 0 ; i < LINES2 *COLUMNS  ; i++ )

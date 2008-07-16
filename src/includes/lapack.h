@@ -18,6 +18,13 @@
 #define getOverflowThreshold()			dlamch_("o", 1L)
 #define getUnderflowThreshold()			dlamch_("u", 1L)
 
+#define getOneNorm(lines,cols,in,work) 		dlange_("1", lines, cols, in, lines, work)
+#define resolveSystemLinear(cols1,row2,cpytranIn1,pIpiv, transposeOfIn2,info) \
+		dgetrs_  ("N" ,cols1, row2, cpytranIn1 , cols1, pIpiv,transposeOfIn2, cols1, info) ;
+
+
+
+
 /**
  *  -- LAPACK auxiliary routine (version 3.0) --
  *     Univ. of Tennessee, Univ. of California Berkeley, NAG Ltd.,
@@ -61,6 +68,20 @@
  * =====================================================================
  **/
 extern		double dlamch_  (char *CMACH, unsigned long int i);
+
+extern		double dlange_  (char* NORM, int* M, int* N, double* A, int* LDA , double* WORK);
+
+extern 		double dgetrf_	(int*  M, int* N , double* A , int* LDA , int* IPIV , int* INFO);
+
+extern		double dgecon_	(char* NORM, int* N, double* A, int* LDA, double* ANORM,
+							 double* RCOND, double* WORK , int* IWORK, int* INFO ) ;
+
+extern		double dgetrs_  (char* TRANS, int* N, int* NRHS, double* A, int* LDA,
+							 int* IPIV, double* B, int* LDB, int* INFO ) ;
+
+extern 		double dgelsy_ (int* M, int* N, int* NRHS, double* A, int* LDA,
+							double* B, int* LDB, int* JPVT, double* RCOND, int* RANK,
+							double* WORK, int* LWORK, int* INFO) ;
 
 
 #endif /* !__LAPACK_H__ */

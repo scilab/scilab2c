@@ -12,7 +12,7 @@
 
 AC_INIT([sci2cLibrary],[0.1],[])
 AC_CONFIG_AUX_DIR(config)
-AC_PREREQ(2.55)
+AC_PREREQ(2.61)
 
 RM='rm -f'
 SCIDIR=$srcdir
@@ -52,20 +52,20 @@ AC_SUBST(LIBMATH)
 ## all the --with-* argument help
 #################################
 AC_ARG_WITH(stdc99,
-   AC_HELP_STRING([--with-stdc99],[Enable standard C99 (Used in complex implementation)]))
+   AS_HELP_STRING([--with-stdc99],[Enable standard C99 (Used in complex implementation)]))
 if test "$with_stdc99" = yes; then
    AC_CHECK_HEADERS([complex.h])
    CFLAGS="$CFLAGS -std=c99"
 fi
 
 AC_ARG_WITH(blas,
-   AC_HELP_STRING([--with-blas],[Enable call to blas library (Used in matrix operations)]))
+   AS_HELP_STRING([--with-blas],[Enable call to blas library (Used in matrix operations)]))
 if test "$with_blas" = no; then
    CFLAGS="$CFLAGS -DWITHOUT_BLAS"
 fi
 
 AC_ARG_ENABLE(debug,
-   AC_HELP_STRING([--enable-debug],[Use verbose messages through compilation process]))
+   AS_HELP_STRING([--enable-debug],[Use verbose messages through compilation process]))
 if test "$enable_debug" = yes; then
    CFLAGS="$CFLAGS -Wall -Wextra -pedantic -Wconversion -Wformat -Wshadow \
    -Wpointer-arith -Wcast-align -Wmissing-prototypes \
@@ -73,12 +73,12 @@ if test "$enable_debug" = yes; then
 fi
 
 AC_ARG_ENABLE(stopOnWarning,
-   AC_HELP_STRING([--enable-stop-on-warning],[Stop the compilation on the first warning found in the C/C++ code]))
+   AS_HELP_STRING([--enable-stop-on-warning],[Stop the compilation on the first warning found in the C/C++ code]))
 if test "$enable_stop_on_warning" = yes; then
    CFLAGS="$CFLAGS -Werror"
 fi
 
-########### FORTRAN FLAGS ######################
+###########ï¿½FORTRAN FLAGS ######################
 
 ######################
 ######## With F77 / G77 / GFortran ...
@@ -88,7 +88,7 @@ if test -n "$F77"; then
 	  FFLAGS="$FFLAGS -g -Wall "
 fi
 
-########### C FLAGS ######################
+###########ï¿½C FLAGS ######################
 
 ######################
 ######## With GCC ...
@@ -168,6 +168,7 @@ matrixOperations/Makefile
 matrixOperations/addition/Makefile
 matrixOperations/subtraction/Makefile
 matrixOperations/multiplication/Makefile
+matrixOperations/division/Makefile
 matrixOperations/cat/Makefile
 matrixOperations/transpose/Makefile
 implicitList/Makefile

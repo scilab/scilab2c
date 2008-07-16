@@ -11,7 +11,7 @@
 ##
 
 SUBDIRS = 	disp \
-		#string
+		string
 
 
 
