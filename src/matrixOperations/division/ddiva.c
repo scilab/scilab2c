@@ -14,8 +14,6 @@
 
 #include "matrixDivision.h" 
 #include "lapack.h" 
-#include "stdio.h"
-
 void drdiva (	double* in1, int lines1, int columns1 ,
 			    double* in2, int lines2, int columns2 ,
 			 	double* out ){
@@ -54,7 +52,10 @@ void drdiva (	double* in1, int lines1, int columns1 ,
 					 
 
 					 
-					 
+/* adaptation of the original code in scilab 
+	iWorkMin	= Max(4 * _iCols1, Max(Min(_iRows1, _iCols1) + 3 * _iRows1 + 1,
+	2 * Min(_iRows1, _iCols1) + _iRows2)); 
+	*/
 	if (lines1 > columns1)
 		tMinLinCol1 = columns1 ;
 	else
@@ -69,6 +70,9 @@ void drdiva (	double* in1, int lines1, int columns1 ,
 		iwork =  4* columns1 ;
 	else
 		iwork = temp ;
+					 
+					 
+					 
 	
 	work  =	(double*) malloc (sizeof(double) *(unsigned int)  iwork );
 					 
@@ -80,7 +84,8 @@ void drdiva (	double* in1, int lines1, int columns1 ,
 
 	dtransposea ( in1, lines1, columns1, transpOfIn1);
 	dtransposea ( in2, lines2, columns2, transpOfIn2)	;				 
-					 
+
+/* case of a square matrix */ 
 	if ( lines1 == columns1 )
 	{													
 		drowcata ( in1, lines1, columns1, NULL, 0 , 0 , copyOfTransIn1 ) ;
@@ -111,7 +116,7 @@ void drdiva (	double* in1, int lines1, int columns1 ,
 	}
 				
 
-					 
+/* non-square matrix case */					 
 	if ( iexit== 0)
 	{
 		rcond   = sqrt(epsilon );
@@ -126,7 +131,7 @@ void drdiva (	double* in1, int lines1, int columns1 ,
 				   transpOfIn2, &imax, pJpvt, &rcond, &rank, work,
 				   &iwork, &info);
 		
-
+	
 		if (info ==	0)
 			for(j = 0 ; j < lines1 ; j++)
 				{
