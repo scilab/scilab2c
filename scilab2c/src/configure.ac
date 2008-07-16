@@ -169,6 +169,7 @@ matrixOperations/addition/Makefile
 matrixOperations/subtraction/Makefile
 matrixOperations/multiplication/Makefile
 matrixOperations/cat/Makefile
+matrixOperations/transpose/Makefile
 implicitList/Makefile
 elementaryFunctions/Makefile
 elementaryFunctions/cos/Makefile
@@ -182,6 +183,7 @@ elementaryFunctions/asinh/Makefile
 elementaryFunctions/tan/Makefile
 elementaryFunctions/tanh/Makefile
 elementaryFunctions/atan/Makefile
+elementaryFunctions/atan2/Makefile
 elementaryFunctions/atanh/Makefile
 elementaryFunctions/log/Makefile
 elementaryFunctions/log1p/Makefile
