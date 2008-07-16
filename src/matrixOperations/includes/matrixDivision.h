@@ -22,21 +22,18 @@
 void srdiva (	float* in1, int lines1, int columns1 ,
 			    float* in2, int lines2, int columns2 ,
 			 	float* out );		
-
+/*
 void sldiva (	float * in1, int it1,
 				float * in2, int it2,
 				float * out, int  itOut, int size) ;
 
-
+*/
 				
 void drdiva (	double* in1, int lines1, int columns1 ,
 			    double* in2, int lines2, int columns2 ,
 			 	double* out );		
 
-void drdiva (	double * in1, int it1,
-				double * in2, int it2,
-				double * out, int itOut, int size) ;
-
+/*
 void dldiva (	double * in1, int it1,
 				double * in2, int it2,
 				double * out, int itOut, int size) ;
@@ -61,6 +58,6 @@ void zrdiva (	doubleComplex * in1, int it1,
 
 void zldiva (	doubleComplex * in1, int it1,
 				doubleComplex * in2, int it2,
-				doubleComplex * out, int itOut, int size) ;
+				doubleComplex * out, int itOut, int size) ;*/
 
 #endif /* !__MATRIXDIVISION_H__ */
