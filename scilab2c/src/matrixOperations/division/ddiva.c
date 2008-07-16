@@ -14,6 +14,7 @@
 
 #include "matrixDivision.h" 
 #include "lapack.h" 
+
 void drdiva (	double* in1, int lines1, int columns1 ,
 			    double* in2, int lines2, int columns2 ,
 			 	double* out ){
@@ -83,7 +84,9 @@ void drdiva (	double* in1, int lines1, int columns1 ,
 					 
 
 	dtransposea ( in1, lines1, columns1, transpOfIn1);
-	dtransposea ( in2, lines2, columns2, transpOfIn2)	;				 
+	dtransposea ( in2, lines2, columns2, transpOfIn2)	;
+					 
+
 
 /* case of a square matrix */ 
 	if ( lines1 == columns1 )
@@ -146,7 +149,6 @@ void drdiva (	double* in1, int lines1, int columns1 ,
 						}
 				}
 			
-	
 
 	}
 						 

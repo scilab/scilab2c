@@ -15,5 +15,6 @@ SUBDIRS= 	addition \
 		multiplication \
 		division \
 		cat \
-		transpose
+		transpose \
+		division
 

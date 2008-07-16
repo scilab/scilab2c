@@ -15,17 +15,23 @@
 
 #include "floatComplex.h"
 #include "doubleComplex.h"
+#include "cat.h"
+#include "matrixTranspose.h"
 
-void srdiva (	float * in1, int it1,
-				float * in2, int it2,
-				float *out, int  itOut, int size) ;
+
+void srdiva (	float* in1, int lines1, int columns1 ,
+			    float* in2, int lines2, int columns2 ,
+			 	float* out );		
 
 void sldiva (	float * in1, int it1,
 				float * in2, int it2,
 				float * out, int  itOut, int size) ;
 
 
-
+				
+void drdiva (	double* in1, int lines1, int columns1 ,
+			    double* in2, int lines2, int columns2 ,
+			 	double* out );		
 
 void drdiva (	double * in1, int it1,
 				double * in2, int it2,
