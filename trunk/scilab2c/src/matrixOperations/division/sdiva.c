@@ -15,7 +15,7 @@
 /**** Because of problem of conversion float-> double ****/
 #include "matrixDivision.h" 
 #include "lapack.h" 
-#include "stdio.h"
+
 
 void srdiva (	float* in1, int lines1, int columns1 ,
 			    float* in2, int lines2, int columns2 ,
@@ -53,8 +53,7 @@ void srdiva (	float* in1, int lines1, int columns1 ,
 	float* copyOfTransIn1 = 	(float*) malloc( sizeof(float) * (unsigned int)  lines1 * (unsigned int)  columns1);
 					 
 
-					 
-printf("\n>fin alloc \n");						 
+					 					 
 	if (lines1 > columns1)
 		tMinLinCol1 = columns1 ;
 	else
@@ -71,9 +70,9 @@ printf("\n>fin alloc \n");
 		iwork = temp ;
 	
 	work  =	(double*) malloc (sizeof(double) *(unsigned int)  iwork );
-					 printf("\n>debut partie rigolote \n");	
+
 	anorm = getOneNorm( &lines1, &columns1 , (double* ) in1 , work);
-			printf("\n>debut partie rigolote 2\n");			 
+				 
 
 /* end of allocation area*/
 					 
@@ -119,7 +118,9 @@ printf("\n>fin alloc \n");
 			imax = lines1;
 
 		
-/* cette fonction genere des nombres aleatoires , youpi ! */ 		
+/* if you uncomment this function you will get a fabulous random number generator 
+   actually the problem come from the convertion from float* to double*
+   that also cause the free() of these cast variables to crash * */
 	/*	dgelsy_ (&columns1, &lines1, &lines2, (double*) transpOfIn1 , &columns1,
 				  (double*) transpOfIn2, &imax, pJpvt, &rcond, &rank, work,
 				   &iwork, &info);*/
@@ -140,16 +141,12 @@ printf("\n>fin alloc \n");
 				}
 			
 	
-		/* here put algo dgelsy1 which do maybe interesting things but i dunno what 
-		
-		// if info return by dgelsy1 != 0
-		// return ;*/
+
 		
 	
 
 	}
-					
-		printf("\n>debut partie 2\n");			 
+	 
 			 
 
 	/*  then we free all the allocated memory */		
@@ -158,7 +155,7 @@ printf("\n>fin alloc \n");
 	free ( pIwork) ;
 	free ( work )  ;
 					 
-	/* le probleme vient de ces trois free */
+	/* the cast from float* to double* make these 3 functions crashing */
 	free (transpOfIn1) ;
 	free (transpOfIn2) ;	
 	free (copyOfTransIn1);
