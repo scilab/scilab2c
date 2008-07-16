@@ -20,13 +20,17 @@ pkglib_LTLIBRARIES = libMatrixDivision.la
 HEAD = ../includes/matrixDivision.h
 
 libMatrixDivision_la_SOURCES = 	$(HEAD) \
-				matrixDivision.c
+				sdiva.c \
+				ddiva.c
 
 check_PROGRAMS = 	testMatrixDivision
 
 check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/lib/blas/libsciblas.la \
+			$(top_builddir)/lib/lapack/libscilapack.la \
+			$(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la \
+			$(top_builddir)/matrixOperations/cat/libMatrixConcatenation.la \
 			libMatrixDivision.la
 
 check_INCLUDES =	-I $(top_builddir)/type \
