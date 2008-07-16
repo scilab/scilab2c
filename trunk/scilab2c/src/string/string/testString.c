@@ -19,7 +19,7 @@
 #define SIZE 10000
 
 /*
-** \test pour les float s
+** \floating scalars test
 */
 static void sstringaTest (void) {
    float tabF[SIZE];
@@ -43,17 +43,16 @@ static void sstringaTest (void) {
          tabF[i] = (float) rand () ;
       }
 
-/* appel de la fonction à tester */
+/* call to the function to test */
    sstringa ( tabF , SIZE , tabC ) ;
 
-/* on reconvertit dans le sens inverse */
+/* reverse convertion*/
    for ( i = 0  ; i < SIZE ; ++i)
       {
          sscanf  ( tabC[i] , "%e" ,  &(tabF2[i]) ) ;
       }
 
-/* et on compare si les floatants initiaux et finaux sont identiques ,
-  à une marge d'erreur pres à cause  de l'epsilon machine */
+/* and we compare if the initial and final floats are equal */
 
    for ( i = 0  ; i < SIZE ; ++i)
      {
@@ -66,7 +65,7 @@ static void sstringaTest (void) {
 
 
 /*
-** \test pour les double s
+** \double scalars test
 */
 
 static void dstringaTest (void) {
@@ -92,10 +91,10 @@ static void dstringaTest (void) {
          tabD[i] = (double) rand () ;
       }
 
-/* appel de la fonction à tester   sstringa ( tabD , SIZE , tabC ) ; */
+/* call to the function to test */
 
    dstringa ( tabD , SIZE , tabC ) ;
-/* on reconvertit dans le sens inverse */
+/* reverse convertion*/
    for ( i = 0  ; i < SIZE ; ++i)
       {
 
@@ -103,8 +102,7 @@ static void dstringaTest (void) {
 
       }
 
-/* et on compare si les floatants initiaux et finaux sont identique ,
-   à une marge d'erreur pres à cause  de l'epsilon machine*/
+/* and we compare if the initial and final doubles are equal */
 
    for ( i = 0  ; i < SIZE ; ++i)
      {
@@ -117,7 +115,7 @@ static void dstringaTest (void) {
 
 
 /*
-** \test pour les float c
+** \complex floats test
 */
 
 static void cstringaTest (void) {
@@ -144,10 +142,11 @@ static void cstringaTest (void) {
          tabF[i] = FloatComplex ((float) rand (), (float) rand());
       }
 
-/* appel de la fonction à tester */
+
    cstringa ( tabF , SIZE , tabC ) ;
 
-/* on reconvertit dans le sens inverse */
+/* reverse convertion*/
+
    for ( i = 0  ; i < SIZE ; ++i)
       {
 		sscanf (tabC[i]  , "%e + %e" , &real , &img );
@@ -156,8 +155,9 @@ static void cstringaTest (void) {
         tabF2[i] = FloatComplex (real ,img );
       }
 
-/* et on compare si les floats initiaux et finaux sont identique ,
-   à une marge d'erreur pres à cause  de l'epsilon machine */
+
+/* and we compare if the initial and final  floats are equal */
+
 
    for ( i = 0  ; i < SIZE ; ++i)
      {
@@ -171,7 +171,7 @@ static void cstringaTest (void) {
 
 
 /*
-** \test pour les doubles 07
+** \double 07 test
 */
 static void zstringaTest (void) {
   doubleComplex tabD[SIZE];
@@ -200,10 +200,9 @@ static void zstringaTest (void) {
          tabD[i] = DoubleComplex ((double) rand (), (double) rand());
       }
 
-/* appel de la fonction à tester*/
    zstringa ( tabD , SIZE , tabC ) ;
 
-/* on reconvertit dans le sens inverse*/
+/* reverse convertion*/
    for ( i = 0  ; i < SIZE ; ++i)
       {
 		real = (double) strtod (tabC[i]  ,&temp );
@@ -211,9 +210,7 @@ static void zstringaTest (void) {
 
         tabD2[i] = DoubleComplex (real ,img );
       }
-
-/* et on compare si les doubles initiaux et finaux sont identique ,
-   à une marge d'erreur pres à cause  de l'epsilon machine */
+/* and we compare if the initial and final doubles are equal */
 
    for ( i = 0  ; i < SIZE ; ++i)
      {
