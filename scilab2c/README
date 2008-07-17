@@ -103,3 +103,4 @@ precision :
 - log10(x) : Real input.
 	Return a Real value	if x E ] 0 ; +inf [
 	Return a Complex value	if x E ] -inf ; 0 [
+
