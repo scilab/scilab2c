@@ -32,8 +32,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testMatrixDivision$(EXEEXT)
-TESTS = testMatrixDivision$(EXEEXT)
+check_PROGRAMS = testMatrixLDivision$(EXEEXT)
+TESTS = testMatrixLDivision$(EXEEXT)
 subdir = matrixOperations/division
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -55,19 +55,20 @@ LTLIBRARIES = $(pkglib_LTLIBRARIES)
 libMatrixDivision_la_LIBADD =
 am__objects_1 =
 am_libMatrixDivision_la_OBJECTS = $(am__objects_1) \
-	libMatrixDivision_la-sdiva.lo libMatrixDivision_la-ddiva.lo
+	libMatrixDivision_la-srdiva.lo libMatrixDivision_la-drdiva.lo \
+	libMatrixDivision_la-dldiva.lo
 libMatrixDivision_la_OBJECTS = $(am_libMatrixDivision_la_OBJECTS)
 libMatrixDivision_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(libMatrixDivision_la_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-am_testMatrixDivision_OBJECTS =  \
-	testMatrixDivision-testMatrixDivision.$(OBJEXT)
-testMatrixDivision_OBJECTS = $(am_testMatrixDivision_OBJECTS)
-testMatrixDivision_DEPENDENCIES = $(check_LDADD)
-testMatrixDivision_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+am_testMatrixLDivision_OBJECTS =  \
+	testMatrixLDivision-testMatrixLDivision.$(OBJEXT)
+testMatrixLDivision_OBJECTS = $(am_testMatrixLDivision_OBJECTS)
+testMatrixLDivision_DEPENDENCIES = $(check_LDADD)
+testMatrixLDivision_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
-	$(testMatrixDivision_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(testMatrixLDivision_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
@@ -82,9 +83,9 @@ LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
 SOURCES = $(libMatrixDivision_la_SOURCES) \
-	$(testMatrixDivision_SOURCES)
+	$(testMatrixLDivision_SOURCES)
 DIST_SOURCES = $(libMatrixDivision_la_SOURCES) \
-	$(testMatrixDivision_SOURCES)
+	$(testMatrixLDivision_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -205,8 +206,9 @@ instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libMatrixDivision.la
 HEAD = ../includes/matrixDivision.h
 libMatrixDivision_la_SOURCES = $(HEAD) \
-				sdiva.c \
-				ddiva.c
+				srdiva.c \
+				drdiva.c \
+				dldiva.c
 
 check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
@@ -218,9 +220,9 @@ check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 check_INCLUDES = -I $(top_builddir)/type \
 			-I $(top_builddir)/matrixOperations/includes
 
-testMatrixDivision_SOURCES = testMatrixDivision.c
-testMatrixDivision_LDADD = $(check_LDADD)
-testMatrixDivision_CFLAGS = $(check_INCLUDES)
+testMatrixLDivision_SOURCES = testMatrixLDivision.c
+testMatrixLDivision_LDADD = $(check_LDADD)
+testMatrixLDivision_CFLAGS = $(check_INCLUDES)
 all: all-am
 
 .SUFFIXES:
@@ -290,9 +292,9 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testMatrixDivision$(EXEEXT): $(testMatrixDivision_OBJECTS) $(testMatrixDivision_DEPENDENCIES) 
-	@rm -f testMatrixDivision$(EXEEXT)
-	$(testMatrixDivision_LINK) $(testMatrixDivision_OBJECTS) $(testMatrixDivision_LDADD) $(LIBS)
+testMatrixLDivision$(EXEEXT): $(testMatrixLDivision_OBJECTS) $(testMatrixLDivision_DEPENDENCIES) 
+	@rm -f testMatrixLDivision$(EXEEXT)
+	$(testMatrixLDivision_LINK) $(testMatrixLDivision_OBJECTS) $(testMatrixLDivision_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -300,9 +302,10 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixDivision_la-ddiva.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixDivision_la-sdiva.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testMatrixDivision-testMatrixDivision.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixDivision_la-dldiva.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixDivision_la-drdiva.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixDivision_la-srdiva.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testMatrixLDivision-testMatrixLDivision.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -325,33 +328,40 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
-libMatrixDivision_la-sdiva.lo: sdiva.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -MT libMatrixDivision_la-sdiva.lo -MD -MP -MF $(DEPDIR)/libMatrixDivision_la-sdiva.Tpo -c -o libMatrixDivision_la-sdiva.lo `test -f 'sdiva.c' || echo '$(srcdir)/'`sdiva.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixDivision_la-sdiva.Tpo $(DEPDIR)/libMatrixDivision_la-sdiva.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sdiva.c' object='libMatrixDivision_la-sdiva.lo' libtool=yes @AMDEPBACKSLASH@
+libMatrixDivision_la-srdiva.lo: srdiva.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -MT libMatrixDivision_la-srdiva.lo -MD -MP -MF $(DEPDIR)/libMatrixDivision_la-srdiva.Tpo -c -o libMatrixDivision_la-srdiva.lo `test -f 'srdiva.c' || echo '$(srcdir)/'`srdiva.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixDivision_la-srdiva.Tpo $(DEPDIR)/libMatrixDivision_la-srdiva.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='srdiva.c' object='libMatrixDivision_la-srdiva.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -c -o libMatrixDivision_la-sdiva.lo `test -f 'sdiva.c' || echo '$(srcdir)/'`sdiva.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -c -o libMatrixDivision_la-srdiva.lo `test -f 'srdiva.c' || echo '$(srcdir)/'`srdiva.c
 
-libMatrixDivision_la-ddiva.lo: ddiva.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -MT libMatrixDivision_la-ddiva.lo -MD -MP -MF $(DEPDIR)/libMatrixDivision_la-ddiva.Tpo -c -o libMatrixDivision_la-ddiva.lo `test -f 'ddiva.c' || echo '$(srcdir)/'`ddiva.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixDivision_la-ddiva.Tpo $(DEPDIR)/libMatrixDivision_la-ddiva.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ddiva.c' object='libMatrixDivision_la-ddiva.lo' libtool=yes @AMDEPBACKSLASH@
+libMatrixDivision_la-drdiva.lo: drdiva.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -MT libMatrixDivision_la-drdiva.lo -MD -MP -MF $(DEPDIR)/libMatrixDivision_la-drdiva.Tpo -c -o libMatrixDivision_la-drdiva.lo `test -f 'drdiva.c' || echo '$(srcdir)/'`drdiva.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixDivision_la-drdiva.Tpo $(DEPDIR)/libMatrixDivision_la-drdiva.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='drdiva.c' object='libMatrixDivision_la-drdiva.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -c -o libMatrixDivision_la-ddiva.lo `test -f 'ddiva.c' || echo '$(srcdir)/'`ddiva.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -c -o libMatrixDivision_la-drdiva.lo `test -f 'drdiva.c' || echo '$(srcdir)/'`drdiva.c
 
-testMatrixDivision-testMatrixDivision.o: testMatrixDivision.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixDivision_CFLAGS) $(CFLAGS) -MT testMatrixDivision-testMatrixDivision.o -MD -MP -MF $(DEPDIR)/testMatrixDivision-testMatrixDivision.Tpo -c -o testMatrixDivision-testMatrixDivision.o `test -f 'testMatrixDivision.c' || echo '$(srcdir)/'`testMatrixDivision.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatrixDivision-testMatrixDivision.Tpo $(DEPDIR)/testMatrixDivision-testMatrixDivision.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMatrixDivision.c' object='testMatrixDivision-testMatrixDivision.o' libtool=no @AMDEPBACKSLASH@
+libMatrixDivision_la-dldiva.lo: dldiva.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -MT libMatrixDivision_la-dldiva.lo -MD -MP -MF $(DEPDIR)/libMatrixDivision_la-dldiva.Tpo -c -o libMatrixDivision_la-dldiva.lo `test -f 'dldiva.c' || echo '$(srcdir)/'`dldiva.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixDivision_la-dldiva.Tpo $(DEPDIR)/libMatrixDivision_la-dldiva.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dldiva.c' object='libMatrixDivision_la-dldiva.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixDivision_CFLAGS) $(CFLAGS) -c -o testMatrixDivision-testMatrixDivision.o `test -f 'testMatrixDivision.c' || echo '$(srcdir)/'`testMatrixDivision.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -c -o libMatrixDivision_la-dldiva.lo `test -f 'dldiva.c' || echo '$(srcdir)/'`dldiva.c
 
-testMatrixDivision-testMatrixDivision.obj: testMatrixDivision.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixDivision_CFLAGS) $(CFLAGS) -MT testMatrixDivision-testMatrixDivision.obj -MD -MP -MF $(DEPDIR)/testMatrixDivision-testMatrixDivision.Tpo -c -o testMatrixDivision-testMatrixDivision.obj `if test -f 'testMatrixDivision.c'; then $(CYGPATH_W) 'testMatrixDivision.c'; else $(CYGPATH_W) '$(srcdir)/testMatrixDivision.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatrixDivision-testMatrixDivision.Tpo $(DEPDIR)/testMatrixDivision-testMatrixDivision.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMatrixDivision.c' object='testMatrixDivision-testMatrixDivision.obj' libtool=no @AMDEPBACKSLASH@
+testMatrixLDivision-testMatrixLDivision.o: testMatrixLDivision.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixLDivision_CFLAGS) $(CFLAGS) -MT testMatrixLDivision-testMatrixLDivision.o -MD -MP -MF $(DEPDIR)/testMatrixLDivision-testMatrixLDivision.Tpo -c -o testMatrixLDivision-testMatrixLDivision.o `test -f 'testMatrixLDivision.c' || echo '$(srcdir)/'`testMatrixLDivision.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatrixLDivision-testMatrixLDivision.Tpo $(DEPDIR)/testMatrixLDivision-testMatrixLDivision.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMatrixLDivision.c' object='testMatrixLDivision-testMatrixLDivision.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixDivision_CFLAGS) $(CFLAGS) -c -o testMatrixDivision-testMatrixDivision.obj `if test -f 'testMatrixDivision.c'; then $(CYGPATH_W) 'testMatrixDivision.c'; else $(CYGPATH_W) '$(srcdir)/testMatrixDivision.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixLDivision_CFLAGS) $(CFLAGS) -c -o testMatrixLDivision-testMatrixLDivision.o `test -f 'testMatrixLDivision.c' || echo '$(srcdir)/'`testMatrixLDivision.c
+
+testMatrixLDivision-testMatrixLDivision.obj: testMatrixLDivision.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixLDivision_CFLAGS) $(CFLAGS) -MT testMatrixLDivision-testMatrixLDivision.obj -MD -MP -MF $(DEPDIR)/testMatrixLDivision-testMatrixLDivision.Tpo -c -o testMatrixLDivision-testMatrixLDivision.obj `if test -f 'testMatrixLDivision.c'; then $(CYGPATH_W) 'testMatrixLDivision.c'; else $(CYGPATH_W) '$(srcdir)/testMatrixLDivision.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatrixLDivision-testMatrixLDivision.Tpo $(DEPDIR)/testMatrixLDivision-testMatrixLDivision.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMatrixLDivision.c' object='testMatrixLDivision-testMatrixLDivision.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixLDivision_CFLAGS) $(CFLAGS) -c -o testMatrixLDivision-testMatrixLDivision.obj `if test -f 'testMatrixLDivision.c'; then $(CYGPATH_W) 'testMatrixLDivision.c'; else $(CYGPATH_W) '$(srcdir)/testMatrixLDivision.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
