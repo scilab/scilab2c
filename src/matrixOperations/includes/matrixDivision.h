@@ -33,12 +33,12 @@ void drdiva (	double* in1, int lines1, int columns1 ,
 			    double* in2, int lines2, int columns2 ,
 			 	double* out );		
 
+
+void dldiva (	double* in1, int lines1, int columns1 ,
+			    double* in2, int lines2, int columns2 ,
+			 	double* out );		
+
 /*
-void dldiva (	double * in1, int it1,
-				double * in2, int it2,
-				double * out, int itOut, int size) ;
-
-
 
 
 void crdiva (	floatComplex * in1, int it1,
