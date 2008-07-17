@@ -1,13 +1,13 @@
 ##
+##  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+##  Copyright (C) 2006-2008 - INRIA - Bruno JOFRET
 ##
+##  This file must be used under the terms of the CeCILL.
+##  This source file is licensed as described in the file COPYING, which
+##  you should have received as part of this distribution.  The terms
+##  are also available at
+##  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 ##
-## README
-## Made by  Bruno JOFRET <bruno.jofret@inria.fr>
-##
-## Started on  Tue Nov 21 15:21:25 2006 jofret
-## Last update Thu Feb  8 15:58:19 2007 jofret
-##
-## Copyright INRIA 2006
 ##
 
 Feel free to add everything you find useful for hArtes and the scilab2c tool.
@@ -33,6 +33,18 @@ I - Scalar
 
 II - Matrix
 ------------
+
+!! WARNING !!
+Matrix are stored column ways.
+Ex :
+double M[4] = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0}
+- If M has 2 lines and 3 columns :
+M = [ 1.0 3.0 5.0 ]
+    [ 2.0 4.0 6.0 ]
+- If M has 3 lines and 2 columns :
+M = [ 1.0 4.0 ]
+    [ 2.0 5.0 ]
+    [ 3.0 6.0 ]
 
  I.1 - Real
   I.1.1 - Simple precision (float)
@@ -68,6 +80,26 @@ precision :
 ** FIXME : Add it into the users limitations.
 */
 
+- acos(x) : Real input.
+	Return a Real value	if x E [ -1 ; 1 ].
+	Return a Complex value	if x E ] -inf ; -1 [ U ] 1 ; +inf [.
+
 - acosh(x) : Real input.
-	Return a Real value	if  x E ] 1 ; +inf [.
+	Return a Real value	if x E ] 1 ; +inf [.
 	Return a Complex value	if x E ] -inf ; 1 ].
+
+- asin(x) : Real input.
+	Return a Real value	if x E [ -1 ; 1 ].
+	Return a Complex value	if x E ] -inf ; -1 [ U ] 1 ; +inf [.
+
+- atanh(x) : Real input.
+	Return a Real value	if x E ] -1 ; 1[.
+	Return a Complex value	if x E ] -inf ; -1 [ U ] 1 ; +inf [.
+
+- log(x) : Real input.
+	Return a Real value	if x E ] 0 ; +inf [
+	Return a Complex value	if x E ] -inf ; 0 [
+
+- log10(x) : Real input.
+	Return a Real value	if x E ] 0 ; +inf [
+	Return a Complex value	if x E ] -inf ; 0 [
