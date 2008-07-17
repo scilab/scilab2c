@@ -20,10 +20,11 @@ pkglib_LTLIBRARIES = libMatrixDivision.la
 HEAD = ../includes/matrixDivision.h
 
 libMatrixDivision_la_SOURCES = 	$(HEAD) \
-				sdiva.c \
-				ddiva.c
+				srdiva.c \
+				drdiva.c \
+				dldiva.c
 
-check_PROGRAMS = 	testMatrixDivision
+check_PROGRAMS = 	testMatrixLDivision
 
 check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
@@ -35,8 +36,8 @@ check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 check_INCLUDES =	-I $(top_builddir)/type \
 			-I $(top_builddir)/matrixOperations/includes
 
-testMatrixDivision_SOURCES = testMatrixDivision.c
-testMatrixDivision_LDADD = $(check_LDADD)
-testMatrixDivision_CFLAGS = $(check_INCLUDES)
+testMatrixLDivision_SOURCES = testMatrixLDivision.c
+testMatrixLDivision_LDADD = $(check_LDADD)
+testMatrixLDivision_CFLAGS = $(check_INCLUDES)
 
-TESTS =		testMatrixDivision
+TESTS =		testMatrixLDivision

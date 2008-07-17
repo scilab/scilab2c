@@ -95,13 +95,13 @@ void drdiva (	double* in1, int lines1, int columns1 ,
 /* case of a square matrix */ 
 	if ( lines1 == columns1 )
 	{													
-		drowcata ( in1, lines1, columns1, NULL, 0 , 0 , copyOfTransIn1 ) ;
+		drowcata ( transpOfIn1, lines1, columns1, NULL, 0 , 0 , copyOfTransIn1 ) ;
 		
 		
 		/*/ put here algo of LU fact of in1
 		dgetrf ( &columns1 , &columns1 , in1 , &columns1 , pIpiv , &info )
 		//return value in pIpiv*/
-		dgetrf_ ( &columns1 , &columns1 , in1 , &columns1 , pIpiv , &info );
+		dgetrf_ ( &columns1 , &columns1 ,copyOfTransIn1  , &columns1 , pIpiv , &info );
 		
 		if ( info == 0 )
 		{
@@ -115,7 +115,7 @@ void drdiva (	double* in1, int lines1, int columns1 ,
 				// put here algo to copy in2 in out */
 				resolveSystemLinear (&columns1, &lines2, copyOfTransIn1, pIpiv,
 									 transpOfIn2, &info)	;
-				dtransposea ( transpOfIn2 , columns2 , lines2 , out)	;	
+				dtransposea ( transpOfIn2 , columns1 , lines2 , out)	;	
 				iexit = 1;
 				}
 			

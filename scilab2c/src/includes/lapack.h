@@ -83,5 +83,8 @@ extern 		double dgelsy_ (int* M, int* N, int* NRHS, double* A, int* LDA,
 							double* B, int* LDB, int* JPVT, double* RCOND, int* RANK,
 							double* WORK, int* LWORK, int* INFO) ;
 
+extern		double dlacpy_ (char* NORM, int* M, int* N, double* A, int* LDA,
+							double* B,  int* LDB );
+
 
 #endif /* !__LAPACK_H__ */
