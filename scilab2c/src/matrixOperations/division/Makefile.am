@@ -11,7 +11,8 @@
 ##
 
 libMatrixDivision_la_CFLAGS =	-I $(top_builddir)/type \
-				-I $(top_builddir)/matrixOperations/includes
+				-I $(top_builddir)/matrixOperations/includes \
+				-I $(top_builddir)/elementaryFunctions/includes 
 
 instdir = $(top_builddir)/lib
 
@@ -22,9 +23,11 @@ HEAD = ../includes/matrixDivision.h
 libMatrixDivision_la_SOURCES = 	$(HEAD) \
 				srdiva.c \
 				drdiva.c \
-				dldiva.c
+				dldiva.c \
+				zrdiva.c
 
-check_PROGRAMS = 	testMatrixLDivision
+check_PROGRAMS = 	testMatrixRDivision \
+			testMatrixLDivision
 
 check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
@@ -36,8 +39,13 @@ check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 check_INCLUDES =	-I $(top_builddir)/type \
 			-I $(top_builddir)/matrixOperations/includes
 
-testMatrixLDivision_SOURCES = testMatrixLDivision.c
+testMatrixLDivision_SOURCES =    testMatrixLDivision.c
 testMatrixLDivision_LDADD = $(check_LDADD)
 testMatrixLDivision_CFLAGS = $(check_INCLUDES)
 
-TESTS =		testMatrixLDivision
+testMatrixRDivision_SOURCES =    testMatrixRDivision.c
+testMatrixRDivision_LDADD = $(check_LDADD)
+testMatrixRDivision_CFLAGS = $(check_INCLUDES)
+
+TESTS =		testMatrixRDivision \
+		testMatrixLDivision

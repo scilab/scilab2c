@@ -10,164 +10,136 @@
  *
  */
 
-
-
 #include "matrixDivision.h" 
 #include "lapack.h" 
-
-void drdiva (	double* in1, int lines1, int columns1 ,
-			    double* in2, int lines2, int columns2 ,
-			 	double* out ){
-	
-/* creation of all temp variable , maybe some of them are not accurate and could be deleted 
-**/
-					 
-	int iexit    = 0 ; 
-	int iwork    = 0 ;
-	int  info    = 0 ;
-	int  imax    = 0 ;
-	int rank =     0 ;
-	
-	int tMinLinCol1  = 0 ;
-	int temp = 0;
-	
-	int i = 0 , j = 0 ,ij = 0 ,ji = 0;
-					 
-					 
-	int* pIpiv   = 			(int*) malloc( sizeof(int) * (unsigned int) columns1);
-	int* pIwork  = 			(int*) malloc( sizeof(int) * (unsigned int) columns1);
-	int* pJpvt	 =			(int*) malloc( sizeof(int) * (unsigned int) lines1);
-	
-	double* work =	 		NULL;
-	double anorm = 			0;					 
-	double rcond = 0 ; 
-	double epsilon =  getRelativeMachinePrecision() ;
+#include <string.h>
+#include <stdio.h>
 
 
 
-					 
-	double* transpOfIn1 = 	(double*) malloc(sizeof(double) * (unsigned int)  lines1
-											 				* (unsigned int)  columns1);
-					 
-	double* transpOfIn2 = 	(double*) malloc(sizeof(double) * (unsigned int)  lines2
-											                * (unsigned int)  columns2);
-					 
-	double* copyOfTransIn1 = (double*) malloc( sizeof(double) * (unsigned int)  lines1
-												  			  * (unsigned int)  columns1);
-					 
+void drdiva (	double * in1,		int lines1,	int columns1,
+				double * in2,		int lines2,	int columns2,
+				double * out){
 
-					 
-/* adaptation of the original code in scilab 
-	iWorkMin	= Max(4 * _iCols1, Max(Min(_iRows1, _iCols1) + 3 * _iRows1 + 1,
-	2 * Min(_iRows1, _iCols1) + _iRows2)); 
-	*/
-	if (lines1 > columns1)
-		tMinLinCol1 = columns1 ;
-	else
-		tMinLinCol1 = lines1;
-					 
-	if ( (tMinLinCol1 + 3 * lines1 + 1)  > (2*tMinLinCol1 + lines2))
-		temp = tMinLinCol1 + 3 * lines1 + 1;
-	else 
-		temp = 2*tMinLinCol1 + lines2;
-						 
-	if ( 4* columns1 > temp )
-		iwork =  4* columns1 ;
-	else
-		iwork = temp ;
-					 
-					 
-					 
-	
-	work  =	(double*) malloc (sizeof(double) *(unsigned int)  iwork );
-					 
-	anorm = getOneNorm( &lines1, &columns1 ,  in1 , work);
-				 
+	char cNorm	= 0;
+	int iExit	= 0;
 
-/* end of allocation area*/
-					 
+	/*temporary variables*/
+	int iWork		= 0;
+	int iInfo		= 0;
+	int iMax		= 0;
+	double dblRcond	= 0;
 
-	dtransposea ( in1, lines1, columns1, transpOfIn1);
-	dtransposea ( in2, lines2, columns2, transpOfIn2)	;
-					 
+	double dblEps	= 0;
+	double dblAnorm	= 0;
+
+	double *pAf		= NULL;
+	double *pAt		= NULL;
+	double *pBt		= NULL;
+	double *pDwork	= NULL;
+
+	int *pRank	= NULL;
+	int *pIpiv	= NULL;
+	int *pJpvt	= NULL;
+	int *pIwork	= NULL;
+
+	iWork	= Max(4 * columns2, Max(Min(lines2, columns2) + 3 * lines2 + 1, 2 * Min(lines2, columns2) + lines1));
 
 
-/* case of a square matrix */ 
-	if ( lines1 == columns1 )
-	{													
-		drowcata ( transpOfIn1, lines1, columns1, NULL, 0 , 0 , copyOfTransIn1 ) ;
-		
-		
-		/*/ put here algo of LU fact of in1
-		dgetrf ( &columns1 , &columns1 , in1 , &columns1 , pIpiv , &info )
-		//return value in pIpiv*/
-		dgetrf_ ( &columns1 , &columns1 ,copyOfTransIn1  , &columns1 , pIpiv , &info );
-		
-		if ( info == 0 )
-		{
-			/*/to get 1-norm of in1 put here algo dgecon  which return  rcond*/
-			dgecon_("1" , &columns1, copyOfTransIn1 , &columns1, &anorm,
-					&rcond, work, pIwork, &info);
-			
-			if ( rcond > sqrt(epsilon ))
-				{/* put here algo to resolv linear equation  in1 * X = in2  ,
-					 the return value go in in2
-				// put here algo to copy in2 in out */
-				resolveSystemLinear (&columns1, &lines2, copyOfTransIn1, pIpiv,
-									 transpOfIn2, &info)	;
-				dtransposea ( transpOfIn2 , columns1 , lines2 , out)	;	
-				iexit = 1;
-				}
-			
-		}
-						 
+	/* Array allocations*/
+	pAf			= (double*)malloc(sizeof(double) * (unsigned int)columns2 * (unsigned int)lines2);
+	pAt			= (double*)malloc(sizeof(double) * (unsigned int)columns2 *(unsigned int) lines2);
+	pBt			= (double*)malloc(sizeof(double) * (unsigned int)Max(lines2,columns2) * (unsigned int)lines1);
 
-	}
-				
+	pRank		= (int*)malloc(sizeof(int));
+	pIpiv		= (int*)malloc(sizeof(int) * (unsigned int)columns2);
+	pJpvt		= (int*)malloc(sizeof(int) * (unsigned int)lines2);
+	pIwork		= (int*)malloc(sizeof(int) * (unsigned int)columns2);
 
-/* non-square matrix case */					 
-	if ( iexit== 0)
+
+	cNorm		= '1';
+	pDwork		= (double*)malloc(sizeof(double) * (unsigned int)iWork);
+	dblEps		= getRelativeMachinePrecision() ;
+	dblAnorm	= dlange_(&cNorm, &lines2, &columns1, in2, &lines2, pDwork);
+
+	/*tranpose A and B*/
+
+	dtransposea(in2, lines2, columns2, pAt);
+	dtransposea(in1, lines1, columns2, pBt);
+
+	if(lines2 == columns2)
 	{
-		rcond   = sqrt(epsilon );
-		if (lines1 < columns1)
-			imax = columns1 ;
-		else
-			imax = lines1;
-
-		
-		
-		dgelsy_ (&columns1, &lines1, &lines2,  transpOfIn1 , &columns1,
-				   transpOfIn2, &imax, pJpvt, &rcond, &rank, work,
-				   &iwork, &info);
-		
-	
-		if (info ==	0)
-			for(j = 0 ; j < lines1 ; j++)
-				{
-					for(i = 0 ; i < lines2 ; i++)
-						{
-						ij = i + j * lines2;
-						if ( lines1 > columns1 )
-							ji = j + i *lines1 ;
-						else 
-							ji = j + i *columns1; 
-						out[ij]	= transpOfIn2[ji];
-						}
-				}
-			
+		cNorm		= 'F';
+		dlacpy_(&cNorm, &columns2, &columns2, pAt, &columns2, pAf, &columns2);
+		dgetrf_(&columns2, &columns2, pAf, &columns2, pIpiv, &iInfo);
+		if(iInfo == 0)
+		{
+			cNorm = '1';
+			dgecon_(&cNorm, &columns2, pAf, &columns2, &dblAnorm, &dblRcond, pDwork, pIwork, &iInfo);
+			if(dblRcond > sqrt(dblEps))
+			{
+				cNorm	= 'N';
+				dgetrs_(&cNorm, &columns2, &lines1, pAf, &columns2, pIpiv, pBt, &columns2, &iInfo);
+				dtransposea(pBt, columns2, lines1, out);
+				iExit = 1;
+			}
+		}
 
 	}
-						 
-			 
 
-	/*  then we free all the allocated memory */		
-					 
-	free ( pIpiv ) ;
-	free ( pIwork) ;
-	free ( work )  ;
-				
-	free (transpOfIn1) ;
-	free (transpOfIn2) ;	
-	free (copyOfTransIn1);
-				 
+	if(iExit == 0)
+	{
+		dblRcond = sqrt(dblEps);
+		cNorm = 'F';
+		iMax = Max(lines2, columns2);
+		memset(pJpvt, 0x00, (unsigned int)sizeof(int) * (unsigned int)lines2);
+		dgelsy_(&columns2, &lines2, &lines1, pAt, &columns2, pBt, &iMax,
+			pJpvt, &dblRcond, &pRank[0], pDwork, &iWork, &iInfo);
+
+		if(iInfo == 0)
+		{
+
+
+		/*	TransposeRealMatrix(pBt, lines1, lines2, out, Max(lines1,columns1), lines2);*/
+
+			/*Mega caca de la mort qui tue des ours a mains nues 
+			mais je ne sais pas comment le rendre "beau" :(*/
+			{
+				int i,j,ij,ji;
+				for(j = 0 ; j < lines2 ; j++)
+				{
+					for(i = 0 ; i < lines1 ; i++)
+					{
+						ij = i + j * lines1;
+						ji = j + i * Max(lines2, columns2);
+						out[ij]	= pBt[ji];
+					}
+				}
+			}
+		}
+	}
+
+	free(pAf);
+	free(pAt);
+	free(pBt);
+	free(pRank);
+	free(pIpiv);
+	free(pJpvt);
+	free(pIwork);
+	free(pDwork);
+
+}
+
+int Max(int _dblVar1, int _dblVar2)
+{
+	if(_dblVar1 > _dblVar2)
+		return _dblVar1;
+	return _dblVar2;
+}
+
+int Min(int _dblVar1, int _dblVar2)
+{
+	if(_dblVar1 < _dblVar2)
+		return _dblVar1;
+	return _dblVar2;
 }
