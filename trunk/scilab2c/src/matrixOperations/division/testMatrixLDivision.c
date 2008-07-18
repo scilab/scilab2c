@@ -10,18 +10,22 @@
  *
  */
 
-#include "matrixDivision.h"
+
 #include <assert.h>
 #include <stdio.h>
+#include "matrixDivision.h"
 
-#define  LINES  20
-#define  COLUMNS1 17
-#define  COLUMNS2 12
+
+#define  LINES  2
+#define  COLUMNS1 2
+#define  COLUMNS2 2
+
+
 static void dldivaTest ( void )
 {
 	int i = 0 ; 
-	
-	double in1[] =
+/* here the matrixes are linearized in the wrong way so need to transpose them */
+/*	double in1[] =
 {0.84155184263363481,0.26385784195736051,0.52570608118548989,0.54653349192813039,
  0.62128817522898316,0.98085420625284314,0.74896081397309899,0.01432593585923314,
  0.23678414756432176,0.70614896761253476,0.27255953708663583,0.06706167431548238,
@@ -239,11 +243,17 @@ static void dldivaTest ( void )
 0.52872556238983059,0.57098625620273025,1.06212082783082407,0.59423966432136910,
  0.34731906030365728,-1.35636228486699051,0.60027136476023302,-0.01921912593105047,
  -0.26023872041264290,0.60546432820947238,-0.64774098495099597,1.07329929083653908}
-;	
+;	*/
 
+	
+	double in1[] =    { 4 , 3 , 8 , 9 } ;
+	double in2[] =    { 1 , 3 , 2 , 4 } ;
+	double result[] = { -1.25 , 0.75 , -1.166666666666666 ,0.83333333333333333 };
+	
+	
 	double out [(COLUMNS2)*(LINES)] ;
 
-	dldiva ( in1 , LINES , COLUMNS1 , in2 , LINES , COLUMNS2 , out ) ;	
+	dldiva(  in1 , LINES , COLUMNS1 , in2 , LINES , COLUMNS2 , out ) ;	
 	for ( i = 0 ; i < LINES *COLUMNS2  ; i++ )
 	{
 		printf ( "\n %d out : %e  result : %e   assert : %e \n" , i , out[i] , result[i] , fabs ( out[i] - result[i] ) / fabs( out[i]) ) ;
@@ -254,17 +264,22 @@ static void dldivaTest ( void )
 }
 
 
+
+
+
 static int testLDiva   (void) {
 
-  printf("\n>>>> Float real  Tests\n");
+  printf("\n>>>> Left Tests\n");
   /*sdivaTest();*/
-  printf("\n>>>> Double real  Tests\n");
+  printf("\n\t>>>> Double real  Tests\n");
   dldivaTest();
+
+	
   return 0;
 }
-
 
 int main(void) {
-  assert(testLDiva() == 0);
+  assert(testLDiva () == 0);
   return 0;
 }
+
