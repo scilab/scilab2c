@@ -12,33 +12,10 @@
 
 /**** WARNING NOT WORK AT ALL FOR THE MOMENT  ***/
 /*
-void crdiva (	floatComplex * in1, int it1, 
-				floatComplex * in2, int it2, 
-				floatComplex * out, int itOut, int size){
-	int iIndex		= 0; //Main loop index
-	int iIndex1		= 0; //Loop index on left operand
-	int iIndex2		= 0; //Loop index on right operand
-	int iIndexOut	= 0; //Lopp index on result matrix
 
+ void crdiva (	floatComplex * in1, int it1, floatComplex * in2, int it2, floatComplex * out) {
 
-	for(iIndex = 0 ; iIndex < size ; iIndex++)
-	{
-		out[iIndexOut] =  cdivides( in1[iIndex1], in2[iIndex2] ) ;
-		
-		iIndexOut				+= itOut;
-		iIndex1					+= it1;
-		iIndex2					+= it2;
-	}
-					
-					
-}
-				
-				
-void cldiva (	floatComplex * in1, int it1, 
-				floatComplex * in2, int it2, 
-				floatComplex * out, int itOut, int size)) {
-f
-						
-	crdiva ( in2 , it2 , in1 , it1 , out , itout , size );
-}
-*/
+	 
+	 
+	 
+}*/

@@ -12,130 +12,104 @@
 
 
 
+
 #include "matrixDivision.h" 
 #include "lapack.h" 
 #include <stdio.h>
 #include <string.h>
 
-void dldiva (	double* in1, int lines1, int columns1 ,double* in2, int lines2, int columns2 ,double* out ){
-	
-	int iExit = 0 ; 
-	int info  = 0 ;
-	int iWork = 0 ;
-	int tMinLinCol1 = 0 ;
-	int tMaxLinCol1 = 0 ;
-	int temp = 0 ;
-	int rank = 0 ;
-	
-	
-	int* pIpiv = NULL ;
-	int* pIwork	= NULL;
+void dldiva (double* in1, int lines1, int columns1 ,
+				double* in2, int lines2, int columns2 ,
+				double* out ){
+
+
+	char cNorm	= 0;
+	int iExit	= 0;
+
+	/*temporary variables*/
+	int iWork		= 0;
+	int iInfo		= 0;
+	int iMax		= 0;
+	double dblRcond	= 0;
+
+	double dblEps	= 0;
+	double dblAnorm	= 0;
+
+	double *pAf		= NULL;
+	double *pXb		= NULL;
+	double *pDwork	= NULL;
+
+	int *pRank	= NULL;
+	int *pIpiv	= NULL;
 	int *pJpvt	= NULL;
+	int *pIwork	= NULL;
+
+	iWork	= Max(4 * columns1, Max(Min(lines1, columns1) + 3 * lines1 + 1, 2 * Min(lines1, columns1) + columns2));
+
+
+
+
+	/* Array allocations*/
+	pAf			= (double*)malloc(sizeof(double) * (unsigned int) lines1 * (unsigned int) columns1);
+	pXb			= (double*)malloc(sizeof(double) * (unsigned int) Max(lines1,columns1) * (unsigned int) columns1);
+
+	pRank		= (int*)malloc(sizeof(int));
+	pIpiv		= (int*)malloc(sizeof(int) *(unsigned int) columns1);
+	pJpvt		= (int*)malloc(sizeof(int) *(unsigned int) columns1);
+	pIwork		= (int*)malloc(sizeof(int) *(unsigned int) columns1);
 	
-	char cNorm = 0;
-	
-	double rcond	= 0;
-	double anorm	= 0;
-	double epsilon  = 0;
-	
-	double* cpyOfIn1		= NULL ;
-	double* modifyIn2		= NULL ;
-	double* pDwork			= NULL ;
-	
-	
-/* adaptation of the original code in scilab 
-   iWorkMin	= Max(4 * _iCols1, Max(Min(_iRows1, _iCols1) + 3 * _iRows1 + 1,
-										2 * Min(_iRows1, _iCols1) + _iRows2)); 
-*/
-	if (lines1 > columns1)
-		{
-		 tMinLinCol1 = columns1 ;
-		 tMaxLinCol1 = lines1 ;
-		}
-	else
-		{
-		 tMinLinCol1 = lines1;
-		 tMaxLinCol1 = columns1;
-		}
-	
-	if ( (tMinLinCol1 + 3 * lines1 + 1)  > (2*tMinLinCol1 + lines2))
-		temp = tMinLinCol1 + 3 * lines1 + 1;
-	else 
-		temp = 2*tMinLinCol1 + lines2;
-						 
-	if ( 4* columns1 > temp )
-		iWork =  4* columns1 ;
-	else
-		iWork = temp ;
-	
-	pDwork 		= (double*)malloc(sizeof(double) * (unsigned int) iWork);
-	
-	cpyOfIn1  	= (double*)malloc(sizeof(double) * (unsigned int) lines1 
-												 * (unsigned int) columns1);
-	modifyIn2 	= (double*)malloc(sizeof(double) * (unsigned int) tMaxLinCol1 
-												 * (unsigned int) columns1);
-	
-	pIpiv		= (int*)malloc(sizeof(int) * (unsigned int) columns1);
-	pIwork		= (int*)malloc(sizeof(int) * (unsigned int) columns1);
-	pJpvt		= (int*)malloc(sizeof(int) * (unsigned int) columns1);
-	
-	epsilon 	= getRelativeMachinePrecision() ;
-	
+
+
 	cNorm		= '1';
-	anorm		= dlange_ (&cNorm , &lines1, &columns1, in1, &lines1, pDwork);
+	pDwork		= (double*)malloc(sizeof(double) *(unsigned int)iWork);
+	dblEps		= getRelativeMachinePrecision() ;
 	
-	if ( lines1 == columns1 )
+	dblAnorm	= dlange_(&cNorm, &lines1, &columns1, in1, &lines1, pDwork);
+
+	if(lines1 == columns1)
+	{
+		cNorm		= 'F';
+		dlacpy_(&cNorm, &columns1, &columns1, in1, &columns1, pAf, &columns1);
+		dgetrf_(&columns1, &columns1, pAf, &columns1, pIpiv, &iInfo);
+		if(iInfo == 0)
 		{
-		 cNorm = 'F' ;
-		 dlacpy_ ( &cNorm , &columns1 , &columns1, in1, &columns1, cpyOfIn1,
-		 		 &columns1 );
-		 dgetrf_ (&columns1, &columns1, cpyOfIn1, &columns1, pIpiv, &info);
-			
-		 if ( info == 0 )
-		 	{
-		 	 cNorm = '1' ;
-			 dgecon_ ( &cNorm, &columns1, cpyOfIn1, &columns1, &anorm,
-						 &rcond, pDwork, pIwork, &info);
-				
-			 if ( rcond > sqrt (epsilon ))
-				{
-			 	 cNorm = 'N' ;
-				 dgetrs_ ( &cNorm, &columns1, &columns2, cpyOfIn1, &columns1,
-						   pIpiv, in2, &columns1, &info);
-				 cNorm = 'F' ;
-				 dlacpy_ ( &cNorm, &columns1, &columns2, in2, &columns1,
-						   out, &columns1 );
-				 iExit = 1 ;
-					
-				}	
-			}			
-		}
-
-
-
-	if ( iExit == 0 )
-		{
-		 rcond = sqrt ( epsilon ) ;
-		 cNorm = 'F' ;
-		 dlacpy_ ( &cNorm , &lines1, &columns2, in2, &lines1, modifyIn2, &tMaxLinCol1);
-		 memset ( pJpvt , 0x00, sizeof(int) * (unsigned int) columns1) ;
-		 dgelsy_ ( &lines1, &columns1, &columns2, in1, &lines1 ,
-				   modifyIn2 , &tMaxLinCol1, pJpvt, &rcond, &rank,
-				   pDwork, &iWork, &info );
-		
-		 if (info ==0 )
+			cNorm = '1';
+			C2F(dgecon)(&cNorm, &columns1, pAf, &columns1, &dblAnorm, &dblRcond, pDwork, pIwork, &iInfo);
+			if(dblRcond > sqrt(dblEps))
 			{
-			 cNorm = 'F' ;
-			 dlacpy_ ( &cNorm, &columns1, &columns2, modifyIn2, &tMaxLinCol1,
-					  out , &columns1 );
-				
+				cNorm	= 'N';
+				C2F(dgetrs)(&cNorm, &columns1, &columns2, pAf, &columns1, pIpiv, in2, &columns1, &iInfo);
+				cNorm	= 'F';
+				C2F(dlacpy)(&cNorm, &columns1, &columns2, in2, &columns1, out, &columns1);
+				iExit = 1;
 			}
 		}
-	
-	free (pIpiv) ;
-	free (pIwork);
-	free (pJpvt);
-	free (cpyOfIn1 ) ;
-	free (modifyIn2 ) ;
-	free ( pDwork ) ;		
+
+	}
+
+	if(iExit == 0)
+	{
+		dblRcond = sqrt(dblEps);
+		cNorm = 'F';
+		iMax = Max(lines1, columns1);
+		C2F(dlacpy)(&cNorm, &lines1, &columns2, in2, &lines2, pXb, &iMax);
+		memset(pJpvt, 0x00,(unsigned int) sizeof(int) * (unsigned int) columns1);
+		C2F(dgelsy)(	&lines1, &columns1, &columns2, in1, &lines1, pXb, &iMax,
+						pJpvt, &dblRcond, &pRank[0], pDwork, &iWork, &iInfo);
+
+		if(iInfo == 0)
+		{
+
+			cNorm = 'F';
+			C2F(dlacpy)(&cNorm, &columns1, &columns2, pXb, &iMax, out, &columns1);
+		}
+	}
+
+	free(pAf);
+	free(pXb);
+	free(pRank);
+	free(pIpiv);
+	free(pJpvt);
+	free(pIwork);
+	free(pDwork);
 }

@@ -10,13 +10,17 @@
  *
  */
 
-#include "matrixDivision.h"
+
 #include <assert.h>
 #include <stdio.h>
+#include "matrixDivision.h"
 
 #define LINES1  2
-#define LINES2  2
+#define LINES2  1
 #define COLUMNS 2
+
+
+
 /*
 static void sdivaTest ( void ) 
 {
@@ -218,40 +222,46 @@ float out[(COLUMNS)*(LINES2)] ;
 */
 
 
-/*
-static void ddivaTest ( void )
+
+
+static void drdivaTest ( void )
 {
 	int i = 0 ; 
 	
-	double in1[] =    { 4 , 8 , 3 , 9 } ;
-	double in2[] =    { 1 , 2 , 3 , 4 } ;
-	double result[] = { 4 , 0 , 7.5 ,-1.5 };
+/*	double in1[] =    { 4 , 3 , 8 , 9 } ;
+	double in2[] =    { 1 , 3 , 2 , 4 } ;
+	double result[] = { 4 , 7.5 , 0 ,-1.5 };*/
+	
+	
+	double in1[] =    { 1 ,3 ,2 ,4 } ;
+	double in2[] =    { 1 , 2 } ;
+	double result[] = { 1 , 2.2 };
 	double out [(COLUMNS)*(LINES2)] ;
 
-	drdiva ( in1 , LINES1 , COLUMNS , in2 , LINES2 , COLUMNS , out ) ;
+	drdiva ( in1 , LINES1 , COLUMNS , in2 , LINES2 , COLUMNS , out) ;
 	printf("\n\n\t>>>>>debut assert\n");	
 	for ( i = 0 ; i < LINES2 *COLUMNS  ; i++ )
 	{
 		printf ( "\n %d out : %e  result : %e   assert : %e \n" , i , out[i] , result[i] , fabs ( out[i] - result[i] ) / fabs( out[i]) ) ;
 		
-			assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 100000000 ) ;
+			assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 1e-15 ) ;
 	}
 	
 }
-*/
 
 
-static int testDiva   (void) {
 
-  printf("\n>>>> Float real  Tests\n");
+static int testRDiva   (void) {
+
+  printf("\n>>>> Right Tests\n");
   /*sdivaTest();*/
-  printf("\n>>>> Double real  Tests\n");
-  ddivaTest();
+  printf("\n\t>>>> Double real  Tests\n");
+  drdivaTest();
   return 0;
 }
 
 
 int main(void) {
-  assert(testDiva() == 0);
+  assert(testRDiva () == 0);
   return 0;
 }
