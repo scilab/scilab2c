@@ -171,7 +171,8 @@ SUBDIRS = addition \
 		division \
 		cat \
 		transpose \
-		division
+		division \
+		trace
 
 all: all-recursive
 

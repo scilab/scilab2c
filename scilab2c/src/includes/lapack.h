@@ -87,4 +87,30 @@ extern		double dlacpy_ (char* NORM, int* M, int* N, double* A, int* LDA,
 							double* B,  int* LDB );
 
 
+/****** doubleComplex fortran function ************/
+
+extern		doubleComplex zlamch_  (char *CMACH, unsigned long int i);
+
+extern		double zlange_  (char* NORM, int* M, int* N, doubleComplex* A, int* LDA ,
+									doubleComplex* WORK);
+
+extern 		doubleComplex zgetrf_	(int*  M, int* N , doubleComplex* A , int* LDA , int* IPIV ,
+									 int* INFO);
+
+extern		doubleComplex zgecon_	(char* NORM, int* N, doubleComplex* A, int* LDA, double* ANORM,
+							 double* RCOND, doubleComplex* WORK , double* IWORK, int* INFO ) ;
+
+extern		doubleComplex zgetrs_  (char* TRANS, int* N, int* NRHS, doubleComplex* A, int* LDA,
+							 int* IPIV, doubleComplex* B, int* LDB, int* INFO ) ;
+
+extern 		doubleComplex zgelsy_ (int* M, int* N, int* NRHS, doubleComplex* A, int* LDA,
+							doubleComplex* B, int* LDB, int* JPVT, double* RCOND, int* RANK,
+							doubleComplex* WORK, int* LWORK, double* RWORK, int* INFO) ;
+
+
+
+
+
+extern		doubleComplex zlacpy_ (char* NORM, int* M, int* N, doubleComplex* A, int* LDA,
+							doubleComplex* B,  int* LDB );
 #endif /* !__LAPACK_H__ */

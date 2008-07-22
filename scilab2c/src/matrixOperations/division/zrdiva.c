@@ -100,6 +100,7 @@ int	zrdiva(	doubleComplex* in1, int lines1, int columns1 ,
 		dblRcond = sqrt(dblEps);
 		cNorm = 'F';
 		iMax = Max(lines2, columns2);
+		printf ( "columns2 : %d\n" , columns2 ) ;
 		memset(pJpvt, 0x00,(unsigned int) sizeof(int) *(unsigned int) lines2);
 		C2F(zgelsy)(&columns2, &lines2, &lines1, poAt, &columns2, poBt, &iMax,
 			pJpvt, &dblRcond, &pRank[0], poDwork, &iWork, pRwork, &iInfo);

@@ -16,5 +16,6 @@ SUBDIRS= 	addition \
 		division \
 		cat \
 		transpose \
-		division
+		division \
+		trace
 
