@@ -15,150 +15,145 @@
 /**** Because of problem of conversion float-> double ****/
 #include "matrixDivision.h" 
 #include "lapack.h" 
-
-
+#include <string.h>
+#include <stdio.h>
 void srdiva (	float* in1, int lines1, int columns1 ,
 			    float* in2, int lines2, int columns2 ,
 			 	float* out ){
+	char cNorm	= 0;
+	int iExit	= 0;
+	int i = 0 ,j = 0 ,ij = 0 ,ji = 0;
+
+	/*temporary variables*/
+	int iWork		= 0;
+	int iInfo		= 0;
+	int iMax		= 0;
+	double dblRcond	= 0;
+
+	double dblEps	= 0;
+	double dblAnorm	= 0;
 	
-/* creation of all temp variable , maybe some of them are not accurate and could be deleted 
-**/
-	int iexit    = 0 ; 
-	int iwork    = 0 ;
-	int  info    = 0 ;
-	int  imax    = 0 ;
-	/*int rank =     0 ;*/
+	/* these 3 variable are created to permit to use the value in the fortran functions 
+	   because they need double matrix as arguments and we can't cast directly the pointers
+	   without having problems , i know that's ugly */
+	double *dblin1	= NULL;
+	double *dblin2	= NULL;
+	double *dblout	= NULL;	
+
+	double *pAf		= NULL;
+	double *pAt		= NULL;
+	double *pBt		= NULL;
+	double *pDwork	= NULL;
+
+	int *pRank	= NULL;
+	int *pIpiv	= NULL;
+	int *pJpvt	= NULL;
+	int *pIwork	= NULL;
 	
-	int tMinLinCol1  = 0 ;
-	int temp = 0;
 	
-	int i = 0 , j = 0 ,ij = 0 ,ji = 0;
-					 
-					 
-	int* pIpiv   = 			(int*) malloc( sizeof(int) * (unsigned int) columns1);
-	int* pIwork  = 			(int*) malloc( sizeof(int) * (unsigned int) columns1);
-	/*int* pJpvt	 =			(int*) malloc( sizeof(int) * (unsigned int) lines1);*/
-	
-	double* work =	 		NULL;
-	double anorm = 			0;					 
-	double rcond = 0 ; 
-	double epsilon =  getRelativeMachinePrecision() ;
+
+	iWork	= Max(4 * columns2, Max(Min(lines2, columns2) + 3 * lines2 + 1, 2 * Min(lines2, columns2) + lines1));
 
 
+	/* Array allocations*/
+	dblin1		= (double*)malloc(sizeof(double) * (unsigned int)columns2 * (unsigned int)lines2);			 
+	dblin2 		= (double*)malloc(sizeof(double) * (unsigned int)columns1 * (unsigned int)lines1);
+	dblout		= (double*)malloc(sizeof(double) * (unsigned int)Max(lines2,columns2) * (unsigned int)lines1);
+					 
+	pAf			= (double*)malloc(sizeof(double) * (unsigned int)columns2 * (unsigned int)lines2);
+	pAt			= (double*)malloc(sizeof(double) * (unsigned int)columns2 *(unsigned int) lines2);
+	pBt			= (double*)malloc(sizeof(double) * (unsigned int)Max(lines2,columns2) * (unsigned int)lines1);
 
-					 
-	float* transpOfIn1 = 	(float*) malloc(sizeof(float) * (unsigned int)  lines1 * (unsigned int)  columns1);
-	float* transpOfIn2 = 	(float*) malloc(sizeof(float) * (unsigned int)  lines2 * (unsigned int)  columns2);
-					 
-	float* copyOfTransIn1 = 	(float*) malloc( sizeof(float) * (unsigned int)  lines1 * (unsigned int)  columns1);
-					 
+	pRank		= (int*)malloc(sizeof(int));
+	pIpiv		= (int*)malloc(sizeof(int) * (unsigned int)columns2);
+	pJpvt		= (int*)malloc(sizeof(int) * (unsigned int)lines2);
+	pIwork		= (int*)malloc(sizeof(int) * (unsigned int)columns2);
 
-					 					 
-	if (lines1 > columns1)
-		tMinLinCol1 = columns1 ;
-	else
-		tMinLinCol1 = lines1;
-					 
-	if ( (tMinLinCol1 + 3 * lines1 + 1)  > (2*tMinLinCol1 + lines2))
-		temp = tMinLinCol1 + 3 * lines1 + 1;
-	else 
-		temp = 2*tMinLinCol1 + lines2;
-						 
-	if ( 4* columns1 > temp )
-		iwork =  4* columns1 ;
-	else
-		iwork = temp ;
-	
-	work  =	(double*) malloc (sizeof(double) *(unsigned int)  iwork );
 
-	anorm = getOneNorm( &lines1, &columns1 , (double* ) in1 , work);
-				 
+	cNorm		= '1';
+	pDwork		= (double*)malloc(sizeof(double) * (unsigned int)iWork);
+	dblEps		= getRelativeMachinePrecision() ;
+	dblAnorm	= dlange_(&cNorm, &lines2, &columns1, dblin2, &lines2, pDwork);
 
-/* end of allocation area*/
-					 
-
-	stransposea ( in1, lines1, columns1, transpOfIn1);
-	stransposea ( in2, lines2, columns2, transpOfIn2)	;				 
-					 
-	if ( lines1 == columns1 )
-	{													
-		srowcata ( in1, lines1, columns1, NULL, 0 , 0 , copyOfTransIn1 ) ;
-		
-		
-		/*/ put here algo of LU fact of in1 dgetrf ( &columns1 , &columns1 , in1 , &columns1 , pIpiv , &info )
-		//return value in pIpiv*/
-		dgetrf_ ( &columns1 , &columns1 , (double*) in1 , &columns1 , pIpiv , &info );
-		
-		if ( info == 0 )
+	/*copy and cast all the float value into double value */								
+	for ( i = 0 ; i < lines2 * columns2 ; i ++ )
 		{
-			/*/to get 1-norm of in1 put here algo dgecon  which return  rcond*/
-			dgecon_("1" , &columns1, (double*) copyOfTransIn1 , &columns1, &anorm,
-					&rcond, work, pIwork, &info);
-			
-			if ( rcond > sqrt(epsilon ))
-				{/* put here algo to resolv linear equation  in1 * X = in2  , the return value go in in2
-				// put here algo to copy in2 in out */
-				resolveSystemLinear (&columns1, &lines2,(double*) copyOfTransIn1, pIpiv,
-									 (double* )transpOfIn2, &info)	;
-				stransposea ( transpOfIn2 , columns2 , lines2 , out)	;	
-				iexit = 1;
-				}
-			
+        
+		dblin1[i] = (double) in1[i] ;
+        printf ( "dbl in1 = %e \n" , dblin1 [i] );  
 		}
-						 
+	
+	for ( i = 0 ; i < lines1 * columns1 ; i ++ )
+		dblin2[i] = (double) in2[i] ;
+        
+                     
+	/*tranpose A and B*/
 
-	}
-				
-	if ( iexit== 0)
+    dtransposea(dblin1, lines2, columns2, pAt);
+	dtransposea(dblin2, lines1, columns2, pBt);
+
+	if(lines2 == columns2)
 	{
-		rcond   = sqrt(epsilon );
-		if (lines1 < columns1)
-			imax = columns1 ;
-		else
-			imax = lines1;
-
-		
-/* if you uncomment this function you will get a fabulous random number generator 
-   actually the problem come from the convertion from float* to double*
-   that also cause the free() of these cast variables to crash * */
-	/*	dgelsy_ (&columns1, &lines1, &lines2, (double*) transpOfIn1 , &columns1,
-				  (double*) transpOfIn2, &imax, pJpvt, &rcond, &rank, work,
-				   &iwork, &info);*/
-		
-
-			
-			for(j = 0 ; j < lines1 ; j++)
-				{
-					for(i = 0 ; i < lines2 ; i++)
-						{
-						ij = i + j * lines2;
-						if ( lines1 > columns1 )
-							ji = j + i *lines1 ;
-						else 
-							ji = j + i *columns1; 
-						out[ij]	= transpOfIn2[ji];
-						}
-				}
-			
-	
-
-		
-	
+		cNorm		= 'F';
+		dlacpy_(&cNorm, &columns2, &columns2, pAt, &columns2, pAf, &columns2);
+		dgetrf_(&columns2, &columns2, pAf, &columns2, pIpiv, &iInfo);
+		if(iInfo == 0)
+		{
+			cNorm = '1';
+			dgecon_(&cNorm, &columns2, pAf, &columns2, &dblAnorm, &dblRcond, pDwork, pIwork, &iInfo);
+			if(dblRcond > sqrt(dblEps))
+			{
+				cNorm	= 'N';
+				dgetrs_(&cNorm, &columns2, &lines1, pAf, &columns2, pIpiv, pBt, &columns2, &iInfo);
+				dtransposea(pBt, columns2, lines1, dblout);
+				iExit = 1;
+			}
+		}
 
 	}
-	 
-			 
 
-	/*  then we free all the allocated memory */		
-					 
-	free ( pIpiv ) ;
-	free ( pIwork) ;
-	free ( work )  ;
-					 
-	/* the cast from float* to double* make these 3 functions crashing */
-	free (transpOfIn1) ;
-	free (transpOfIn2) ;	
-	free (copyOfTransIn1);
-				 
+	if(iExit == 0)
+	{
+		dblRcond = sqrt(dblEps);
+		cNorm = 'F';
+		iMax = Max(lines2, columns2);
+		memset(pJpvt, 0x00, (unsigned int)sizeof(int) * (unsigned int)lines2);
+		dgelsy_(&columns2, &lines2, &lines1, pAt, &columns2, pBt, &iMax,
+			pJpvt, &dblRcond, &pRank[0], pDwork, &iWork, &iInfo);
+
+		if(iInfo == 0)
+		{
+
+
+		/*	TransposeRealMatrix(pBt, lines1, lines2, out, Max(lines1,columns1), lines2);*/
+
+			/*Mega caca de la mort qui tue des ours a mains nues 
+			mais je ne sais pas comment le rendre "beau" :(*/
+			{
+				
+				for(j = 0 ; j < lines2 ; j++)
+				{
+					for(i = 0 ; i < lines1 ; i++)
+					{
+						ij = i + j * lines1;
+						ji = j + i * Max(lines2, columns2);
+						dblout[ij]	= pBt[ji];
+					}
+				}
+			}
+		}
+	}
+
+	for ( i = 0 ; i < Max(lines2,columns2) * lines1 ; i++ )
+		out[i] = (float) dblout[i] ;
+									
+	free(pAf);
+	free(pAt);
+	free(pBt);
+	free(pRank);
+	free(pIpiv);
+	free(pJpvt);
+	free(pIwork);
+	free(pDwork);
+
 }
-
