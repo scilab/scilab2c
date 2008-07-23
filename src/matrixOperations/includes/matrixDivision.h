@@ -15,6 +15,7 @@
 
 #include "floatComplex.h"
 #include "doubleComplex.h"
+#include "lapack.h" 
 #include "cat.h"
 #include "matrixTranspose.h"
 
@@ -22,6 +23,10 @@
 void srdiva (	float* in1, int lines1, int columns1 ,
 			    float* in2, int lines2, int columns2 ,
 			 	float* out );		
+
+void sldiva (	float* in1, int lines1, int columns1 ,
+			    float* in2, int lines2, int columns2 ,
+			 	float* out );	
 
 				
 void drdiva (	double* in1, int lines1, int columns1 ,
@@ -36,6 +41,12 @@ void dldiva (	double* in1, int lines1, int columns1 ,
 int	zrdiva(	doubleComplex* in1, int lines1, int columns1 ,
 				doubleComplex* in2, int lines2, int columns2 ,
 				doubleComplex* out );
+
+
+int	zldiva(	doubleComplex* in1, int lines1, int columns1 ,
+				doubleComplex* in2, int lines2, int columns2 ,
+				doubleComplex* out );
+
 int Min(int _dblVar1, int _dblVar2);
 int Max(int _dblVar1, int _dblVar2);
 

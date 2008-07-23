@@ -14,7 +14,7 @@
 /**/
 
 #include "matrixDivision.h" 
-#include "lapack.h" 
+
 #include <stdio.h>
 #include <string.h>
 int	zrdiva(	doubleComplex* in1, int lines1, int columns1 ,
@@ -71,7 +71,19 @@ int	zrdiva(	doubleComplex* in1, int lines1, int columns1 ,
 	/*tranpose A and B*/
 
 	ztransposea(in2, lines2, columns2, poAt);
-	ztransposea(in1, lines1, columns2, poBt);
+		{
+		int i,j,ij,ji;
+		for(j = 0 ; j < lines1 ; j++)
+		{
+			for(i = 0 ; i < columns2 ; i++)
+			{
+				ij = i + j * Max(lines2, columns2);
+				ji = j + i * lines1;
+                
+                poBt[ij] = DoubleComplex (zreals ( in1[ji] ) , - zimags ( in1[ji] ) );
+			}
+		}
+	}
 
 	if(lines2 == columns2)
 	{
