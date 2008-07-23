@@ -1,0 +1,143 @@
+LIBRARY    blas.dll
+
+EXPORTS
+ dasum
+ dasum_ = dasum
+ daxpy
+ daxpy_ = daxpy          
+ dcopy
+ dcopy_ = dcopy
+ ddot          
+ ddot_  = ddot
+ dgbmv           
+ dgbmv_ = dgbmv
+ dgemm          
+ dgemm_ = dgemm
+ dgemv          
+ dgemv_ = dgemv          
+ dger
+ dger_  = dger           
+ dnrm2
+ dnrm2_ = dnrm2          
+ drot
+ drot_  = drot           
+ drotg
+ drotg_ = drotg          
+ dsbmv
+ dsbmv_ = dsbmv          
+ dscal
+ dscal_ = dscal          
+ dspmv
+ dspmv_ = dspmv          
+ dspr
+ dspr_  = dspr           
+ dspr2
+ dspr2_ = dspr2          
+ dswap
+ dswap_ = dswap          
+ dsymm
+ dsymm_ = dsymm          
+ dsymv
+ dsymv_ = dsymv          
+ dsyr
+ dsyr_  = dsyr           
+ dsyr2
+ dsyr2_ = dsyr2          
+ dsyr2k
+ dsyr2k_= dsyr2k         
+ dsyrk
+ dsyrk_ = dsyrk          
+ dtbmv
+ dtbmv_ = dtbmv          
+ dtbsv
+ dtbsv_ = dtbsv          
+ dtpmv
+ dtpmv_ = dtpmv          
+ dtpsv
+ dtpsv_ = dtpsv          
+ dtrmm
+ dtrmm_ = dtrmm          
+ dtrmv
+ dtrmv_ = dtrmv          
+ dtrsm
+ dtrsm_ = dtrsm          
+ dtrsv
+ dtrsv_ = dtrsv          
+ dzasum
+ dzasum_= dzasum         
+ dznrm2
+ dznrm2_= dznrm2         
+ idamax
+ idamax_= idamax         
+ izamax
+ izamax_= izamax
+ xerbla         
+ xerbla_= xerbla         
+ zaxpy
+ zaxpy_ = zaxpy
+ zcopy         
+ zcopy_ = zcopy          
+ zdotc
+ zdotc_ = zdotc          
+ zdotu
+ zdotu_ = zdotu          
+ zdscal
+ zdscal_= zdscal         
+ zgbmv
+ zgbmv_ = zgbmv          
+ zgemm
+ zgemm_ = zgemm          
+ zgemv
+ zgemv_ = zgemv          
+ zgerc
+ zgerc_ = zgerc          
+ zgeru
+ zgeru_ = zgeru          
+ zhbmv
+ zhbmv_ = zhbmv          
+ zhemm
+ zhemm_ = zhemm          
+ zhemv
+ zhemv_ = zhemv          
+ zher
+ zher_  = zher      
+ zher2    
+ zher2_ = zher2          
+ zher2k
+ zher2k_= zher2k
+ zherk         
+ zherk_ = zherk          
+ zhpmv
+ zhpmv_ = zhpmv
+ zhpr          
+ zhpr_  = zhpr
+ zhpr2           
+ zhpr2_ = zhpr2          
+ zrotg
+ zrotg_ = zrotg          
+ zscal
+ zscal_ = zscal          
+ zswap
+ zswap_ = zswap          
+ zsymm
+ zsymm_ = zsymm          
+ zsyr2k
+ zsyr2k_= zsyr2k         
+ zsyrk
+ zsyrk_ = zsyrk          
+ ztbmv
+ ztbmv_ = ztbmv          
+ ztbsv
+ ztbsv_ = ztbsv          
+ ztpmv
+ ztpmv_ = ztpmv          
+ ztpsv
+ ztpsv_ = ztpsv          
+ ztrmm
+ ztrmm_ = ztrmm          
+ ztrmv
+ ztrmv_ = ztrmv          
+ ztrsm
+ ztrsm_ = ztrsm
+ ztrsv          
+ ztrsv_ = ztrsv          

@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{6989167D-11E4-40FE-8C1A-2192A86A7E90}") = "blas_DLL", "src\lib\blas\blas_f\blas_DLL.vfproj", "{78BD64CE-181D-4D3F-9254-5C4F55C1EDC9}"
+EndProject
+Project("{6989167D-11E4-40FE-8C1A-2192A86A7E90}") = "lapack_DLL", "src\lib\lapack\lapack_f\lapack_DLL.vfproj", "{69296D00-0DE1-4F4B-B0CE-FE4F3CB43923}"
+	ProjectSection(ProjectDependencies) = postProject
+		{78BD64CE-181D-4D3F-9254-5C4F55C1EDC9} = {78BD64CE-181D-4D3F-9254-5C4F55C1EDC9}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78BD64CE-181D-4D3F-9254-5C4F55C1EDC9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{78BD64CE-181D-4D3F-9254-5C4F55C1EDC9}.Debug|Win32.Build.0 = Debug|Win32
+		{78BD64CE-181D-4D3F-9254-5C4F55C1EDC9}.Debug|x64.ActiveCfg = Debug|x64
+		{78BD64CE-181D-4D3F-9254-5C4F55C1EDC9}.Debug|x64.Build.0 = Debug|x64
+		{78BD64CE-181D-4D3F-9254-5C4F55C1EDC9}.Release|Win32.ActiveCfg = Release|Win32
+		{78BD64CE-181D-4D3F-9254-5C4F55C1EDC9}.Release|Win32.Build.0 = Release|Win32
+		{78BD64CE-181D-4D3F-9254-5C4F55C1EDC9}.Release|x64.ActiveCfg = Release|x64
+		{78BD64CE-181D-4D3F-9254-5C4F55C1EDC9}.Release|x64.Build.0 = Release|x64
+		{69296D00-0DE1-4F4B-B0CE-FE4F3CB43923}.Debug|Win32.ActiveCfg = Debug|Win32
+		{69296D00-0DE1-4F4B-B0CE-FE4F3CB43923}.Debug|Win32.Build.0 = Debug|Win32
+		{69296D00-0DE1-4F4B-B0CE-FE4F3CB43923}.Debug|x64.ActiveCfg = Debug|x64
+		{69296D00-0DE1-4F4B-B0CE-FE4F3CB43923}.Debug|x64.Build.0 = Debug|x64
+		{69296D00-0DE1-4F4B-B0CE-FE4F3CB43923}.Release|Win32.ActiveCfg = Release|Win32
+		{69296D00-0DE1-4F4B-B0CE-FE4F3CB43923}.Release|Win32.Build.0 = Release|Win32
+		{69296D00-0DE1-4F4B-B0CE-FE4F3CB43923}.Release|x64.ActiveCfg = Release|x64
+		{69296D00-0DE1-4F4B-B0CE-FE4F3CB43923}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
