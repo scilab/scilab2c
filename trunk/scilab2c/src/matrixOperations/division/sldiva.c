@@ -17,7 +17,7 @@
 #include "lapack.h" 
 #include <string.h>
 #include <stdio.h>
-void srdiva (	float* in1, int lines1, int columns1 ,
+void sldiva (	float* in1, int lines1, int columns1 ,
 			    float* in2, int lines2, int columns2 ,
 			 	float* out ){
 
@@ -49,7 +49,7 @@ void srdiva (	float* in1, int lines1, int columns1 ,
          dblin2[i] = (double) in2[i] ;
 		}       
                      
-    drdiva( dblin1 , lines1 , columns1 , dblin2 , lines2 , columns2 , dblout );
+    dldiva( dblin1 , lines1 , columns1 , dblin2 , lines2 , columns2 , dblout );
 
                      
 	for ( i = 0 ; i < Min(lines2,columns2) * lines1 ; i++ )

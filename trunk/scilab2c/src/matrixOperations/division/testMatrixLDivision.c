@@ -20,6 +20,28 @@
 #define  COLUMNS1 2
 #define  COLUMNS2 2
 
+static void sldivaTest ( void ){
+    int i = 0;
+    
+  	float in1[] =    { 4.0f , 3.0f , 8.0f , 9.0f } ;
+	float in2[] =    { 1.0f , 3.0f , 2.0f , 4.0f } ;
+	float result[] = { -1.25f , 0.75f , -1.166666666666666f ,0.83333333333333333f };
+	
+	
+	float out [(COLUMNS2)*(LINES)] ;
+
+	sldiva(  in1 , LINES , COLUMNS1 , in2 , LINES , COLUMNS2 , out ) ;	
+	for ( i = 0 ; i < LINES *COLUMNS2  ; i++ )
+	{
+		printf ( "\t\t %d out : %e\tresult : %e\tassert : %e \n" , i , out[i] , result[i] , fabs ( out[i] - result[i] ) / fabs( out[i]) ) ;
+		
+			assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 1e-06 ) ;
+	}
+	  
+    
+    
+}
+
 
 static void dldivaTest ( void )
 {
@@ -258,22 +280,39 @@ static void dldivaTest ( void )
 	dldiva(  in1 , LINES , COLUMNS1 , in2 , LINES , COLUMNS2 , out ) ;	
 	for ( i = 0 ; i < LINES *COLUMNS2  ; i++ )
 	{
-		printf ( "\n %d out : %e  result : %e   assert : %e \n" , i , out[i] , result[i] , fabs ( out[i] - result[i] ) / fabs( out[i]) ) ;
+		printf ( "\t\t %d out : %e\tresult : %e\tassert : %e \n" , i , out[i] , result[i] , fabs ( out[i] - result[i] ) / fabs( out[i]) ) ;
 		
 			assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 1e-15 ) ;
 	}
 	
 }
 
-
-
+/*
+static void zldivaTest (void )
+{
+    int i = 0 ;
+    
+    doubleComplex* in1 [2*3] ;
+    doubleComplex* in2 [2] ; 
+    doubleComplex* result[2] ;
+    doubleComplex* out [2] ;
+    
+    
+    
+    
+}
+*/
 
 
 static int testLDiva   (void) {
-
-  printf("\n>>>> Left Tests\n");
-  /*sdivaTest();*/
-  printf("\n\t>>>> Double real  Tests\n");
+  printf("\n\n\n\n*********************\n");
+  printf("***** Left Tests ****\n");
+  printf("*********************\n");
+    
+  printf("\n\t>>>>Float real  Tests\n"); 
+  sldivaTest();
+    
+  printf("\n\n\n\t>>>> Double real  Tests\n");
   dldivaTest();
 
 	

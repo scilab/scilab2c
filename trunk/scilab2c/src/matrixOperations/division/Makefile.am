@@ -22,9 +22,11 @@ HEAD = ../includes/matrixDivision.h
 
 libMatrixDivision_la_SOURCES = 	$(HEAD) \
 				srdiva.c \
+                sldiva.c \
 				drdiva.c \
 				dldiva.c \
-				zrdiva.c
+				zrdiva.c \
+                zldiva.c
 
 check_PROGRAMS = 	testMatrixRDivision \
 			testMatrixLDivision
