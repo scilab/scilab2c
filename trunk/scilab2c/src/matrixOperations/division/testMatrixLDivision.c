@@ -20,6 +20,11 @@
 #define  COLUMNS1 2
 #define  COLUMNS2 2
 
+#define ZLINES 2
+#define ZCOLUMNS1 1
+#define ZCOLUMNS2 2
+
+
 static void sldivaTest ( void ){
     int i = 0;
     
@@ -287,21 +292,43 @@ static void dldivaTest ( void )
 	
 }
 
-/*
+
 static void zldivaTest (void )
 {
     int i = 0 ;
     
-    doubleComplex* in1 [2*3] ;
-    doubleComplex* in2 [2] ; 
-    doubleComplex* result[2] ;
-    doubleComplex* out [2] ;
+    double tin1[] = { 10 , 9 , 2 ,4};
+    double tin2[] = { 1 , 2};
     
     
+	doubleComplex* in1 ;
+	doubleComplex* in2 ;
+	doubleComplex* out  ;
+	doubleComplex Result[ZLINES*ZLINES] ;
+
+	in1 = DoubleComplexMatrix (  tin1 , tin1 , ZLINES*ZCOLUMNS1 );
+	in2 = DoubleComplexMatrix (  tin2 , tin2 , ZLINES*ZCOLUMNS2 );
+    out = DoubleComplexMatrix (  tin2 , tin2 , ZLINES*ZLINES );
+	
+    Result[0] = DoubleComplex ( 0 ,  0 );
+    Result[1] = DoubleComplex ( 0.5   , 0 );
     
+	zldiva ( in1 , ZLINES , ZCOLUMNS1 , in2 ,ZLINES , ZCOLUMNS2 , out) ;
+	
+		for ( i = 0 ; i < (ZCOLUMNS1*ZCOLUMNS2 )  ; i++ )
+	{
+	  printf ( "\t\t %d out : %e + %e * i  result : %e + %e * i   assert : %e + %e \n" ,
+              i ,zreals(out[i]) , zimags(out[i]) , zreals (Result[i])  , zimags (Result[i]),
+              fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) ,
+              fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i])));
+        
+    /*assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 1e-17 );
+	  assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-17 ) ;
+    */
+	}
     
 }
-*/
+
 
 
 static int testLDiva   (void) {
@@ -315,6 +342,8 @@ static int testLDiva   (void) {
   printf("\n\n\n\t>>>> Double real  Tests\n");
   dldivaTest();
 
+  printf("\n\t>>>> Double complex  Tests\n");
+  zldivaTest();	
 	
   return 0;
 }
