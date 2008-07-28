@@ -68,9 +68,10 @@ int	zrdiva(	doubleComplex* in1, int lines1, int columns1 ,
 	dblEps		= getRelativeMachinePrecision() ;
 	dblAnorm	= C2F(zlange)(&cNorm, &lines2, &columns2, in2, &lines2, poDwork);
 
-	/*tranpose A and B*/
+	/* hermitian tranpose A   (transpose + conjugate )*/
 
 	ztransposea(in2, lines2, columns2, poAt);
+    zconja ( poAt , lines2*columns2 , poAt );
 		{
 		int i,j,ij,ji;
 		for(j = 0 ; j < lines1 ; j++)

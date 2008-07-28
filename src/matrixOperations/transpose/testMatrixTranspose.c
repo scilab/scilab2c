@@ -345,7 +345,7 @@ static void ctranspaTest (void ) {
 	for ( i = 0 ; i < LINE*COLUMN  ; i++ )
 	{
 	  in[i] = FloatComplex ( Pin[i] , Pin[i] ) ;
-         Result[i] = 	 FloatComplex ( PResult[i] , - PResult[i] ) ;	
+         Result[i] = 	 FloatComplex ( PResult[i] , PResult[i] ) ;	
 	}
 	
 
@@ -474,7 +474,7 @@ static void ztranspaTest (void ) {
 	for ( i = 0 ; i < LINE*COLUMN  ; i++ )
 	{
 	  in[i] = DoubleComplex ( Pin[i] , Pin[i] ) ;
-         Result[i] = DoubleComplex ( PResult[i] , - PResult[i] ) ;	
+         Result[i] = DoubleComplex ( PResult[i] , PResult[i] ) ;	
 	}
 	
 	

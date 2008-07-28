@@ -19,8 +19,8 @@ void ztransposea ( doubleComplex* in , int lines1 , int column1, doubleComplex* 
 	for(index = 0 ; index <  lines1 * column1 ; index++)
 	{
 		 newCoord	= index % column1 * lines1 + ( index / column1);
-		/* Hermitian transpose*/
-		out[newCoord]	=  DoubleComplex (  zreals( in[index]) , -zimags ( in[index]));
+	
+		out[newCoord]	=  DoubleComplex (  zreals( in[index]) , zimags ( in[index]));
 	}
 
 	
