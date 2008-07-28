@@ -18,6 +18,7 @@
 #include "lapack.h" 
 #include "cat.h"
 #include "matrixTranspose.h"
+#include "conj.h" 
 
 #define C2F(name) name##_ 
 void srdiva (	float* in1, int lines1, int columns1 ,
