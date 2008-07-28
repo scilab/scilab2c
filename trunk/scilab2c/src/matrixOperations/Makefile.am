@@ -17,5 +17,6 @@ SUBDIRS= 	addition \
 		cat \
 		transpose \
 		division \
-		trace
+		trace \
+		hilbert
 
