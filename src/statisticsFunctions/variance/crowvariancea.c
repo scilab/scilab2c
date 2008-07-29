@@ -25,7 +25,7 @@ void crowvariancea(floatComplex *in, int lines, int columns, floatComplex* out){
     ctransposea ( in , lines , columns , transp ) ;
     
     for ( i = 0 ; i < columns *lines ; i++) 
-             transp[i] = FloatComplex ( creals (transp[i] ) ,- cimags(transp[i]));
+             transp[i] = FloatComplex ( creals (transp[i] ) , cimags(transp[i]));
     
     for ( i = 0; i < columns ; i++)
     {

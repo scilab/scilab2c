@@ -25,7 +25,7 @@ void zrowvariancea(doubleComplex *in, int lines, int columns, doubleComplex* out
     ztransposea ( in , lines , columns , transp ) ;
     
     for ( i = 0 ; i < columns *lines ; i++) 
-             transp[i] = DoubleComplex ( zreals (transp[i] ) ,- zimags(transp[i]));
+             transp[i] = DoubleComplex ( zreals (transp[i] ) , zimags(transp[i]));
     
     for ( i = 0; i < columns ; i++)
     {
