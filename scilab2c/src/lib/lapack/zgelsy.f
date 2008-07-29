@@ -311,9 +311,9 @@
 *
 *     [R11,R12] = [ T11, 0 ] * Y
 *
-      IF( RANK.LT.N )
-     $   CALL ZTZRZF( RANK, N, A, LDA, WORK( MN+1 ), WORK( 2*MN+1 ),
-     $                LWORK-2*MN, INFO )
+c      IF( RANK.LT.N )
+c     $   CALL ZTZRZF( RANK, N, A, LDA, WORK( MN+1 ), WORK( 2*MN+1 ),
+c     $                LWORK-2*MN, INFO )
 *
 *     complex workspace: 2*MN.
 *     Details of Householder rotations stored in WORK(MN+1:2*MN)
@@ -339,11 +339,11 @@
 *
 *     B(1:N,1:NRHS) := Y' * B(1:N,1:NRHS)
 *
-      IF( RANK.LT.N ) THEN
-         CALL ZUNMRZ( 'Left', 'Conjugate transpose', N, NRHS, RANK,
-     $                N-RANK, A, LDA, WORK( MN+1 ), B, LDB,
-     $                WORK( 2*MN+1 ), LWORK-2*MN, INFO )
-      END IF
+c      IF( RANK.LT.N ) THEN
+c         CALL ZUNMRZ( 'Left', 'Conjugate transpose', N, NRHS, RANK,
+c     $                N-RANK, A, LDA, WORK( MN+1 ), B, LDB,
+c     $                WORK( 2*MN+1 ), LWORK-2*MN, INFO )
+c      END IF
 *
 *     complex workspace: 2*MN+NRHS.
 *
