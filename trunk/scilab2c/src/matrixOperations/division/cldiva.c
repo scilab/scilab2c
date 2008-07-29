@@ -49,7 +49,7 @@ void cldiva (	floatComplex* in1, int lines1, int columns1 ,
          dblin2[i] = DoubleComplex ( (double) creals( in2[i]) , double cimags ( in2[i])) ;
 		}       
                      
-    zrdiva( dblin1 , lines1 , columns1 , dblin2 , lines2 , columns2 , dblout );
+    zldiva( dblin1 , lines1 , columns1 , dblin2 , lines2 , columns2 , dblout );
 
                      
 	for ( i = 0 ; i < Min(lines2,columns2) * lines1 ; i++ )
