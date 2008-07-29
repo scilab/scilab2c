@@ -26,7 +26,9 @@ libMatrixDivision_la_SOURCES = 	$(HEAD) \
 				drdiva.c \
 				dldiva.c \
 				zrdiva.c \
-                zldiva.c
+                zldiva.c \
+                crdiva.c \
+                cldiva.c 
 
 check_PROGRAMS = 	testMatrixRDivision \
 			testMatrixLDivision

@@ -17,6 +17,8 @@
 #include "lapack.h" 
 #include <string.h>
 #include <stdio.h>
+
+
 void cldiva (	floatComplex* in1, int lines1, int columns1 ,
 			    floatComplex* in2, int lines2, int columns2 ,
 			 	floatComplex* out ){
@@ -41,12 +43,12 @@ void cldiva (	floatComplex* in1, int lines1, int columns1 ,
 	/*copy and cast all the floatComplex value into doubleComplex value */								
 	for ( i = 0 ; i < lines1 * columns1 ; i ++ )
 		{        
-		dblin1[i] = DoubleComplex ( (double) creals( in1[i]) , double cimags ( in1[i])) ;
+		dblin1[i] = DoubleComplex ( (double) creals( in1[i]) , (double) cimags ( in1[i])) ;
 		}
 
 	for ( i = 0 ; i < lines2 * columns2 ; i ++ )
         {
-         dblin2[i] = DoubleComplex ( (double) creals( in2[i]) , double cimags ( in2[i])) ;
+         dblin2[i] = DoubleComplex ( (double) creals( in2[i]) , (double) cimags ( in2[i])) ;
 		}       
                      
     zldiva( dblin1 , lines1 , columns1 , dblin2 , lines2 , columns2 , dblout );

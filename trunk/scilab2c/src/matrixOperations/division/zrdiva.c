@@ -17,7 +17,8 @@
 
 #include <stdio.h>
 #include <string.h>
-int	zrdiva(	doubleComplex* in1, int lines1, int columns1 ,
+
+void	zrdiva(	doubleComplex* in1, int lines1, int columns1 ,
 				doubleComplex* in2, int lines2, int columns2 ,
 				doubleComplex* out )
 {
@@ -151,7 +152,7 @@ int	zrdiva(	doubleComplex* in1, int lines1, int columns1 ,
 	free(pJpvt);
 	free(pRwork);
 	free(poDwork);
-	return 0;
+
 }
 
 

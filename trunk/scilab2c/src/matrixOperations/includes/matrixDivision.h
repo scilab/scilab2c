@@ -20,7 +20,7 @@
 #include "matrixTranspose.h"
 #include "conj.h" 
 
-#define C2F(name) name##_ 
+
 void srdiva (	float* in1, int lines1, int columns1 ,
 			    float* in2, int lines2, int columns2 ,
 			 	float* out );		
@@ -39,36 +39,26 @@ void dldiva (	double* in1, int lines1, int columns1 ,
 				double* in2, int lines2, int columns2 ,
 				double* out );
 
-int	zrdiva(	doubleComplex* in1, int lines1, int columns1 ,
+void zrdiva(	doubleComplex* in1, int lines1, int columns1 ,
 				doubleComplex* in2, int lines2, int columns2 ,
 				doubleComplex* out );
 
-
-int	zldiva(	doubleComplex* in1, int lines1, int columns1 ,
+void zldiva(    doubleComplex* in1, int lines1, int columns1 ,
 				doubleComplex* in2, int lines2, int columns2 ,
 				doubleComplex* out );
 
 int Min(int _dblVar1, int _dblVar2);
 int Max(int _dblVar1, int _dblVar2);
 
-/*
-void crdiva (	floatComplex * in1, int it1,
-				floatComplex * in2, int it2,
-				floatComplex * out) ;
+
+void crdiva(    floatComplex* in1, int lines1, int columns1 ,
+				floatComplex* in2, int lines2, int columns2 ,
+				floatComplex* out );
+
+void cldiva(	floatComplex* in1, int lines1, int columns1 ,
+				floatComplex* in2, int lines2, int columns2 ,
+				floatComplex* out );
 
 
-void cldiva (	floatComplex * in1, int it1,
-				floatComplex * in2, int it2,
-				floatComplex * out, int itOut, int size) ;
-
-
-
-void zrdiva (	doubleComplex * in1, int it1,
-				doubleComplex * in2, int it2,
-				doubleComplex * out, int itOut, int size) ;
-
-void zldiva (	doubleComplex * in1, int it1,
-				doubleComplex * in2, int it2,
-				doubleComplex * out, int itOut, int size) ;*/
 
 #endif /* !__MATRIXDIVISION_H__ */
