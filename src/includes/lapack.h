@@ -13,6 +13,7 @@
 #ifndef __LAPACK_H__
 #define __LAPACK_H__
 
+#define C2F(name) name##_ 
 
 #define getRelativeMachinePrecision()		dlamch_("e", 1L)
 #define getOverflowThreshold()			dlamch_("o", 1L)

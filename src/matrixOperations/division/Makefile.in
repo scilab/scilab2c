@@ -58,7 +58,8 @@ am__objects_1 =
 am_libMatrixDivision_la_OBJECTS = $(am__objects_1) \
 	libMatrixDivision_la-srdiva.lo libMatrixDivision_la-sldiva.lo \
 	libMatrixDivision_la-drdiva.lo libMatrixDivision_la-dldiva.lo \
-	libMatrixDivision_la-zrdiva.lo libMatrixDivision_la-zldiva.lo
+	libMatrixDivision_la-zrdiva.lo libMatrixDivision_la-zldiva.lo \
+	libMatrixDivision_la-crdiva.lo libMatrixDivision_la-cldiva.lo
 libMatrixDivision_la_OBJECTS = $(am_libMatrixDivision_la_OBJECTS)
 libMatrixDivision_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
@@ -222,7 +223,9 @@ libMatrixDivision_la_SOURCES = $(HEAD) \
 				drdiva.c \
 				dldiva.c \
 				zrdiva.c \
-                zldiva.c
+                zldiva.c \
+                crdiva.c \
+                cldiva.c 
 
 check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
@@ -324,6 +327,8 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixDivision_la-cldiva.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixDivision_la-crdiva.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixDivision_la-dldiva.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixDivision_la-drdiva.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixDivision_la-sldiva.Plo@am__quote@
@@ -395,6 +400,20 @@ libMatrixDivision_la-zldiva.lo: zldiva.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zldiva.c' object='libMatrixDivision_la-zldiva.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -c -o libMatrixDivision_la-zldiva.lo `test -f 'zldiva.c' || echo '$(srcdir)/'`zldiva.c
+
+libMatrixDivision_la-crdiva.lo: crdiva.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -MT libMatrixDivision_la-crdiva.lo -MD -MP -MF $(DEPDIR)/libMatrixDivision_la-crdiva.Tpo -c -o libMatrixDivision_la-crdiva.lo `test -f 'crdiva.c' || echo '$(srcdir)/'`crdiva.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixDivision_la-crdiva.Tpo $(DEPDIR)/libMatrixDivision_la-crdiva.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crdiva.c' object='libMatrixDivision_la-crdiva.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -c -o libMatrixDivision_la-crdiva.lo `test -f 'crdiva.c' || echo '$(srcdir)/'`crdiva.c
+
+libMatrixDivision_la-cldiva.lo: cldiva.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -MT libMatrixDivision_la-cldiva.lo -MD -MP -MF $(DEPDIR)/libMatrixDivision_la-cldiva.Tpo -c -o libMatrixDivision_la-cldiva.lo `test -f 'cldiva.c' || echo '$(srcdir)/'`cldiva.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixDivision_la-cldiva.Tpo $(DEPDIR)/libMatrixDivision_la-cldiva.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cldiva.c' object='libMatrixDivision_la-cldiva.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -c -o libMatrixDivision_la-cldiva.lo `test -f 'cldiva.c' || echo '$(srcdir)/'`cldiva.c
 
 testMatrixLDivision-testMatrixLDivision.o: testMatrixLDivision.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixLDivision_CFLAGS) $(CFLAGS) -MT testMatrixLDivision-testMatrixLDivision.o -MD -MP -MF $(DEPDIR)/testMatrixLDivision-testMatrixLDivision.Tpo -c -o testMatrixLDivision-testMatrixLDivision.o `test -f 'testMatrixLDivision.c' || echo '$(srcdir)/'`testMatrixLDivision.c
