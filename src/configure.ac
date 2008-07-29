@@ -172,10 +172,12 @@ matrixOperations/division/Makefile
 matrixOperations/cat/Makefile
 matrixOperations/transpose/Makefile
 matrixOperations/trace/Makefile
+matrixOperations/hilbert/Makefile
 implicitList/Makefile
 elementaryFunctions/Makefile
 elementaryFunctions/cos/Makefile
 elementaryFunctions/cosh/Makefile
+elementaryFunctions/conj/Makefile
 elementaryFunctions/acos/Makefile
 elementaryFunctions/acosh/Makefile
 elementaryFunctions/sin/Makefile
@@ -209,6 +211,7 @@ auxiliaryFunctions/pythag/Makefile
 statisticsFunctions/Makefile
 statisticsFunctions/mean/Makefile
 statisticsFunctions/sum/Makefile
+statisticsFunctions/variance/Makefile
 string/Makefile
 string/disp/Makefile
 string/string/Makefile

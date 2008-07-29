@@ -11,4 +11,5 @@
 ##
 
 SUBDIRS=	mean \
-		sum
+		sum\
+		variance
