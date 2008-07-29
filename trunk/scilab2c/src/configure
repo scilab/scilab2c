@@ -22153,7 +22153,7 @@ fi
 ###### Creation of the header file (machine.h)
 #######################
 
-ac_config_files="$ac_config_files Makefile lib/blas/Makefile lib/lapack/Makefile type/Makefile matrixOperations/Makefile matrixOperations/addition/Makefile matrixOperations/subtraction/Makefile matrixOperations/multiplication/Makefile matrixOperations/division/Makefile matrixOperations/cat/Makefile matrixOperations/transpose/Makefile matrixOperations/trace/Makefile implicitList/Makefile elementaryFunctions/Makefile elementaryFunctions/cos/Makefile elementaryFunctions/cosh/Makefile elementaryFunctions/acos/Makefile elementaryFunctions/acosh/Makefile elementaryFunctions/sin/Makefile elementaryFunctions/sinh/Makefile elementaryFunctions/asin/Makefile elementaryFunctions/asinh/Makefile elementaryFunctions/tan/Makefile elementaryFunctions/tanh/Makefile elementaryFunctions/atan/Makefile elementaryFunctions/atan2/Makefile elementaryFunctions/atanh/Makefile elementaryFunctions/log/Makefile elementaryFunctions/log1p/Makefile elementaryFunctions/log10/Makefile elementaryFunctions/exp/Makefile elementaryFunctions/exp10/Makefile elementaryFunctions/sqrt/Makefile elementaryFunctions/lnp1m1/Makefile elementaryFunctions/pow/Makefile auxiliaryFunctions/Makefile auxiliaryFunctions/abs/Makefile auxiliaryFunctions/find/Makefile auxiliaryFunctions/isempty/Makefile auxiliaryFunctions/isnan/Makefile auxiliaryFunctions/rand/Makefile auxiliaryFunctions/sign/Makefile auxiliaryFunctions/size/Makefile auxiliaryFunctions/length/Makefile auxiliaryFunctions/type/Makefile auxiliaryFunctions/pythag/Makefile statisticsFunctions/Makefile statisticsFunctions/mean/Makefile statisticsFunctions/sum/Makefile string/Makefile string/disp/Makefile string/string/Makefile"
+ac_config_files="$ac_config_files Makefile lib/blas/Makefile lib/lapack/Makefile type/Makefile matrixOperations/Makefile matrixOperations/addition/Makefile matrixOperations/subtraction/Makefile matrixOperations/multiplication/Makefile matrixOperations/division/Makefile matrixOperations/cat/Makefile matrixOperations/transpose/Makefile matrixOperations/trace/Makefile matrixOperations/hilbert/Makefile implicitList/Makefile elementaryFunctions/Makefile elementaryFunctions/cos/Makefile elementaryFunctions/cosh/Makefile elementaryFunctions/conj/Makefile elementaryFunctions/acos/Makefile elementaryFunctions/acosh/Makefile elementaryFunctions/sin/Makefile elementaryFunctions/sinh/Makefile elementaryFunctions/asin/Makefile elementaryFunctions/asinh/Makefile elementaryFunctions/tan/Makefile elementaryFunctions/tanh/Makefile elementaryFunctions/atan/Makefile elementaryFunctions/atan2/Makefile elementaryFunctions/atanh/Makefile elementaryFunctions/log/Makefile elementaryFunctions/log1p/Makefile elementaryFunctions/log10/Makefile elementaryFunctions/exp/Makefile elementaryFunctions/exp10/Makefile elementaryFunctions/sqrt/Makefile elementaryFunctions/lnp1m1/Makefile elementaryFunctions/pow/Makefile auxiliaryFunctions/Makefile auxiliaryFunctions/abs/Makefile auxiliaryFunctions/find/Makefile auxiliaryFunctions/isempty/Makefile auxiliaryFunctions/isnan/Makefile auxiliaryFunctions/rand/Makefile auxiliaryFunctions/sign/Makefile auxiliaryFunctions/size/Makefile auxiliaryFunctions/length/Makefile auxiliaryFunctions/type/Makefile auxiliaryFunctions/pythag/Makefile statisticsFunctions/Makefile statisticsFunctions/mean/Makefile statisticsFunctions/sum/Makefile statisticsFunctions/variance/Makefile string/Makefile string/disp/Makefile string/string/Makefile"
 
 
 
@@ -22776,10 +22776,12 @@ do
     "matrixOperations/cat/Makefile") CONFIG_FILES="$CONFIG_FILES matrixOperations/cat/Makefile" ;;
     "matrixOperations/transpose/Makefile") CONFIG_FILES="$CONFIG_FILES matrixOperations/transpose/Makefile" ;;
     "matrixOperations/trace/Makefile") CONFIG_FILES="$CONFIG_FILES matrixOperations/trace/Makefile" ;;
+    "matrixOperations/hilbert/Makefile") CONFIG_FILES="$CONFIG_FILES matrixOperations/hilbert/Makefile" ;;
     "implicitList/Makefile") CONFIG_FILES="$CONFIG_FILES implicitList/Makefile" ;;
     "elementaryFunctions/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/Makefile" ;;
     "elementaryFunctions/cos/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/cos/Makefile" ;;
     "elementaryFunctions/cosh/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/cosh/Makefile" ;;
+    "elementaryFunctions/conj/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/conj/Makefile" ;;
     "elementaryFunctions/acos/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/acos/Makefile" ;;
     "elementaryFunctions/acosh/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/acosh/Makefile" ;;
     "elementaryFunctions/sin/Makefile") CONFIG_FILES="$CONFIG_FILES elementaryFunctions/sin/Makefile" ;;
@@ -22813,6 +22815,7 @@ do
     "statisticsFunctions/Makefile") CONFIG_FILES="$CONFIG_FILES statisticsFunctions/Makefile" ;;
     "statisticsFunctions/mean/Makefile") CONFIG_FILES="$CONFIG_FILES statisticsFunctions/mean/Makefile" ;;
     "statisticsFunctions/sum/Makefile") CONFIG_FILES="$CONFIG_FILES statisticsFunctions/sum/Makefile" ;;
+    "statisticsFunctions/variance/Makefile") CONFIG_FILES="$CONFIG_FILES statisticsFunctions/variance/Makefile" ;;
     "string/Makefile") CONFIG_FILES="$CONFIG_FILES string/Makefile" ;;
     "string/disp/Makefile") CONFIG_FILES="$CONFIG_FILES string/disp/Makefile" ;;
     "string/string/Makefile") CONFIG_FILES="$CONFIG_FILES string/string/Makefile" ;;

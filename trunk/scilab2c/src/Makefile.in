@@ -189,7 +189,7 @@ SUBDIRS = lib/blas \
 		statisticsFunctions \
 		matrixOperations \
 		implicitList \
-		string
+		string 
 
 all: all-recursive
 
