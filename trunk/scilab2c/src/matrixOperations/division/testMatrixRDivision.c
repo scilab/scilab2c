@@ -272,19 +272,19 @@ static void crdivaTest (void )
     
 	floatComplex* in1 ;
 	floatComplex* in2 ;
-	floatComplex* out  ;
-	floatComplex Result[ZLINES*ZLINES] ;
+	floatComplex out[ZLINES2*ZCOLUMNS]  ;
+	floatComplex Result[ZLINES1*ZLINES2] ;
 
-	in1 = FloatComplexMatrix (  tin1 , tin1 , ZLINES*ZCOLUMNS1 );
-	in2 = FloatComplexMatrix (  tin2 , tin2 , ZLINES*ZCOLUMNS2 );
-    out = FloatComplexMatrix (  tin2 , tin2 , ZLINES*ZLINES );
+	in1 = FloatComplexMatrix (  tin1 , tin1 , ZLINES1*ZCOLUMNS );
+	in2 = FloatComplexMatrix (  tin2 , tin2 , ZLINES2*ZCOLUMNS );
+
 	
     Result[0] = FloatComplex ( 1.0f ,  0 );
     Result[1] = FloatComplex ( 2.2f   , 0 );
     
-	crdiva ( in1 , ZLINES , ZCOLUMNS1 , in2 ,ZLINES , ZCOLUMNS2 , out) ;
+	crdiva ( in1 , ZLINES1 , ZCOLUMNS , in2 ,ZLINES2 , ZCOLUMNS , out) ;
 	
-    for ( i = 0 ; i < (ZCOLUMNS1*ZCOLUMNS2 )  ; i++ )
+		for ( i = 0 ; i < (ZLINES2*ZCOLUMNS )  ; i++ )
 	{
 	  printf ( "\t\t %d out : %e + %e * i  result : %e + %e * i   assert : %e + %e \n" ,
               i ,creals(out[i]) , cimags(out[i]) , creals (Result[i])  , cimags (Result[i]),
