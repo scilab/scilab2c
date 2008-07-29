@@ -14,7 +14,7 @@
 #include "matrixDivision.h"
 #include "string.h"
 
-int	zldiva(	doubleComplex* in1, int lines1, int columns1 ,
+void zldiva(	doubleComplex* in1, int lines1, int columns1 ,
 				doubleComplex* in2, int lines2, int columns2 ,
 				doubleComplex* out )
 {
@@ -117,5 +117,5 @@ int	zldiva(	doubleComplex* in1, int lines1, int columns1 ,
 	free(pJpvt);
 	free(pRwork);
 	free(pDwork);
-	return 0;
+
 }
