@@ -375,7 +375,7 @@ static void zldivaTest (void )
 
 
 static int testLDiva   (void) {
-  printf "&&&& WARNING , TESTS FOR COMPLEX ARE STILL WRONG &&&&&&\n\n" ) ;  
+  printf ("&&&& WARNING , TESTS FOR COMPLEX ARE STILL WRONG &&&&&&\n\n" ) ;  
     
   printf("\n\n\n\n*********************\n");
   printf("***** Left Tests ****\n");
