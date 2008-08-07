@@ -174,7 +174,8 @@ SUBDIRS = abs \
 		pythag \
 		size \
 		type \
-		length
+		length \
+		frexp
 
 all: all-recursive
 

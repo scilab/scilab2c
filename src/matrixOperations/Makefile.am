@@ -18,5 +18,8 @@ SUBDIRS= 	addition \
 		transpose \
 		division \
 		trace \
-		hilbert
+		hilbert \
+		expm \
+		infiniteNorm \
+		eyes
 

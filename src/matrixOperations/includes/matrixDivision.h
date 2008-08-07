@@ -19,6 +19,8 @@
 #include "cat.h"
 #include "matrixTranspose.h"
 #include "conj.h" 
+#include "min.h" 
+#include "max.h" 
 
 
 void srdiva (	float* in1, int lines1, int columns1 ,
@@ -46,10 +48,6 @@ void zrdiva(	doubleComplex* in1, int lines1, int columns1 ,
 void zldiva(    doubleComplex* in1, int lines1, int columns1 ,
 				doubleComplex* in2, int lines2, int columns2 ,
 				doubleComplex* out );
-
-int Min(int _dblVar1, int _dblVar2);
-int Max(int _dblVar1, int _dblVar2);
-
 
 void crdiva(    floatComplex* in1, int lines1, int columns1 ,
 				floatComplex* in2, int lines2, int columns2 ,

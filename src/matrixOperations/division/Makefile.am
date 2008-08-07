@@ -12,6 +12,7 @@
 
 libMatrixDivision_la_CFLAGS =	-I $(top_builddir)/type \
 			-I $(top_builddir)/matrixOperations/includes \
+            -I $(top_builddir)/auxiliaryFunctions/includes \
             -I $(top_builddir)/elementaryFunctions/includes
 
 instdir = $(top_builddir)/lib
@@ -43,6 +44,7 @@ check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 
 check_INCLUDES =	-I $(top_builddir)/type \
 			-I $(top_builddir)/matrixOperations/includes \
+            -I $(top_builddir)/auxiliaryFunctions/includes \
 		    -I $(top_builddir)/elementaryFunctions/includes 
 
 testMatrixLDivision_SOURCES =    testMatrixLDivision.c

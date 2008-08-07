@@ -44,14 +44,14 @@ void dldiva (double* in1, int lines1, int columns1 ,
 	int *pJpvt	= NULL;
 	int *pIwork	= NULL;
 
-	iWork	= Max(4 * columns1, Max(Min(lines1, columns1) + 3 * lines1 + 1, 2 * Min(lines1, columns1) + columns2));
+	iWork	= max(4 * columns1, max(min(lines1, columns1) + 3 * lines1 + 1, 2 * min(lines1, columns1) + columns2));
 
 
 
 
 	/* Array allocations*/
 	pAf			= (double*)malloc(sizeof(double) * (unsigned int) lines1 * (unsigned int) columns1);
-	pXb			= (double*)malloc(sizeof(double) * (unsigned int) Max(lines1,columns1) * (unsigned int) columns1);
+	pXb			= (double*)malloc(sizeof(double) * (unsigned int) max(lines1,columns1) * (unsigned int) columns1);
 
 	pRank		= (int*)malloc(sizeof(int));
 	pIpiv		= (int*)malloc(sizeof(int) *(unsigned int) columns1);
@@ -91,7 +91,7 @@ void dldiva (double* in1, int lines1, int columns1 ,
 	{
 		dblRcond = sqrt(dblEps);
 		cNorm = 'F';
-		iMax = Max(lines1, columns1);
+		iMax = max(lines1, columns1);
 		C2F(dlacpy)(&cNorm, &lines1, &columns2, in2, &lines2, pXb, &iMax);
 		memset(pJpvt, 0x00,(unsigned int) sizeof(int) * (unsigned int) columns1);
 		C2F(dgelsy)(	&lines1, &columns1, &columns2, in1, &lines1, pXb, &iMax,
