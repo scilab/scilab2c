@@ -32,10 +32,9 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testMatrixRDivision$(EXEEXT) \
-	testMatrixLDivision$(EXEEXT)
-TESTS = testMatrixRDivision$(EXEEXT) testMatrixLDivision$(EXEEXT)
-subdir = matrixOperations/division
+check_PROGRAMS = testMatrixEyes$(EXEEXT)
+TESTS = testMatrixEyes$(EXEEXT)
+subdir = matrixOperations/eyes
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -53,34 +52,21 @@ am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
 am__installdirs = "$(DESTDIR)$(pkglibdir)"
 pkglibLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkglib_LTLIBRARIES)
-libMatrixDivision_la_LIBADD =
+libMatrixEyes_la_LIBADD =
 am__objects_1 =
-am_libMatrixDivision_la_OBJECTS = $(am__objects_1) \
-	libMatrixDivision_la-srdiva.lo libMatrixDivision_la-sldiva.lo \
-	libMatrixDivision_la-drdiva.lo libMatrixDivision_la-dldiva.lo \
-	libMatrixDivision_la-zrdiva.lo libMatrixDivision_la-zldiva.lo \
-	libMatrixDivision_la-crdiva.lo libMatrixDivision_la-cldiva.lo
-libMatrixDivision_la_OBJECTS = $(am_libMatrixDivision_la_OBJECTS)
-libMatrixDivision_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
-	$(libMatrixDivision_la_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
-	$(LDFLAGS) -o $@
-am_testMatrixLDivision_OBJECTS =  \
-	testMatrixLDivision-testMatrixLDivision.$(OBJEXT)
-testMatrixLDivision_OBJECTS = $(am_testMatrixLDivision_OBJECTS)
-testMatrixLDivision_DEPENDENCIES = $(check_LDADD)
-testMatrixLDivision_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
-	$(testMatrixLDivision_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
-	$(LDFLAGS) -o $@
-am_testMatrixRDivision_OBJECTS =  \
-	testMatrixRDivision-testMatrixRDivision.$(OBJEXT)
-testMatrixRDivision_OBJECTS = $(am_testMatrixRDivision_OBJECTS)
-testMatrixRDivision_DEPENDENCIES = $(check_LDADD)
-testMatrixRDivision_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
-	$(testMatrixRDivision_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
-	$(LDFLAGS) -o $@
+am_libMatrixEyes_la_OBJECTS = $(am__objects_1) \
+	libMatrixEyes_la-seyesa.lo libMatrixEyes_la-deyesa.lo \
+	libMatrixEyes_la-ceyesa.lo libMatrixEyes_la-zeyesa.lo
+libMatrixEyes_la_OBJECTS = $(am_libMatrixEyes_la_OBJECTS)
+libMatrixEyes_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libMatrixEyes_la_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testMatrixEyes_OBJECTS = testMatrixEyes-testMatrixEyes.$(OBJEXT)
+testMatrixEyes_OBJECTS = $(am_testMatrixEyes_OBJECTS)
+testMatrixEyes_DEPENDENCIES = $(check_LDADD)
+testMatrixEyes_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testMatrixEyes_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -93,10 +79,8 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libMatrixDivision_la_SOURCES) \
-	$(testMatrixLDivision_SOURCES) $(testMatrixRDivision_SOURCES)
-DIST_SOURCES = $(libMatrixDivision_la_SOURCES) \
-	$(testMatrixLDivision_SOURCES) $(testMatrixRDivision_SOURCES)
+SOURCES = $(libMatrixEyes_la_SOURCES) $(testMatrixEyes_SOURCES)
+DIST_SOURCES = $(libMatrixEyes_la_SOURCES) $(testMatrixEyes_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -210,43 +194,34 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libMatrixDivision_la_CFLAGS = -I $(top_builddir)/type \
-			-I $(top_builddir)/matrixOperations/includes \
-            -I $(top_builddir)/auxiliaryFunctions/includes \
-            -I $(top_builddir)/elementaryFunctions/includes
+libMatrixEyes_la_CFLAGS = -I $(top_builddir)/type \
+					-I $(top_builddir)/matrixOperations/includes \
+                    -I $(top_builddir)/auxiliaryFunctions/includes \
+                    -I $(top_builddir)/includes \
+                    -I $(top_builddir)/elementaryFunctions/includes
 
 instdir = $(top_builddir)/lib
-pkglib_LTLIBRARIES = libMatrixDivision.la
-HEAD = ../includes/matrixDivision.h
-libMatrixDivision_la_SOURCES = $(HEAD) \
-				srdiva.c \
-                sldiva.c \
-				drdiva.c \
-				dldiva.c \
-				zrdiva.c \
-                zldiva.c \
-                crdiva.c \
-                cldiva.c 
+pkglib_LTLIBRARIES = libMatrixEyes.la
+HEAD = ../includes/matrixEyes.h
+libMatrixEyes_la_SOURCES = $(HEAD) \
+				seyesa.c \
+				deyesa.c \
+				ceyesa.c \
+				zeyesa.c
 
 check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
-			$(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la \
-			$(top_builddir)/matrixOperations/cat/libMatrixConcatenation.la \
-            $(top_builddir)/elementaryFunctions/conj/libConj.la \
-			libMatrixDivision.la
+			libMatrixEyes.la
 
 check_INCLUDES = -I $(top_builddir)/type \
-			-I $(top_builddir)/matrixOperations/includes \
-            -I $(top_builddir)/auxiliaryFunctions/includes \
-		    -I $(top_builddir)/elementaryFunctions/includes 
+					-I $(top_builddir)/matrixOperations/includes \
+                    -I $(top_builddir)/auxiliaryFunctions/includes \
+                    -I $(top_builddir)/includes \
+                    -I $(top_builddir)/elementaryFunctions/includes 
 
-testMatrixLDivision_SOURCES = testMatrixLDivision.c
-testMatrixLDivision_LDADD = $(check_LDADD)
-testMatrixLDivision_CFLAGS = $(check_INCLUDES)
-testMatrixRDivision_SOURCES = testMatrixRDivision.c
-testMatrixRDivision_LDADD = $(check_LDADD)
-testMatrixRDivision_CFLAGS = $(check_INCLUDES)
+testMatrixEyes_SOURCES = testMatrixEyes.c
+testMatrixEyes_LDADD = $(check_LDADD)
+testMatrixEyes_CFLAGS = $(check_INCLUDES)
 all: all-am
 
 .SUFFIXES:
@@ -260,9 +235,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  matrixOperations/division/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  matrixOperations/eyes/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  matrixOperations/division/Makefile
+	  $(AUTOMAKE) --foreign  matrixOperations/eyes/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
@@ -307,8 +282,8 @@ clean-pkglibLTLIBRARIES:
 	  echo "rm -f \"$${dir}/so_locations\""; \
 	  rm -f "$${dir}/so_locations"; \
 	done
-libMatrixDivision.la: $(libMatrixDivision_la_OBJECTS) $(libMatrixDivision_la_DEPENDENCIES) 
-	$(libMatrixDivision_la_LINK) -rpath $(pkglibdir) $(libMatrixDivision_la_OBJECTS) $(libMatrixDivision_la_LIBADD) $(LIBS)
+libMatrixEyes.la: $(libMatrixEyes_la_OBJECTS) $(libMatrixEyes_la_DEPENDENCIES) 
+	$(libMatrixEyes_la_LINK) -rpath $(pkglibdir) $(libMatrixEyes_la_OBJECTS) $(libMatrixEyes_la_LIBADD) $(LIBS)
 
 clean-checkPROGRAMS:
 	@list='$(check_PROGRAMS)'; for p in $$list; do \
@@ -316,12 +291,9 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testMatrixLDivision$(EXEEXT): $(testMatrixLDivision_OBJECTS) $(testMatrixLDivision_DEPENDENCIES) 
-	@rm -f testMatrixLDivision$(EXEEXT)
-	$(testMatrixLDivision_LINK) $(testMatrixLDivision_OBJECTS) $(testMatrixLDivision_LDADD) $(LIBS)
-testMatrixRDivision$(EXEEXT): $(testMatrixRDivision_OBJECTS) $(testMatrixRDivision_DEPENDENCIES) 
-	@rm -f testMatrixRDivision$(EXEEXT)
-	$(testMatrixRDivision_LINK) $(testMatrixRDivision_OBJECTS) $(testMatrixRDivision_LDADD) $(LIBS)
+testMatrixEyes$(EXEEXT): $(testMatrixEyes_OBJECTS) $(testMatrixEyes_DEPENDENCIES) 
+	@rm -f testMatrixEyes$(EXEEXT)
+	$(testMatrixEyes_LINK) $(testMatrixEyes_OBJECTS) $(testMatrixEyes_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -329,16 +301,11 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixDivision_la-cldiva.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixDivision_la-crdiva.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixDivision_la-dldiva.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixDivision_la-drdiva.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixDivision_la-sldiva.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixDivision_la-srdiva.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixDivision_la-zldiva.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixDivision_la-zrdiva.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testMatrixLDivision-testMatrixLDivision.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testMatrixRDivision-testMatrixRDivision.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixEyes_la-ceyesa.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixEyes_la-deyesa.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixEyes_la-seyesa.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixEyes_la-zeyesa.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testMatrixEyes-testMatrixEyes.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -361,89 +328,47 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
-libMatrixDivision_la-srdiva.lo: srdiva.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -MT libMatrixDivision_la-srdiva.lo -MD -MP -MF $(DEPDIR)/libMatrixDivision_la-srdiva.Tpo -c -o libMatrixDivision_la-srdiva.lo `test -f 'srdiva.c' || echo '$(srcdir)/'`srdiva.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixDivision_la-srdiva.Tpo $(DEPDIR)/libMatrixDivision_la-srdiva.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='srdiva.c' object='libMatrixDivision_la-srdiva.lo' libtool=yes @AMDEPBACKSLASH@
+libMatrixEyes_la-seyesa.lo: seyesa.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixEyes_la_CFLAGS) $(CFLAGS) -MT libMatrixEyes_la-seyesa.lo -MD -MP -MF $(DEPDIR)/libMatrixEyes_la-seyesa.Tpo -c -o libMatrixEyes_la-seyesa.lo `test -f 'seyesa.c' || echo '$(srcdir)/'`seyesa.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixEyes_la-seyesa.Tpo $(DEPDIR)/libMatrixEyes_la-seyesa.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='seyesa.c' object='libMatrixEyes_la-seyesa.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -c -o libMatrixDivision_la-srdiva.lo `test -f 'srdiva.c' || echo '$(srcdir)/'`srdiva.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixEyes_la_CFLAGS) $(CFLAGS) -c -o libMatrixEyes_la-seyesa.lo `test -f 'seyesa.c' || echo '$(srcdir)/'`seyesa.c
 
-libMatrixDivision_la-sldiva.lo: sldiva.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -MT libMatrixDivision_la-sldiva.lo -MD -MP -MF $(DEPDIR)/libMatrixDivision_la-sldiva.Tpo -c -o libMatrixDivision_la-sldiva.lo `test -f 'sldiva.c' || echo '$(srcdir)/'`sldiva.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixDivision_la-sldiva.Tpo $(DEPDIR)/libMatrixDivision_la-sldiva.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sldiva.c' object='libMatrixDivision_la-sldiva.lo' libtool=yes @AMDEPBACKSLASH@
+libMatrixEyes_la-deyesa.lo: deyesa.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixEyes_la_CFLAGS) $(CFLAGS) -MT libMatrixEyes_la-deyesa.lo -MD -MP -MF $(DEPDIR)/libMatrixEyes_la-deyesa.Tpo -c -o libMatrixEyes_la-deyesa.lo `test -f 'deyesa.c' || echo '$(srcdir)/'`deyesa.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixEyes_la-deyesa.Tpo $(DEPDIR)/libMatrixEyes_la-deyesa.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='deyesa.c' object='libMatrixEyes_la-deyesa.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -c -o libMatrixDivision_la-sldiva.lo `test -f 'sldiva.c' || echo '$(srcdir)/'`sldiva.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixEyes_la_CFLAGS) $(CFLAGS) -c -o libMatrixEyes_la-deyesa.lo `test -f 'deyesa.c' || echo '$(srcdir)/'`deyesa.c
 
-libMatrixDivision_la-drdiva.lo: drdiva.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -MT libMatrixDivision_la-drdiva.lo -MD -MP -MF $(DEPDIR)/libMatrixDivision_la-drdiva.Tpo -c -o libMatrixDivision_la-drdiva.lo `test -f 'drdiva.c' || echo '$(srcdir)/'`drdiva.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixDivision_la-drdiva.Tpo $(DEPDIR)/libMatrixDivision_la-drdiva.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='drdiva.c' object='libMatrixDivision_la-drdiva.lo' libtool=yes @AMDEPBACKSLASH@
+libMatrixEyes_la-ceyesa.lo: ceyesa.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixEyes_la_CFLAGS) $(CFLAGS) -MT libMatrixEyes_la-ceyesa.lo -MD -MP -MF $(DEPDIR)/libMatrixEyes_la-ceyesa.Tpo -c -o libMatrixEyes_la-ceyesa.lo `test -f 'ceyesa.c' || echo '$(srcdir)/'`ceyesa.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixEyes_la-ceyesa.Tpo $(DEPDIR)/libMatrixEyes_la-ceyesa.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ceyesa.c' object='libMatrixEyes_la-ceyesa.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -c -o libMatrixDivision_la-drdiva.lo `test -f 'drdiva.c' || echo '$(srcdir)/'`drdiva.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixEyes_la_CFLAGS) $(CFLAGS) -c -o libMatrixEyes_la-ceyesa.lo `test -f 'ceyesa.c' || echo '$(srcdir)/'`ceyesa.c
 
-libMatrixDivision_la-dldiva.lo: dldiva.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -MT libMatrixDivision_la-dldiva.lo -MD -MP -MF $(DEPDIR)/libMatrixDivision_la-dldiva.Tpo -c -o libMatrixDivision_la-dldiva.lo `test -f 'dldiva.c' || echo '$(srcdir)/'`dldiva.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixDivision_la-dldiva.Tpo $(DEPDIR)/libMatrixDivision_la-dldiva.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dldiva.c' object='libMatrixDivision_la-dldiva.lo' libtool=yes @AMDEPBACKSLASH@
+libMatrixEyes_la-zeyesa.lo: zeyesa.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixEyes_la_CFLAGS) $(CFLAGS) -MT libMatrixEyes_la-zeyesa.lo -MD -MP -MF $(DEPDIR)/libMatrixEyes_la-zeyesa.Tpo -c -o libMatrixEyes_la-zeyesa.lo `test -f 'zeyesa.c' || echo '$(srcdir)/'`zeyesa.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixEyes_la-zeyesa.Tpo $(DEPDIR)/libMatrixEyes_la-zeyesa.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zeyesa.c' object='libMatrixEyes_la-zeyesa.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -c -o libMatrixDivision_la-dldiva.lo `test -f 'dldiva.c' || echo '$(srcdir)/'`dldiva.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixEyes_la_CFLAGS) $(CFLAGS) -c -o libMatrixEyes_la-zeyesa.lo `test -f 'zeyesa.c' || echo '$(srcdir)/'`zeyesa.c
 
-libMatrixDivision_la-zrdiva.lo: zrdiva.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -MT libMatrixDivision_la-zrdiva.lo -MD -MP -MF $(DEPDIR)/libMatrixDivision_la-zrdiva.Tpo -c -o libMatrixDivision_la-zrdiva.lo `test -f 'zrdiva.c' || echo '$(srcdir)/'`zrdiva.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixDivision_la-zrdiva.Tpo $(DEPDIR)/libMatrixDivision_la-zrdiva.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zrdiva.c' object='libMatrixDivision_la-zrdiva.lo' libtool=yes @AMDEPBACKSLASH@
+testMatrixEyes-testMatrixEyes.o: testMatrixEyes.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixEyes_CFLAGS) $(CFLAGS) -MT testMatrixEyes-testMatrixEyes.o -MD -MP -MF $(DEPDIR)/testMatrixEyes-testMatrixEyes.Tpo -c -o testMatrixEyes-testMatrixEyes.o `test -f 'testMatrixEyes.c' || echo '$(srcdir)/'`testMatrixEyes.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatrixEyes-testMatrixEyes.Tpo $(DEPDIR)/testMatrixEyes-testMatrixEyes.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMatrixEyes.c' object='testMatrixEyes-testMatrixEyes.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -c -o libMatrixDivision_la-zrdiva.lo `test -f 'zrdiva.c' || echo '$(srcdir)/'`zrdiva.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixEyes_CFLAGS) $(CFLAGS) -c -o testMatrixEyes-testMatrixEyes.o `test -f 'testMatrixEyes.c' || echo '$(srcdir)/'`testMatrixEyes.c
 
-libMatrixDivision_la-zldiva.lo: zldiva.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -MT libMatrixDivision_la-zldiva.lo -MD -MP -MF $(DEPDIR)/libMatrixDivision_la-zldiva.Tpo -c -o libMatrixDivision_la-zldiva.lo `test -f 'zldiva.c' || echo '$(srcdir)/'`zldiva.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixDivision_la-zldiva.Tpo $(DEPDIR)/libMatrixDivision_la-zldiva.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zldiva.c' object='libMatrixDivision_la-zldiva.lo' libtool=yes @AMDEPBACKSLASH@
+testMatrixEyes-testMatrixEyes.obj: testMatrixEyes.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixEyes_CFLAGS) $(CFLAGS) -MT testMatrixEyes-testMatrixEyes.obj -MD -MP -MF $(DEPDIR)/testMatrixEyes-testMatrixEyes.Tpo -c -o testMatrixEyes-testMatrixEyes.obj `if test -f 'testMatrixEyes.c'; then $(CYGPATH_W) 'testMatrixEyes.c'; else $(CYGPATH_W) '$(srcdir)/testMatrixEyes.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatrixEyes-testMatrixEyes.Tpo $(DEPDIR)/testMatrixEyes-testMatrixEyes.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMatrixEyes.c' object='testMatrixEyes-testMatrixEyes.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -c -o libMatrixDivision_la-zldiva.lo `test -f 'zldiva.c' || echo '$(srcdir)/'`zldiva.c
-
-libMatrixDivision_la-crdiva.lo: crdiva.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -MT libMatrixDivision_la-crdiva.lo -MD -MP -MF $(DEPDIR)/libMatrixDivision_la-crdiva.Tpo -c -o libMatrixDivision_la-crdiva.lo `test -f 'crdiva.c' || echo '$(srcdir)/'`crdiva.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixDivision_la-crdiva.Tpo $(DEPDIR)/libMatrixDivision_la-crdiva.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crdiva.c' object='libMatrixDivision_la-crdiva.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -c -o libMatrixDivision_la-crdiva.lo `test -f 'crdiva.c' || echo '$(srcdir)/'`crdiva.c
-
-libMatrixDivision_la-cldiva.lo: cldiva.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -MT libMatrixDivision_la-cldiva.lo -MD -MP -MF $(DEPDIR)/libMatrixDivision_la-cldiva.Tpo -c -o libMatrixDivision_la-cldiva.lo `test -f 'cldiva.c' || echo '$(srcdir)/'`cldiva.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixDivision_la-cldiva.Tpo $(DEPDIR)/libMatrixDivision_la-cldiva.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cldiva.c' object='libMatrixDivision_la-cldiva.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixDivision_la_CFLAGS) $(CFLAGS) -c -o libMatrixDivision_la-cldiva.lo `test -f 'cldiva.c' || echo '$(srcdir)/'`cldiva.c
-
-testMatrixLDivision-testMatrixLDivision.o: testMatrixLDivision.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixLDivision_CFLAGS) $(CFLAGS) -MT testMatrixLDivision-testMatrixLDivision.o -MD -MP -MF $(DEPDIR)/testMatrixLDivision-testMatrixLDivision.Tpo -c -o testMatrixLDivision-testMatrixLDivision.o `test -f 'testMatrixLDivision.c' || echo '$(srcdir)/'`testMatrixLDivision.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatrixLDivision-testMatrixLDivision.Tpo $(DEPDIR)/testMatrixLDivision-testMatrixLDivision.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMatrixLDivision.c' object='testMatrixLDivision-testMatrixLDivision.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixLDivision_CFLAGS) $(CFLAGS) -c -o testMatrixLDivision-testMatrixLDivision.o `test -f 'testMatrixLDivision.c' || echo '$(srcdir)/'`testMatrixLDivision.c
-
-testMatrixLDivision-testMatrixLDivision.obj: testMatrixLDivision.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixLDivision_CFLAGS) $(CFLAGS) -MT testMatrixLDivision-testMatrixLDivision.obj -MD -MP -MF $(DEPDIR)/testMatrixLDivision-testMatrixLDivision.Tpo -c -o testMatrixLDivision-testMatrixLDivision.obj `if test -f 'testMatrixLDivision.c'; then $(CYGPATH_W) 'testMatrixLDivision.c'; else $(CYGPATH_W) '$(srcdir)/testMatrixLDivision.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatrixLDivision-testMatrixLDivision.Tpo $(DEPDIR)/testMatrixLDivision-testMatrixLDivision.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMatrixLDivision.c' object='testMatrixLDivision-testMatrixLDivision.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixLDivision_CFLAGS) $(CFLAGS) -c -o testMatrixLDivision-testMatrixLDivision.obj `if test -f 'testMatrixLDivision.c'; then $(CYGPATH_W) 'testMatrixLDivision.c'; else $(CYGPATH_W) '$(srcdir)/testMatrixLDivision.c'; fi`
-
-testMatrixRDivision-testMatrixRDivision.o: testMatrixRDivision.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixRDivision_CFLAGS) $(CFLAGS) -MT testMatrixRDivision-testMatrixRDivision.o -MD -MP -MF $(DEPDIR)/testMatrixRDivision-testMatrixRDivision.Tpo -c -o testMatrixRDivision-testMatrixRDivision.o `test -f 'testMatrixRDivision.c' || echo '$(srcdir)/'`testMatrixRDivision.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatrixRDivision-testMatrixRDivision.Tpo $(DEPDIR)/testMatrixRDivision-testMatrixRDivision.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMatrixRDivision.c' object='testMatrixRDivision-testMatrixRDivision.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixRDivision_CFLAGS) $(CFLAGS) -c -o testMatrixRDivision-testMatrixRDivision.o `test -f 'testMatrixRDivision.c' || echo '$(srcdir)/'`testMatrixRDivision.c
-
-testMatrixRDivision-testMatrixRDivision.obj: testMatrixRDivision.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixRDivision_CFLAGS) $(CFLAGS) -MT testMatrixRDivision-testMatrixRDivision.obj -MD -MP -MF $(DEPDIR)/testMatrixRDivision-testMatrixRDivision.Tpo -c -o testMatrixRDivision-testMatrixRDivision.obj `if test -f 'testMatrixRDivision.c'; then $(CYGPATH_W) 'testMatrixRDivision.c'; else $(CYGPATH_W) '$(srcdir)/testMatrixRDivision.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatrixRDivision-testMatrixRDivision.Tpo $(DEPDIR)/testMatrixRDivision-testMatrixRDivision.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMatrixRDivision.c' object='testMatrixRDivision-testMatrixRDivision.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixRDivision_CFLAGS) $(CFLAGS) -c -o testMatrixRDivision-testMatrixRDivision.obj `if test -f 'testMatrixRDivision.c'; then $(CYGPATH_W) 'testMatrixRDivision.c'; else $(CYGPATH_W) '$(srcdir)/testMatrixRDivision.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixEyes_CFLAGS) $(CFLAGS) -c -o testMatrixEyes-testMatrixEyes.obj `if test -f 'testMatrixEyes.c'; then $(CYGPATH_W) 'testMatrixEyes.c'; else $(CYGPATH_W) '$(srcdir)/testMatrixEyes.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo

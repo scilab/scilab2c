@@ -291,9 +291,18 @@ static void crdivaTest (void )
               fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i])) ,
               fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i])));
         
-     assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 1e-06 );
-	 assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 1e-06 ) ;
-	}
+    if (  creals(out[i])  < 1e-06 && creals (Result[i]) < 1e-08 )
+        assert ( 1 ) ;
+    else         
+        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 1e-16 );
+    
+        
+    if (  cimags(out[i])  < 1e-06 && cimags (Result[i]) < 1e-08 )
+        assert ( 1 ) ;
+    else         
+	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 1e-16  ) ;
+
+    }
     
 }
 
@@ -416,15 +425,25 @@ static void zrdivaTest ( void ){
     
 	zrdiva ( in1 , ZLINES1 , ZCOLUMNS , in2 ,ZLINES2 , ZCOLUMNS , out) ;
 	
-		for ( i = 0 ; i < (ZLINES2*ZCOLUMNS )  ; i++ )
+    for ( i = 0 ; i < (ZLINES2*ZCOLUMNS )  ; i++ )
 	{
 	  printf ( "\t\t %d out : %e + %e * i  result : %e + %e * i  assert : %e + %e \n" ,
               i ,zreals(out[i]) , zimags(out[i]) , zreals (Result[i])  , zimags (Result[i]),
               fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) ,
               fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i])));
+    
+    /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/     
         
-    assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 1e-17 );
-	assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-17 ) ;
+    if (  zreals(out[i])  < 1e-16 && zreals (Result[i]) < 1e-18 )
+        assert ( 1 ) ;
+    else         
+        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 1e-16 );
+    
+        
+    if (  zimags(out[i])  < 1e-16 && zimags (Result[i]) < 1e-18 )
+        assert ( 1 ) ;
+    else         
+	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-16  ) ;
 
 	}
 }
@@ -441,7 +460,7 @@ static int testRDiva   (void) {
   printf("\n\n\n\n\t>>>> Double real  Tests\n");
   drdivaTest();
 
-  printf("\n\t>>>> Double complex  Tests\n");
+  printf("\n\t>>>> Float complex  Tests\n");
   crdivaTest();	
     
   printf("\n\t>>>> Double complex  Tests\n");

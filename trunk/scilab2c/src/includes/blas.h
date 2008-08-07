@@ -13,6 +13,11 @@
 #ifndef __BLAS_H__
 #define __BLAS_H__
 
+
+#ifndef _MACRO_C2F_
+#define _MACRO_C2F_
+#define C2F(name) name##_ 
+#endif 
 /*
       SUBROUTINE DGEMM ( TRANSA, TRANSB, M, N, K, ALPHA, A, LDA, B, LDB,
      $                   BETA, C, LDC )
@@ -139,10 +144,17 @@ C     (NaN*0 should be NaN, not 0)
 *
 *  Level 3 Blas routine.
 */
-
+/*
 void	dgemm_(char *TRANSA, char* TRANSB, int *M, int *N, int *K,
 	       double *ALPHA, double *A, int *LDA,
 	       double *B, int *LDB, double *BETA,
-	       double *C, int *LDC);
+	       double *C, int *LDC);*/
+
+extern  int     C2F(dgemm)();
+extern  int     C2F(idamax)() ;/* could be transcribe easaly in c */
+extern  int     C2F(daxpy) () ;/* could be transcribe easaly in c */
+extern  int     C2F(dscal) () ;/* could be transcribe easaly in c */
+extern  int     C2F(dasum) () ;/* could be transcribe easaly in c */
+
 
 #endif /* !__BLAS_H__ */

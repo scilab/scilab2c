@@ -46,7 +46,7 @@ void	zrdiva(	doubleComplex* in1, int lines1, int columns1 ,
 	int *pJpvt	= NULL;
 	double *pRwork	= NULL;
 
-	iWork	= Max(2*columns2, Min(lines2, columns2) + Max(2 * Min(lines2, columns2), Max(lines2 + 1, Min(lines2, columns2) + lines1)));
+	iWork	= max(2*columns2, min(lines2, columns2) + max(2 * min(lines2, columns2), max(lines2 + 1, min(lines2, columns2) + lines1)));
 
 
 
@@ -55,7 +55,7 @@ void	zrdiva(	doubleComplex* in1, int lines1, int columns1 ,
 	
 	poAf		= (doubleComplex*)malloc(sizeof(doubleComplex) *(unsigned int) lines2 *(unsigned int) columns2);
 	poAt		= (doubleComplex*)malloc(sizeof(doubleComplex) * (unsigned int)lines2 *(unsigned int) columns2);
-	poBt		= (doubleComplex*)malloc(sizeof(doubleComplex) *(unsigned int) Max(lines2, columns2) *(unsigned int) lines1);
+	poBt		= (doubleComplex*)malloc(sizeof(doubleComplex) *(unsigned int) max(lines2, columns2) *(unsigned int) lines1);
 
 	pRank		= (int*)malloc(sizeof(int));
 	pIpiv		= (int*)malloc(sizeof(int) *(unsigned int) columns2);
@@ -79,7 +79,7 @@ void	zrdiva(	doubleComplex* in1, int lines1, int columns1 ,
 		{
 			for(i = 0 ; i < columns2 ; i++)
 			{
-				ij = i + j * Max(lines2, columns2);
+				ij = i + j * max(lines2, columns2);
 				ji = j + i * lines1;
                 
                 poBt[ij] = DoubleComplex (zreals ( in1[ji] ) , - zimags ( in1[ji] ) );
@@ -113,7 +113,7 @@ void	zrdiva(	doubleComplex* in1, int lines1, int columns1 ,
 	{
 		dblRcond = sqrt(dblEps);
 		cNorm = 'F';
-		iMax = Max(lines2, columns2);
+		iMax = max(lines2, columns2);
 		
 		memset(pJpvt, 0x00,(unsigned int) sizeof(int) *(unsigned int) lines2);
 		C2F(zgelsy)(&columns2, &lines2, &lines1, poAt, &columns2, poBt, &iMax,
@@ -133,7 +133,7 @@ void	zrdiva(	doubleComplex* in1, int lines1, int columns1 ,
 					for(i = 0 ; i < lines1 ; i++)
 					{
 						ij = i + j * lines1;
-						ji = j + i * Max(lines2, columns2);
+						ji = j + i * max(lines2, columns2);
 						out[ij] 	=  DoubleComplex (  zreals( poBt[ji]) , -zimags ( poBt[ji]));
 					    printf ( "\n\t\t\t<debug>%e + %e\n " ,  zreals( poBt[ji]) , -zimags ( poBt[ji]));
                     }

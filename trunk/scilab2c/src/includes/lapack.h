@@ -13,7 +13,11 @@
 #ifndef __LAPACK_H__
 #define __LAPACK_H__
 
+#ifndef _MACRO_C2F_
+#define _MACRO_C2F_
 #define C2F(name) name##_ 
+#endif 
+
 
 #define getRelativeMachinePrecision()		dlamch_("e", 1L)
 #define getOverflowThreshold()			dlamch_("o", 1L)
@@ -89,23 +93,42 @@ extern		double dlacpy_ (char* NORM, int* M, int* N, double* A, int* LDA,
 
 
 /****** doubleComplex fortran function ************/
-
-extern	    int zlamch_  ();
-
-extern		int zlange_  ();
-
-extern 		int zgetrf_ ();
-
-extern		int zgecon_	( ) ;
-
-extern		int zgetrs_  ( ) ;
-
-extern      int zgelsy_ ();
-/*extern 		doubleComplex zgelsy_ (int* M, int* N, int* NRHS, doubleComplex* A, int* LDA,
-							doubleComplex* B, int* LDB, int* JPVT, double* RCOND, int* RANK,
-							doubleComplex* WORK, int* LWORK, double* RWORK, int* INFO) ;
-*/
+extern 		double zgelsy_ () ;
 
 
-extern		int zlacpy_ ();
+extern	    double zlamch_  ();
+
+extern		double zlange_  ();
+
+extern 		double zgetrf_ ();
+
+extern		double zgecon_	( ) ;
+
+extern		double zgetrs_  ( ) ;
+
+extern		double zlacpy_ ();
+/*extern      int zgelsy_ ();*/
+
+/*certainly have some blas functions in */
+extern int C2F(split)();
+extern int C2F(exch)();
+
+extern int C2F(balbak)();
+extern double C2F(ddot)();
+extern int C2F(pade)();
+extern int C2F(dcopy)();
+extern int C2F(dscal)();
+
+extern int C2F(dgeco)();
+extern int C2F(dgesl)();
+extern int C2F(coef)();
+extern int C2F(cerr)();
+extern int C2F(dclmat)();
+extern int C2F(dexpm1)();
+extern int C2F(wexpm1)();
+extern int C2F(drot)();
+
+extern int C2F(intexpm) ();
+
+extern int C2F(zcopy)();
 #endif /* !__LAPACK_H__ */

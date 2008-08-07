@@ -43,13 +43,13 @@ void drdiva (	double * in1,		int lines1,	int columns1,
 	int *pJpvt	= NULL;
 	int *pIwork	= NULL;
 
-	iWork	= Max(4 * columns2, Max(Min(lines2, columns2) + 3 * lines2 + 1, 2 * Min(lines2, columns2) + lines1));
+	iWork	= max(4 * columns2, max(min(lines2, columns2) + 3 * lines2 + 1, 2 * min(lines2, columns2) + lines1));
 
 
 	/* Array allocations*/
 	pAf			= (double*)malloc(sizeof(double) * (unsigned int)columns2 * (unsigned int)lines2);
 	pAt			= (double*)malloc(sizeof(double) * (unsigned int)columns2 *(unsigned int) lines2);
-	pBt			= (double*)malloc(sizeof(double) * (unsigned int)Max(lines2,columns2) * (unsigned int)lines1);
+	pBt			= (double*)malloc(sizeof(double) * (unsigned int)max(lines2,columns2) * (unsigned int)lines1);
 
 	pRank		= (int*)malloc(sizeof(int));
 	pIpiv		= (int*)malloc(sizeof(int) * (unsigned int)columns2);
@@ -91,7 +91,7 @@ void drdiva (	double * in1,		int lines1,	int columns1,
 	{
 		dblRcond = sqrt(dblEps);
 		cNorm = 'F';
-		iMax = Max(lines2, columns2);
+		iMax = max(lines2, columns2);
 		memset(pJpvt, 0x00, (unsigned int)sizeof(int) * (unsigned int)lines2);
 		dgelsy_(&columns2, &lines2, &lines1, pAt, &columns2, pBt, &iMax,
 			pJpvt, &dblRcond, &pRank[0], pDwork, &iWork, &iInfo);
@@ -111,7 +111,7 @@ void drdiva (	double * in1,		int lines1,	int columns1,
 					for(i = 0 ; i < lines1 ; i++)
 					{
 						ij = i + j * lines1;
-						ji = j + i * Max(lines2, columns2);
+						ji = j + i * max(lines2, columns2);
 						out[ij]	= pBt[ji];
 					}
 				}
@@ -130,16 +130,3 @@ void drdiva (	double * in1,		int lines1,	int columns1,
 
 }
 
-int Max(int _dblVar1, int _dblVar2)
-{
-	if(_dblVar1 > _dblVar2)
-		return _dblVar1;
-	return _dblVar2;
-}
-
-int Min(int _dblVar1, int _dblVar2)
-{
-	if(_dblVar1 < _dblVar2)
-		return _dblVar1;
-	return _dblVar2;
-}
