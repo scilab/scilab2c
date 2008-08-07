@@ -1,3 +1,4 @@
+
 /*
  *  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
  *  Copyright (C) 2008-2008 - INRIA - Allan SIMON
@@ -45,7 +46,7 @@ void zldiva(	doubleComplex* in1, int lines1, int columns1 ,
 	int *pIpiv				= NULL;
 	int *pJpvt				= NULL;
 
-	iWork	= Max(2*columns2, Min(lines2, columns2) + Max(2 * Min(lines2, columns2), Max(lines2 + 1, Min(lines2, columns2) + lines1)));
+	iWork	= max(2*columns2, min(lines2, columns2) + max(2 * min(lines2, columns2), max(lines2 + 1, min(lines2, columns2) + lines1)));
 
 
 
@@ -53,7 +54,7 @@ void zldiva(	doubleComplex* in1, int lines1, int columns1 ,
 
 
 	pAf			= (doubleComplex*)malloc(sizeof(doubleComplex) *(unsigned int) lines1 *(unsigned int)columns1);
-	pXb			= (doubleComplex*)malloc(sizeof(doubleComplex) *(unsigned int) Max(lines1,columns1) *(unsigned int) columns2);
+	pXb			= (doubleComplex*)malloc(sizeof(doubleComplex) *(unsigned int) max(lines1,columns1) *(unsigned int) columns2);
 
 
 	pIpiv		= (int*)malloc(sizeof(int) * (unsigned int)columns1);
@@ -93,7 +94,7 @@ void zldiva(	doubleComplex* in1, int lines1, int columns1 ,
 	{
 		dblRcond = sqrt(dblEps);
 		cNorm = 'F';
-		iMax = Max(lines1, columns1);
+		iMax = max(lines1, columns1);
 		C2F(zlacpy)(&cNorm, &lines1, &columns2, in2, &lines1, pXb, &iMax);
 		memset(pJpvt, 0x00,(unsigned int) sizeof(int) * (unsigned int)columns1);
 		C2F(zgelsy)(	&lines1, &columns1, &columns2, in1, &lines1, pXb, &iMax,

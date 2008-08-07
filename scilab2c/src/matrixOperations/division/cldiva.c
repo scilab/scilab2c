@@ -54,7 +54,7 @@ void cldiva (	floatComplex* in1, int lines1, int columns1 ,
     zldiva( dblin1 , lines1 , columns1 , dblin2 , lines2 , columns2 , dblout );
 
                      
-	for ( i = 0 ; i < Min(lines2,columns2) * lines1 ; i++ )
+	for ( i = 0 ; i < min(lines2,columns2) * lines1 ; i++ )
         {
 		out[i] = FloatComplex ((float)  zreals ( dblout[i]) , (float) zimags ( dblout[i])) ;
 

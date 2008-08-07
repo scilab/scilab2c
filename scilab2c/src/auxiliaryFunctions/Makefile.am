@@ -19,4 +19,5 @@ SUBDIRS=	abs \
 		pythag \
 		size \
 		type \
-		length
+		length \
+		frexp

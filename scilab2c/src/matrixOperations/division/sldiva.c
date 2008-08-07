@@ -52,7 +52,7 @@ void sldiva (	float* in1, int lines1, int columns1 ,
     dldiva( dblin1 , lines1 , columns1 , dblin2 , lines2 , columns2 , dblout );
 
                      
-	for ( i = 0 ; i < Min(lines2,columns2) * lines1 ; i++ )
+	for ( i = 0 ; i < min(lines2,columns2) * lines1 ; i++ )
         {
 		out[i] = (float) dblout[i] ;
 

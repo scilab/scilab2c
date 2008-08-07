@@ -72,7 +72,7 @@ void	zmulma(doubleComplex *in1, int lines1, int columns1,
     {
       out[i] = DoubleComplex(RealOut[i], ImagOut[i]);
     }
-  /* FREE allocated variables */
+  /* FREE allocated variguru_dim_structables */
   free(in1Real);
   free(in2Real);
   free(in1Imag);
@@ -80,6 +80,7 @@ void	zmulma(doubleComplex *in1, int lines1, int columns1,
   free(RealOut);
   free(ImagOut);
 #else
+    */
   /*
   ** DO NOT USE ANY BLAS FUNCTION.
   */

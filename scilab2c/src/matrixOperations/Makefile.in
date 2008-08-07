@@ -173,7 +173,10 @@ SUBDIRS = addition \
 		transpose \
 		division \
 		trace \
-		hilbert
+		hilbert \
+		expm \
+		infiniteNorm \
+		eyes
 
 all: all-recursive
 

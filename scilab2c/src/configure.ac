@@ -173,6 +173,9 @@ matrixOperations/cat/Makefile
 matrixOperations/transpose/Makefile
 matrixOperations/trace/Makefile
 matrixOperations/hilbert/Makefile
+matrixOperations/expm/Makefile
+matrixOperations/eyes/Makefile
+matrixOperations/infiniteNorm/Makefile
 implicitList/Makefile
 elementaryFunctions/Makefile
 elementaryFunctions/cos/Makefile
@@ -200,6 +203,7 @@ elementaryFunctions/pow/Makefile
 auxiliaryFunctions/Makefile
 auxiliaryFunctions/abs/Makefile
 auxiliaryFunctions/find/Makefile
+auxiliaryFunctions/frexp/Makefile
 auxiliaryFunctions/isempty/Makefile
 auxiliaryFunctions/isnan/Makefile
 auxiliaryFunctions/rand/Makefile
