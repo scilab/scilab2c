@@ -416,7 +416,7 @@ static void sexpmaTest (void ) {
   	for ( i = 0 ; i < LEADDIM*LEADDIM  ; i++ )
 	{
 		printf ( "\t\t %d out : %e\tresult : %e\tassert : %e \n" , i , out[i] , result[i] , fabs ( out[i] - result[i] ) / fabs( out[i]) ) ;	
-		/*assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 1e-6 ) ;*/
+		assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 1e-5 ) ;
 	}  
 }
 
@@ -441,6 +441,50 @@ static void dexpmaTest (void ) {
 		assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 1e-14 ) ;
 	}  
 }
+
+
+static void cexpmaTest ( void) {
+    
+    int i = 0 ; 
+    
+    float tRealIn [] = CRMATRIX_IN ;
+    float tImagIn [] = CIMATRIX_IN ;
+    
+
+        
+    float tRealResult [] = CRMATRIX_RESULT ;
+    float tImagResult [] = CIMATRIX_RESULT ;
+    
+    floatComplex  out[LEADDIM*LEADDIM ] ;
+    
+    floatComplex* in       = FloatComplexMatrix ( tRealIn , tImagIn , LEADDIM*LEADDIM );    
+    floatComplex* Result   = FloatComplexMatrix ( tRealResult , tImagResult ,LEADDIM*LEADDIM) ;
+    
+    cexpma ( in ,out , LEADDIM ) ;
+    
+    
+        /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/     
+	for ( i = 0 ; i < (LEADDIM*LEADDIM )  ; i++ )
+	{
+	  printf ( "\t\t %d out : %e\t + %e\t * i  result : %e\t + %e\t * i  assert : %e + %e \n" ,
+              i ,creals(out[i]) , cimags(out[i]) , creals (Result[i])  , cimags (Result[i]),
+              fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i])) ,
+              fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i])));
+           
+    if (  creals(out[i])  < 1e-14 && creals (Result[i]) < 1e-18 )
+        assert ( 1 ) ;
+    else         
+        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 1e-4 );
+    
+        
+    if (  cimags(out[i])  < 1e-14 && cimags (Result[i]) < 1e-18 )
+        assert ( 1 ) ;
+    else         
+	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 1e-4 ) ;
+    
+    }
+}
+
 
 
 static void zexpmaTest ( void) {
@@ -474,13 +518,13 @@ static void zexpmaTest ( void) {
     if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else         
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 1e-14 );
+        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 1e-12 );
     
         
     if (  zimags(out[i])  < 1e-14 && zimags (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else         
-	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-14 ) ;
+	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-12 ) ;
     
     }
 }
@@ -495,6 +539,10 @@ static int testExponential(void) {
   printf("\n\n\t>>>> Matrix Float Realt Tests\n");     
   sexpmaTest();
   
+  printf("\n\n\n");
+  printf("\t>>>> Matrix Float Complex Tests\n");      
+  cexpmaTest();  
+    
   printf("\n\n\n");
   printf("\t>>>> Matrix Double Complex Tests\n");  
   zexpmaTest();
