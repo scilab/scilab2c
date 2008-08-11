@@ -59,7 +59,7 @@ void dexpma (double* in, double* out, int _iLeadDim){
 
     for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
         pdblMatrixA[iIndex1] =  in[iIndex1] / dblS2 ;
-
+    
 	/* Pade approximation for exp(A)*/
 	/*X = A */
 	/*C2F(dcopy)(&iSquare, pdblMatrixA, &iOne, pdblMatrixX, &iOne );*/
@@ -89,7 +89,7 @@ void dexpma (double* in, double* out, int _iLeadDim){
 	for(iLoop1 = 2 ; iLoop1 <= iMax ; iLoop1++)
 	{
 		dblCst	= dblCst * (iMax - iLoop1 + 1 ) / (iLoop1 * (2 * iMax - iLoop1 + 1));
-
+        
 		/*Temp = X*/
 		/*C2F(dcopy)(&iSquare, pdblMatrixX, &iOne, pdblMatrixTemp, &iOne);*/
         for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 

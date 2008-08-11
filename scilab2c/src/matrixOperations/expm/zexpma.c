@@ -73,9 +73,12 @@ void zexpma(doubleComplex * in, doubleComplex * out, int _iLeadDim)
 	
 	zeyesa(pdblMatrixEye, _iLeadDim, _iLeadDim);
 
-    zmulma ( & zdblCst , 1 ,1,
+   /* zmulma ( & zdblCst , 1 ,1,
          pdblMatrixA , _iLeadDim, _iLeadDim,
-         pdblMatrixcA);
+         pdblMatrixcA);*/
+    
+    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
+        pdblMatrixcA[iIndex1] = ztimess ( pdblMatrixA[iIndex1] , zdblCst ) ;  
     
     /* cA = A * c   */
     
@@ -107,9 +110,12 @@ void zexpma(doubleComplex * in, doubleComplex * out, int _iLeadDim)
                     pdblMatrixX );
 		/* cX = c * X */    
        
-            zmulma ( & zdblCst , 1 ,1,
+        /*    zmulma ( & zdblCst , 1 ,1,
                      pdblMatrixX , _iLeadDim, _iLeadDim,
-                     pdblMatrixcX);
+                     pdblMatrixcX);*/
+        
+        for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
+            pdblMatrixcX[iIndex1] = ztimess ( pdblMatrixX[iIndex1] , zdblCst ) ; 
         
 		/* E = E + cX */
         

@@ -25,6 +25,7 @@ void sexpma (float* in, float* out, int _iLeadDim){
 	float fltS		= 0;
 	float fltS2	        = 0;
 	float fltCst	= 0.5f;
+    double dblCst  = 0.5;
 
 	float *pfltMatrixA		= NULL;/*A'*/
 	float *pfltMatrixX		= NULL;/*X*/
@@ -58,7 +59,7 @@ void sexpma (float* in, float* out, int _iLeadDim){
 	/*A = A./2^s*/
 
     for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
-        pfltMatrixA[iIndex1] =  in[iIndex1] / fltS2 ;
+        pfltMatrixA[iIndex1] =  in[iIndex1] / fltS2;
 
 	/* Pade approximation for exp(A)*/
 	/*X = A */
@@ -88,8 +89,11 @@ void sexpma (float* in, float* out, int _iLeadDim){
 
 	for(iLoop1 = 2 ; iLoop1 <= iMax ; iLoop1++)
 	{
-		fltCst	*=(float) ( (iMax - iLoop1 + 1 ) / (iLoop1 * (2 * iMax - iLoop1 + 1)));
-
+     
+        
+		dblCst	= dblCst * (iMax - iLoop1 + 1 ) / (iLoop1 * (2 * iMax - iLoop1 + 1));
+        
+        dblCst += 0 ;
 		/*Temp = X*/
 		/*C2F(dcopy)(&iSquare, pfltMatrixX, &iOne, pfltMatrixTemp, &iOne);*/
         for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
@@ -103,7 +107,7 @@ void sexpma (float* in, float* out, int _iLeadDim){
 		/*cX = c * X*/
 
     for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
-        pfltMatrixcX[iIndex1] = pfltMatrixX[iIndex1] * fltCst ;                      
+        pfltMatrixcX[iIndex1] = pfltMatrixX[iIndex1] * (float) dblCst ;                      
 
 		/*E = E + cX*/
         saddma ( out, iSquare , pfltMatrixcX , iSquare , out ) ;
