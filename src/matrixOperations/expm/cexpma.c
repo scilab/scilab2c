@@ -24,9 +24,9 @@ void cexpma(floatComplex * in, floatComplex * out, int _iLeadDim)
 	float fltExp	= 0;
 	float fltS		= 0;
 	float fltS2	= 0;
-	float fltCst	= 0.5f;
+	double fltCst	= 0.5;
     
-    floatComplex  cfltCst ;
+ 
     
 	floatComplex *pfltMatrixA		= NULL;
 	floatComplex *pfltMatrixX		= NULL;
@@ -51,7 +51,6 @@ void cexpma(floatComplex * in, floatComplex * out, int _iLeadDim)
 	pfltMatrixTemp		= (floatComplex*)malloc(sizeof(floatComplex) * (unsigned int) iSquare);
 	pfltMatrixTemp2		= (floatComplex*)malloc(sizeof(floatComplex) * (unsigned int) iSquare);
 
-    cfltCst = FloatComplex ( 0.5f , 0 );
 
 	/*// Scale A by power of 2 so that its norm is < 1/2 .*/
 	sfrexps(  cinfnorma( in, _iLeadDim, _iLeadDim) , &fltExp);
@@ -73,12 +72,13 @@ void cexpma(floatComplex * in, floatComplex * out, int _iLeadDim)
 	
 	ceyesa(pfltMatrixEye, _iLeadDim, _iLeadDim);
 
-    cmulma ( & cfltCst , 1 ,1,
+    /*cmulma ( & cfltCst , 1 ,1,
          pfltMatrixA , _iLeadDim, _iLeadDim,
-         pfltMatrixcA);
+         pfltMatrixcA);*/
     
     /* cA = A * c   */
-    
+    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
+        pfltMatrixcA[iIndex1] = ctimess ( pfltMatrixA[iIndex1] , FloatComplex((float) fltCst , 0) ) ;
 
 	/*E = Eye + cA*/
     
@@ -93,8 +93,7 @@ void cexpma(floatComplex * in, floatComplex * out, int _iLeadDim)
 
 	for(iLoop1 = 2 ; iLoop1 <= iMax ; iLoop1++)
 	{
-		fltCst	*= (float) ((iMax - iLoop1 + 1 ) / (iLoop1 * (2 * iMax - iLoop1 + 1)));
-        cfltCst = FloatComplex( fltCst , 0);
+		fltCst	= fltCst * (iMax - iLoop1 + 1 ) / (iLoop1 * (2 * iMax - iLoop1 + 1));
 
 		/*Temp = X */
 		/*C2F(zcopy)(&iSquare, pfltMatrixX, &iOne, pfltMatrixTemp, &iOne);*/
@@ -107,9 +106,12 @@ void cexpma(floatComplex * in, floatComplex * out, int _iLeadDim)
                     pfltMatrixX );
 		/* cX = c * X */    
        
-            cmulma ( & cfltCst , 1 ,1,
+        /*    cmulma ( & cfltCst , 1 ,1,
                      pfltMatrixX , _iLeadDim, _iLeadDim,
-                     pfltMatrixcX);
+                     pfltMatrixcX);*/
+        
+        for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
+            pfltMatrixcX[iIndex1] = ctimess ( pfltMatrixX[iIndex1] , FloatComplex((float) fltCst , 0) ) ;
         
 		/* E = E + cX */
         
