@@ -14,11 +14,10 @@
 
 void ceyesa(floatComplex *in, int _iRows, int _iCols)
 {
-    int i , j ;
+    int i  ;
     
-    for ( i = 0 ; i < _iRows ; i++ )
-        for ( j = 0 ; j <_iCols ; j++ )
-                in[i + j * _iRows] = FloatComplex ( (i==j)?1.0f:0.0f , 0) ;
+    for ( i = 0 ; i < _iRows*_iCols ; i++ )
+        in[i] = FloatComplex ( (i%(_iCols+1) == 0)?1.0f:0.0f , 0) ;
                 
 
 }
