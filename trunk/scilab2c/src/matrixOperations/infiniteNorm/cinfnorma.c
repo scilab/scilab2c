@@ -32,3 +32,5 @@ float cinfnorma(floatComplex* in, int _iRows, int _iCols)
 	
 	return fltRef;
 }
+
+
