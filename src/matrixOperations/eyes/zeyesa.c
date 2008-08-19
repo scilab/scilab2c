@@ -16,11 +16,10 @@
 
 void zeyesa(doubleComplex *in, int _iRows, int _iCols)
 {
-    int i , j ;
+    int i  ;
     
-    for ( i = 0 ; i < _iRows ; i++ )
-        for ( j = 0 ; j <_iCols ; j++ )
-                in[i + j * _iRows] = DoubleComplex ( (i==j)?1:0 , 0) ;
+    for ( i = 0 ; i < _iRows*_iCols ; i++ )
+        in[i] = DoubleComplex ( (i%(_iCols+1) == 0)?1:0 , 0) ;
                 
 
 }
