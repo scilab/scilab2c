@@ -21,36 +21,36 @@
 #define  COLUMNS2 2
 
 #define ZLINES 2
-#define ZCOLUMNS1 1
-#define ZCOLUMNS2 2
+#define ZCOLUMNS1 2
+#define ZCOLUMNS2 1
 
 
 static void sldivaTest ( void ){
     int i = 0;
-    
+
   	float in1[] =    { 4.0f , 3.0f , 8.0f , 9.0f } ;
 	float in2[] =    { 1.0f , 3.0f , 2.0f , 4.0f } ;
 	float result[] = { -1.25f , 0.75f , -1.166666666666666f ,0.83333333333333333f };
-	
-	
+
+
 	float out [(COLUMNS2)*(LINES)] ;
 
-	sldiva(  in1 , LINES , COLUMNS1 , in2 , LINES , COLUMNS2 , out ) ;	
+	sldiva(  in1 , LINES , COLUMNS1 , in2 , LINES , COLUMNS2 , out ) ;
 	for ( i = 0 ; i < LINES *COLUMNS2  ; i++ )
 	{
 		printf ( "\t\t %d out : %e\tresult : %e\tassert : %e \n" , i , out[i] , result[i] , fabs ( out[i] - result[i] ) / fabs( out[i]) ) ;
-		
+
 			assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 1e-06 ) ;
 	}
-	  
-    
-    
+
+
+
 }
 
 
 static void dldivaTest ( void )
 {
-	int i = 0 ; 
+	int i = 0 ;
 /* here the matrixes are linearized in the wrong way so need to transpose them */
 /*	double in1[] =
 {0.84155184263363481,0.26385784195736051,0.52570608118548989,0.54653349192813039,
@@ -154,8 +154,8 @@ static void dldivaTest ( void )
  0.59837839566171169,0.01247995719313622,0.09831319935619831,0.28363681584596634,
  0.65953194908797741};
 
-		
-	double in2[] = 
+
+	double in2[] =
 {0.18151161121204495,0.77340125897899270,0.25145971449092031,0.37096222722902894,
  0.46179189579561353,0.47909884760156274,0.66919379355385900,0.06942595774307847,
  0.56079538213089108,0.69204960623756051,0.99401472182944417,0.00291080260649323,
@@ -218,7 +218,7 @@ static void dldivaTest ( void )
  0.50265956297516823,0.75116067565977573,0.400362566113472,0.56688958965241909}
 ;
 
-	double result[] = 
+	double result[] =
 {-1.35304848520861487,0.45754085729476712,-0.6736280871889024,0.33207797896852592,
  0.43686665386108053,1.19699150804728482,-0.53382978138054371,0.29027772826683890,
  -0.00827371705993142,-0.14056593966637726,0.97528495242825564,-0.50640321961329704,
@@ -270,26 +270,26 @@ static void dldivaTest ( void )
 0.52872556238983059,0.57098625620273025,1.06212082783082407,0.59423966432136910,
  0.34731906030365728,-1.35636228486699051,0.60027136476023302,-0.01921912593105047,
  -0.26023872041264290,0.60546432820947238,-0.64774098495099597,1.07329929083653908}
-;	
-	
+;
+
 */
 
-	
+
 	double in1[] =    { 4 , 3 , 8 , 9 } ;
 	double in2[] =    { 1 , 3 , 2 , 4 } ;
 	double result[] = { -1.25 , 0.75 , -1.166666666666666 ,0.83333333333333333 };
-	
-	
+
+
 	double out [(COLUMNS2)*(LINES)] ;
 
-	dldiva(  in1 , LINES , COLUMNS1 , in2 , LINES , COLUMNS2 , out ) ;	
+	dldiva(  in1 , LINES , COLUMNS1 , in2 , LINES , COLUMNS2 , out ) ;
 	for ( i = 0 ; i < LINES *COLUMNS2  ; i++ )
 	{
 		printf ( "\t\t %d out : %e\tresult : %e\tassert : %e \n" , i , out[i] , result[i] , fabs ( out[i] - result[i] ) / fabs( out[i]) ) ;
-		
+
 			assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 1e-15 ) ;
 	}
-	
+
 }
 
 
@@ -297,11 +297,11 @@ static void dldivaTest ( void )
 static void cldivaTest (void )
 {
     int i = 0 ;
-  
+
     float tin1[] = { 10.0f , 9.0f , 2.0f ,4.0f};
     float tin2[] = { 1.0f , 2.0f};
-    
- 
+
+
    /* float tin1[] =    { 4.0f , 3.0f , 8.0f , 9.0f } ;
 	float tin2[] =    { 1.0f , 3.0f , 2.0f , 4.0f } ;
     */
@@ -313,37 +313,37 @@ static void cldivaTest (void )
 	in1 = FloatComplexMatrix (  tin1 , tin1 , ZLINES*ZCOLUMNS1 );
 	in2 = FloatComplexMatrix (  tin2 , tin2 , ZLINES*ZCOLUMNS2 );
     out = FloatComplexMatrix (  tin2 , tin2 , ZLINES*ZLINES );
-	
+
     Result[0] = FloatComplex ( 0 ,  0 );
     Result[1] = FloatComplex ( 0.5f   , 0 );
-    
-   /* 
+
+   /*
     Result[0] = FloatComplex ( -1.25f ,  0 );
     Result[1] = FloatComplex ( 0.75f   , 0 );
     Result[2] = FloatComplex ( -1.16666666f  , 0 );
     Result[3] = FloatComplex ( 0.833333333333f   , 0 );*/
-    
+
 	cldiva ( in1 , ZLINES , ZCOLUMNS1 , in2 ,ZLINES , ZCOLUMNS2 , out) ;
-	
+
     for ( i = 0 ; i < (ZCOLUMNS1*ZCOLUMNS2 )  ; i++ )
 	{
 	  printf ( "\t\t %d out : %e + %e * i  result : %e + %e * i   assert : %e + %e \n" ,
               i ,creals(out[i]) , cimags(out[i]) , creals (Result[i])  , cimags (Result[i]),
               fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i])) ,
               fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i])));
-        
+
     if (  creals(out[i])  < 1e-06 && creals (Result[i]) < 1e-08 )
         assert ( 1 ) ;
-    else         
+    else
         assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 1e-16 );
-    
-        
+
+
     if (  cimags(out[i])  < 1e-06 && cimags (Result[i]) < 1e-08 )
         assert ( 1 ) ;
-    else         
+    else
 	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 1e-16  ) ;
 }
-    
+
 }
 
 
@@ -357,15 +357,15 @@ static void cldivaTest (void )
 static void zldivaTest (void )
 {
     int i = 0 ;
-    
+
     double tin1[] = { 10 , 9 , 2 ,4};
     double tin2[] = { 1 , 2};
-/*    
+/*
 	double tin1[] =    { 4 , 3 , 8 , 9 } ;
 	double tin2[] =    { 1 , 3 , 2 , 4 } ;
 */
-    
-    
+
+
 	doubleComplex* in1 ;
 	doubleComplex* in2 ;
 	doubleComplex* out  ;
@@ -374,63 +374,63 @@ static void zldivaTest (void )
 	in1 = DoubleComplexMatrix (  tin1 , tin1 , ZLINES*ZCOLUMNS1 );
 	in2 = DoubleComplexMatrix (  tin2 , tin2 , ZLINES*ZCOLUMNS2 );
     out = DoubleComplexMatrix (  tin2 , tin2 , ZLINES*ZLINES );
-	
+
     Result[0] = DoubleComplex ( 0 ,  0 );
     Result[1] = DoubleComplex ( 0.5   , 0 );
     /*
     Result[0] = DoubleComplex ( -1.25 ,  0 );
     Result[1] = DoubleComplex ( 0.75   , 0 );
     Result[2] = DoubleComplex ( -1.16666666   , 0 );
-    Result[3] = DoubleComplex ( 0.833333333333   , 0 );   */ 
-    
+    Result[3] = DoubleComplex ( 0.833333333333   , 0 );   */
+
 	zldiva ( in1 , ZLINES , ZCOLUMNS1 , in2 ,ZLINES , ZCOLUMNS2 , out) ;
-	
+
     for ( i = 0 ; i < (ZCOLUMNS1*ZCOLUMNS2 )  ; i++ )
 	{
 	  printf ( "\t\t %d out : %e + %e * i  result : %e + %e * i   assert : %e + %e \n" ,
               i ,zreals(out[i]) , zimags(out[i]) , zreals (Result[i])  , zimags (Result[i]),
               fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) ,
               fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i])));
-        
-    /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/     
-        
+
+    /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/
+
     if (  zreals(out[i])  < 1e-16 && zreals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
-    else         
+    else
         assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 1e-16 );
-    
-        
+
+
     if (  zimags(out[i])  < 1e-16 && zimags (Result[i]) < 1e-18 )
         assert ( 1 ) ;
-    else         
+    else
 	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-16  ) ;
 
     }
-    
+
 }
 
 
 
 static int testLDiva   (void) {
-  printf ("&&&& WARNING , TESTS FOR COMPLEX ARE STILL WRONG &&&&&&\n\n" ) ;  
-    
+  printf ("&&&& WARNING , TESTS FOR COMPLEX ARE STILL WRONG &&&&&&\n\n" ) ;
+
   printf("\n\n\n\n*********************\n");
   printf("***** Left Tests ****\n");
   printf("*********************\n");
-    
-  printf("\n\t>>>>Float real  Tests\n"); 
+
+  printf("\n\t>>>>Float real  Tests\n");
   sldivaTest();
-    
+
   printf("\n\n\n\t>>>> Double real  Tests\n");
   dldivaTest();
-  	
-  
-  
+
+
+
   printf("\n\t>>>> Double complex  Tests\n");
-  zldivaTest();	
+  zldivaTest();
  printf("\n\t>>>> Float complex  Tests\n");
-  cldivaTest();	
-  	
+  cldivaTest();
+
   return 0;
 }
 
