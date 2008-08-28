@@ -18,11 +18,39 @@
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+/*
+** \brief Compute the infinite norm of a given floats matrix.
+** \param in : input matrix.
+** \param _iRows : number of rows of the matrix .
+** \param _iCols : number of columns of the matrix .
+*/
+
 float  sinfnorma(float* in, int _iRows, int _iCols);
+
+/*
+** \brief Compute the infinite norm of a given doubles matrix.
+** \param in : input matrix.
+** \param leadDimIn : the leading dimension of the matrix .
+** \param out : the matrix inverse of the input .
+*/
 
 double dinfnorma(double* in, int _iRows, int _iCols);
 
+/*
+** \brief Compute the infinite norm of a given complex floats  matrix.
+** \param in : input matrix.
+** \param _iRows : number of rows of the matrix .
+** \param _iCols : number of columns of the matrix .
+*/
+
 float  cinfnorma(floatComplex* in, int _iRows, int _iCols);
+
+/*
+** \brief Compute the infinite norm of a given complex doubles matrix.
+** \param in : input matrix.
+** \param _iRows : number of rows of the matrix .
+** \param _iCols : number of columns of the matrix .
+*/
 
 double zinfnorma(doubleComplex* in, int _iRows, int _iCols);
 

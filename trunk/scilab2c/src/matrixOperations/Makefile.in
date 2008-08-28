@@ -176,7 +176,8 @@ SUBDIRS = addition \
 		hilbert \
 		expm \
 		infiniteNorm \
-		eyes
+		eyes \
+		inversion
 
 all: all-recursive
 
