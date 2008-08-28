@@ -21,5 +21,6 @@ SUBDIRS= 	addition \
 		hilbert \
 		expm \
 		infiniteNorm \
-		eyes
+		eyes \
+		inversion
 

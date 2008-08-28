@@ -176,6 +176,7 @@ matrixOperations/hilbert/Makefile
 matrixOperations/expm/Makefile
 matrixOperations/eyes/Makefile
 matrixOperations/infiniteNorm/Makefile
+matrixOperations/inversion/Makefile
 implicitList/Makefile
 elementaryFunctions/Makefile
 elementaryFunctions/cos/Makefile

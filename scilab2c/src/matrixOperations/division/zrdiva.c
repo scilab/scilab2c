@@ -10,9 +10,6 @@
  *
  */
 
-/**** WARNING NOT WORK AT ALL FOR THE MOMENT  ***/
-/**/
-
 #include "matrixDivision.h" 
 
 #include <stdio.h>

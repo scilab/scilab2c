@@ -11,8 +11,7 @@
  */
 
 
-/**** WARNING NOT WORK AT ALL FOR THE MOMENT  ***/
-/**** Because of problem of conversion float-> double ****/
+
 #include "matrixDivision.h" 
 #include "lapack.h" 
 #include <string.h>

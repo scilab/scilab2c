@@ -91,6 +91,9 @@ extern 		double dgelsy_ (int* M, int* N, int* NRHS, double* A, int* LDA,
 extern		double dlacpy_ (char* NORM, int* M, int* N, double* A, int* LDA,
 							double* B,  int* LDB );
 
+extern      double dgetri_ (int* N , double* A , int* LDA , int* IPIV , double* WORK,
+                            int* LWORK , int* INFO ) ;
+
 
 /****** doubleComplex fortran function ************/
 extern 		double zgelsy_ () ;
@@ -107,6 +110,8 @@ extern		double zgecon_	( ) ;
 extern		double zgetrs_  ( ) ;
 
 extern		double zlacpy_ ();
+
+extern      double zgetri_ () ;
 /*extern      int zgelsy_ ();*/
 
 /*certainly have some blas functions in */
@@ -131,4 +136,10 @@ extern int C2F(drot)();
 extern int C2F(intexpm) ();
 
 extern int C2F(zcopy)();
+
+extern  int     C2F(dgemm)();
+extern  int     C2F(idamax)() ;/* could be transcribe easaly in c */
+extern  int     C2F(daxpy) () ;/* could be transcribe easaly in c */
+extern  int     C2F(dscal) () ;/* could be transcribe easaly in c */
+extern  int     C2F(dasum) () ;/* could be transcribe easaly in c */
 #endif /* !__LAPACK_H__ */
