@@ -11,53 +11,45 @@
  */
 
 
-#include "matrixDivision.h" 
+
+#include "matrixInversion.h" 
 #include "lapack.h" 
-#include <string.h>
 #include <stdio.h>
-void sldiva (	float* in1, int lines1, int columns1 ,
-			    float* in2, int lines2, int columns2 ,
-			 	float* out ){
+
+void sinverma ( float* in, float* out, int leadDimIn )
+{
 
 	int i = 0 ;
 	/* these 3 variable are created to permit to use the value in the fortran functions 
 	   because they need double matrix as arguments and we can't cast directly the pointers
 	   without having problems , i know that's ugly */
-	double *dblin1	= NULL;
-	double *dblin2	= NULL;
+	double *dblin	= NULL;
 	double *dblout	= NULL;	
 
 	
 	
 	/* Array allocations*/
-	dblin1		= (double*)malloc(sizeof(double) * (unsigned int)columns1 * (unsigned int)lines1);			 
-	dblin2 		= (double*)malloc(sizeof(double) * (unsigned int)columns2 * (unsigned int)lines2);
-	dblout		= (double*)malloc(sizeof(double) * (unsigned int)lines1 * (unsigned int)lines2);
+	dblin		= (double*)malloc(sizeof(double) * (unsigned int)(leadDimIn * leadDimIn));			 
+	dblout		= (double*)malloc(sizeof(double) * (unsigned int)(leadDimIn * leadDimIn));
 
 
 
 	/*copy and cast all the float value into double value */								
-	for ( i = 0 ; i < lines1 * columns1 ; i ++ )
+	for ( i = 0 ; i < (leadDimIn * leadDimIn) ; i ++ )
 		{        
-		dblin1[i] = (double) in1[i] ;
+		dblin[i] = (double) in[i]  ;
 		}
-
-	for ( i = 0 ; i < lines2 * columns2 ; i ++ )
-        {
-         dblin2[i] = (double) in2[i] ;
-		}       
-                     
-    dldiva( dblin1 , lines1 , columns1 , dblin2 , lines2 , columns2 , dblout );
+    
+    dinverma ( dblin, dblout, leadDimIn );
 
                      
-	for ( i = 0 ; i < min(lines2,columns2) * lines1 ; i++ )
+	for ( i = 0 ; i < (leadDimIn * leadDimIn) ; i++ )
         {
-		out[i] = (float) dblout[i] ;
+		out[i] =(float) dblout[i] ;
 
         }							
 
-    free ( dblin1);
-    free ( dblin2);
+    free ( dblin);
     free ( dblout);                    
 
 }
