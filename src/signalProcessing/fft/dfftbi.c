@@ -14,7 +14,7 @@
 #include "max.h"
 #include "fft_internal.h"
 
-void dfftbi ( double* a , double* b , int nseg , int n , int nspn , int isn , int ierr, int lout , int lnow , int lused , int lmax , int lbook , int* rstak , int* istak )
+void dfftbi ( double* a , double* b , int nseg , int n , int nspn , int isn , int ierr, int lout , int lnow , int lused , int lmax , int lbook , double* rstak , int* istak )
 {
 
    int nfac[15] ;

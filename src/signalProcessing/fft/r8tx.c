@@ -11,6 +11,7 @@
  */
 
 #include "fft_internal.h"
+#include <math.h>
 
 
 void r8tx ( int _iTempDimen , int _iDimen , int _iLengt ,  double* _pdblReal, double* _pdblImag )

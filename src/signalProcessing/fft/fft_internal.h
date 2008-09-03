@@ -14,15 +14,15 @@
 #define __FFT_INTERNAL_H__
 
 void dfft2 ( double* a , double* b , int nseg , int n , int nspn ,
-             int isn , int ierr, int* iw , int lw );
+             int isn , int ierr, double* iw , int lw );
 
 
 
 void dfftbi ( double* a , double* b , int nseg , int n , int nspn ,
               int isn , int ierr, int lout , int lnow ,
-              int lused ,int lmax , int lbook , int* rstak , int* istakk );
+              int lused ,int lmax , int lbook , double* rstak , int* istakk );
 
-void fft842 ( int _iDirect , int _iDimen , int* _pdblReal , int* _pdblImag , int _err );
+void fft842 ( int _iDirect , int _iDimen , double* _pdblReal , double* _pdblImag , int _err );
 
 void r2tx ( int _iDimen , double* _pdblReal, double* _pdblImag );
 void r4tx ( int _iDimen , double* _pdblReal, double* _pdblImag) ;
@@ -30,8 +30,9 @@ void r8tx ( int _iTempDimen , int _iDimen , int _iLengt ,  double* _pdblReal, do
 
 
 int dfftmx ( double* _pdblA , double* _pdblB , int _iNtot, int _iN, int _iNspan,
-             int _iIsn, int _iM, int _iKt, int* _piWt, int* _piCk,
-             int* _piBt, int* _piSk ,int* _piNp, int* _piNfac);
+             int _iIsn, int _iM, int _iKt, double* _pdblWt, double* _pdblCk,
+             double* _pdblBt, double* _pdblSk, int* _piNp, int* _piNfac);
+
 /* under functions used by dfftmx */
    void preliminaryWork (void);
    void preliminaryWork (void);

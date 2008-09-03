@@ -11,16 +11,31 @@
  */
 
 #include "fft_internal.h"
+#include <stdlib.h>
 
-void dfft2 ( double* a , double* b , int nseg , int n , int nspn , int isn , int ierr, int* iw , int lw )
+void dfft2 ( double* a , double* b , int nseg , int n , int nspn , int isn , int ierr, double* iw , int lw )
 {
+
+  /*created to avoid the cast problem */
+   int* iIw = (int*) malloc( sizeof (int) * (unsigned int) lw );
+
+
+/*so these lines are duplicated */
+   iIw[0] = 0 ;
+   iIw[1] = 10 ;
+   iIw[2] = 10 ;
+   iIw[3] = lw ;
+   iIw[4] = 10 ;
+
    iw[0] = 0 ;
    iw[1] = 10 ;
    iw[2] = 10 ;
    iw[3] = lw ;
    iw[4] = 10 ;
 
-   dfftbi ( a , b , nseg , n , nspn , isn , ierr , iw[0], iw[1], iw[2], iw[3], iw[4], iw, iw);
+   dfftbi ( a , b , nseg , n , nspn , isn , ierr ,iIw[0], iIw[1], iIw[2], iIw[3], iIw[4], iw, iIw);
+
+
 
    return ;
 }
