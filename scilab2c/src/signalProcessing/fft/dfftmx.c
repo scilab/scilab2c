@@ -10,8 +10,10 @@
  *
  */
 
+#include <stdlib.h>
 #include <math.h>
 #include "max.h"
+#include "min.h"
 #include "fft_internal.h"
 
 
@@ -25,10 +27,10 @@ static int     nspan ;
 static int     isn   ;
 static int     m     ;
 static int     kt    ;
-static int*    wt    ;
-static int*    ck    ;
-static int*    bt    ;
-static int*    sk    ;
+static double*    wt    ;
+static double*    ck    ;
+static double*    bt    ;
+static double*    sk    ;
 static int*    np    ;
 static int*    nfac  ;
 static int     inc   ;
@@ -89,9 +91,9 @@ static int      jj;
 
 
 
-int dfftmx ( double* _pdblA , double* _pdblB , int _iNtot, int _iN,     int _iNspan,
-             int _iIsn,       int _iM,         int _iKt,   int* _piWt,  int* _piCk,
-            int* _piBt,       int* _piSk ,     int* _piNp, int* _piNfac)
+int dfftmx ( double* _pdblA , double* _pdblB , int _iNtot, int _iN, int _iNspan,
+             int _iIsn, int _iM, int _iKt, double* _pdblWt, double* _pdblCk,
+             double* _pdblBt, double* _pdblSk, int* _piNp, int* _piNfac)
 {
 
    int retVal = 0 ;
@@ -105,10 +107,10 @@ int dfftmx ( double* _pdblA , double* _pdblB , int _iNtot, int _iN,     int _iNs
    isn  = _iIsn;
    m    = _iM ;
    kt   = _iKt ;
-   wt   = _piWt ;
-   ck   = _piCk;
-   bt   = _piBt;
-   sk   = _piSk;
+   wt   = _pdblWt ;
+   ck   = _pdblCk;
+   bt   = _pdblBt;
+   sk   = _pdblSk;
    np   = _piNp;
    nfac = _piNfac;
 
@@ -152,9 +154,8 @@ Sous-Fonctions
 void preliminaryWork (void)
 {
 
-    int j = 1 ;
     int lim ;
-    int i = 1 ;
+
 
    if ( isn <= 0 )
       {
