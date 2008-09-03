@@ -220,6 +220,8 @@ statisticsFunctions/variance/Makefile
 string/Makefile
 string/disp/Makefile
 string/string/Makefile
+signalProcessing/Makefile
+signalProcessing/fft/Makefile
 ])
 
 
