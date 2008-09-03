@@ -10,7 +10,7 @@
  *
  */
  
-#include "gw_signal.h"
+#include "fft.h"
 
 void dfft2 ( double* a , double* b , int nseg , int n , int nspn , int isn , int ierr, int* iw , int lw )
 {

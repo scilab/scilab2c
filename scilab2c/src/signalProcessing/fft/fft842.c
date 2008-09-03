@@ -10,7 +10,7 @@
  *
  */
  
-#include "gw_signal.h"
+#include "fft.h"
 
 void fft842 ( int _iDirect , int _iDimen , int* _pdblReal , int* _pdblImag , int _err )
 {
