@@ -10,7 +10,7 @@
  *
  */
 
-#include "gw_signal.h"
+#include "fft.h"
 
 
 /*c'est moche je sais */

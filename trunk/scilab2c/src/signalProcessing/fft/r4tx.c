@@ -10,7 +10,7 @@
  *
  */
  
-#include "gw_signal.h"
+#include "fft.h"
 
 void r4tx ( int _iDimen , double* _pdblReal, double* _pdblImag)
 {
