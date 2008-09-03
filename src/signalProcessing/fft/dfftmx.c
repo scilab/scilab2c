@@ -10,7 +10,9 @@
  *
  */
 
-#include "fft.h"
+#include <math.h>
+#include "max.h"
+#include "fft_internal.h"
 
 
 /*c'est moche je sais */
@@ -92,6 +94,8 @@ int dfftmx ( double* _pdblA , double* _pdblB , int _iNtot, int _iN,     int _iNs
             int* _piBt,       int* _piSk ,     int* _piNp, int* _piNfac)
 {
 
+   int retVal = 0 ;
+
    a = _pdblA ;
    b = _pdblB ;
 
@@ -107,8 +111,6 @@ int dfftmx ( double* _pdblA , double* _pdblB , int _iNtot, int _iN,     int _iNs
    sk   = _piSk;
    np   = _piNp;
    nfac = _piNfac;
-
-   int retVal = 0 ;
 
    inc = abs ( isn ) ;
    nt = inc*ntot ;
