@@ -12,7 +12,7 @@
 
 #include "fft_internal.h"
 
-void fft842 ( int _iDirect , int _iDimen , int* _pdblReal , int* _pdblImag , int _err )
+void fft842 ( int _iDirect , int _iDimen , double* _pdblReal , double* _pdblImag , int _err )
 {
    int i  = 0 ;
    int ipass = 1 ;
@@ -74,7 +74,7 @@ void fft842 ( int _iDirect , int _iDimen , int* _pdblReal , int* _pdblImag , int
       {
          if ( CRES == 0 )
              {
-               r2tx ( _iDimen , _pdblReal[0] , _pdblReal[1] ,_pdblImag[0] , _pdblImag[1] ) ;
+               r2tx ( _iDimen , _pdblReal , _pdblImag) ;
 
              }
          else
