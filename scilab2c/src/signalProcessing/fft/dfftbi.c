@@ -10,7 +10,9 @@
  *
  */
 
-#include "fft.h"
+#include <stdlib.h>
+#include "max.h"
+#include "fft_internal.h"
 
 void dfftbi ( double* a , double* b , int nseg , int n , int nspn , int isn , int ierr, int lout , int lnow , int lused , int lmax , int lbook , int* rstak , int* istak )
 {
@@ -35,19 +37,20 @@ void dfftbi ( double* a , double* b , int nseg , int n , int nspn , int isn , in
    int istkgt ;
    int isize[] = {1,1,1,2,2} ;
 
+   int nf = abs ( n ) ;
+
    ierr = 0 ;
 
    /*determine the factors of n */
 
 
-   int nf = fabs ( n ) ;
    if ( nf == 1)
       return ;
 
    k = nf ;
 
-   nspan = fabs ( nf*nspn ) ;
-   ntot  = fabs ( nspan*nseg) ;
+   nspan = abs ( nf*nspn ) ;
+   ntot  = abs ( nspan*nseg) ;
 
    if ( isn*ntot == 0 )
       {
@@ -194,7 +197,7 @@ c      k=2*k-1
 c    *********************************************
 */
 
-   dfftmx( a , b , ntot , nf , nspan , isn , m , kt , rstak[j-1] , rstak[jj-1] , rstak[j2-1] , rstak[j3-1] , istak[k-1] , nfac);
+   dfftmx( a , b , ntot , nf , nspan , isn , m , kt , &rstak[j-1] , &rstak[jj-1] , &rstak[j2-1] , &rstak[j3-1] , &istak[k-1] , nfac);
 
    k =2 ;
 
