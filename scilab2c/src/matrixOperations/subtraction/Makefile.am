@@ -11,7 +11,8 @@
 ##
 
 libMatrixSubtraction_la_CFLAGS =	-I $(top_builddir)/type \
-					-I $(top_builddir)/matrixOperations/includes
+					-I $(top_builddir)/matrixOperations/includes \
+					-I $(top_builddir)/operations/includes
 
 instdir = $(top_builddir)/lib
 
@@ -29,10 +30,12 @@ check_PROGRAMS = 	testMatrixSubtraction
 
 check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/operations/subtraction/libSubtraction.la \
 			libMatrixSubtraction.la
 
 check_INCLUDES =	-I $(top_builddir)/type \
-			-I $(top_builddir)/matrixOperations/includes
+			-I $(top_builddir)/matrixOperations/includes \
+			-I $(top_builddir)/operations/includes
 
 testMatrixSubtraction_SOURCES = testMatrixSubtraction.c
 testMatrixSubtraction_LDADD = $(check_LDADD)
