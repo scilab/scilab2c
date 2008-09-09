@@ -10,11 +10,12 @@
  *
  */
 
-#ifndef __MATRICXADDITION_H__
-#define __MATRICXADDITION_H__
+#ifndef __MATRIXADDITION_H__
+#define __MATRIXADDITION_H__
 
 #include "floatComplex.h"
 #include "doubleComplex.h"
+#include "addition.h"
 
 /*
 **
@@ -71,4 +72,4 @@ void	zaddma(doubleComplex *in1, int size1,
 	       doubleComplex *in2, int size2,
 	       doubleComplex *out);
 
-#endif /* !__MATRICXADDITION_H__ */
+#endif /* !__MATRIXADDITION_H__ */

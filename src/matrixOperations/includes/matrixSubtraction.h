@@ -16,6 +16,8 @@
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+#include "subtraction.h"
+
 /*
 **
 ** WARNING WE ASSUME MATRIXES TO BE CONSCISTENT
