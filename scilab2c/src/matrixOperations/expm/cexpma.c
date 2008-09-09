@@ -25,9 +25,9 @@ void cexpma(floatComplex * in, floatComplex * out, int _iLeadDim)
 	float fltS		= 0;
 	float fltS2	= 0;
 	double fltCst	= 0.5;
-    
- 
-    
+
+
+
 	floatComplex *pfltMatrixA		= NULL;
 	floatComplex *pfltMatrixX		= NULL;
 	floatComplex *pfltMatrixD		= NULL;
@@ -58,34 +58,34 @@ void cexpma(floatComplex * in, floatComplex * out, int _iLeadDim)
 	fltS2	= spows(2.0f,  fltS);
 
 	/*A = A./2^s */
-    
-    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
+
+    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
         pfltMatrixA[iIndex1] = cdevides ( in[iIndex1] , FloatComplex ( fltS2 , 0 ));
-	
+
 
 	/* Pade approximation for exp(A)
 	//X = A */
 	/*C2F(zcopy)(&iSquare, pfltMatrixA, &iOne, pfltMatrixX, &iOne );*/
-     for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
-        pfltMatrixX[iIndex1] = pfltMatrixA[iIndex1] ;   
+     for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
+        pfltMatrixX[iIndex1] = pfltMatrixA[iIndex1] ;
 
-	
-	ceyesa(pfltMatrixEye, _iLeadDim, _iLeadDim);
+
+	ceyea(pfltMatrixEye, _iLeadDim, _iLeadDim);
 
     /*cmulma ( & cfltCst , 1 ,1,
          pfltMatrixA , _iLeadDim, _iLeadDim,
          pfltMatrixcA);*/
-    
+
     /* cA = A * c   */
-    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
+    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
         pfltMatrixcA[iIndex1] = ctimess ( pfltMatrixA[iIndex1] , FloatComplex((float) fltCst , 0) ) ;
 
 	/*E = Eye + cA*/
-    
+
     caddma (pfltMatrixEye , iSquare, pfltMatrixcA ,iSquare, out ) ;
-         
+
 	/* D = Eye - cA */
-    
+
     cdiffma (pfltMatrixEye , iSquare, pfltMatrixcA ,iSquare,pfltMatrixD ) ;
 
 	iMax	= 6;
@@ -97,24 +97,24 @@ void cexpma(floatComplex * in, floatComplex * out, int _iLeadDim)
 
 		/*Temp = X */
 		/*C2F(zcopy)(&iSquare, pfltMatrixX, &iOne, pfltMatrixTemp, &iOne);*/
-        for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
+        for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
                 pfltMatrixTemp[iIndex1] = pfltMatrixX[iIndex1] ;
 		/* X = A * Temp; */
-        
+
                   cmulma (  pfltMatrixA , _iLeadDim , _iLeadDim,
                     pfltMatrixTemp , _iLeadDim , _iLeadDim,
                     pfltMatrixX );
-		/* cX = c * X */    
-       
+		/* cX = c * X */
+
         /*    cmulma ( & cfltCst , 1 ,1,
                      pfltMatrixX , _iLeadDim, _iLeadDim,
                      pfltMatrixcX);*/
-        
-        for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
+
+        for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
             pfltMatrixcX[iIndex1] = ctimess ( pfltMatrixX[iIndex1] , FloatComplex((float) fltCst , 0) ) ;
-        
+
 		/* E = E + cX */
-        
+
         caddma ( out, iSquare , pfltMatrixcX , iSquare , out ) ;
 
 		if(iFlag == 1) /* D = D + cX */
@@ -123,7 +123,7 @@ void cexpma(floatComplex * in, floatComplex * out, int _iLeadDim)
 		}
 		else /* D = D - cX */
 		{
-            cdiffma ( pfltMatrixD, iSquare , pfltMatrixcX , iSquare , pfltMatrixD ); 
+            cdiffma ( pfltMatrixD, iSquare , pfltMatrixcX , iSquare , pfltMatrixD );
 		}
 
 		/* Toggle iFlag */
@@ -132,31 +132,31 @@ void cexpma(floatComplex * in, floatComplex * out, int _iLeadDim)
 
 	/* Temp = E */
 	/*C2F(zcopy)(&iSquare, out, &iOne, pfltMatrixTemp, &iOne);*/
-    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
-        pfltMatrixTemp[iIndex1] = out[iIndex1] ;  
-    
-	/* E = D\E */   
+    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
+        pfltMatrixTemp[iIndex1] = out[iIndex1] ;
+
+	/* E = D\E */
     cldiva (  pfltMatrixD , _iLeadDim , _iLeadDim , pfltMatrixTemp , _iLeadDim , _iLeadDim , out ) ;
-    
+
 	/*/ Undo scaling by repeated squaring */
 	for(iLoop1 = 0 ; iLoop1 < fltS ; iLoop1++)
 	{
 		/*//Temp = E */
         /*//Temp2 = E */
-          
+
 		/*C2F(zcopy)(&iSquare, out, &iOne, pfltMatrixTemp, &iOne);
 		C2F(zcopy)(&iSquare, out, &iOne, pfltMatrixTemp2, &iOne);*/
-        for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
+        for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
             {
             pfltMatrixTemp [iIndex1] = out[iIndex1] ;
             pfltMatrixTemp2[iIndex1] = out[iIndex1] ;
-            }	
+            }
 
-		/* E = E*E*/          
+		/* E = E*E*/
           cmulma (  pfltMatrixTemp ,  _iLeadDim , _iLeadDim,
                     pfltMatrixTemp2 , _iLeadDim , _iLeadDim,
                     out );
-                  
+
           	}
 
 	free(pfltMatrixA);
