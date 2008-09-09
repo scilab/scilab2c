@@ -10,7 +10,6 @@
  *
  */
 
-#include "complex.h"
 #include "pythag.h"
 
 doubleComplex	zpythags(doubleComplex x, doubleComplex y) {
