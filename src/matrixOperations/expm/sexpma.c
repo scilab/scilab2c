@@ -13,7 +13,7 @@
 #include "matrixExponential.h"
 
 void sexpma (float* in, float* out, int _iLeadDim){
-    
+
     int iIndex1     = 0;
 	int iMax		= 0;
 	int iFlag		= 0;
@@ -58,25 +58,25 @@ void sexpma (float* in, float* out, int _iLeadDim){
 
 	/*A = A./2^s*/
 
-    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
+    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
         pfltMatrixA[iIndex1] =  in[iIndex1] / fltS2;
 
 	/* Pade approximation for exp(A)*/
 	/*X = A */
 	/*C2F(dcopy)(&iSquare, pfltMatrixA, &iOne, pfltMatrixX, &iOne );*/
 
-    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
-        pfltMatrixX[iIndex1] = pfltMatrixA[iIndex1] ;   
-	
-	seyesa(pfltMatrixEye, _iLeadDim, _iLeadDim);
+    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
+        pfltMatrixX[iIndex1] = pfltMatrixA[iIndex1] ;
+
+	seyea(pfltMatrixEye, _iLeadDim, _iLeadDim);
 
 
 	/*cA = A * c*/
-    
 
-    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
-        pfltMatrixcA[iIndex1] = pfltMatrixA[iIndex1] * fltCst ;         
-         
+
+    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
+        pfltMatrixcA[iIndex1] = pfltMatrixA[iIndex1] * fltCst ;
+
 
 	/*E = Eye + cA*/
     saddma (pfltMatrixEye , iSquare, pfltMatrixcA ,iSquare, out ) ;
@@ -89,15 +89,15 @@ void sexpma (float* in, float* out, int _iLeadDim){
 
 	for(iLoop1 = 2 ; iLoop1 <= iMax ; iLoop1++)
 	{
-     
-        
+
+
 		dblCst	= dblCst * (iMax - iLoop1 + 1 ) / (iLoop1 * (2 * iMax - iLoop1 + 1));
-        
+
         dblCst += 0 ;
 		/*Temp = X*/
 		/*C2F(dcopy)(&iSquare, pfltMatrixX, &iOne, pfltMatrixTemp, &iOne);*/
-        for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
-                pfltMatrixTemp[iIndex1] = pfltMatrixX[iIndex1] ;  
+        for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
+                pfltMatrixTemp[iIndex1] = pfltMatrixX[iIndex1] ;
 		/*X = A * Temp;*/
 
             smulma (  pfltMatrixA , _iLeadDim , _iLeadDim,
@@ -106,19 +106,19 @@ void sexpma (float* in, float* out, int _iLeadDim){
 
 		/*cX = c * X*/
 
-    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
-        pfltMatrixcX[iIndex1] = pfltMatrixX[iIndex1] * (float) dblCst ;                      
+    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
+        pfltMatrixcX[iIndex1] = pfltMatrixX[iIndex1] * (float) dblCst ;
 
 		/*E = E + cX*/
         saddma ( out, iSquare , pfltMatrixcX , iSquare , out ) ;
-        
+
         if(iFlag == 1) /*D = D + cX*/
 		    {
             saddma ( pfltMatrixD, iSquare , pfltMatrixcX , iSquare , pfltMatrixD ) ;
 		    }
 		else /*D = D - cX*/
 		    {
-            sdiffma ( pfltMatrixD, iSquare , pfltMatrixcX , iSquare , pfltMatrixD ); 
+            sdiffma ( pfltMatrixD, iSquare , pfltMatrixcX , iSquare , pfltMatrixD );
             }
 
 		/*Toggle iFlag*/
@@ -127,8 +127,8 @@ void sexpma (float* in, float* out, int _iLeadDim){
 
 	/*Temp = E*/
 	/*C2F(dcopy)(&iSquare, out, &iOne, pfltMatrixTemp, &iOne);*/
-    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
-        pfltMatrixTemp[iIndex1] = out[iIndex1] ;  
+    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
+        pfltMatrixTemp[iIndex1] = out[iIndex1] ;
 
 	/*E = D\E*/
     sldiva (  pfltMatrixD , _iLeadDim , _iLeadDim , pfltMatrixTemp , _iLeadDim , _iLeadDim , out );
@@ -140,8 +140,8 @@ void sexpma (float* in, float* out, int _iLeadDim){
 		/*Temp2 = E*/
         /*C2F(dcopy)(&iSquare, out, &iOne, pfltMatrixTemp, &iOne);
 		C2F(dcopy)(&iSquare, out, &iOne, pfltMatrixTemp2, &iOne);*/
-        
-        for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
+
+        for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
             {
             pfltMatrixTemp [iIndex1] = out[iIndex1] ;
             pfltMatrixTemp2[iIndex1] = out[iIndex1] ;

@@ -25,9 +25,9 @@ void zexpma(doubleComplex * in, doubleComplex * out, int _iLeadDim)
 	double dblS		= 0;
 	double dblS2	= 0;
 	double dblCst	= 0.5;
-    
+
     doubleComplex  zdblCst ;
-    
+
 	doubleComplex *pdblMatrixA		= NULL;
 	doubleComplex *pdblMatrixX		= NULL;
 	doubleComplex *pdblMatrixD		= NULL;
@@ -59,36 +59,36 @@ void zexpma(doubleComplex * in, doubleComplex * out, int _iLeadDim)
 	dblS2	= pow(2, dblS);
 
 	/*A = A./2^s */
-    
-    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
+
+    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
         pdblMatrixA[iIndex1] = zdevides ( in[iIndex1] , DoubleComplex ( dblS2 , 0 ));
-	
+
 
 	/* Pade approximation for exp(A)
 	//X = A */
 	/*C2F(zcopy)(&iSquare, pdblMatrixA, &iOne, pdblMatrixX, &iOne );*/
-     for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
-        pdblMatrixX[iIndex1] = pdblMatrixA[iIndex1] ;   
+     for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
+        pdblMatrixX[iIndex1] = pdblMatrixA[iIndex1] ;
 
-	
-	zeyesa(pdblMatrixEye, _iLeadDim, _iLeadDim);
+
+	zeyea(pdblMatrixEye, _iLeadDim, _iLeadDim);
 
    /* zmulma ( & zdblCst , 1 ,1,
          pdblMatrixA , _iLeadDim, _iLeadDim,
          pdblMatrixcA);*/
-    
-    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
-        pdblMatrixcA[iIndex1] = ztimess ( pdblMatrixA[iIndex1] , zdblCst ) ;  
-    
+
+    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
+        pdblMatrixcA[iIndex1] = ztimess ( pdblMatrixA[iIndex1] , zdblCst ) ;
+
     /* cA = A * c   */
-    
+
 
 	/*E = Eye + cA*/
-    
+
     zaddma (pdblMatrixEye , iSquare, pdblMatrixcA ,iSquare, out ) ;
-         
+
 	/* D = Eye - cA */
-    
+
     zdiffma (pdblMatrixEye , iSquare, pdblMatrixcA ,iSquare,pdblMatrixD ) ;
 
 	iMax	= 6;
@@ -101,24 +101,24 @@ void zexpma(doubleComplex * in, doubleComplex * out, int _iLeadDim)
 
 		/*Temp = X */
 		/*C2F(zcopy)(&iSquare, pdblMatrixX, &iOne, pdblMatrixTemp, &iOne);*/
-        for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
+        for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
                 pdblMatrixTemp[iIndex1] = pdblMatrixX[iIndex1] ;
 		/* X = A * Temp; */
-        
+
                   zmulma (  pdblMatrixA , _iLeadDim , _iLeadDim,
                     pdblMatrixTemp , _iLeadDim , _iLeadDim,
                     pdblMatrixX );
-		/* cX = c * X */    
-       
+		/* cX = c * X */
+
         /*    zmulma ( & zdblCst , 1 ,1,
                      pdblMatrixX , _iLeadDim, _iLeadDim,
                      pdblMatrixcX);*/
-        
-        for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
-            pdblMatrixcX[iIndex1] = ztimess ( pdblMatrixX[iIndex1] , zdblCst ) ; 
-        
+
+        for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
+            pdblMatrixcX[iIndex1] = ztimess ( pdblMatrixX[iIndex1] , zdblCst ) ;
+
 		/* E = E + cX */
-        
+
         zaddma ( out, iSquare , pdblMatrixcX , iSquare , out ) ;
 
 		if(iFlag == 1) /* D = D + cX */
@@ -127,7 +127,7 @@ void zexpma(doubleComplex * in, doubleComplex * out, int _iLeadDim)
 		}
 		else /* D = D - cX */
 		{
-            zdiffma ( pdblMatrixD, iSquare , pdblMatrixcX , iSquare , pdblMatrixD ); 
+            zdiffma ( pdblMatrixD, iSquare , pdblMatrixcX , iSquare , pdblMatrixD );
 		}
 
 		/* Toggle iFlag */
@@ -136,31 +136,31 @@ void zexpma(doubleComplex * in, doubleComplex * out, int _iLeadDim)
 
 	/* Temp = E */
 	/*C2F(zcopy)(&iSquare, out, &iOne, pdblMatrixTemp, &iOne);*/
-    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
-        pdblMatrixTemp[iIndex1] = out[iIndex1] ;  
-    
-	/* E = D\E */   
+    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
+        pdblMatrixTemp[iIndex1] = out[iIndex1] ;
+
+	/* E = D\E */
     zldiva (  pdblMatrixD , _iLeadDim , _iLeadDim , pdblMatrixTemp , _iLeadDim , _iLeadDim , out ) ;
-    
+
 	/*/ Undo scaling by repeated squaring */
 	for(iLoop1 = 0 ; iLoop1 < dblS ; iLoop1++)
 	{
 		/*//Temp = E */
         /*//Temp2 = E */
-          
+
 		/*C2F(zcopy)(&iSquare, out, &iOne, pdblMatrixTemp, &iOne);
 		C2F(zcopy)(&iSquare, out, &iOne, pdblMatrixTemp2, &iOne);*/
-        for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
+        for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
             {
             pdblMatrixTemp [iIndex1] = out[iIndex1] ;
             pdblMatrixTemp2[iIndex1] = out[iIndex1] ;
-            }	
+            }
 
-		/* E = E*E*/          
+		/* E = E*E*/
           zmulma (  pdblMatrixTemp ,  _iLeadDim , _iLeadDim,
                     pdblMatrixTemp2 , _iLeadDim , _iLeadDim,
                     out );
-                  
+
           	}
 
 	free(pdblMatrixA);

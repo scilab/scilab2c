@@ -13,7 +13,7 @@
 #include "matrixExponential.h"
 
 void dexpma (double* in, double* out, int _iLeadDim){
-    
+
     int iIndex1     = 0;
 	int iMax		= 0;
 	int iFlag		= 0;
@@ -57,25 +57,25 @@ void dexpma (double* in, double* out, int _iLeadDim){
 
 	/*A = A./2^s*/
 
-    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
+    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
         pdblMatrixA[iIndex1] =  in[iIndex1] / dblS2 ;
-    
+
 	/* Pade approximation for exp(A)*/
 	/*X = A */
 	/*C2F(dcopy)(&iSquare, pdblMatrixA, &iOne, pdblMatrixX, &iOne );*/
 
-    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
-        pdblMatrixX[iIndex1] = pdblMatrixA[iIndex1] ;   
-	
-	deyesa(pdblMatrixEye, _iLeadDim, _iLeadDim);
+    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
+        pdblMatrixX[iIndex1] = pdblMatrixA[iIndex1] ;
+
+	deyea(pdblMatrixEye, _iLeadDim, _iLeadDim);
 
 
 	/*cA = A * c*/
-    
 
-    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
-        pdblMatrixcA[iIndex1] = pdblMatrixA[iIndex1] * dblCst ;         
-         
+
+    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
+        pdblMatrixcA[iIndex1] = pdblMatrixA[iIndex1] * dblCst ;
+
 
 	/*E = Eye + cA*/
     daddma (pdblMatrixEye , iSquare, pdblMatrixcA ,iSquare, out ) ;
@@ -89,11 +89,11 @@ void dexpma (double* in, double* out, int _iLeadDim){
 	for(iLoop1 = 2 ; iLoop1 <= iMax ; iLoop1++)
 	{
 		dblCst	= dblCst * (iMax - iLoop1 + 1 ) / (iLoop1 * (2 * iMax - iLoop1 + 1));
-        
+
 		/*Temp = X*/
 		/*C2F(dcopy)(&iSquare, pdblMatrixX, &iOne, pdblMatrixTemp, &iOne);*/
-        for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
-                pdblMatrixTemp[iIndex1] = pdblMatrixX[iIndex1] ;  
+        for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
+                pdblMatrixTemp[iIndex1] = pdblMatrixX[iIndex1] ;
 		/*X = A * Temp;*/
 
             dmulma (  pdblMatrixA , _iLeadDim , _iLeadDim,
@@ -102,19 +102,19 @@ void dexpma (double* in, double* out, int _iLeadDim){
 
 		/*cX = c * X*/
 
-    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
-        pdblMatrixcX[iIndex1] = pdblMatrixX[iIndex1] * dblCst ;                      
+    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
+        pdblMatrixcX[iIndex1] = pdblMatrixX[iIndex1] * dblCst ;
 
 		/*E = E + cX*/
         daddma ( out, iSquare , pdblMatrixcX , iSquare , out ) ;
-        
+
         if(iFlag == 1) /*D = D + cX*/
 		    {
             daddma ( pdblMatrixD, iSquare , pdblMatrixcX , iSquare , pdblMatrixD ) ;
 		    }
 		else /*D = D - cX*/
 		    {
-            ddiffma ( pdblMatrixD, iSquare , pdblMatrixcX , iSquare , pdblMatrixD ); 
+            ddiffma ( pdblMatrixD, iSquare , pdblMatrixcX , iSquare , pdblMatrixD );
             }
 
 		/*Toggle iFlag*/
@@ -123,8 +123,8 @@ void dexpma (double* in, double* out, int _iLeadDim){
 
 	/*Temp = E*/
 	/*C2F(dcopy)(&iSquare, out, &iOne, pdblMatrixTemp, &iOne);*/
-    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
-        pdblMatrixTemp[iIndex1] = out[iIndex1] ;  
+    for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
+        pdblMatrixTemp[iIndex1] = out[iIndex1] ;
 
 	/*E = D\E*/
     dldiva (  pdblMatrixD , _iLeadDim , _iLeadDim , pdblMatrixTemp , _iLeadDim , _iLeadDim , out );
@@ -136,8 +136,8 @@ void dexpma (double* in, double* out, int _iLeadDim){
 		/*Temp2 = E*/
         /*C2F(dcopy)(&iSquare, out, &iOne, pdblMatrixTemp, &iOne);
 		C2F(dcopy)(&iSquare, out, &iOne, pdblMatrixTemp2, &iOne);*/
-        
-        for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ ) 
+
+        for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
             {
             pdblMatrixTemp [iIndex1] = out[iIndex1] ;
             pdblMatrixTemp2[iIndex1] = out[iIndex1] ;
