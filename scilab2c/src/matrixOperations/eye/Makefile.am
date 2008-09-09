@@ -10,7 +10,7 @@
 ##
 ##
 
-libMatrixEyes_la_CFLAGS =	-I $(top_builddir)/type \
+libMatrixEye_la_CFLAGS =	-I $(top_builddir)/type \
 				-I $(top_builddir)/matrixOperations/includes \
 				-I $(top_builddir)/auxiliaryFunctions/includes \
 				-I $(top_builddir)/includes \
@@ -19,17 +19,17 @@ libMatrixEyes_la_CFLAGS =	-I $(top_builddir)/type \
 
 instdir = $(top_builddir)/lib
 
-pkglib_LTLIBRARIES = libMatrixEyes.la
+pkglib_LTLIBRARIES = libMatrixEye.la
 
-HEAD = ../includes/matrixEyes.h
+HEAD = ../includes/matrixEye.h
 
-libMatrixEyes_la_SOURCES = 	$(HEAD) \
-				seyesa.c \
-				deyesa.c \
-				ceyesa.c \
-				zeyesa.c
+libMatrixEye_la_SOURCES = 	$(HEAD) \
+				seyea.c \
+				deyea.c \
+				ceyea.c \
+				zeyea.c
 
-check_PROGRAMS = 	testMatrixEyes
+check_PROGRAMS = 	testMatrixEye
 
 check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
@@ -50,16 +50,16 @@ check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
 			$(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/lib/blas/libsciblas.la \
-			libMatrixEyes.la
+			libMatrixEye.la
 
 check_INCLUDES =	-I $(top_builddir)/type \
-					-I $(top_builddir)/matrixOperations/includes \
-                    -I $(top_builddir)/auxiliaryFunctions/includes \
-                    -I $(top_builddir)/includes \
-                    -I $(top_builddir)/elementaryFunctions/includes
+			-I $(top_builddir)/matrixOperations/includes \
+			-I $(top_builddir)/auxiliaryFunctions/includes \
+			-I $(top_builddir)/includes \
+		 	-I $(top_builddir)/elementaryFunctions/includes
 
-testMatrixEyes_SOURCES = testMatrixEyes.c
-testMatrixEyes_LDADD = $(check_LDADD)
-testMatrixEyes_CFLAGS = $(check_INCLUDES)
+testMatrixEye_SOURCES = testMatrixEye.c
+testMatrixEye_LDADD = $(check_LDADD)
+testMatrixEye_CFLAGS = $(check_INCLUDES)
 
-TESTS =		testMatrixEyes
+TESTS =		testMatrixEye
