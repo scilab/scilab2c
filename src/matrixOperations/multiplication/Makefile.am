@@ -11,7 +11,8 @@
 ##
 
 libMatrixMultiplication_la_CFLAGS =	-I $(top_builddir)/type \
-					-I $(top_builddir)/matrixOperations/includes
+					-I $(top_builddir)/matrixOperations/includes \
+					-I $(top_builddir)/operations/includes
 
 instdir = $(top_builddir)/lib
 
@@ -29,11 +30,13 @@ check_PROGRAMS = 	testMatrixMultiplication
 
 check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/operations/addition/libAddition.la \
 			$(top_builddir)/lib/blas/libsciblas.la \
 			libMatrixMultiplication.la
 
 check_INCLUDES =	-I $(top_builddir)/type \
-			-I $(top_builddir)/matrixOperations/includes
+			-I $(top_builddir)/matrixOperations/includes \
+			-I $(top_builddir)/operations/includes
 
 testMatrixMultiplication_SOURCES = 	testFloatMatrixMultiplication.c \
 					testDoubleMatrixMultiplication.c
