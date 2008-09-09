@@ -57,69 +57,7 @@ static int matrixCreation(void) {
   return 0;
 }
 
-static int addAndDiff(void) {
-  /* z = -3 + 25*%i */
-  floatComplex z = FloatComplex((float)3, (float)-25);
-  /* y = -3.123456 + 25.123456*%i */
-  floatComplex y = FloatComplex((float)-3.123,(float)25.123);
-  /* t = z + y */
-  floatComplex t = cadds(z,y);
-  /* u = z - y */
-  floatComplex u = cdiffs(z,y);
-
-
-  /* z = -3 + 25*%i */
-  printf("Partie reelle = %f\n", creals(z));
-  assert(creals(z) == (float)3);
-  printf("Partie imaginaire = %f\n", cimags(z));
-  assert(cimags(z) == (float)-25);
-
-  /* y = -3.123456 + 25.123456*%i */
-  printf("Partie reelle = %f\n", creals(y));
-  assert(creals(y) == (float)-3.123);
-  printf("Partie imaginaire = %f\n", cimags(y));
-  assert(cimags(y) == (float)25.123);
-
-  /* Try to have somme addition */
-  printf("Partie reelle = %f\n", creals(t));
-  assert(creals(t) == (float)3 + (float)-3.123);
-  printf("Partie imaginaire = %f\n", cimags(t));
-  assert(cimags(t) == (float)-25 + (float)25.123);
-
-  /* Try to have somme diff */
-  printf("Partie reelle = %f\n", creals(u));
-  assert(creals(u) == (float)3 - (float)-3.123);
-  printf("Partie imaginaire = %f\n", cimags(u));
-  assert(cimags(u) == (float)-25 - (float)25.123);
-
-  return 0;
-}
-
-static int timesAndDevide(void) {
-  /* z1 = 1 + i */
-  floatComplex z1 = FloatComplex(1.0f, 1.0f);
-  /* z2 = 2 + i */
-  floatComplex z2 = FloatComplex(2.0f, 1.0f);
-
-  floatComplex z1_times_z2 = ctimess(z1, z2);
-  floatComplex z1_devide_z2 = cdevides(z1, z2);
-
-  /* z1 * z2 = 1 + 3i */
-  printf("z1_times_z2 = %e + %ei\n", creals(z1_times_z2), cimags(z1_times_z2));
-  assert(creals(z1_times_z2) == 1.0f);
-  assert(cimags(z1_times_z2) == 3.0f);
-
-  /* z1 / z2 = 0.6 + 0.2i */
-  printf("z1_devide_z2 = %e + %ei\n", creals(z1_devide_z2), cimags(z1_devide_z2));
-  assert(creals(z1_devide_z2) == 0.6f);
-  assert(cimags(z1_devide_z2) == 0.2f);
-
-  return 0;
-}
-
 int main(void) {
   matrixCreation();
-  addAndDiff();
-  timesAndDevide();
   return 0;
 }
