@@ -13,6 +13,8 @@
 #ifndef __VARIANCE_H__
 #define __VARIANCE_H__
 
+#include "subtraction.h"
+
 #include "pow.h"
 #include "sum.h"
 

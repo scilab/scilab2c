@@ -15,6 +15,7 @@
 
 #include "floatComplex.h"
 #include "doubleComplex.h"
+#include "addition.h"
 
 /*
 ** \brief Sum of a scalar element, just returns it
