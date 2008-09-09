@@ -204,9 +204,10 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 libMatrixInfiniteNorm_la_CFLAGS = -I $(top_builddir)/type \
 					-I $(top_builddir)/matrixOperations/includes \
-                    -I $(top_builddir)/auxiliaryFunctions/includes \
-                    -I $(top_builddir)/includes \
-                    -I $(top_builddir)/elementaryFunctions/includes
+					-I $(top_builddir)/auxiliaryFunctions/includes \
+					-I $(top_builddir)/includes \
+					-I $(top_builddir)/elementaryFunctions/includes \
+					-I $(top_builddir)/operations/includes
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libMatrixInfiniteNorm.la
@@ -219,6 +220,7 @@ libMatrixInfiniteNorm_la_SOURCES = $(HEAD) \
 
 check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/operations/addition/libAddition.la \
 			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
 			$(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/lib/blas/libsciblas.la \
@@ -228,10 +230,11 @@ check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			libMatrixInfiniteNorm.la
 
 check_INCLUDES = -I $(top_builddir)/type \
-					-I $(top_builddir)/matrixOperations/includes \
-                    -I $(top_builddir)/auxiliaryFunctions/includes \
-                    -I $(top_builddir)/includes \
-                    -I $(top_builddir)/elementaryFunctions/includes 
+			-I $(top_builddir)/matrixOperations/includes \
+			-I $(top_builddir)/auxiliaryFunctions/includes \
+			-I $(top_builddir)/includes \
+			-I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/operations/includes
 
 testMatrixInfiniteNorm_SOURCES = testMatrixInfiniteNorm.c
 testMatrixInfiniteNorm_LDADD = $(check_LDADD)
