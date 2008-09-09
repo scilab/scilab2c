@@ -40,6 +40,7 @@ check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
 check_LDADD	=	$(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/operations/addition/libAddition.la \
 			$(top_builddir)/elementaryFunctions/pow/libPow.la \
 			$(top_builddir)/elementaryFunctions/exp/libExp.la \
 			$(top_builddir)/elementaryFunctions/log/libLog.la \
