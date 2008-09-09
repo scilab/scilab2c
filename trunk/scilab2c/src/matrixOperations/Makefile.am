@@ -14,7 +14,7 @@ SUBDIRS= 	addition \
 		cat \
 		division \
 		expm \
-		eyes \
+		eye \
 		hilbert \
 		infiniteNorm \
 		multiplication \
