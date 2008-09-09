@@ -11,10 +11,10 @@
 ##
 
 libMatrixEyes_la_CFLAGS =	-I $(top_builddir)/type \
-					-I $(top_builddir)/matrixOperations/includes \
-                    -I $(top_builddir)/auxiliaryFunctions/includes \
-                    -I $(top_builddir)/includes \
-                    -I $(top_builddir)/elementaryFunctions/includes
+				-I $(top_builddir)/matrixOperations/includes \
+				-I $(top_builddir)/auxiliaryFunctions/includes \
+				-I $(top_builddir)/includes \
+				-I $(top_builddir)/elementaryFunctions/includes
 
 
 instdir = $(top_builddir)/lib
@@ -33,6 +33,7 @@ check_PROGRAMS = 	testMatrixEyes
 
 check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/operations/addition/libAddition.la \
 			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
 			$(top_builddir)/auxiliaryFunctions/sign/libSign.la \
 			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
@@ -55,7 +56,7 @@ check_INCLUDES =	-I $(top_builddir)/type \
 					-I $(top_builddir)/matrixOperations/includes \
                     -I $(top_builddir)/auxiliaryFunctions/includes \
                     -I $(top_builddir)/includes \
-                    -I $(top_builddir)/elementaryFunctions/includes 
+                    -I $(top_builddir)/elementaryFunctions/includes
 
 testMatrixEyes_SOURCES = testMatrixEyes.c
 testMatrixEyes_LDADD = $(check_LDADD)
