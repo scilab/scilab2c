@@ -10,28 +10,28 @@
 ##
 ##
 
-libDSPHilbert_la_CFLAGS =	-I $(top_builddir)/type \
+libHilbert_la_CFLAGS =	-I $(top_builddir)/type \
 				-I ../includes
 
 instdir = $(top_builddir)/lib
 
-pkglib_LTLIBRARIES = libDSPHilbert.la
+pkglib_LTLIBRARIES = libHilbert.la
 
 HEAD = ../includes/hilbert.h
 
-libDSPHilbert_la_SOURCES = 	$(HEAD) \
+libHilbert_la_SOURCES = 	$(HEAD) \
 				shilba.c \
-				dhilba.c 
+				dhilba.c
 
-check_PROGRAMS = 	testDSPHilbert
+check_PROGRAMS = 	testHilbert
 
-check_LDADD =   libDSPHilbert.la
+check_LDADD =   libHilbert.la
 
 check_INCLUDES =	-I $(top_builddir)/type \
 			-I ../includes
 
-testDSPHilbert_SOURCES = testDSPHilbert.c
-testDSPHilbert_LDADD = $(check_LDADD)
-testDSPHilbert_CFLAGS = $(check_INCLUDES)
+testHilbert_SOURCES = testHilbert.c
+testHilbert_LDADD = $(check_LDADD)
+testHilbert_CFLAGS = $(check_INCLUDES)
 
-TESTS =		testDSPHilbert
+TESTS =		testHilbert
