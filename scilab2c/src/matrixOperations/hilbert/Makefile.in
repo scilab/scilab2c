@@ -32,8 +32,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testDSPHilbert$(EXEEXT)
-TESTS = testDSPHilbert$(EXEEXT)
+check_PROGRAMS = testHilbert$(EXEEXT)
+TESTS = testHilbert$(EXEEXT)
 subdir = matrixOperations/hilbert
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -52,19 +52,19 @@ am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
 am__installdirs = "$(DESTDIR)$(pkglibdir)"
 pkglibLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkglib_LTLIBRARIES)
-libDSPHilbert_la_LIBADD =
+libHilbert_la_LIBADD =
 am__objects_1 =
-am_libDSPHilbert_la_OBJECTS = $(am__objects_1) \
-	libDSPHilbert_la-shilba.lo libDSPHilbert_la-dhilba.lo
-libDSPHilbert_la_OBJECTS = $(am_libDSPHilbert_la_OBJECTS)
-libDSPHilbert_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libDSPHilbert_la_CFLAGS) \
+am_libHilbert_la_OBJECTS = $(am__objects_1) libHilbert_la-shilba.lo \
+	libHilbert_la-dhilba.lo
+libHilbert_la_OBJECTS = $(am_libHilbert_la_OBJECTS)
+libHilbert_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libHilbert_la_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testDSPHilbert_OBJECTS = testDSPHilbert-testDSPHilbert.$(OBJEXT)
-testDSPHilbert_OBJECTS = $(am_testDSPHilbert_OBJECTS)
-testDSPHilbert_DEPENDENCIES = $(check_LDADD)
-testDSPHilbert_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDSPHilbert_CFLAGS) \
+am_testHilbert_OBJECTS = testHilbert-testHilbert.$(OBJEXT)
+testHilbert_OBJECTS = $(am_testHilbert_OBJECTS)
+testHilbert_DEPENDENCIES = $(check_LDADD)
+testHilbert_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testHilbert_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
@@ -78,8 +78,8 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libDSPHilbert_la_SOURCES) $(testDSPHilbert_SOURCES)
-DIST_SOURCES = $(libDSPHilbert_la_SOURCES) $(testDSPHilbert_SOURCES)
+SOURCES = $(libHilbert_la_SOURCES) $(testHilbert_SOURCES)
+DIST_SOURCES = $(libHilbert_la_SOURCES) $(testHilbert_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -193,23 +193,23 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libDSPHilbert_la_CFLAGS = -I $(top_builddir)/type \
+libHilbert_la_CFLAGS = -I $(top_builddir)/type \
 				-I ../includes
 
 instdir = $(top_builddir)/lib
-pkglib_LTLIBRARIES = libDSPHilbert.la
+pkglib_LTLIBRARIES = libHilbert.la
 HEAD = ../includes/hilbert.h
-libDSPHilbert_la_SOURCES = $(HEAD) \
+libHilbert_la_SOURCES = $(HEAD) \
 				shilba.c \
-				dhilba.c 
+				dhilba.c
 
-check_LDADD = libDSPHilbert.la
+check_LDADD = libHilbert.la
 check_INCLUDES = -I $(top_builddir)/type \
 			-I ../includes
 
-testDSPHilbert_SOURCES = testDSPHilbert.c
-testDSPHilbert_LDADD = $(check_LDADD)
-testDSPHilbert_CFLAGS = $(check_INCLUDES)
+testHilbert_SOURCES = testHilbert.c
+testHilbert_LDADD = $(check_LDADD)
+testHilbert_CFLAGS = $(check_INCLUDES)
 all: all-am
 
 .SUFFIXES:
@@ -270,8 +270,8 @@ clean-pkglibLTLIBRARIES:
 	  echo "rm -f \"$${dir}/so_locations\""; \
 	  rm -f "$${dir}/so_locations"; \
 	done
-libDSPHilbert.la: $(libDSPHilbert_la_OBJECTS) $(libDSPHilbert_la_DEPENDENCIES) 
-	$(libDSPHilbert_la_LINK) -rpath $(pkglibdir) $(libDSPHilbert_la_OBJECTS) $(libDSPHilbert_la_LIBADD) $(LIBS)
+libHilbert.la: $(libHilbert_la_OBJECTS) $(libHilbert_la_DEPENDENCIES) 
+	$(libHilbert_la_LINK) -rpath $(pkglibdir) $(libHilbert_la_OBJECTS) $(libHilbert_la_LIBADD) $(LIBS)
 
 clean-checkPROGRAMS:
 	@list='$(check_PROGRAMS)'; for p in $$list; do \
@@ -279,9 +279,9 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testDSPHilbert$(EXEEXT): $(testDSPHilbert_OBJECTS) $(testDSPHilbert_DEPENDENCIES) 
-	@rm -f testDSPHilbert$(EXEEXT)
-	$(testDSPHilbert_LINK) $(testDSPHilbert_OBJECTS) $(testDSPHilbert_LDADD) $(LIBS)
+testHilbert$(EXEEXT): $(testHilbert_OBJECTS) $(testHilbert_DEPENDENCIES) 
+	@rm -f testHilbert$(EXEEXT)
+	$(testHilbert_LINK) $(testHilbert_OBJECTS) $(testHilbert_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -289,9 +289,9 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDSPHilbert_la-dhilba.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDSPHilbert_la-shilba.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDSPHilbert-testDSPHilbert.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libHilbert_la-dhilba.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libHilbert_la-shilba.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testHilbert-testHilbert.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -314,33 +314,33 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
-libDSPHilbert_la-shilba.lo: shilba.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDSPHilbert_la_CFLAGS) $(CFLAGS) -MT libDSPHilbert_la-shilba.lo -MD -MP -MF $(DEPDIR)/libDSPHilbert_la-shilba.Tpo -c -o libDSPHilbert_la-shilba.lo `test -f 'shilba.c' || echo '$(srcdir)/'`shilba.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libDSPHilbert_la-shilba.Tpo $(DEPDIR)/libDSPHilbert_la-shilba.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='shilba.c' object='libDSPHilbert_la-shilba.lo' libtool=yes @AMDEPBACKSLASH@
+libHilbert_la-shilba.lo: shilba.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libHilbert_la_CFLAGS) $(CFLAGS) -MT libHilbert_la-shilba.lo -MD -MP -MF $(DEPDIR)/libHilbert_la-shilba.Tpo -c -o libHilbert_la-shilba.lo `test -f 'shilba.c' || echo '$(srcdir)/'`shilba.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libHilbert_la-shilba.Tpo $(DEPDIR)/libHilbert_la-shilba.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='shilba.c' object='libHilbert_la-shilba.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDSPHilbert_la_CFLAGS) $(CFLAGS) -c -o libDSPHilbert_la-shilba.lo `test -f 'shilba.c' || echo '$(srcdir)/'`shilba.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libHilbert_la_CFLAGS) $(CFLAGS) -c -o libHilbert_la-shilba.lo `test -f 'shilba.c' || echo '$(srcdir)/'`shilba.c
 
-libDSPHilbert_la-dhilba.lo: dhilba.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDSPHilbert_la_CFLAGS) $(CFLAGS) -MT libDSPHilbert_la-dhilba.lo -MD -MP -MF $(DEPDIR)/libDSPHilbert_la-dhilba.Tpo -c -o libDSPHilbert_la-dhilba.lo `test -f 'dhilba.c' || echo '$(srcdir)/'`dhilba.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libDSPHilbert_la-dhilba.Tpo $(DEPDIR)/libDSPHilbert_la-dhilba.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dhilba.c' object='libDSPHilbert_la-dhilba.lo' libtool=yes @AMDEPBACKSLASH@
+libHilbert_la-dhilba.lo: dhilba.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libHilbert_la_CFLAGS) $(CFLAGS) -MT libHilbert_la-dhilba.lo -MD -MP -MF $(DEPDIR)/libHilbert_la-dhilba.Tpo -c -o libHilbert_la-dhilba.lo `test -f 'dhilba.c' || echo '$(srcdir)/'`dhilba.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libHilbert_la-dhilba.Tpo $(DEPDIR)/libHilbert_la-dhilba.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dhilba.c' object='libHilbert_la-dhilba.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDSPHilbert_la_CFLAGS) $(CFLAGS) -c -o libDSPHilbert_la-dhilba.lo `test -f 'dhilba.c' || echo '$(srcdir)/'`dhilba.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libHilbert_la_CFLAGS) $(CFLAGS) -c -o libHilbert_la-dhilba.lo `test -f 'dhilba.c' || echo '$(srcdir)/'`dhilba.c
 
-testDSPHilbert-testDSPHilbert.o: testDSPHilbert.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDSPHilbert_CFLAGS) $(CFLAGS) -MT testDSPHilbert-testDSPHilbert.o -MD -MP -MF $(DEPDIR)/testDSPHilbert-testDSPHilbert.Tpo -c -o testDSPHilbert-testDSPHilbert.o `test -f 'testDSPHilbert.c' || echo '$(srcdir)/'`testDSPHilbert.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDSPHilbert-testDSPHilbert.Tpo $(DEPDIR)/testDSPHilbert-testDSPHilbert.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDSPHilbert.c' object='testDSPHilbert-testDSPHilbert.o' libtool=no @AMDEPBACKSLASH@
+testHilbert-testHilbert.o: testHilbert.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testHilbert_CFLAGS) $(CFLAGS) -MT testHilbert-testHilbert.o -MD -MP -MF $(DEPDIR)/testHilbert-testHilbert.Tpo -c -o testHilbert-testHilbert.o `test -f 'testHilbert.c' || echo '$(srcdir)/'`testHilbert.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testHilbert-testHilbert.Tpo $(DEPDIR)/testHilbert-testHilbert.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testHilbert.c' object='testHilbert-testHilbert.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDSPHilbert_CFLAGS) $(CFLAGS) -c -o testDSPHilbert-testDSPHilbert.o `test -f 'testDSPHilbert.c' || echo '$(srcdir)/'`testDSPHilbert.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testHilbert_CFLAGS) $(CFLAGS) -c -o testHilbert-testHilbert.o `test -f 'testHilbert.c' || echo '$(srcdir)/'`testHilbert.c
 
-testDSPHilbert-testDSPHilbert.obj: testDSPHilbert.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDSPHilbert_CFLAGS) $(CFLAGS) -MT testDSPHilbert-testDSPHilbert.obj -MD -MP -MF $(DEPDIR)/testDSPHilbert-testDSPHilbert.Tpo -c -o testDSPHilbert-testDSPHilbert.obj `if test -f 'testDSPHilbert.c'; then $(CYGPATH_W) 'testDSPHilbert.c'; else $(CYGPATH_W) '$(srcdir)/testDSPHilbert.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDSPHilbert-testDSPHilbert.Tpo $(DEPDIR)/testDSPHilbert-testDSPHilbert.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDSPHilbert.c' object='testDSPHilbert-testDSPHilbert.obj' libtool=no @AMDEPBACKSLASH@
+testHilbert-testHilbert.obj: testHilbert.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testHilbert_CFLAGS) $(CFLAGS) -MT testHilbert-testHilbert.obj -MD -MP -MF $(DEPDIR)/testHilbert-testHilbert.Tpo -c -o testHilbert-testHilbert.obj `if test -f 'testHilbert.c'; then $(CYGPATH_W) 'testHilbert.c'; else $(CYGPATH_W) '$(srcdir)/testHilbert.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testHilbert-testHilbert.Tpo $(DEPDIR)/testHilbert-testHilbert.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testHilbert.c' object='testHilbert-testHilbert.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDSPHilbert_CFLAGS) $(CFLAGS) -c -o testDSPHilbert-testDSPHilbert.obj `if test -f 'testDSPHilbert.c'; then $(CYGPATH_W) 'testDSPHilbert.c'; else $(CYGPATH_W) '$(srcdir)/testDSPHilbert.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testHilbert_CFLAGS) $(CFLAGS) -c -o testHilbert-testHilbert.obj `if test -f 'testHilbert.c'; then $(CYGPATH_W) 'testHilbert.c'; else $(CYGPATH_W) '$(srcdir)/testHilbert.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
