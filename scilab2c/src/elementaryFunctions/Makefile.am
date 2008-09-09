@@ -32,5 +32,4 @@ SUBDIRS=	cos \
 		asin \
 		lnp1m1 \
 		pow \
-		atan2 \
-		conj
+		atan2
