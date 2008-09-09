@@ -12,4 +12,5 @@
 
 dist_SUBDIRS=	includes
 
-SUBDIRS=	addition
+SUBDIRS=	addition \
+		subtraction
