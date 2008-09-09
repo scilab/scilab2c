@@ -141,30 +141,6 @@ bool cisimags(floatComplex z) {
 */
 
 /*
-** \function cadds
-** \brief add 2 Complex numbers.
-*/
-floatComplex cadds(floatComplex z1, floatComplex z2) {
-#ifndef STDC99
-  return FloatComplex(z1.real + z2.real, z1.imag + z2.imag);
-#else
-  return z1 + z2;
-#endif
-}
-
-/*
-** \function cdiffs
-** \brief diff 2 Complex numbers.
-*/
-floatComplex cdiffs(floatComplex z1, floatComplex z2) {
-#ifndef STDC99
-  return FloatComplex(z1.real - z2.real, z1.imag - z2.imag);
-#else
-  return z1 - z2;
-#endif
-}
-
-/*
 ** \function ctimess
 ** \brief Multiply 2 Complex numbers.
 */
