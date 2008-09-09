@@ -13,9 +13,10 @@
 SUBDIRS=	lib/blas \
 		lib/lapack \
 		type \
+		operations \
 		elementaryFunctions \
 		auxiliaryFunctions \
 		statisticsFunctions \
 		matrixOperations \
 		implicitList \
-		string 
+		string
