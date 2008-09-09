@@ -159,11 +159,17 @@ fi
 ###### Creation of the header file (machine.h)
 #######################
 
+#operations/multiplication/Makefile
+#operations/division/Makefile
+
 AC_CONFIG_FILES([
 Makefile
 lib/blas/Makefile
 lib/lapack/Makefile
 type/Makefile
+operations/Makefile
+operations/addition/Makefile
+operations/subtraction/Makefile
 matrixOperations/Makefile
 matrixOperations/addition/Makefile
 matrixOperations/subtraction/Makefile
