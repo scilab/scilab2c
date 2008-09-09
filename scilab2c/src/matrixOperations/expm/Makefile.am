@@ -12,9 +12,10 @@
 
 libMatrixExponential_la_CFLAGS =	-I $(top_builddir)/type \
 					-I $(top_builddir)/matrixOperations/includes \
-                    -I $(top_builddir)/auxiliaryFunctions/includes \
-                    -I $(top_builddir)/includes \
-                    -I $(top_builddir)/elementaryFunctions/includes 
+					-I $(top_builddir)/auxiliaryFunctions/includes \
+					-I $(top_builddir)/includes \
+					-I $(top_builddir)/elementaryFunctions/includes \
+					-I $(top_builddir)/operations/includes
 
 instdir = $(top_builddir)/lib
 
@@ -26,13 +27,15 @@ libMatrixExponential_la_SOURCES = 	$(HEAD) \
 					dexpma.c \
 					zexpma.c \
                     sexpma.c \
-                    cexpma.c 
+                    cexpma.c
 
 
 check_PROGRAMS = 	testMatrixExponential
 
 check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/operations/addition/libAddition.la \
+			$(top_builddir)/operations/subtraction/libSubtraction.la \
 			$(top_builddir)/matrixOperations/division/libMatrixDivision.la \
 			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
 			$(top_builddir)/auxiliaryFunctions/sign/libSign.la \
@@ -62,10 +65,12 @@ check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			libMatrixExponential.la
 
 check_INCLUDES =	-I $(top_builddir)/type \
-					-I $(top_builddir)/matrixOperations/includes \
-					-I $(top_builddir)/auxiliaryFunctions/includes \
-					-I $(top_builddir)/includes \
-					-I $(top_builddir)/elementaryFunctions/includes 
+			-I $(top_builddir)/matrixOperations/includes \
+			-I $(top_builddir)/auxiliaryFunctions/includes \
+			-I $(top_builddir)/includes \
+			-I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/operations/includes
+
 
 testMatrixExponential_SOURCES = 	testMatrixExponential.c
 testMatrixExponential_LDADD = $(check_LDADD)
