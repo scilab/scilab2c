@@ -68,6 +68,7 @@ am_testDoubleAcosh_OBJECTS =  \
 testDoubleAcosh_OBJECTS = $(am_testDoubleAcosh_OBJECTS)
 am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/type/libFloatComplex.la \
+	$(top_builddir)/operations/addition/libAddition.la \
 	$(top_builddir)/lib/lapack/libscilapack.la \
 	$(top_builddir)/elementaryFunctions/acos/libAcos.la \
 	$(top_builddir)/elementaryFunctions/acosh/libAcosh.la \
@@ -242,6 +243,7 @@ check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
 
 check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/operations/addition/libAddition.la \
 			$(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/elementaryFunctions/acos/libAcos.la \
 			$(top_builddir)/elementaryFunctions/acosh/libAcosh.la \
