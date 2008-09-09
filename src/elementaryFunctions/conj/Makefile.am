@@ -11,7 +11,7 @@
 ##
 
 libConj_la_CFLAGS =	-I $(top_builddir)/type \
-				-I ../includes
+			-I ../includes
 
 instdir = $(top_builddir)/lib
 
@@ -20,16 +20,17 @@ pkglib_LTLIBRARIES = libConj.la
 HEAD = ../includes/conj.h
 
 libConj_la_SOURCES = 	$(HEAD) \
-				cconja.c \
-				zconja.c \
-                zconjs.c \
-                cconjs.c  
+			cconja.c \
+			zconja.c \
+			zconjs.c \
+	                cconjs.c
 
 check_PROGRAMS = 	testConj
 
-check_LDADD =   libConj.la \
-            $(top_builddir)/type/libDoubleComplex.la \
+check_LDADD =   	libConj.la \
+			$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/operations/addition/libAddition.la \
 			$(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/elementaryFunctions/atan/libAtan.la \
 			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
