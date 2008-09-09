@@ -23,12 +23,13 @@ HEAD = ../includes/frexp.h
 
 libFrexp_la_SOURCES = 	$(HEAD) \
 				sfrexps.c \
-				dfrexps.c 
+				dfrexps.c
 
 check_PROGRAMS = 	testFrexp
 
 check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/operations/addition/libAddition.la \
 			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
 			$(top_builddir)/auxiliaryFunctions/sign/libSign.la \
 			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
