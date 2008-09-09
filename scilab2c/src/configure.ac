@@ -180,14 +180,13 @@ matrixOperations/transpose/Makefile
 matrixOperations/trace/Makefile
 matrixOperations/hilbert/Makefile
 matrixOperations/expm/Makefile
-matrixOperations/eyes/Makefile
+matrixOperations/eye/Makefile
 matrixOperations/infiniteNorm/Makefile
 matrixOperations/inversion/Makefile
 implicitList/Makefile
 elementaryFunctions/Makefile
 elementaryFunctions/cos/Makefile
 elementaryFunctions/cosh/Makefile
-elementaryFunctions/conj/Makefile
 elementaryFunctions/acos/Makefile
 elementaryFunctions/acosh/Makefile
 elementaryFunctions/sin/Makefile
@@ -219,6 +218,7 @@ auxiliaryFunctions/size/Makefile
 auxiliaryFunctions/length/Makefile
 auxiliaryFunctions/type/Makefile
 auxiliaryFunctions/pythag/Makefile
+auxiliaryFunctions/conj/Makefile
 statisticsFunctions/Makefile
 statisticsFunctions/mean/Makefile
 statisticsFunctions/sum/Makefile
