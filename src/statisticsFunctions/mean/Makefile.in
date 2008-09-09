@@ -69,6 +69,7 @@ am_testDoubleMean_OBJECTS = testDoubleMean-testDoubleMean.$(OBJEXT)
 testDoubleMean_OBJECTS = $(am_testDoubleMean_OBJECTS)
 am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/type/libFloatComplex.la \
+	$(top_builddir)/operations/addition/libAddition.la \
 	$(top_builddir)/statisticsFunctions/mean/libMean.la \
 	$(top_builddir)/statisticsFunctions/sum/libSum.la
 testDoubleMean_DEPENDENCIES = $(am__DEPENDENCIES_1)
@@ -211,6 +212,7 @@ target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 libMean_la_CFLAGS = -I $(top_builddir)/type \
+			-I $(top_builddir)/operations/includes \
 			-I ../includes
 
 instdir = $(top_builddir)/lib
@@ -235,10 +237,12 @@ HEAD = ../includes/mean.h
 # Checking Part
 ####
 check_INCLUDES = -I $(top_builddir)/statisticsFunctions/includes \
+			-I $(top_builddir)/operations/includes \
 			-I $(top_builddir)/type
 
 check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/operations/addition/libAddition.la \
 			$(top_builddir)/statisticsFunctions/mean/libMean.la \
 			$(top_builddir)/statisticsFunctions/sum/libSum.la \
 			@LIBMATH@

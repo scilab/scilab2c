@@ -11,6 +11,7 @@
 ##
 
 libMean_la_CFLAGS =	-I $(top_builddir)/type \
+			-I $(top_builddir)/operations/includes \
 			-I ../includes
 
 instdir = $(top_builddir)/lib
@@ -39,10 +40,12 @@ HEAD	=	../includes/mean.h
 ####
 
 check_INCLUDES	=	-I $(top_builddir)/statisticsFunctions/includes \
+			-I $(top_builddir)/operations/includes \
 			-I $(top_builddir)/type
 
 check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/operations/addition/libAddition.la \
 			$(top_builddir)/statisticsFunctions/mean/libMean.la \
 			$(top_builddir)/statisticsFunctions/sum/libSum.la \
 			@LIBMATH@

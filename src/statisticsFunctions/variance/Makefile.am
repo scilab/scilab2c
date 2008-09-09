@@ -11,10 +11,10 @@
 ##
 
 libVariance_la_CFLAGS =	-I $(top_builddir)/type \
-            -I $(top_builddir)/elementaryFunctions/includes \
-            -I $(top_builddir)/matrixOperations/includes \
+			-I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/matrixOperations/includes \
+			-I $(top_builddir)/operations/includes \
 			-I ../includes
-            
 
 instdir = $(top_builddir)/lib
 
@@ -25,7 +25,7 @@ libVariance_la_SOURCES =	$(HEAD) $(SRC)
 SRC	=	svariancea.c \
 		scolumnvariancea.c \
 		dvariancea.c \
-        srowvariancea.c \
+		srowvariancea.c \
 		drowvariancea.c \
 		dcolumnvariancea.c \
 		cvariancea.c \
@@ -42,29 +42,32 @@ HEAD	=	../includes/variance.h
 ####
 
 check_INCLUDES	=	-I $(top_builddir)/statisticsFunctions/includes \
-            -I $(top_builddir)/elementaryFunctions/includes \
-            -I $(top_builddir)/matrixOperations/includes \
+			-I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/matrixOperations/includes \
+			-I $(top_builddir)/operations/includes \
 			-I $(top_builddir)/type
 
 check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/operations/addition/libAddition.la \
+			$(top_builddir)/operations/subtraction/libSubtraction.la \
 			$(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/statisticsFunctions/variance/libVariance.la \
 			$(top_builddir)/statisticsFunctions/sum/libSum.la \
-            $(top_builddir)/statisticsFunctions/mean/libMean.la \
-            $(top_builddir)/elementaryFunctions/pow/libPow.la \
-            $(top_builddir)/elementaryFunctions/log/libLog.la \
-            $(top_builddir)/elementaryFunctions/exp/libExp.la \
-            $(top_builddir)/elementaryFunctions/cos/libCos.la \
-            $(top_builddir)/elementaryFunctions/sin/libSin.la \
-            $(top_builddir)/elementaryFunctions/cosh/libCosh.la \
-            $(top_builddir)/elementaryFunctions/sinh/libSinh.la \
-            $(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-            $(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
-            $(top_builddir)/elementaryFunctions/lnp1m1/libLnp1m1.la \
-            $(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-            $(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-            $(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la
+			$(top_builddir)/statisticsFunctions/mean/libMean.la \
+			$(top_builddir)/elementaryFunctions/pow/libPow.la \
+			$(top_builddir)/elementaryFunctions/log/libLog.la \
+			$(top_builddir)/elementaryFunctions/exp/libExp.la \
+			$(top_builddir)/elementaryFunctions/cos/libCos.la \
+			$(top_builddir)/elementaryFunctions/sin/libSin.la \
+			$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
+			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
+			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
+			$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
+			$(top_builddir)/elementaryFunctions/lnp1m1/libLnp1m1.la \
+			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
+			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la
 			@LIBMATH@
 
 check_PROGRAMS	= 	testFloatVariance testDoubleVariance
