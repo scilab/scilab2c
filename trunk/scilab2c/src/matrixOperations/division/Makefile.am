@@ -11,9 +11,9 @@
 ##
 
 libMatrixDivision_la_CFLAGS =	-I $(top_builddir)/type \
-			-I $(top_builddir)/matrixOperations/includes \
-            -I $(top_builddir)/auxiliaryFunctions/includes \
-            -I $(top_builddir)/elementaryFunctions/includes
+				-I $(top_builddir)/matrixOperations/includes \
+				-I $(top_builddir)/auxiliaryFunctions/includes \
+				-I $(top_builddir)/elementaryFunctions/includes
 
 instdir = $(top_builddir)/lib
 
@@ -23,13 +23,13 @@ HEAD = ../includes/matrixDivision.h
 
 libMatrixDivision_la_SOURCES = 	$(HEAD) \
 				srdiva.c \
-                sldiva.c \
+				sldiva.c \
 				drdiva.c \
 				dldiva.c \
 				zrdiva.c \
-                zldiva.c \
-                crdiva.c \
-                cldiva.c 
+				zldiva.c \
+				crdiva.c \
+				cldiva.c
 
 check_PROGRAMS = 	testMatrixRDivision \
 			testMatrixLDivision
@@ -39,13 +39,13 @@ check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la \
 			$(top_builddir)/matrixOperations/cat/libMatrixConcatenation.la \
-            $(top_builddir)/elementaryFunctions/conj/libConj.la \
+			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
 			libMatrixDivision.la
 
 check_INCLUDES =	-I $(top_builddir)/type \
 			-I $(top_builddir)/matrixOperations/includes \
-            -I $(top_builddir)/auxiliaryFunctions/includes \
-		    -I $(top_builddir)/elementaryFunctions/includes 
+			-I $(top_builddir)/auxiliaryFunctions/includes \
+			-I $(top_builddir)/elementaryFunctions/includes
 
 testMatrixLDivision_SOURCES =    testMatrixLDivision.c
 testMatrixLDivision_LDADD = $(check_LDADD)

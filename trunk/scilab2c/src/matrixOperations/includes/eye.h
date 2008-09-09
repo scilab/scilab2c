@@ -10,21 +10,21 @@
  *
  */
 
-#ifndef __MATRIXEYES_H__
-#define __MATRIXEYES_H__
+#ifndef __EYE_H__
+#define __EYE_H__
 
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
-void seyesa(float* in, int _iRows, int _iCols);
+void seyea(float* in, int _iRows, int _iCols);
 
-void deyesa(double* in, int _iRows, int _iCols);
+void deyea(double* in, int _iRows, int _iCols);
 
-void ceyesa(floatComplex* in, int _iRows, int _iCols);
+void ceyea(floatComplex* in, int _iRows, int _iCols);
 
-void zeyesa(doubleComplex* in, int _iRows, int _iCols);
+void zeyea(doubleComplex* in, int _iRows, int _iCols);
 
 
 
-#endif /* !__MATRIXEYES_H__ */
+#endif /* !__EYE_H__ */
 

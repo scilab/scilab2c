@@ -14,9 +14,9 @@
 #define __MATRIXEXPONENTIAL_H__
 
 #include <math.h>
-#include "lapack.h" 
-#include "blas.h" 
 #include <stdlib.h>
+#include "lapack.h"
+#include "blas.h"
 #include "abs.h"
 #include "exp.h"
 #include "max.h"
@@ -25,7 +25,7 @@
 #include "matrixMultiplication.h"
 #include "matrixAddition.h"
 #include "matrixSubtraction.h"
-#include "matrixEyes.h"
+#include "eye.h"
 #include "infiniteNorm.h"
 #include "frexp.h"
 
