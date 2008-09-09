@@ -12,30 +12,31 @@
 
 #include <assert.h>
 #include <stdio.h>
-#include "matrixEyes.h" 
 #include <math.h>
+
+#include "eye.h"
 
 #define LEADDIM 10
 
-static void deyesaTest ( void )
+static void deyeaTest ( void )
 {
     int i = 0 ;
-    
+
     double result = 0 ;
-    
+
     double in [LEADDIM*LEADDIM] ;
-    
-    deyesa ( in , LEADDIM , LEADDIM ) ;
-    
+
+    deyea ( in , LEADDIM , LEADDIM ) ;
+
     for ( i = 0 ; i <  LEADDIM*LEADDIM ; i++ )
         {
             if ( i%(LEADDIM+1) == 0 )
                 result = 1 ;
             else
                 result = 0 ;
-            
-         printf ( "\t\t %d in : %e\tresult : %e\tassert : %e \n" , i, in[i] , result , fabs( in[i] - result) / fabs( in[i]) ) ;	
-		 
+
+         printf ( "\t\t %d in : %e\tresult : %e\tassert : %e \n" , i, in[i] , result , fabs( in[i] - result) / fabs( in[i]) ) ;
+
          if ( in[i] < 1e-14 && result < 1e-14 )
             assert(1);
          else
@@ -44,24 +45,24 @@ static void deyesaTest ( void )
 }
 
 
-static void seyesaTest ( void )
+static void seyeaTest ( void )
 {
     int i = 0 ;
-    
+
     float result = 0 ;
-    
+
     float in[LEADDIM*LEADDIM] ;
-    
-    seyesa ( in , LEADDIM , LEADDIM ) ;
-    
+
+    seyea ( in , LEADDIM , LEADDIM ) ;
+
     for ( i = 0 ; i <  LEADDIM*LEADDIM ; i++)
         {
             if ( i%(LEADDIM+1) == 0 )
                 result = 1.0f ;
             else
                 result = 0 ;
-            
-         printf ( "\t\t %d in : %e\tresult : %e\tassert : %e \n" , i, in[i] , result , fabs( in[i] - result) / fabs( in[i]) ) ;	
+
+         printf ( "\t\t %d in : %e\tresult : %e\tassert : %e \n" , i, in[i] , result , fabs( in[i] - result) / fabs( in[i]) ) ;
          if ( in[i] < 1e-6 && result < 1e-6 )
             assert(1);
          else
@@ -70,35 +71,35 @@ static void seyesaTest ( void )
 }
 
 
-static void zeyesaTest ( void )
+static void zeyeaTest ( void )
 {
     int i = 0 ;
-    
+
     doubleComplex result = DoubleComplex ( 0 , 0) ;
-    
+
     doubleComplex in[LEADDIM*LEADDIM] ;
-    
-    zeyesa ( in , LEADDIM , LEADDIM ) ;
-    
+
+    zeyea ( in , LEADDIM , LEADDIM ) ;
+
     for ( i = 0 ; i <  LEADDIM*LEADDIM ; i++ )
         {
             if ( i%(LEADDIM+1) == 0 )
                 result = DoubleComplex ( 1 , 0 ) ;
             else
                 result = DoubleComplex ( 0 , 0 ) ;
-            
+
          printf ( "\t\t %d in : %e\tresult : %e \n" , i, zreals( in[i]) , zreals ( result ) ) ;
-            
+
          if ( zreals( in[i]) < 1e-14 && zreals( result) < 1e-14 )
             assert(1);
-         else   
+         else
 		    assert ( fabs ( zreals(in[i]) - zreals(result)) / fabs( zreals(in[i])) < 1e-14 ) ;
-         
+
         if ( zimags ( in[i]) < 1e-14 )
             assert (1);
-        else 
+        else
             assert (0);
-         
+
         }
 }
 
@@ -106,55 +107,55 @@ static void zeyesaTest ( void )
 
 
 
-static void ceyesaTest ( void )
+static void ceyeaTest ( void )
 {
     int i = 0 ;
-    
+
     floatComplex result = FloatComplex ( 0 , 0  ) ;
-    
+
     floatComplex in[LEADDIM*LEADDIM] ;
-    
-    ceyesa ( in , LEADDIM , LEADDIM ) ;
-    
+
+    ceyea ( in , LEADDIM , LEADDIM ) ;
+
     for ( i = 0 ; i <  LEADDIM*LEADDIM ; i++)
         {
             if ( i%(LEADDIM+1) == 0 )
                 result = FloatComplex ( 1.0f , 0 ) ;
             else
                 result = FloatComplex ( 0    , 0 ) ;
-            
+
          printf ( "\t\t %d in : %e\tresult : %e \n" , i, creals( in[i]) , creals ( result ) ) ;
          if ( creals( in[i]) < 1e-6 && creals( result) < 1e-6 )
             assert(1);
-         else              
+         else
 		    assert ( fabs ( creals(in[i]) - creals(result)) / fabs( creals(in[i])) < 1e-6 ) ;
-         
+
         if ( cimags ( in[i]) < 1e-6 )
             assert (1);
-        else 
+        else
             assert (0);
-         
+
         }
 }
 
 
 
-static int testExponential(void) {
+static int testEye(void) {
 
   printf("\n>>>> Matrix Exponential Tests\n");
-  printf("\t>>>> Matrix Double Realt Tests\n");  
-  deyesaTest();
+  printf("\t>>>> Matrix Double Realt Tests\n");
+  deyeaTest();
 
-  printf("\n\n\t>>>> Matrix Float Realt Tests\n");     
-  seyesaTest();
-  
+  printf("\n\n\t>>>> Matrix Float Realt Tests\n");
+  seyeaTest();
+
   printf("\n\n\n");
-  printf("\t>>>> Matrix Float Complex Tests\n");      
-  ceyesaTest();  
-    
+  printf("\t>>>> Matrix Float Complex Tests\n");
+  ceyeaTest();
+
   printf("\n\n\n");
-  printf("\t>>>> Matrix Double Complex Tests\n");  
-  zeyesaTest();
+  printf("\t>>>> Matrix Double Complex Tests\n");
+  zeyeaTest();
 
   return 0;
 }
@@ -162,7 +163,7 @@ static int testExponential(void) {
 
 
 int main(void) {
-  assert(testExponential() == 0);
+  assert(testEye() == 0);
   return 0;
 }
 

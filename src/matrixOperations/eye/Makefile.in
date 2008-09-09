@@ -32,9 +32,9 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testMatrixEyes$(EXEEXT)
-TESTS = testMatrixEyes$(EXEEXT)
-subdir = matrixOperations/eyes
+check_PROGRAMS = testMatrixEye$(EXEEXT)
+TESTS = testMatrixEye$(EXEEXT)
+subdir = matrixOperations/eye
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -52,20 +52,20 @@ am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
 am__installdirs = "$(DESTDIR)$(pkglibdir)"
 pkglibLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkglib_LTLIBRARIES)
-libMatrixEyes_la_LIBADD =
+libMatrixEye_la_LIBADD =
 am__objects_1 =
-am_libMatrixEyes_la_OBJECTS = $(am__objects_1) \
-	libMatrixEyes_la-seyesa.lo libMatrixEyes_la-deyesa.lo \
-	libMatrixEyes_la-ceyesa.lo libMatrixEyes_la-zeyesa.lo
-libMatrixEyes_la_OBJECTS = $(am_libMatrixEyes_la_OBJECTS)
-libMatrixEyes_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libMatrixEyes_la_CFLAGS) \
+am_libMatrixEye_la_OBJECTS = $(am__objects_1) libMatrixEye_la-seyea.lo \
+	libMatrixEye_la-deyea.lo libMatrixEye_la-ceyea.lo \
+	libMatrixEye_la-zeyea.lo
+libMatrixEye_la_OBJECTS = $(am_libMatrixEye_la_OBJECTS)
+libMatrixEye_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libMatrixEye_la_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testMatrixEyes_OBJECTS = testMatrixEyes-testMatrixEyes.$(OBJEXT)
-testMatrixEyes_OBJECTS = $(am_testMatrixEyes_OBJECTS)
-testMatrixEyes_DEPENDENCIES = $(check_LDADD)
-testMatrixEyes_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testMatrixEyes_CFLAGS) \
+am_testMatrixEye_OBJECTS = testMatrixEye-testMatrixEye.$(OBJEXT)
+testMatrixEye_OBJECTS = $(am_testMatrixEye_OBJECTS)
+testMatrixEye_DEPENDENCIES = $(check_LDADD)
+testMatrixEye_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testMatrixEye_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
@@ -79,8 +79,8 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libMatrixEyes_la_SOURCES) $(testMatrixEyes_SOURCES)
-DIST_SOURCES = $(libMatrixEyes_la_SOURCES) $(testMatrixEyes_SOURCES)
+SOURCES = $(libMatrixEye_la_SOURCES) $(testMatrixEye_SOURCES)
+DIST_SOURCES = $(libMatrixEye_la_SOURCES) $(testMatrixEye_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -194,20 +194,20 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libMatrixEyes_la_CFLAGS = -I $(top_builddir)/type \
+libMatrixEye_la_CFLAGS = -I $(top_builddir)/type \
 				-I $(top_builddir)/matrixOperations/includes \
 				-I $(top_builddir)/auxiliaryFunctions/includes \
 				-I $(top_builddir)/includes \
 				-I $(top_builddir)/elementaryFunctions/includes
 
 instdir = $(top_builddir)/lib
-pkglib_LTLIBRARIES = libMatrixEyes.la
-HEAD = ../includes/matrixEyes.h
-libMatrixEyes_la_SOURCES = $(HEAD) \
-				seyesa.c \
-				deyesa.c \
-				ceyesa.c \
-				zeyesa.c
+pkglib_LTLIBRARIES = libMatrixEye.la
+HEAD = ../includes/matrixEye.h
+libMatrixEye_la_SOURCES = $(HEAD) \
+				seyea.c \
+				deyea.c \
+				ceyea.c \
+				zeyea.c
 
 check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
@@ -228,17 +228,17 @@ check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
 			$(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/lib/blas/libsciblas.la \
-			libMatrixEyes.la
+			libMatrixEye.la
 
 check_INCLUDES = -I $(top_builddir)/type \
-					-I $(top_builddir)/matrixOperations/includes \
-                    -I $(top_builddir)/auxiliaryFunctions/includes \
-                    -I $(top_builddir)/includes \
-                    -I $(top_builddir)/elementaryFunctions/includes
+			-I $(top_builddir)/matrixOperations/includes \
+			-I $(top_builddir)/auxiliaryFunctions/includes \
+			-I $(top_builddir)/includes \
+		 	-I $(top_builddir)/elementaryFunctions/includes
 
-testMatrixEyes_SOURCES = testMatrixEyes.c
-testMatrixEyes_LDADD = $(check_LDADD)
-testMatrixEyes_CFLAGS = $(check_INCLUDES)
+testMatrixEye_SOURCES = testMatrixEye.c
+testMatrixEye_LDADD = $(check_LDADD)
+testMatrixEye_CFLAGS = $(check_INCLUDES)
 all: all-am
 
 .SUFFIXES:
@@ -252,9 +252,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  matrixOperations/eyes/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  matrixOperations/eye/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  matrixOperations/eyes/Makefile
+	  $(AUTOMAKE) --foreign  matrixOperations/eye/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
@@ -299,8 +299,8 @@ clean-pkglibLTLIBRARIES:
 	  echo "rm -f \"$${dir}/so_locations\""; \
 	  rm -f "$${dir}/so_locations"; \
 	done
-libMatrixEyes.la: $(libMatrixEyes_la_OBJECTS) $(libMatrixEyes_la_DEPENDENCIES) 
-	$(libMatrixEyes_la_LINK) -rpath $(pkglibdir) $(libMatrixEyes_la_OBJECTS) $(libMatrixEyes_la_LIBADD) $(LIBS)
+libMatrixEye.la: $(libMatrixEye_la_OBJECTS) $(libMatrixEye_la_DEPENDENCIES) 
+	$(libMatrixEye_la_LINK) -rpath $(pkglibdir) $(libMatrixEye_la_OBJECTS) $(libMatrixEye_la_LIBADD) $(LIBS)
 
 clean-checkPROGRAMS:
 	@list='$(check_PROGRAMS)'; for p in $$list; do \
@@ -308,9 +308,9 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testMatrixEyes$(EXEEXT): $(testMatrixEyes_OBJECTS) $(testMatrixEyes_DEPENDENCIES) 
-	@rm -f testMatrixEyes$(EXEEXT)
-	$(testMatrixEyes_LINK) $(testMatrixEyes_OBJECTS) $(testMatrixEyes_LDADD) $(LIBS)
+testMatrixEye$(EXEEXT): $(testMatrixEye_OBJECTS) $(testMatrixEye_DEPENDENCIES) 
+	@rm -f testMatrixEye$(EXEEXT)
+	$(testMatrixEye_LINK) $(testMatrixEye_OBJECTS) $(testMatrixEye_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -318,11 +318,11 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixEyes_la-ceyesa.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixEyes_la-deyesa.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixEyes_la-seyesa.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixEyes_la-zeyesa.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testMatrixEyes-testMatrixEyes.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixEye_la-ceyea.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixEye_la-deyea.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixEye_la-seyea.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixEye_la-zeyea.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testMatrixEye-testMatrixEye.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -345,47 +345,47 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
-libMatrixEyes_la-seyesa.lo: seyesa.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixEyes_la_CFLAGS) $(CFLAGS) -MT libMatrixEyes_la-seyesa.lo -MD -MP -MF $(DEPDIR)/libMatrixEyes_la-seyesa.Tpo -c -o libMatrixEyes_la-seyesa.lo `test -f 'seyesa.c' || echo '$(srcdir)/'`seyesa.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixEyes_la-seyesa.Tpo $(DEPDIR)/libMatrixEyes_la-seyesa.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='seyesa.c' object='libMatrixEyes_la-seyesa.lo' libtool=yes @AMDEPBACKSLASH@
+libMatrixEye_la-seyea.lo: seyea.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixEye_la_CFLAGS) $(CFLAGS) -MT libMatrixEye_la-seyea.lo -MD -MP -MF $(DEPDIR)/libMatrixEye_la-seyea.Tpo -c -o libMatrixEye_la-seyea.lo `test -f 'seyea.c' || echo '$(srcdir)/'`seyea.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixEye_la-seyea.Tpo $(DEPDIR)/libMatrixEye_la-seyea.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='seyea.c' object='libMatrixEye_la-seyea.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixEyes_la_CFLAGS) $(CFLAGS) -c -o libMatrixEyes_la-seyesa.lo `test -f 'seyesa.c' || echo '$(srcdir)/'`seyesa.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixEye_la_CFLAGS) $(CFLAGS) -c -o libMatrixEye_la-seyea.lo `test -f 'seyea.c' || echo '$(srcdir)/'`seyea.c
 
-libMatrixEyes_la-deyesa.lo: deyesa.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixEyes_la_CFLAGS) $(CFLAGS) -MT libMatrixEyes_la-deyesa.lo -MD -MP -MF $(DEPDIR)/libMatrixEyes_la-deyesa.Tpo -c -o libMatrixEyes_la-deyesa.lo `test -f 'deyesa.c' || echo '$(srcdir)/'`deyesa.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixEyes_la-deyesa.Tpo $(DEPDIR)/libMatrixEyes_la-deyesa.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='deyesa.c' object='libMatrixEyes_la-deyesa.lo' libtool=yes @AMDEPBACKSLASH@
+libMatrixEye_la-deyea.lo: deyea.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixEye_la_CFLAGS) $(CFLAGS) -MT libMatrixEye_la-deyea.lo -MD -MP -MF $(DEPDIR)/libMatrixEye_la-deyea.Tpo -c -o libMatrixEye_la-deyea.lo `test -f 'deyea.c' || echo '$(srcdir)/'`deyea.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixEye_la-deyea.Tpo $(DEPDIR)/libMatrixEye_la-deyea.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='deyea.c' object='libMatrixEye_la-deyea.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixEyes_la_CFLAGS) $(CFLAGS) -c -o libMatrixEyes_la-deyesa.lo `test -f 'deyesa.c' || echo '$(srcdir)/'`deyesa.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixEye_la_CFLAGS) $(CFLAGS) -c -o libMatrixEye_la-deyea.lo `test -f 'deyea.c' || echo '$(srcdir)/'`deyea.c
 
-libMatrixEyes_la-ceyesa.lo: ceyesa.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixEyes_la_CFLAGS) $(CFLAGS) -MT libMatrixEyes_la-ceyesa.lo -MD -MP -MF $(DEPDIR)/libMatrixEyes_la-ceyesa.Tpo -c -o libMatrixEyes_la-ceyesa.lo `test -f 'ceyesa.c' || echo '$(srcdir)/'`ceyesa.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixEyes_la-ceyesa.Tpo $(DEPDIR)/libMatrixEyes_la-ceyesa.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ceyesa.c' object='libMatrixEyes_la-ceyesa.lo' libtool=yes @AMDEPBACKSLASH@
+libMatrixEye_la-ceyea.lo: ceyea.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixEye_la_CFLAGS) $(CFLAGS) -MT libMatrixEye_la-ceyea.lo -MD -MP -MF $(DEPDIR)/libMatrixEye_la-ceyea.Tpo -c -o libMatrixEye_la-ceyea.lo `test -f 'ceyea.c' || echo '$(srcdir)/'`ceyea.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixEye_la-ceyea.Tpo $(DEPDIR)/libMatrixEye_la-ceyea.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ceyea.c' object='libMatrixEye_la-ceyea.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixEyes_la_CFLAGS) $(CFLAGS) -c -o libMatrixEyes_la-ceyesa.lo `test -f 'ceyesa.c' || echo '$(srcdir)/'`ceyesa.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixEye_la_CFLAGS) $(CFLAGS) -c -o libMatrixEye_la-ceyea.lo `test -f 'ceyea.c' || echo '$(srcdir)/'`ceyea.c
 
-libMatrixEyes_la-zeyesa.lo: zeyesa.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixEyes_la_CFLAGS) $(CFLAGS) -MT libMatrixEyes_la-zeyesa.lo -MD -MP -MF $(DEPDIR)/libMatrixEyes_la-zeyesa.Tpo -c -o libMatrixEyes_la-zeyesa.lo `test -f 'zeyesa.c' || echo '$(srcdir)/'`zeyesa.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixEyes_la-zeyesa.Tpo $(DEPDIR)/libMatrixEyes_la-zeyesa.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zeyesa.c' object='libMatrixEyes_la-zeyesa.lo' libtool=yes @AMDEPBACKSLASH@
+libMatrixEye_la-zeyea.lo: zeyea.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixEye_la_CFLAGS) $(CFLAGS) -MT libMatrixEye_la-zeyea.lo -MD -MP -MF $(DEPDIR)/libMatrixEye_la-zeyea.Tpo -c -o libMatrixEye_la-zeyea.lo `test -f 'zeyea.c' || echo '$(srcdir)/'`zeyea.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixEye_la-zeyea.Tpo $(DEPDIR)/libMatrixEye_la-zeyea.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zeyea.c' object='libMatrixEye_la-zeyea.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixEyes_la_CFLAGS) $(CFLAGS) -c -o libMatrixEyes_la-zeyesa.lo `test -f 'zeyesa.c' || echo '$(srcdir)/'`zeyesa.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixEye_la_CFLAGS) $(CFLAGS) -c -o libMatrixEye_la-zeyea.lo `test -f 'zeyea.c' || echo '$(srcdir)/'`zeyea.c
 
-testMatrixEyes-testMatrixEyes.o: testMatrixEyes.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixEyes_CFLAGS) $(CFLAGS) -MT testMatrixEyes-testMatrixEyes.o -MD -MP -MF $(DEPDIR)/testMatrixEyes-testMatrixEyes.Tpo -c -o testMatrixEyes-testMatrixEyes.o `test -f 'testMatrixEyes.c' || echo '$(srcdir)/'`testMatrixEyes.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatrixEyes-testMatrixEyes.Tpo $(DEPDIR)/testMatrixEyes-testMatrixEyes.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMatrixEyes.c' object='testMatrixEyes-testMatrixEyes.o' libtool=no @AMDEPBACKSLASH@
+testMatrixEye-testMatrixEye.o: testMatrixEye.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixEye_CFLAGS) $(CFLAGS) -MT testMatrixEye-testMatrixEye.o -MD -MP -MF $(DEPDIR)/testMatrixEye-testMatrixEye.Tpo -c -o testMatrixEye-testMatrixEye.o `test -f 'testMatrixEye.c' || echo '$(srcdir)/'`testMatrixEye.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatrixEye-testMatrixEye.Tpo $(DEPDIR)/testMatrixEye-testMatrixEye.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMatrixEye.c' object='testMatrixEye-testMatrixEye.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixEyes_CFLAGS) $(CFLAGS) -c -o testMatrixEyes-testMatrixEyes.o `test -f 'testMatrixEyes.c' || echo '$(srcdir)/'`testMatrixEyes.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixEye_CFLAGS) $(CFLAGS) -c -o testMatrixEye-testMatrixEye.o `test -f 'testMatrixEye.c' || echo '$(srcdir)/'`testMatrixEye.c
 
-testMatrixEyes-testMatrixEyes.obj: testMatrixEyes.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixEyes_CFLAGS) $(CFLAGS) -MT testMatrixEyes-testMatrixEyes.obj -MD -MP -MF $(DEPDIR)/testMatrixEyes-testMatrixEyes.Tpo -c -o testMatrixEyes-testMatrixEyes.obj `if test -f 'testMatrixEyes.c'; then $(CYGPATH_W) 'testMatrixEyes.c'; else $(CYGPATH_W) '$(srcdir)/testMatrixEyes.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatrixEyes-testMatrixEyes.Tpo $(DEPDIR)/testMatrixEyes-testMatrixEyes.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMatrixEyes.c' object='testMatrixEyes-testMatrixEyes.obj' libtool=no @AMDEPBACKSLASH@
+testMatrixEye-testMatrixEye.obj: testMatrixEye.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixEye_CFLAGS) $(CFLAGS) -MT testMatrixEye-testMatrixEye.obj -MD -MP -MF $(DEPDIR)/testMatrixEye-testMatrixEye.Tpo -c -o testMatrixEye-testMatrixEye.obj `if test -f 'testMatrixEye.c'; then $(CYGPATH_W) 'testMatrixEye.c'; else $(CYGPATH_W) '$(srcdir)/testMatrixEye.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatrixEye-testMatrixEye.Tpo $(DEPDIR)/testMatrixEye-testMatrixEye.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMatrixEye.c' object='testMatrixEye-testMatrixEye.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixEyes_CFLAGS) $(CFLAGS) -c -o testMatrixEyes-testMatrixEyes.obj `if test -f 'testMatrixEyes.c'; then $(CYGPATH_W) 'testMatrixEyes.c'; else $(CYGPATH_W) '$(srcdir)/testMatrixEyes.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixEye_CFLAGS) $(CFLAGS) -c -o testMatrixEye-testMatrixEye.obj `if test -f 'testMatrixEye.c'; then $(CYGPATH_W) 'testMatrixEye.c'; else $(CYGPATH_W) '$(srcdir)/testMatrixEye.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
