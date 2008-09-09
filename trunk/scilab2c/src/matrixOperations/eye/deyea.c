@@ -10,12 +10,12 @@
  *
  */
 
-#include "matrixEyes.h"
+#include "eye.h"
 
-void deyesa(double *in, int _iRows, int _iCols)
+void deyea(double *in, int _iRows, int _iCols)
 {
     int i  ;
-    
+
     for ( i = 0 ; i < _iRows*_iCols ; i++ )
                 in[i] =  (i%(_iCols+1) == 0)?1:0  ;
 }
