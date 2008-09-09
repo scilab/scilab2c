@@ -11,6 +11,7 @@
 ##
 
 SUBDIRS=	abs \
+		conj \
 		find \
 		isempty \
 		isnan \
