@@ -10,7 +10,6 @@
  *
  */
 
-#include "complex.h"
 #include "pythag.h"
 
 floatComplex	cpythags(floatComplex x, floatComplex y) {
