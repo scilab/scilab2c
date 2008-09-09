@@ -10,17 +10,15 @@
  *
  */
 
-#include "matrixEyes.h"
+#include "eye.h"
 
-
-
-void zeyesa(doubleComplex *in, int _iRows, int _iCols)
+void zeyea(doubleComplex *in, int _iRows, int _iCols)
 {
     int i  ;
-    
+
     for ( i = 0 ; i < _iRows*_iCols ; i++ )
         in[i] = DoubleComplex ( (i%(_iCols+1) == 0)?1:0 , 0) ;
-                
+
 
 }
 
