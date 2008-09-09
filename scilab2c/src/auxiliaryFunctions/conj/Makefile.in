@@ -34,7 +34,7 @@ build_triplet = @build@
 host_triplet = @host@
 check_PROGRAMS = testConj$(EXEEXT)
 TESTS = testConj$(EXEEXT)
-subdir = elementaryFunctions/conj
+subdir = auxiliaryFunctions/conj
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -236,9 +236,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  elementaryFunctions/conj/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  auxiliaryFunctions/conj/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  elementaryFunctions/conj/Makefile
+	  $(AUTOMAKE) --foreign  auxiliaryFunctions/conj/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
