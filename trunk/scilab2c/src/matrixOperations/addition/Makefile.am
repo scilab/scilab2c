@@ -11,7 +11,8 @@
 ##
 
 libMatrixAddition_la_CFLAGS =	-I $(top_builddir)/type \
-				-I $(top_builddir)/matrixOperations/includes
+				-I $(top_builddir)/matrixOperations/includes \
+				-I $(top_builddir)/operations/includes
 
 instdir = $(top_builddir)/lib
 
@@ -29,10 +30,12 @@ check_PROGRAMS = 	testMatrixAddition
 
 check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/operations/addition/libAddition.la \
 			libMatrixAddition.la
 
 check_INCLUDES =	-I $(top_builddir)/type \
-			-I $(top_builddir)/matrixOperations/includes
+			-I $(top_builddir)/matrixOperations/includes \
+			-I $(top_builddir)/operations/includes
 
 testMatrixAddition_SOURCES = testMatrixAddition.c
 testMatrixAddition_LDADD = $(check_LDADD)

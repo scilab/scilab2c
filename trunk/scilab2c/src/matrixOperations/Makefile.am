@@ -11,16 +11,16 @@
 ##
 
 SUBDIRS= 	addition \
-		subtraction \
-		multiplication \
-		division \
 		cat \
-		transpose \
 		division \
-		trace \
-		hilbert \
 		expm \
-		infiniteNorm \
 		eyes \
-		inversion
+		hilbert \
+		infiniteNorm \
+		multiplication \
+		subtraction \
+		trace \
+		transpose
+
+#		inversion
 
