@@ -16,12 +16,21 @@
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+/*
+** \brief create a float Eye matrix
+*/
 void seyea(float* in, int _iRows, int _iCols);
-
+/*
+** \brief create a Double Eye matrix
+*/
 void deyea(double* in, int _iRows, int _iCols);
-
+/*
+** \brief create a float complex Eye matrix
+*/
 void ceyea(floatComplex* in, int _iRows, int _iCols);
-
+/*
+** \brief create a Double complex Eye matrix
+*/
 void zeyea(doubleComplex* in, int _iRows, int _iCols);
 
 
