@@ -181,6 +181,7 @@ matrixOperations/trace/Makefile
 matrixOperations/hilbert/Makefile
 matrixOperations/expm/Makefile
 matrixOperations/eye/Makefile
+matrixOperations/ones/Makefile
 matrixOperations/infiniteNorm/Makefile
 matrixOperations/inversion/Makefile
 implicitList/Makefile
