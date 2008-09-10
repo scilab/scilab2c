@@ -17,7 +17,7 @@
 void zinverma ( doubleComplex* in, doubleComplex* out, int leadDimIn )
 {
    int info = 0 ;
-   int* vectPivot = (int*) malloc ( sizeof(int) * (unsigned int)( leadDimIn*leadDimIn) );
+   int* vectPivot = (int*) malloc ( sizeof(int) * (unsigned int)( leadDimIn) );
    doubleComplex* work  =  (doubleComplex*) malloc ( sizeof(doubleComplex) * (unsigned int) (leadDimIn*leadDimIn) );
 
    int i = 0 ;
@@ -27,9 +27,7 @@ void zinverma ( doubleComplex* in, doubleComplex* out, int leadDimIn )
          out[i] = in[i] ;
       }
 
-    printf ("avant dgefa\n");
     zgetrf_ ( &leadDimIn, &leadDimIn, out, &leadDimIn, vectPivot, &info );   
-printf ("avant dge\n");
     zgetri_ ( &leadDimIn, out, &leadDimIn , vectPivot,  work , &leadDimIn , &info ); 
 
 
