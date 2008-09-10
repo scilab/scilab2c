@@ -20,7 +20,8 @@ SUBDIRS= 	addition \
 		multiplication \
 		subtraction \
 		trace \
-		transpose
+		transpose \
+		ones
 
 #		inversion
 
