@@ -11,10 +11,7 @@
 ##
 
 libMatrixOnes_la_CFLAGS =	-I $(top_builddir)/type \
-				-I $(top_builddir)/matrixOperations/includes \
-				-I $(top_builddir)/auxiliaryFunctions/includes \
-				-I $(top_builddir)/includes \
-				-I $(top_builddir)/elementaryFunctions/includes
+				-I $(top_builddir)/matrixOperations/includes
 
 
 instdir = $(top_builddir)/lib
@@ -33,29 +30,10 @@ check_PROGRAMS = 	testMatrixOnes
 
 check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-			$(top_builddir)/auxiliaryFunctions/sign/libSign.la \
-			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-			$(top_builddir)/auxiliaryFunctions/frexp/libFrexp.la \
-			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-			$(top_builddir)/elementaryFunctions/exp/libExp.la \
-			$(top_builddir)/elementaryFunctions/cos/libCos.la \
-			$(top_builddir)/elementaryFunctions/pow/libPow.la \
-			$(top_builddir)/elementaryFunctions/log/libLog.la \
-			$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
-			$(top_builddir)/elementaryFunctions/lnp1m1/libLnp1m1.la\
-			$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
-			$(top_builddir)/elementaryFunctions/sin/libSin.la \
-			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
-			$(top_builddir)/lib/blas/libsciblas.la \
 			libMatrixOnes.la
 
 check_INCLUDES =	-I $(top_builddir)/type \
-			-I $(top_builddir)/matrixOperations/includes \
-			-I $(top_builddir)/auxiliaryFunctions/includes \
-			-I $(top_builddir)/includes \
-		 	-I $(top_builddir)/elementaryFunctions/includes
+			-I $(top_builddir)/matrixOperations/includes
 
 testMatrixOnes_SOURCES = testMatrixOnes.c
 testMatrixOnes_LDADD = $(check_LDADD)
