@@ -33,7 +33,9 @@ void dfft2 ( double* a , double* b , int nseg , int n , int nspn , int isn , int
    iw[3] = lw ;
    iw[4] = 10 ;
 
-   dfftbi ( a , b , nseg , n , nspn , isn , ierr ,iIw[0], iIw[1], iIw[2], iIw[3], iIw[4], iw, iIw);
+   dfftbi ( a   , b     , nseg  , n      , nspn ,
+            isn , ierr  , iIw[0], iIw[1] , iIw[2],
+            iIw[3], iIw[4], iw, iIw );
 
 
 

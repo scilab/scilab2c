@@ -12,37 +12,53 @@
 
 #include "fft_internal.h"
 
-void r4tx ( int _iDimen , double* _pdblReal, double* _pdblImag)
+
+
+/*
+** radix 4 iteration subroutine
+*/
+void r4tx( int nthpo, doubleComplex* c0, doubleComplex* c1, doubleComplex* c2, doubleComplex* c3)
 {
-   double dblTemp1 ;
-   double dblTemp2 ;
-   double dblTemp3 ;
-   double dblTemp4 ;
+  int k,kk;
+  doubleComplex temp1 , temp2 , temp3 , temp4 ;
 
-   int i = 0 ;
+  for(k=1;k<=nthpo;k+=4)
+    {
+      kk = (k-1)*2;  /* real and imag parts alternate */
 
-   for (  i = 0 ;  i < _iDimen ; i += 4 )
-      {
-         /*for real part */
-         dblTemp1  = _pdblReal[i+0] + _pdblReal[i+2] ;
-         dblTemp2  = _pdblReal[i+0] - _pdblReal[i+2] ;
-         dblTemp3  = _pdblReal[i+1] + _pdblReal[i+3] ;
-         dblTemp4  = _pdblReal[i+1] - _pdblReal[i+3] ;
 
-        _pdblReal[i+0] = dblTemp1 + dblTemp3;
-        _pdblReal[i+0] = dblTemp1 - dblTemp3;
-        _pdblReal[i+2] = dblTemp2 + dblTemp4;
-        _pdblReal[i+3] = dblTemp2 - dblTemp4;
+	temp1 = zadds ( c0[kk] , c2[kk] ) ;
+	temp2 = zdiffs( c0[kk] , c2[kk] ) ;
+	temp3 = zadds ( c1[kk] , c3[kk] ) ;
+	temp4 = zdiffs( c1[kk] , c3[kk] ) ;
+/*
+      r1 = cr0[kk] + cr2[kk];
+      r2 = cr0[kk] - cr2[kk];
+      r3 = cr1[kk] + cr3[kk];
+      r4 = cr1[kk] - cr3[kk];
 
-        /*for imaginary part */
-         dblTemp1  = _pdblImag[i+0] + _pdblImag[i+2] ;
-         dblTemp2  = _pdblImag[i+0] - _pdblImag[i+2] ;
-         dblTemp3  = _pdblImag[i+1] + _pdblImag[i+3] ;
-         dblTemp4  = _pdblImag[i+1] - _pdblImag[i+3] ;
 
-        _pdblImag[i+0] = dblTemp1 + dblTemp3;
-        _pdblImag[i+1] = dblTemp1 - dblTemp3;
-        _pdblImag[i+2] = dblTemp2 + dblTemp4;
-        _pdblImag[i+3] = dblTemp2 - dblTemp4;
-      }
+      i1 = ci0[kk] + ci2[kk];
+      i2 = ci0[kk] - ci2[kk];
+      i3 = ci1[kk] + ci3[kk];
+      i4 = ci1[kk] - ci3[kk];
+*/
+	c0[kk] = zadds ( temp1 , temp3 );
+	c1[kk] = zdiffs( temp1 , temp3 );
+
+/*
+      cr0[kk] = r1 + r3;
+      ci0[kk] = i1 + i3;
+      cr1[kk] = r1 - r3;
+      ci1[kk] = i1 - i3;
+*/
+	c2[kk] = DoubleComplex ( zreals ( temp2 ) - zimags( temp4 ) , zimags ( temp2 ) + zreals( temp4 ) );
+	c3[kk] = DoubleComplex ( zreals ( temp2 ) + zimags( temp4 ) , zimags ( temp2 ) - zreals( temp4 ) );
+/*
+      cr2[kk] = r2 - i4;
+      ci2[kk] = i2 + r4;
+      cr3[kk] = r2 + i4;
+      ci3[kk] = i2 - r4;
+*/
+    }
 }

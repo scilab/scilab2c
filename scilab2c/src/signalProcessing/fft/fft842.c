@@ -11,138 +11,180 @@
  */
 
 #include "fft_internal.h"
+#include <stdio.h>
 
-void fft842 ( int _iDirect , int _iDimen , double* _pdblReal , double* _pdblImag , int _err )
+
+
+/* get binary log of integer argument; exact if n a power of 2 */
+static int fastlog2( int n)
 {
-   int i  = 0 ;
-   int ipass = 1 ;
+  int log = -1;
+  while(n) {
+    log++;
+    n >>= 1;
+  }
+  return(log);
+}
+
+/*
+     int in;  FORWARD or INVERSE
+     int n;   length of vector
+     DPCOMPLEX *b;  input vector
+*/
+void fft842 (doubleComplex* b, int size , int in)
+{
+  double fn;
+  doubleComplex temp ;
+
+  int L[16],L1,L2,L3,L4,L5,L6,L7,L8,L9,L10,L11,L12,L13,L14,L15;
+  int j1,j2,j3,j4,j5,j6,j7,j8,j9,j10,j11,j12,j13,j14;
+  int i, j, ij, ji, ij1, ji1;
+  int  n2pow, n8pow, nthpo, ipass, nxtlt, lengt;
+
+  n2pow = fastlog2( size );
+  nthpo = size ;
+  fn = 1.0 / (double)nthpo;
 
 
-   int ij ;
-   int ji ;
-   int j1, j2, j3, j4, j5, j6, j7, j8, j9, j10, j11, j12, j13, j14;
-   int iPow2ofDimen  ;
-   int iTempDimen = 1 ;
-   int iTemp2Pow2ofDimen ;
-   int iPow8ofDimen ;
-   int iLengt  ;
-   int CRES = 0 ;
+  if(in==FORWARD)
+    /* take conjugate  */
+    for(i=0;i< size ;i++) {
+	b[i] = DoubleComplex ( zreals( b[i]) , - zimags (b[i]));
 
-   int l[15] ;
+     /* b[i].im *= -1.0;*/
+    }
 
-
-
-   double dblTemp ;
-
-   do
+  if(in==INVERSE)
+    /*scramble inputs*/
+    for(i=0,j=size/2;j<size;i++,j++)
       {
-         iPow2ofDimen = i ;
-         if ( i != 0)
-            iTempDimen  *= 2 ;
-         i++;
-      }while ( _iDimen != iTempDimen || i < 15 );
+	temp = DoubleComplex ( zreals ( b[j] ) , zimags( b[j] ));
+	b[j] = DoubleComplex ( zreals ( b[i] ) , zimags( b[i] ));
+	b[i] = DoubleComplex ( zreals ( temp ) , zimags( temp ));
 
-   if ( _iDimen != iTempDimen)
+	/*
+	r = b[j].re; fi = b[j].im;
+	b[j].re = b[i].re; b[j].im = b[i].im;
+	b[i].re = r; b[i].im = fi;
+	*/
+      }
+
+  n8pow = n2pow/3;
+
+  if(n8pow)
+    {
+      /* radix 8 iterations */
+      for(ipass=1;ipass<=n8pow;ipass++)
+	{
+	  nxtlt = 0x1 << (n2pow - 3*ipass);
+	  lengt = 8*nxtlt;
+	  printf ( "on appelle r%dtx \n" , 8);
+	  	  r8tx(nxtlt,nthpo,lengt,
+	       b,b+nxtlt,b+2*nxtlt,
+	       b+3*nxtlt,b+4*nxtlt,b+5*nxtlt,
+	       b+6*nxtlt,b+7*nxtlt);
+	}
+    }
+
+  if(n2pow%3 == 1)
+    {
+      /* radix 2 iteration needed */
+      printf ( "on appelle r%dtx \n" , 2);
+	r2tx(nthpo,b,b+1);
+    }
+
+
+  if(n2pow%3 == 2)
+    {
+      /* radix 4 iteration needed */
+      printf ( "on appelle r%dtx \n" , 4);
+      r4tx(nthpo,b,b+1,b+2,b+3);
+    }
+
+
+
+  for(j=1;j<=15;j++)
+    {
+      L[j] = 1;
+      if(j-n2pow <= 0) L[j] = 0x1 << (n2pow + 1 - j);
+    }
+  L15=L[1];L14=L[2];L13=L[3];L12=L[4];L11=L[5];L10=L[6];L9=L[7];
+  L8=L[8];L7=L[9];L6=L[10];L5=L[11];L4=L[12];L3=L[13];L2=L[14];L1=L[15];
+
+  ij = 1;
+
+
+  for(j1=1;j1<=L1;j1++)
+  for(j2=j1;j2<=L2;j2+=L1)
+  for(j3=j2;j3<=L3;j3+=L2)
+  for(j4=j3;j4<=L4;j4+=L3)
+  for(j5=j4;j5<=L5;j5+=L4)
+  for(j6=j5;j6<=L6;j6+=L5)
+  for(j7=j6;j7<=L7;j7+=L6)
+  for(j8=j7;j8<=L8;j8+=L7)
+  for(j9=j8;j9<=L9;j9+=L8)
+  for(j10=j9;j10<=L10;j10+=L9)
+  for(j11=j10;j11<=L11;j11+=L10)
+  for(j12=j11;j12<=L12;j12+=L11)
+  for(j13=j12;j13<=L13;j13+=L12)
+  for(j14=j13;j14<=L14;j14+=L13)
+  for(ji=j14;ji<=L15;ji+=L14)
+    {
+      ij1 = ij-1;
+      ji1 = ji-1;
+
+      if(ij-ji<0)
+	{
+	  temp   = b[ij1];
+	  b[ij1] = b[ji1];
+	  b[ji1] = temp;
+
+	/*
+	  r = b[ij1].re;
+	  b[ij1].re = b[ji1].re;
+	  b[ji1].re = r;
+	  fi = b[ij1].im;
+	  b[ij1].im = b[ji1].im;
+	  b[ji1].im = fi;
+	*/
+	}
+      ij++;
+    }
+
+  if(in==FORWARD)  /* take conjugates & unscramble outputs */
+    for(i=0,j=size/2;j<size;i++,j++)
+	{
+	temp = DoubleComplex ( zreals ( b[j] ) ,- zimags( b[j] ));
+	b[j] = DoubleComplex ( zreals ( b[i] ) ,- zimags( b[i] ));
+	b[i] = DoubleComplex ( zreals ( temp ) , zimags( temp ));
+
+
+	/*  r = b[j].re; fi = b[j].im;
+	  b[j].re = b[i].re; b[j].im = -b[i].im;
+	  b[i].re = r; b[i].im = -fi;
+	*/
+	}
+
+
+  if(in==INVERSE) /* scale outputs */
+    for(i=0;i<nthpo;i++)
       {
-      _err = 1 ;
-      return ;
-      }
 
-   _err = 0 ;
-
-   if ( _iDirect == 0 )
-      for ( i = 0 ; i < _iDimen ; i++)
-         {
-          _pdblImag[i] *= -1 ;
-         }
-
-   iPow8ofDimen = iPow2ofDimen / 3 ;
-   if ( iPow8ofDimen != 0 )
-      {
-      /* development of the algo in 8-base if ... */
-      for ( ipass = 1 ; i < iPow8ofDimen ; i++ )
-         {
-           iTemp2Pow2ofDimen = 1 << ( iPow2ofDimen - 3*ipass ) ;
-            iLengt = iTemp2Pow2ofDimen * 8 ;
-            r8tx( iTemp2Pow2ofDimen, _iDimen, iLengt, _pdblReal, _pdblImag );
-         }
-      }
-
-   CRES = iPow2ofDimen - 3*iPow8ofDimen - 1 ;
-
-   if ( CRES >=  0)
-      {
-         if ( CRES == 0 )
-             {
-               r2tx ( _iDimen , _pdblReal , _pdblImag) ;
-
-             }
-         else
-             {
-               r4tx ( _iDimen , _pdblReal , _pdblImag) ;
-             }
-      }
-
-   for ( i = 14 ; i >= 0 ; i-- )
-      {
-         l[i] = 1 ;
-         CRES = i - iPow2ofDimen ;
-         if ( CRES <= 0)
-            l[i] = 1 << ( iPow2ofDimen + 1 -i ) ;
-
+	b[i] =  DoubleComplex ( zreals ( b[i] )*fn , zimags( b[i] )*fn);
 
       }
 
-     ij = 0 ;
 
 
-      for ( j1=0  ; j1 < l[1-1] ;  j1++ )
-      for ( j2=j1 ; j2 < l[2-1] ;  j2 += l[1-1] )
-      for ( j3=j2 ; j3 < l[3-1] ;  j3 += l[2-1] )
-      for ( j4=j3 ; j4 < l[4-1] ;  j4 += l[3-1] )
-      for ( j5=j4 ; j5 < l[5-1] ;  j5 += l[4-1] )
-      for ( j6=j5 ; j6 < l[6-1] ;  j6 += l[5-1] )
-      for ( j7=j6 ; j7 < l[7-1] ;  j7 += l[6-1] )
-      for ( j8=j7 ; j8 < l[8-1] ;  j8 += l[7-1] )
-      for ( j9=j8 ; j9 < l[9-1] ;  j9 += l[8-1] )
-      for ( j10=j9 ; j10 < l[10-1] ;  j10 += l[9-1] )
-      for ( j11=j10 ; j11 < l[11-1] ;  j11 += l[10-1] )
-      for ( j12=j11 ; j12 < l[12-1] ;  j12 += l[11-1] )
-      for ( j13=j12 ; j13 < l[13-1] ;  j13 += l[12-1] )
-      for ( j14=j13 ; j14 < l[14-1] ;  j14 += l[13-1] )
-      for ( ji=j14 ; ji < l[15-1] ;  ji += l[14-1]  )
-         {
-            CRES = ij - ji ;
-            if ( CRES < 0 )
-               {
-                  dblTemp        = _pdblReal[ij];
-                  _pdblReal[ij]  = _pdblReal[ji];
-                  _pdblReal[ji]  = dblTemp;
-                  dblTemp        = _pdblImag[ij];
-                  _pdblImag[ij]  = _pdblImag[ji];
-                  _pdblImag[ji]  = dblTemp;
-
-               }
-            ij ++ ;
-         }
+       for ( i = 0 ; i < size /2 ; i++)
+        {
+          temp =  b[i] ;
+          b[i] =  b[i+(size/2)];
+          b[i+(size/2)]= temp ;
 
 
 
-   /*130*/
-   if ( _iDirect == 0 )
-     {
-      for ( i = 0 ; i < _iDimen ; i++)
-         {
-          _pdblImag[i] *= -1 ;
-         }
-      }
-   else
-     {
-      for ( i = 0 ; i < _iDimen ; i++)
-         {
-          _pdblReal[i] /= _iDimen ;
-          _pdblImag[i] /= _iDimen ;
-         }
-      }
+        }
+
 
 }

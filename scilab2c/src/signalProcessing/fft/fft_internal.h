@@ -13,6 +13,11 @@
 #ifndef __FFT_INTERNAL_H__
 #define __FFT_INTERNAL_H__
 
+#include "addition.h"
+#include "subtraction.h"
+
+#define FORWARD	0
+#define INVERSE 1
 void dfft2 ( double* a , double* b , int nseg , int n , int nspn ,
              int isn , int ierr, double* iw , int lw );
 
@@ -22,12 +27,13 @@ void dfftbi ( double* a , double* b , int nseg , int n , int nspn ,
               int isn , int ierr, int lout , int lnow ,
               int lused ,int lmax , int lbook , double* rstak , int* istakk );
 
-void fft842 ( int _iDirect , int _iDimen , double* _pdblReal , double* _pdblImag , int _err );
+void fft842 (doubleComplex* b, int size , int in);
 
-void r2tx ( int _iDimen , double* _pdblReal, double* _pdblImag );
-void r4tx ( int _iDimen , double* _pdblReal, double* _pdblImag) ;
-void r8tx ( int _iTempDimen , int _iDimen , int _iLengt ,  double* _pdblReal, double* _pdblImag );
-
+void r2tx(int nthpo, doubleComplex* c0, doubleComplex* c1);
+void r4tx( int nthpo, doubleComplex* c0, doubleComplex* c1, doubleComplex* c2, doubleComplex* c3);
+void r8tx ( int nxtlt,int nthpo,int lengt,
+            doubleComplex* cc0,doubleComplex* cc1,doubleComplex* cc2,doubleComplex* cc3,
+            doubleComplex* cc4,doubleComplex* cc5,doubleComplex* cc6,doubleComplex* cc7);
 
 int dfftmx ( double* _pdblA , double* _pdblB , int _iNtot, int _iN, int _iNspan,
              int _iIsn, int _iM, int _iKt, double* _pdblWt, double* _pdblCk,
