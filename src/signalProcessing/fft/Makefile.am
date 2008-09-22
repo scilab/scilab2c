@@ -15,6 +15,7 @@
 libFft_la_CFLAGS =	-I . \
 			-I $(top_builddir)/type \
 			-I $(top_builddir)/signalProcessing/includes \
+			-I $(top_builddir)/operations/includes \
 			-I $(top_builddir)/auxiliaryFunctions/includes
 
 instdir = $(top_builddir)/lib
@@ -25,7 +26,8 @@ libFft_la_SOURCES =  $(HEAD) $(SRC)
 
 HEAD =	../includes/fft.h
 
-SRC	=		dfft2.c \
+SRC	=		zfftma.c \
+            		dfft2.c \
 			dfftbi.c \
 			dfftmx.c \
 			fft842.c \
@@ -38,12 +40,20 @@ SRC	=		dfft2.c \
 # Checking Part
 ####
 
-check_INCLUDES	=	-I $(top_builddir)/signalProcessing/includes \
-			-I $(top_builddir)/type
+check_INCLUDES	=	-I . \
+			-I $(top_builddir)/type \
+			-I $(top_builddir)/signalProcessing/includes \
+			-I $(top_builddir)/operations/includes \
+			-I $(top_builddir)/auxiliaryFunctions/includes
+
 
 check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/elementaryFunctions/fft/libFft.la \
+			$(top_builddir)/lib/lapack/libscilapack.la \
+			$(top_builddir)/lib/blas/libsciblas.la \
+			$(top_builddir)/signalProcessing/fft/libFft.la \
+			$(top_builddir)/operations/addition/libAddition.la \
+			$(top_builddir)/operations/subtraction/libSubtraction.la \
 			@LIBMATH@
 
 check_PROGRAMS	= 	testFloatFft testDoubleFft

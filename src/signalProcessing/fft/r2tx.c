@@ -11,25 +11,37 @@
  */
 
 #include "fft_internal.h"
-
-void r2tx ( int _iDimen , double* _pdblReal, double* _pdblImag )
+#include <stdio.h>
+/*
+** radix 2 iteration subroutine
+*/
+void r2tx(int nthpo, doubleComplex* c0, doubleComplex* c1)
 {
-   double dblTemp ;
+  int k,kk;
+ /* double *cr0, *ci0, *cr1, *ci1, r1, fi1;*/
+ doubleComplex temp ;
+
+/*  cr0 = &(c0[0].re);
+  ci0 = &(c0[0].im);
+  cr1 = &(c1[0].re);
+  ci1 = &(c1[0].im);*/
+
+  for(k=0;k<nthpo;k+=2)
+    {
+      kk = k*2;
+
+    temp   = zadds ( c0[kk] , c1[kk] );
+	c1[kk] = zdiffs( c0[kk] , c1[kk] );
+	c0[kk] = DoubleComplex ( zreals ( temp ) , zimags( temp ));
+/*
+      r1 = cr0[kk] + cr1[kk];
+      cr1[kk] = cr0[kk] - cr1[kk];
+      cr0[kk] = r1;
 
 
-   int i = 0 ;
-
-   for ( i = 0 ; i < _iDimen ;  i += 2 )
-      {
-         /*for real part */
-         dblTemp        = _pdblReal[i] + _pdblReal[i+1] ;
-         _pdblReal[i+1] = _pdblReal[i] - _pdblReal[i+1] ;
-         _pdblReal[i+0] = dblTemp ;
-         /*for imaginary one */
-         dblTemp         = _pdblImag[i] + _pdblImag[i+1] ;
-         _pdblImag[i+1] = _pdblImag[i] - _pdblImag[i+1] ;
-         _pdblImag[i]   = dblTemp ;
-
-
-      }
+      fi1 = ci0[kk] + ci1[kk];
+      ci1[kk] = ci0[kk] - ci1[kk];
+      ci0[kk] = fi1;
+*/
+    }
 }

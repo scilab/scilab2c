@@ -11,10 +11,13 @@
  */
 
 #include <stdlib.h>
+#include <stdio.h>
 #include "max.h"
 #include "fft_internal.h"
 
-void dfftbi ( double* a , double* b , int nseg , int n , int nspn , int isn , int ierr, int lout , int lnow , int lused , int lmax , int lbook , double* rstak , int* istak )
+void dfftbi ( double* a , double* b , int nseg , int n    , int nspn  ,
+              int isn   , int ierr  , int lout , int lnow , int lused ,
+              int lmax  , int lbook , double* rstak , int* istak )
 {
 
    int nfac[15] ;
@@ -31,7 +34,7 @@ void dfftbi ( double* a , double* b , int nseg , int n , int nspn , int isn , in
    int nspan ;
    int nitems ;
    int ntot ;
-   int maxp ;
+   int maxp  = 0;
    int maxf ;
    int itype;
    int istkgt ;
@@ -40,13 +43,15 @@ void dfftbi ( double* a , double* b , int nseg , int n , int nspn , int isn , in
    int nf = abs ( n ) ;
 
    ierr = 0 ;
-
+  printf ( "debut de dfftbi \n" ); 
    /*determine the factors of n */
 
 
    if ( nf == 1)
+    {   
+      printf ( "argh return 1 \n" );   
       return ;
-
+    }
    k = nf ;
 
    nspan = abs ( nf*nspn ) ;
@@ -55,16 +60,18 @@ void dfftbi ( double* a , double* b , int nseg , int n , int nspn , int isn , in
    if ( isn*ntot == 0 )
       {
       ierr = 1 ;
+      printf ( "argh return 2 \n" );      
       return  ;
       }
 
 
-   while ( (k & 15) == 0 )
+   do
       {
          m++;
-         nfac[m-1] = j ;
+         printf ("m %d ,k %d ,k2 %d\n" , m , k ,(int) (k/16)*16 ); 
+         nfac[m-1] = 4 ;
          k = k >> 4 ;
-      }
+      }while ( (k- (int)(k/16)*16 ) == 0 );
 
    do
       {
@@ -81,7 +88,7 @@ void dfftbi ( double* a , double* b , int nseg , int n , int nspn , int isn , in
       }while ( jj <= k);
 
 
-
+printf ( "ploa\n" ); 
   if ( k <= 4)
      {
       kt = m;
@@ -102,7 +109,7 @@ void dfftbi ( double* a , double* b , int nseg , int n , int nspn , int isn , in
        kt = m ;
        maxp = max ( (kt+1)*2 , k-1);
        j=2;
-
+printf ( "plob\n" ); 
       do
         {
          if ( k%j == 0 )
@@ -122,9 +129,11 @@ void dfftbi ( double* a , double* b , int nseg , int n , int nspn , int isn , in
       maxp = m + kt + 1  ;
 
    if ( m + kt > 15)
+    {   
       ierr = 2 ;
+      printf ( "argh return 5 \n" );     
       return ;
-
+    }
    if ( kt != 0 )
       {
          j = kt ;
@@ -144,16 +153,18 @@ void dfftbi ( double* a , double* b , int nseg , int n , int nspn , int isn , in
    for ( kkk = 1 ; kkk < m ; kkk++ )
       maxf = max ( maxf , nfac[kkk-1]);
 
- nitems = maxf * 4 ;
+ nitems = maxf * 4 ; 
  itype = 4 ;
 
  istkgt = ( lnow*isize[1] -1)/isize[itype-1] + 2;
 
  i = ( (istkgt - 1 + nitems) * isize[itype-1] -1) / isize[1] + 3 ;
-
+ printf ("i %d ,\n lmax %d\n istkgt %d\n lnow %d \n", i , lmax , istkgt , lnow ) ;   
+ 
    if ( i > lmax )
       {
          ierr = -i ;
+         printf ( "argh return 3 \n" );   
          return ;
       }
 
@@ -178,6 +189,7 @@ void dfftbi ( double* a , double* b , int nseg , int n , int nspn , int isn , in
    if ( i > lmax )
       {
          ierr = -i ;
+         printf ( "argh return 4 \n" );   
          return ;
       }
 
@@ -197,6 +209,7 @@ c      k=2*k-1
 c    *********************************************
 */
 
+   printf ( "dfftmx  me voilà tayoooooooo \n" ); 
    dfftmx( a , b , ntot , nf , nspan , isn , m , kt , &rstak[j-1] , &rstak[jj-1] , &rstak[j2-1] , &rstak[j3-1] , &istak[k-1] , nfac);
 
    k =2 ;
@@ -206,6 +219,7 @@ c    *********************************************
    if (!( lbook <= lnow &&  lnow <= lused && lused <=  lmax ))
       {
          ierr = 3 ;
+         printf ( "argh return 6 \n" );   
          return ;
       }
 
@@ -220,5 +234,6 @@ c    *********************************************
          lnow = istak[lnow-1] ;
          in-- ;
       }
+      printf ( "fin de dfftbi \n" );
    return ;
 }
