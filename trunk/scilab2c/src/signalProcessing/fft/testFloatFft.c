@@ -1,6 +1,6 @@
 /*
  *  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
- *  Copyright (C) 2008-2008 - INRIA - Allan SIMON
+ *  Copyright (C) 2006-2008 - INRIA - Bruno JOFRET
  *
  *  This file must be used under the terms of the CeCILL.
  *  This source file is licensed as described in the file COPYING, which
@@ -10,16 +10,27 @@
  *
  */
 
-#ifndef __FFT_H__
-#define __FFT_H__
+#include <assert.h>
+#include <stdio.h>
+#include "fft.h"
 
-#include <math.h>
-#include "floatComplex.h"
-#include "doubleComplex.h"
-#include "blas.h"
-#include "lapack.h" 
-#include "fft_internal.h"
 
-void zfftma ( doubleComplex* in , int rows, int cols, doubleComplex* out);
 
-#endif /* !__FFT_H__ */
+
+
+
+static int testFft(void) {
+
+  printf("\n>>>> FFT Tests\n");
+  printf("\t>>>> Matrix Double Realt Tests\n");
+
+
+  return 0;
+}
+
+
+
+int main(void) {
+  assert(testFft() == 0);
+  return 0;
+}
