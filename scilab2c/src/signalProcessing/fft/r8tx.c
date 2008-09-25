@@ -1,6 +1,4 @@
 
-
-
 /*
  * Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
  * Copyright (C) 2008 - INRIA - Allan SIMON
@@ -67,8 +65,10 @@ void r8tx ( int nxtlt,int nthpo,int lengt,
 
   scale = dblPi2/lengt;
 
+
   for(j=1;j<=nxtlt;j++)
     {
+
       arg = (j-1)*scale;
       c1 = cos(arg);
       s1 = sin(arg);
@@ -87,7 +87,8 @@ void r8tx ( int nxtlt,int nthpo,int lengt,
 
       for(k=j;k<=nthpo;k+=lengt)
 	{
-	  kk = (k-1)*2; /* index by twos; re & im alternate */
+	  kk = k - 1;/* (k-1)*2*/ /* index by twos; re & im alternate */
+
 
 		Atemp0 =  zadds ( cc0[kk] , cc4[kk] ) ;
 		Atemp1 =  zadds ( cc1[kk] , cc5[kk] ) ;
@@ -123,8 +124,6 @@ void r8tx ( int nxtlt,int nthpo,int lengt,
 	  ai7 = ci3[kk] - ci7[kk];
 */
 
-
-
 		Btemp0 =  zadds  ( Atemp0 , Atemp2 ) ;
 		Btemp1 =  zadds  ( Atemp1 , Atemp3 ) ;
 		Btemp2 =  zdiffs ( Atemp0 , Atemp2 ) ;
@@ -157,6 +156,7 @@ void r8tx ( int nxtlt,int nthpo,int lengt,
 	  bi6 = ai4 - ar6;
 	  bi7 = ai5 - ar7;
 */
+
 	cc0[kk] = zadds ( Btemp0 , Btemp1 );
 /*
 	  cr0[kk] = br0 + br1;
@@ -168,8 +168,7 @@ void r8tx ( int nxtlt,int nthpo,int lengt,
 
 	  if(j>1)
 	    {
- printf ( "on  sup j>1\n");
-		cc1[kk] = DoubleComplex ( 	c4 * (zreals(Btemp0) - zreals(Btemp1)) - s4 * (zimags(Btemp0) - zimags(Btemp1)),
+		cc1[kk] = DoubleComplex ( 	(c4 * (zreals(Btemp0) - zreals(Btemp1))) - (s4 * (zimags(Btemp0) - zimags(Btemp1))),
                                     c4 * (zimags(Btemp0) - zimags(Btemp1)) + s4 * (zreals(Btemp0) - zreals(Btemp1)));
 
 		cc2[kk] = DoubleComplex ( 	c2 *  (zreals(Btemp2) - zimags(Btemp3)) - s2 * (zimags(Btemp2) + zreals(Btemp3)) ,
@@ -222,11 +221,12 @@ void r8tx ( int nxtlt,int nthpo,int lengt,
 	      ci6[kk] = c3*(bi6+ti) + s3*(br6+tr);
 	      cr7[kk] = c7*(br6-tr) - s7*(bi6-ti);
 	      ci7[kk] = c7*(bi6-ti) + s7*(br6-tr);
+
 */
+
 	    }
     else
         {
-             printf ( "on oupa sup j>1\n");
             cc1[kk] = zdiffs ( Btemp0 , Btemp1 );
     /*
               cr1[kk] = br0 - br1;
@@ -287,12 +287,5 @@ void r8tx ( int nxtlt,int nthpo,int lengt,
 	}
     }
 
-    printf ( "plop %d \t%e \t%e\n" , 0 , zreals(cc0[kk]) , zimags(cc0[kk]));
-    printf ( "plop %d \t%e \t%e\n" , 1 , zreals(cc1[kk]) , zimags(cc1[kk]));
-    printf ( "plop %d \t%e \t%e\n" , 2 , zreals(cc2[kk]) , zimags(cc2[kk]));
-    printf ( "plop %d \t%e \t%e\n" , 3 , zreals(cc3[kk]) , zimags(cc3[kk]));
-    printf ( "plop %d \t%e \t%e\n" , 4 , zreals(cc4[kk]) , zimags(cc4[kk]));
-    printf ( "plop %d \t%e \t%e\n" , 5 , zreals(cc5[kk]) , zimags(cc5[kk]));
-    printf ( "plop %d \t%e \t%e\n" , 6 , zreals(cc6[kk]) , zimags(cc6[kk]));
-    printf ( "plop %d \t%e \t%e\n" , 7 , zreals(cc7[kk]) , zimags(cc7[kk]));
+
 }

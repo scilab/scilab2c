@@ -38,7 +38,7 @@ void fft842 (doubleComplex* b, int size , int in)
 
   int L[16],L1,L2,L3,L4,L5,L6,L7,L8,L9,L10,L11,L12,L13,L14,L15;
   int j1,j2,j3,j4,j5,j6,j7,j8,j9,j10,j11,j12,j13,j14;
-  int i, j, ij, ji, ij1, ji1;
+  int i = 0, j, ij, ji, ij1, ji1;
   int  n2pow, n8pow, nthpo, ipass, nxtlt, lengt;
 
   n2pow = fastlog2( size );
@@ -79,6 +79,11 @@ void fft842 (doubleComplex* b, int size , int in)
 	  nxtlt = 0x1 << (n2pow - 3*ipass);
 	  lengt = 8*nxtlt;
 	  printf ( "on appelle r%dtx \n" , 8);
+
+          for (i= 0 ; i < size ; i++)
+            printf ( "%d - avant r8 %e %e %d\n" , i, zreals ( b[i]), zimags(b[i]), nxtlt);
+
+
 	  	  r8tx(nxtlt,nthpo,lengt,
 	       b,b+nxtlt,b+2*nxtlt,
 	       b+3*nxtlt,b+4*nxtlt,b+5*nxtlt,

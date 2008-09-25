@@ -36,6 +36,7 @@
                     0.30760907428339124, 0.93296162132173777, 0.21460078610107303, 0.31264199689030647,\
                     0.36163610080257058, 0.2922266637906432 , 0.56642488157376647, 0.48264719732105732,\
                     0.33217189135029912, 0.59350947011262178, 0.50153415976092219, 0.43685875833034515}
+
 #define ZIMAG_IN16 {0.26931248093023896, 0.63257448654621840, 0.40519540151581168, 0.91847078315913677,\
                     0.04373343335464597, 0.48185089323669672, 0.26395560009405017, 0.41481037065386772,\
                     0.28064980218186975, 0.12800584640353918, 0.77831285959109664, 0.21190304495394230,\
@@ -83,6 +84,7 @@ static void zfftmaTest2 (void )
     doubleComplex* Result   = DoubleComplexMatrix ( tRealResult , tImagResult ,ROW*COLS2) ;
 
 
+
     zfftma ( in , ROW , COLS2 , out ) ;
 
     /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/
@@ -91,9 +93,13 @@ static void zfftmaTest2 (void )
 	for ( i = 0 ; i < (ROW*COLS2 )  ; i++ )
 	{
 	  printf ( "\t\t %d out : %e\t %e\t * i result : %e\t %e\t * i assert : : %e\t %e\t * i  \n" ,
-              i ,zreals(out[i]) , zimags(out[i]), zreals (Result[i])  , zimags (Result[i]),
-              fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) ,
-              fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i])));
+                i ,
+                zreals(out[i]) ,
+                zimags(out[i]),
+                zreals (Result[i])  ,
+                zimags (Result[i]),
+                fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) ,
+                fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i])));
 
    if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
@@ -219,20 +225,31 @@ static void zfftmaTest16 (void )
     doubleComplex*  out     = (doubleComplex*) malloc ( sizeof(doubleComplex) * (unsigned int) (ROW*COLS16));
     doubleComplex*  in      = DoubleComplexMatrix ( tRealIn , tImagIn , ROW*COLS16 );
     doubleComplex* Result   = DoubleComplexMatrix ( tRealResult , tImagResult ,ROW*COLS16) ;
+for ( i = 0 ; i < (ROW*COLS16 )  ; i++ )
+	printf ("%ddebutdebut resultat\t %e\t %e \n",i , zreals(Result[i]) ,zimags(Result[i]));
 
-
+    printf ("\n\n\n\n");
     zfftma ( in , ROW , COLS16 , out ) ;
 
+    i = 0;
+for ( i = 0 ; i < (ROW*COLS16 )  ; i++ )
+	printf ("%ddebutdebut resultat\t %e\t %e \n",i , zreals(Result[i]) ,zimags(Result[i]));
+
+    printf ("\n\n\n\n");
     /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/
-	for ( i = 0 ; i < (ROW*COLS16 )  ; i++ )
+		for ( i = 0 ; i < (ROW*COLS16 )  ; i++ )
 	{
 
+	printf ("%ddebutdebut resultat\t %e\t %e \n",i , zreals(Result[i]) ,zimags(Result[i]));
 	  printf ( "\t\t %d out : %e\t %e\t * i result : %e\t %e\t * i assert : : %e\t %e\t * i  \n" ,
-              i ,zreals(out[i]) , zimags(out[i]), zreals (Result[i])  , zimags (Result[i]),
-              fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) ,
-              fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i])));
+                i ,
+                zreals(out[i]) ,
+                zimags(out[i]),
+                zreals (Result[i])  ,
+                zimags (Result[i]),
+                fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) ,
+                fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i])));
 
-/*
    if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
@@ -243,11 +260,8 @@ static void zfftmaTest16 (void )
         assert ( 1 ) ;
     else
 	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-12 ) ;
-	*/
-
 
     }
-
 
 }
 
@@ -256,7 +270,8 @@ static int testFft(void) {
   printf("\n>>>> FFT Tests\n");
   printf("\t>>>> Matrix Double Realt Tests\n");
   /*dfftmaTest();*/
-
+  printf("\t>>>> Vector 16 Double Complex Tests\n");
+  zfftmaTest16();
   printf("\n\n\n");
   printf("\t>>>> Vector 2 Double Complex Tests\n");
   zfftmaTest2();
@@ -264,8 +279,7 @@ static int testFft(void) {
   zfftmaTest4();
   printf("\t>>>> Vector 8 Double Complex Tests\n");
   zfftmaTest8();
-  printf("\t>>>> Vector 16 Double Complex Tests\n");
-  zfftmaTest16();
+
 
 
   return 0;
