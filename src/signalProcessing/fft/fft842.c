@@ -80,14 +80,13 @@ void fft842 (doubleComplex* b, int size , int in)
 	  lengt = 8*nxtlt;
 	  printf ( "on appelle r%dtx \n" , 8);
 
-          for (i= 0 ; i < size ; i++)
-            printf ( "%d - avant r8 %e %e %d\n" , i, zreals ( b[i]), zimags(b[i]), nxtlt);
-
 
 	  	  r8tx(nxtlt,nthpo,lengt,
 	       b,b+nxtlt,b+2*nxtlt,
 	       b+3*nxtlt,b+4*nxtlt,b+5*nxtlt,
 	       b+6*nxtlt,b+7*nxtlt);
+
+
 	}
     }
 
@@ -96,6 +95,8 @@ void fft842 (doubleComplex* b, int size , int in)
       /* radix 2 iteration needed */
       printf ( "on appelle r%dtx \n" , 2);
 	r2tx(nthpo,b,b+1);
+
+
     }
 
 
