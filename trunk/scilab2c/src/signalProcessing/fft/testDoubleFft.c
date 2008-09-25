@@ -224,42 +224,39 @@ static void zfftmaTest16 (void )
 
     doubleComplex*  out     = (doubleComplex*) malloc ( sizeof(doubleComplex) * (unsigned int) (ROW*COLS16));
     doubleComplex*  in      = DoubleComplexMatrix ( tRealIn , tImagIn , ROW*COLS16 );
-    doubleComplex* Result   = DoubleComplexMatrix ( tRealResult , tImagResult ,ROW*COLS16) ;
-for ( i = 0 ; i < (ROW*COLS16 )  ; i++ )
-	printf ("%ddebutdebut resultat\t %e\t %e \n",i , zreals(Result[i]) ,zimags(Result[i]));
 
-    printf ("\n\n\n\n");
-    zfftma ( in , ROW , COLS16 , out ) ;
 
-    i = 0;
-for ( i = 0 ; i < (ROW*COLS16 )  ; i++ )
-	printf ("%ddebutdebut resultat\t %e\t %e \n",i , zreals(Result[i]) ,zimags(Result[i]));
 
-    printf ("\n\n\n\n");
+    zfftma ( in , ROW , COLS16 , out );
+
+
+
+
     /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/
 		for ( i = 0 ; i < (ROW*COLS16 )  ; i++ )
 	{
 
-	printf ("%ddebutdebut resultat\t %e\t %e \n",i , zreals(Result[i]) ,zimags(Result[i]));
+
 	  printf ( "\t\t %d out : %e\t %e\t * i result : %e\t %e\t * i assert : : %e\t %e\t * i  \n" ,
                 i ,
                 zreals(out[i]) ,
                 zimags(out[i]),
-                zreals (Result[i])  ,
-                zimags (Result[i]),
-                fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) ,
-                fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i])));
+                tRealResult[i]  ,
+                tImagResult[i],
+                fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i])) ,
+                fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i])));
 
-   if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
+
+   if (  zreals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 1e-12 );
+        assert ( fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i]))  < 1e-12 );
 
 
-    if (  zimags(out[i])  < 1e-14 && zimags (Result[i]) < 1e-18 )
+    if (  zimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-12 ) ;
+	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 1e-12 ) ;
 
     }
 
@@ -273,6 +270,7 @@ static int testFft(void) {
   printf("\t>>>> Vector 16 Double Complex Tests\n");
   zfftmaTest16();
   printf("\n\n\n");
+
   printf("\t>>>> Vector 2 Double Complex Tests\n");
   zfftmaTest2();
   printf("\t>>>> Vector 4 Double Complex Tests\n");
