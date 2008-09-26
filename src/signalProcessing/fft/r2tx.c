@@ -17,7 +17,7 @@
 */
 void r2tx(int nthpo, doubleComplex* c0, doubleComplex* c1)
 {
-  int k,kk;
+  int kk;
  /* double *cr0, *ci0, *cr1, *ci1, r1, fi1;*/
  doubleComplex temp ;
 
@@ -26,9 +26,9 @@ void r2tx(int nthpo, doubleComplex* c0, doubleComplex* c1)
   cr1 = &(c1[0].re);
   ci1 = &(c1[0].im);*/
 
-  for(k=0;k<nthpo;k+=2)
+  for(kk=0;kk<nthpo;kk+=2)
     {
-      kk = k;
+
 
     temp   = zadds ( c0[kk] , c1[kk] );
 	c1[kk] = zdiffs( c0[kk] , c1[kk] );

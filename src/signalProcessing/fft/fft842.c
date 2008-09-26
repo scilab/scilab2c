@@ -78,7 +78,7 @@ void fft842 (doubleComplex* b, int size , int in)
 	{
 	  nxtlt = 0x1 << (n2pow - 3*ipass);
 	  lengt = 8*nxtlt;
-	  printf ( "on appelle r%dtx \n" , 8);
+
 
 
 	  	  r8tx(nxtlt,nthpo,lengt,
@@ -93,7 +93,6 @@ void fft842 (doubleComplex* b, int size , int in)
   if(n2pow%3 == 1)
     {
       /* radix 2 iteration needed */
-      printf ( "on appelle r%dtx \n" , 2);
 	r2tx(nthpo,b,b+1);
 
 
@@ -103,7 +102,7 @@ void fft842 (doubleComplex* b, int size , int in)
   if(n2pow%3 == 2)
     {
       /* radix 4 iteration needed */
-      printf ( "on appelle r%dtx \n" , 4);
+
       r4tx(nthpo,b,b+1,b+2,b+3);
     }
 
@@ -135,6 +134,7 @@ void fft842 (doubleComplex* b, int size , int in)
   for(j13=j12;j13<=L13;j13+=L12)
   for(j14=j13;j14<=L14;j14+=L13)
   for(ji=j14;ji<=L15;ji+=L14)
+
     {
       ij1 = ij-1;
       ji1 = ji-1;
