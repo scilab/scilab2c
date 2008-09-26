@@ -19,12 +19,12 @@
 */
 void r4tx( int nthpo, doubleComplex* c0, doubleComplex* c1, doubleComplex* c2, doubleComplex* c3)
 {
-  int k,kk;
+  int kk;
   doubleComplex temp1 , temp2 , temp3 , temp4 ;
 
-  for(k=1;k<=nthpo;k+=4)
+  for(kk=0;kk<nthpo;kk+=4)
     {
-      kk = k -1;  /* real and imag parts alternate */
+       /* real and imag parts alternate */
 
 
 	temp1 = zadds ( c0[kk] , c2[kk] ) ;
