@@ -275,9 +275,9 @@ static int testFft(void) {
   zfftmaTest2();
   printf("\t>>>> Vector 4 Double Complex Tests\n");
   zfftmaTest4();
+
   printf("\t>>>> Vector 8 Double Complex Tests\n");
   zfftmaTest8();
-
 
 
   return 0;

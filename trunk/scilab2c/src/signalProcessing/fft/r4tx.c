@@ -24,7 +24,7 @@ void r4tx( int nthpo, doubleComplex* c0, doubleComplex* c1, doubleComplex* c2, d
 
   for(k=1;k<=nthpo;k+=4)
     {
-      kk = k;  /* real and imag parts alternate */
+      kk = k -1;  /* real and imag parts alternate */
 
 
 	temp1 = zadds ( c0[kk] , c2[kk] ) ;
