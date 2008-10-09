@@ -19,13 +19,12 @@
 #define FORWARD	0
 #define INVERSE 1
 void dfft2 ( double* a , double* b , int nseg , int n , int nspn ,
-             int isn , int ierr, double* iw , int lw );
+             int isn , int ierr);
 
 
 
 void dfftbi ( double* a , double* b , int nseg , int n , int nspn ,
-              int isn , int ierr, int lout , int lnow ,
-              int lused ,int lmax , int lbook , double* rstak , int* istakk );
+              int isn , int ierr );
 
 void fft842 (doubleComplex* b, int size , int in);
 
