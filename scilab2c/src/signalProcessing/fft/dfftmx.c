@@ -122,11 +122,22 @@ int dfftmx ( double* _pdblA , double* _pdblB , int _iNtot, int _iN, int _iNspan,
    s72 = sin (rad/0.6250);
    s120= sqrt(0.750);
 
+   int iii = 0 ;
+        printf ("\n\n" );
+   for ( iii = 0 ; iii < 3 ; iii++)
+    {
+
+     printf ("\t\t %d  tot : %f \t %f\n" , iii ,a[iii], b[iii]);
+
+    }
+
+    printf ( "preliminary\n" );
    preliminaryWork () ;
 
 
    while ( retVal == 0 )
       {
+        printf ( "factortransform\n" );
         retVal = factorTransform ( ) ;
       }
 
@@ -134,12 +145,26 @@ int dfftmx ( double* _pdblA , double* _pdblB , int _iNtot, int _iN, int _iNspan,
    np[0] = ks ;
 
    if ( kt != 0)
-      permute_stage1 ( ) ;
+    {
+     printf ( "permute stage 1\n" );
+     permute_stage1 ( ) ;
+    }
 
-
-   if ( 2*kt + 1 < m ){
+   if ( 2*kt + 1 < m )
+    {
+      printf ( "permute stage 2\n" );
       permute_stage2 ( ) ;
-   }
+    }
+
+   for ( iii = 0 ; iii < 3 ; iii++)
+    {
+
+     printf ("\t\t out %d  tot : %f \t %f\n" , iii ,a[iii], b[iii]);
+
+    }
+
+   _pdblA = a ;
+   _pdblB = b ;
 
    return 0 ;
 }
@@ -212,9 +237,14 @@ switch ( nfac[i-1] )
    {
       case 2 :
          /*transform for factor of 2 (including rotation factor)*/
+         printf ( "\tpre_fOf2Trans\n" );
          retVal = pre_fOf2Trans( ) ;
          if ( retVal == 0 )
+            {
+            printf ( "\tfactorOf2Transform\n" );
             factorOf2Transform ( ) ;
+
+            }
          break ;
 
       case 4 :
@@ -222,34 +252,64 @@ switch ( nfac[i-1] )
          kspnn = kspan ;
          kspan = kspan >> 2 ; /*kspan /= 4 */
 
+         printf ( "\tfactorOf4Transform\n" );
          retVal = factorOf4Transform ( ) ;
          break ;
 
       case 3 :
+         printf ( "\tfactorOf3Transform\n" );
+         k = nfac[i-1] ;
+         kspnn = kspan ;
+         kspan = kspan / k ;
+         printf ("\t\t k %d\n" , k);
+
          factorOf3Transform ( ) ;
          break ;
 
       case 5 :
+         printf ( "\tfactorOf5Transform\n" );
+         k = nfac[i-1] ;
+         kspnn = kspan ;
+         kspan = kspan / k ;
+         printf ("\t\t k %d\n" , k);
          factorOf5Transform ( ) ;
          break ;
 
       default :
+
+         k = nfac[i-1] ;
+         kspnn = kspan ;
+         kspan = kspan / k ;
+         printf ("\t\t k %d\n" , k);
          if ( nfac[i-1] != jf)
-            preFOtherTransform ( ) ;
+            {
+             printf ( "\tpreFOtherTransform \n" );
+             preFOtherTransform ( ) ;
+            }
+         printf ( "\tfactorOfOtherTransform \n" );
          factorOfOtherTransform ( ) ;
          break ;
     }
 
 
    if ( retVal == 42 )
-      retVal = mulByRotationFactor ( ) ;
+    {
 
+      printf ( "\t\t i %d m %d\n" , i , m );
+      if ( i !=  m)
+        {
+         printf ( "\tmulByRotationFactor \n" );
+         retVal = mulByRotationFactor ( ) ;
+        }
+      else
+        retVal = 1 ;
+    }
 
 
    if ( retVal == 1 )
       return 1 ; /*goto permute */
    else
-      return 0 ; /*goto factor_transform */
+      return 0 ; /*goto factor_transform => once again*/
 
 
 
@@ -458,8 +518,6 @@ int factorOf4Transform (void)
 
 }
 
-
-
 void f4t_150 (void)
 {
 
@@ -583,15 +641,12 @@ int  f4t_170 (void)
 
 
 
-
-
-
-
 void factorOf3Transform (void)
 {
 
 do
    {
+   printf ( "\t\t une boucle dans factor of 3\n");
    k1 = kk + kspan ;
    k2 = k1 + kspan ;
 
@@ -613,6 +668,7 @@ do
    a[k1-1] = ak - bj ;
    b[k1-1] = bk + aj ;
    a[k2-1] = ak + bj ;
+   b[k2-1] = bk - aj ;
 
    kk = k2 + kspan ;
 

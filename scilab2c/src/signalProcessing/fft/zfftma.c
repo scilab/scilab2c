@@ -9,7 +9,8 @@
  * http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
-
+#define FFT842 1
+#define DFFT2  0
 
 #include "fft.h"
 #include <stdio.h>
@@ -17,10 +18,13 @@
 void zfftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 {
 
+int choosenAlgo = DFFT2 ;
+
 int size = rows*cols ;
 int sizeTemp = 0;
-int sizeWorkSpace = 2* size;
-
+/*
+int sizeWorkSpace = size *2;
+*/
 int rowsTemp = 0 ;
 int colsTemp = 0 ;
 
@@ -28,14 +32,16 @@ int ierr = 0 ;
 int isn = -1;
 int i = 0;
 
+
 double* realIn = (double*) malloc ( sizeof (double) * (unsigned int) size );
 double* imagIn = (double*) malloc ( sizeof (double) * (unsigned int) size );
 
 
 doubleComplex* inTemp = (doubleComplex*) malloc ( sizeof (doubleComplex) * (unsigned int) size );
 
+/*
 double* workSpace = (double*) malloc ( sizeof (double) * (unsigned int) sizeWorkSpace );
-
+*/
 
 
 zimaga ( in , size , imagIn) ;
@@ -54,11 +60,12 @@ if ( rows  ==  1 || cols == 1 )
             {
              printf ( "we call fft842 \n" ) ;
              fft842 ( in , size  , 0 );
+             choosenAlgo = FFT842 ;
             }
          else
             {
              printf ( "we call dfft2 \n" ) ;
-             dfft2 ( realIn , imagIn , 1 , size , 1 , isn , ierr , workSpace , sizeWorkSpace );
+             dfft2 ( realIn , imagIn , 1 , size , 1 , isn , ierr /*, workSpace , sizeWorkSpace*/ );
             }
 
 
@@ -66,12 +73,13 @@ if ( rows  ==  1 || cols == 1 )
    else
       {
          printf ( "we call dfft2 2\n" ) ;
-         dfft2 ( realIn , imagIn , 1 , size , 1 , isn , ierr , workSpace , sizeWorkSpace );
+         dfft2 ( realIn , imagIn , 1 , size , 1 , isn , ierr /*, workSpace , sizeWorkSpace */);
       }
 
 }
+
 else
-   {
+{
   printf ( "it'a matrix \n" ) ;
     rowsTemp = (int) pow ( 2 , log( rows + 0.5) /log ( 2 )) ;
     colsTemp = (int) pow ( 2 , log( cols + 0.5) /log ( 2 )) ;
@@ -83,21 +91,22 @@ else
             for ( i = 0 ; i < rows ; i++ )
                {
                   fft842 ( &in[ cols*i] , cols , 0);
+                  choosenAlgo = FFT842 ;
                }
          }
       else
          {
-            dfft2 ( realIn, imagIn ,rows , cols , 1 , isn , ierr ,workSpace , sizeWorkSpace );
+            dfft2 ( realIn, imagIn ,rows , cols , 1 , isn , ierr/* ,workSpace , sizeWorkSpace */);
          }
       }
     else
       {
-         dfft2 ( realIn, imagIn ,rows , cols , 1 , isn , ierr ,workSpace , sizeWorkSpace );
+         dfft2 ( realIn, imagIn ,rows , cols , 1 , isn , ierr/* ,workSpace , sizeWorkSpace*/ );
        }
 
     /*second call*/
 
-   if ( 2*rows  <=  sizeWorkSpace )
+   if ( 2*rows  <= 0 /* sizeWorkSpace*/ )
       {
          if ( rowsTemp == rows )
             {
@@ -109,35 +118,44 @@ else
                       C2F(zcopy) ( rows, in + i, cols, inTemp , 1 );
 
                       fft842( inTemp , rows , 0);
-
+                      choosenAlgo = FFT842 ;
                       C2F(zcopy) ( rows, inTemp , cols, in + i, 1 );
 
                      }
                   }
                else
                   {
-                   dfft2 ( realIn, imagIn, 1, rows, cols, isn, ierr, workSpace, sizeWorkSpace);
+                   dfft2 ( realIn, imagIn, 1, rows, cols, isn, ierr/*, workSpace, sizeWorkSpace*/);
                   }
             }
          else
             {
-             dfft2 ( realIn, imagIn, 1, rows, cols, isn, ierr, workSpace, sizeWorkSpace);
+             dfft2 ( realIn, imagIn, 1, rows, cols, isn, ierr/*, workSpace, sizeWorkSpace*/);
             }
       }
    else
       {
-      dfft2 ( realIn, imagIn, 1, rows, cols, isn, ierr, workSpace, sizeWorkSpace);
+      dfft2 ( realIn, imagIn, 1, rows, cols, isn, ierr/*, workSpace, sizeWorkSpace*/);
       }
-   }
-
-
-
-
-
-for ( i = 0 ; i < size ; i++)
-{
-out[i] = DoubleComplex ( zreals(in[i]) , zimags(in[i]) );
 }
+
+
+
+if ( choosenAlgo == FFT842 )
+    {
+     for ( i = 0 ; i < size ; i++)
+        {
+        out[i] = DoubleComplex ( zreals(in[i]) , zimags(in[i]) );
+        }
+    }
+else
+    {
+     for ( i = 0 ; i < size ; i++)
+        {
+        out[i] = DoubleComplex ( realIn[i] , imagIn[i] );
+        }
+
+    }
 
 
 }
