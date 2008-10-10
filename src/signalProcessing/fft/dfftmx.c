@@ -680,13 +680,17 @@ do
 
 void factorOf5Transform (void)
 {
-
+    c2 = c72*c72 - s72 *s72 ;
+    s2 = 2 * c72*s72;
+    printf ( "plop\n" ) ;
    do
       {
       k1 = kk + kspan ;
       k2 = k1 + kspan ;
       k3 = k2 + kspan ;
       k4 = k3 + kspan ;
+
+      printf ( "kk %d \t k1 %d \t k2 %d \t k3 %d \t k4 %d\n", kk , k1 , k2 ,k3,k4 );
 
       akp = a[k1-1] + a[k4-1] ;
       akm = a[k1-1] - a[k4-1] ;
@@ -695,10 +699,10 @@ void factorOf5Transform (void)
       bkm = b[k1-1] - b[k4-1] ;
 
       ajp = a[k2-1] + a[k3-1] ;
-      ajm = a[k3-1] - a[k3-1] ;
+      ajm = a[k2-1] - a[k3-1] ;
 
-      bjp = a[k2-1] + b[k3-1] ;
-      ajm = a[k2-1] - b[k3-1] ;
+      bjp = b[k2-1] + b[k3-1] ;
+      bjm = b[k2-1] - b[k3-1] ;
 
       aa = a[kk-1] ;
       bb = b[kk-1] ;
@@ -715,12 +719,13 @@ void factorOf5Transform (void)
       a[k1-1] = ak - bj ;
       a[k4-1] = ak + bj ;
       b[k1-1] = bk + aj ;
-      b[k4-1] = bk - bj ;
+      b[k4-1] = bk - aj ;
 
       ak = akp*c2 + ajp*c72 + aa ;
       bk = bkp*c2 + bjp*c72 + bb ;
 
       aj = akm*s2 - ajm*s72 ;
+      printf ("aj %f \takm %f \tajm %f\n" , aj , akm , ajm );
       bj = bkm*s2 - bjm*s72 ;
 
       a[k2-1] = ak - bj ;
@@ -728,13 +733,16 @@ void factorOf5Transform (void)
       b[k2-1] = bk + aj ;
       b[k3-1] = bk - aj ;
 
+      kk = k4 + kspan;
+      printf ( "ak %f \tbk %f\naj %f \tbj %f\n" , ak , bk , aj ,bj );
+      printf ( "kk %d \t nn %d \t kspan %d\n", kk , nn , kspan );
       if ( kk >= nn )
-         {
-         kk -= nn ;
-         }
-      }while ( kk <= kspan ) ;
+        kk -= nn ;
 
+      printf ( "kk %d \t nn %d \t kspan %d\n", kk , nn , kspan );
+   }while ( kk <= kspan && kk < nn);
 
+printf ( "fin 5\n" );
 
 }
 
