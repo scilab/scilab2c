@@ -74,7 +74,7 @@ void dfftbi ( double* a , double* b , int nseg , int n    , int nspn  ,
    int nf = abs ( n ) ;
 
    ierr = 0 ;
-  printf ( "debut de dfftbi \n" );
+  //printf ( "debut de dfftbi \n" );
    /*determine the factors of n */
 
 
@@ -86,7 +86,7 @@ void dfftbi ( double* a , double* b , int nseg , int n    , int nspn  ,
    nspan = abs ( nf*nspn ) ;
    ntot  = abs ( nspan*nseg) ;
 
-   printf ( "nspan %d \t ntot %d\n" , nspan ,ntot );
+   //printf ( "nspan %d \t ntot %d\n" , nspan ,ntot );
    if ( isn*ntot == 0 )
       {
       ierr = 1 ;
@@ -99,14 +99,14 @@ void dfftbi ( double* a , double* b , int nseg , int n    , int nspn  ,
    while ( (k- (int)(k/16)*16 ) == 0 )
       {
          m++;
-         printf ("k/16*16\t m %d ,k %d ,k2 %d\n" , m , k ,(int) (k/16)*16 );
+         //printf ("k/16*16\t m %d ,k %d ,k2 %d\n" , m , k ,(int) (k/16)*16 );
          nfac[m-1] = 4 ;
          k = k >> 4 ;
       }
 
 
 
-printf ("avant ploa k %d\n\n" , k );
+//printf ("avant ploa k %d\n\n" , k );
    do
       {
       while ( k%jj == 0 )
@@ -114,21 +114,21 @@ printf ("avant ploa k %d\n\n" , k );
             m++;
             nfac[m-1] = j ;
             k /= jj ;
-             printf ("\nm %d ,k %d j %d jj %d\n" , m , k ,j , jj);
+             //printf ("\nm %d ,k %d j %d jj %d\n" , m , k ,j , jj);
          }
-         printf ("40-40 \n" );
+         //printf ("40-40 \n" );
          j+=2;
          jj= j*j ;
 
       }while ( jj <= k);
 
 
-printf ( "ploa\n" );
+//printf ( "ploa\n" );
 
 
   if ( k <= 4)
      {
-      printf ("50-50 k %d\t m %d\n" , k , m );
+      //printf ("50-50 k %d\t m %d\n" , k , m );
       kt = m;
       nfac[m] = k;
       if ( k != 1 )
@@ -147,11 +147,12 @@ printf ( "ploa\n" );
        kt = m ;
        maxp = max ( (kt+1)*2 , k-1);
        j=2;
-        printf ( "plob\n" );
+        //printf ( "plob\n" );
       do
         {
          if ( k%j == 0 )
             {
+               //printf ( "70 - 80 dans modulo k %d, j %d , m %d\n" , k , j , m + 1 );
                m++;
                nfac[m-1] = j ;
                k /= j ;
@@ -168,42 +169,42 @@ printf ( "ploa\n" );
    if ( m <= ( kt+1) )
       maxp = m + kt + 1  ;
 
-    printf ( "90 m %d \t kt %d\n" , m , kt );
+    //printf ( "90 m %d \t kt %d\n" , m , kt );
 
    if ( m + kt > 15)
     {
       ierr = 2 ;
-      printf ( "argh return 5 \n" );
+      //printf ( "argh return 5 \n" );
       return ;
     }
 
 /** you are here mister allan **/
-   printf ( "avant test kt , kt =%d\n" , kt );
+   //printf ( "avant test kt , kt =%d\n" , kt );
    if ( kt != 0 )
       {
          j = kt ;
 
          do{
             m++;
-            printf ( "100 m %d\t j %d\t nfac[j-1] %d \n" , m , j , nfac[j-1]);
+            //printf ( "100 m %d\t j %d\t nfac[j-1] %d \n" , m , j , nfac[j-1]);
             nfac[m-1] = nfac[j-1];
             j--;
            }while ( j != 0) ;
       }
 
-    printf ( "110 maxf %d \tnfac[maxf-1] %d\n" , m-kt , nfac[m-kt-1]);
+    //printf ( "110 maxf %d \tnfac[maxf-1] %d\n" , m-kt , nfac[m-kt-1]);
     maxf = nfac[m-kt-1] ;
 
    if ( kt > 0 )
       maxf = max ( nfac[kt-1] , maxf );
 
 
-      printf ( "avant kkk \tm %d\t maxf %d \n" ,m , maxf);
+      //printf ( "avant kkk \tm %d\t maxf %d \n" ,m , maxf);
 
    for ( kkk = 1 ; kkk <= m ; kkk++ )
       {
       maxf = max ( maxf , nfac[kkk-1]);
-      printf ( "boucle kkk maxf %d nfac %d \tm %d\n" , maxf , nfac[kkk-1] ,m);
+      //printf ( "boucle kkk maxf %d nfac %d \tm %d\n" , maxf , nfac[kkk-1] ,m);
       }
 
 
@@ -221,7 +222,7 @@ printf ( "ploa\n" );
 
  /*i = ( (istkgt - 1 + nitems) * isize[3] -1) + 3 ;*/
  i = 12 + nitems*2;
- printf ("i %d ,\n lmax %d\n istkgt %d\n lnow %d \n", i , lmax , istkgt , lnow ) ;
+ //printf ("i %d ,\n lmax %d\n istkgt %d\n lnow %d \n", i , lmax , istkgt , lnow ) ;
 
 
    istak = (int*) malloc ( sizeof (int) * (unsigned int) i);
@@ -247,7 +248,7 @@ printf ( "ploa\n" );
    istak = (int*) realloc ( istak ,sizeof (int) * (unsigned int) i);
    rstak = (double*) malloc ( sizeof (double) * (unsigned int) i);
 
-   printf ("i %d ,\n lmax %d\n istkgt %d\n lnow %d \n", i , lmax , istkgt , lnow ) ;
+   //printf ("i %d ,\n lmax %d\n istkgt %d\n lnow %d \n", i , lmax , istkgt , lnow ) ;
 
 
 
@@ -268,9 +269,9 @@ c      k=2*k-1
 c    *********************************************
 */
 
-   printf ( "dfftmx  me voilà tayoooooooo \n" );
-   printf ( "ntot \t%d\n"
-            "nf \t%d\n"
+   //printf ( "dfftmx  me voilà tayoooooooo \n" );
+   //printf ( "ntot \t%d\n"
+   /*         "nf \t%d\n"
             "nspan\t%d\t\n"
             "isn\t%d\t\n"
             "m\t%d\t\n"
@@ -281,6 +282,11 @@ c    *********************************************
             "j3\t%d\n"
             "k\t%d\n"
             , ntot , nf , nspan , isn , m , kt , j ,jj, j2,j3 , k );
+*/
+   for (i = 0 ; i < 15 ; i++ )
+        //printf ( "\t nfac[%d] = %d\n" , i , nfac[i]) ;
+
+
    dfftmx( a , b , ntot , nf , nspan , isn , m , kt , &rstak[j-1] , &rstak[jj-1] , &rstak[j2-1] , &rstak[j3-1] , &istak[k-1] , nfac);
 
    k =2 ;
@@ -289,18 +295,18 @@ c    *********************************************
 
 /** plop */
    int iii = 0 ;
-        printf ("\n\n" );
+        //printf ("\n\n" );
    for ( iii = 0 ; iii < 3 ; iii++)
     {
 
-     printf ("\t\t %d dfftbi : %f \t %f\n" , iii ,a[iii], b[iii]);
+     //printf ("\t\t %d dfftbi : %f \t %f\n" , iii ,a[iii], b[iii]);
 
     }
 /** plop */
    if (!( lbook <= lnow &&  lnow <= lused && lused <=  lmax ))
       {
          ierr = 3 ;
-         printf ( "argh return 6 \n" );
+         //printf ( "argh return 6 \n" );
          return ;
       }
 
@@ -315,6 +321,6 @@ c    *********************************************
          lnow = istak[lnow-1] ;
          in-- ;
       }
-      printf ( "fin de dfftbi \n" );
+      //printf ( "fin de dfftbi \n" );
    return ;
 }
