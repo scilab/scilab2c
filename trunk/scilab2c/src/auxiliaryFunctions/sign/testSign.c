@@ -72,8 +72,8 @@ int zsignsTest() {
   assert(zimags(sign_i) == 1);
   /* sign(1+%i) = (1+%i) / sqrt(2) */
 
-  assert(zreals(sign_oneAndI) == sqrt(2) / 2);
-  assert(zimags(sign_oneAndI) == 1 / sqrt(2));
+  assert ( fabs ( zreals(sign_oneAndI) - (sqrt(2)/2) ) / fabs(  zreals(sign_oneAndI)) < 1e-15) ;
+  assert ( fabs ( zimags(sign_oneAndI) - 1 / sqrt(2) ) / fabs(  zimags(sign_oneAndI)) < 1e-15) ;
 
   return 0;
 }
