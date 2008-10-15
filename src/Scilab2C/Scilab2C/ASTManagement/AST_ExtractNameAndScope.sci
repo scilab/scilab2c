@@ -28,7 +28,7 @@ tagname(cnttag)   = 'String:';
 taglength(cnttag) = length(tagname(cnttag));
 
 cnttag = cnttag + 1; 
-tagname(cnttag)   = 'Variable:';
+tagname(cnttag)   = 'Var:';
 taglength(cnttag) = length(tagname(cnttag));
 
 cnttag = cnttag + 1; 
@@ -58,7 +58,7 @@ elseif (SCI2Cstrncmps1size(tagname(2),ASTField))
    ArgScope = 'String';
 elseif (SCI2Cstrncmps1size(tagname(3),ASTField))
    ArgName  = stripblanks(part(ASTField,taglength(3)+1:fieldlength));
-   ArgScope = 'Variable';
+   ArgScope = 'Var';
 elseif (SCI2Cstrncmps1size(tagname(4),ASTField))
    ArgName  = stripblanks(part(ASTField,taglength(4)+1:fieldlength));
    ArgScope = 'Global';

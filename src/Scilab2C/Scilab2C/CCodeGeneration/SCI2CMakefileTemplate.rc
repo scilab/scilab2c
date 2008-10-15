@@ -1,7 +1,7 @@
 
 # --- C COMPILER ---
 CC = gcc
-CFLAGS = -Wall -pedantic -O3 -I $(HSRCDIR) -I $(ISRCDIR)
+CFLAGS = -Wall -pedantic -O3 -I $(HSRCDIR) -I $(ISRCDIR) -lm
 # ---------------------------
 # --- END USER PARAMETERS ---
 # ---------------------------
@@ -11,7 +11,7 @@ CFLAGS = -Wall -pedantic -O3 -I $(HSRCDIR) -I $(ISRCDIR)
 # ------------------------------------
 # ------------------------------------
 # ------------------------------------
-# DON'T TOUCH ANYTHING BELOW THIS LINE 
+# DON'T TOUCH ANYTHING BELOW THIS LINE
 # ------------------------------------
 # ------------------------------------
 # ------------------------------------
@@ -113,14 +113,14 @@ SWSRCS	=	\
 #	$(CSRCDIR)/clog1ps.c \
 #	$(CSRCDIR)/zlog1ps.c \
 #	$(CSRCDIR)/clog1pa.c \
-#	$(CSRCDIR)/zlog1pa.c   
+#	$(CSRCDIR)/zlog1pa.c
 
 SWOBJS	=	$(SWSRCS:.c=.o)
 
 # ---------------
 # --- TARGETS ---
 # ---------------
-compileexecute: $(SWOBJS) 
+compileexecute: $(SWOBJS)
 	@echo " "
 	@echo "============================"
 	@echo "Generation of the executable"
@@ -132,7 +132,7 @@ compileexecute: $(SWOBJS)
 	@echo "=============="
 	$(EXEFILE)
 
-clean:  
+clean:
 	@echo " "
 	@echo "============================="
 	@echo "Removing only exe + obj files"
@@ -141,7 +141,7 @@ clean:
 	rm -rf $(SWOBJS)
 	@echo " "
 
-cleanexe:  
+cleanexe:
 	@echo " "
 	@echo "=========================="
 	@echo "Removing only the exe file"
@@ -151,7 +151,7 @@ cleanexe:
 
 # how to compile object code .o from C source files .c (general rule)
 # space between -o and filename for SUN make
-.c.o:		
+.c.o:
 	$(CC) $(CFLAGS) -c -o $(@) $<
 
 # Make object code from source

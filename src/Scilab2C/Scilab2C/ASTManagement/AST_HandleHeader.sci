@@ -36,11 +36,11 @@ end
 TmpInNames  = tokens(ASTHeader.Inputs,' ');
 TmpOutNames = tokens(ASTHeader.Outputs,' ');
 
-// Remove Variable: Number: or String: specifier.
+// Remove Var: Number: or String: specifier.
 NInArg = 0;
 for tmpcnt = 1:size(TmpInNames,1)
    TmpSingleName = TmpInNames(tmpcnt);
-   if ((TmpSingleName == 'Variable:') | ...
+   if ((TmpSingleName == 'Var:') | ...
        (TmpSingleName == 'String:') | ...
        (TmpSingleName == 'Number:'))
        // Skip the specifier.
@@ -50,11 +50,11 @@ for tmpcnt = 1:size(TmpInNames,1)
    end
 end
 
-// Remove Variable: Number: or String: specifier.
+// Remove Var: Number: or String: specifier.
 NOutArg = 0;
 for tmpcnt = 1:size(TmpOutNames,1)
    TmpSingleName = TmpOutNames(tmpcnt);
-   if ((TmpSingleName == 'Variable:') | ...
+   if ((TmpSingleName == 'Var:') | ...
        (TmpSingleName == 'String:')   | ...
        (TmpSingleName == 'Number_x:') | ...
        (TmpSingleName == 'Number_s:') | ...
