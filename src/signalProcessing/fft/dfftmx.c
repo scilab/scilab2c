@@ -124,21 +124,21 @@ int dfftmx ( double* _pdblA , double* _pdblB , int _iNtot, int _iN, int _iNspan,
    s120= sqrt(0.750);
 
    int iii = 0 ;
-        //fprintf (stderr , "\n\n" );
+        fprintf (stderr , "\n\n" );
    for ( iii = 0 ; iii < 3 ; iii++)
     {
 
-     //fprintf (stderr , "\t\t %d  tot : %f \t %f\n" , iii ,a[iii], b[iii]);
+     fprintf (stderr , "\t\t %d  tot : %f \t %f\n" , iii ,a[iii], b[iii]);
 
     }
 
-    //fprintf (stderr ,  "preliminary\n" );
+    fprintf (stderr ,  "preliminary\n" );
    preliminaryWork () ;
 
 
    while ( retVal == 0 )
       {
-        //fprintf (stderr ,  "factortransform\n" );
+        fprintf (stderr ,  "factortransform\n" );
         retVal = factorTransform ( ) ;
       }
 
@@ -147,13 +147,13 @@ int dfftmx ( double* _pdblA , double* _pdblB , int _iNtot, int _iN, int _iNspan,
 
    if ( kt != 0)
     {
-     //fprintf (stderr ,  "permute stage 1\n" );
+     fprintf (stderr ,  "permute stage 1\n" );
      permute_stage1 ( ) ;
     }
 
    if ( 2*kt + 1 < m )
     {
-      //fprintf (stderr ,  "permute stage 2\n" );
+      fprintf (stderr ,  "permute stage 2\n" );
       permute_stage2 ( ) ;
     }
 
@@ -162,7 +162,7 @@ int dfftmx ( double* _pdblA , double* _pdblB , int _iNtot, int _iN, int _iNspan,
    for ( iii = 0 ; iii < 3 ; iii++)
     {
 
-     //fprintf (stderr , "\t\t out %d  tot : %f \t %f\n" , iii ,a[iii], b[iii]);
+     fprintf (stderr , "\t\t out %d  tot : %f \t %f\n" , iii ,a[iii], b[iii]);
 
     }
 
@@ -216,7 +216,7 @@ void preliminaryWork (void)
    maxf = m -kt ;
    maxf = nfac[maxf-1] ;
 
-   //fprintf (stderr , "\tm - kt %d , nfac %d kt %d\n" , m - kt , maxf , kt);
+   fprintf (stderr , "\tm - kt %d , nfac %d kt %d\n" , m - kt , maxf , kt);
 
    if ( kt > 0 )
       maxf = max ( nfac[kt-1] , maxf );
@@ -237,16 +237,16 @@ int  factorTransform (void)
    sd = sin(dr*rad) ;
    kk = 1 ;
    i++ ;
-   //fprintf (stderr ,  "avant switch  i %d ,nfac[i-1] %d\n" , i , nfac[i-1]);
+   fprintf (stderr ,  "avant switch  i %d ,nfac[i-1] %d\n" , i , nfac[i-1]);
 switch ( nfac[i-1] )
    {
       case 2 :
          /*transform for factor of 2 (including rotation factor)*/
-         //fprintf (stderr ,  "\tpre_fOf2Trans\n" );
+         fprintf (stderr ,  "\tpre_fOf2Trans\n" );
          retVal = pre_fOf2Trans( ) ;
          if ( retVal == 0 )
             {
-            //fprintf (stderr ,  "\tfactorOf2Transform\n" );
+            fprintf (stderr ,  "\tfactorOf2Transform\n" );
             factorOf2Transform ( ) ;
 
             }
@@ -257,26 +257,26 @@ switch ( nfac[i-1] )
          kspnn = kspan ;
          kspan = kspan >> 2 ; /*kspan /= 4 */
 
-         //fprintf (stderr ,  "\tfactorOf4Transform\n" );
+         fprintf (stderr ,  "\tfactorOf4Transform\n" );
          retVal = factorOf4Transform ( ) ;
          break ;
 
       case 3 :
-         //fprintf (stderr ,  "\tfactorOf3Transform\n" );
+         fprintf (stderr ,  "\tfactorOf3Transform\n" );
          k = nfac[i-1] ;
          kspnn = kspan ;
          kspan = kspan / k ;
-         //fprintf (stderr , "\t\t k %d i %d\n" , k ,i);
+         fprintf (stderr , "\t\t k %d i %d\n" , k ,i);
 
          factorOf3Transform ( ) ;
          break ;
 
       case 5 :
-         //fprintf (stderr ,  "\tfactorOf5Transform\n" );
+         fprintf (stderr ,  "\tfactorOf5Transform\n" );
          k = nfac[i-1] ;
          kspnn = kspan ;
          kspan = kspan / k ;
-         //fprintf (stderr , "\t\t k %d\n" , k);
+         fprintf (stderr , "\t\t k %d\n" , k);
          factorOf5Transform ( ) ;
          break ;
 
@@ -285,14 +285,14 @@ switch ( nfac[i-1] )
          k = nfac[i-1] ;
          kspnn = kspan ;
          kspan = kspan / k ;
-         //fprintf (stderr , "\t\t k %d\n" , k);
-         //fprintf (stderr , "\t\t nfac[i-1] %d jf %d\n" , nfac[i-1] , jf ) ;
+         fprintf (stderr , "\t\t k %d\n" , k);
+         fprintf (stderr , "\t\t nfac[i-1] %d jf %d\n" , nfac[i-1] , jf ) ;
          if ( nfac[i-1] != jf)
             {
-             //fprintf (stderr ,  "\tpreFOtherTransform \n" );
+             fprintf (stderr ,  "\tpreFOtherTransform \n" );
              preFOtherTransform ( ) ;
             }
-         //fprintf (stderr ,  "\tfactorOfOtherTransform \n" );
+         fprintf (stderr ,  "\tfactorOfOtherTransform \n" );
          factorOfOtherTransform ( ) ;
          break ;
     }
@@ -301,10 +301,10 @@ switch ( nfac[i-1] )
    if ( retVal == 42 )
     {
 
-      //fprintf (stderr ,  "\t\t i %d m %d\n" , i , m );
+      fprintf (stderr ,  "\t\t i %d m %d\n" , i , m );
       if ( i !=  m)
         {
-         //fprintf (stderr ,  "\tmulByRotationFactor \n" );
+         fprintf (stderr ,  "\tmulByRotationFactor \n" );
          retVal = mulByRotationFactor ( ) ;
         }
       else
@@ -348,22 +348,22 @@ void permute_stage2 (void)
       int retVal ;
 
       kspnn = np[kt] ;
-      //fprintf (stderr ,  "\t kspnn %d , kt %d\n" , kspnn , kt);
+      fprintf (stderr ,  "\t kspnn %d , kt %d\n" , kspnn , kt);
 
       /*permutation for square-free facotrs of n */
-      //fprintf (stderr ,  "\tnonSqFactor2NormOrder 2\n" );
+      fprintf (stderr ,  "\tnonSqFactor2NormOrder 2\n" );
       nonSqFactor2NormOrder ( ) ;
 
       /*determine the permutation cycles of length greater than 1*/
-      //fprintf (stderr ,  "\tdetPermutCycles 2\n" );
+      fprintf (stderr ,  "\tdetPermutCycles 2\n" );
       detPermutCycles ( );
 
-      //fprintf (stderr ,  "\tend ploplpop 2\n" );
+      fprintf (stderr ,  "\tend ploplpop 2\n" );
       retVal =  end ( ) ;
-      //fprintf (stderr , "\t on n'est plus dans le end\n ");
+      fprintf (stderr , "\t on n'est plus dans le end\n ");
       while ( retVal == 1)
          {
-      //fprintf (stderr ,  "\reorderMatrix 2\n" );
+      fprintf (stderr ,  "\reorderMatrix 2\n" );
           reorderMatrix ( ) ;
           retVal = end ( ) ;
          }
@@ -386,7 +386,7 @@ int pre_fOf2Trans (void)
 /*50*/
    do
      {
-      //fprintf (stderr , "\t 50 \n");
+      fprintf (stderr , "\t 50 \n");
       k2 = kk + kspan ;
       ak = a[k2-1] ;
       bk = b[k2-1] ;
@@ -658,7 +658,7 @@ void factorOf3Transform (void)
 int ktemp = 0 ;
 do
    {
-   //fprintf (stderr ,  "\t\t une boucle dans factor of 3\n");
+   fprintf (stderr ,  "\t\t une boucle dans factor of 3\n");
    k1 = kk + kspan ;
    k2 = k1 + kspan ;
 
@@ -685,11 +685,11 @@ do
    kk = k2 + kspan ;
    ktemp = kk ;
 
-   //fprintf (stderr ,  "\t\t kk %d , nn %d , kspan %d\n" , kk , nn , kspan );
+   fprintf (stderr ,  "\t\t kk %d , nn %d , kspan %d\n" , kk , nn , kspan );
 
    if ( kk >= nn )
       kk -= nn ;
-   //fprintf (stderr ,  "\t\t 2kk %d , nn %d , kspan %d\n" , kk , nn , kspan );
+   fprintf (stderr ,  "\t\t 2kk %d , nn %d , kspan %d\n" , kk , nn , kspan );
    }while (  ktemp < nn || (kk <= kspan &&  ( ktemp >= nn))  );
 
 }
@@ -698,7 +698,7 @@ void factorOf5Transform (void)
 {
     c2 = c72*c72 - s72 *s72 ;
     s2 = 2 * c72*s72;
-    //fprintf (stderr ,  "plop\n" ) ;
+    fprintf (stderr ,  "plop\n" ) ;
    do
       {
       k1 = kk + kspan ;
@@ -706,7 +706,7 @@ void factorOf5Transform (void)
       k3 = k2 + kspan ;
       k4 = k3 + kspan ;
 
-      //fprintf (stderr ,  "kk %d \t k1 %d \t k2 %d \t k3 %d \t k4 %d\n", kk , k1 , k2 ,k3,k4 );
+      fprintf (stderr ,  "kk %d \t k1 %d \t k2 %d \t k3 %d \t k4 %d\n", kk , k1 , k2 ,k3,k4 );
 
       akp = a[k1-1] + a[k4-1] ;
       akm = a[k1-1] - a[k4-1] ;
@@ -741,7 +741,7 @@ void factorOf5Transform (void)
       bk = bkp*c2 + bjp*c72 + bb ;
 
       aj = akm*s2 - ajm*s72 ;
-      //fprintf (stderr , "aj %f \takm %f \tajm %f\n" , aj , akm , ajm );
+      fprintf (stderr , "aj %f \takm %f \tajm %f\n" , aj , akm , ajm );
       bj = bkm*s2 - bjm*s72 ;
 
       a[k2-1] = ak - bj ;
@@ -750,15 +750,15 @@ void factorOf5Transform (void)
       b[k3-1] = bk - aj ;
 
       kk = k4 + kspan;
-      //fprintf (stderr ,  "ak %f \tbk %f\naj %f \tbj %f\n" , ak , bk , aj ,bj );
-      //fprintf (stderr ,  "kk %d \t nn %d \t kspan %d\n", kk , nn , kspan );
+      fprintf (stderr ,  "ak %f \tbk %f\naj %f \tbj %f\n" , ak , bk , aj ,bj );
+      fprintf (stderr ,  "kk %d \t nn %d \t kspan %d\n", kk , nn , kspan );
       if ( kk >= nn )
         kk -= nn ;
 
-      //fprintf (stderr ,  "kk %d \t nn %d \t kspan %d\n", kk , nn , kspan );
+      fprintf (stderr ,  "kk %d \t nn %d \t kspan %d\n", kk , nn , kspan );
    }while ( kk <= kspan && kk < nn);
 
-//fprintf (stderr ,  "fin 5\n" );
+fprintf (stderr ,  "fin 5\n" );
 
 }
 
@@ -770,6 +770,7 @@ void preFOtherTransform (void)
    jf = k ;
    s1 = (rad*8)/k ;
    c1 = cos (s1) ;
+   s1 = sin (s1) ;
    ck[jf-1] = 1 ;
    sk[jf-1] = 0 ;
    j = 1 ;
@@ -777,7 +778,7 @@ void preFOtherTransform (void)
    do
    {
       ck[j-1] = ck[k-1] * c1 +  sk[k-1]*s1 ;
-      sk[j-1] = ck[k-1] * c1 +  sk[k-1]*s1 ;
+      sk[j-1] = ck[k-1] * s1 -  sk[k-1]*c1 ;
 
       k -- ;
 
@@ -785,12 +786,14 @@ void preFOtherTransform (void)
       sk[k-1] = - sk[j-1] ;
 
       j++ ;
+    fprintf (stderr ,  "je boucle\n" );
    }while ( j < k );
 
 }
 
 void factorOfOtherTransform (void)
 {
+int ktemp = 0 ;
 
 do
    {
@@ -801,6 +804,7 @@ do
    bb = b[kk-1] ;
 
    ak = aa ;
+   bk = bb ;
    j = 1 ;
    k1 += kspan ;
 
@@ -811,7 +815,10 @@ do
 
       wt[j-1] = a[k1-1] + a[k2-1] ;
       ak = wt[j-1] + ak ;
-      bt[j-1] = b[k1-1] + bk ;
+
+      bt[j-1] = b[k1-1] + b[k2-1] ;
+      bk = bt[j-1] + bk ;
+      printf ("\t 260 ak %f  bk %f\n" , ak , bk ) ;
       j++ ;
 
       wt[j-1] = a[k1-1] - a[k2-1] ;
@@ -843,16 +850,18 @@ do
          k++ ;
          ak += ( wt[k-1] * ck[jj-1] ) ;
          bk += ( bt[k-1] * ck[jj-1] ) ;
+         printf ("\t 280 ak %f  bk %f\n" , ak , bk ) ;
 
          k++ ;
-         aj += wt[k-1] * sk[jj] ;
-         bj += bt[k-1] * sk[jj] ;
+         aj += (wt[k-1] * sk[jj-1]) ;
+         bj += (bt[k-1] * sk[jj-1]) ;
+         printf ("\t     aj %f  bj %f\n" , aj , bj ) ;
          jj += j ;
 
          if ( jj > jf )
             jj -= jf ;
-
          } while ( k < jf ) ;
+
       k = jf - j ;
       a[k1-1] = ak - bj ;
       b[k1-1] = bk + aj ;
@@ -860,15 +869,22 @@ do
       b[k2-1] = bk - aj ;
 
       j++ ;
+          fprintf (stderr ,  "je boucle3\n" );
       }while ( j < k ) ;
 
+
+
+
+
    kk += kspnn ;
+   ktemp = kk ;
+      fprintf (stderr ,  "kk %d \t nn %d \t kspan %d\n", kk , nn , kspan );
    if ( kk > nn )
       {
-         kk -= n;
+         kk -= nn;
       }
-}while ( kk < kspan || kk <= nn) ;
-
+      fprintf (stderr ,  "kk %d \t nn %d \t kspan %d\n", kk , nn , kspan );
+}while (  ktemp <= nn || (kk <= kspan &&  ( ktemp > nn))  );
 }
 
 
@@ -1108,7 +1124,7 @@ void nonSqFactor2NormOrder (void)
     do
       {
          nfac[j-1] *= nfac[j] ;
-         //fprintf (stderr ,  "\t\t m %d j %d , nfac[j-1] %d\n", m , j , nfac[j-1] );
+         fprintf (stderr ,  "\t\t m %d j %d , nfac[j-1] %d\n", m , j , nfac[j-1] );
          j-- ;
 
 
@@ -1116,7 +1132,7 @@ void nonSqFactor2NormOrder (void)
 
    kt ++ ;
    nn = nfac[kt-1] - 1;
-   //fprintf (stderr ,  "\t\t nn %d \n" , nn ) ;
+   fprintf (stderr ,  "\t\t nn %d \n" , nn ) ;
    jj = 0 ;
    j = 0;
 
@@ -1126,11 +1142,11 @@ void nonSqFactor2NormOrder (void)
    k = kt + 1 ;
    kk = nfac[k-1] ;
    j ++ ;
-   //fprintf (stderr ,  "\t\tj %d\n" , j ) ;
+   fprintf (stderr ,  "\t\tj %d\n" , j ) ;
    while ( j <= nn )
          {
             jj += kk ;
-            //fprintf (stderr , "\t\t 1jj %d , kk %d\n" , jj , kk ) ;
+            fprintf (stderr , "\t\t 1jj %d , kk %d\n" , jj , kk ) ;
 
             while ( jj >=  k2 )
                {
@@ -1140,7 +1156,7 @@ void nonSqFactor2NormOrder (void)
                 kk = nfac[k-1] ;
 
                 jj += kk ;
-                //fprintf (stderr , "\t\t jj %d , kk %d\n" , jj , kk ) ;
+                fprintf (stderr , "\t\t jj %d , kk %d\n" , jj , kk ) ;
 
                }
 
@@ -1149,7 +1165,7 @@ void nonSqFactor2NormOrder (void)
             k = kt + 1 ;
             kk = nfac[k-1] ;
             j ++ ;
-            //fprintf (stderr ,  "\t\t1j %d\n" , j ) ;
+            fprintf (stderr ,  "\t\t1j %d\n" , j ) ;
          }
 
    j = 0 ;
@@ -1165,17 +1181,17 @@ void detPermutCycles (void)
    {
     do
       {
-       //fprintf (stderr , "\t\t j %d \tnp[j-1] %d\n" , j , np[j-1]);
+       fprintf (stderr , "\t\t j %d \tnp[j-1] %d\n" , j , np[j-1]);
        j++ ;
        kk = np[j-1] ;
       }while ( kk < 0 ) ;
 
-    //fprintf (stderr , "\t\t kk %d\t j %d\t\n" , kk , j );
+    fprintf (stderr , "\t\t kk %d\t j %d\t\n" , kk , j );
     if ( kk != j )
       {
          do
             {
-               //fprintf (stderr , "\t\t 2boucle kk %d\n" , kk );
+               fprintf (stderr , "\t\t 2boucle kk %d\n" , kk );
                k = kk ;
                kk = np[k-1] ;
                np[k-1] = -kk ;
@@ -1194,13 +1210,13 @@ int  end (void)
 {
 
 
-   //fprintf (stderr ,  "\t\t\t end of the final end\n");
+   fprintf (stderr ,  "\t\t\t end of the final end\n");
    /*
    j = k3 + 1 ;
    nt -= kspnn ;
    i = nt - inc + 1 ;
 
-   //fprintf (stderr ,  "\t\t\t end of the final end\n");
+   fprintf (stderr ,  "\t\t\t end of the final end\n");
    if ( nt >= 0 )
 
       return 1 ;
