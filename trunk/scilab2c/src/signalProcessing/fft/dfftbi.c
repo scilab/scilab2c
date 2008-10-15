@@ -284,8 +284,9 @@ c    *********************************************
             , ntot , nf , nspan , isn , m , kt , j ,jj, j2,j3 , k );
 */
    for (i = 0 ; i < 15 ; i++ )
-        //printf ( "\t nfac[%d] = %d\n" , i , nfac[i]) ;
-
+        {
+        printf ( "\t nfac[%d] = %d\n" , i , nfac[i]) ;
+        }
 
    dfftmx( a , b , ntot , nf , nspan , isn , m , kt , &rstak[j-1] , &rstak[jj-1] , &rstak[j2-1] , &rstak[j3-1] , &istak[k-1] , nfac);
 
