@@ -10,19 +10,9 @@ exec full_reset.sce;
 // --- GENERAL SETTINGS (USER PARAMETERS) ---
 RunsDirectory         = pwd(); // Path of the SCI2CRuns directory
 
-//
-// FIXME : Must be a relative path or user input but neither absolute path. 
-// FIXED : Need to be tested.
-// Bruno, As you can read at the beginning of this file they are user parameters.
-// Anyway, relative paths work well.
-//SCI2CDirectory        = 'D:\NutricatoGAPSVN\PROGETTI_APERTI\POLIBA\hArtes\WP2_SCI2C\Software\Version_alpha\Scilab2C'; // Path of the Scilab2C directory
 SCI2CDirectory        = '.';
 
 // --- SPECIFIC SETTINGS (USER PARAMETERS) ---
-//
-// FIXME : Must be a relative path or user input but neither absolute path.
-// FIXED : Need to be tested.
-//
 SCI2CInputPrmFileName = '../SCI2CTests/test999_WorkingDir/SCI2CInputParameters.sce';
 
 // --- LAUNCH USER SCI CODE TO TEST IT BEFORE TRANSLATING IT!!! ---
