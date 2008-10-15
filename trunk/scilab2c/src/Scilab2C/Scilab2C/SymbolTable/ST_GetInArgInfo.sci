@@ -79,7 +79,7 @@ for cntinarg = 1:NInArg
       
       ST_InsOutArg(UpdatedInArg(cntinarg),1,FileInfo,SharedInfo,'all');
 
-   elseif (tmpscope == 'Variable' | tmpscope == 'Global' | tmpscope == 'Local' | tmpscope == 'Temp')
+   elseif (tmpscope == 'Var' | tmpscope == 'Global' | tmpscope == 'Local' | tmpscope == 'Temp')
       [TBFlagfound,TBType,TBSize,TBValue,TBFindLike,TBDimension,TBScope] = ST_GetSymbolInfo(tmpname,FileInfo,SharedInfo);
       if (TBFlagfound == 0)
          PrintStringInfo(' ',ReportFileName,'both','y');
