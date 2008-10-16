@@ -98,7 +98,7 @@ int dfftmx ( double* _pdblA , double* _pdblB , int _iNtot, int _iN, int _iNspan,
 {
 
    int retVal = 0 ;
-
+   int iii = 0 ;
    a = _pdblA ;
    b = _pdblB ;
 
@@ -123,14 +123,8 @@ int dfftmx ( double* _pdblA , double* _pdblB , int _iNtot, int _iN, int _iNspan,
    s72 = sin (rad/0.6250);
    s120= sqrt(0.750);
 
-   int iii = 0 ;
+
         fprintf (stderr , "\n\n" );
-   for ( iii = 0 ; iii < 3 ; iii++)
-    {
-
-     fprintf (stderr , "\t\t %d  tot : %f \t %f\n" , iii ,a[iii], b[iii]);
-
-    }
 
     fprintf (stderr ,  "preliminary\n" );
    preliminaryWork () ;
@@ -229,14 +223,16 @@ void preliminaryWork (void)
 int  factorTransform (void)
 {
 
-   int retVal = 42 ;
-
+   int retVal = 42;
 
    dr = 8 * jc/kspan ;
    cd = 2 * pow ( sin(0.5*dr*rad) , 2 );
    sd = sin(dr*rad) ;
    kk = 1 ;
    i++ ;
+
+
+
    fprintf (stderr ,  "avant switch  i %d ,nfac[i-1] %d\n" , i , nfac[i-1]);
 switch ( nfac[i-1] )
    {
@@ -285,7 +281,7 @@ switch ( nfac[i-1] )
          k = nfac[i-1] ;
          kspnn = kspan ;
          kspan = kspan / k ;
-         fprintf (stderr , "\t\t k %d\n" , k);
+         fprintf (stderr , "\t\t k %d kspan \n" , k , kspan);
          fprintf (stderr , "\t\t nfac[i-1] %d jf %d\n" , nfac[i-1] , jf ) ;
          if ( nfac[i-1] != jf)
             {
@@ -892,7 +888,7 @@ do
 
 int mulByRotationFactor (void )
 {
-
+ int ktemp = 0 ;
 
    if ( i != m )
       {
@@ -908,17 +904,21 @@ int mulByRotationFactor (void )
          /*320 */
          do
            {
+            printf ( "\t 320 \n" ) ;
             c1 = c2 ;
             s2 = s1 ;
             kk += kspan ;
 
             do
               {
+                printf ( "\t 330 \n" ) ;
                 ak = a[kk-1] ;
                 a[kk-1] = c2*ak - s2*b[kk-1] ;
                 b[kk-1] = s2*ak + c2*b[kk-1] ;
 
                 kk += kspnn ;
+                ktemp = kk ;
+
 
                 if ( kk > nt )
                   {
@@ -926,14 +926,18 @@ int mulByRotationFactor (void )
                    s2 = s1*c2 + s1*c1 ;
                    c2 = c1*c2 - ak ;
                    kk += (kspan - nt ) ;
+
+
                   }
 
-               }while ( kk <= kspnn ) ;
+               }while (ktemp <= nt || ( kk <= kspnn && ktemp > nt  )) ;
 
             kk += ( jc - kspnn );
 
+            printf ( "\t avant goto310/340 , kk %d , mm %d , kspan %d \n" , kk , mm , kspan ) ;
             if ( kk <= mm )
                {
+                printf ( "\t 310 \n" ) ;
                /* 310*/
                 c2 = c1 - ( cd*c1 + sd*s1 ) ;
                 s1 += (sd*c1 - cd*s1 ) ;
@@ -952,22 +956,26 @@ int mulByRotationFactor (void )
                {
                   if ( kk <= kspan )
                      {
+                      printf ( "\t 340 \n" ) ;
                       s1 = dr*rad * (kk-1)/jc ;
                       c2 = cos (s1) ;
                       s1 = sin (s1) ;
                       mm = min ( kspan , mm  + klim );
                      }
                }
-            }while (  kk <= kspnn || kk <= kspan ) ;
+
+            }while ( kk <= mm  ||( kk <= kspan && kk > nn ) ) ;
 
           kk += (jc + inc -kspan );
 
+          printf ( "je boucle 2 \n" ) ;
          }while ( kk <= jc+jc);
 
-       return 1 ; /* goto40 */
+       printf ("\tje prends le goto40\n" ) ;
+       return 0 ; /* goto40 */
       }
 
-   return 0 ; /* goto350*/
+   return 1 ; /* goto350*/
 }
 
 
