@@ -119,9 +119,12 @@ int dfftmx ( double* _pdblA , double* _pdblB , int _iNtot, int _iN, int _iNspan,
    nt = inc*ntot ;
    ks = inc*nspan;
    rad = atan ( 1 );
+   printf ( "rad %f\n" , rad ) ;
    c72 = cos (rad/0.6250);
    s72 = sin (rad/0.6250);
    s120= sqrt(0.750);
+
+
 
 
         fprintf (stderr , "\n\n" );
@@ -224,13 +227,21 @@ int  factorTransform (void)
 {
 
    int retVal = 42;
+   int jjjj = 0 ;
 
-   dr = 8 * jc/kspan ;
-   cd = 2 * pow ( sin(0.5*dr*rad) , 2 );
+
+   dr = 8 * (double)jc/(double)kspan ;
+   printf ( "dr %f = jc %d kspan %d \n" ,dr, jc , kspan );
+   cd = 2 * sin(0.5*dr*rad)*sin(0.5*dr*rad);
    sd = sin(dr*rad) ;
+   printf ("debut cd %f sd %f dr %f\n\n" , cd , sd, dr) ;
    kk = 1 ;
    i++ ;
 
+   for ( jjjj = 0 ; jjjj <  10 ; jjjj ++ )
+     {
+      printf ( " \t%d  a %f  b %f \n" ,jjjj, a[jjjj] , b[jjjj] );
+     }
 
 
    fprintf (stderr ,  "avant switch  i %d ,nfac[i-1] %d\n" , i , nfac[i-1]);
@@ -265,6 +276,10 @@ switch ( nfac[i-1] )
          fprintf (stderr , "\t\t k %d i %d\n" , k ,i);
 
          factorOf3Transform ( ) ;
+            for ( jjjj = 0 ; jjjj <  9 ; jjjj ++ )
+             {
+              printf ( " \t apres  transf%d  a %f  b %f \n" ,jjjj, a[jjjj] , b[jjjj] );
+             }
          break ;
 
       case 5 :
@@ -281,7 +296,7 @@ switch ( nfac[i-1] )
          k = nfac[i-1] ;
          kspnn = kspan ;
          kspan = kspan / k ;
-         fprintf (stderr , "\t\t k %d kspan \n" , k , kspan);
+         fprintf (stderr , "\t\t k %d kspan %d \n" , k , kspan);
          fprintf (stderr , "\t\t nfac[i-1] %d jf %d\n" , nfac[i-1] , jf ) ;
          if ( nfac[i-1] != jf)
             {
@@ -293,6 +308,11 @@ switch ( nfac[i-1] )
          break ;
     }
 
+    printf ("\n\n");
+   for ( jjjj = 0 ; jjjj <  15; jjjj ++ )
+     {
+      printf ( " \t%d  a %f  b %f \n" ,jjjj, a[jjjj] , b[jjjj] );
+     }
 
    if ( retVal == 42 )
     {
@@ -321,19 +341,26 @@ switch ( nfac[i-1] )
 void permute_stage1 (void)
 {
 
- int retVal = 0 ;
+ int retVal = 1 ;
 
+   printf ("\t pre_sqFactor2NormlOrder\n");
    pre_sqFactor2NormlOrder ( ) ;
 
    if ( n == ntot )
       /*permutation for single-variate transform (optional code)*/
-      while ( retVal == 0)
-         retVal = single_sqFactor2NormlOrder ( ) ;
+      while ( retVal == 1)
+        {
+         printf ("\tsingle_sqFactor2NormlOrder\n");
+         single_sqFactor2NormlOrder ( ) ;
+         retVal = post_sqFactor2NormlOrder () ;
+        }
    else
       /*permutation for multivariate transform*/
-      while ( retVal == 0)
+      while ( retVal == 1)
+        {
+         printf ("\tmulti_sqFactor2NormlOrder\n");
          retVal = multi_sqFactor2NormlOrder ( );
-
+        }
 
 
 }
@@ -341,7 +368,6 @@ void permute_stage1 (void)
 void permute_stage2 (void)
 {
 
-      int retVal ;
 
       kspnn = np[kt] ;
       fprintf (stderr ,  "\t kspnn %d , kt %d\n" , kspnn , kt);
@@ -354,15 +380,23 @@ void permute_stage2 (void)
       fprintf (stderr ,  "\tdetPermutCycles 2\n" );
       detPermutCycles ( );
 
-      fprintf (stderr ,  "\tend ploplpop 2\n" );
-      retVal =  end ( ) ;
-      fprintf (stderr , "\t on n'est plus dans le end\n ");
-      while ( retVal == 1)
+
+
+       j = k3 + 1;
+       nt -= kspnn ;
+       i = nt - inc + 1 ;
+       while ( nt >= 0 )
          {
-      fprintf (stderr ,  "\reorderMatrix 2\n" );
-          reorderMatrix ( ) ;
-          retVal = end ( ) ;
+            printf ( "\t\t  j %d , k3 %d\n" , j , k3 ) ;
+            fprintf (stderr ,  "\treordermatrix \n" );
+
+            reorderMatrix ( ) ;
+            j = k3 + 1 ;
+            nt -= kspnn ;
+            i = nt - inc + 1 ;
+            printf ( "\t\t570 nt %d k3 %d j %d\n" , nt, k3 , j) ;
          }
+
 
 }
 
@@ -376,6 +410,7 @@ Sous-Sous-Fonctions
 
 int pre_fOf2Trans (void)
 {
+   int ktemp = 0 ;
 
    kspan /= 2;
    k1 = kspan + 2 ;
@@ -394,18 +429,23 @@ int pre_fOf2Trans (void)
       b[kk-1] = b[kk-1] + bk;
 
       kk = k2 + kspan ;
+      ktemp = kk ;
 
       if ( kk > nn )
          {
            kk -= nn ;
          }
-      }while ( kk <= jc && kk <= nn );
+      }while (ktemp <= nn ||( kk <= jc && ktemp <= nn));
+
+
+   printf ("\t kk %d > kspan %d ?\n" , kk, kspan );
 
 
 
    if ( kk > kspan )
       return 1 ; /*goto350*/
    else
+
       return 0 ;/*goto60*/
 
 
@@ -414,81 +454,83 @@ int pre_fOf2Trans (void)
 }
 
 
+
 int factorOf2Transform (void)
 {
+int ktemp = 0 ;
+printf ( "\t\t fact\n" ) ;
 
-int doOnceAgain = 1 ;
 
 
 
-   /*60*/
-
-  do
-   {
+do /*60*/
+  {
    c1 = 1 - cd ;
    s1 = sd ;
    mm = min( k1/2 , klim);
 
-
-do
-   {
-   k2 = kk + kspan ;
-   ak = a[kk-1] - a[k2-1] ;
-   bk = b[kk-1] - b[k2-1] ;
-
-   a[kk-1] += a[k2-1] ;
-   b[kk-1] += b[k2-1] ;
-
-   a[k2-1] = c1*ak - s1*bk ;
-   b[k2-1] = c1*bk + s1*ak ;
-
-   kk = k2 + kspan ;
-
-   if ( kk  >= nt )
-      {
-         k2 = kk - nt ;
-         c1 = -c1 ;
-         kk = k1 - k2;
-
-         if ( kk <= k2)
+    do/* do 80 */
+       {
+        do
             {
-               kk += jc ;
+              k2 = kk + kspan;
+              printf ("\t\t 80 k2 %d kk %d\n" , k2 , kk);
+              ak = a[kk-1] - a[k2-1];
+              bk = b[kk-1] - b[k2-1];
 
-               if ( kk <= mm )
-                  {
-                     ak =  c1 - ( cd*c1*sd*s1) ;
-                     s1 += (sd*c1-cd*s1) ;
-                        /*c the following three statements compensate for truncation
-                        c error.  if rounded arithmetic is used, substitute
-                        c c1=ak*/
-                     c1 = 0.5/(ak*ak+s1*s1) + 0.5 ;
-                     s1 *= c1 ;
-                     c1 *= ak ;
-                  }
-               else
-                  {
-                     if ( kk < k2 )
-                        {
-                        s1 = (double) ((kk-1)/jc)*dr*rad;
-                        c1 = cos (s1);
-                        s1 = cos (s1);
-                        mm = min ( (k1 >> 1 ) , mm+klim );
-                        }
-                     else
-                        {
-                        /*on sort de la boucle */
-                        doOnceAgain = 1 ;
-                        }
-                  }
+              a[kk-1] = a[kk-1] + a[k2-1];
+              b[kk-1] = b[kk-1] + b[k2-1];
+
+              a[k2-1] = c1*ak - s1*bk;
+              b[k2-1] = s1*ak + c1*bk;
+              printf ("\t\t       k2 %d c1 %f s1 %f ak %f bk %f\n" , k2 , c1,s1,ak,bk);
+
+              kk = k2 + kspan;
+              ktemp = kk ;
+              if (kk >= nt)
+                {
+                  k2 = kk - nt;
+                  c1 = -c1;
+                  kk = k1 - k2;
+                  printf ("\t\t    k2 %d kk %d nt %d\n" , k2 , kk , nt);
+                }
+
+            }while (  ktemp < nt || (kk > k2 &&  ( ktemp >= nt))  );
+
+        kk += jc;
+
+        if ( kk <= mm ) /* 70 */
+            {
+             printf ( "\t 70 \n") ;
+             ak =  c1 - ( cd*c1+sd*s1) ;
+             s1 += (sd*c1-cd*s1) ;
+                /*c the following three statements compensate for truncation
+                c error.  if rounded arithmetic is used, substitute
+                c c1=ak*/
+             c1 = 0.5/(ak*ak+s1*s1) + 0.5 ;
+             s1 *= c1 ;
+             c1 *= ak ;
             }
-      }
-
-   }while ( doOnceAgain == 0 ) ;
+        else
+            {
+             if ( kk < k2 ) /*90*/
+                {
+                 printf ( "\t 90 \n") ;
+                 s1 = dr*rad*((double)(kk-1)/(double)jc);
+                 c1 = cos(s1) ;
+                 s1 = sin(s1) ;
+                 mm = min(k1/2,mm+klim);
+                }
+            }
+        printf ( "\tplop\n") ;
+       }while ( kk <= mm || ( kk > mm && kk < k2 ));
 
    k1 += (inc+inc) ;
    kk = (k1-kspan)/2 + jc;
-   }while ( kk <= jc+jc );
 
+  } while ( kk <= jc*2 );
+
+   printf ("goto40 1\n" ) ;
    return 0 ; /*goto40*/
 }
 
@@ -692,6 +734,8 @@ do
 
 void factorOf5Transform (void)
 {
+    int ktemp ;
+
     c2 = c72*c72 - s72 *s72 ;
     s2 = 2 * c72*s72;
     fprintf (stderr ,  "plop\n" ) ;
@@ -746,13 +790,14 @@ void factorOf5Transform (void)
       b[k3-1] = bk - aj ;
 
       kk = k4 + kspan;
+      ktemp = kk ;
       fprintf (stderr ,  "ak %f \tbk %f\naj %f \tbj %f\n" , ak , bk , aj ,bj );
       fprintf (stderr ,  "kk %d \t nn %d \t kspan %d\n", kk , nn , kspan );
       if ( kk >= nn )
         kk -= nn ;
 
       fprintf (stderr ,  "kk %d \t nn %d \t kspan %d\n", kk , nn , kspan );
-   }while ( kk <= kspan && kk < nn);
+   }while (ktemp < nn || (  kk <= kspan && ktemp >= nn));
 
 fprintf (stderr ,  "fin 5\n" );
 
@@ -899,6 +944,7 @@ int mulByRotationFactor (void )
          {
          c2 = 1 - cd ;
          s1 = sd ;
+         printf ( "\t 300 c2 %f s1 %f \n" , c2 , s1 );
          mm = min ( kspan , klim ) ;
 
          /*320 */
@@ -908,10 +954,10 @@ int mulByRotationFactor (void )
             c1 = c2 ;
             s2 = s1 ;
             kk += kspan ;
-
+            printf ( "\t 320 c2 %f s1 %f \n" , c2 , s1 );
             do
               {
-                printf ( "\t 330 \n" ) ;
+                printf ( "\t 330 kk  %d s2 %f c2 %f\n" , kk , s2 , c2  ) ;
                 ak = a[kk-1] ;
                 a[kk-1] = c2*ak - s2*b[kk-1] ;
                 b[kk-1] = s2*ak + c2*b[kk-1] ;
@@ -919,15 +965,16 @@ int mulByRotationFactor (void )
                 kk += kspnn ;
                 ktemp = kk ;
 
-
+                printf ("\t\t kk %d nt %d  \n" , kk , nt );
                 if ( kk > nt )
                   {
                    ak = s1*s2 ;
-                   s2 = s1*c2 + s1*c1 ;
+                   s2 = s1*c2 + s2*c1 ;
                    c2 = c1*c2 - ak ;
                    kk += (kspan - nt ) ;
+                   printf ( "\t\t plop  c2 %f s2 %f \n" , c2 , s2 );
 
-
+                   printf ("\t\t kk %d kspnn %d  \n" , kk , kspnn );
                   }
 
                }while (ktemp <= nt || ( kk <= kspnn && ktemp > nt  )) ;
@@ -964,7 +1011,7 @@ int mulByRotationFactor (void )
                      }
                }
 
-            }while ( kk <= mm  ||( kk <= kspan && kk > nn ) ) ;
+            }while ( kk <= mm  ||( kk <= kspan && kk > mm ) ) ;
 
           kk += (jc + inc -kspan );
 
@@ -1005,13 +1052,14 @@ void pre_sqFactor2NormlOrder (void)
    kspan = np[1] ;
    kk = jc + 1 ;
    k2 = kspan + 1 ;
+   j = 1;
 
 
 }
 
 int  post_sqFactor2NormlOrder (void)
 {
-
+   printf ("\tpost_sqFactor2NormlOrder\n");
     do
      {
       do
@@ -1019,7 +1067,8 @@ int  post_sqFactor2NormlOrder (void)
           k2 -= np[j-1] ;
           j++ ;
           k2 += np[j]  ;
-         } while ( k2 <  np[j-1]);
+          printf ("\t\t380-k2 %d np[%d] = %d\n" , k2 , j-1 , np[j-1]);
+         } while ( k2 >  np[j-1]);
 
        j = 1 ;
 
@@ -1029,6 +1078,7 @@ int  post_sqFactor2NormlOrder (void)
           if ( kk < k2 )
             {
 
+             printf ( "\t\t  return 1\n");
              return 1 ;
             }
           else
@@ -1040,38 +1090,33 @@ int  post_sqFactor2NormlOrder (void)
 
       }while ( kk < ks ) ;
 
-
+   jc = k3 ;
+   printf ( "\t\t  return 0\n");
    return 0;
 }
 
 
 /* appeler cetter fonction dans un do while valeur_retour != 1)*/
-int  single_sqFactor2NormlOrder (void)
+void  single_sqFactor2NormlOrder (void)
 {
 
 
       do
         {
+         printf ("\t\t 370 - kk %d ks %d k2 %d\n", kk , ks , k2 ) ;
          ak = a[kk-1] ;
          a[kk-1] = a[k2-1] ;
          a[k2-1] = ak ;
+
          bk = b[kk-1] ;
          b[kk-1] = b[k2-1] ;
          b[k2-1] = bk ;
+
          kk += inc ;
          k2 += kspan ;
         } while ( k2 < ks );
 
       /*380*/
-
-      if( post_sqFactor2NormlOrder ( ) == 1 )
-         {
-
-         return 1 ;
-         }
-   jc = k3 ;
-
-   return 0;
 }
 
 /*idem que single_ */
@@ -1189,8 +1234,8 @@ void detPermutCycles (void)
    {
     do
       {
-       fprintf (stderr , "\t\t j %d \tnp[j-1] %d\n" , j , np[j-1]);
        j++ ;
+       fprintf (stderr , "\t\t500 j %d \tnp[j-1] %d\n" , j , np[j-1]);
        kk = np[j-1] ;
       }while ( kk < 0 ) ;
 
@@ -1199,14 +1244,15 @@ void detPermutCycles (void)
       {
          do
             {
-               fprintf (stderr , "\t\t 2boucle kk %d\n" , kk );
+               fprintf (stderr , "\t\t 490 kk %d\n" , kk );
                k = kk ;
                kk = np[k-1] ;
                np[k-1] = -kk ;
             }while ( kk != j ) ;
          k3 = kk ;
       }
-    np[j-1] = -j ;
+    else
+       np[j-1] = -j ;
    }while ( j != nn );
 
    maxf *= inc ;
@@ -1214,34 +1260,14 @@ void detPermutCycles (void)
    return ;
 }
 
-int  end (void)
-{
-
-
-   fprintf (stderr ,  "\t\t\t end of the final end\n");
-   /*
-   j = k3 + 1 ;
-   nt -= kspnn ;
-   i = nt - inc + 1 ;
-
-   fprintf (stderr ,  "\t\t\t end of the final end\n");
-   if ( nt >= 0 )
-
-      return 1 ;
-   else
-*/
-      return 0 ;
-
-
-}
-
-
 void  reorderMatrix (void)
 {
-
+do
+  {
    do
       {
        j--  ;
+       printf ( "\t\t\t j %d , %d \n" , j , np[j-1]);
       }while (np[j-1] < 0 ) ;
 
    jj = jc ;
@@ -1255,26 +1281,27 @@ void  reorderMatrix (void)
             kspan = maxf ;
 
          jj -= kspan ;
-         k = np [j-1];
+         k  = np [j-1];
          kk = jc*k + i + jj ;
          k1 = kk + kspan ;
          k2 = 0 ;
 
-         do
+         do /*530*/
             {
                k2 ++ ;
                wt[k2-1] = a[k1-1] ;
-               bt[k2-1] = b[k-1] ;
+               bt[k2-1] = b[k1-1] ;
                k1 -= inc ;
 
-            }while ( k1 < kk );
+            }while ( k1 != kk );
 
          do
             {
             k1 = kk + kspan ;
             k2 = k1 - jc * (k + np[k-1]);
+            k = -np[k-1];
 
-
+            fprintf (stderr ,  "\t\ttend ploplpop 3\n" );
             do
                {
                   a[k1-1] = a[k2-1] ;
@@ -1286,19 +1313,25 @@ void  reorderMatrix (void)
                   }while ( k1 != kk ) ;
 
             kk = k2 ;
+            printf ( "\t\t k %d j %d\n" , k , j ) ;
             }while ( k != j );
 
+            k1 = kk +kspan ;
+            k2 = 0 ;
          /*560*/
 
          do
             {
             k2 ++ ;
-            a[k1-1] = wt[k2] ;
-            b[k1-1] = bt[k2] ;
+            a[k1-1] = wt[k2-1] ;
+            b[k1-1] = bt[k2-1] ;
+            k1 -= inc ;
+             fprintf (stderr ,  "\t\t560 k1 %d kk %d\n" , k1 , kk );
 
             }while (  k1 != kk ) ;
 
    } while ( jj != 0 ) ;
+}while ( j != 1 ) ;
 
    return ;
 }

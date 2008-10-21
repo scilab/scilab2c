@@ -61,9 +61,9 @@ int dfftmx ( double* _pdblA , double* _pdblB , int _iNtot, int _iN, int _iNspan,
    int factorOf4Transform (void);
    int  mulByRotationFactor (void );
    int  post_sqFactor2NormlOrder (void);
-   int  single_sqFactor2NormlOrder (void);
+   void  single_sqFactor2NormlOrder (void);
    int  preF2transform (void) ;
    int  multi_sqFactor2NormlOrder (void);
-   int  end (void) ;
+/*   int  end (void) ;*/
 
 #endif /* !__FFT_INTERNAL_H__ */
