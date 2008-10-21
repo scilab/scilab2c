@@ -93,14 +93,7 @@ fi
 ######################
 ######## With GCC ...
 ######################
-if test "$CC" = "gcc"; then
      CFLAGS="$CFLAGS"
-     # used to be -O
-     # -D_FORTIFY_SOURCE=2
-else
-		## CC compiler (not GCC)
-		     CFLAGS="-g"
-fi
 
 
 ##############################################################
