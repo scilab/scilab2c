@@ -18,14 +18,7 @@ void dfft2 ( double* a , double* b , int nseg , int n , int nspn , int isn , int
 
 
    dfftbi ( a   , b     , nseg  , n      , nspn , isn , ierr  );
-   int iii = 0 ;
-        printf ("\n\n" );
-   for ( iii = 0 ; iii < 3 ; iii++)
-    {
 
-     printf ("\t\t %d edede tot : %f \t %f\n" , iii ,a[iii], b[iii]);
-
-    }
 
 
    return ;
