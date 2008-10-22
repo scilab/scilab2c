@@ -1184,6 +1184,7 @@ static int testFft(void) {
   zfftmaTest16();
   printf("\n\t>>>> Vector 32 Double Complex Tests\n");
   zfftmaTest32();
+
   return 0;
 }
 

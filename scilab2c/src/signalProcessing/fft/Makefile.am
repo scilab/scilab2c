@@ -27,6 +27,7 @@ libFft_la_SOURCES =  $(HEAD) $(SRC)
 HEAD =	../includes/fft.h
 
 SRC	=		zfftma.c \
+			cfftma.c \
             		dfft2.c \
 			dfftbi.c \
 			dfftmx.c \
