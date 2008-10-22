@@ -17,8 +17,10 @@
 #include "floatComplex.h"
 #include "doubleComplex.h"
 #include "blas.h"
-#include "lapack.h" 
+#include "lapack.h"
 #include "fft_internal.h"
+
+void cfftma ( floatComplex* in , int rows, int cols, floatComplex* out);
 
 void zfftma ( doubleComplex* in , int rows, int cols, doubleComplex* out);
 
