@@ -47,7 +47,7 @@ void dfftbi ( double* a , double* b , int nseg , int n    , int nspn  ,
    int lout = 0 ;
    int lnow = 10;
    int lused= 10;
-   int lmax; /* to compute after*/
+
    int lbook = 10 ;
 
 
