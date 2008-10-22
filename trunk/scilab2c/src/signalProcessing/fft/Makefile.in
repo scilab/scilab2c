@@ -54,9 +54,10 @@ pkglibLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkglib_LTLIBRARIES)
 libFft_la_LIBADD =
 am__objects_1 =
-am__objects_2 = libFft_la-zfftma.lo libFft_la-dfft2.lo \
-	libFft_la-dfftbi.lo libFft_la-dfftmx.lo libFft_la-fft842.lo \
-	libFft_la-r2tx.lo libFft_la-r4tx.lo libFft_la-r8tx.lo
+am__objects_2 = libFft_la-zfftma.lo libFft_la-cfftma.lo \
+	libFft_la-dfft2.lo libFft_la-dfftbi.lo libFft_la-dfftmx.lo \
+	libFft_la-fft842.lo libFft_la-r2tx.lo libFft_la-r4tx.lo \
+	libFft_la-r8tx.lo
 am_libFft_la_OBJECTS = $(am__objects_1) $(am__objects_2)
 libFft_la_OBJECTS = $(am_libFft_la_OBJECTS)
 libFft_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
@@ -221,6 +222,7 @@ pkglib_LTLIBRARIES = libFft.la
 libFft_la_SOURCES = $(HEAD) $(SRC)
 HEAD = ../includes/fft.h
 SRC = zfftma.c \
+			cfftma.c \
             		dfft2.c \
 			dfftbi.c \
 			dfftmx.c \
@@ -340,6 +342,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libFft_la-cfftma.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libFft_la-dfft2.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libFft_la-dfftbi.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libFft_la-dfftmx.Plo@am__quote@
@@ -378,6 +381,13 @@ libFft_la-zfftma.lo: zfftma.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zfftma.c' object='libFft_la-zfftma.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libFft_la_CFLAGS) $(CFLAGS) -c -o libFft_la-zfftma.lo `test -f 'zfftma.c' || echo '$(srcdir)/'`zfftma.c
+
+libFft_la-cfftma.lo: cfftma.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libFft_la_CFLAGS) $(CFLAGS) -MT libFft_la-cfftma.lo -MD -MP -MF $(DEPDIR)/libFft_la-cfftma.Tpo -c -o libFft_la-cfftma.lo `test -f 'cfftma.c' || echo '$(srcdir)/'`cfftma.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libFft_la-cfftma.Tpo $(DEPDIR)/libFft_la-cfftma.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cfftma.c' object='libFft_la-cfftma.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libFft_la_CFLAGS) $(CFLAGS) -c -o libFft_la-cfftma.lo `test -f 'cfftma.c' || echo '$(srcdir)/'`cfftma.c
 
 libFft_la-dfft2.lo: dfft2.c
 @am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libFft_la_CFLAGS) $(CFLAGS) -MT libFft_la-dfft2.lo -MD -MP -MF $(DEPDIR)/libFft_la-dfft2.Tpo -c -o libFft_la-dfft2.lo `test -f 'dfft2.c' || echo '$(srcdir)/'`dfft2.c
