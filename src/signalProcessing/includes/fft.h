@@ -23,5 +23,6 @@
 void cfftma ( floatComplex* in , int rows, int cols, floatComplex* out);
 
 void zfftma ( doubleComplex* in , int rows, int cols, doubleComplex* out);
-
+void cfftma ( floatComplex* in , int rows, int cols, floatComplex* out);
 #endif /* !__FFT_H__ */
+
