@@ -49,22 +49,23 @@ zreala ( in , size , realIn) ;
 
 if ( rows  ==  1 || cols == 1 )
 {
-  printf ( "it'a vector \n" ) ;
 
+  /* vector case */
   sizeTemp = (int) pow ( 2 , (int ) (log( size + 0.5 ) /log ( 2 ))) ;
-   printf ("pow  %e , temp %d \n" ,  pow ( 2 , (int )(log( size +0.5 ) /log ( 2 ))), sizeTemp);
+
+
 
    if ( size == sizeTemp )
       {
          if ( size <=  pow ( 2 , 15 ))
             {
-             printf ( "we call fft842 \n" ) ;
+             /* if the size is a power of 2 and inferior to 2^15 */
              fft842 ( in , size  , 0 );
              choosenAlgo = FFT842 ;
             }
          else
             {
-             printf ( "we call dfft2 \n" ) ;
+             /* if the size is a power of 2 and superior to 2^15 */
              dfft2 ( realIn , imagIn , 1 , size , 1 , isn , ierr /*, workSpace , sizeWorkSpace*/ );
             }
 
@@ -72,15 +73,16 @@ if ( rows  ==  1 || cols == 1 )
        }
    else
       {
-         printf ( "we call dfft2 2\n" ) ;
+         /* all other case of vector */
          dfft2 ( realIn , imagIn , 1 , size , 1 , isn , ierr /*, workSpace , sizeWorkSpace */);
       }
 
 }
 
+/* matrix case */
 else
 {
-  printf ( "it'a matrix \n" ) ;
+
     rowsTemp = (int) pow ( 2 , log( rows + 0.5) /log ( 2 )) ;
     colsTemp = (int) pow ( 2 , log( cols + 0.5) /log ( 2 )) ;
 
@@ -139,7 +141,8 @@ else
       }
 }
 
-
+/* here we copy the result into the output , there are two cases because fft842 take a the complex matrix in one block
+   and dfft2 separate real and imaginary part */
 
 if ( choosenAlgo == FFT842 )
     {
