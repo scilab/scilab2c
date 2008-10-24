@@ -190,14 +190,14 @@ void preliminaryWork (void)
       }
    else
       {
-       ak = 1/n ;
+       ak =(double) 1/n ;
 
        /*scale by 1/n for isn > 0 */
        for ( j = 1 ;  j <= nt ; j += inc )
           {
            a[j-1] *= ak ;
            b[j-1] *= ak ;
-              printf ("boucle isn\n");
+              printf ("boucle isn\n ak %f" , ak);
           }
       }
    kspan = ks ;

@@ -10,5 +10,5 @@
 ##
 ##
 
-SUBDIRS= 	fft
-
+SUBDIRS= 	fft \
+	ifft
