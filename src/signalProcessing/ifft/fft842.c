@@ -46,28 +46,20 @@ void fft842 (doubleComplex* b, int size , int in)
   fn = nthpo;
 
 
-  if(in==FORWARD)
-    /* take conjugate  */
-    for(i=0;i< size ;i++) {
-	b[i] = DoubleComplex ( zreals( b[i]) , - zimags (b[i]));
-
-     /* b[i].im *= -1.0;*/
-    }
-
   if(in==INVERSE)
     /*scramble inputs*/
-        
+
     for(i=0,j=size/2;j<size;i++,j++)
       {
-	temp = DoubleComplex ( zreals ( b[j] ) , zimags( b[j] ));
-	b[j] = DoubleComplex ( zreals ( b[i] ) , zimags( b[i] ));
-	b[i] = DoubleComplex ( zreals ( temp ) , zimags( temp ));
+        temp = DoubleComplex ( zreals ( b[j] ) , zimags( b[j] ));
+        b[j] = DoubleComplex ( zreals ( b[i] ) , zimags( b[i] ));
+        b[i] = DoubleComplex ( zreals ( temp ) , zimags( temp ));
 
-	/*
-	r = b[j].re; fi = b[j].im;
-	b[j].re = b[i].re; b[j].im = b[i].im;
-	b[i].re = r; b[i].im = fi;
-	*/
+        /*
+        r = b[j].re; fi = b[j].im;
+        b[j].re = b[i].re; b[j].im = b[i].im;
+        b[i].re = r; b[i].im = fi;
+        */
       }
 
   n8pow = n2pow/3;
@@ -158,42 +150,16 @@ void fft842 (doubleComplex* b, int size , int in)
       ij++;
     }
 
-  if(in==FORWARD)
-    {    /* take conjugates & unscramble outputs */
-        for(i=0,j=size/2;j<size;i++,j++)
-        {
-        temp = DoubleComplex ( zreals ( b[j] ) ,- zimags( b[j] ));
-        b[j] = DoubleComplex ( zreals ( b[i] ) ,- zimags( b[i] ));
-        b[i] = DoubleComplex ( zreals ( temp ) , zimags( temp ));
 
-
-        /*  r = b[j].re; fi = b[j].im;
-          b[j].re = b[i].re; b[j].im = -b[i].im;
-          b[i].re = r; b[i].im = -fi;
-        */
-        }
-    }
 
   if(in==INVERSE) /* scale outputs */
     {
         for(i=0;i<nthpo;i++)
           {
-            printf ( "plopl\n");  
             b[i] =  DoubleComplex ( zreals( b[i] )/fn , zimags(b[i])/fn);
             fn *= -1 ;
           }
     }
 
-/*
-       for ( i = 0 ; i < size /2 ; i++)
-        {
-          temp =  b[i] ;
-          b[i] =  b[i+(size/2)];
-          b[i+(size/2)]= temp ;
 
-
-
-        }
-
-*/
 }

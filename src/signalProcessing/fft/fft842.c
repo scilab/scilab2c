@@ -26,11 +26,8 @@ static int fastlog2( int n)
   return(log);
 }
 
-/*
-     int in;  FORWARD or INVERSE
-     int n;   length of vector
-     DPCOMPLEX *b;  input vector
-*/
+
+
 void fft842 (doubleComplex* b, int size , int in)
 {
   double fn;
@@ -48,31 +45,18 @@ void fft842 (doubleComplex* b, int size , int in)
 
   if(in==FORWARD)
     /* take conjugate  */
-    for(i=0;i< size ;i++) {
-	b[i] = DoubleComplex ( zreals( b[i]) , - zimags (b[i]));
+    for(i=0;i< size ;i++)
+        {
+        b[i] = DoubleComplex ( zreals( b[i]) , - zimags (b[i]));
+        }
 
-     /* b[i].im *= -1.0;*/
-    }
 
-  if(in==INVERSE)
-    /*scramble inputs*/
-    for(i=0,j=size/2;j<size;i++,j++)
-      {
-	temp = DoubleComplex ( zreals ( b[j] ) , zimags( b[j] ));
-	b[j] = DoubleComplex ( zreals ( b[i] ) , zimags( b[i] ));
-	b[i] = DoubleComplex ( zreals ( temp ) , zimags( temp ));
-
-	/*
-	r = b[j].re; fi = b[j].im;
-	b[j].re = b[i].re; b[j].im = b[i].im;
-	b[i].re = r; b[i].im = fi;
-	*/
-      }
 
   n8pow = n2pow/3;
 
   if(n8pow)
     {
+      /* if the size if a factor of a power of 8 we call r8tx */
       /* radix 8 iterations */
       for(ipass=1;ipass<=n8pow;ipass++)
 	{
@@ -90,14 +74,14 @@ void fft842 (doubleComplex* b, int size , int in)
 	}
     }
 
+/* if the size can be written this way 2^(3*n + 1) , then we call the  radix 2 function
+   if can be written this way 2^(3*n + 1) the we call the radix 4 function */
+
   if(n2pow%3 == 1)
     {
       /* radix 2 iteration needed */
 	r2tx(nthpo,b,b+1);
-
-
     }
-
 
   if(n2pow%3 == 2)
     {
@@ -113,12 +97,14 @@ void fft842 (doubleComplex* b, int size , int in)
       L[j] = 1;
       if(j-n2pow <= 0) L[j] = 0x1 << (n2pow + 1 - j);
     }
+  /* this part can maybe be improved */
+
   L15=L[1];L14=L[2];L13=L[3];L12=L[4];L11=L[5];L10=L[6];L9=L[7];
   L8=L[8];L7=L[9];L6=L[10];L5=L[11];L4=L[12];L3=L[13];L2=L[14];L1=L[15];
 
   ij = 1;
 
-
+/* all the following instruction is to unscramble the output */
   for(j1=1;j1<=L1;j1++)
   for(j2=j1;j2<=L2;j2+=L1)
   for(j3=j2;j3<=L3;j3+=L2)
@@ -171,14 +157,6 @@ void fft842 (doubleComplex* b, int size , int in)
 	*/
 	}
 
-
-  if(in==INVERSE) /* scale outputs */
-    for(i=0;i<nthpo;i++)
-      {
-
-	b[i] =  DoubleComplex ( zreals ( b[i] )*fn , zimags( b[i] )*fn);
-
-      }
 
 
 
