@@ -15,28 +15,48 @@
 #include "max.h"
 #include "fft_internal.h"
 
-
 /*
-   iIw[0] = 0 ;
-   iIw[1] = 10 ;
-   iIw[2] = 10 ;
-   iIw[3] = lw ;
-   iIw[4] = 10 ;
-
-   iw[0] = 0 ;
-   iw[1] = 10 ;
-   iw[2] = 10 ;
-   iw[3] = lw ;
-   iw[4] = 10 ;
-
-   dfftbi ( a   , b     , nseg  , n      , nspn ,
-            isn , ierr  , iIw[0], iIw[1] , iIw[2],
-            iIw[3], iIw[4], iw, iIw );
- void dfftbi ( double* a , double* b , int nseg , int n , int nspn ,
-              int isn , int ierr, int lout , int lnow ,
-              int lused ,int lmax , int lbook , double* rstak , int* istakk )
+c arrays a and b originally hold the real and imaginary
+c      components of the data, and return the real and
+c      imaginary components of the resulting fourier coefficients.
+c multivariate data is indexed according to the fortran
+c      array element successor function, without limit
+c      on the number of implied multiple subscripts.
+c      the subroutine is called once for each variate.
+c      the calls for a multivariate transform may be in any order.
+c
+c n is the dimension of the current variable.
+c nspn is the spacing of consecutive data values
+c      while indexing the current variable.
+c nseg*n*nspn is the total number of complex data values.
+c the sign of isn determines the sign of the complex
+c      exponential, and the magnitude of isn is normally one.
+c      the magnitude of isn determines the indexing increment for a&b.
+c
+c if fft is called twice, with opposite signs on isn, an
+c      identity transformation is done...calls can be in either order.
+c      the results are scaled by 1/n when the sign of isn is positive.
+c
+c a tri-variate transform with a(n1,n2,n3), b(n1,n2,n3)
+c is computed by
+c        call fft(a,b,n2*n3,n1,1,-1)
+c        call fft(a,b,n3,n2,n1,-1)
+c        call fft(a,b,1,n3,n1*n2,-1)
+c
+c a single-variate transform of n complex data values is computed by
+c        call fft(a,b,1,n,1,-1)
+c
+c the data may alternatively be stored in a single complex
+c      array a, then the magnitude of isn changed to two to
+c      give the correct indexing increment and a(2) used to
+c      pass the initial address for the sequence of imaginary
+c      values, e.g.
+c
+c
+c array nfac is working storage for factoring n.  the smallest
+c      number exceeding the 15 locations provided is 12,754,584.
+c!
 */
-
 void dfftbi ( double* a , double* b , int nseg , int n    , int nspn  ,
               int isn   , int ierr)
 {
@@ -94,7 +114,7 @@ void dfftbi ( double* a , double* b , int nseg , int n    , int nspn  ,
       }
 
 
-
+/* we search as much 4 in the factor of vector's length as we can */
 
    while ( (k- (int)(k/16)*16 ) == 0 )
       {
@@ -104,7 +124,7 @@ void dfftbi ( double* a , double* b , int nseg , int n    , int nspn  ,
       }
 
 
-
+/* we search all square factor */
 
    do
       {
@@ -124,7 +144,8 @@ void dfftbi ( double* a , double* b , int nseg , int n    , int nspn  ,
 
 
 
-
+/* if the remaining size after all the previous division is less than 4
+   then it's the last factor  */
   if ( k <= 4)
      {
 
@@ -221,7 +242,7 @@ void dfftbi ( double* a , double* b , int nseg , int n    , int nspn  ,
  /*i = ( (istkgt - 1 + nitems) * isize[3] -1) + 3 ;*/
  i = 12 + nitems*2;
 
-
+/* this part is mainly to allocate size for workspace */
 
    istak = (int*) malloc ( sizeof (int) * (unsigned int) i);
 
@@ -269,18 +290,20 @@ c    *********************************************
 
 
 
-   dfftmx( a , b , ntot , nf , nspan , isn , m , kt , &rstak[j-1] , &rstak[jj-1] , &rstak[j2-1] , &rstak[j3-1] , &istak[k-1] , nfac);
+   dfftmx( a , b , ntot , nf , nspan ,
+           isn , m , kt , &rstak[j-1] , &rstak[jj-1] ,
+            &rstak[j2-1] , &rstak[j3-1] , &istak[k-1] , nfac);
 
    k =2 ;
 
    in = 2 ;
-
+/*
    if (!( lbook <= lnow &&  lnow <= lused  ))
       {
          ierr = 3 ;
          return ;
       }
-
+*/
    while ( in > 0)
       {
          if ( lbook > istak[lnow-1] || istak[lnow-1] >=  lnow-1)
