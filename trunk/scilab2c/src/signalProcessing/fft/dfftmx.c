@@ -204,7 +204,10 @@ void preliminaryWork (void)
 
 
 /*40*/
-/* this function is call as many time as the size of the input vector has odd factors */
+/* this function is call as many time as dfftbi has determined factor for the size of the input vector
+   each time we call a transform function for each kind of factor , we begin by the smallest
+   factor are stored in nfac
+ */
 
 int  factorTransform (void)
 {
@@ -306,7 +309,7 @@ switch ( nfac[i-1] )
 
 }
 
-
+/* permutation for square factor of n */
 void permute_stage1 (void)
 {
 
@@ -494,6 +497,7 @@ do /*60*/
 }
 
 
+/* this one is just an optimisation of the factor of 2 transform , we compute more things each turn */
 
 int factorOf4Transform (void)
 {
@@ -526,6 +530,9 @@ int factorOf4Transform (void)
 
 
 }
+
+/*this function and the following are just here for conveniance , they just do fourier transformation  for factor of 4
+  but as the code was a bit long in factorof4transform , we've created two sub-functions */
 
 void f4t_150 (void)
 {
@@ -761,6 +768,9 @@ void factorOf5Transform (void)
 
 
 }
+
+/* this function is the general case of non factor of 2 factor , the factorof3transform and factorof5trandform are just
+special case of this one */
 
 
 void preFOtherTransform (void)
@@ -1182,7 +1192,7 @@ void nonSqFactor2NormOrder (void)
    return ;
 }
 
-
+/*  here we determine how many permutation cycles we need to do */
 void detPermutCycles (void)
 {
 
