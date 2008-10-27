@@ -20,6 +20,9 @@
 /*
 ** radix 8 iteration subroutine
 */
+
+/* this function do in one turn the same computation that do radix 2 in three turns  */
+
 void r8tx ( int nxtlt,int nthpo,int lengt,
             doubleComplex* cc0,doubleComplex* cc1,doubleComplex* cc2,doubleComplex* cc3,
             doubleComplex* cc4,doubleComplex* cc5,doubleComplex* cc6,doubleComplex* cc7)
@@ -65,9 +68,11 @@ void r8tx ( int nxtlt,int nthpo,int lengt,
 
       for(kk=j;kk<nthpo;kk+=lengt)
 	{
-	  ;/* (k-1)*2*/ /* index by twos; re & im alternate */
+	   /* (k-1)*2*/ /* index by twos; re & im alternate */
 
 
+       /*  first turn the same as calling radix 2 with the input vector */
+       /* but radix2 will have do it in three turn , radix8 do it in one */
 		Atemp0 =  zadds ( cc0[kk] , cc4[kk] ) ;
 		Atemp1 =  zadds ( cc1[kk] , cc5[kk] ) ;
 		Atemp2 =  zadds ( cc2[kk] , cc6[kk] ) ;
@@ -79,26 +84,24 @@ void r8tx ( int nxtlt,int nthpo,int lengt,
 		Atemp6 =  zdiffs ( cc2[kk] , cc6[kk] ) ;
 		Atemp7 =  zdiffs ( cc3[kk] , cc7[kk] ) ;
 
-
+        /* second turn the same as  calling radix 2 with the vector transformed by a previous call of radix2 */
+        /* the same here , three turns in one */
 		Btemp0 =  zadds  ( Atemp0 , Atemp2 ) ;
 		Btemp1 =  zadds  ( Atemp1 , Atemp3 ) ;
 		Btemp2 =  zdiffs ( Atemp0 , Atemp2 ) ;
 		Btemp3 =  zdiffs ( Atemp1 , Atemp3 ) ;
 
+        Btemp4 = DoubleComplex ( zreals ( Atemp4 ) - zimags( Atemp6 ) , zimags ( Atemp4 ) + zreals( Atemp6 ) );
+        Btemp5 = DoubleComplex ( zreals ( Atemp5 ) - zimags( Atemp7 ) , zimags ( Atemp5 ) + zreals( Atemp7 ) );
+        Btemp6 = DoubleComplex ( zreals ( Atemp4 ) + zimags( Atemp6 ) , zimags ( Atemp4 ) - zreals( Atemp6 ) );
+        Btemp7 = DoubleComplex ( zreals ( Atemp5 ) + zimags( Atemp7 ) , zimags ( Atemp5 ) - zreals( Atemp7 ) );
+
+        /*third turn the same as calling radix 2 with the vector transformed by two previous call of radix2 */
+	    cc0[kk] = zadds ( Btemp0 , Btemp1 );
 
 
 
-	Btemp4 = DoubleComplex ( zreals ( Atemp4 ) - zimags( Atemp6 ) , zimags ( Atemp4 ) + zreals( Atemp6 ) );
-	Btemp5 = DoubleComplex ( zreals ( Atemp5 ) - zimags( Atemp7 ) , zimags ( Atemp5 ) + zreals( Atemp7 ) );
-	Btemp6 = DoubleComplex ( zreals ( Atemp4 ) + zimags( Atemp6 ) , zimags ( Atemp4 ) - zreals( Atemp6 ) );
-	Btemp7 = DoubleComplex ( zreals ( Atemp5 ) + zimags( Atemp7 ) , zimags ( Atemp5 ) - zreals( Atemp7 ) );
-
-
-	cc0[kk] = zadds ( Btemp0 , Btemp1 );
-
-
-
-
+        /* if we are not in the first turn */
 
 	  if(j>0)
 	    {

@@ -159,7 +159,7 @@ void fft842 (doubleComplex* b, int size , int in)
 
 
 
-
+/* this code is two fix a problem of result order which was different from what scilab  give */
        for ( i = 0 ; i < size /2 ; i++)
         {
           temp =  b[i] ;

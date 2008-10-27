@@ -17,6 +17,7 @@
 /*
 ** radix 4 iteration subroutine
 */
+/* this function do in one turn the same computation that do radix 2 in two turns  */
 void r4tx( int nthpo, doubleComplex* c0, doubleComplex* c1, doubleComplex* c2, doubleComplex* c3)
 {
   int kk;
@@ -26,39 +27,23 @@ void r4tx( int nthpo, doubleComplex* c0, doubleComplex* c1, doubleComplex* c2, d
     {
        /* real and imag parts alternate */
 
-
+    /* this first step is strictly equivalent than calling radix 2
+       except that radix would have needed 2 turns to compute what radix4 do in one */
 	temp1 = zadds ( c0[kk] , c2[kk] ) ;
 	temp2 = zdiffs( c0[kk] , c2[kk] ) ;
 	temp3 = zadds ( c1[kk] , c3[kk] ) ;
 	temp4 = zdiffs( c1[kk] , c3[kk] ) ;
-/*
-      r1 = cr0[kk] + cr2[kk];
-      r2 = cr0[kk] - cr2[kk];
-      r3 = cr1[kk] + cr3[kk];
-      r4 = cr1[kk] - cr3[kk];
 
 
-      i1 = ci0[kk] + ci2[kk];
-      i2 = ci0[kk] - ci2[kk];
-      i3 = ci1[kk] + ci3[kk];
-      i4 = ci1[kk] - ci3[kk];
-*/
+    /* strictly equivalent than calling radix2 with the temporary vector , but here also , radix4 do it in one turn
+    instead of two */
 	c0[kk] = zadds ( temp1 , temp3 );
 	c1[kk] = zdiffs( temp1 , temp3 );
 
-/*
-      cr0[kk] = r1 + r3;
-      ci0[kk] = i1 + i3;
-      cr1[kk] = r1 - r3;
-      ci1[kk] = i1 - i3;
-*/
+
 	c2[kk] = DoubleComplex ( zreals ( temp2 ) - zimags( temp4 ) , zimags ( temp2 ) + zreals( temp4 ) );
 	c3[kk] = DoubleComplex ( zreals ( temp2 ) + zimags( temp4 ) , zimags ( temp2 ) - zreals( temp4 ) );
-/*
-      cr2[kk] = r2 - i4;
-      ci2[kk] = i2 + r4;
-      cr3[kk] = r2 + i4;
-      ci3[kk] = i2 - r4;
-*/
+
+
     }
 }
