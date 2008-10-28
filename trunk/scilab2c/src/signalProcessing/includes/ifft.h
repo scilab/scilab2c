@@ -20,7 +20,24 @@
 #include "lapack.h"
 #include "fft_internal.h"
 
+/*
+** compute the inverse fast fourier transform of a vector
+** param in  : the input matrix in complex double precision
+** param rows: number of rows of the input matrix
+** param cols: number of cols of the input matrix
+** param out : the transformed matrix in complex double precision
+*/
+
+
 void zifftma ( doubleComplex* in , int rows, int cols, doubleComplex* out);
+/*
+** compute the inverse fast fourier transform of a vector
+** param in  : the input matrix in complex float precision
+** param rows: number of rows of the input matrix
+** param cols: number of cols of the input matrix
+** param out : the transformed matrix in complex float precision
+*/
+
 void cifftma ( floatComplex* in , int rows, int cols, floatComplex* out);
 
 
