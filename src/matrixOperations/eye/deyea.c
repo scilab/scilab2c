@@ -14,9 +14,10 @@
 
 void deyea(double *in, int _iRows, int _iCols)
 {
-    int i  ;
+    int i, j  ;
 
-    for ( i = 0 ; i < _iRows*_iCols ; i++ )
-                in[i] =  (i%(_iCols+1) == 0)?1:0  ;
+    for ( i = 0 ; i < _iCols ; i++ )
+        for ( j = 0 ; j < _iRows ; j++ )
+                in[i*_iRows + j] =  (i == j)?1:0  ;
 }
 
