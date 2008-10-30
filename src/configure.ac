@@ -178,7 +178,6 @@ matrixOperations/ones/Makefile
 matrixOperations/infiniteNorm/Makefile
 matrixOperations/inversion/Makefile
 implicitList/Makefile
-ifft/Makefile
 elementaryFunctions/Makefile
 elementaryFunctions/cos/Makefile
 elementaryFunctions/cosh/Makefile
@@ -224,7 +223,6 @@ string/string/Makefile
 signalProcessing/Makefile
 signalProcessing/fft/Makefile
 signalProcessing/ifft/Makefile
-signalProcessing/includes/Makefile
 ])
 
 

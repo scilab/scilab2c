@@ -20,5 +20,4 @@ SUBDIRS=	lib/blas \
 		matrixOperations \
 		implicitList \
 		string \
-		ifft \
 		signalProcessing
