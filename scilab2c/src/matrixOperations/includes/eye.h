@@ -17,23 +17,44 @@
 #include "doubleComplex.h"
 
 /*
+** \brief create a float Eye value
+*/
+#define seyes(in)		1.0f
+
+/*
+** \brief create a Double Eye value
+*/
+#define deyes(in)		1.0
+
+/*
+** \brief create a float complex Eye value
+*/
+#define ceyes(in)		FloatComplex(1.0f, 0)
+
+/*
+** \brief create a Double complex Eye value
+*/
+#define zeyes(in)		DoubleComplex(1, 0)
+
+/*
 ** \brief create a float Eye matrix
 */
 void seyea(float* in, int _iRows, int _iCols);
+
 /*
 ** \brief create a Double Eye matrix
 */
 void deyea(double* in, int _iRows, int _iCols);
+
 /*
 ** \brief create a float complex Eye matrix
 */
 void ceyea(floatComplex* in, int _iRows, int _iCols);
+
 /*
 ** \brief create a Double complex Eye matrix
 */
 void zeyea(doubleComplex* in, int _iRows, int _iCols);
-
-
 
 #endif /* !__EYE_H__ */
 
