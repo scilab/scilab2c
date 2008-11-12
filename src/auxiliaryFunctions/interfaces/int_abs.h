@@ -19,9 +19,9 @@
 
 #define d0absd0(in)			dabss(in)
 
-#define c0absc0(in)			cabss(in)
+#define c0abss0(in)			cabss(in)
 
-#define z0absz0(in)			zabss(in)
+#define z0absd0(in)			zabss(in)
 
 #define s2abss2(in,size,out)		sabsa(in, size[0]*size[1], out)
 
