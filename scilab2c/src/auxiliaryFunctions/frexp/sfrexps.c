@@ -10,7 +10,7 @@
  *
  */
 
-#include "frexp.h" 
+#include "frexp.h"
 
 float sfrexps(float _fltVal, float *_pfltExp)
 {

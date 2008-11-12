@@ -64,59 +64,59 @@
 0.3907764498144388198853}
 
 
-static void cconjsTest ( void ) 
+static void cconjsTest ( void )
 {
     float realin = 0.126244857f;
     float imagin = -0.47864959f;
     floatComplex in = FloatComplex ( realin , imagin  );
-    
+
     assert ( fabs ( creals ( in  ) - realin ) / fabs( creals (in)) < 1e-06 );
     assert ( fabs ( cimags ( in  ) - imagin ) / fabs( cimags (in)) < 1e-06 );
 }
 
 
-static void cconjaTest ( void ) 
+static void cconjaTest ( void )
 {
     int i = 0 ;
     float tin [] = FMATRIX ;
     floatComplex* in = FloatComplexMatrix ( tin , tin , SIZE );
     floatComplex out[100] ;
-    
+
     cconja ( in , SIZE , out ) ;
-    
+
     for ( i = 0 ; i < SIZE ; i++ )
     {
     assert ( fabs ( creals ( in[i] ) - tin[i] ) / fabs( creals (in[i])) < 1e-06 );
     assert ( fabs ( cimags ( in[i] ) - tin[i] ) / fabs( cimags (in[i])) < 1e-06 );
     }
-    
+
 }
 
-static void zconjsTest ( void ) 
+static void zconjsTest ( void )
 {
     double realin = 0.126244857788445;
     double imagin = -0.47864959451267;
     doubleComplex in = DoubleComplex ( realin , imagin  );
-    
+
     assert ( fabs ( zreals ( in  ) - realin ) / fabs( zreals (in)) < 1e-16 );
     assert ( fabs ( zimags ( in  ) - imagin ) / fabs( zimags (in)) < 1e-16 );
 }
 
-static void zconjaTest ( void ) 
+static void zconjaTest ( void )
 {
     int i = 0 ;
     double tin [] = DMATRIX ;
     doubleComplex* in = DoubleComplexMatrix ( tin , tin , SIZE );
     doubleComplex out[100] ;
-    
+
     zconja ( in , SIZE , out ) ;
-    
+
     for ( i = 0 ; i < SIZE ; i++ )
     {
     assert ( fabs ( zreals ( in[i] ) - tin[i] ) / fabs( zreals (in[i])) < 1e-16 );
     assert ( fabs ( zimags ( in[i] ) - tin[i] ) / fabs( zimags (in[i])) < 1e-16 );
     }
-    
+
 }
 
 static int testConj   (void) {

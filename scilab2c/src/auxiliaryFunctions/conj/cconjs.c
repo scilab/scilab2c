@@ -14,5 +14,5 @@
 
 floatComplex cconjs ( floatComplex in )
 {
- return FloatComplex ( creals ( in ) ,- cimags( in ));    
+ return FloatComplex ( creals ( in ) ,- cimags( in ));
 }
