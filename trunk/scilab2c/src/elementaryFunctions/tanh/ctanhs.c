@@ -1,14 +1,14 @@
 /*
-**  -*- C -*-
-**
-** ctanhs.c
-** Made by  Bruno JOFRET <bruno.jofret@inria.fr>
-**
-** Started on  Thu Dec  7 12:04:28 2006 jofret
-** Last update Fri Feb 23 17:31:52 2007 jofret
-**
-** Copyright INRIA 2006
-*/
+ *  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+ *  Copyright (C) 2006-2008 - INRIA - Bruno JOFRET
+ *
+ *  This file must be used under the terms of the CeCILL.
+ *  This source file is licensed as described in the file COPYING, which
+ *  you should have received as part of this distribution.  The terms
+ *  are also available at
+ *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+ *
+ */
 
 #include "tanh.h"
 #include "tan.h"
