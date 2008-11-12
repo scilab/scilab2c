@@ -78,64 +78,64 @@
 
 #include <assert.h>
 #include <stdio.h>
-#include "frexp.h" 
-#include "pow.h" 
+#include "frexp.h"
+#include "pow.h"
 
 
 static void dfrexpsTest ( void ) {
 
     int i = 0 ;
-    
+
     double out = 0 ;
     double dexp = 0 ;
     double result = 0;
 
-    
-    
+
+
     double in[] = DMATRIX_TEST ;
-    
 
-        
 
-        
-        
+
+
+
+
     for ( i = 0 ; i < SIZE; i++ )
         {
          out  = dfrexps ( in[i] , &dexp   ) ;
          result = out * dpows( 2 , dexp) ;
-            
-         printf ( "\t\t %d in :%e %e\tresult : %e\tassert : %e \n" , i , dexp, in[i] , result , fabs( in[i] - result) / fabs( in[i]) ) ;	
+
+         printf ( "\t\t %d in :%e %e\tresult : %e\tassert : %e \n" , i , dexp, in[i] , result , fabs( in[i] - result) / fabs( in[i]) ) ;
 		 assert ( fabs ( in[i] - result) / fabs( in[i]) < 1e-14 ) ;
         }
-    
+
 
 }
 
 static void sfrexpsTest ( void ) {
 
     int i = 0 ;
-    
+
     float out = 0 ;
     float fexp = 0 ;
     float result = 0;
-    
-    
+
+
     float in[] = FMATRIX_TEST ;
-    
 
-        
 
-        
-        
+
+
+
+
     for ( i = 0 ; i < SIZE; i++ )
         {
          out  = sfrexps ( in[i] , &fexp   ) ;
          result = out * spows( 2.0f , fexp) ;
-            
-         printf ( "\t\t %d in : %e\tresult : %e\tassert : %e \n" , i , in[i] , result , fabs( in[i] - result) / fabs( in[i]) ) ;	
+
+         printf ( "\t\t %d in : %e\tresult : %e\tassert : %e \n" , i , in[i] , result , fabs( in[i] - result) / fabs( in[i]) ) ;
 		 assert ( fabs ( in[i] - result) / fabs( in[i]) < 1e-6 ) ;
         }
-    
+
 
 }
 
@@ -143,12 +143,12 @@ static void sfrexpsTest ( void ) {
 static int testFrexp(void) {
 
   printf("\n>>>> Matrix Exponential Tests\n");
-  printf("\t>>>> Matrix Double Realt Tests\n");  
+  printf("\t>>>> Matrix Double Realt Tests\n");
   dfrexpsTest();
 
-  printf("\n\n\t>>>> Matrix Float Realt Tests\n");     
+  printf("\n\n\t>>>> Matrix Float Realt Tests\n");
   sfrexpsTest();
-  
+
   return 0;
 }
 

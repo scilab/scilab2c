@@ -7,17 +7,17 @@
 **
 ** Copyright POLIBA 2008
 */
-/* 
+/*
    1. Search for length in INIT_FillSCI2LibCDirs.sci
    2. Search for // --- Function List Class. --- in INIT_FillSCI2LibCDirs.sci
-   3. You will find 
+   3. You will find
       PrintStringInfo('s0'+ArgSeparator+'s0',ClassFileName,'file','y');
       PrintStringInfo('d0'+ArgSeparator+'d0',ClassFileName,'file','y');
       PrintStringInfo('c0'+ArgSeparator+'s0',ClassFileName,'file','y');
       PrintStringInfo('z0'+ArgSeparator+'d0',ClassFileName,'file','y');
       PrintStringInfo('g0'+ArgSeparator+'s0',ClassFileName,'file','y');
       PrintStringInfo('g0'+ArgSeparator+'d0',ClassFileName,'file','y');
-      
+
       PrintStringInfo('s2'+ArgSeparator+'s0',ClassFileName,'file','y');
       PrintStringInfo('d2'+ArgSeparator+'d0',ClassFileName,'file','y');
       PrintStringInfo('c2'+ArgSeparator+'s0',ClassFileName,'file','y');

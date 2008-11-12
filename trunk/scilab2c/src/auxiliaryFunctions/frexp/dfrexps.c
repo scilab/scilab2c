@@ -10,7 +10,7 @@
  *
  */
 
-#include "frexp.h" 
+#include "frexp.h"
 
 double dfrexps(double _dblVal, double *_pdblExp)
 {

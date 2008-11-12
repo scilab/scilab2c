@@ -13,10 +13,10 @@
 #include "conj.h"
 
 void zconja ( doubleComplex* in , int size, doubleComplex* out ){
-    
+
     int i  = 0 ;
-    
+
     for ( i =0 ; i < size ; i++ )
         out[i] = zconjs ( in[i]);
-    
+
 }
