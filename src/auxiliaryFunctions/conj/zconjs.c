@@ -14,5 +14,5 @@
 
 doubleComplex zconjs ( doubleComplex in )
 {
- return DoubleComplex ( zreals ( in ) ,- zimags( in ));    
+ return DoubleComplex ( zreals ( in ) ,- zimags( in ));
 }
