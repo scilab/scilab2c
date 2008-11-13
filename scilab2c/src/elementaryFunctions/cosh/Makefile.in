@@ -75,7 +75,8 @@ am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/elementaryFunctions/exp/libExp.la \
 	$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
 	$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-	$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la
+	$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
+	$(top_builddir)/operations/multiplication/libMultiplication.la
 testDoubleCosh_DEPENDENCIES = $(am__DEPENDENCIES_1)
 testDoubleCosh_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleCosh_CFLAGS) \
@@ -251,6 +252,7 @@ check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
 			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
 			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
+			$(top_builddir)/operations/multiplication/libMultiplication.la \
 			@LIBMATH@
 
 

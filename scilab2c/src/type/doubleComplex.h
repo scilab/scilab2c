@@ -64,6 +64,4 @@ doubleComplex*	DoubleComplexMatrix(double*, double*, int);
 bool		zisreals(doubleComplex);
 bool		zisimags(doubleComplex);
 
-doubleComplex	ztimess(doubleComplex, doubleComplex);
-doubleComplex	zdevides(doubleComplex, doubleComplex);
 #endif /* !__DOUBLECOMPLEX_H__ */

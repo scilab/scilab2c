@@ -135,39 +135,4 @@ bool cisimags(floatComplex z) {
   return false;
 }
 
-/*
-** Operators
-** {
-*/
 
-/*
-** \function ctimess
-** \brief Multiply 2 Complex numbers.
-*/
-floatComplex ctimess(floatComplex z1, floatComplex z2) {
-#ifndef STDC99
-  return FloatComplex(z1.real*z2.real - z1.imag*z2.imag,
-		      z1.real*z2.imag + z2.real*z1.imag);
-#else
-  return z1 * z2;
-#endif
-}
-
-/*
-** \function cdivides
-** \brief Divide 2 Complex numbers.
-*/
-floatComplex cdevides(floatComplex z1, floatComplex z2) {
-#ifndef STDC99
-  return FloatComplex((z1.real*z2.real + z1.imag*z2.imag) / (z2.real*z2.real + z2.imag* z2.imag),
-		      (z1.imag*z2.real - z1.real*z2.imag) / (z2.real*z2.real + z2.imag* z2.imag));
-#else
-  return z1 / z2;
-#endif
-}
-
-
-
-/*
-** }
-*/

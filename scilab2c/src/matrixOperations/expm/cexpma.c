@@ -1,5 +1,4 @@
-/*
- *  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+/*  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
  *  Copyright (C) 2008-2008 - INRIA - Allan SIMON
  *
  *  This file must be used under the terms of the CeCILL.
@@ -60,7 +59,7 @@ void cexpma(floatComplex * in, floatComplex * out, int _iLeadDim)
 	/*A = A./2^s */
 
     for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
-        pfltMatrixA[iIndex1] = cdevides ( in[iIndex1] , FloatComplex ( fltS2 , 0 ));
+        pfltMatrixA[iIndex1] = cdivides ( in[iIndex1] , FloatComplex ( fltS2 , 0 ));
 
 
 	/* Pade approximation for exp(A)
@@ -136,7 +135,7 @@ void cexpma(floatComplex * in, floatComplex * out, int _iLeadDim)
         pfltMatrixTemp[iIndex1] = out[iIndex1] ;
 
 	/* E = D\E */
-    cldiva (  pfltMatrixD , _iLeadDim , _iLeadDim , pfltMatrixTemp , _iLeadDim , _iLeadDim , out ) ;
+    cldivma (  pfltMatrixD , _iLeadDim , _iLeadDim , pfltMatrixTemp , _iLeadDim , _iLeadDim , out ) ;
 
 	/*/ Undo scaling by repeated squaring */
 	for(iLoop1 = 0 ; iLoop1 < fltS ; iLoop1++)

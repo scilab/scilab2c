@@ -19,6 +19,6 @@ void zrowmeana(doubleComplex *in, int lines, int columns, doubleComplex *out) {
   zrowsuma(in, lines, columns, out);
   for (i = 0; i < columns; ++i)
     {
-      out[i] = zdevides(out[i], DoubleComplex((double)lines, 0.0f));
+      out[i] = zdivides(out[i], DoubleComplex((double)lines, 0.0f));
     }
 }

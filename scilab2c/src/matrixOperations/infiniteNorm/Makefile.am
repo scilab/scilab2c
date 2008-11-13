@@ -41,6 +41,7 @@ check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
 			$(top_builddir)/auxiliaryFunctions/sign/libSign.la \
 			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
+			$(top_builddir)/operations/multiplication/libMultiplication.la \
 			libMatrixInfiniteNorm.la
 
 check_INCLUDES =	-I $(top_builddir)/type \

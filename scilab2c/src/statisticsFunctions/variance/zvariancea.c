@@ -38,12 +38,12 @@ doubleComplex	zvariancea(doubleComplex *in, int size)
    if ( fabs ( zreals ( sumc)) > 1e-16 || fabs ( zimags ( sumc)) > 1e-16 )
     {
     variance = zpows ( sumc ,DoubleComplex (2 , 0)) ;     
-    variance = zdevides ( variance  , DoubleComplex ( size , 0 ) ) ;           
+    variance = zdivides ( variance  , DoubleComplex ( size , 0 ) ) ;           
     variance =  zdiffs ( sum , variance );      
-    variance = zdevides (variance , DoubleComplex ( (size - 1),0 )); 
+    variance = zdivides (variance , DoubleComplex ( (size - 1),0 )); 
     }
    else 
-          variance = zdevides (sum , DoubleComplex ( (size - 1),0 ));
+          variance = zdivides (sum , DoubleComplex ( (size - 1),0 ));
   
     return variance ;
 }

@@ -13,4 +13,6 @@
 dist_SUBDIRS=	includes
 
 SUBDIRS=	addition \
-		subtraction
+		subtraction \
+		division \
+		multiplication

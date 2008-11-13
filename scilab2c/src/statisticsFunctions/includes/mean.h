@@ -13,8 +13,7 @@
 #ifndef __MEAN_H__
 #define __MEAN_H__
 
-#include "floatComplex.h"
-#include "doubleComplex.h"
+#include "division.h"
 #include "addition.h"
 
 /*

@@ -131,7 +131,7 @@ void sexpma (float* in, float* out, int _iLeadDim){
         pfltMatrixTemp[iIndex1] = out[iIndex1] ;
 
 	/*E = D\E*/
-    sldiva (  pfltMatrixD , _iLeadDim , _iLeadDim , pfltMatrixTemp , _iLeadDim , _iLeadDim , out );
+    sldivma (  pfltMatrixD , _iLeadDim , _iLeadDim , pfltMatrixTemp , _iLeadDim , _iLeadDim , out );
 
 	/* Undo scaling by repeated squaring*/
 	for(iLoop1 = 0 ; iLoop1 < fltS ; iLoop1++)

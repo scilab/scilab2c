@@ -11,6 +11,7 @@
 ##
 
 libPow_la_CFLAGS =	-I $(top_builddir)/type \
+			-I $(top_builddir)/operations/includes \
 			-I $(top_builddir)/elementaryFunctions/includes
 
 instdir = $(top_builddir)/lib
@@ -35,6 +36,7 @@ HEAD	=	../includes/pow.h
 ####
 
 check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/operations/includes \
 			-I $(top_builddir)/type
 
 check_LDADD	=	$(top_builddir)/lib/lapack/libscilapack.la \
@@ -53,6 +55,7 @@ check_LDADD	=	$(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
 			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
 			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/operations/multiplication/libMultiplication.la \
 			@LIBMATH@
 
 check_PROGRAMS	= 	testFloatPow testDoublePow
