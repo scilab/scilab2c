@@ -16,6 +16,15 @@
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+
+/*
+**
+** WARNING WE ASSUME MATRIXES TO BE CONSCISTENT
+** size1 = size2;
+**
+*/
+
+
 /*
 ** RIGHT DIVISION
 */
@@ -24,7 +33,7 @@
 ** \brief Compute a right division for floats.
 ** \param in1 : input float.
 ** \param in2 : input float.
-** \return in1 / in2.
+** \return in1 / in2 = in1 ./ in2.
 */
 float srdivs (float in1, float in2);
 
@@ -34,7 +43,7 @@ float srdivs (float in1, float in2);
 ** \param size1 : size of in1 array.
 ** \param in2 : input arry.
 ** \param size2 : size of in2 array.
-** \param out : array that contains the division in1 / in2.
+** \param out : array that contains the division in1 ./ in2.
 */
 void srdiva (float* in1, int size1,
 	     float* in2, int size2,
@@ -44,7 +53,7 @@ void srdiva (float* in1, int size1,
 ** \brief Compute a right division for double.
 ** \param in1 : input double.
 ** \param in2 : input double.
-** \return in1 / in2.
+** \return in1 / in2 = in1 ./ in2.
 */
 double drdivs (double in1, double in2);
 
@@ -54,7 +63,7 @@ double drdivs (double in1, double in2);
 ** \param size1 : size of in1 array.
 ** \param in2 : input arry.
 ** \param size2 : size of in2 array.
-** \param out : array that contains the division in1 / in2.
+** \param out : array that contains the division in1 ./ in2.
 */
 void drdiva (double* in1, int size1,
 	     double* in2, int size2,
@@ -64,7 +73,7 @@ void drdiva (double* in1, int size1,
 ** \brief Compute a right division for floats complex.
 ** \param in1 : input float complex.
 ** \param in2 : input float complex.
-** \return in1 / in2.
+** \return in1 / in2 = in1 ./ in2.
 */
 floatComplex crdivs (floatComplex in1, floatComplex in2);
 
@@ -74,7 +83,7 @@ floatComplex crdivs (floatComplex in1, floatComplex in2);
 ** \param size1 : size of in1 array.
 ** \param in2 : input arry.
 ** \param size2 : size of in2 array.
-** \param out : array that contains the division in1 / in2.
+** \param out : array that contains the division in1 ./ in2.
 */
 void crdiva(floatComplex* in1, int size1,
 	    floatComplex* in2, int size2,
@@ -84,7 +93,7 @@ void crdiva(floatComplex* in1, int size1,
 ** \brief Compute a right division for double complex.
 ** \param in1 : input double complex.
 ** \param in2 : input double complex.
-** \return in1 / in2.
+** \return in1 / in2 = in1 ./ in2.
 */
 doubleComplex zrdivs (doubleComplex in1, doubleComplex in2);
 
@@ -94,7 +103,7 @@ doubleComplex zrdivs (doubleComplex in1, doubleComplex in2);
 ** \param size1 : size of in1 array.
 ** \param in2 : input arry.
 ** \param size2 : size of in2 array.
-** \param out : array that contains the division in1 / in2.
+** \param out : array that contains the division in1 ./ in2.
 */
 void zrdiva(doubleComplex* in1, int size1,
 	    doubleComplex* in2, int size2,
@@ -108,7 +117,7 @@ void zrdiva(doubleComplex* in1, int size1,
 ** \brief Compute a left division for floats.
 ** \param in1 : input float.
 ** \param in2 : input float.
-** \return in1 \ in2.
+** \return in1 \ in2 = in1 .\ in2.
 */
 float sldivs (float in1, float in2);
 
@@ -118,7 +127,7 @@ float sldivs (float in1, float in2);
 ** \param size1 : size of in1 array.
 ** \param in2 : input arry.
 ** \param size2 : size of in2 array.
-** \param out : array that contains the division in1 \ in2.
+** \param out : array that contains the division in1 .\ in2.
 */
 void sldiva (float* in1, int size1,
 	     float* in2, int size2,
@@ -128,7 +137,7 @@ void sldiva (float* in1, int size1,
 ** \brief Compute a left division for double.
 ** \param in1 : input double.
 ** \param in2 : input double.
-** \return in1 \ in2.
+** \return in1 \ in2 = in1 .\ in2.
 */
 double dldivs (double in1, double in2);
 
@@ -138,7 +147,7 @@ double dldivs (double in1, double in2);
 ** \param size1 : size of in1 array.
 ** \param in2 : input arry.
 ** \param size2 : size of in2 array.
-** \param out : array that contains the division in1 \ in2.
+** \param out : array that contains the division in1 .\ in2.
 */
 void dldiva (double* in1, int size1,
 	     double* in2, int size2,
@@ -148,7 +157,7 @@ void dldiva (double* in1, int size1,
 ** \brief Compute a left division for floats complex.
 ** \param in1 : input float complex.
 ** \param in2 : input float complex.
-** \return in1 \ in2.
+** \return in1 \ in2 = in1 .\ in2.
 */
 floatComplex cldivs (floatComplex in1, floatComplex in2);
 
@@ -158,7 +167,7 @@ floatComplex cldivs (floatComplex in1, floatComplex in2);
 ** \param size1 : size of in1 array.
 ** \param in2 : input arry.
 ** \param size2 : size of in2 array.
-** \param out : array that contains the division in1 \ in2.
+** \param out : array that contains the division in1 .\ in2.
 */
 void cldiva(floatComplex* in1, int size1,
 	    floatComplex* in2, int size2,
@@ -168,7 +177,7 @@ void cldiva(floatComplex* in1, int size1,
 ** \brief Compute a left division for double complex.
 ** \param in1 : input double complex.
 ** \param in2 : input double complex.
-** \return in1 \ in2.
+** \return in1 \ in2 = in1 .\ in2.
 */
 doubleComplex zldivs (doubleComplex in1, doubleComplex in2);
 
@@ -178,7 +187,7 @@ doubleComplex zldivs (doubleComplex in1, doubleComplex in2);
 ** \param size1 : size of in1 array.
 ** \param in2 : input arry.
 ** \param size2 : size of in2 array.
-** \param out : array that contains the division in1 \ in2.
+** \param out : array that contains the division in1 .\ in2.
 */
 void zldiva(doubleComplex* in1, int size1,
 	    doubleComplex* in2, int size2,
