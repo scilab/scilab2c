@@ -69,7 +69,7 @@ void	dmula(double *in1, int size1,
 ** \param in2 : input float complex.
 ** \return : in1 + in2
 */
-floatComplex	smuls(floatComplex in1, floatComplex in2);
+floatComplex	cmuls(floatComplex in1, floatComplex in2);
 
 /*
 ** \brief Compute a multiplication element ways for complex single precision.
@@ -89,7 +89,7 @@ void	cmula(floatComplex *in1, int size1,
 ** \param in2 : input double conplex.
 ** \return : in1 + in2
 */
-doubleComplex	dmuls(doubleComplex in1, doubleComplex in2);
+doubleComplex	zmuls(doubleComplex in1, doubleComplex in2);
 
 /*
 ** \brief Compute a multiplication element ways for complex double precision.
@@ -102,5 +102,18 @@ doubleComplex	dmuls(doubleComplex in1, doubleComplex in2);
 void	zmula(doubleComplex *in1, int size1,
 	       doubleComplex *in2, int size2,
 	       doubleComplex *out);
+
+
+/*
+** \function ctimess
+** \brief Multiply 2 Complex numbers.
+*/
+floatComplex ctimess(floatComplex z1, floatComplex z2);
+
+/*
+** \function ztimess
+** \brief Multiply 2 Complex numbers.
+*/
+doubleComplex ztimess(doubleComplex z1, doubleComplex z2);
 
 #endif /* !__MULTIPLICATION_H__ */

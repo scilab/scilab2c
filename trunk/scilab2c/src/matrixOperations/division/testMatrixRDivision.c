@@ -26,7 +26,7 @@
 
 
 
-static void sdivaTest ( void ) 
+static void sdivmaTest ( void ) 
 {
 	int i = 0 ; 
 /*	
@@ -220,7 +220,7 @@ float out[(COLUMNS)*(LINES2)] ;*/
     
  
 
-	srdiva ( in1 , LINES1 , COLUMNS , in2 , LINES2 , COLUMNS , out) ;
+	srdivma ( in1 , LINES1 , COLUMNS , in2 , LINES2 , COLUMNS , out) ;
 	
 	for ( i = 0 ; i < LINES2 *COLUMNS ; ++i )
 	{
@@ -237,7 +237,7 @@ float out[(COLUMNS)*(LINES2)] ;*/
 
 
 
-static void drdivaTest ( void )
+static void drdivmaTest ( void )
 {
 	int i = 0 ; 
 	
@@ -251,7 +251,7 @@ static void drdivaTest ( void )
 	double result[] = { 1 , 2.2 };
 	double out [(COLUMNS)*(LINES2)] ;
 
-	drdiva ( in1 , LINES1 , COLUMNS , in2 , LINES2 , COLUMNS , out) ;
+	drdivma ( in1 , LINES1 , COLUMNS , in2 , LINES2 , COLUMNS , out) ;
 	for ( i = 0 ; i < LINES2 *COLUMNS  ; i++ )
 	{
 		printf ( "\t\t %d out : %e  result : %e   assert : %e \n" ,
@@ -262,7 +262,7 @@ static void drdivaTest ( void )
 	
 }
 
-static void crdivaTest (void )
+static void crdivmaTest (void )
 {
     int i = 0 ;
     
@@ -282,7 +282,7 @@ static void crdivaTest (void )
     Result[0] = FloatComplex ( 1.0f ,  0 );
     Result[1] = FloatComplex ( 2.2f   , 0 );
     
-	crdiva ( in1 , ZLINES1 , ZCOLUMNS , in2 ,ZLINES2 , ZCOLUMNS , out) ;
+	crdivma ( in1 , ZLINES1 , ZCOLUMNS , in2 ,ZLINES2 , ZCOLUMNS , out) ;
 	
 		for ( i = 0 ; i < (ZLINES2*ZCOLUMNS )  ; i++ )
 	{
@@ -310,7 +310,7 @@ static void crdivaTest (void )
 
 
 
-static void zrdivaTest ( void ){
+static void zrdivmaTest ( void ){
 	int i = 0 ; 
 	
 /*	double tin1 [] = 
@@ -423,7 +423,7 @@ static void zrdivaTest ( void ){
     Result[0] = DoubleComplex ( 1 ,  0 );
     Result[1] = DoubleComplex ( 2.2   , 0 );
     
-	zrdiva ( in1 , ZLINES1 , ZCOLUMNS , in2 ,ZLINES2 , ZCOLUMNS , out) ;
+	zrdivma ( in1 , ZLINES1 , ZCOLUMNS , in2 ,ZLINES2 , ZCOLUMNS , out) ;
 	
     for ( i = 0 ; i < (ZLINES2*ZCOLUMNS )  ; i++ )
 	{
@@ -448,28 +448,28 @@ static void zrdivaTest ( void ){
 	}
 }
 
-static int testRDiva   (void) {
+static int testRDivma   (void) {
 
   printf("\n\n\n\n**********************\n");
   printf("***** Right Tests ****\n");
   printf("**********************\n");
     
   printf("\n\t>>>> Float real  Tests\n");
-  sdivaTest();
+  sdivmaTest();
     
   printf("\n\n\n\n\t>>>> Double real  Tests\n");
-  drdivaTest();
+  drdivmaTest();
 
   printf("\n\t>>>> Float complex  Tests\n");
-  crdivaTest();	
+  crdivmaTest();	
     
   printf("\n\t>>>> Double complex  Tests\n");
-  zrdivaTest();	
+  zrdivmaTest();	
   return 0;
 }
 
 
 int main(void) {
-  assert(testRDiva () == 0);
+  assert(testRDivma () == 0);
   return 0;
 }

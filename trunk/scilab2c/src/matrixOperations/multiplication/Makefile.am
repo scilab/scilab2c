@@ -32,6 +32,7 @@ check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/operations/addition/libAddition.la \
 			$(top_builddir)/lib/blas/libsciblas.la \
+			$(top_builddir)/operations/multiplication/libMultiplication.la \
 			libMatrixMultiplication.la
 
 check_INCLUDES =	-I $(top_builddir)/type \

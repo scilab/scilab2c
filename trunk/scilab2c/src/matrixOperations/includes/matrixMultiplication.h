@@ -13,8 +13,7 @@
 #ifndef __MATRIXMULTIPLICATION_H__
 #define __MATRIXMULTIPLICATION_H__
 
-#include "floatComplex.h"
-#include "doubleComplex.h"
+#include "multiplication.h"
 #include "addition.h"
 
 /*

@@ -215,6 +215,7 @@ check_LDADD = libConj.la \
 			$(top_builddir)/elementaryFunctions/atan2/libAtan2.la \
 			$(top_builddir)/elementaryFunctions/lnp1m1/libLnp1m1.la \
 			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/operations/multiplication/libMultiplication.la \
 			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la
 
 check_INCLUDES = -I $(top_builddir)/type \

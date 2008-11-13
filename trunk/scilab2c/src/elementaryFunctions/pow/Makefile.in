@@ -79,7 +79,8 @@ am__DEPENDENCIES_1 = $(top_builddir)/lib/lapack/libscilapack.la \
 	$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
 	$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
 	$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-	$(top_builddir)/auxiliaryFunctions/abs/libAbs.la
+	$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+	$(top_builddir)/operations/multiplication/libMultiplication.la
 testDoublePow_DEPENDENCIES = $(am__DEPENDENCIES_1)
 testDoublePow_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoublePow_CFLAGS) \
@@ -220,6 +221,7 @@ target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 libPow_la_CFLAGS = -I $(top_builddir)/type \
+			-I $(top_builddir)/operations/includes \
 			-I $(top_builddir)/elementaryFunctions/includes
 
 instdir = $(top_builddir)/lib
@@ -240,6 +242,7 @@ HEAD = ../includes/pow.h
 # Checking Part
 ####
 check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/operations/includes \
 			-I $(top_builddir)/type
 
 check_LDADD = $(top_builddir)/lib/lapack/libscilapack.la \
@@ -258,6 +261,7 @@ check_LDADD = $(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
 			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
 			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/operations/multiplication/libMultiplication.la \
 			@LIBMATH@
 
 testFloatPow_SOURCES = testPow.h testFloatPow.c

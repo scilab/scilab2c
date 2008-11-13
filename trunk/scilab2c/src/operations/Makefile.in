@@ -167,7 +167,9 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 dist_SUBDIRS = includes
 SUBDIRS = addition \
-		subtraction
+		subtraction \
+		division \
+		multiplication
 
 all: all-recursive
 

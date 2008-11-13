@@ -19,6 +19,6 @@ void crowmeana(floatComplex *in, int lines, int columns, floatComplex *out) {
   crowsuma(in, lines, columns, out);
   for (i = 0; i < columns; ++i)
     {
-      out[i] = cdevides(out[i], FloatComplex((float)lines, 0.0f));
+      out[i] = cdivides(out[i], FloatComplex((float)lines, 0.0f));
     }
 }

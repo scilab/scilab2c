@@ -13,8 +13,7 @@
 #ifndef __POW_H__
 #define __POW_H__
 
-#include "floatComplex.h"
-#include "doubleComplex.h"
+#include "multiplication.h"
 
 float		spows(float value, float expand);
 

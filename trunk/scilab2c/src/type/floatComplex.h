@@ -64,7 +64,4 @@ floatComplex*	FloatComplexMatrix(float*, float*, int);
 bool		cisreals(floatComplex);
 bool		cisimags(floatComplex);
 
-floatComplex	ctimess(floatComplex, floatComplex);
-floatComplex	cdevides(floatComplex, floatComplex);
-
 #endif /* !__FLOATCOMPLEX_H__ */
