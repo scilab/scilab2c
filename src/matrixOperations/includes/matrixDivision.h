@@ -23,37 +23,37 @@
 #include "max.h" 
 
 
-void srdiva (	float* in1, int lines1, int columns1 ,
+void srdivma (	float* in1, int lines1, int columns1 ,
 			    float* in2, int lines2, int columns2 ,
 			 	float* out );		
 
-void sldiva (	float* in1, int lines1, int columns1 ,
+void sldivma (	float* in1, int lines1, int columns1 ,
 			    float* in2, int lines2, int columns2 ,
 			 	float* out );	
 
 				
-void drdiva (	double* in1, int lines1, int columns1 ,
+void drdivma (	double* in1, int lines1, int columns1 ,
 			    double* in2, int lines2, int columns2 ,
 			 	double* out );		
 
 
-void dldiva (	double* in1, int lines1, int columns1 ,
+void dldivma (	double* in1, int lines1, int columns1 ,
 				double* in2, int lines2, int columns2 ,
 				double* out );
 
-void zrdiva(	doubleComplex* in1, int lines1, int columns1 ,
+void zrdivma(	doubleComplex* in1, int lines1, int columns1 ,
 				doubleComplex* in2, int lines2, int columns2 ,
 				doubleComplex* out );
 
-void zldiva(    doubleComplex* in1, int lines1, int columns1 ,
+void zldivma(    doubleComplex* in1, int lines1, int columns1 ,
 				doubleComplex* in2, int lines2, int columns2 ,
 				doubleComplex* out );
 
-void crdiva(    floatComplex* in1, int lines1, int columns1 ,
+void crdivma(    floatComplex* in1, int lines1, int columns1 ,
 				floatComplex* in2, int lines2, int columns2 ,
 				floatComplex* out );
 
-void cldiva(	floatComplex* in1, int lines1, int columns1 ,
+void cldivma(	floatComplex* in1, int lines1, int columns1 ,
 				floatComplex* in2, int lines2, int columns2 ,
 				floatComplex* out );
 

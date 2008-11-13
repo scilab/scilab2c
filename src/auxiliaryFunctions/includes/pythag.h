@@ -13,8 +13,7 @@
 #ifndef __PYTHAG_H__
 #define __PYTHAG_H__
 
-#include "floatComplex.h"
-#include "doubleComplex.h"
+#include "multiplication.h"
 #include "addition.h"
 #include "sqrt.h"
 

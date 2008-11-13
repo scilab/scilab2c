@@ -22,14 +22,14 @@ pkglib_LTLIBRARIES = libMatrixDivision.la
 HEAD = ../includes/matrixDivision.h
 
 libMatrixDivision_la_SOURCES = 	$(HEAD) \
-				srdiva.c \
-				sldiva.c \
-				drdiva.c \
-				dldiva.c \
-				zrdiva.c \
-				zldiva.c \
-				crdiva.c \
-				cldiva.c
+				srdivma.c \
+				sldivma.c \
+				drdivma.c \
+				dldivma.c \
+				zrdivma.c \
+				zldivma.c \
+				crdivma.c \
+				cldivma.c
 
 check_PROGRAMS = 	testMatrixRDivision \
 			testMatrixLDivision

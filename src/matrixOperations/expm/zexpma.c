@@ -61,7 +61,7 @@ void zexpma(doubleComplex * in, doubleComplex * out, int _iLeadDim)
 	/*A = A./2^s */
 
     for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
-        pdblMatrixA[iIndex1] = zdevides ( in[iIndex1] , DoubleComplex ( dblS2 , 0 ));
+        pdblMatrixA[iIndex1] = zdivides ( in[iIndex1] , DoubleComplex ( dblS2 , 0 ));
 
 
 	/* Pade approximation for exp(A)
@@ -140,7 +140,7 @@ void zexpma(doubleComplex * in, doubleComplex * out, int _iLeadDim)
         pdblMatrixTemp[iIndex1] = out[iIndex1] ;
 
 	/* E = D\E */
-    zldiva (  pdblMatrixD , _iLeadDim , _iLeadDim , pdblMatrixTemp , _iLeadDim , _iLeadDim , out ) ;
+    zldivma (  pdblMatrixD , _iLeadDim , _iLeadDim , pdblMatrixTemp , _iLeadDim , _iLeadDim , out ) ;
 
 	/*/ Undo scaling by repeated squaring */
 	for(iLoop1 = 0 ; iLoop1 < dblS ; iLoop1++)

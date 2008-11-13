@@ -194,6 +194,8 @@ static void smulmaTest(void) {
   assert(miscM7_by_M8[7] == 34.0f);
   assert(miscM7_by_M8[8] == 44.0f);
 
+
+
 }
 
 int testFloatMultiplication(void) {

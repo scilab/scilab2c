@@ -79,7 +79,8 @@ am__DEPENDENCIES_1 = $(top_builddir)/lib/lapack/libscilapack.la \
 	$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
 	$(top_builddir)/elementaryFunctions/lnp1m1/libLnp1m1.la \
 	$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-	$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la
+	$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
+	$(top_builddir)/operations/multiplication/libMultiplication.la
 testDoubleTan_DEPENDENCIES = $(am__DEPENDENCIES_1)
 testDoubleTan_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleTan_CFLAGS) \
@@ -259,6 +260,7 @@ check_LDADD = $(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/elementaryFunctions/lnp1m1/libLnp1m1.la \
 			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
 			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
+			$(top_builddir)/operations/multiplication/libMultiplication.la \
 			@LIBMATH@
 
 

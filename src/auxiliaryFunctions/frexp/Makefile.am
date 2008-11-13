@@ -12,6 +12,7 @@
 
 libFrexp_la_CFLAGS =	-I $(top_builddir)/type \
                     -I $(top_builddir)/includes \
+			-I $(top_builddir)/operations/includes \
                     -I $(top_builddir)/elementaryFunctions/includes \
                     -I $(top_builddir)/auxiliaryFunctions/includes
 
@@ -47,10 +48,12 @@ check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/elementaryFunctions/pow/libPow.la \
 			$(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/lib/blas/libsciblas.la \
+			$(top_builddir)/operations/multiplication/libMultiplication.la \
 			libFrexp.la
 
 check_INCLUDES =	-I $(top_builddir)/type \
                     -I $(top_builddir)/includes \
+			-I $(top_builddir)/operations/includes \
                     -I $(top_builddir)/elementaryFunctions/includes \
                     -I $(top_builddir)/auxiliaryFunctions/includes
 

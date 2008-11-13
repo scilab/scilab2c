@@ -28,7 +28,7 @@
 #include "eye.h"
 #include "infiniteNorm.h"
 #include "frexp.h"
-
+#include "division.h"
 
 void sexpma (float* in, float* out, int _iLeadDim);
 

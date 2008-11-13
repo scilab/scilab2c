@@ -38,12 +38,12 @@ floatComplex	cvariancea(floatComplex *in, int size)
    if ( fabs ( creals ( sumc)) > 1e-08 || fabs ( cimags ( sumc)) > 1e-08 )
     {
     variance = cpows ( sumc ,FloatComplex (2.0f , 0)) ;     
-    variance = cdevides ( variance  , FloatComplex ((float) size , 0 ) ) ;           
+    variance = cdivides ( variance  , FloatComplex ((float) size , 0 ) ) ;           
     variance =  cdiffs ( sum , variance );      
-    variance = cdevides (variance , FloatComplex ((float) (size - 1),0 )); 
+    variance = cdivides (variance , FloatComplex ((float) (size - 1),0 )); 
     }
    else 
-          variance = cdevides (sum , FloatComplex ((float) (size - 1),0 ));
+          variance = cdivides (sum , FloatComplex ((float) (size - 1),0 ));
   
     return variance ;
 }

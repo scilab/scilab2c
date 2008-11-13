@@ -61,6 +61,8 @@ check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/matrixOperations/eye/libMatrixEye.la \
 			$(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/lib/blas/libsciblas.la \
+			$(top_builddir)/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/operations/division/libDivision.la \
 			libMatrixExponential.la
 
 check_INCLUDES =	-I $(top_builddir)/type \

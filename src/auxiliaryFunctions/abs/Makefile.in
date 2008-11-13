@@ -70,7 +70,8 @@ am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/lib/lapack/libscilapack.la \
 	$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
 	$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-	$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la
+	$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
+	$(top_builddir)/operations/multiplication/libMultiplication.la
 testDoubleAbs_DEPENDENCIES = $(am__DEPENDENCIES_1)
 testDoubleAbs_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleAbs_CFLAGS) \
@@ -242,6 +243,7 @@ check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
 			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
 			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
+			$(top_builddir)/operations/multiplication/libMultiplication.la \
 			@LIBMATH@
 
 

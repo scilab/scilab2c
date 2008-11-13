@@ -163,6 +163,8 @@ type/Makefile
 operations/Makefile
 operations/addition/Makefile
 operations/subtraction/Makefile
+operations/division/Makefile
+operations/multiplication/Makefile
 matrixOperations/Makefile
 matrixOperations/addition/Makefile
 matrixOperations/subtraction/Makefile

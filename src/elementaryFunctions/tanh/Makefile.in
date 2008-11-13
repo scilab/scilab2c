@@ -80,7 +80,8 @@ am__DEPENDENCIES_1 = $(top_builddir)/lib/lapack/libscilapack.la \
 	$(top_builddir)/elementaryFunctions/lnp1m1/libLnp1m1.la \
 	$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
 	$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-	$(top_builddir)/elementaryFunctions/tanh/libTanh.la
+	$(top_builddir)/elementaryFunctions/tanh/libTanh.la \
+	$(top_builddir)/operations/multiplication/libMultiplication.la
 testDoubleTanh_DEPENDENCIES = $(am__DEPENDENCIES_1)
 testDoubleTanh_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleTanh_CFLAGS) \
@@ -260,6 +261,7 @@ check_LDADD = $(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
 			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
 			$(top_builddir)/elementaryFunctions/tanh/libTanh.la \
+			$(top_builddir)/operations/multiplication/libMultiplication.la \
 			@LIBMATH@
 
 
