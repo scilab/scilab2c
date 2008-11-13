@@ -11,6 +11,7 @@
 ##
 
 libDivision_la_CFLAGS =	-I $(top_builddir)/type \
+			-I $(top_builddir)/auxiliaryFunctions/includes \
 			-I $(top_builddir)/operations/includes
 
 instdir = $(top_builddir)/lib
@@ -20,20 +21,44 @@ pkglib_LTLIBRARIES = libDivision.la
 HEAD = ../includes/division.h
 
 libDivision_la_SOURCES = 	$(HEAD) \
+				srdivs.c \
+				drdivs.c \
+				crdivs.c \
+				zrdivs.c \
+				sldivs.c \
+				dldivs.c \
+				cldivs.c \
+				zldivs.c \
+				srdiva.c \
+				drdiva.c \
+				crdiva.c \
+				zrdiva.c \
+				sldiva.c \
+				dldiva.c \
+				cldiva.c \
+				zldiva.c \
 				cdivides.c \
 				zdivides.c 
 
-check_PROGRAMS = 	testDivision
+check_PROGRAMS = 	testDivision \
+			testLDivision
 
 check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
 			libDivision.la
 
 check_INCLUDES =	-I $(top_builddir)/type \
 			-I $(top_builddir)/operations/includes
 
-testDivision_SOURCES = testDivision.c
+testDivision_SOURCES = testDivision.c 
 testDivision_LDADD = $(check_LDADD)
 testDivision_CFLAGS = $(check_INCLUDES)
 
-TESTS =		testDivision
+
+testLDivision_SOURCES = testLDivision.c 
+testLDivision_LDADD = $(check_LDADD)
+testLDivision_CFLAGS = $(check_INCLUDES)
+TESTS =		testDivision \
+		testLDivision
