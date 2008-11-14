@@ -38,6 +38,7 @@ HEAD	=	../includes/acos.h \
 ####
 
 check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/includes \
 			-I $(top_builddir)/type
 
 check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
