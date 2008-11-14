@@ -27,7 +27,7 @@
 ** \brief Compute a multiplication with floats.
 ** \param in1 : input float.
 ** \param in2 : input float.
-** \return : in1 + in2
+** \return : in1 * in 2 = in1 .* in2.
 */
 float	smuls(float in1, float in2);
 
@@ -37,7 +37,7 @@ float	smuls(float in1, float in2);
 ** \param size1 : size of in1 array.
 ** \param in2 : input arry.
 ** \param size2 : size of in2 array.
-** \param out : array that contains the multiplication in1 + in2.
+** \param out : array that contains the multiplication  = in1 .* in2.
 */
 void	smula(float *in1, int size1,
 	       float *in2, int size2,
@@ -47,7 +47,7 @@ void	smula(float *in1, int size1,
 ** \brief Compute a multiplication with double.
 ** \param in1 : input double.
 ** \param in2 : input double.
-** \return : in1 + in2
+** \return : in1 * in 2 = in1 .* in2.
 */
 double	dmuls(double in1, double in2);
 
@@ -57,7 +57,7 @@ double	dmuls(double in1, double in2);
 ** \param size1 : size of in1 array.
 ** \param in2 : input arry.
 ** \param size2 : size of in2 array.
-** \param out : array that contains the multiplication in1 + in2.
+** \param out : array that contains the multiplication  = in1 .* in2.
 */
 void	dmula(double *in1, int size1,
 	       double *in2, int size2,
@@ -67,7 +67,7 @@ void	dmula(double *in1, int size1,
 ** \brief Compute a multiplication with floats Complex.
 ** \param in1 : input float complex.
 ** \param in2 : input float complex.
-** \return : in1 + in2
+** \return : in1 * in 2 = in1 .* in2.
 */
 floatComplex	cmuls(floatComplex in1, floatComplex in2);
 
@@ -77,7 +77,7 @@ floatComplex	cmuls(floatComplex in1, floatComplex in2);
 ** \param size1 : size of in1 array.
 ** \param in2 : input arry.
 ** \param size2 : size of in2 array.
-** \param out : array that contains the multiplication in1 + in2.
+** \param out : array that contains the multiplication  = in1 .* in2.
 */
 void	cmula(floatComplex *in1, int size1,
 	       floatComplex *in2, int size2,
@@ -87,7 +87,7 @@ void	cmula(floatComplex *in1, int size1,
 ** \brief Compute a multiplication with double complex.
 ** \param in1 : input double complex.
 ** \param in2 : input double conplex.
-** \return : in1 + in2
+** \return : in1 * in 2 = in1 .* in2.
 */
 doubleComplex	zmuls(doubleComplex in1, doubleComplex in2);
 
@@ -97,7 +97,7 @@ doubleComplex	zmuls(doubleComplex in1, doubleComplex in2);
 ** \param size1 : size of in1 array.
 ** \param in2 : input arry.
 ** \param size2 : size of in2 array.
-** \param out : array that contains the multiplication in1 + in2.
+** \param out : array that contains the multiplication  = in1 .* in2.
 */
 void	zmula(doubleComplex *in1, int size1,
 	       doubleComplex *in2, int size2,
