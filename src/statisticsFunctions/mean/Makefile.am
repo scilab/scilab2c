@@ -49,6 +49,8 @@ check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/statisticsFunctions/mean/libMean.la \
 			$(top_builddir)/statisticsFunctions/sum/libSum.la \
 			$(top_builddir)/operations/division/libDivision.la \
+			$(top_builddir)/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
 			@LIBMATH@
 
 check_PROGRAMS	= 	testFloatMean testDoubleMean

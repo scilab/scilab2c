@@ -94,7 +94,8 @@ am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
 	$(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la \
 	$(top_builddir)/operations/multiplication/libMultiplication.la \
-	$(top_builddir)/operations/division/libDivision.la
+	$(top_builddir)/operations/division/libDivision.la \
+	$(top_builddir)/auxiliaryFunctions/conj/libConj.la
 testDoubleVariance_DEPENDENCIES = $(am__DEPENDENCIES_1)
 testDoubleVariance_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
@@ -293,6 +294,7 @@ check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la \
 			$(top_builddir)/operations/multiplication/libMultiplication.la \
 			$(top_builddir)/operations/division/libDivision.la \
+			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
 			@LIBMATH@
 
 

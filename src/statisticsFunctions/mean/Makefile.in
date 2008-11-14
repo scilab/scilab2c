@@ -72,7 +72,9 @@ am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/operations/addition/libAddition.la \
 	$(top_builddir)/statisticsFunctions/mean/libMean.la \
 	$(top_builddir)/statisticsFunctions/sum/libSum.la \
-	$(top_builddir)/operations/division/libDivision.la
+	$(top_builddir)/operations/division/libDivision.la \
+	$(top_builddir)/operations/multiplication/libMultiplication.la \
+	$(top_builddir)/auxiliaryFunctions/conj/libConj.la
 testDoubleMean_DEPENDENCIES = $(am__DEPENDENCIES_1)
 testDoubleMean_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleMean_CFLAGS) \
@@ -247,6 +249,8 @@ check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/statisticsFunctions/mean/libMean.la \
 			$(top_builddir)/statisticsFunctions/sum/libSum.la \
 			$(top_builddir)/operations/division/libDivision.la \
+			$(top_builddir)/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
 			@LIBMATH@
 
 
