@@ -20,6 +20,14 @@ pkglib_LTLIBRARIES = libMultiplication.la
 HEAD = ../includes/multiplication.h
 
 libMultiplication_la_SOURCES = 	$(HEAD) \
+				smuls.c \
+				dmuls.c \
+				cmuls.c \
+				zmuls.c \
+				smula.c \
+				dmula.c \
+				cmula.c \
+				zmula.c \
 				ctimess.c \
 				ztimess.c 
 

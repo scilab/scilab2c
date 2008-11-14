@@ -55,6 +55,10 @@ LTLIBRARIES = $(pkglib_LTLIBRARIES)
 libMultiplication_la_LIBADD =
 am__objects_1 =
 am_libMultiplication_la_OBJECTS = $(am__objects_1) \
+	libMultiplication_la-smuls.lo libMultiplication_la-dmuls.lo \
+	libMultiplication_la-cmuls.lo libMultiplication_la-zmuls.lo \
+	libMultiplication_la-smula.lo libMultiplication_la-dmula.lo \
+	libMultiplication_la-cmula.lo libMultiplication_la-zmula.lo \
 	libMultiplication_la-ctimess.lo \
 	libMultiplication_la-ztimess.lo
 libMultiplication_la_OBJECTS = $(am_libMultiplication_la_OBJECTS)
@@ -206,6 +210,14 @@ instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libMultiplication.la
 HEAD = ../includes/multiplication.h
 libMultiplication_la_SOURCES = $(HEAD) \
+				smuls.c \
+				dmuls.c \
+				cmuls.c \
+				zmuls.c \
+				smula.c \
+				dmula.c \
+				cmula.c \
+				zmula.c \
 				ctimess.c \
 				ztimess.c 
 
@@ -298,7 +310,15 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMultiplication_la-cmula.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMultiplication_la-cmuls.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMultiplication_la-ctimess.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMultiplication_la-dmula.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMultiplication_la-dmuls.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMultiplication_la-smula.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMultiplication_la-smuls.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMultiplication_la-zmula.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMultiplication_la-zmuls.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMultiplication_la-ztimess.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testMultiplication-testMultiplication.Po@am__quote@
 
@@ -322,6 +342,62 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
+
+libMultiplication_la-smuls.lo: smuls.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -MT libMultiplication_la-smuls.lo -MD -MP -MF $(DEPDIR)/libMultiplication_la-smuls.Tpo -c -o libMultiplication_la-smuls.lo `test -f 'smuls.c' || echo '$(srcdir)/'`smuls.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMultiplication_la-smuls.Tpo $(DEPDIR)/libMultiplication_la-smuls.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='smuls.c' object='libMultiplication_la-smuls.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -c -o libMultiplication_la-smuls.lo `test -f 'smuls.c' || echo '$(srcdir)/'`smuls.c
+
+libMultiplication_la-dmuls.lo: dmuls.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -MT libMultiplication_la-dmuls.lo -MD -MP -MF $(DEPDIR)/libMultiplication_la-dmuls.Tpo -c -o libMultiplication_la-dmuls.lo `test -f 'dmuls.c' || echo '$(srcdir)/'`dmuls.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMultiplication_la-dmuls.Tpo $(DEPDIR)/libMultiplication_la-dmuls.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dmuls.c' object='libMultiplication_la-dmuls.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -c -o libMultiplication_la-dmuls.lo `test -f 'dmuls.c' || echo '$(srcdir)/'`dmuls.c
+
+libMultiplication_la-cmuls.lo: cmuls.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -MT libMultiplication_la-cmuls.lo -MD -MP -MF $(DEPDIR)/libMultiplication_la-cmuls.Tpo -c -o libMultiplication_la-cmuls.lo `test -f 'cmuls.c' || echo '$(srcdir)/'`cmuls.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMultiplication_la-cmuls.Tpo $(DEPDIR)/libMultiplication_la-cmuls.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cmuls.c' object='libMultiplication_la-cmuls.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -c -o libMultiplication_la-cmuls.lo `test -f 'cmuls.c' || echo '$(srcdir)/'`cmuls.c
+
+libMultiplication_la-zmuls.lo: zmuls.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -MT libMultiplication_la-zmuls.lo -MD -MP -MF $(DEPDIR)/libMultiplication_la-zmuls.Tpo -c -o libMultiplication_la-zmuls.lo `test -f 'zmuls.c' || echo '$(srcdir)/'`zmuls.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMultiplication_la-zmuls.Tpo $(DEPDIR)/libMultiplication_la-zmuls.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zmuls.c' object='libMultiplication_la-zmuls.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -c -o libMultiplication_la-zmuls.lo `test -f 'zmuls.c' || echo '$(srcdir)/'`zmuls.c
+
+libMultiplication_la-smula.lo: smula.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -MT libMultiplication_la-smula.lo -MD -MP -MF $(DEPDIR)/libMultiplication_la-smula.Tpo -c -o libMultiplication_la-smula.lo `test -f 'smula.c' || echo '$(srcdir)/'`smula.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMultiplication_la-smula.Tpo $(DEPDIR)/libMultiplication_la-smula.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='smula.c' object='libMultiplication_la-smula.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -c -o libMultiplication_la-smula.lo `test -f 'smula.c' || echo '$(srcdir)/'`smula.c
+
+libMultiplication_la-dmula.lo: dmula.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -MT libMultiplication_la-dmula.lo -MD -MP -MF $(DEPDIR)/libMultiplication_la-dmula.Tpo -c -o libMultiplication_la-dmula.lo `test -f 'dmula.c' || echo '$(srcdir)/'`dmula.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMultiplication_la-dmula.Tpo $(DEPDIR)/libMultiplication_la-dmula.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dmula.c' object='libMultiplication_la-dmula.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -c -o libMultiplication_la-dmula.lo `test -f 'dmula.c' || echo '$(srcdir)/'`dmula.c
+
+libMultiplication_la-cmula.lo: cmula.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -MT libMultiplication_la-cmula.lo -MD -MP -MF $(DEPDIR)/libMultiplication_la-cmula.Tpo -c -o libMultiplication_la-cmula.lo `test -f 'cmula.c' || echo '$(srcdir)/'`cmula.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMultiplication_la-cmula.Tpo $(DEPDIR)/libMultiplication_la-cmula.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cmula.c' object='libMultiplication_la-cmula.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -c -o libMultiplication_la-cmula.lo `test -f 'cmula.c' || echo '$(srcdir)/'`cmula.c
+
+libMultiplication_la-zmula.lo: zmula.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -MT libMultiplication_la-zmula.lo -MD -MP -MF $(DEPDIR)/libMultiplication_la-zmula.Tpo -c -o libMultiplication_la-zmula.lo `test -f 'zmula.c' || echo '$(srcdir)/'`zmula.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMultiplication_la-zmula.Tpo $(DEPDIR)/libMultiplication_la-zmula.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zmula.c' object='libMultiplication_la-zmula.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -c -o libMultiplication_la-zmula.lo `test -f 'zmula.c' || echo '$(srcdir)/'`zmula.c
 
 libMultiplication_la-ctimess.lo: ctimess.c
 @am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -MT libMultiplication_la-ctimess.lo -MD -MP -MF $(DEPDIR)/libMultiplication_la-ctimess.Tpo -c -o libMultiplication_la-ctimess.lo `test -f 'ctimess.c' || echo '$(srcdir)/'`ctimess.c
