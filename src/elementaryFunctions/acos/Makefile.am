@@ -56,17 +56,18 @@ check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/operations/multiplication/libMultiplication.la \
 			@LIBMATH@
 
-check_PROGRAMS	= 	testFloatAcos testDoubleAcos
+check_PROGRAMS	= 	testRealsAcos testCplxAcos
 
-TESTS		=	testFloatAcos testDoubleAcos
+TESTS		=	testRealsAcos testCplxAcos
 
 #
 # -*- Acosine Tests -*-
 #
-testFloatAcos_SOURCES = 	testAcos.h testFloatAcos.c
-testFloatAcos_CFLAGS	=	$(check_INCLUDES)
-testFloatAcos_LDADD	=	$(check_LDADD)
+testRealsAcos_SOURCES = 	testAcos.h testRealsAcos.c
+testRealsAcos_CFLAGS	=	$(check_INCLUDES)
+testRealsAcos_LDADD	=	$(check_LDADD)
 
-testDoubleAcos_SOURCES = 	testAcos.h testDoubleAcos.c
-testDoubleAcos_CFLAGS	=	$(check_INCLUDES)
-testDoubleAcos_LDADD	=	$(check_LDADD)
+testCplxAcos_SOURCES = 	testAcos.h testCplxAcos.c
+testCplxAcos_CFLAGS	=	$(check_INCLUDES)
+testCplxAcos_LDADD	=	$(check_LDADD)
+
