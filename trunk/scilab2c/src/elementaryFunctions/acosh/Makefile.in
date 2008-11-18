@@ -79,7 +79,8 @@ am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/elementaryFunctions/lnp1m1/libLnp1m1.la \
 	$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
 	$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-	$(top_builddir)/operations/multiplication/libMultiplication.la
+	$(top_builddir)/operations/multiplication/libMultiplication.la \
+	$(top_builddir)/auxiliaryFunctions/isnan/libIsnan.la
 testDoubleAcosh_DEPENDENCIES = $(am__DEPENDENCIES_1)
 testDoubleAcosh_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleAcosh_CFLAGS) \
@@ -220,6 +221,7 @@ target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 libAcosh_la_CFLAGS = -I ../../type \
+			-I $(top_builddir)/auxiliaryFunctions/includes \
 			-I ../includes
 
 instdir = $(top_builddir)/lib
@@ -240,6 +242,7 @@ HEAD = ../includes/acosh.h
 # Checking Part
 ####
 check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/auxiliaryFunctions/includes \
 			-I $(top_builddir)/type
 
 check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
@@ -256,6 +259,7 @@ check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
 			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
 			$(top_builddir)/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/auxiliaryFunctions/isnan/libIsnan.la \
 			@LIBMATH@
 
 
