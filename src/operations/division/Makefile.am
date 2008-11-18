@@ -41,7 +41,8 @@ libDivision_la_SOURCES = 	$(HEAD) \
 				zdivides.c 
 
 check_PROGRAMS = 	testDivision \
-			testLDivision
+			testLDivision \
+			testRDivision
 
 check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
@@ -60,5 +61,12 @@ testDivision_CFLAGS = $(check_INCLUDES)
 testLDivision_SOURCES = testLDivision.c 
 testLDivision_LDADD = $(check_LDADD)
 testLDivision_CFLAGS = $(check_INCLUDES)
+
+
+testRDivision_SOURCES = testRDivision.c 
+testRDivision_LDADD = $(check_LDADD)
+testRDivision_CFLAGS = $(check_INCLUDES)
+
 TESTS =		testDivision \
-		testLDivision
+		testLDivision \
+		testRDivision 
