@@ -11,6 +11,7 @@
 ##
 
 libAcosh_la_CFLAGS =	-I ../../type \
+			-I $(top_builddir)/auxiliaryFunctions/includes \
 			-I ../includes
 
 instdir = $(top_builddir)/lib
@@ -35,7 +36,9 @@ HEAD	=	../includes/acosh.h
 ####
 
 check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/auxiliaryFunctions/includes \
 			-I $(top_builddir)/type
+			
 
 check_LDADD	  =	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
@@ -51,6 +54,7 @@ check_LDADD	  =	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
 			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
 			$(top_builddir)/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/auxiliaryFunctions/isnan/libIsnan.la \
 			@LIBMATH@
 
 check_PROGRAMS	= 	testFloatAcosh testDoubleAcosh
