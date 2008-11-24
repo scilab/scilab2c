@@ -179,6 +179,7 @@ matrixOperations/eye/Makefile
 matrixOperations/ones/Makefile
 matrixOperations/infiniteNorm/Makefile
 matrixOperations/inversion/Makefile
+matrixOperations/jmat/Makefile
 implicitList/Makefile
 elementaryFunctions/Makefile
 elementaryFunctions/cos/Makefile

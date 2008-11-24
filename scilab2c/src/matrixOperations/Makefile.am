@@ -21,7 +21,8 @@ SUBDIRS= 	addition \
 		subtraction \
 		trace \
 		transpose \
-		ones 
+		ones \
+		jmat
 
 
 #		inversion
