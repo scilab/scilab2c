@@ -1,6 +1,6 @@
 /*
  *  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
- *  Copyright (C) 2008-2008 - INRIA - Bruno JOFRET
+ *  Copyright (C) 2008-2008 - INRIA - Arnaud TORSET
  *
  *  This file must be used under the terms of the CeCILL.
  *  This source file is licensed as described in the file COPYING, which
@@ -15,6 +15,7 @@
 
 #include <stdio.h>
 #include <assert.h>
+#include <math.h>
 #include "cos.h"
 #include "constant.h"
 
