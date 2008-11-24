@@ -15,14 +15,25 @@
 
 #include <stdio.h>
 #include <assert.h>
+#include <math.h>
 #include "atanh.h"
 #include "constant.h"
 
 void satanhsTest(void);
 
+void satanhaTest(void);
+
 void datanhsTest(void);
 
-/* FIXME : Add missing prototypes and increase tests cases */
+void datanhaTest(void);
+
+void catanhsTest(void);
+
+void catanhaTest(void);
+
+void zatanhsTest(void);
+
+void zatanhaTest(void);
 
 int testAtanh(void);
 
