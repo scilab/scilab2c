@@ -447,7 +447,7 @@ void casinsTest(void) {
 		out=casins(in);
 	/*	printf("%d - %f  - erreur %f\n",i,cimags(out),(fabs(cimags(out)-resI[i])) / (fabs(cimags(out))));*/
 		assert( ( (fabs(creals(out)-resR[i])) / (fabs(creals(out))) ) <1e-6);
-		assert( ( (fabs(cimags(out)-resI[i])) / (fabs(cimags(out))) ) <1);
+		assert( ( (fabs(cimags(out)-resI[i])) / (fabs(cimags(out))) ) <1e-1);
 	}
 }
 
@@ -478,7 +478,7 @@ void casinaTest(void) {
 	casina(in,200,out);
 	for (i=0;i<200;i++){
 		assert( ( (fabs(creals(out[i])-resR[i])) / (fabs(creals(out[i]))) ) <1e-6);
-		assert( ( (fabs(cimags(out[i])-resI[i])) / (fabs(cimags(out[i]))) ) <1);
+		assert( ( (fabs(cimags(out[i])-resI[i])) / (fabs(cimags(out[i]))) ) <1e-1);
 	}
 }
 
