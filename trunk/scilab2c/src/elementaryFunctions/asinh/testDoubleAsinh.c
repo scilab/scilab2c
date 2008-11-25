@@ -449,8 +449,8 @@ void zasinhsTest(void) {
 		printf("%d - trouvé : %1.20f  - espéré : %1.20f - erreur %1.20f\n",i,zreals(out),resR[i],(fabs(zreals(out)-resI[i])) / (fabs(zreals(out))));
 		printf("detail : %1.20f - %1.20f / %1.20f\n",zreals(out)-resI[i],(fabs(zreals(out)-resI[i])),(fabs(zreals(out))));
 
-		assert( ( ( fabs( zreals(out)-resR[i] ) ) / (fabs(zreals(out)) ) ) <1);
-		assert( ( ( fabs( zimags(out)-resI[i] ) ) / (fabs(zimags(out)) ) ) <3);
+		assert( ( ( fabs( zreals(out)-resR[i] ) ) / (fabs(zreals(out)) ) ) <1e-1);
+		assert( ( ( fabs( zimags(out)-resI[i] ) ) / (fabs(zimags(out)) ) ) <1e-1);
 	}	
 }
 
@@ -478,8 +478,8 @@ void zasinhaTest(void) {
 	}
 	zasinha(in,200,out);
 	for (i=0;i<200;i++){
-		assert( ( ( fabs( zreals(out[i])-resR[i] ) ) / (fabs(zreals(out[i])) ) ) <1);
-		assert( ( ( fabs( zimags(out[i])-resI[i] ) ) / (fabs(zimags(out[i])) ) ) <3);
+		assert( ( ( fabs( zreals(out[i])-resR[i] ) ) / (fabs(zreals(out[i])) ) ) <1e-1);
+		assert( ( ( fabs( zimags(out[i])-resI[i] ) ) / (fabs(zimags(out[i])) ) ) <1e-1);
 	}
 }
 
