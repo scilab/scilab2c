@@ -22,5 +22,5 @@ doubleComplex		zasinhs(doubleComplex z) {
   doubleComplex i_z = DoubleComplex(-zimags(z), zreals(z));
   doubleComplex asin_i_z = zasins(i_z);
 
-  return DoubleComplex(zimags(asin_i_z), zreals(asin_i_z));
+  return DoubleComplex(zimags(asin_i_z), -zreals(asin_i_z));
 }
