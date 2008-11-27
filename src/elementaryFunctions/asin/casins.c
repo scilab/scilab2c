@@ -79,12 +79,12 @@ floatComplex		casins(floatComplex z) {
 
 	  if(dblAbsReal < 1)
 	    /* Am1 = 0.5d0*((y**2)/(R+(x+1.d0))+(y**2)/(S+(1.d0-x))) */
-	    dblImg1 = 0.5f * (dblAbsImg * dblAbsImg / (dblR + (dblAbsReal + 1)) + dblAbsImg * dblAbsImg / (dblS + (dblAbsReal - 1)));
+	    dblImg1 = 0.5f * (dblAbsImg * dblAbsImg / (dblR + (dblAbsReal + 1)) + dblAbsImg * dblAbsImg / (dblS + (1 - dblAbsReal)));
 	  else
 	    /* Am1 = 0.5d0*((y**2)/(R+(x+1.d0))+(S+(x-1.d0))) */
 	    dblImg1 = 0.5f * (dblAbsImg * dblAbsImg / (dblR + (dblAbsReal + 1)) + (dblS + (dblAbsReal - 1)));
 	  /* ai = logp1(Am1 + sqrt(Am1*(A+1.d0))) */
-	  dblTemp = dblImg1 + ssqrts(dblImg1 * dblA + 1);
+	  dblTemp = dblImg1 + ssqrts(dblImg1 * (dblA + 1));
 	  _pdblImg = slog1ps(dblTemp);
 	}
       else

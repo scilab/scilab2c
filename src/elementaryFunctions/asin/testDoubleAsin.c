@@ -445,9 +445,8 @@ void zasinsTest(void) {
 	for (i=0;i<200;i++){
 		in = DoubleComplex(inR[i],inI[i]);
 		out=zasins(in);
-		printf("%d - %f  - erreur %f\n",i,zimags(out),(fabs(zimags(out)-resI[i])) / (fabs(zimags(out))));
 		assert( ( (fabs(zreals(out)-resR[i])) / (fabs(zreals(out))) ) <1e-15);
-		assert( ( (fabs(zimags(out)-resI[i])) / (fabs(zimags(out))) ) <1e-1);
+		assert( ( (fabs(zimags(out)-resI[i])) / (fabs(zimags(out))) ) <1e-15);
 	}
 }
 
@@ -456,7 +455,7 @@ void dasinaTest(void) {
 	double res[]= RESULT;
 	double out[200];
 	int i=0;
-	
+
 	dasina(in,200,out);
 	for (i=0;i<200;i++){
 		assert( ( (fabs(out[i]-res[i])) / (fabs(out[i])) ) <1e-15);
