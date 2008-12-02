@@ -15,6 +15,7 @@
 
 #include <stdio.h>
 #include <assert.h>
+#include <math.h>
 #include "log10.h"
 
 void slog10sTest(void);
