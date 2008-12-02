@@ -467,14 +467,13 @@ void zasinaTest(void) {
 	double inI[]= ISOURCE;
 	double resR[]= RRESULT;
 	double resI[]= IRESULT;
-	doubleComplex out[200],in[200];
+	doubleComplex out[200],*in;
 	int i=0;
 
-	for (i=0;i<200;i++){
-		in[i] = DoubleComplex(inR[i],inI[i]);
-	}
 
+	in= DoubleComplexMatrix(inR,inI,200);
 	zasina(in,200,out);
+
 	for (i=0;i<200;i++){
 		assert( ( (fabs(zreals(out[i])-resR[i])) / (fabs(zreals(out[i]))) ) <1e-15);
 		assert( ( (fabs(zimags(out[i])-resI[i])) / (fabs(zimags(out[i]))) ) <1e-1);
