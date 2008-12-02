@@ -32,9 +32,9 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testMatrixInversion$(EXEEXT)
-TESTS = testMatrixInversion$(EXEEXT)
-subdir = matrixOperations/inversion
+check_PROGRAMS = testDoubleLevin$(EXEEXT) testFloatLevin$(EXEEXT)
+TESTS = testDoubleLevin$(EXEEXT) testFloatLevin$(EXEEXT)
+subdir = signalProcessing/levin
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -52,26 +52,40 @@ am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
 am__installdirs = "$(DESTDIR)$(pkglibdir)"
 pkglibLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkglib_LTLIBRARIES)
-libMatrixInversion_la_LIBADD =
+libLevin_la_LIBADD =
 am__objects_1 =
-am_libMatrixInversion_la_OBJECTS = $(am__objects_1) \
-	libMatrixInversion_la-sinverma.lo \
-	libMatrixInversion_la-dinverma.lo \
-	libMatrixInversion_la-cinverma.lo \
-	libMatrixInversion_la-zinverma.lo
-libMatrixInversion_la_OBJECTS = $(am_libMatrixInversion_la_OBJECTS)
-libMatrixInversion_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
-	$(libMatrixInversion_la_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
-	$(LDFLAGS) -o $@
-am_testMatrixInversion_OBJECTS =  \
-	testMatrixInversion-testMatrixInversion.$(OBJEXT)
-testMatrixInversion_OBJECTS = $(am_testMatrixInversion_OBJECTS)
-testMatrixInversion_DEPENDENCIES = $(check_LDADD)
-testMatrixInversion_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
-	$(testMatrixInversion_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
-	$(LDFLAGS) -o $@
+am_libLevin_la_OBJECTS = $(am__objects_1) libLevin_la-levinUtils.lo \
+	libLevin_la-slevina.lo libLevin_la-dlevina.lo
+libLevin_la_OBJECTS = $(am_libLevin_la_OBJECTS)
+libLevin_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libLevin_la_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testDoubleLevin_OBJECTS =  \
+	testDoubleLevin-testDoubleLevin.$(OBJEXT)
+testDoubleLevin_OBJECTS = $(am_testDoubleLevin_OBJECTS)
+am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
+	$(top_builddir)/type/libFloatComplex.la \
+	$(top_builddir)/lib/blas/libsciblas.la \
+	$(top_builddir)/lib/lapack/libscilapack.la \
+	$(top_builddir)/matrixOperations/inversion/libMatrixInversion.la \
+	$(top_builddir)/matrixOperations/multiplication/libMatrixMultiplication.la \
+	$(top_builddir)/matrixOperations/subtraction/libMatrixSubtraction.la \
+	$(top_builddir)/matrixOperations/jmat/libJmat.la \
+	$(top_builddir)/matrixOperations/eye/libMatrixEye.la \
+	$(top_builddir)/signalProcessing/levin/libLevin.la \
+	$(top_builddir)/operations/addition/libAddition.la \
+	$(top_builddir)/operations/multiplication/libMultiplication.la \
+	$(top_builddir)/operations/subtraction/libSubtraction.la
+testDoubleLevin_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testDoubleLevin_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleLevin_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testFloatLevin_OBJECTS = testFloatLevin-testFloatLevin.$(OBJEXT)
+testFloatLevin_OBJECTS = $(am_testFloatLevin_OBJECTS)
+testFloatLevin_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testFloatLevin_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatLevin_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -84,10 +98,10 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libMatrixInversion_la_SOURCES) \
-	$(testMatrixInversion_SOURCES)
-DIST_SOURCES = $(libMatrixInversion_la_SOURCES) \
-	$(testMatrixInversion_SOURCES)
+SOURCES = $(libLevin_la_SOURCES) $(testDoubleLevin_SOURCES) \
+	$(testFloatLevin_SOURCES)
+DIST_SOURCES = $(libLevin_la_SOURCES) $(testDoubleLevin_SOURCES) \
+	$(testFloatLevin_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -201,42 +215,48 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libMatrixInversion_la_CFLAGS = -I $(top_builddir)/type \
-					-I $(top_builddir)/matrixOperations/includes \
-                    -I $(top_builddir)/auxiliaryFunctions/includes \
-                    -I $(top_builddir)/includes \
-                    -I $(top_builddir)/elementaryFunctions/includes
+libLevin_la_CFLAGS = -I $(top_builddir)/type \
+			-I $(top_builddir)/matrixOperations/includes \
+			-I $(top_builddir)/operations/includes \
+			-I $(top_builddir)/auxiliaryFunctions/includes \
+			-I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/signalProcessing/includes
 
 instdir = $(top_builddir)/lib
-pkglib_LTLIBRARIES = libMatrixInversion.la
-HEAD = ../includes/infiniteNorm.h
-libMatrixInversion_la_SOURCES = $(HEAD) \
-                sinverma.c \
-				dinverma.c \
-				cinverma.c \
-                zinverma.c
+pkglib_LTLIBRARIES = libLevin.la
+HEAD = ../includes/levin.h
+libLevin_la_SOURCES = $(HEAD) \
+					levinUtils.c \
+					slevina.c \
+					dlevina.c
 
 check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/lib/blas/libsciblas.la \
-			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-			$(top_builddir)/auxiliaryFunctions/sign/libSign.la \
-			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
+			$(top_builddir)/lib/lapack/libscilapack.la \
+			$(top_builddir)/matrixOperations/inversion/libMatrixInversion.la \
+			$(top_builddir)/matrixOperations/multiplication/libMatrixMultiplication.la \
+			$(top_builddir)/matrixOperations/subtraction/libMatrixSubtraction.la \
+			$(top_builddir)/matrixOperations/jmat/libJmat.la \
+			$(top_builddir)/matrixOperations/eye/libMatrixEye.la \
+			$(top_builddir)/signalProcessing/levin/libLevin.la \
 			$(top_builddir)/operations/addition/libAddition.la \
 			$(top_builddir)/operations/multiplication/libMultiplication.la \
-			libMatrixInversion.la
+			$(top_builddir)/operations/subtraction/libSubtraction.la \
+			@LIBMATH@
 
 check_INCLUDES = -I $(top_builddir)/type \
-					-I $(top_builddir)/matrixOperations/includes \
-                    -I $(top_builddir)/auxiliaryFunctions/includes \
-                    -I $(top_builddir)/includes \
-                    -I $(top_builddir)/elementaryFunctions/includes 
+			-I $(top_builddir)/matrixOperations/includes \
+			-I $(top_builddir)/operations/includes \
+			-I $(top_builddir)/auxiliaryFunctions/includes \
+			-I $(top_builddir)/signalProcessing/includes
 
-testMatrixInversion_SOURCES = testMatrixInversion.c
-testMatrixInversion_LDADD = $(check_LDADD)
-testMatrixInversion_CFLAGS = $(check_INCLUDES)
+testDoubleLevin_SOURCES = testDoubleLevin.c
+testDoubleLevin_LDADD = $(check_LDADD)
+testDoubleLevin_CFLAGS = $(check_INCLUDES)
+testFloatLevin_SOURCES = testFloatLevin.c
+testFloatLevin_LDADD = $(check_LDADD)
+testFloatLevin_CFLAGS = $(check_INCLUDES)
 all: all-am
 
 .SUFFIXES:
@@ -250,9 +270,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  matrixOperations/inversion/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  signalProcessing/levin/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  matrixOperations/inversion/Makefile
+	  $(AUTOMAKE) --foreign  signalProcessing/levin/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
@@ -297,8 +317,8 @@ clean-pkglibLTLIBRARIES:
 	  echo "rm -f \"$${dir}/so_locations\""; \
 	  rm -f "$${dir}/so_locations"; \
 	done
-libMatrixInversion.la: $(libMatrixInversion_la_OBJECTS) $(libMatrixInversion_la_DEPENDENCIES) 
-	$(libMatrixInversion_la_LINK) -rpath $(pkglibdir) $(libMatrixInversion_la_OBJECTS) $(libMatrixInversion_la_LIBADD) $(LIBS)
+libLevin.la: $(libLevin_la_OBJECTS) $(libLevin_la_DEPENDENCIES) 
+	$(libLevin_la_LINK) -rpath $(pkglibdir) $(libLevin_la_OBJECTS) $(libLevin_la_LIBADD) $(LIBS)
 
 clean-checkPROGRAMS:
 	@list='$(check_PROGRAMS)'; for p in $$list; do \
@@ -306,9 +326,12 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testMatrixInversion$(EXEEXT): $(testMatrixInversion_OBJECTS) $(testMatrixInversion_DEPENDENCIES) 
-	@rm -f testMatrixInversion$(EXEEXT)
-	$(testMatrixInversion_LINK) $(testMatrixInversion_OBJECTS) $(testMatrixInversion_LDADD) $(LIBS)
+testDoubleLevin$(EXEEXT): $(testDoubleLevin_OBJECTS) $(testDoubleLevin_DEPENDENCIES) 
+	@rm -f testDoubleLevin$(EXEEXT)
+	$(testDoubleLevin_LINK) $(testDoubleLevin_OBJECTS) $(testDoubleLevin_LDADD) $(LIBS)
+testFloatLevin$(EXEEXT): $(testFloatLevin_OBJECTS) $(testFloatLevin_DEPENDENCIES) 
+	@rm -f testFloatLevin$(EXEEXT)
+	$(testFloatLevin_LINK) $(testFloatLevin_OBJECTS) $(testFloatLevin_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -316,11 +339,11 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixInversion_la-cinverma.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixInversion_la-dinverma.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixInversion_la-sinverma.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixInversion_la-zinverma.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testMatrixInversion-testMatrixInversion.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLevin_la-dlevina.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLevin_la-levinUtils.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLevin_la-slevina.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleLevin-testDoubleLevin.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatLevin-testFloatLevin.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -343,47 +366,54 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
-libMatrixInversion_la-sinverma.lo: sinverma.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixInversion_la_CFLAGS) $(CFLAGS) -MT libMatrixInversion_la-sinverma.lo -MD -MP -MF $(DEPDIR)/libMatrixInversion_la-sinverma.Tpo -c -o libMatrixInversion_la-sinverma.lo `test -f 'sinverma.c' || echo '$(srcdir)/'`sinverma.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixInversion_la-sinverma.Tpo $(DEPDIR)/libMatrixInversion_la-sinverma.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sinverma.c' object='libMatrixInversion_la-sinverma.lo' libtool=yes @AMDEPBACKSLASH@
+libLevin_la-levinUtils.lo: levinUtils.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLevin_la_CFLAGS) $(CFLAGS) -MT libLevin_la-levinUtils.lo -MD -MP -MF $(DEPDIR)/libLevin_la-levinUtils.Tpo -c -o libLevin_la-levinUtils.lo `test -f 'levinUtils.c' || echo '$(srcdir)/'`levinUtils.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLevin_la-levinUtils.Tpo $(DEPDIR)/libLevin_la-levinUtils.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='levinUtils.c' object='libLevin_la-levinUtils.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixInversion_la_CFLAGS) $(CFLAGS) -c -o libMatrixInversion_la-sinverma.lo `test -f 'sinverma.c' || echo '$(srcdir)/'`sinverma.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLevin_la_CFLAGS) $(CFLAGS) -c -o libLevin_la-levinUtils.lo `test -f 'levinUtils.c' || echo '$(srcdir)/'`levinUtils.c
 
-libMatrixInversion_la-dinverma.lo: dinverma.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixInversion_la_CFLAGS) $(CFLAGS) -MT libMatrixInversion_la-dinverma.lo -MD -MP -MF $(DEPDIR)/libMatrixInversion_la-dinverma.Tpo -c -o libMatrixInversion_la-dinverma.lo `test -f 'dinverma.c' || echo '$(srcdir)/'`dinverma.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixInversion_la-dinverma.Tpo $(DEPDIR)/libMatrixInversion_la-dinverma.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dinverma.c' object='libMatrixInversion_la-dinverma.lo' libtool=yes @AMDEPBACKSLASH@
+libLevin_la-slevina.lo: slevina.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLevin_la_CFLAGS) $(CFLAGS) -MT libLevin_la-slevina.lo -MD -MP -MF $(DEPDIR)/libLevin_la-slevina.Tpo -c -o libLevin_la-slevina.lo `test -f 'slevina.c' || echo '$(srcdir)/'`slevina.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLevin_la-slevina.Tpo $(DEPDIR)/libLevin_la-slevina.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='slevina.c' object='libLevin_la-slevina.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixInversion_la_CFLAGS) $(CFLAGS) -c -o libMatrixInversion_la-dinverma.lo `test -f 'dinverma.c' || echo '$(srcdir)/'`dinverma.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLevin_la_CFLAGS) $(CFLAGS) -c -o libLevin_la-slevina.lo `test -f 'slevina.c' || echo '$(srcdir)/'`slevina.c
 
-libMatrixInversion_la-cinverma.lo: cinverma.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixInversion_la_CFLAGS) $(CFLAGS) -MT libMatrixInversion_la-cinverma.lo -MD -MP -MF $(DEPDIR)/libMatrixInversion_la-cinverma.Tpo -c -o libMatrixInversion_la-cinverma.lo `test -f 'cinverma.c' || echo '$(srcdir)/'`cinverma.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixInversion_la-cinverma.Tpo $(DEPDIR)/libMatrixInversion_la-cinverma.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cinverma.c' object='libMatrixInversion_la-cinverma.lo' libtool=yes @AMDEPBACKSLASH@
+libLevin_la-dlevina.lo: dlevina.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLevin_la_CFLAGS) $(CFLAGS) -MT libLevin_la-dlevina.lo -MD -MP -MF $(DEPDIR)/libLevin_la-dlevina.Tpo -c -o libLevin_la-dlevina.lo `test -f 'dlevina.c' || echo '$(srcdir)/'`dlevina.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLevin_la-dlevina.Tpo $(DEPDIR)/libLevin_la-dlevina.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dlevina.c' object='libLevin_la-dlevina.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixInversion_la_CFLAGS) $(CFLAGS) -c -o libMatrixInversion_la-cinverma.lo `test -f 'cinverma.c' || echo '$(srcdir)/'`cinverma.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLevin_la_CFLAGS) $(CFLAGS) -c -o libLevin_la-dlevina.lo `test -f 'dlevina.c' || echo '$(srcdir)/'`dlevina.c
 
-libMatrixInversion_la-zinverma.lo: zinverma.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixInversion_la_CFLAGS) $(CFLAGS) -MT libMatrixInversion_la-zinverma.lo -MD -MP -MF $(DEPDIR)/libMatrixInversion_la-zinverma.Tpo -c -o libMatrixInversion_la-zinverma.lo `test -f 'zinverma.c' || echo '$(srcdir)/'`zinverma.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixInversion_la-zinverma.Tpo $(DEPDIR)/libMatrixInversion_la-zinverma.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zinverma.c' object='libMatrixInversion_la-zinverma.lo' libtool=yes @AMDEPBACKSLASH@
+testDoubleLevin-testDoubleLevin.o: testDoubleLevin.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleLevin_CFLAGS) $(CFLAGS) -MT testDoubleLevin-testDoubleLevin.o -MD -MP -MF $(DEPDIR)/testDoubleLevin-testDoubleLevin.Tpo -c -o testDoubleLevin-testDoubleLevin.o `test -f 'testDoubleLevin.c' || echo '$(srcdir)/'`testDoubleLevin.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleLevin-testDoubleLevin.Tpo $(DEPDIR)/testDoubleLevin-testDoubleLevin.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleLevin.c' object='testDoubleLevin-testDoubleLevin.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixInversion_la_CFLAGS) $(CFLAGS) -c -o libMatrixInversion_la-zinverma.lo `test -f 'zinverma.c' || echo '$(srcdir)/'`zinverma.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleLevin_CFLAGS) $(CFLAGS) -c -o testDoubleLevin-testDoubleLevin.o `test -f 'testDoubleLevin.c' || echo '$(srcdir)/'`testDoubleLevin.c
 
-testMatrixInversion-testMatrixInversion.o: testMatrixInversion.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixInversion_CFLAGS) $(CFLAGS) -MT testMatrixInversion-testMatrixInversion.o -MD -MP -MF $(DEPDIR)/testMatrixInversion-testMatrixInversion.Tpo -c -o testMatrixInversion-testMatrixInversion.o `test -f 'testMatrixInversion.c' || echo '$(srcdir)/'`testMatrixInversion.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatrixInversion-testMatrixInversion.Tpo $(DEPDIR)/testMatrixInversion-testMatrixInversion.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMatrixInversion.c' object='testMatrixInversion-testMatrixInversion.o' libtool=no @AMDEPBACKSLASH@
+testDoubleLevin-testDoubleLevin.obj: testDoubleLevin.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleLevin_CFLAGS) $(CFLAGS) -MT testDoubleLevin-testDoubleLevin.obj -MD -MP -MF $(DEPDIR)/testDoubleLevin-testDoubleLevin.Tpo -c -o testDoubleLevin-testDoubleLevin.obj `if test -f 'testDoubleLevin.c'; then $(CYGPATH_W) 'testDoubleLevin.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleLevin.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleLevin-testDoubleLevin.Tpo $(DEPDIR)/testDoubleLevin-testDoubleLevin.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleLevin.c' object='testDoubleLevin-testDoubleLevin.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixInversion_CFLAGS) $(CFLAGS) -c -o testMatrixInversion-testMatrixInversion.o `test -f 'testMatrixInversion.c' || echo '$(srcdir)/'`testMatrixInversion.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleLevin_CFLAGS) $(CFLAGS) -c -o testDoubleLevin-testDoubleLevin.obj `if test -f 'testDoubleLevin.c'; then $(CYGPATH_W) 'testDoubleLevin.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleLevin.c'; fi`
 
-testMatrixInversion-testMatrixInversion.obj: testMatrixInversion.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixInversion_CFLAGS) $(CFLAGS) -MT testMatrixInversion-testMatrixInversion.obj -MD -MP -MF $(DEPDIR)/testMatrixInversion-testMatrixInversion.Tpo -c -o testMatrixInversion-testMatrixInversion.obj `if test -f 'testMatrixInversion.c'; then $(CYGPATH_W) 'testMatrixInversion.c'; else $(CYGPATH_W) '$(srcdir)/testMatrixInversion.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatrixInversion-testMatrixInversion.Tpo $(DEPDIR)/testMatrixInversion-testMatrixInversion.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMatrixInversion.c' object='testMatrixInversion-testMatrixInversion.obj' libtool=no @AMDEPBACKSLASH@
+testFloatLevin-testFloatLevin.o: testFloatLevin.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatLevin_CFLAGS) $(CFLAGS) -MT testFloatLevin-testFloatLevin.o -MD -MP -MF $(DEPDIR)/testFloatLevin-testFloatLevin.Tpo -c -o testFloatLevin-testFloatLevin.o `test -f 'testFloatLevin.c' || echo '$(srcdir)/'`testFloatLevin.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatLevin-testFloatLevin.Tpo $(DEPDIR)/testFloatLevin-testFloatLevin.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatLevin.c' object='testFloatLevin-testFloatLevin.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatrixInversion_CFLAGS) $(CFLAGS) -c -o testMatrixInversion-testMatrixInversion.obj `if test -f 'testMatrixInversion.c'; then $(CYGPATH_W) 'testMatrixInversion.c'; else $(CYGPATH_W) '$(srcdir)/testMatrixInversion.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatLevin_CFLAGS) $(CFLAGS) -c -o testFloatLevin-testFloatLevin.o `test -f 'testFloatLevin.c' || echo '$(srcdir)/'`testFloatLevin.c
+
+testFloatLevin-testFloatLevin.obj: testFloatLevin.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatLevin_CFLAGS) $(CFLAGS) -MT testFloatLevin-testFloatLevin.obj -MD -MP -MF $(DEPDIR)/testFloatLevin-testFloatLevin.Tpo -c -o testFloatLevin-testFloatLevin.obj `if test -f 'testFloatLevin.c'; then $(CYGPATH_W) 'testFloatLevin.c'; else $(CYGPATH_W) '$(srcdir)/testFloatLevin.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatLevin-testFloatLevin.Tpo $(DEPDIR)/testFloatLevin-testFloatLevin.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatLevin.c' object='testFloatLevin-testFloatLevin.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatLevin_CFLAGS) $(CFLAGS) -c -o testFloatLevin-testFloatLevin.obj `if test -f 'testFloatLevin.c'; then $(CYGPATH_W) 'testFloatLevin.c'; else $(CYGPATH_W) '$(srcdir)/testFloatLevin.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
