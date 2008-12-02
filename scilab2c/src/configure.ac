@@ -226,6 +226,7 @@ string/string/Makefile
 signalProcessing/Makefile
 signalProcessing/fft/Makefile
 signalProcessing/ifft/Makefile
+signalProcessing/levin/Makefile
 ])
 
 
