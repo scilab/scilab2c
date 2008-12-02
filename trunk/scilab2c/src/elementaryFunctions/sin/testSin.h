@@ -15,6 +15,7 @@
 
 #include <stdio.h>
 #include <assert.h>
+#include <math.h>
 #include "sin.h"
 #include "constant.h"
 
