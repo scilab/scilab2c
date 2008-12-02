@@ -22,10 +22,8 @@ SUBDIRS= 	addition \
 		trace \
 		transpose \
 		ones \
-		jmat
-
-
-#		inversion
+		jmat \
+ 		inversion
 
 
 

@@ -11,7 +11,7 @@ void djmata(double n, double m, double *out){
 			/*
 			 * i*mm*nn : advance to the good column
 			 * mm*(nn-(i+1)) : take the first element of the column to be 1, when j=0
-			 * j*(mm*nn+1) : advance to the next to be 1
+			 * j*(mm*nn+1) : advance to the next which must be 1
 			 * */
 			out[i*mm*mm*nn+(mm*(nn-(i+1))+j*(mm*nn+1))]=1;
 		}

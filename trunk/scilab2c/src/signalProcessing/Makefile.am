@@ -11,4 +11,5 @@
 ##
 
 SUBDIRS= 	fft \
-	ifft
+		ifft \
+		levin
