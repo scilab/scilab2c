@@ -15,12 +15,25 @@
 
 #include <stdio.h>
 #include <assert.h>
+#include <math.h>
 #include "sqrt.h"
 #include "constant.h"
 
 void ssqrtsTest(void);
 
+void ssqrtaTest(void);
+
 void dsqrtsTest(void);
+
+void dsqrtaTest(void);
+
+void csqrtsTest(void);
+
+void csqrtaTest(void);
+
+void zsqrtsTest(void);
+
+void zsqrtaTest(void);
 
 int testSqrt(void);
 
