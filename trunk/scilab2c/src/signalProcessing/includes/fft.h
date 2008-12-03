@@ -13,13 +13,8 @@
 #ifndef __FFT_H__
 #define __FFT_H__
 
-#include <math.h>
 #include "floatComplex.h"
 #include "doubleComplex.h"
-#include "blas.h"
-#include "lapack.h"
-#include "fft_internal.h"
-
 
 /*
 ** compute the fast fourier transform of a vector
