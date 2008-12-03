@@ -27,7 +27,7 @@ void dfft2 ( double* a , double* b , int nseg , int n , int nspn ,
 void dfftbi ( double* a , double* b , int nseg , int n , int nspn ,
               int isn , int ierr );
 
-void fft842 (doubleComplex* b, int size , int in);
+void ifft842 (doubleComplex* b, int size , int in);
 
 void r2tx(int nthpo, doubleComplex* c0, doubleComplex* c1);
 void r4tx( int nthpo, doubleComplex* c0, doubleComplex* c1, doubleComplex* c2, doubleComplex* c3);

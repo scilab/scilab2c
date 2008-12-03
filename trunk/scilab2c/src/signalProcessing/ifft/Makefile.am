@@ -32,7 +32,7 @@ SRC	=		zifftma.c \
             		dfft2.c \
 			dfftbi.c \
 			dfftmx.c \
-			fft842.c \
+			ifft842.c \
 			r2tx.c \
 			r4tx.c \
 			r8tx.c

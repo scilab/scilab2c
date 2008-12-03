@@ -56,7 +56,7 @@ libIfft_la_LIBADD =
 am__objects_1 =
 am__objects_2 = libIfft_la-zifftma.lo libIfft_la-cifftma.lo \
 	libIfft_la-dfft2.lo libIfft_la-dfftbi.lo libIfft_la-dfftmx.lo \
-	libIfft_la-fft842.lo libIfft_la-r2tx.lo libIfft_la-r4tx.lo \
+	libIfft_la-ifft842.lo libIfft_la-r2tx.lo libIfft_la-r4tx.lo \
 	libIfft_la-r8tx.lo
 am_libIfft_la_OBJECTS = $(am__objects_1) $(am__objects_2)
 libIfft_la_OBJECTS = $(am_libIfft_la_OBJECTS)
@@ -228,7 +228,7 @@ SRC = zifftma.c \
             		dfft2.c \
 			dfftbi.c \
 			dfftmx.c \
-			fft842.c \
+			ifft842.c \
 			r2tx.c \
 			r4tx.c \
 			r8tx.c
@@ -348,7 +348,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libIfft_la-dfft2.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libIfft_la-dfftbi.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libIfft_la-dfftmx.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libIfft_la-fft842.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libIfft_la-ifft842.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libIfft_la-r2tx.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libIfft_la-r4tx.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libIfft_la-r8tx.Plo@am__quote@
@@ -412,12 +412,12 @@ libIfft_la-dfftmx.lo: dfftmx.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIfft_la_CFLAGS) $(CFLAGS) -c -o libIfft_la-dfftmx.lo `test -f 'dfftmx.c' || echo '$(srcdir)/'`dfftmx.c
 
-libIfft_la-fft842.lo: fft842.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIfft_la_CFLAGS) $(CFLAGS) -MT libIfft_la-fft842.lo -MD -MP -MF $(DEPDIR)/libIfft_la-fft842.Tpo -c -o libIfft_la-fft842.lo `test -f 'fft842.c' || echo '$(srcdir)/'`fft842.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libIfft_la-fft842.Tpo $(DEPDIR)/libIfft_la-fft842.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='fft842.c' object='libIfft_la-fft842.lo' libtool=yes @AMDEPBACKSLASH@
+libIfft_la-ifft842.lo: ifft842.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIfft_la_CFLAGS) $(CFLAGS) -MT libIfft_la-ifft842.lo -MD -MP -MF $(DEPDIR)/libIfft_la-ifft842.Tpo -c -o libIfft_la-ifft842.lo `test -f 'ifft842.c' || echo '$(srcdir)/'`ifft842.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libIfft_la-ifft842.Tpo $(DEPDIR)/libIfft_la-ifft842.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ifft842.c' object='libIfft_la-ifft842.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIfft_la_CFLAGS) $(CFLAGS) -c -o libIfft_la-fft842.lo `test -f 'fft842.c' || echo '$(srcdir)/'`fft842.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIfft_la_CFLAGS) $(CFLAGS) -c -o libIfft_la-ifft842.lo `test -f 'ifft842.c' || echo '$(srcdir)/'`ifft842.c
 
 libIfft_la-r2tx.lo: r2tx.c
 @am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIfft_la_CFLAGS) $(CFLAGS) -MT libIfft_la-r2tx.lo -MD -MP -MF $(DEPDIR)/libIfft_la-r2tx.Tpo -c -o libIfft_la-r2tx.lo `test -f 'r2tx.c' || echo '$(srcdir)/'`r2tx.c
