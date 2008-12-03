@@ -11,45 +11,45 @@
  */
 
 
-
-#include "matrixInversion.h" 
-#include "lapack.h" 
 #include <stdio.h>
+#include <stdlib.h>
+#include "matrixInversion.h"
+#include "lapack.h"
 
 void sinverma ( float* in, float* out, int leadDimIn )
 {
 
 	int i = 0 ;
-	/* these 3 variable are created to permit to use the value in the fortran functions 
+	/* these 3 variable are created to permit to use the value in the fortran functions
 	   because they need double matrix as arguments and we can't cast directly the pointers
 	   without having problems , i know that's ugly */
 	double *dblin	= NULL;
-	double *dblout	= NULL;	
+	double *dblout	= NULL;
 
-	
-	
+
+
 	/* Array allocations*/
-	dblin		= (double*)malloc(sizeof(double) * (unsigned int)(leadDimIn * leadDimIn));			 
+	dblin		= (double*)malloc(sizeof(double) * (unsigned int)(leadDimIn * leadDimIn));
 	dblout		= (double*)malloc(sizeof(double) * (unsigned int)(leadDimIn * leadDimIn));
 
 
 
-	/*copy and cast all the float value into double value */								
+	/*copy and cast all the float value into double value */
 	for ( i = 0 ; i < (leadDimIn * leadDimIn) ; i ++ )
-		{        
+		{
 		dblin[i] = (double) in[i]  ;
 		}
-    
+
     dinverma ( dblin, dblout, leadDimIn );
 
-                     
+
 	for ( i = 0 ; i < (leadDimIn * leadDimIn) ; i++ )
         {
 		out[i] =(float) dblout[i] ;
 
-        }							
+        }
 
     free ( dblin);
-    free ( dblout);                    
+    free ( dblout);
 
 }
