@@ -24,11 +24,12 @@ pkglib_LTLIBRARIES =	libIfft.la
 
 libIfft_la_SOURCES =  $(HEAD) $(SRC)
 
-HEAD =	../includes/ifft.h
+HEAD =	../includes/ifft.h \
+	fft_internal.h
 
 SRC	=		zifftma.c \
-            cifftma.c \
-            dfft2.c \
+            		cifftma.c \
+            		dfft2.c \
 			dfftbi.c \
 			dfftmx.c \
 			fft842.c \

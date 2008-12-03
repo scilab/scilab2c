@@ -24,7 +24,8 @@ pkglib_LTLIBRARIES =	libFft.la
 
 libFft_la_SOURCES =  $(HEAD) $(SRC)
 
-HEAD =	../includes/fft.h
+HEAD =	../includes/fft.h \
+	fft_internal.h
 
 SRC	=		zfftma.c \
 			cfftma.c \
