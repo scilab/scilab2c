@@ -15,6 +15,7 @@
 
 #include <stdio.h>
 #include <assert.h>
+#include <math.h>
 #include "tanh.h"
 #include "constant.h"
 
