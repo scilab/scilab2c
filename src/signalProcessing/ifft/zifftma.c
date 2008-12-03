@@ -9,7 +9,7 @@
  * http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
-#define FFT842 1
+#define IFFT842 1
 #define DFFT2  0
 
 #include "ifft.h"
@@ -58,9 +58,9 @@ if ( rows  ==  1 || cols == 1 )
       {
          if ( size <=  pow ( 2 , 15 ))
             {
-             printf ( "we call fft842 \n" ) ;
-             fft842 ( in , size  , 1 );
-             choosenAlgo = FFT842 ;
+             printf ( "we call ifft842 \n" ) ;
+             ifft842 ( in , size  , 1 );
+             choosenAlgo = IFFT842 ;
             }
          else
             {
@@ -90,8 +90,8 @@ else
          {
             for ( i = 0 ; i < rows ; i++ )
                {
-                  fft842 ( &in[ cols*i] , cols , 1);
-                  choosenAlgo = FFT842 ;
+                  ifft842 ( &in[ cols*i] , cols , 1);
+                  choosenAlgo = IFFT842 ;
                }
          }
       else
@@ -117,8 +117,8 @@ else
                      {
                       C2F(zcopy) ( rows, in + i, cols, inTemp , 1 );
 
-                      fft842( inTemp , rows , 1);
-                      choosenAlgo = FFT842 ;
+                      ifft842( inTemp , rows , 1);
+                      choosenAlgo = IFFT842 ;
                       C2F(zcopy) ( rows, inTemp , cols, in + i, 1 );
 
                      }
@@ -141,7 +141,7 @@ else
 
 
 
-if ( choosenAlgo == FFT842 )
+if ( choosenAlgo == IFFT842 )
     {
      for ( i = 0 ; i < size ; i++)
         {

@@ -31,7 +31,7 @@ static int fastlog2( int n)
      int n;   length of vector
      DPCOMPLEX *b;  input vector
 */
-void fft842 (doubleComplex* b, int size , int in)
+void ifft842 (doubleComplex* b, int size , int in)
 {
   double fn;
   doubleComplex temp ;
@@ -160,6 +160,5 @@ void fft842 (doubleComplex* b, int size , int in)
             fn *= -1 ;
           }
     }
-
 
 }
