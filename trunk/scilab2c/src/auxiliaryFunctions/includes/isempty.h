@@ -23,6 +23,26 @@
 /*
 ** \brief Float Is Empty function
 */
+#define	sisemptys(in)		false
+
+/*
+** \brief Double Is Empty function
+*/
+#define	disemptys(in)		false
+
+/*
+** \brief Float Complex Is Empty function
+*/
+#define	cisemptys(in)		false
+
+/*
+** \brief Double Complex Is Empty function
+*/
+#define	zisemptys(in)		false
+
+/*
+** \brief Float Is Empty function
+*/
 bool	sisemptya(float* x, int size);
 
 /*
@@ -39,4 +59,5 @@ bool	cisemptya(floatComplex* z, int size);
 ** \brief Double Complex Is Empty function
 */
 bool	zisemptya(doubleComplex* z, int size);
+
 #endif /* !__IS_EMPTY_H__ */
