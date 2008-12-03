@@ -21,13 +21,13 @@ instdir = $(top_builddir)/lib
 
 pkglib_LTLIBRARIES = libMatrixInversion.la
 
-HEAD = ../includes/infiniteNorm.h
+HEAD = ../includes/matrixInversion.h
 
-libMatrixInversion_la_SOURCES = 	$(HEAD) \
-                sinverma.c \
+libMatrixInversion_la_SOURCES =	$(HEAD) \
+			        sinverma.c \
 				dinverma.c \
 				cinverma.c \
-                zinverma.c
+		                zinverma.c
 
 check_PROGRAMS = 	testMatrixInversion
 
@@ -47,7 +47,7 @@ check_INCLUDES =	-I $(top_builddir)/type \
 					-I $(top_builddir)/matrixOperations/includes \
                     -I $(top_builddir)/auxiliaryFunctions/includes \
                     -I $(top_builddir)/includes \
-                    -I $(top_builddir)/elementaryFunctions/includes 
+                    -I $(top_builddir)/elementaryFunctions/includes
 
 testMatrixInversion_SOURCES = testMatrixInversion.c
 testMatrixInversion_LDADD = $(check_LDADD)
