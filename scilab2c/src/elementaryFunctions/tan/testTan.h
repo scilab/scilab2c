@@ -15,13 +15,21 @@
 
 #include <stdio.h>
 #include <assert.h>
-
+#include <math.h>
 #include "tan.h"
 #include "constant.h"
 
 void stansTest(void);
+void stanaTest(void);
 
 void dtansTest(void);
+void dtanaTest(void);
+
+void ctansTest(void);
+void ctanaTest(void);
+
+void ztansTest(void);
+void ztanaTest(void);
 
 int testTan(void);
 
