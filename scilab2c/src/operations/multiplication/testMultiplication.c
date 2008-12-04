@@ -1358,7 +1358,7 @@ static void smulaTest(void){
   int i=0;
   float out[200];
 
-  smula(P1,200,P2,200,out);
+  smula(P1,P2,200,out);
   for(i=0;i<200;i++){
 	assert( ( fabs(out[i]-Res[i]) / fabs(out[i]) ) <1e-6);
   }	
@@ -1372,7 +1372,7 @@ static void dmulaTest(void){
   int i=0;
   double out[200];
 
-  dmula(P1,200,P2,200,out);
+  dmula(P1,P2,200,out);
   for(i=0;i<200;i++){
 	assert( ( fabs(out[i]-Res[i]) / fabs(out[i]) ) <1e-16);
   }	
@@ -1394,7 +1394,7 @@ static void cmulaTest(void){
 	in2[i]=FloatComplex(P2_R[i],P2_I[i]);
   }
   
-  cmula(in1,200,in2,200,out);
+  cmula(in1,in2,200,out);
   for (i=0;i<200;i++){
   	assert( ( fabs(creals(out[i])-Res_R[i]) / fabs(creals(out[i])) ) <1e-5);
   	assert( ( fabs(cimags(out[i])-Res_I[i]) / fabs(cimags(out[i])) ) <1e-6);
@@ -1417,7 +1417,7 @@ static void zmulaTest(void){
 	in2[i]=DoubleComplex(P2_R[i],P2_I[i]);
   }
   
-  zmula(in1,200,in2,200,out);
+  zmula(in1,in2,200,out);
   for (i=0;i<200;i++){
   	assert( ( fabs(zreals(out[i])-Res_R[i]) / fabs(zreals(out[i])) ) <1e-14);
   	assert( ( fabs(zimags(out[i])-Res_I[i]) / fabs(zimags(out[i])) ) <1e-15);
