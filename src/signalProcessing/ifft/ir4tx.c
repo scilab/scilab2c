@@ -10,7 +10,7 @@
  *
  */
 
-#include "fft_internal.h"
+#include "ifft_internal.h"
 
 
 
@@ -18,7 +18,7 @@
 ** radix 4 iteration subroutine
 */
 /* this function do in one turn the same computation that do radix 2 in two turns  */
-void r4tx( int nthpo, doubleComplex* c0, doubleComplex* c1, doubleComplex* c2, doubleComplex* c3)
+void ir4tx( int nthpo, doubleComplex* c0, doubleComplex* c1, doubleComplex* c2, doubleComplex* c3)
 {
   int kk;
   doubleComplex temp1 , temp2 , temp3 , temp4 ;

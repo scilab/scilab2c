@@ -10,7 +10,7 @@
  *
  */
 
-#include "fft_internal.h"
+#include "ifft_internal.h"
 #include <stdio.h>
 
 
@@ -74,7 +74,7 @@ void ifft842 (doubleComplex* b, int size , int in)
 
 
 
-	  	  r8tx(nxtlt,nthpo,lengt,
+	  	  ir8tx(nxtlt,nthpo,lengt,
 	       b,b+nxtlt,b+2*nxtlt,
 	       b+3*nxtlt,b+4*nxtlt,b+5*nxtlt,
 	       b+6*nxtlt,b+7*nxtlt);
@@ -86,7 +86,7 @@ void ifft842 (doubleComplex* b, int size , int in)
   if(n2pow%3 == 1)
     {
       /* radix 2 iteration needed */
-	r2tx(nthpo,b,b+1);
+	ir2tx(nthpo,b,b+1);
 
 
     }
@@ -96,7 +96,7 @@ void ifft842 (doubleComplex* b, int size , int in)
     {
       /* radix 4 iteration needed */
 
-      r4tx(nthpo,b,b+1,b+2,b+3);
+      ir4tx(nthpo,b,b+1,b+2,b+3);
     }
 
 
