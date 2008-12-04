@@ -18,7 +18,7 @@
 #include "doubleComplex.h"
 #include "blas.h"
 #include "lapack.h"
-#include "fft_internal.h"
+#include "ifft_internal.h"
 
 /*
 ** compute the inverse fast fourier transform of a vector
