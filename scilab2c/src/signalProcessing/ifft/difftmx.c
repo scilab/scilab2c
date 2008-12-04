@@ -15,7 +15,7 @@
 #include <math.h>
 #include "max.h"
 #include "min.h"
-#include "fft_internal.h"
+#include "ifft_internal.h"
 
 
 /*c'est moche je sais */
@@ -92,7 +92,7 @@ static int      jj;
 
 
 
-int dfftmx ( double* _pdblA , double* _pdblB , int _iNtot, int _iN, int _iNspan,
+int difftmx ( double* _pdblA , double* _pdblB , int _iNtot, int _iN, int _iNspan,
              int _iIsn, int _iM, int _iKt, double* _pdblWt, double* _pdblCk,
              double* _pdblBt, double* _pdblSk, int* _piNp, int* _piNfac)
 {

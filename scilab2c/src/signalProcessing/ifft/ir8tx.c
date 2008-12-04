@@ -11,7 +11,7 @@
  *
  */
 
-#include "fft_internal.h"
+#include "ifft_internal.h"
 #include <math.h>
 #include <stdio.h>
 
@@ -23,7 +23,7 @@
 
 /* this function do in one turn the same computation that do radix 2 in three turns  */
 
-void r8tx ( int nxtlt,int nthpo,int lengt,
+void ir8tx ( int nxtlt,int nthpo,int lengt,
             doubleComplex* cc0,doubleComplex* cc1,doubleComplex* cc2,doubleComplex* cc3,
             doubleComplex* cc4,doubleComplex* cc5,doubleComplex* cc6,doubleComplex* cc7)
 

@@ -10,14 +10,14 @@
  *
  */
 
-#include "fft_internal.h"
+#include "ifft_internal.h"
 #include <stdlib.h>
 
-void dfft2 ( double* a , double* b , int nseg , int n , int nspn , int isn , int ierr )
+void difft2 ( double* a , double* b , int nseg , int n , int nspn , int isn , int ierr )
 {
 
 
-   dfftbi ( a   , b     , nseg  , n      , nspn , isn , ierr  );
+   difftbi ( a   , b     , nseg  , n      , nspn , isn , ierr  );
 
 
 
