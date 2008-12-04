@@ -167,7 +167,8 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 SUBDIRS = fft \
 		ifft \
-		levin
+		levin \
+		conv
 
 all: all-recursive
 
