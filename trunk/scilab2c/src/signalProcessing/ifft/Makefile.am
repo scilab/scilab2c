@@ -29,13 +29,13 @@ HEAD =	../includes/ifft.h \
 
 SRC	=		zifftma.c \
             		cifftma.c \
-            		dfft2.c \
-			dfftbi.c \
-			dfftmx.c \
+            		difft2.c \
+			difftbi.c \
+			difftmx.c \
 			ifft842.c \
-			r2tx.c \
-			r4tx.c \
-			r8tx.c
+			ir2tx.c \
+			ir4tx.c \
+			ir8tx.c
 
 
 ####

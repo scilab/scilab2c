@@ -65,7 +65,7 @@ if ( rows  ==  1 || cols == 1 )
          else
             {
              printf ( "we call dfft2 \n" ) ;
-             dfft2 ( realIn , imagIn , 1 , size , 1 , isn , ierr /*, workSpace , sizeWorkSpace*/ );
+             difft2 ( realIn , imagIn , 1 , size , 1 , isn , ierr /*, workSpace , sizeWorkSpace*/ );
             }
 
 
@@ -73,7 +73,7 @@ if ( rows  ==  1 || cols == 1 )
    else
       {
          printf ( "we call dfft2 2\n" ) ;
-         dfft2 ( realIn , imagIn , 1 , size , 1 , isn , ierr /*, workSpace , sizeWorkSpace */);
+         difft2 ( realIn , imagIn , 1 , size , 1 , isn , ierr /*, workSpace , sizeWorkSpace */);
       }
 
 }
@@ -96,12 +96,12 @@ else
          }
       else
          {
-            dfft2 ( realIn, imagIn ,rows , cols , 1 , isn , ierr/* ,workSpace , sizeWorkSpace */);
+            difft2 ( realIn, imagIn ,rows , cols , 1 , isn , ierr/* ,workSpace , sizeWorkSpace */);
          }
       }
     else
       {
-         dfft2 ( realIn, imagIn ,rows , cols , 1 , isn , ierr/* ,workSpace , sizeWorkSpace*/ );
+         difft2 ( realIn, imagIn ,rows , cols , 1 , isn , ierr/* ,workSpace , sizeWorkSpace*/ );
        }
 
     /*second call*/
@@ -125,17 +125,17 @@ else
                   }
                else
                   {
-                   dfft2 ( realIn, imagIn, 1, rows, cols, isn, ierr/*, workSpace, sizeWorkSpace*/);
+                   difft2 ( realIn, imagIn, 1, rows, cols, isn, ierr/*, workSpace, sizeWorkSpace*/);
                   }
             }
          else
             {
-             dfft2 ( realIn, imagIn, 1, rows, cols, isn, ierr/*, workSpace, sizeWorkSpace*/);
+             difft2 ( realIn, imagIn, 1, rows, cols, isn, ierr/*, workSpace, sizeWorkSpace*/);
             }
       }
    else
       {
-      dfft2 ( realIn, imagIn, 1, rows, cols, isn, ierr/*, workSpace, sizeWorkSpace*/);
+      difft2 ( realIn, imagIn, 1, rows, cols, isn, ierr/*, workSpace, sizeWorkSpace*/);
       }
 }
 

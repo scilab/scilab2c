@@ -10,12 +10,12 @@
  *
  */
 
-#include "fft_internal.h"
+#include "ifft_internal.h"
 #include <stdio.h>
 /*
 ** radix 2 iteration subroutine
 */
-void r2tx(int nthpo, doubleComplex* c0, doubleComplex* c1)
+void ir2tx(int nthpo, doubleComplex* c0, doubleComplex* c1)
 {
   int kk;
  /* double *cr0, *ci0, *cr1, *ci1, r1, fi1;*/
