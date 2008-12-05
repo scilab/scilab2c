@@ -10,7 +10,7 @@
 ##
 ##
 
-AC_INIT([sci2cLibrary],[0.1],[])
+AC_INIT([sci2cLibrary],[0.3],[])
 AC_CONFIG_AUX_DIR(config)
 AC_PREREQ(2.61)
 
