@@ -180,6 +180,7 @@ matrixOperations/ones/Makefile
 matrixOperations/infiniteNorm/Makefile
 matrixOperations/inversion/Makefile
 matrixOperations/jmat/Makefile
+matrixOperations/chol/Makefile
 implicitList/Makefile
 elementaryFunctions/Makefile
 elementaryFunctions/cos/Makefile
@@ -228,6 +229,7 @@ signalProcessing/fft/Makefile
 signalProcessing/ifft/Makefile
 signalProcessing/levin/Makefile
 signalProcessing/conv/Makefile
+signalProcessing/conv2d/Makefile
 ])
 
 

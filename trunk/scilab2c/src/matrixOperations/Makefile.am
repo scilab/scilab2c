@@ -23,7 +23,8 @@ SUBDIRS= 	addition \
 		transpose \
 		ones \
 		jmat \
- 		inversion
+ 		inversion\
+ 		chol
 
 
 
