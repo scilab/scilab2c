@@ -142,4 +142,7 @@ extern  int     C2F(idamax)() ;/* could be transcribe easaly in c */
 extern  int     C2F(daxpy) () ;/* could be transcribe easaly in c */
 extern  int     C2F(dscal) () ;/* could be transcribe easaly in c */
 extern  int     C2F(dasum) () ;/* could be transcribe easaly in c */
+
+extern int C2F(zgees)();
+extern int C2F(dpotrf)();
 #endif /* !__LAPACK_H__ */
