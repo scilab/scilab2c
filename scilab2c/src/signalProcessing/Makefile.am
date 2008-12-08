@@ -13,4 +13,5 @@
 SUBDIRS= 	fft \
 		ifft \
 		levin \
-		conv
+		conv \
+		conv2d
