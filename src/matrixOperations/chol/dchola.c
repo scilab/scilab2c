@@ -23,7 +23,7 @@ void dchola(double * in, int size, double *U){
 	*/
 	double* tmp;
 	int i;
-	tmp=malloc((unsigned int)size*sizeof(double));
+	tmp=malloc((unsigned int)(size*size)*sizeof(double));
 	for (i=0;i<size*size;i++) tmp[i]=in[i];
 	printf("copy\n");
 	C2F(dpotrf)('U',size,in,size,0);
