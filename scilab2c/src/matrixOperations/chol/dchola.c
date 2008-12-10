@@ -22,13 +22,14 @@ void dchola(double * in, int size, double *U){
 	   param U : output upper triangular matrix
 	*/
 	double* tmp;
+	int status = 0;
 	int i;
+
 	tmp=malloc((unsigned int)(size*size)*sizeof(double));
 	for (i=0;i<size*size;i++) tmp[i]=in[i];
 	printf("copy\n");
-	C2F(dpotrf)('U',size,in,size,0);
+	C2F(dpotrf)("U", &size, in, &size, &status, 1L);
 	printf("lapack\n");
 	for (i=0;i<size*size;i++) U[i]=in[i];
 	printf("copy2\n");
-	
 }
