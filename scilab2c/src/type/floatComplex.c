@@ -136,3 +136,15 @@ bool cisimags(floatComplex z) {
 }
 
 
+/*
+** \function ccopya
+** \brief copy a complex matrix in another one .
+*/
+
+void ccopya(floatComplex* in, int size, floatComplex* copy){
+	int i;
+	for (i=0;i<size;i++){
+		copy[i]=in[i];
+	}
+}
+

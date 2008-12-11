@@ -179,7 +179,8 @@ SUBDIRS = addition \
 		ones \
 		jmat \
  		inversion\
- 		chol
+ 		chol \
+ 		determ
 
 all: all-recursive
 
