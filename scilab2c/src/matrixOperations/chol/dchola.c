@@ -11,25 +11,53 @@
  */
 
 
+#ifndef WITHOUT_LAPACK
+#include "lapack.h"
+#else
+#include "math.h"
+#endif
 
 #include "chol.h"
-#include <malloc.h>
 #include <stdio.h>
-
-void dchola(double * in, int size, double *U){
+void dchola(double * in, int size, double *out){
 	/* param in : input matrix (square matrix)
 	   param size : number of rows or columns
 	   param U : output upper triangular matrix
 	*/
-	double* tmp;
-	int status = 0;
-	int i;
+	
+#ifndef WITHOUT_LAPACK
+	int i=0,j=0,info=0;
+	
+	for (i=0;i<size*size;i++) out[i]=in[i];
+	
+	C2F(dpotrf)("U", &size, out, &size, &info,1L);
 
-	tmp=malloc((unsigned int)(size*size)*sizeof(double));
-	for (i=0;i<size*size;i++) tmp[i]=in[i];
-	printf("copy\n");
-	C2F(dpotrf)("U", &size, in, &size, &status, 1L);
-	printf("lapack\n");
-	for (i=0;i<size*size;i++) U[i]=in[i];
-	printf("copy2\n");
+	/*Zeros in the lower triangular part*/
+	for (i=0;i<size;i++){
+		for (j=i+1;j<size;j++){
+			out[j+i*size]=0;
+		}
+	}
+	
+#else	
+	/* Do not use Lapack functions*/
+	int i=0, j=0, k=0;
+	double tmp=0, accu=0;
+
+	for (i=0;i<size*size;i++) out[i]=0; /* Voir si on peut l'enlever */
+
+	for (i=0;i<size;i++){
+		accu=0;
+		for (j=0;j<i;j++){
+			tmp=in[i*size+j];
+			for (k=0;k<j;k++){
+				tmp-=out[i*size+k]*out[j*size+k];
+			}
+			out[i*size+j]=tmp/out[j*size+j];
+			accu+=out[i*size+j]*out[i*size+j];
+		}
+		out[i*size+i]=sqrt(in[i*size+i]-accu);	
+	}
+
+#endif
 }
