@@ -24,7 +24,8 @@ SUBDIRS= 	addition \
 		ones \
 		jmat \
  		inversion\
- 		chol
+ 		chol \
+ 		determ
 
 
 
