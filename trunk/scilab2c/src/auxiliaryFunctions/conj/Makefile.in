@@ -208,15 +208,7 @@ libConj_la_SOURCES = $(HEAD) \
 check_LDADD = libConj.la \
 			$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
-			$(top_builddir)/elementaryFunctions/atan/libAtan.la \
-			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-			$(top_builddir)/elementaryFunctions/atan2/libAtan2.la \
-			$(top_builddir)/elementaryFunctions/lnp1m1/libLnp1m1.la \
-			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
-			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la
+			$(top_builddir)/operations/addition/libAddition.la
 
 check_INCLUDES = -I $(top_builddir)/type \
 			-I ../includes

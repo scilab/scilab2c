@@ -181,6 +181,7 @@ matrixOperations/infiniteNorm/Makefile
 matrixOperations/inversion/Makefile
 matrixOperations/jmat/Makefile
 matrixOperations/chol/Makefile
+matrixOperations/determ/Makefile
 implicitList/Makefile
 elementaryFunctions/Makefile
 elementaryFunctions/cos/Makefile

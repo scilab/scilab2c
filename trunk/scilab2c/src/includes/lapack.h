@@ -145,4 +145,6 @@ extern  int     C2F(dasum) () ;/* could be transcribe easaly in c */
 
 extern int C2F(zgees)();
 extern int C2F(dpotrf)();
+extern int C2F(zpotrf)();
+
 #endif /* !__LAPACK_H__ */
