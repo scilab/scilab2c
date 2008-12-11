@@ -11,32 +11,73 @@
  */
  
  
- #include <assert.h>
- #include <stdio.h>
- #include "chol.h"
+#include <assert.h>
+#include <stdio.h>
+#include "chol.h"
+#include <math.h>
+#include <malloc.h>
+
 
 static void dcholsTest(void){
 	double in=4;
 	double out;
-
+		printf("\n >>> DCholS <<<\n");
 	out=dchols(in);
 	printf("result : %f\n",out);
 
 }
 
 static void dcholaTest(void){
-	double in[4]= {2,1,1,4};
-	double out[4];
-	int size=2;
+	double in[9]= {0.722725308034569025040,0.8976796260103583335877,0.2427821881137788295746,\
+			0.4337721113115549087524,0.9677053210325539112091,0.5068534435704350471497,\
+			0.523297640960663557053,0.5596947595477104187012,0.5617307000793516635895};
+	double res[9]={0.8501325238070644996213,0,0,\
+			0.5102405791617476982225,0.8410468907315681308390,0,\
+			0.6155483131232661886401,0.2920372626834314977451,0.3123222878611475739064};
+	double out[9];
+	int size=3;
 	int i;
 	
+	printf("\n >>> DCholA <<<\n");
+		
 	dchola(in,size,out);
-	for (i=0;i<4;i++) printf("indice : %d   out : %f\n",i,out[i]);
+	for (i=0;i<9;i++){ 
+		if (out[i]>1e-16)  assert( (fabs(out[i]-res[i]) / fabs(out[i])) <1e-15);
+	}
 }
 
+static void zcholaTest(void){
+	double inR[9]= {9,4,2,4,5,1,2,1,4};
+	double inI[9]= {1,-1,2,-1,-4,1,2,1,4};
+	double resR[9]= {3,0,0,1.333333333333333259319,\
+	1.763834207376393736766,0,0.6666666666666666296592,\
+	0.1889822365046136265487,1.7525491637693282331867};
+	double resI[9]= {0,0,0,- 0.3333333333333333148296,\
+	0,0,0.6666666666666666296592,- 0.0629940788348712366052,0};
+	doubleComplex *in, *out;
+	int i;
+	
+		printf("\n >>> ZCholA <<<\n");
+	in=DoubleComplexMatrix(inR,inI,9);
+	
+	out=malloc((uint)9*sizeof(doubleComplex));
+	
+	zchola(in,3,out);
+	for (i=0;i<9;i++) printf("indice : %d   out : %f+%f *i\n",i,zreals(out[i]),zimags(out[i]));
+	for (i=0;i<9;i++){
+	if (zreals(out[i])>1e-16)
+		assert( (fabs(zreals(out[i])-resR[i]) / fabs(zreals(out[i]))) <1e-15);
+	if (zimags(out[i])>1e-16)	
+		assert( (fabs(zimags(out[i])-resI[i]) / fabs(zimags(out[i]))) <1e-15);
+	}
+}
+
+
 static int cholTest(void){
+	printf("\n >>> Double Chol <<<\n");
 	dcholsTest();
 	dcholaTest();
+	zcholaTest();	
 	return 0;
 }
 
