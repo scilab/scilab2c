@@ -32,8 +32,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testDoubleChol$(EXEEXT)
-TESTS = testDoubleChol$(EXEEXT)
+check_PROGRAMS = testDoubleChol$(EXEEXT) testFloatChol$(EXEEXT)
+TESTS = testDoubleChol$(EXEEXT) testFloatChol$(EXEEXT)
 subdir = matrixOperations/chol
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -55,7 +55,9 @@ LTLIBRARIES = $(pkglib_LTLIBRARIES)
 libMatrixChol_la_LIBADD =
 am__objects_1 =
 am_libMatrixChol_la_OBJECTS = $(am__objects_1) \
-	libMatrixChol_la-dchols.lo libMatrixChol_la-dchola.lo
+	libMatrixChol_la-schols.lo libMatrixChol_la-schola.lo \
+	libMatrixChol_la-dchols.lo libMatrixChol_la-dchola.lo \
+	libMatrixChol_la-cchola.lo libMatrixChol_la-zchola.lo
 libMatrixChol_la_OBJECTS = $(am_libMatrixChol_la_OBJECTS)
 libMatrixChol_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libMatrixChol_la_CFLAGS) \
@@ -65,6 +67,12 @@ testDoubleChol_OBJECTS = $(am_testDoubleChol_OBJECTS)
 testDoubleChol_DEPENDENCIES = $(check_LDADD)
 testDoubleChol_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleChol_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testFloatChol_OBJECTS = testFloatChol-testFloatChol.$(OBJEXT)
+testFloatChol_OBJECTS = $(am_testFloatChol_OBJECTS)
+testFloatChol_DEPENDENCIES = $(check_LDADD)
+testFloatChol_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatChol_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
@@ -78,8 +86,10 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libMatrixChol_la_SOURCES) $(testDoubleChol_SOURCES)
-DIST_SOURCES = $(libMatrixChol_la_SOURCES) $(testDoubleChol_SOURCES)
+SOURCES = $(libMatrixChol_la_SOURCES) $(testDoubleChol_SOURCES) \
+	$(testFloatChol_SOURCES)
+DIST_SOURCES = $(libMatrixChol_la_SOURCES) $(testDoubleChol_SOURCES) \
+	$(testFloatChol_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -196,14 +206,19 @@ top_srcdir = @top_srcdir@
 libMatrixChol_la_CFLAGS = -I $(top_builddir)/type \
 				-I .\
 				-I $(top_builddir)/matrixOperations/includes \
+				-I $(top_builddir)/operations/includes \
 				-I $(top_builddir)/elementaryFunctions/includes
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libMatrixChol.la
 HEAD = ../includes/chol.h
 libMatrixChol_la_SOURCES = $(HEAD) \
+					schols.c \
+					schola.c \
 					dchols.c \
-					dchola.c
+					dchola.c \
+					cchola.c \
+					zchola.c
 
 check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
@@ -213,6 +228,9 @@ check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
 			$(top_builddir)/operations/addition/libAddition.la \
 			$(top_builddir)/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/operations/division/libDivision.la \
+			$(top_builddir)/operations/subtraction/libSubtraction.la \
+			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
 			libMatrixChol.la
 
 check_INCLUDES = -I $(top_builddir)/type \
@@ -223,6 +241,9 @@ check_INCLUDES = -I $(top_builddir)/type \
 testDoubleChol_SOURCES = testDoubleChol.c
 testDoubleChol_LDADD = $(check_LDADD)
 testDoubleChol_CFLAGS = $(check_INCLUDES)
+testFloatChol_SOURCES = testFloatChol.c
+testFloatChol_LDADD = $(check_LDADD)
+testFloatChol_CFLAGS = $(check_INCLUDES)
 all: all-am
 
 .SUFFIXES:
@@ -295,6 +316,9 @@ clean-checkPROGRAMS:
 testDoubleChol$(EXEEXT): $(testDoubleChol_OBJECTS) $(testDoubleChol_DEPENDENCIES) 
 	@rm -f testDoubleChol$(EXEEXT)
 	$(testDoubleChol_LINK) $(testDoubleChol_OBJECTS) $(testDoubleChol_LDADD) $(LIBS)
+testFloatChol$(EXEEXT): $(testFloatChol_OBJECTS) $(testFloatChol_DEPENDENCIES) 
+	@rm -f testFloatChol$(EXEEXT)
+	$(testFloatChol_LINK) $(testFloatChol_OBJECTS) $(testFloatChol_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -302,9 +326,14 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixChol_la-cchola.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixChol_la-dchola.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixChol_la-dchols.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixChol_la-schola.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixChol_la-schols.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixChol_la-zchola.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleChol-testDoubleChol.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatChol-testFloatChol.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -327,6 +356,20 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
+libMatrixChol_la-schols.lo: schols.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixChol_la_CFLAGS) $(CFLAGS) -MT libMatrixChol_la-schols.lo -MD -MP -MF $(DEPDIR)/libMatrixChol_la-schols.Tpo -c -o libMatrixChol_la-schols.lo `test -f 'schols.c' || echo '$(srcdir)/'`schols.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixChol_la-schols.Tpo $(DEPDIR)/libMatrixChol_la-schols.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='schols.c' object='libMatrixChol_la-schols.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixChol_la_CFLAGS) $(CFLAGS) -c -o libMatrixChol_la-schols.lo `test -f 'schols.c' || echo '$(srcdir)/'`schols.c
+
+libMatrixChol_la-schola.lo: schola.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixChol_la_CFLAGS) $(CFLAGS) -MT libMatrixChol_la-schola.lo -MD -MP -MF $(DEPDIR)/libMatrixChol_la-schola.Tpo -c -o libMatrixChol_la-schola.lo `test -f 'schola.c' || echo '$(srcdir)/'`schola.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixChol_la-schola.Tpo $(DEPDIR)/libMatrixChol_la-schola.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='schola.c' object='libMatrixChol_la-schola.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixChol_la_CFLAGS) $(CFLAGS) -c -o libMatrixChol_la-schola.lo `test -f 'schola.c' || echo '$(srcdir)/'`schola.c
+
 libMatrixChol_la-dchols.lo: dchols.c
 @am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixChol_la_CFLAGS) $(CFLAGS) -MT libMatrixChol_la-dchols.lo -MD -MP -MF $(DEPDIR)/libMatrixChol_la-dchols.Tpo -c -o libMatrixChol_la-dchols.lo `test -f 'dchols.c' || echo '$(srcdir)/'`dchols.c
 @am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixChol_la-dchols.Tpo $(DEPDIR)/libMatrixChol_la-dchols.Plo
@@ -341,6 +384,20 @@ libMatrixChol_la-dchola.lo: dchola.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixChol_la_CFLAGS) $(CFLAGS) -c -o libMatrixChol_la-dchola.lo `test -f 'dchola.c' || echo '$(srcdir)/'`dchola.c
 
+libMatrixChol_la-cchola.lo: cchola.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixChol_la_CFLAGS) $(CFLAGS) -MT libMatrixChol_la-cchola.lo -MD -MP -MF $(DEPDIR)/libMatrixChol_la-cchola.Tpo -c -o libMatrixChol_la-cchola.lo `test -f 'cchola.c' || echo '$(srcdir)/'`cchola.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixChol_la-cchola.Tpo $(DEPDIR)/libMatrixChol_la-cchola.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cchola.c' object='libMatrixChol_la-cchola.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixChol_la_CFLAGS) $(CFLAGS) -c -o libMatrixChol_la-cchola.lo `test -f 'cchola.c' || echo '$(srcdir)/'`cchola.c
+
+libMatrixChol_la-zchola.lo: zchola.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixChol_la_CFLAGS) $(CFLAGS) -MT libMatrixChol_la-zchola.lo -MD -MP -MF $(DEPDIR)/libMatrixChol_la-zchola.Tpo -c -o libMatrixChol_la-zchola.lo `test -f 'zchola.c' || echo '$(srcdir)/'`zchola.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixChol_la-zchola.Tpo $(DEPDIR)/libMatrixChol_la-zchola.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zchola.c' object='libMatrixChol_la-zchola.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixChol_la_CFLAGS) $(CFLAGS) -c -o libMatrixChol_la-zchola.lo `test -f 'zchola.c' || echo '$(srcdir)/'`zchola.c
+
 testDoubleChol-testDoubleChol.o: testDoubleChol.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleChol_CFLAGS) $(CFLAGS) -MT testDoubleChol-testDoubleChol.o -MD -MP -MF $(DEPDIR)/testDoubleChol-testDoubleChol.Tpo -c -o testDoubleChol-testDoubleChol.o `test -f 'testDoubleChol.c' || echo '$(srcdir)/'`testDoubleChol.c
 @am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleChol-testDoubleChol.Tpo $(DEPDIR)/testDoubleChol-testDoubleChol.Po
@@ -354,6 +411,20 @@ testDoubleChol-testDoubleChol.obj: testDoubleChol.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleChol.c' object='testDoubleChol-testDoubleChol.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleChol_CFLAGS) $(CFLAGS) -c -o testDoubleChol-testDoubleChol.obj `if test -f 'testDoubleChol.c'; then $(CYGPATH_W) 'testDoubleChol.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleChol.c'; fi`
+
+testFloatChol-testFloatChol.o: testFloatChol.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatChol_CFLAGS) $(CFLAGS) -MT testFloatChol-testFloatChol.o -MD -MP -MF $(DEPDIR)/testFloatChol-testFloatChol.Tpo -c -o testFloatChol-testFloatChol.o `test -f 'testFloatChol.c' || echo '$(srcdir)/'`testFloatChol.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatChol-testFloatChol.Tpo $(DEPDIR)/testFloatChol-testFloatChol.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatChol.c' object='testFloatChol-testFloatChol.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatChol_CFLAGS) $(CFLAGS) -c -o testFloatChol-testFloatChol.o `test -f 'testFloatChol.c' || echo '$(srcdir)/'`testFloatChol.c
+
+testFloatChol-testFloatChol.obj: testFloatChol.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatChol_CFLAGS) $(CFLAGS) -MT testFloatChol-testFloatChol.obj -MD -MP -MF $(DEPDIR)/testFloatChol-testFloatChol.Tpo -c -o testFloatChol-testFloatChol.obj `if test -f 'testFloatChol.c'; then $(CYGPATH_W) 'testFloatChol.c'; else $(CYGPATH_W) '$(srcdir)/testFloatChol.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatChol-testFloatChol.Tpo $(DEPDIR)/testFloatChol-testFloatChol.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatChol.c' object='testFloatChol-testFloatChol.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatChol_CFLAGS) $(CFLAGS) -c -o testFloatChol-testFloatChol.obj `if test -f 'testFloatChol.c'; then $(CYGPATH_W) 'testFloatChol.c'; else $(CYGPATH_W) '$(srcdir)/testFloatChol.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
