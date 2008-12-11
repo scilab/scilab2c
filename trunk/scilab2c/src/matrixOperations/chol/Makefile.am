@@ -13,6 +13,7 @@
 libMatrixChol_la_CFLAGS =	-I $(top_builddir)/type \
 				-I .\
 				-I $(top_builddir)/matrixOperations/includes \
+				-I $(top_builddir)/operations/includes \
 				-I $(top_builddir)/elementaryFunctions/includes
 
 instdir = $(top_builddir)/lib
@@ -22,8 +23,12 @@ pkglib_LTLIBRARIES = libMatrixChol.la
 HEAD = ../includes/chol.h
 
 libMatrixChol_la_SOURCES = 	$(HEAD) \
+					schols.c \
+					schola.c \
 					dchols.c \
-					dchola.c
+					dchola.c \
+					cchola.c \
+					zchola.c
 					
 					
 ############					
@@ -31,7 +36,7 @@ libMatrixChol_la_SOURCES = 	$(HEAD) \
 ############
 
 
-check_PROGRAMS = 	testDoubleChol
+check_PROGRAMS = 	testDoubleChol   testFloatChol
 
 check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
@@ -41,6 +46,9 @@ check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
 			$(top_builddir)/operations/addition/libAddition.la \
 			$(top_builddir)/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/operations/division/libDivision.la \
+			$(top_builddir)/operations/subtraction/libSubtraction.la \
+			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
 			libMatrixChol.la
 
 check_INCLUDES =	-I $(top_builddir)/type \
@@ -52,9 +60,11 @@ testDoubleChol_SOURCES = testDoubleChol.c
 testDoubleChol_LDADD = $(check_LDADD)
 testDoubleChol_CFLAGS = $(check_INCLUDES)
 
+testFloatChol_SOURCES = testFloatChol.c
+testFloatChol_LDADD = $(check_LDADD)
+testFloatChol_CFLAGS = $(check_INCLUDES)
 
-
-TESTS =		testDoubleChol
+TESTS =		testDoubleChol   testFloatChol
 
 		
 		
