@@ -104,3 +104,7 @@ precision :
 	Return a Real value	if x E ] 0 ; +inf [
 	Return a Complex value	if x E ] -inf ; 0 [
 
+
+
+ - chol(A) : Complex input
+ 	The diagonal must be real;
