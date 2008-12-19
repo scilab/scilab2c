@@ -32,8 +32,10 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testFloatIfft$(EXEEXT) testDoubleIfft$(EXEEXT)
-TESTS = testFloatIfft$(EXEEXT) testDoubleIfft$(EXEEXT)
+check_PROGRAMS = testFloatIfft$(EXEEXT) testDoubleIfft$(EXEEXT) \
+	testMatIfft$(EXEEXT)
+TESTS = testFloatIfft$(EXEEXT) testDoubleIfft$(EXEEXT) \
+	testMatIfft$(EXEEXT)
 subdir = signalProcessing/ifft
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -82,6 +84,12 @@ testFloatIfft_DEPENDENCIES = $(am__DEPENDENCIES_1)
 testFloatIfft_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatIfft_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testMatIfft_OBJECTS = testMatIfft-testMatIfft.$(OBJEXT)
+testMatIfft_OBJECTS = $(am_testMatIfft_OBJECTS)
+testMatIfft_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testMatIfft_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testMatIfft_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -95,9 +103,9 @@ LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
 SOURCES = $(libIfft_la_SOURCES) $(testDoubleIfft_SOURCES) \
-	$(testFloatIfft_SOURCES)
+	$(testFloatIfft_SOURCES) $(testMatIfft_SOURCES)
 DIST_SOURCES = $(libIfft_la_SOURCES) $(testDoubleIfft_SOURCES) \
-	$(testFloatIfft_SOURCES)
+	$(testFloatIfft_SOURCES) $(testMatIfft_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -262,6 +270,9 @@ testFloatIfft_LDADD = $(check_LDADD)
 testDoubleIfft_SOURCES = testDoubleIfft.c
 testDoubleIfft_CFLAGS = $(check_INCLUDES)
 testDoubleIfft_LDADD = $(check_LDADD)
+testMatIfft_SOURCES = testMatIfft.c
+testMatIfft_CFLAGS = $(check_INCLUDES)
+testMatIfft_LDADD = $(check_LDADD)
 all: all-am
 
 .SUFFIXES:
@@ -337,6 +348,9 @@ testDoubleIfft$(EXEEXT): $(testDoubleIfft_OBJECTS) $(testDoubleIfft_DEPENDENCIES
 testFloatIfft$(EXEEXT): $(testFloatIfft_OBJECTS) $(testFloatIfft_DEPENDENCIES) 
 	@rm -f testFloatIfft$(EXEEXT)
 	$(testFloatIfft_LINK) $(testFloatIfft_OBJECTS) $(testFloatIfft_LDADD) $(LIBS)
+testMatIfft$(EXEEXT): $(testMatIfft_OBJECTS) $(testMatIfft_DEPENDENCIES) 
+	@rm -f testMatIfft$(EXEEXT)
+	$(testMatIfft_LINK) $(testMatIfft_OBJECTS) $(testMatIfft_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -355,6 +369,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libIfft_la-zifftma.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleIfft-testDoubleIfft.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatIfft-testFloatIfft.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testMatIfft-testMatIfft.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -467,6 +482,20 @@ testFloatIfft-testFloatIfft.obj: testFloatIfft.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatIfft.c' object='testFloatIfft-testFloatIfft.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatIfft_CFLAGS) $(CFLAGS) -c -o testFloatIfft-testFloatIfft.obj `if test -f 'testFloatIfft.c'; then $(CYGPATH_W) 'testFloatIfft.c'; else $(CYGPATH_W) '$(srcdir)/testFloatIfft.c'; fi`
+
+testMatIfft-testMatIfft.o: testMatIfft.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatIfft_CFLAGS) $(CFLAGS) -MT testMatIfft-testMatIfft.o -MD -MP -MF $(DEPDIR)/testMatIfft-testMatIfft.Tpo -c -o testMatIfft-testMatIfft.o `test -f 'testMatIfft.c' || echo '$(srcdir)/'`testMatIfft.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatIfft-testMatIfft.Tpo $(DEPDIR)/testMatIfft-testMatIfft.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMatIfft.c' object='testMatIfft-testMatIfft.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatIfft_CFLAGS) $(CFLAGS) -c -o testMatIfft-testMatIfft.o `test -f 'testMatIfft.c' || echo '$(srcdir)/'`testMatIfft.c
+
+testMatIfft-testMatIfft.obj: testMatIfft.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatIfft_CFLAGS) $(CFLAGS) -MT testMatIfft-testMatIfft.obj -MD -MP -MF $(DEPDIR)/testMatIfft-testMatIfft.Tpo -c -o testMatIfft-testMatIfft.obj `if test -f 'testMatIfft.c'; then $(CYGPATH_W) 'testMatIfft.c'; else $(CYGPATH_W) '$(srcdir)/testMatIfft.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatIfft-testMatIfft.Tpo $(DEPDIR)/testMatIfft-testMatIfft.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMatIfft.c' object='testMatIfft-testMatIfft.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatIfft_CFLAGS) $(CFLAGS) -c -o testMatIfft-testMatIfft.obj `if test -f 'testMatIfft.c'; then $(CYGPATH_W) 'testMatIfft.c'; else $(CYGPATH_W) '$(srcdir)/testMatIfft.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
