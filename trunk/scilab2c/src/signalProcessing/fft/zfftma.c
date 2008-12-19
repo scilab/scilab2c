@@ -11,7 +11,7 @@
  */
 #define FFT842 1
 #define DFFT2  0
-
+#include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
 #include "fft.h"
@@ -25,9 +25,7 @@ void zfftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 
   int size = rows*cols ;
   int sizeTemp = 0;
-  /*
-    int sizeWorkSpace = size *2;
-  */
+
   int rowsTemp = 0 ;
   int colsTemp = 0 ;
 
@@ -41,11 +39,6 @@ void zfftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 
 
   doubleComplex* inTemp = (doubleComplex*) malloc ( sizeof (doubleComplex) * (unsigned int) size );
-
-  /*
-    double* workSpace = (double*) malloc ( sizeof (double) * (unsigned int) sizeWorkSpace );
-  */
-
 
   zimaga ( in , size , imagIn) ;
   zreala ( in , size , realIn) ;
@@ -62,69 +55,63 @@ void zfftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
             }
 	  else
             {
-	      dfft2 ( realIn , imagIn , 1 , size , 1 , isn , ierr /*, workSpace , sizeWorkSpace*/ );
+	      dfft2 ( realIn , imagIn , 1 , size , 1 , isn , ierr );
             }
 	}
       else
 	{
-	  dfft2 ( realIn , imagIn , 1 , size , 1 , isn , ierr /*, workSpace , sizeWorkSpace */);
+	  dfft2 ( realIn , imagIn , 1 , size , 1 , isn , ierr );
 	}
     }
   else
     {
-      rowsTemp = (int) pow ( 2 , log( rows + 0.5) /log ( 2 )) ;
-      colsTemp = (int) pow ( 2 , log( cols + 0.5) /log ( 2 )) ;
-      if ( cols == colsTemp)
+      rowsTemp = (int) pow ( 2 ,(int ) log( rows + 0.5) /log ( 2 )) ;
+      colsTemp = (int) pow ( 2 ,(int ) log( cols + 0.5) /log ( 2 )) ;
+      if ( rows == rowsTemp)
 	{
-	  if ( cols <=  pow ( 2 , 15 ))
+	  if ( rows <=  pow ( 2 , 15 ))
 	    {
-	      for ( i = 0 ; i < rows ; i++ )
+	      for ( i = 0 ; i < cols ; i++ )
 		{
-                  fft842 ( &in[ cols*i] , cols , 0);
+                  fft842 ( &in[ rows*i] , rows , 0);
                   choosenAlgo = FFT842 ;
 		}
 	    }
 	  else
 	    {
-	      dfft2 ( realIn, imagIn ,rows , cols , 1 , isn , ierr/* ,workSpace , sizeWorkSpace */);
+	      dfft2 ( realIn, imagIn ,cols , rows , 1 , isn , ierr);
 	    }
 	}
       else
 	{
-	  dfft2 ( realIn, imagIn ,rows , cols , 1 , isn , ierr/* ,workSpace , sizeWorkSpace*/ );
+	  dfft2 ( realIn, imagIn ,cols , rows , 1 , isn , ierr);
 	}
       /*second call*/
-      if ( 2*rows  <= 0 /* sizeWorkSpace*/ )
-	{
-	  if ( rowsTemp == rows )
+      if ( colsTemp == cols )
             {
-	      if ( rows <= pow ( 2 ,15) )
+	      if ( cols <= pow ( 2 ,15) )
 		{
 		  /*compute the fft on each line of the matrix */
-		  for (i = 0 ; i < cols ; i++ )
-		    {
-                      C2F(zcopy) ( rows, in + i, cols, inTemp , 1 );
+		  for (i = 0 ; i < rows ; i++ )
+		    { 
+                      C2F(zcopy) ( cols, in + i, rows, inTemp , 1 );
 
-                      fft842( inTemp , rows , 0);
+                      fft842( inTemp , cols , 0);
                       choosenAlgo = FFT842 ;
-                      C2F(zcopy) ( rows, inTemp , cols, in + i, 1 );
+                      C2F(zcopy) ( cols, inTemp , 1, in + i, rows );
 
 		    }
 		}
 	      else
 		{
-		  dfft2 ( realIn, imagIn, 1, rows, cols, isn, ierr/*, workSpace, sizeWorkSpace*/);
+		  dfft2 ( realIn, imagIn, 1, cols, rows, isn, ierr);
 		}
             }
 	  else
             {
-	      dfft2 ( realIn, imagIn, 1, rows, cols, isn, ierr/*, workSpace, sizeWorkSpace*/);
+	      dfft2 ( realIn, imagIn, 1, cols, rows, isn, ierr);
             }
-	}
-      else
-	{
-	  dfft2 ( realIn, imagIn, 1, rows, cols, isn, ierr/*, workSpace, sizeWorkSpace*/);
-	}
+	
     }
 
 

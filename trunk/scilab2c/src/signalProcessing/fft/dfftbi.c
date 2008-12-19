@@ -89,7 +89,7 @@ void dfftbi ( double* a , double* b , int nseg , int n    , int nspn  ,
    int maxf ;
    int itype;
    int istkgt ;
-   int isize[] = {1,1,1,2,2} ;
+
 
    int nf = abs ( n ) ;
 
@@ -263,7 +263,7 @@ void dfftbi ( double* a , double* b , int nseg , int n    , int nspn  ,
   /*istkgt = ( lnow*isize[1] -1)/isize[1] + 2;*/
    istkgt =  lnow + 1 ;
    /*i = ( (istkgt - 1 + nitems) * isize[1] -1) / isize[1] + 3 ;*/
-   i = ( ( lnow  + nitems) * isize[1] -1) / isize[1] + 3 ;
+   i = lnow  + nitems + 2 ;
    istak = (int*) realloc ( istak ,sizeof (int) * (unsigned int) i);
    rstak = (double*) malloc ( sizeof (double) * (unsigned int) i);
 
