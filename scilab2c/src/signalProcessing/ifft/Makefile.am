@@ -58,9 +58,9 @@ check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/operations/subtraction/libSubtraction.la \
 			@LIBMATH@
 
-check_PROGRAMS	= 	testFloatIfft testDoubleIfft
+check_PROGRAMS	= 	testFloatIfft testDoubleIfft   testMatIfft
 
-TESTS		=	testFloatIfft testDoubleIfft
+TESTS		=	testFloatIfft testDoubleIfft   testMatIfft
 
 #
 # -*- Fftine Tests -*-
@@ -72,3 +72,8 @@ testFloatIfft_LDADD =	$(check_LDADD)
 testDoubleIfft_SOURCES =	testDoubleIfft.c
 testDoubleIfft_CFLAGS =	$(check_INCLUDES)
 testDoubleIfft_LDADD =	$(check_LDADD)
+
+
+testMatIfft_SOURCES =	testMatIfft.c
+testMatIfft_CFLAGS =	$(check_INCLUDES)
+testMatIfft_LDADD =	$(check_LDADD)

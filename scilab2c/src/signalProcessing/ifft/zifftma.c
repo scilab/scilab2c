@@ -18,144 +18,132 @@
 void zifftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 {
 
-int choosenAlgo = DFFT2 ;
+	int choosenAlgo = DFFT2 ;
 
-int size = rows*cols ;
-int sizeTemp = 0;
-/*
-int sizeWorkSpace = size *2;
-*/
-int rowsTemp = 0 ;
-int colsTemp = 0 ;
+	int size = rows*cols ;
+	int sizeTemp = 0;
 
-int ierr = 0 ;
-int isn = 1;
-int i = 0;
+	int rowsTemp = 0 ;
+	int colsTemp = 0 ;
+
+	int ierr = 0 ;
+	int isn = 1;
+	int i = 0;
 
 
-double* realIn = (double*) malloc ( sizeof (double) * (unsigned int) size );
-double* imagIn = (double*) malloc ( sizeof (double) * (unsigned int) size );
+	double* realIn = (double*) malloc ( sizeof (double) * (unsigned int) size );
+	double* imagIn = (double*) malloc ( sizeof (double) * (unsigned int) size );
 
 
-doubleComplex* inTemp = (doubleComplex*) malloc ( sizeof (doubleComplex) * (unsigned int) size );
-
-/*
-double* workSpace = (double*) malloc ( sizeof (double) * (unsigned int) sizeWorkSpace );
-*/
-
-
-zimaga ( in , size , imagIn) ;
-zreala ( in , size , realIn) ;
-
-if ( rows  ==  1 || cols == 1 )
-{
-  printf ( "it'a vector \n" ) ;
-
-  sizeTemp = (int) pow ( 2 , (int ) (log( size + 0.5 ) /log ( 2 ))) ;
-   printf ("pow  %e , temp %d \n" ,  pow ( 2 , (int )(log( size +0.5 ) /log ( 2 ))), sizeTemp);
-
-   if ( size == sizeTemp )
-      {
-         if ( size <=  pow ( 2 , 15 ))
-            {
-             printf ( "we call ifft842 \n" ) ;
-             ifft842 ( in , size  , 1 );
-             choosenAlgo = IFFT842 ;
-            }
-         else
-            {
-             printf ( "we call dfft2 \n" ) ;
-             difft2 ( realIn , imagIn , 1 , size , 1 , isn , ierr /*, workSpace , sizeWorkSpace*/ );
-            }
-
-
-       }
-   else
-      {
-         printf ( "we call dfft2 2\n" ) ;
-         difft2 ( realIn , imagIn , 1 , size , 1 , isn , ierr /*, workSpace , sizeWorkSpace */);
-      }
-
-}
-
-else
-{
-  printf ( "it'a matrix \n" ) ;
-    rowsTemp = (int) pow ( 2 , log( rows + 0.5) /log ( 2 )) ;
-    colsTemp = (int) pow ( 2 , log( cols + 0.5) /log ( 2 )) ;
-
-    if ( cols == colsTemp)
-      {
-       if ( cols <=  pow ( 2 , 15 ))
-         {
-            for ( i = 0 ; i < rows ; i++ )
-               {
-                  ifft842 ( &in[ cols*i] , cols , 1);
-                  choosenAlgo = IFFT842 ;
-               }
-         }
-      else
-         {
-            difft2 ( realIn, imagIn ,rows , cols , 1 , isn , ierr/* ,workSpace , sizeWorkSpace */);
-         }
-      }
-    else
-      {
-         difft2 ( realIn, imagIn ,rows , cols , 1 , isn , ierr/* ,workSpace , sizeWorkSpace*/ );
-       }
-
-    /*second call*/
-
-   if ( 2*rows  <= 0 /* sizeWorkSpace*/ )
-      {
-         if ( rowsTemp == rows )
-            {
-               if ( rows <= pow ( 2 ,15) )
-                  {
-                   /*compute the fft on each line of the matrix */
-                   for (i = 0 ; i < cols ; i++ )
-                     {
-                      C2F(zcopy) ( rows, in + i, cols, inTemp , 1 );
-
-                      ifft842( inTemp , rows , 1);
-                      choosenAlgo = IFFT842 ;
-                      C2F(zcopy) ( rows, inTemp , cols, in + i, 1 );
-
-                     }
-                  }
-               else
-                  {
-                   difft2 ( realIn, imagIn, 1, rows, cols, isn, ierr/*, workSpace, sizeWorkSpace*/);
-                  }
-            }
-         else
-            {
-             difft2 ( realIn, imagIn, 1, rows, cols, isn, ierr/*, workSpace, sizeWorkSpace*/);
-            }
-      }
-   else
-      {
-      difft2 ( realIn, imagIn, 1, rows, cols, isn, ierr/*, workSpace, sizeWorkSpace*/);
-      }
-}
+	doubleComplex* inTemp = (doubleComplex*) malloc ( sizeof (doubleComplex) * (unsigned int) size );
 
 
 
-if ( choosenAlgo == IFFT842 )
-    {
-     for ( i = 0 ; i < size ; i++)
-        {
-        out[i] = DoubleComplex ( zreals(in[i]) , zimags(in[i]) );
-        }
-    }
-else
-    {
-     for ( i = 0 ; i < size ; i++)
-        {
-        out[i] = DoubleComplex ( realIn[i] , imagIn[i] );
-        }
+	zimaga ( in , size , imagIn) ;
+	zreala ( in , size , realIn) ;
 
-    }
+	if ( rows  ==  1 || cols == 1 )
+	{
+		printf ( "it'a vector \n" ) ;
+
+		sizeTemp = (int) pow ( 2 , (int ) (log( size + 0.5 ) /log ( 2 ))) ;
+		printf ("pow  %e , temp %d \n" ,  pow ( 2 , (int )(log( size +0.5 ) /log ( 2 ))), sizeTemp);
+
+		if ( size == sizeTemp )
+		{
+			if ( size <=  pow ( 2 , 15 ))
+			{
+				printf ( "we call ifft842 \n" ) ;
+				ifft842 ( in , size  , 1 );
+				choosenAlgo = IFFT842 ;
+			}
+			else
+			{
+				printf ( "we call dfft2 \n" ) ;
+				difft2 ( realIn , imagIn , 1 , size , 1 , isn , ierr);
+			}
+
+
+		}
+		else
+		{
+			printf ( "we call dfft2 2\n" ) ;
+			difft2 ( realIn , imagIn , 1 , size , 1 , isn , ierr);
+		}
+
+	}
+
+	else
+	{
+		printf ( "it'a matrix \n" ) ;
+		rowsTemp = (int) pow ( 2 ,(int) log( rows + 0.5) /log ( 2 )) ;
+		colsTemp = (int) pow ( 2 ,(int) log( cols + 0.5) /log ( 2 )) ;
+
+		if ( rows == rowsTemp)
+		{
+			if ( rows <=  pow ( 2 , 15 ))
+			{
+				for ( i = 0 ; i < cols ; i++ )
+				{
+					ifft842 ( &in[ rows*i] , rows , 1);
+					choosenAlgo = IFFT842 ;
+				}
+			}
+			else
+			{
+				difft2 ( realIn, imagIn ,cols , rows , 1 , isn , ierr);
+			}
+		}
+		else
+		{
+			difft2 ( realIn, imagIn ,cols , rows , 1 , isn , ierr);
+		}
+
+		/*second call*/
+		if ( colsTemp == cols )
+		{
+			if ( cols <= pow ( 2 ,15) )
+			{
+				/*compute the fft on each line of the matrix */
+				for (i = 0 ; i < rows ; i++ )
+				{
+					C2F(zcopy) ( cols, in + i, rows, inTemp , 1 );
+
+					ifft842( inTemp , cols , 1);
+					choosenAlgo = IFFT842 ;
+					C2F(zcopy) ( cols, inTemp , 1, in + i, rows);
+
+				}
+			}
+			else
+			{
+				difft2 ( realIn, imagIn, 1, cols, rows, isn, ierr);
+			}
+		}
+		else
+		{
+			difft2 ( realIn, imagIn, 1, cols, rows, isn, ierr);
+		}
+
+	}
+
+
+
+	if ( choosenAlgo == IFFT842 )
+	{
+		for ( i = 0 ; i < size ; i++)
+		{
+			out[i] = DoubleComplex ( zreals(in[i]) , zimags(in[i]) );
+		}
+	}
+	else
+	{
+		for ( i = 0 ; i < size ; i++)
+		{
+			out[i] = DoubleComplex ( realIn[i] , imagIn[i] );
+		}
+
+	}
 
 
 }
