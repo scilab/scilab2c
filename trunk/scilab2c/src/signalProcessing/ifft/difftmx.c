@@ -216,25 +216,22 @@ void preliminaryWork (void)
 
 
 /*40*/
+/* this function is call as many time as dfftbi has determined factor for the size of the input vector
+   each time we call a transform function for each kind of factor , we begin by the smallest
+   factor are stored in nfac
+ */
+
 int  factorTransform (void)
 {
 
    int retVal = 42;
-   int jjjj = 0 ;
-
 
    dr = 8 * (double)jc/(double)kspan ;
-
    cd = 2 * sin(0.5*dr*rad)*sin(0.5*dr*rad);
    sd = sin(dr*rad) ;
-
    kk = 1 ;
    i++ ;
 
-   for ( jjjj = 0 ; jjjj <  10 ; jjjj ++ )
-     {
-
-     }
 
 
 
@@ -243,13 +240,9 @@ switch ( nfac[i-1] )
       case 2 :
          /*transform for factor of 2 (including rotation factor)*/
 
-         retVal = pre_fOf2Trans( ) ;
-         if ( retVal == 0 )
-            {
+         retVal = pre_fOf2Trans() ;
+         if ( retVal == 0 )  factorOf2Transform () ;
 
-            factorOf2Transform ( ) ;
-
-            }
          break ;
 
       case 4 :
@@ -257,26 +250,20 @@ switch ( nfac[i-1] )
          kspnn = kspan ;
          kspan = kspan >> 2 ; /*kspan /= 4 */
 
-
-         retVal = factorOf4Transform ( ) ;
+         retVal = factorOf4Transform () ;
          break ;
 
       case 3 :
-
+         /*transform for factor of 3 */
          k = nfac[i-1] ;
          kspnn = kspan ;
          kspan = kspan / k ;
-
-
+         
          factorOf3Transform ( ) ;
-            for ( jjjj = 0 ; jjjj <  9 ; jjjj ++ )
-             {
-
-             }
          break ;
 
       case 5 :
-
+   	/*transform for factor of 5 */
          k = nfac[i-1] ;
          kspnn = kspan ;
          kspan = kspan / k ;
@@ -290,110 +277,70 @@ switch ( nfac[i-1] )
          kspnn = kspan ;
          kspan = kspan / k ;
 
-
-         if ( nfac[i-1] != jf)
-            {
-
-             preFOtherTransform ( ) ;
-            }
-
+         if ( nfac[i-1] != jf) preFOtherTransform ( ) ;
+         
          factorOfOtherTransform ( ) ;
          break ;
     }
 
 
-   for ( jjjj = 0 ; jjjj <  15; jjjj ++ )
-     {
-
-     }
 
    if ( retVal == 42 )
     {
-
-
-      if ( i !=  m)
-        {
-
-         retVal = mulByRotationFactor ( ) ;
-        }
-      else
-        retVal = 1 ;
+      if ( i !=  m)  retVal = mulByRotationFactor ( ) ;
+      else           retVal = 1 ;
     }
 
-
-   if ( retVal == 1 )
-      return 1 ; /*goto permute */
-   else
-      return 0 ; /*goto factor_transform => once again*/
-
-
+   if ( retVal == 1 ) return 1 ; /*goto permute */
+   else 	      return 0 ; /*goto factor_transform => once again*/
 
 }
 
-
+/* permutation for square factor of n */
 void permute_stage1 (void)
 {
 
  int retVal = 1 ;
 
-
-   pre_sqFactor2NormlOrder ( ) ;
+   pre_sqFactor2NormlOrder () ;
 
    if ( n == ntot )
       /*permutation for single-variate transform (optional code)*/
       while ( retVal == 1)
         {
-
-         single_sqFactor2NormlOrder ( ) ;
+         single_sqFactor2NormlOrder () ;
          retVal = post_sqFactor2NormlOrder () ;
         }
    else
       /*permutation for multivariate transform*/
-      while ( retVal == 1)
-        {
-
-         retVal = multi_sqFactor2NormlOrder ( );
-        }
-
+      while ( retVal == 1) retVal = multi_sqFactor2NormlOrder ();
 
 }
 
 void permute_stage2 (void)
 {
+	kspnn = np[kt] ;
 
+	/*permutation for square-free facotrs of n */
+	nonSqFactor2NormOrder () ;
+	
+	/*determine the permutation cycles of length greater than 1*/
+	detPermutCycles ();
 
-      kspnn = np[kt] ;
+	j = k3 + 1;
+	nt -= kspnn ;
+	i = nt - inc + 1 ;
+	while ( nt >= 0 )
+	{
+		reorderMatrix ( ) ;
 
-
-      /*permutation for square-free facotrs of n */
-
-      nonSqFactor2NormOrder ( ) ;
-
-      /*determine the permutation cycles of length greater than 1*/
-
-      detPermutCycles ( );
-
-
-
-       j = k3 + 1;
-       nt -= kspnn ;
-       i = nt - inc + 1 ;
-       while ( nt >= 0 )
-         {
-
-
-
-            reorderMatrix ( ) ;
-            j = k3 + 1 ;
-            nt -= kspnn ;
-            i = nt - inc + 1 ;
-
+		j = k3 + 1 ;
+		nt -= kspnn ;
+		i = nt - inc + 1 ;
          }
-
-
 }
 
-/** **************************************
+/*****************************************
 Sous-Sous-Fonctions
 ******************************************/
 
@@ -403,45 +350,30 @@ Sous-Sous-Fonctions
 
 int pre_fOf2Trans (void)
 {
-   int ktemp = 0 ;
+	kspan /= 2;
+	k1 = kspan + 2 ;
+	/*50*/
+	do{
+		do{
+			k2 = kk + kspan ;
+			ak = a[k2-1] ;
+			bk = b[k2-1] ;
 
-   kspan /= 2;
-   k1 = kspan + 2 ;
-/*50*/
-   do
-     {
+			a[k2-1] = a[kk-1] - ak;
+			b[k2-1] = b[kk-1] - bk;
 
-      k2 = kk + kspan ;
-      ak = a[k2-1] ;
-      bk = b[k2-1] ;
+			a[kk-1] = a[kk-1] + ak;
+			b[kk-1] = b[kk-1] + bk;
 
-      a[k2-1] = a[kk-1] - ak;
-      b[k2-1] = b[kk-1] - bk;
+			kk = k2 + kspan ;
+		}while (kk <= nn);
 
-      a[kk-1] = a[kk-1] + ak;
-      b[kk-1] = b[kk-1] + bk;
-
-      kk = k2 + kspan ;
-      ktemp = kk ;
-
-      if ( kk > nn )
-         {
-           kk -= nn ;
-         }
-      }while (ktemp <= nn ||( kk <= jc && ktemp <= nn));
+		kk -= nn ;
+	}while (kk <= jc);
 
 
-
-
-
-
-   if ( kk > kspan )
-      return 1 ; /*goto350*/
-   else
-
-      return 0 ;/*goto60*/
-
-
+	if ( kk > kspan )  return 1 ; /*goto350*/
+	else               return 0 ; /*goto60*/
 
 
 }
@@ -450,88 +382,73 @@ int pre_fOf2Trans (void)
 
 int factorOf2Transform (void)
 {
-int ktemp = 0 ;
+	do /*60*/ {/*while ( kk <= jc*2 )*/
+		c1 = 1 - cd ;
+		s1 = sd ;
+		mm = min( k1/2 , klim);
+
+		do/* do 80 */  {/*while ( kk <= mm || ( kk > mm && kk < k2 ))*/
+			do {/*while(kk > k2) */
+				do { /*while (  kk < nt )*/
+					k2 = kk + kspan;
+
+					ak = a[kk-1] - a[k2-1];
+					bk = b[kk-1] - b[k2-1];
+
+					a[kk-1] = a[kk-1] + a[k2-1];
+					b[kk-1] = b[kk-1] + b[k2-1];
+
+					a[k2-1] = c1*ak - s1*bk;
+					b[k2-1] = s1*ak + c1*bk;
+
+					kk = k2 + kspan;
+				}while (  kk < nt );
+				 
+				k2 = kk - nt;
+				c1 = -c1;
+				kk = k1 - k2;
 
 
+			}while (kk > k2);
+
+			kk += jc;
+
+			if ( kk <= mm ) /* 70 */
+			{
+				ak =  c1 - ( cd*c1+sd*s1) ;
+				s1 += (sd*c1-cd*s1) ;
+				/*c the following three statements compensate for truncation
+				c error.  if rounded arithmetic is used, substitute
+				c c1=ak*/
+				c1 = 0.5/(ak*ak+s1*s1) + 0.5 ;
+				s1 *= c1 ;
+				c1 *= ak ;
+			}
+			else {
+				if ( kk < k2 ) /*90*/ {
+					s1 = dr*rad*((double)(kk-1)/(double)jc);
+					c1 = cos(s1) ;
+					s1 = sin(s1) ;
+					mm = min(k1/2,mm+klim);
+				}
+			}
+
+		} while ( kk <= mm || ( kk > mm && kk < k2 ));
+
+		k1 += (inc+inc) ;
+		kk = (k1-kspan)/2 + jc;
+
+	} while ( kk <= jc*2 );
 
 
-
-do /*60*/
-  {
-   c1 = 1 - cd ;
-   s1 = sd ;
-   mm = min( k1/2 , klim);
-
-    do/* do 80 */
-       {
-        do
-            {
-              k2 = kk + kspan;
-
-              ak = a[kk-1] - a[k2-1];
-              bk = b[kk-1] - b[k2-1];
-
-              a[kk-1] = a[kk-1] + a[k2-1];
-              b[kk-1] = b[kk-1] + b[k2-1];
-
-              a[k2-1] = c1*ak - s1*bk;
-              b[k2-1] = s1*ak + c1*bk;
-
-
-              kk = k2 + kspan;
-              ktemp = kk ;
-              if (kk >= nt)
-                {
-                  k2 = kk - nt;
-                  c1 = -c1;
-                  kk = k1 - k2;
-
-                }
-
-            }while (  ktemp < nt || (kk > k2 &&  ( ktemp >= nt))  );
-
-        kk += jc;
-
-        if ( kk <= mm ) /* 70 */
-            {
-
-             ak =  c1 - ( cd*c1+sd*s1) ;
-             s1 += (sd*c1-cd*s1) ;
-                /*c the following three statements compensate for truncation
-                c error.  if rounded arithmetic is used, substitute
-                c c1=ak*/
-             c1 = 0.5/(ak*ak+s1*s1) + 0.5 ;
-             s1 *= c1 ;
-             c1 *= ak ;
-            }
-        else
-            {
-             if ( kk < k2 ) /*90*/
-                {
-
-                 s1 = dr*rad*((double)(kk-1)/(double)jc);
-                 c1 = cos(s1) ;
-                 s1 = sin(s1) ;
-                 mm = min(k1/2,mm+klim);
-                }
-            }
-
-       }while ( kk <= mm || ( kk > mm && kk < k2 ));
-
-   k1 += (inc+inc) ;
-   kk = (k1-kspan)/2 + jc;
-
-  } while ( kk <= jc*2 );
-
-
-   return 0 ; /*goto40*/
+	return 0 ; /*goto40*/
 }
 
 
+/* this one is just an optimisation of the factor of 2 transform , we compute more things each turn */
 
 int factorOf4Transform (void)
 {
-
    int return_value = 0 ;
 
    /*120*/
@@ -561,10 +478,11 @@ int factorOf4Transform (void)
 
 }
 
+/*this function and the following are just here for conveniance , they just do fourier transformation  for factor of 4
+  but as the code was a bit long in factorof4transform , we've created two sub-functions */
+
 void f4t_150 (void)
 {
-
-   int sign = 1 ;
 
    do{
       k1 = kk + kspan ;
@@ -589,17 +507,11 @@ void f4t_150 (void)
       b[kk-1] = bkp + bjp ;
       bjp = bkp - bjp ;
 
-      if ( isn <  0 )
-         sign =  1 ;
-      else
-         sign = -1 ;
+      akp = akm - bjm ;
+      akm = akm + bjm ;
 
-
-      akp = akm +(sign * bjm );
-      akm = akm -(sign * bjm );
-
-      bkp = bkm +(sign *  ajm) ;
-      bkm = bkm -(sign *  ajm) ;
+      bkp = bkm + ajm ;
+      bkm = bkm - ajm ;
 
       if ( s1 == 0 )/*190*/
          {
@@ -624,14 +536,14 @@ void f4t_150 (void)
          a[k2-1] = bjp*c2 + ajp*s2 ;
          a[k3-1] = bkm*c3 + akm*s3 ;
          }
-    }while  ( kk < nt ) ;
+       kk=k3+kspan;
+    }while  ( kk <= nt ) ;
 
 
 }
 
 int  f4t_170 (void)
 {
-
    kk += ( jc - nt ) ;
 
    if ( kk <= mm )
@@ -647,12 +559,13 @@ int  f4t_170 (void)
 
       c1 = 0.5/(c2*c2+s1*s1) + 0.5 ;
       s1 *= c1 ;
-      c2 *= c1 ;
+      c1 *= c2 ;
 
       /*140*/
 
       c2 = c1*c1 - s1*s1 ;
       s2 = c1*s1*2 ;
+      c3 = c2*c1 - s2*s1 ;
       s3 = c2*s1 + s2*c1 ;
 
 
@@ -664,7 +577,7 @@ int  f4t_170 (void)
       if ( kk <= kspan )
          {
           s1 = dr*rad * (kk-1)/jc ;
-          c2 = cos (s1) ;
+          c1 = cos (s1) ;
           s1 = sin (s1) ;
           mm = min ( kspan , mm  + klim );
 
@@ -672,6 +585,7 @@ int  f4t_170 (void)
 
          c2 = c1*c1 - s1*s1 ;
          s2 = c1*s1*2 ;
+      	 c3 = c2*c1 - s2*s1 ;
          s3 = c2*s1 + s2*c1 ;
 
          return 0 ;
@@ -686,120 +600,108 @@ int  f4t_170 (void)
 
 void factorOf3Transform (void)
 {
-int ktemp = 0 ;
-do
-   {
+	do{
+		do{
+			k1 = kk + kspan ;
+			k2 = k1 + kspan ;
 
-   k1 = kk + kspan ;
-   k2 = k1 + kspan ;
+			ak = a[kk-1] ;
+			bk = b[kk-1] ;
 
-   ak = a[kk-1] ;
-   bk = b[kk-1] ;
+			aj = a[k1-1] + a[k2-1] ;
+			bj = b[k1-1] + b[k2-1] ;
 
-   aj = a[k1-1] + a[k2-1] ;
-   bj = b[k1-1] + b[k2-1] ;
+			a[kk-1] = ak + aj ;
+			b[kk-1] = bk + bj ;
 
-   a[kk-1] = ak + aj ;
-   b[kk-1] = bk + bj ;
+			ak = -0.5*aj + ak ;
+			bk = -0.5*bj + bk ;
 
-   ak = -0.5*aj + ak ;
-   bk = -0.5*bj + bk ;
+			aj = (a[k1-1] - a[k2-1])*s120 ;
+			bj = (b[k1-1] - b[k2-1])*s120 ;
 
-   aj = (a[k1-1] - a[k2-1])*s120 ;
-   bj = (b[k1-1] - b[k2-1])*s120 ;
+			a[k1-1] = ak - bj ;
+			b[k1-1] = bk + aj ;
+			a[k2-1] = ak + bj ;
+			b[k2-1] = bk - aj ;	
 
-   a[k1-1] = ak - bj ;
-   b[k1-1] = bk + aj ;
-   a[k2-1] = ak + bj ;
-   b[k2-1] = bk - aj ;
-
-   kk = k2 + kspan ;
-   ktemp = kk ;
-
-
-
-   if ( kk >= nn )
-      kk -= nn ;
-
-   }while (  ktemp < nn || (kk <= kspan &&  ( ktemp >= nn))  );
+			kk = k2 + kspan ;
+		} while (kk < nn);
+		
+		kk -= nn ;
+	}while (kk <= kspan);
 
 }
 
 void factorOf5Transform (void)
 {
-    int ktemp ;
+	c2 = c72*c72 - s72 *s72 ;
+	s2 = 2 * c72*s72;
 
-    c2 = c72*c72 - s72 *s72 ;
-    s2 = 2 * c72*s72;
-
-   do
-      {
-      k1 = kk + kspan ;
-      k2 = k1 + kspan ;
-      k3 = k2 + kspan ;
-      k4 = k3 + kspan ;
+	do{
+		do{
+			k1 = kk + kspan ;
+			k2 = k1 + kspan ;
+			k3 = k2 + kspan ;
+			k4 = k3 + kspan ;
 
 
 
-      akp = a[k1-1] + a[k4-1] ;
-      akm = a[k1-1] - a[k4-1] ;
+			akp = a[k1-1] + a[k4-1] ;
+			akm = a[k1-1] - a[k4-1] ;
 
-      bkp = b[k1-1] + b[k4-1] ;
-      bkm = b[k1-1] - b[k4-1] ;
+			bkp = b[k1-1] + b[k4-1] ;
+			bkm = b[k1-1] - b[k4-1] ;
 
-      ajp = a[k2-1] + a[k3-1] ;
-      ajm = a[k2-1] - a[k3-1] ;
+			ajp = a[k2-1] + a[k3-1] ;
+			ajm = a[k2-1] - a[k3-1] ;
 
-      bjp = b[k2-1] + b[k3-1] ;
-      bjm = b[k2-1] - b[k3-1] ;
+			bjp = b[k2-1] + b[k3-1] ;
+			bjm = b[k2-1] - b[k3-1] ;
 
-      aa = a[kk-1] ;
-      bb = b[kk-1] ;
+			aa = a[kk-1] ;
+			bb = b[kk-1] ;
 
-      a[kk-1] = aa + akp + ajp;
-      b[kk-1] = bb + bkp + bjp;
+			a[kk-1] = aa + akp + ajp;
+			b[kk-1] = bb + bkp + bjp;
 
-      ak = akp*c72 + ajp*c2 + aa ;
-      bk = bkp*c72 + bjp*c2 + bb ;
+			ak = akp*c72 + ajp*c2 + aa ;
+			bk = bkp*c72 + bjp*c2 + bb ;
 
-      aj = akm*s72 + ajm*s2 ;
-      bj = bkm*s72 + bjm*s2 ;
+			aj = akm*s72 + ajm*s2 ;
+			bj = bkm*s72 + bjm*s2 ;
 
-      a[k1-1] = ak - bj ;
-      a[k4-1] = ak + bj ;
-      b[k1-1] = bk + aj ;
-      b[k4-1] = bk - aj ;
+			a[k1-1] = ak - bj ;
+			a[k4-1] = ak + bj ;
+			b[k1-1] = bk + aj ;
+			b[k4-1] = bk - aj ;
 
-      ak = akp*c2 + ajp*c72 + aa ;
-      bk = bkp*c2 + bjp*c72 + bb ;
+			ak = akp*c2 + ajp*c72 + aa ;
+			bk = bkp*c2 + bjp*c72 + bb ;
 
-      aj = akm*s2 - ajm*s72 ;
+			aj = akm*s2 - ajm*s72 ;
 
-      bj = bkm*s2 - bjm*s72 ;
+			bj = bkm*s2 - bjm*s72 ;
 
-      a[k2-1] = ak - bj ;
-      a[k3-1] = ak + bj ;
-      b[k2-1] = bk + aj ;
-      b[k3-1] = bk - aj ;
+			a[k2-1] = ak - bj ;
+			a[k3-1] = ak + bj ;
+			b[k2-1] = bk + aj ;
+			b[k3-1] = bk - aj ;
 
-      kk = k4 + kspan;
-      ktemp = kk ;
+			kk = k4 + kspan;
+		}while (kk < nn);
 
-
-      if ( kk >= nn )
-        kk -= nn ;
-
-
-   }while (ktemp < nn || (  kk <= kspan && ktemp >= nn));
-
-
-
+		kk -= nn ;
+	}while (kk <= kspan);
 }
+
+/* this function is the general case of non factor of 2 factor , the factorof3transform and factorof5trandform are just
+special case of this one */
 
 
 void preFOtherTransform (void)
 {
-
+printf("0.k=%d \n",k);
 
    jf = k ;
    s1 = (rad*8)/k ;
@@ -852,7 +754,6 @@ do
 
       bt[j-1] = b[k1-1] + b[k2-1] ;
       bk = bt[j-1] + bk ;
-
       j++ ;
 
       wt[j-1] = a[k1-1] - a[k2-1] ;
@@ -885,11 +786,9 @@ do
          ak += ( wt[k-1] * ck[jj-1] ) ;
          bk += ( bt[k-1] * ck[jj-1] ) ;
 
-
          k++ ;
          aj += (wt[k-1] * sk[jj-1]) ;
          bj += (bt[k-1] * sk[jj-1]) ;
-
          jj += j ;
 
          if ( jj > jf )
@@ -1219,7 +1118,7 @@ void nonSqFactor2NormOrder (void)
    return ;
 }
 
-
+/*  here we determine how many permutation cycles we need to do */
 void detPermutCycles (void)
 {
 
