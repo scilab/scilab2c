@@ -32,8 +32,10 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testFloatFft$(EXEEXT) testDoubleFft$(EXEEXT)
-TESTS = testFloatFft$(EXEEXT) testDoubleFft$(EXEEXT)
+check_PROGRAMS = testFloatFft$(EXEEXT) testDoubleFft$(EXEEXT) \
+	testMatFft$(EXEEXT)
+TESTS = testFloatFft$(EXEEXT) testDoubleFft$(EXEEXT) \
+	testMatFft$(EXEEXT)
 subdir = signalProcessing/fft
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -82,6 +84,12 @@ testFloatFft_DEPENDENCIES = $(am__DEPENDENCIES_1)
 testFloatFft_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatFft_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testMatFft_OBJECTS = testMatFft-testMatFft.$(OBJEXT)
+testMatFft_OBJECTS = $(am_testMatFft_OBJECTS)
+testMatFft_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testMatFft_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testMatFft_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -95,9 +103,9 @@ LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
 SOURCES = $(libFft_la_SOURCES) $(testDoubleFft_SOURCES) \
-	$(testFloatFft_SOURCES)
+	$(testFloatFft_SOURCES) $(testMatFft_SOURCES)
 DIST_SOURCES = $(libFft_la_SOURCES) $(testDoubleFft_SOURCES) \
-	$(testFloatFft_SOURCES)
+	$(testFloatFft_SOURCES) $(testMatFft_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -262,6 +270,9 @@ testFloatFft_LDADD = $(check_LDADD)
 testDoubleFft_SOURCES = testDoubleFft.c
 testDoubleFft_CFLAGS = $(check_INCLUDES)
 testDoubleFft_LDADD = $(check_LDADD)
+testMatFft_SOURCES = testMatFft.c
+testMatFft_CFLAGS = $(check_INCLUDES)
+testMatFft_LDADD = $(check_LDADD)
 all: all-am
 
 .SUFFIXES:
@@ -337,6 +348,9 @@ testDoubleFft$(EXEEXT): $(testDoubleFft_OBJECTS) $(testDoubleFft_DEPENDENCIES)
 testFloatFft$(EXEEXT): $(testFloatFft_OBJECTS) $(testFloatFft_DEPENDENCIES) 
 	@rm -f testFloatFft$(EXEEXT)
 	$(testFloatFft_LINK) $(testFloatFft_OBJECTS) $(testFloatFft_LDADD) $(LIBS)
+testMatFft$(EXEEXT): $(testMatFft_OBJECTS) $(testMatFft_DEPENDENCIES) 
+	@rm -f testMatFft$(EXEEXT)
+	$(testMatFft_LINK) $(testMatFft_OBJECTS) $(testMatFft_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -355,6 +369,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libFft_la-zfftma.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleFft-testDoubleFft.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatFft-testFloatFft.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testMatFft-testMatFft.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -467,6 +482,20 @@ testFloatFft-testFloatFft.obj: testFloatFft.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatFft.c' object='testFloatFft-testFloatFft.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatFft_CFLAGS) $(CFLAGS) -c -o testFloatFft-testFloatFft.obj `if test -f 'testFloatFft.c'; then $(CYGPATH_W) 'testFloatFft.c'; else $(CYGPATH_W) '$(srcdir)/testFloatFft.c'; fi`
+
+testMatFft-testMatFft.o: testMatFft.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatFft_CFLAGS) $(CFLAGS) -MT testMatFft-testMatFft.o -MD -MP -MF $(DEPDIR)/testMatFft-testMatFft.Tpo -c -o testMatFft-testMatFft.o `test -f 'testMatFft.c' || echo '$(srcdir)/'`testMatFft.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatFft-testMatFft.Tpo $(DEPDIR)/testMatFft-testMatFft.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMatFft.c' object='testMatFft-testMatFft.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatFft_CFLAGS) $(CFLAGS) -c -o testMatFft-testMatFft.o `test -f 'testMatFft.c' || echo '$(srcdir)/'`testMatFft.c
+
+testMatFft-testMatFft.obj: testMatFft.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatFft_CFLAGS) $(CFLAGS) -MT testMatFft-testMatFft.obj -MD -MP -MF $(DEPDIR)/testMatFft-testMatFft.Tpo -c -o testMatFft-testMatFft.obj `if test -f 'testMatFft.c'; then $(CYGPATH_W) 'testMatFft.c'; else $(CYGPATH_W) '$(srcdir)/testMatFft.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMatFft-testMatFft.Tpo $(DEPDIR)/testMatFft-testMatFft.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMatFft.c' object='testMatFft-testMatFft.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMatFft_CFLAGS) $(CFLAGS) -c -o testMatFft-testMatFft.obj `if test -f 'testMatFft.c'; then $(CYGPATH_W) 'testMatFft.c'; else $(CYGPATH_W) '$(srcdir)/testMatFft.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
