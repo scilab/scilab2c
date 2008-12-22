@@ -184,6 +184,8 @@ matrixOperations/chol/Makefile
 matrixOperations/determ/Makefile
 matrixOperations/dist/Makefile
 matrixOperations/fill/Makefile
+matrixOperations/magnitude/Makefile
+matrixOperations/squaredMagnitude/Makefile
 implicitList/Makefile
 elementaryFunctions/Makefile
 elementaryFunctions/cos/Makefile
