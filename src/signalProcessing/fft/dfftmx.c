@@ -194,7 +194,7 @@ int  factorTransform (void)
 
 switch ( nfac[i-1] )
    {
-      case 2 :printf("passge en 2\n");
+      case 2 :
          /*transform for factor of 2 (including rotation factor)*/
 
          retVal = pre_fOf2Trans() ;
@@ -202,7 +202,7 @@ switch ( nfac[i-1] )
 
          break ;
 
-      case 4 :printf("passge en 4\n");
+      case 4 :
          /*transform for factor of 4 */
          kspnn = kspan ;
          kspan = kspan >> 2 ; /*kspan /= 4 */
@@ -210,8 +210,8 @@ switch ( nfac[i-1] )
          retVal = factorOf4Transform () ;
          break ;
 
-      case 3 :printf("passge en 3\n");
-printf("valeurs init : %d and %d and %d\n",nfac[i-1],kspan,nn);
+      case 3 :
+
          k = nfac[i-1] ;
          kspnn = kspan ;
          kspan = kspan / k ;
@@ -219,7 +219,7 @@ printf("valeurs init : %d and %d and %d\n",nfac[i-1],kspan,nn);
          factorOf3Transform ( ) ;
          break ;
 
-      case 5 :printf("passge en 5\n");
+      case 5 :
 
          k = nfac[i-1] ;
          kspnn = kspan ;
@@ -228,7 +228,7 @@ printf("valeurs init : %d and %d and %d\n",nfac[i-1],kspan,nn);
          factorOf5Transform ( ) ;
          break ;
 
-      default :printf("passge en autre\n");
+      default :
 
          k = nfac[i-1] ;
          kspnn = kspan ;
