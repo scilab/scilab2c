@@ -16,6 +16,9 @@
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+
+/*  Computes the convolution between MATRICES */
+
 void sconv2da(float *in1, int lines1, int columns1, float *in2, int lines2, int columns2, float *out);
 
 void dconv2da(double *in1, int lines1, int columns1, double *in2, int lines2, int columns2, double *out);

@@ -22,6 +22,8 @@
 #include "fft.h"
 
 
+/*  Computes the convolution between VECTORS */
+
 void sconva(float *in1, int size1, float *in2,int size2, float *out);
 
 void dconva(double *in1, int size1, double *in2,int size2, double *out);
