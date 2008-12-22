@@ -180,7 +180,11 @@ SUBDIRS = addition \
 		jmat \
  		inversion\
  		chol \
- 		determ
+ 		determ \
+ 		dist \
+ 		fill \
+ 		magnitude \
+ 		squaredMagnitude
 
 all: all-recursive
 
