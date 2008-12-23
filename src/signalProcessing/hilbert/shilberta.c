@@ -17,15 +17,15 @@
 
 void shilberta (float* in, int rows, int cols, floatComplex *out){
 	int i;
-	
+	int size=rows*cols;
 
 	for (i=0;i<rows*cols;i++) out[i]=FloatComplex(in[i],0);
 	
 	cfftma(out, rows, cols, out);
 	
-	for (i=0;i<rows;i++){
-		if ((i>0)&&(i<cols/2)) out[i] = cmuls(out[i],FloatComplex(2,0));
-		if (i>cols/2+1) out[i] = cmuls(out[i],FloatComplex(0,0));	
+	for (i=0;i<size;i++){
+		if ((i>0)&&(i<(size+1)/2)) out[i] = cmuls(out[i],FloatComplex(2,0));
+		if (i>size/2) out[i] = cmuls(out[i],FloatComplex(0,0));	
 	}
 	
 	cifftma(out, rows, cols,out);
