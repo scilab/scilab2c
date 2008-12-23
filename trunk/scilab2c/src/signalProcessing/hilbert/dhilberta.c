@@ -18,22 +18,19 @@
 #include <stdio.h>
 
 void dhilberta (double* in, int rows, int cols, doubleComplex *out){
-	int i=0,j=0;
+	int i=0,size=rows*cols;
 	
 
 	for (i=0;i<rows*cols;i++) out[i]=DoubleComplex(in[i],0);
-printf("0.passe\n");
+
 
 	zfftma(out, rows, cols, out);
-printf("1.passe\n");
 
-	for (i=0;i<rows;i++){
-		for (j=0;j<cols;j++){
-			if ((j>0)&&(j<(cols/2))) out[j] = zmuls(out[j],DoubleComplex(2,0));
-			if (j>(cols/2)) out[j] = zmuls(out[j],DoubleComplex(0,0));
-		}	
+	for (i=0;i<size;i++){
+		if ((i>0)&&(i<((size+1)/2))) out[i] = zmuls(out[i],DoubleComplex(2,0));
+		if (i>(size/2)) out[i] = zmuls(out[i],DoubleComplex(0,0));
 	}
-printf("2.passe\n");
+
 	zifftma(out, rows, cols,out);
 }
 
