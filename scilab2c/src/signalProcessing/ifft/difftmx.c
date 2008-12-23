@@ -88,7 +88,32 @@ static int      i ;
 static int      j ;
 static int      jj;
 
+/* Prototypes */
 
+static   void preliminaryWork (void);
+static    void permute_stage1 (void);
+static    void permute_stage2 (void);
+static    void f4t_150 (void);
+static    void factorOf3Transform (void) ;
+static    void factorOf5Transform (void) ;
+static    void preFOtherTransform (void);
+static    void factorOfOtherTransform (void);
+static    void pre_sqFactor2NormlOrder (void);
+static    void nonSqFactor2NormOrder (void) ;
+static    void detPermutCycles (void);
+static    void reorderMatrix (void ) ;
+
+static    int f4t_170 (void);
+static    int factorTransform (void);
+static    int pre_fOf2Trans (void);
+static    int factorOf2Transform (void);
+static    int factorOf4Transform (void);
+static    int  mulByRotationFactor (void );
+static    int  post_sqFactor2NormlOrder (void);
+static    void  single_sqFactor2NormlOrder (void);
+static    int  multi_sqFactor2NormlOrder (void);
+   
+/* End Prototypes */
 
 
 
@@ -176,7 +201,7 @@ Sous-Fonctions
 
 
 
-void preliminaryWork (void)
+static void preliminaryWork (void)
 {
 
     int lim ;
@@ -221,7 +246,7 @@ void preliminaryWork (void)
    factor are stored in nfac
  */
 
-int  factorTransform (void)
+static int  factorTransform (void)
 {
 
    int retVal = 42;
@@ -297,7 +322,7 @@ switch ( nfac[i-1] )
 }
 
 /* permutation for square factor of n */
-void permute_stage1 (void)
+static void permute_stage1 (void)
 {
 
  int retVal = 1 ;
@@ -317,7 +342,7 @@ void permute_stage1 (void)
 
 }
 
-void permute_stage2 (void)
+static void permute_stage2 (void)
 {
 	kspnn = np[kt] ;
 
@@ -348,7 +373,7 @@ Sous-Sous-Fonctions
 
 
 
-int pre_fOf2Trans (void)
+static int pre_fOf2Trans (void)
 {
 	kspan /= 2;
 	k1 = kspan + 2 ;
@@ -380,7 +405,7 @@ int pre_fOf2Trans (void)
 
 
 
-int factorOf2Transform (void)
+static int factorOf2Transform (void)
 {
 	do /*60*/ {/*while ( kk <= jc*2 )*/
 		c1 = 1 - cd ;
@@ -447,7 +472,7 @@ int factorOf2Transform (void)
 
 /* this one is just an optimisation of the factor of 2 transform , we compute more things each turn */
 
-int factorOf4Transform (void)
+static int factorOf4Transform (void)
 {
    int return_value = 0 ;
 
@@ -481,7 +506,7 @@ int factorOf4Transform (void)
 /*this function and the following are just here for conveniance , they just do fourier transformation  for factor of 4
   but as the code was a bit long in factorof4transform , we've created two sub-functions */
 
-void f4t_150 (void)
+static void f4t_150 (void)
 {
 
    do{
@@ -542,7 +567,7 @@ void f4t_150 (void)
 
 }
 
-int  f4t_170 (void)
+static int  f4t_170 (void)
 {
    kk += ( jc - nt ) ;
 
@@ -598,7 +623,7 @@ int  f4t_170 (void)
 
 
 
-void factorOf3Transform (void)
+static void factorOf3Transform (void)
 {
 	do{
 		do{
@@ -633,7 +658,7 @@ void factorOf3Transform (void)
 
 }
 
-void factorOf5Transform (void)
+static void factorOf5Transform (void)
 {
 	c2 = c72*c72 - s72 *s72 ;
 	s2 = 2 * c72*s72;
@@ -699,10 +724,8 @@ void factorOf5Transform (void)
 special case of this one */
 
 
-void preFOtherTransform (void)
+static void preFOtherTransform (void)
 {
-printf("0.k=%d \n",k);
-
    jf = k ;
    s1 = (rad*8)/k ;
    c1 = cos (s1) ;
@@ -727,7 +750,7 @@ printf("0.k=%d \n",k);
 
 }
 
-void factorOfOtherTransform (void)
+static void factorOfOtherTransform (void)
 {
 int ktemp = 0 ;
 
@@ -823,7 +846,7 @@ do
 
 
 
-int mulByRotationFactor (void )
+static int mulByRotationFactor (void )
 {
  int ktemp = 0 ;
 
@@ -920,7 +943,7 @@ int mulByRotationFactor (void )
 
 
 
-void pre_sqFactor2NormlOrder (void)
+static void pre_sqFactor2NormlOrder (void)
 {
 
    k = kt + kt + 1 ;
@@ -949,7 +972,7 @@ void pre_sqFactor2NormlOrder (void)
 
 }
 
-int  post_sqFactor2NormlOrder (void)
+static int  post_sqFactor2NormlOrder (void)
 {
 
     do
@@ -989,7 +1012,7 @@ int  post_sqFactor2NormlOrder (void)
 
 
 /* appeler cetter fonction dans un do while valeur_retour != 1)*/
-void  single_sqFactor2NormlOrder (void)
+static void  single_sqFactor2NormlOrder (void)
 {
 
 
@@ -1012,7 +1035,7 @@ void  single_sqFactor2NormlOrder (void)
 }
 
 /*idem que single_ */
-int multi_sqFactor2NormlOrder (void)
+static int multi_sqFactor2NormlOrder (void)
 {
 
 
@@ -1058,7 +1081,7 @@ int multi_sqFactor2NormlOrder (void)
 
 
 
-void nonSqFactor2NormOrder (void)
+static void nonSqFactor2NormOrder (void)
 {
 
    j = m - kt ;
@@ -1119,7 +1142,7 @@ void nonSqFactor2NormOrder (void)
 }
 
 /*  here we determine how many permutation cycles we need to do */
-void detPermutCycles (void)
+static void detPermutCycles (void)
 {
 
   do
@@ -1152,7 +1175,7 @@ void detPermutCycles (void)
    return ;
 }
 
-void  reorderMatrix (void)
+static void  reorderMatrix (void)
 {
 do
   {
