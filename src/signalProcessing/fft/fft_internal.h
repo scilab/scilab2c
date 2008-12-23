@@ -39,31 +39,4 @@ int dfftmx ( double* _pdblA , double* _pdblB , int _iNtot, int _iN, int _iNspan,
              int _iIsn, int _iM, int _iKt, double* _pdblWt, double* _pdblCk,
              double* _pdblBt, double* _pdblSk, int* _piNp, int* _piNfac);
 
-/* under functions used by dfftmx */
-   void preliminaryWork (void);
-   void preliminaryWork (void);
-   void permute_stage1 (void);
-   void permute_stage2 (void);
-   void f4t_150 (void);
-   void factorOf3Transform (void) ;
-   void factorOf5Transform (void) ;
-   void preFOtherTransform (void);
-   void factorOfOtherTransform (void);
-   void pre_sqFactor2NormlOrder (void);
-   void nonSqFactor2NormOrder (void) ;
-   void detPermutCycles (void);
-   void reorderMatrix (void ) ;
-
-   int f4t_170 (void);
-   int factorTransform (void);
-   int pre_fOf2Trans (void);
-   int factorOf2Transform (void);
-   int factorOf4Transform (void);
-   int  mulByRotationFactor (void );
-   int  post_sqFactor2NormlOrder (void);
-   void  single_sqFactor2NormlOrder (void);
-   int  preF2transform (void) ;
-   int  multi_sqFactor2NormlOrder (void);
-/*   int  end (void) ;*/
-
 #endif /* !__FFT_INTERNAL_H__ */
