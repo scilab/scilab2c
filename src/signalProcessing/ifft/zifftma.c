@@ -29,37 +29,36 @@ void zifftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 	int ierr = 0 ;
 	int isn = 1;
 	int i = 0;
-
+	
+	int increment=1;
 
 	double* realIn = (double*) malloc ( sizeof (double) * (unsigned int) size );
 	double* imagIn = (double*) malloc ( sizeof (double) * (unsigned int) size );
-
-
+	doubleComplex* inCopy = (doubleComplex*) malloc ( sizeof (doubleComplex) * (unsigned int) size );
+	
 	doubleComplex* inTemp = (doubleComplex*) malloc ( sizeof (doubleComplex) * (unsigned int) size );
 
 
 
 	zimaga ( in , size , imagIn) ;
 	zreala ( in , size , realIn) ;
-
+	for (i=0;i<size;i++) inCopy[i]=in[i];
+	
 	if ( rows  ==  1 || cols == 1 )
 	{
-		printf ( "it'a vector \n" ) ;
 
 		sizeTemp = (int) pow ( 2 , (int ) (log( size + 0.5 ) /log ( 2 ))) ;
-		printf ("pow  %e , temp %d \n" ,  pow ( 2 , (int )(log( size +0.5 ) /log ( 2 ))), sizeTemp);
+
 
 		if ( size == sizeTemp )
 		{
 			if ( size <=  pow ( 2 , 15 ))
 			{
-				printf ( "we call ifft842 \n" ) ;
-				ifft842 ( in , size  , 1 );
+				ifft842 ( inCopy , size  , 1 );
 				choosenAlgo = IFFT842 ;
 			}
 			else
 			{
-				printf ( "we call dfft2 \n" ) ;
 				difft2 ( realIn , imagIn , 1 , size , 1 , isn , ierr);
 			}
 
@@ -67,7 +66,6 @@ void zifftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 		}
 		else
 		{
-			printf ( "we call dfft2 2\n" ) ;
 			difft2 ( realIn , imagIn , 1 , size , 1 , isn , ierr);
 		}
 
@@ -75,9 +73,8 @@ void zifftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 
 	else
 	{
-		printf ( "it'a matrix \n" ) ;
-		rowsTemp = (int) pow ( 2 ,(int) log( rows + 0.5) /log ( 2 )) ;
-		colsTemp = (int) pow ( 2 ,(int) log( cols + 0.5) /log ( 2 )) ;
+		rowsTemp = (int) pow ( 2 ,(int) (log( rows + 0.5) /log ( 2 ))) ;
+		colsTemp = (int) pow ( 2 ,(int) (log( cols + 0.5) /log ( 2 ))) ;
 
 		if ( rows == rowsTemp)
 		{
@@ -85,18 +82,21 @@ void zifftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 			{
 				for ( i = 0 ; i < cols ; i++ )
 				{
-					ifft842 ( &in[ rows*i] , rows , 1);
-					choosenAlgo = IFFT842 ;
+					ifft842 ( &inCopy[ rows*i] , rows , 1);
+					zimaga ( inCopy , size , imagIn) ;
+					zreala ( inCopy , size , realIn) ;
 				}
 			}
 			else
 			{
 				difft2 ( realIn, imagIn ,cols , rows , 1 , isn , ierr);
+				inCopy=DoubleComplexMatrix(realIn,imagIn,size);
 			}
 		}
 		else
 		{
 			difft2 ( realIn, imagIn ,cols , rows , 1 , isn , ierr);
+			inCopy=DoubleComplexMatrix(realIn,imagIn,size);
 		}
 
 		/*second call*/
@@ -107,11 +107,11 @@ void zifftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 				/*compute the fft on each line of the matrix */
 				for (i = 0 ; i < rows ; i++ )
 				{
-					C2F(zcopy) ( cols, in + i, rows, inTemp , 1 );
+					C2F(zcopy) ( &cols, inCopy + i, &rows, inTemp , &increment );
 
 					ifft842( inTemp , cols , 1);
 					choosenAlgo = IFFT842 ;
-					C2F(zcopy) ( cols, inTemp , 1, in + i, rows);
+					C2F(zcopy) ( &cols, inTemp , &increment, inCopy + i, &rows);
 
 				}
 			}
@@ -133,7 +133,7 @@ void zifftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 	{
 		for ( i = 0 ; i < size ; i++)
 		{
-			out[i] = DoubleComplex ( zreals(in[i]) , zimags(in[i]) );
+			out[i] = DoubleComplex ( zreals(inCopy[i]) , zimags(inCopy[i]) );
 		}
 	}
 	else
