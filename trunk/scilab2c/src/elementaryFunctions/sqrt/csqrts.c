@@ -66,7 +66,7 @@ floatComplex	csqrts(floatComplex in) {
       else
 	{
 	  RealOut	= sabss(ImgIn) / Temp;
-	  ImgOut	= _sign(0.5f, ImgIn) * Temp;
+	  ImgOut	= (_sign(0.5f, ImgIn)) * Temp;
 	}
     }
   else
