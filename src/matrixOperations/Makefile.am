@@ -29,7 +29,8 @@ SUBDIRS= 	addition \
  		dist \
  		fill \
  		magnitude \
- 		squaredMagnitude
+ 		squaredMagnitude\
+ 		logm
  		
  		
  		
