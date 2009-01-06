@@ -9,7 +9,7 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
-
+#include <stdio.h>
 #include <math.h>
 #include "sqrt.h"
 #include "lapack.h"
@@ -66,7 +66,7 @@ doubleComplex	zsqrts(doubleComplex in) {
       else
 	{
 	  RealOut	= dabss(ImgIn) / Temp;
-	  ImgOut	= _sign(0.5, ImgIn) * Temp;
+	  ImgOut	= (_sign(0.5, ImgIn)) * Temp;
 	}
     }
   else
