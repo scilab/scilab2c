@@ -184,7 +184,8 @@ SUBDIRS = addition \
  		dist \
  		fill \
  		magnitude \
- 		squaredMagnitude
+ 		squaredMagnitude\
+ 		logm
 
 all: all-recursive
 
