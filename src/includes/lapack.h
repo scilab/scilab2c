@@ -143,8 +143,10 @@ extern  int     C2F(daxpy) () ;/* could be transcribe easaly in c */
 extern  int     C2F(dscal) () ;/* could be transcribe easaly in c */
 extern  int     C2F(dasum) () ;/* could be transcribe easaly in c */
 
-extern int C2F(zgees)();
+/* used in chol */
 extern int C2F(dpotrf)();
 extern int C2F(zpotrf)();
-
+/* used in logm */
+extern int C2F(zgeev)();
+extern int C2F(zheev)();
 #endif /* !__LAPACK_H__ */
