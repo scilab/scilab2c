@@ -15,7 +15,6 @@
 #include <math.h>
 #include <stdio.h>
 #include "logm.h"
-#include "logm_internal.h"
 
 static void dlogmaTest(void){
 }
