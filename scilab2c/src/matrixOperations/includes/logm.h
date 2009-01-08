@@ -18,6 +18,12 @@
 #include "doubleComplex.h"
 
 
+void slogma (float* in, int size, floatComplex* out);
+
+void dlogma (double* in, int size, doubleComplex* out);
+
+void clogma (floatComplex* in, int size, floatComplex* out);
+
 void zlogma (doubleComplex* in, int size, doubleComplex* out);
 
-#endif /* !__LOGM_H__ */
+#endif /* __LOGM_H__ */
