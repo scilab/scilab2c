@@ -19,6 +19,6 @@ void zcolumnmeana(doubleComplex *in, int lines, int columns, doubleComplex *out)
   zcolumnsuma(in, lines, columns, out);
   for (i = 0; i < lines; ++i)
     {
-      out[i] = zdivides(out[i] , DoubleComplex((double) columns, 0.0f));
+      out[i] = zrdivs(out[i] , DoubleComplex((double) columns, 0.0f));
     }
 }

@@ -61,7 +61,7 @@ void zexpma(doubleComplex * in, doubleComplex * out, int _iLeadDim)
 	/*A = A./2^s */
 
     for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
-        pdblMatrixA[iIndex1] = zdivides ( in[iIndex1] , DoubleComplex ( dblS2 , 0 ));
+        pdblMatrixA[iIndex1] = zrdivs ( in[iIndex1] , DoubleComplex ( dblS2 , 0 ));
 
 
 	/* Pade approximation for exp(A)

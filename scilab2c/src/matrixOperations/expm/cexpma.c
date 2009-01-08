@@ -59,7 +59,7 @@ void cexpma(floatComplex * in, floatComplex * out, int _iLeadDim)
 	/*A = A./2^s */
 
     for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
-        pfltMatrixA[iIndex1] = cdivides ( in[iIndex1] , FloatComplex ( fltS2 , 0 ));
+        pfltMatrixA[iIndex1] = crdivs ( in[iIndex1] , FloatComplex ( fltS2 , 0 ));
 
 
 	/* Pade approximation for exp(A)

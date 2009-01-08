@@ -1,6 +1,6 @@
 /*
  *  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
- *  Copyright (C) 2008-2008 - INRIA - Arnaud TORSET
+ *  Copyright (C) 2008-2008 - INRIA - Bruno JOFRET
  *
  *  This file must be used under the terms of the CeCILL.
  *  This source file is licensed as described in the file COPYING, which
@@ -10,10 +10,30 @@
  *
  */
 
+#ifdef __STDC_VERSION__
+#  ifndef STDC
+#    define STDC
+#  endif
+#  if __STDC_VERSION__ >= 199901L
+#    ifndef STDC99
+#      define STDC99
+#    endif
+#  endif
+#endif
 
-#include "division.h" 
 
- 
-doubleComplex zrdivs (doubleComplex in1, doubleComplex in2){
-	return zdivides(in1,in2);
+#include "doubleComplex.h"
+#include "division.h"
+
+/*
+** \function zdivides
+** \brief Divide 2 Complex numbers.
+*/
+doubleComplex zrdivs(doubleComplex z1, doubleComplex z2) {
+#ifndef STDC99
+  return DoubleComplex((z1.real*z2.real + z1.imag*z2.imag) / (z2.real*z2.real + z2.imag* z2.imag),
+		       (z1.imag*z2.real - z1.real*z2.imag) / (z2.real*z2.real + z2.imag* z2.imag));
+#else
+  return z1 / z2;
+#endif
 }

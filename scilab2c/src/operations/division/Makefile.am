@@ -36,9 +36,7 @@ libDivision_la_SOURCES = 	$(HEAD) \
 				sldiva.c \
 				dldiva.c \
 				cldiva.c \
-				zldiva.c \
-				cdivides.c \
-				zdivides.c 
+				zldiva.c
 
 check_PROGRAMS = 	testDivision \
 			testLDivision \

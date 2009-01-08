@@ -19,6 +19,6 @@ void ccolumnmeana(floatComplex *in, int lines, int columns, floatComplex *out) {
   ccolumnsuma(in, lines, columns, out);
   for (i = 0; i < lines; ++i)
     {
-      out[i] = cdivides(out[i] , FloatComplex((float) columns, 0.0f));
+      out[i] = crdivs(out[i] , FloatComplex((float) columns, 0.0f));
     }
 }
