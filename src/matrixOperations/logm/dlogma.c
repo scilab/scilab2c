@@ -14,17 +14,13 @@
 #include "logm.h"
 
 
-void slogma (float* in, int size, floatComplex* out){
-	doubleComplex *inCpx, *outCopy;
+void dlogma (double* in, int size, doubleComplex* out){
+	doubleComplex *inCpx;
 	int i;
 	
 	inCpx=malloc((uint)(size*size)*sizeof(doubleComplex));
-	outCopy=malloc((uint)(size*size)*sizeof(doubleComplex));
 	
 	for (i=0;i<size*size;i++) inCpx[i] = DoubleComplex(in[i],0);
 	
-	zlogma(inCpx, size, outCopy);
-	
-	for(i=0;i<size*size;i++)
-		out[i]=FloatComplex( (float)zreals(outCopy[i]),(float)zimags(outCopy[i]));	
+	zlogma(inCpx, size, out);
 }
