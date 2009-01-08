@@ -38,8 +38,7 @@ libDivision_la_SOURCES = 	$(HEAD) \
 				cldiva.c \
 				zldiva.c
 
-check_PROGRAMS = 	testDivision \
-			testLDivision \
+check_PROGRAMS = 	testLDivision \
 			testRDivision
 
 check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
@@ -51,10 +50,6 @@ check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 check_INCLUDES =	-I $(top_builddir)/type \
 			-I $(top_builddir)/operations/includes
 
-testDivision_SOURCES = testDivision.c 
-testDivision_LDADD = $(check_LDADD)
-testDivision_CFLAGS = $(check_INCLUDES)
-
 
 testLDivision_SOURCES = testLDivision.c 
 testLDivision_LDADD = $(check_LDADD)
@@ -65,6 +60,5 @@ testRDivision_SOURCES = testRDivision.c
 testRDivision_LDADD = $(check_LDADD)
 testRDivision_CFLAGS = $(check_INCLUDES)
 
-TESTS =		testDivision \
-		testLDivision \
+TESTS =		testLDivision \
 		testRDivision 
