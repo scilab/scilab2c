@@ -13,6 +13,7 @@
 
 #include <assert.h>
 #include <stdio.h>
+#include <math.h>
 #include "ifft.h"
 
 #define ROW    1
