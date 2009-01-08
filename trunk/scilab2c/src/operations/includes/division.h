@@ -194,17 +194,5 @@ void zldiva(doubleComplex* in1, int size1,
 	    doubleComplex* out );
 
 
-/*
-** \function cdivides
-** \brief Divide 2 Complex numbers.
-*/
-floatComplex cdivides(floatComplex z1, floatComplex z2);
-
-
-/*
-** \function zdivides
-** \brief Divide 2 Complex numbers.
-*/
-doubleComplex zdivides(doubleComplex z1, doubleComplex z2);
 
 #endif /* !__DIVISION_H__ */

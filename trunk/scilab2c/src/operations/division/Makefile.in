@@ -64,8 +64,7 @@ am_libDivision_la_OBJECTS = $(am__objects_1) libDivision_la-srdivs.lo \
 	libDivision_la-drdiva.lo libDivision_la-crdiva.lo \
 	libDivision_la-zrdiva.lo libDivision_la-sldiva.lo \
 	libDivision_la-dldiva.lo libDivision_la-cldiva.lo \
-	libDivision_la-zldiva.lo libDivision_la-cdivides.lo \
-	libDivision_la-zdivides.lo
+	libDivision_la-zldiva.lo
 libDivision_la_OBJECTS = $(am_libDivision_la_OBJECTS)
 libDivision_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libDivision_la_CFLAGS) \
@@ -240,9 +239,7 @@ libDivision_la_SOURCES = $(HEAD) \
 				sldiva.c \
 				dldiva.c \
 				cldiva.c \
-				zldiva.c \
-				cdivides.c \
-				zdivides.c 
+				zldiva.c
 
 check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
@@ -347,7 +344,6 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDivision_la-cdivides.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDivision_la-cldiva.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDivision_la-cldivs.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDivision_la-crdiva.Plo@am__quote@
@@ -360,7 +356,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDivision_la-sldivs.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDivision_la-srdiva.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDivision_la-srdivs.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDivision_la-zdivides.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDivision_la-zldiva.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDivision_la-zldivs.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDivision_la-zrdiva.Plo@am__quote@
@@ -501,20 +496,6 @@ libDivision_la-zldiva.lo: zldiva.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zldiva.c' object='libDivision_la-zldiva.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDivision_la_CFLAGS) $(CFLAGS) -c -o libDivision_la-zldiva.lo `test -f 'zldiva.c' || echo '$(srcdir)/'`zldiva.c
-
-libDivision_la-cdivides.lo: cdivides.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDivision_la_CFLAGS) $(CFLAGS) -MT libDivision_la-cdivides.lo -MD -MP -MF $(DEPDIR)/libDivision_la-cdivides.Tpo -c -o libDivision_la-cdivides.lo `test -f 'cdivides.c' || echo '$(srcdir)/'`cdivides.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libDivision_la-cdivides.Tpo $(DEPDIR)/libDivision_la-cdivides.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cdivides.c' object='libDivision_la-cdivides.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDivision_la_CFLAGS) $(CFLAGS) -c -o libDivision_la-cdivides.lo `test -f 'cdivides.c' || echo '$(srcdir)/'`cdivides.c
-
-libDivision_la-zdivides.lo: zdivides.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDivision_la_CFLAGS) $(CFLAGS) -MT libDivision_la-zdivides.lo -MD -MP -MF $(DEPDIR)/libDivision_la-zdivides.Tpo -c -o libDivision_la-zdivides.lo `test -f 'zdivides.c' || echo '$(srcdir)/'`zdivides.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libDivision_la-zdivides.Tpo $(DEPDIR)/libDivision_la-zdivides.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zdivides.c' object='libDivision_la-zdivides.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDivision_la_CFLAGS) $(CFLAGS) -c -o libDivision_la-zdivides.lo `test -f 'zdivides.c' || echo '$(srcdir)/'`zdivides.c
 
 testDivision-testDivision.o: testDivision.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDivision_CFLAGS) $(CFLAGS) -MT testDivision-testDivision.o -MD -MP -MF $(DEPDIR)/testDivision-testDivision.Tpo -c -o testDivision-testDivision.o `test -f 'testDivision.c' || echo '$(srcdir)/'`testDivision.c
