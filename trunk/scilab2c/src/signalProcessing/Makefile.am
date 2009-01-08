@@ -15,4 +15,5 @@ SUBDIRS= 	fft \
 		levin \
 		conv \
 		conv2d \
-		hilbert
+		hilbert \
+		crossCorr
