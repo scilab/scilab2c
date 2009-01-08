@@ -16,4 +16,5 @@ SUBDIRS= 	fft \
 		conv \
 		conv2d \
 		hilbert \
-		crossCorr
+		crossCorr \
+		lpc2cep
