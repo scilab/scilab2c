@@ -13,7 +13,7 @@
 #include <assert.h>
 #include <math.h>
 #include "conv2d.h"
-
+#include <stdio.h>
 #define SOURCE1 {0.27602507699857836698,0.67970267685367480315,0.65509800397384065906,\
 0.16261173519463056891,0.11899768155837664452,0.49836405198214295265,\
 0.95974395851608107488,0.34038572666613320372,0.58526775097977734585}
@@ -63,12 +63,26 @@ static void dconv2daTest(void){
 	double in1[] = SOURCE1;
 	double in2[] = SOURCE2;
 	double res[] = RESULT;
-	double out[36];
-	
+	double out[36],outTest[9],outTest2[12*16];
+	double test1[] = {1,2,3};
+	double resTest[] ={1,2,3,2,4,6,3,6,9};
+	double inTest1[] = {1,2,3,4,5,6,7,8,9,10,11,12};
+	double inTest2[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16}; 
 	dconv2da(in1,3,3,in2,4,4,out);
 	for (i=0;i<36;i++){
 		assert( ( fabs(out[i]-res[i]) / fabs(out[i]) ) <1e-15);
 	}
+	
+	dconv2da(test1,1,3,test1,3,1,outTest);
+	for (i=0;i<9;i++){
+		assert( ( fabs(outTest[i]-resTest[i]) / fabs(outTest[i]) ) <1e-15);
+	}
+	
+	dconv2da(inTest1,12,1,inTest2,1,16,outTest2);
+	for (i=0;i<12*16;i++){
+		printf("out[%d] : %f\n",i,outTest2[i]);
+	}
+	
 }
 
 
