@@ -55,8 +55,7 @@ LTLIBRARIES = $(pkglib_LTLIBRARIES)
 libLogm_la_LIBADD =
 am__objects_1 =
 am_libLogm_la_OBJECTS = $(am__objects_1) libLogm_la-zlogma.lo \
-	libLogm_la-wbdiag.lo libLogm_la-cbal.lo libLogm_la-corth.lo \
-	libLogm_la-cortr.lo libLogm_la-comqr3.lo
+	libLogm_la-clogma.lo libLogm_la-slogma.lo libLogm_la-dlogma.lo
 libLogm_la_OBJECTS = $(am_libLogm_la_OBJECTS)
 libLogm_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libLogm_la_CFLAGS) \
@@ -203,42 +202,29 @@ libLogm_la_CFLAGS = -I ./includes \
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libLogm.la
-HEAD = ../includes/logm.h \
-	logm_internal.h
-
+HEAD = ../includes/logm.h
 libLogm_la_SOURCES = $(HEAD) \
-				 zlogma.c\
-				 wbdiag.c \
-				 cbal.c \
-				 corth.c \
-				 cortr.c \
-				 comqr3.c
+				 zlogma.c \
+				 clogma.c \
+				 slogma.c \
+				 dlogma.c 
 
 check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/matrixOperations/inversion/libMatrixInversion.la\
-			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
 			$(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/lib/blas/libsciblas.la \
-			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-			$(top_builddir)/auxiliaryFunctions/sign/libSign.la \
-			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
-			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
-			$(top_builddir)/operations/division/libDivision.la \
-			$(top_builddir)/operations/subtraction/libSubtraction.la \
-			$(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la\
-			$(top_builddir)/matrixOperations/multiplication/libMatrixMultiplication.la\
 			$(top_builddir)/elementaryFunctions/log/libLog.la \
+			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
 			$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
 			$(top_builddir)/elementaryFunctions/lnp1m1/libLnp1m1.la \
-			$(top_builddir)/elementaryFunctions/pow/libPow.la \
-			$(top_builddir)/elementaryFunctions/exp/libExp.la \
-			$(top_builddir)/elementaryFunctions/sin/libSin.la \
-			$(top_builddir)/elementaryFunctions/cos/libCos.la \
-			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
-			$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
+			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
+			$(top_builddir)/auxiliaryFunctions/sign/libSign.la \
+			$(top_builddir)/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/operations/addition/libAddition.la \
+			$(top_builddir)/matrixOperations/multiplication/libMatrixMultiplication.la \
+			$(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la \
+			$(top_builddir)/matrixOperations/inversion/libMatrixInversion.la \
 			$(top_builddir)/matrixOperations/logm/libLogm.la
 
 check_INCLUDES = -I ./includes \
@@ -331,11 +317,9 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLogm_la-cbal.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLogm_la-comqr3.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLogm_la-corth.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLogm_la-cortr.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLogm_la-wbdiag.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLogm_la-clogma.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLogm_la-dlogma.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLogm_la-slogma.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLogm_la-zlogma.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleLogm-testDoubleLogm.Po@am__quote@
 
@@ -367,40 +351,26 @@ libLogm_la-zlogma.lo: zlogma.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLogm_la_CFLAGS) $(CFLAGS) -c -o libLogm_la-zlogma.lo `test -f 'zlogma.c' || echo '$(srcdir)/'`zlogma.c
 
-libLogm_la-wbdiag.lo: wbdiag.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLogm_la_CFLAGS) $(CFLAGS) -MT libLogm_la-wbdiag.lo -MD -MP -MF $(DEPDIR)/libLogm_la-wbdiag.Tpo -c -o libLogm_la-wbdiag.lo `test -f 'wbdiag.c' || echo '$(srcdir)/'`wbdiag.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLogm_la-wbdiag.Tpo $(DEPDIR)/libLogm_la-wbdiag.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='wbdiag.c' object='libLogm_la-wbdiag.lo' libtool=yes @AMDEPBACKSLASH@
+libLogm_la-clogma.lo: clogma.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLogm_la_CFLAGS) $(CFLAGS) -MT libLogm_la-clogma.lo -MD -MP -MF $(DEPDIR)/libLogm_la-clogma.Tpo -c -o libLogm_la-clogma.lo `test -f 'clogma.c' || echo '$(srcdir)/'`clogma.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLogm_la-clogma.Tpo $(DEPDIR)/libLogm_la-clogma.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='clogma.c' object='libLogm_la-clogma.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLogm_la_CFLAGS) $(CFLAGS) -c -o libLogm_la-wbdiag.lo `test -f 'wbdiag.c' || echo '$(srcdir)/'`wbdiag.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLogm_la_CFLAGS) $(CFLAGS) -c -o libLogm_la-clogma.lo `test -f 'clogma.c' || echo '$(srcdir)/'`clogma.c
 
-libLogm_la-cbal.lo: cbal.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLogm_la_CFLAGS) $(CFLAGS) -MT libLogm_la-cbal.lo -MD -MP -MF $(DEPDIR)/libLogm_la-cbal.Tpo -c -o libLogm_la-cbal.lo `test -f 'cbal.c' || echo '$(srcdir)/'`cbal.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLogm_la-cbal.Tpo $(DEPDIR)/libLogm_la-cbal.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cbal.c' object='libLogm_la-cbal.lo' libtool=yes @AMDEPBACKSLASH@
+libLogm_la-slogma.lo: slogma.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLogm_la_CFLAGS) $(CFLAGS) -MT libLogm_la-slogma.lo -MD -MP -MF $(DEPDIR)/libLogm_la-slogma.Tpo -c -o libLogm_la-slogma.lo `test -f 'slogma.c' || echo '$(srcdir)/'`slogma.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLogm_la-slogma.Tpo $(DEPDIR)/libLogm_la-slogma.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='slogma.c' object='libLogm_la-slogma.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLogm_la_CFLAGS) $(CFLAGS) -c -o libLogm_la-cbal.lo `test -f 'cbal.c' || echo '$(srcdir)/'`cbal.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLogm_la_CFLAGS) $(CFLAGS) -c -o libLogm_la-slogma.lo `test -f 'slogma.c' || echo '$(srcdir)/'`slogma.c
 
-libLogm_la-corth.lo: corth.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLogm_la_CFLAGS) $(CFLAGS) -MT libLogm_la-corth.lo -MD -MP -MF $(DEPDIR)/libLogm_la-corth.Tpo -c -o libLogm_la-corth.lo `test -f 'corth.c' || echo '$(srcdir)/'`corth.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLogm_la-corth.Tpo $(DEPDIR)/libLogm_la-corth.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='corth.c' object='libLogm_la-corth.lo' libtool=yes @AMDEPBACKSLASH@
+libLogm_la-dlogma.lo: dlogma.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLogm_la_CFLAGS) $(CFLAGS) -MT libLogm_la-dlogma.lo -MD -MP -MF $(DEPDIR)/libLogm_la-dlogma.Tpo -c -o libLogm_la-dlogma.lo `test -f 'dlogma.c' || echo '$(srcdir)/'`dlogma.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLogm_la-dlogma.Tpo $(DEPDIR)/libLogm_la-dlogma.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dlogma.c' object='libLogm_la-dlogma.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLogm_la_CFLAGS) $(CFLAGS) -c -o libLogm_la-corth.lo `test -f 'corth.c' || echo '$(srcdir)/'`corth.c
-
-libLogm_la-cortr.lo: cortr.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLogm_la_CFLAGS) $(CFLAGS) -MT libLogm_la-cortr.lo -MD -MP -MF $(DEPDIR)/libLogm_la-cortr.Tpo -c -o libLogm_la-cortr.lo `test -f 'cortr.c' || echo '$(srcdir)/'`cortr.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLogm_la-cortr.Tpo $(DEPDIR)/libLogm_la-cortr.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cortr.c' object='libLogm_la-cortr.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLogm_la_CFLAGS) $(CFLAGS) -c -o libLogm_la-cortr.lo `test -f 'cortr.c' || echo '$(srcdir)/'`cortr.c
-
-libLogm_la-comqr3.lo: comqr3.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLogm_la_CFLAGS) $(CFLAGS) -MT libLogm_la-comqr3.lo -MD -MP -MF $(DEPDIR)/libLogm_la-comqr3.Tpo -c -o libLogm_la-comqr3.lo `test -f 'comqr3.c' || echo '$(srcdir)/'`comqr3.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLogm_la-comqr3.Tpo $(DEPDIR)/libLogm_la-comqr3.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='comqr3.c' object='libLogm_la-comqr3.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLogm_la_CFLAGS) $(CFLAGS) -c -o libLogm_la-comqr3.lo `test -f 'comqr3.c' || echo '$(srcdir)/'`comqr3.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLogm_la_CFLAGS) $(CFLAGS) -c -o libLogm_la-dlogma.lo `test -f 'dlogma.c' || echo '$(srcdir)/'`dlogma.c
 
 testDoubleLogm-testDoubleLogm.o: testDoubleLogm.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleLogm_CFLAGS) $(CFLAGS) -MT testDoubleLogm-testDoubleLogm.o -MD -MP -MF $(DEPDIR)/testDoubleLogm-testDoubleLogm.Tpo -c -o testDoubleLogm-testDoubleLogm.o `test -f 'testDoubleLogm.c' || echo '$(srcdir)/'`testDoubleLogm.c

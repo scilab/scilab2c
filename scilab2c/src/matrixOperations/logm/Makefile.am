@@ -26,18 +26,15 @@ instdir = $(top_builddir)/lib
 
 pkglib_LTLIBRARIES = libLogm.la
 
-HEAD = ../includes/logm.h \
-	logm_internal.h
+HEAD = ../includes/logm.h
 
 
 libLogm_la_SOURCES = 	$(HEAD) \
-				 zlogma.c\
-				 wbdiag.c \
-				 cbal.c \
-				 corth.c \
-				 cortr.c \
-				 comqr3.c
-
+				 zlogma.c \
+				 clogma.c \
+				 slogma.c \
+				 dlogma.c 
+				
 #############
 ##  CHECK  ##
 #############
@@ -46,31 +43,22 @@ check_PROGRAMS = 	testDoubleLogm
 
 check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/matrixOperations/inversion/libMatrixInversion.la\
-			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
 			$(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/lib/blas/libsciblas.la \
-			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-			$(top_builddir)/auxiliaryFunctions/sign/libSign.la \
-			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
-			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
-			$(top_builddir)/operations/division/libDivision.la \
-			$(top_builddir)/operations/subtraction/libSubtraction.la \
-			$(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la\
-			$(top_builddir)/matrixOperations/multiplication/libMatrixMultiplication.la\
 			$(top_builddir)/elementaryFunctions/log/libLog.la \
+			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
 			$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
 			$(top_builddir)/elementaryFunctions/lnp1m1/libLnp1m1.la \
-			$(top_builddir)/elementaryFunctions/pow/libPow.la \
-			$(top_builddir)/elementaryFunctions/exp/libExp.la \
-			$(top_builddir)/elementaryFunctions/sin/libSin.la \
-			$(top_builddir)/elementaryFunctions/cos/libCos.la \
-			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
-			$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
+			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
+			$(top_builddir)/auxiliaryFunctions/sign/libSign.la \
+			$(top_builddir)/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/operations/addition/libAddition.la \
+			$(top_builddir)/matrixOperations/multiplication/libMatrixMultiplication.la \
+			$(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la \
+			$(top_builddir)/matrixOperations/inversion/libMatrixInversion.la \
 			$(top_builddir)/matrixOperations/logm/libLogm.la
-			
+
 			
 check_INCLUDES =	-I ./includes \
 			-I $(top_builddir)/type \

@@ -13,78 +13,95 @@
 #include <stdio.h>
 #include <malloc.h>
 #include "lapack.h"
-#include "pow.h"
 #include "logm.h"
 #include "log.h"
 #include "matrixMultiplication.h"
 #include "matrixTranspose.h"
 #include "matrixInversion.h"
-#include "logm_internal.h"
+#include "max.h"
 
 void zlogma (doubleComplex* in, int size, doubleComplex* out){
-	doubleComplex *out1, *out2, *tmp, *inCopy;
-	int i=0, j=0, egaux=0;
-	int mon_select, sdim, lwork, bwork, info = 0;
-	doubleComplex *eigenvalues, *work, *rwork;
+
+	/* Algo : */
+	/* trouver les valeurs propres vp */
+	/* en déduire les vecteurs propres Vp */
+	/* utiliser la formule suivante
+	*	logm = Vp * diag(log(diag(vp)) * inv(Vp) */
+	
+	
+	int i;
+	doubleComplex *eigenvalues, *eigenvectors, *tmp;
+	int symetrique = 0;
+	int info = 0; /* Used by LAPACK */
+	int iWorkSize = 0; /* Used by LAPACK */
+	doubleComplex *pdblWork = NULL; /* Used by LAPACK */
+	doubleComplex *pdblRWork = NULL; /* Used by LAPACK */
+	doubleComplex * pdblLeftvectors = NULL; /* Used by LAPACK */
+	doubleComplex * inCopy = NULL; /* Used by LAPACK */
 	
 	
 	
-	inCopy=malloc((uint)(size*size)*sizeof(doubleComplex));
-	out1=malloc((uint)(size*size)*sizeof(doubleComplex));
-	out2=malloc((uint)(size*size)*sizeof(doubleComplex));
-	tmp=malloc((uint)(size*size)*sizeof(doubleComplex));
-	eigenvalues=malloc((uint)size*sizeof(doubleComplex));
-	work=malloc((uint)(dpows(2,size))*sizeof(doubleComplex));
-	rwork=malloc((uint)size*sizeof(doubleComplex));
 	
-	for (i=0;i<size*size;i++) inCopy[i]=in[i];
+	/* Data initialization */
+	eigenvalues = malloc((uint)(size*size)*sizeof(doubleComplex));
+	eigenvectors = malloc((uint)(size*size)*sizeof(doubleComplex));
+	tmp = malloc((uint)(size*size)*sizeof(doubleComplex));
+	iWorkSize = max(1,2*size);
+	pdblWork = malloc((uint)(iWorkSize)*sizeof(doubleComplex));
+	pdblRWork = malloc((uint)(2*size)*sizeof(doubleComplex));
+	inCopy = malloc((uint)(size*size)*sizeof(doubleComplex));
+	
+	/* Copy in in inCopy */
+	for (i=0;i<size*size;i++)
+		inCopy[i] = in[i];
+
+	
+	
+	
+	
+	/* regarde si in est symetrique */
 	ztransposea(in,size,size,tmp);
-	
-	/* Check if in and transpose(in) are equals */
 	for (i=0;i<size*size;i++){
 		if  (  (zreals(in[i])!=zreals(tmp[i])) || (zimags(in[i])!=zimags(tmp[i])) ) break;
 	}
-	if (i==size*size) egaux =1;
-	
-	for (i=0;i<size*size;i++) out1[i]=in[i];
-	
-	if (egaux){
-	/*Hermitian matrix*/
+	if (i==size*size) symetrique = 1;
 		
-		
-		C2F(zgees)("V","S", &mon_select, &size, out1, &size, &sdim, eigenvalues,  out2, &size, work, &lwork, rwork, &bwork, &info);
-	
-		for (i=0;i<size;i++){
-			for (j=0;j<size;j++){
-				tmp[i*size+j]=DoubleComplex(0,0);
-				if (i==j)  tmp[i*size+j]=zlogs(out2[i*size+j]);
-			}
-		}
-	
-		zmulma(out1,size,size,tmp,size,size,out2);
-		ztransposea(out1,size,size,tmp);
-			
+	/* trouver les valeurs propres vp ainsi que les vecteurs propres*/
+	if (symetrique){
+		C2F(zheev)( "V", "U", &size, inCopy, &size, eigenvalues,
+			    pdblWork, &iWorkSize, pdblRWork, &info );
+		eigenvectors = inCopy;
 	}
-	else
-	{
-	/*General Matrix*/
-		/* A faire 
-			wbdiag (appel à bdiag dans le script mais le bdiag de scilab
-			appelle sci_bdiag qui lui appelle wbdiag car input complexe)
-		*/
-		wbdiag(out1,size,out2);
-		
-		for (i=0;i<size;i++){
-			for (j=0;j<size;j++){
-				tmp[i*size+j]=DoubleComplex(0,0);
-				if (i==j)  tmp[i*size+j]=zlogs(out2[i*size+j]);
-			}
+	else {	
+		C2F(zgeev)( "N", "V", &size, inCopy, &size, eigenvalues, 
+			    pdblLeftvectors, &size, eigenvectors, &size, pdblWork, &iWorkSize,
+			    pdblRWork, &info );
+		for(i=0;i<size;i++) {
+			eigenvalues[i*size+i] = eigenvalues[i];
+			if ((i*size+i)!=i) eigenvalues[i] = DoubleComplex(0,0);
 		}
+	}
+
+
+	/* utiliser la formule suivante
+	*	logm = Vp * diag(log(diag(vp)) * inv(Vp) */
 	
-		zmulma(out1,size,size,tmp,size,size,out2);
-		zinverma(out1,tmp,size);
-		
+	
+	/* diag(log(diag(vp)) */
+	for (i=0;i<size*size;i++){
+		if ((i%(size+1))==0) /* teste si i est sur la diagonale */
+			eigenvalues[i] = zlogs(eigenvalues[i]);
+		else    eigenvalues[i] = DoubleComplex(0,0);
 	}
 	
-	zmulma(out2,size,size,tmp,size,size,out);	
+	/* Vp * diag(log(diag(vp)) */
+	zmulma(eigenvectors, size, size, eigenvalues, size, size, tmp);
+	
+	/* inv(Vp) */
+	zinverma(eigenvectors, eigenvectors, size);
+	
+	/* Vp * diag(log(diag(vp))*inv(Vp) */
+	zmulma(tmp, size, size, eigenvectors, size, size, out);
+	
+
 }

@@ -30,8 +30,8 @@ static void zlogmaTest(void){
 	
 	for(i=0;i<9;i++) in[i]=DoubleComplex(inD[i],0);
 
-	wbdiag(in,3,out);
-
+	zlogma(in,3,out);
+	for(i=0;i<9;i++) printf("out[%d] = %f + %f *i\n",i,zreals(out[i]),zimags(out[i]));
 }
 
 static int logmTest(void){
