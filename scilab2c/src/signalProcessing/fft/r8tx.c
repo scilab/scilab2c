@@ -13,7 +13,6 @@
 
 #include "fft_internal.h"
 #include <math.h>
-#include <stdio.h>
 
 
 

@@ -203,16 +203,11 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 libConv_la_CFLAGS = -I $(top_builddir)/type \
 			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/signalProcessing/fft \
-			-I $(top_builddir)/signalProcessing/ifft \
 			-I $(top_builddir)/signalProcessing/includes
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libConv.la
-HEAD = ../includes/conv.h \
-       ../fft/fft_internal.h \
-       ../ifft/fft_internal.h 
-
+HEAD = ../includes/conv.h
 libConv_la_SOURCES = $(HEAD) \
 					sconva.c \
 					dconva.c \

@@ -12,8 +12,11 @@
 #define IFFT842 1
 #define DFFT2  0
 
+#include <math.h>
 #include "ifft.h"
-#include <stdio.h>
+#include "lapack.h"
+#include "ifft_internal.h"
+
 
 void zifftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 {

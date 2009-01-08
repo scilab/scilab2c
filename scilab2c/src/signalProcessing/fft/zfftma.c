@@ -11,13 +11,12 @@
  */
 #define FFT842 1
 #define DFFT2  0
-#include <stdio.h>
+
 #include <math.h>
-#include <stdlib.h>
 #include "fft.h"
 #include "lapack.h"
 #include "fft_internal.h"
-#include <stdio.h>
+
 void zfftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 {
 

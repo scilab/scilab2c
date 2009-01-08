@@ -11,7 +11,6 @@
  */
 
 #include "ifft_internal.h"
-#include <stdio.h>
 /*
 ** radix 2 iteration subroutine
 */

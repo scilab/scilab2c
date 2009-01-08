@@ -13,7 +13,6 @@
 
 #include "ifft_internal.h"
 #include <math.h>
-#include <stdio.h>
 
 
 

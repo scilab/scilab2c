@@ -13,12 +13,9 @@
 #ifndef __IFFT_H__
 #define __IFFT_H__
 
-#include <math.h>
 #include "floatComplex.h"
 #include "doubleComplex.h"
-#include "blas.h"
-#include "lapack.h"
-#include "ifft_internal.h"
+
 
 /*
 ** compute the inverse fast fourier transform of a vector

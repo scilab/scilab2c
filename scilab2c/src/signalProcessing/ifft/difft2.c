@@ -11,7 +11,6 @@
  */
 
 #include "ifft_internal.h"
-#include <stdlib.h>
 
 void difft2 ( double* a , double* b , int nseg , int n , int nspn , int isn , int ierr )
 {
