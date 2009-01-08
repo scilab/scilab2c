@@ -237,6 +237,7 @@ signalProcessing/levin/Makefile
 signalProcessing/conv/Makefile
 signalProcessing/conv2d/Makefile
 signalProcessing/hilbert/Makefile
+signalProcessing/crossCorr/Makefile
 ])
 
 
