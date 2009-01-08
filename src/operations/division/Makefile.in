@@ -32,10 +32,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testDivision$(EXEEXT) testLDivision$(EXEEXT) \
-	testRDivision$(EXEEXT)
-TESTS = testDivision$(EXEEXT) testLDivision$(EXEEXT) \
-	testRDivision$(EXEEXT)
+check_PROGRAMS = testLDivision$(EXEEXT) testRDivision$(EXEEXT)
+TESTS = testLDivision$(EXEEXT) testRDivision$(EXEEXT)
 subdir = operations/division
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -69,12 +67,6 @@ libDivision_la_OBJECTS = $(am_libDivision_la_OBJECTS)
 libDivision_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libDivision_la_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testDivision_OBJECTS = testDivision-testDivision.$(OBJEXT)
-testDivision_OBJECTS = $(am_testDivision_OBJECTS)
-testDivision_DEPENDENCIES = $(check_LDADD)
-testDivision_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDivision_CFLAGS) \
-	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_testLDivision_OBJECTS = testLDivision-testLDivision.$(OBJEXT)
 testLDivision_OBJECTS = $(am_testLDivision_OBJECTS)
 testLDivision_DEPENDENCIES = $(check_LDADD)
@@ -99,10 +91,10 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libDivision_la_SOURCES) $(testDivision_SOURCES) \
-	$(testLDivision_SOURCES) $(testRDivision_SOURCES)
-DIST_SOURCES = $(libDivision_la_SOURCES) $(testDivision_SOURCES) \
-	$(testLDivision_SOURCES) $(testRDivision_SOURCES)
+SOURCES = $(libDivision_la_SOURCES) $(testLDivision_SOURCES) \
+	$(testRDivision_SOURCES)
+DIST_SOURCES = $(libDivision_la_SOURCES) $(testLDivision_SOURCES) \
+	$(testRDivision_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -250,9 +242,6 @@ check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 check_INCLUDES = -I $(top_builddir)/type \
 			-I $(top_builddir)/operations/includes
 
-testDivision_SOURCES = testDivision.c 
-testDivision_LDADD = $(check_LDADD)
-testDivision_CFLAGS = $(check_INCLUDES)
 testLDivision_SOURCES = testLDivision.c 
 testLDivision_LDADD = $(check_LDADD)
 testLDivision_CFLAGS = $(check_INCLUDES)
@@ -328,9 +317,6 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testDivision$(EXEEXT): $(testDivision_OBJECTS) $(testDivision_DEPENDENCIES) 
-	@rm -f testDivision$(EXEEXT)
-	$(testDivision_LINK) $(testDivision_OBJECTS) $(testDivision_LDADD) $(LIBS)
 testLDivision$(EXEEXT): $(testLDivision_OBJECTS) $(testLDivision_DEPENDENCIES) 
 	@rm -f testLDivision$(EXEEXT)
 	$(testLDivision_LINK) $(testLDivision_OBJECTS) $(testLDivision_LDADD) $(LIBS)
@@ -360,7 +346,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDivision_la-zldivs.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDivision_la-zrdiva.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libDivision_la-zrdivs.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDivision-testDivision.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testLDivision-testLDivision.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testRDivision-testRDivision.Po@am__quote@
 
@@ -496,20 +481,6 @@ libDivision_la-zldiva.lo: zldiva.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zldiva.c' object='libDivision_la-zldiva.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libDivision_la_CFLAGS) $(CFLAGS) -c -o libDivision_la-zldiva.lo `test -f 'zldiva.c' || echo '$(srcdir)/'`zldiva.c
-
-testDivision-testDivision.o: testDivision.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDivision_CFLAGS) $(CFLAGS) -MT testDivision-testDivision.o -MD -MP -MF $(DEPDIR)/testDivision-testDivision.Tpo -c -o testDivision-testDivision.o `test -f 'testDivision.c' || echo '$(srcdir)/'`testDivision.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDivision-testDivision.Tpo $(DEPDIR)/testDivision-testDivision.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDivision.c' object='testDivision-testDivision.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDivision_CFLAGS) $(CFLAGS) -c -o testDivision-testDivision.o `test -f 'testDivision.c' || echo '$(srcdir)/'`testDivision.c
-
-testDivision-testDivision.obj: testDivision.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDivision_CFLAGS) $(CFLAGS) -MT testDivision-testDivision.obj -MD -MP -MF $(DEPDIR)/testDivision-testDivision.Tpo -c -o testDivision-testDivision.obj `if test -f 'testDivision.c'; then $(CYGPATH_W) 'testDivision.c'; else $(CYGPATH_W) '$(srcdir)/testDivision.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDivision-testDivision.Tpo $(DEPDIR)/testDivision-testDivision.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDivision.c' object='testDivision-testDivision.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDivision_CFLAGS) $(CFLAGS) -c -o testDivision-testDivision.obj `if test -f 'testDivision.c'; then $(CYGPATH_W) 'testDivision.c'; else $(CYGPATH_W) '$(srcdir)/testDivision.c'; fi`
 
 testLDivision-testLDivision.o: testLDivision.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testLDivision_CFLAGS) $(CFLAGS) -MT testLDivision-testLDivision.o -MD -MP -MF $(DEPDIR)/testLDivision-testLDivision.Tpo -c -o testLDivision-testLDivision.o `test -f 'testLDivision.c' || echo '$(srcdir)/'`testLDivision.c
