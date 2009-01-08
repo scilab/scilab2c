@@ -15,8 +15,6 @@
 
 libConv_la_CFLAGS =	-I $(top_builddir)/type \
 			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/signalProcessing/fft \
-			-I $(top_builddir)/signalProcessing/ifft \
 			-I $(top_builddir)/signalProcessing/includes
 
 
@@ -25,9 +23,7 @@ instdir = $(top_builddir)/lib
 
 pkglib_LTLIBRARIES = libConv.la
 
-HEAD = ../includes/conv.h \
-       ../fft/fft_internal.h \
-       ../ifft/fft_internal.h 
+HEAD = ../includes/conv.h
 	
 
 

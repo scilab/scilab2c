@@ -11,7 +11,6 @@
  */
 
 #include "fft_internal.h"
-#include <stdio.h>
 
 
 
