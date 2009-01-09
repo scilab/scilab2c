@@ -13,7 +13,7 @@
 #include "isempty.h"
 
 bool		cisemptya(floatComplex* x, int size) {
-  if (cfinda(x, size) == NOT_FOUND) {
+  if (cfinda(x, size) == NULL) {
     return true;
   }
   return false;

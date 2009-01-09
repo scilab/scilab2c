@@ -13,7 +13,7 @@
 #include "isempty.h"
 
 bool		sisemptya(float* x, int size) {
-  if (sfinda(x, size) == NOT_FOUND) {
+  if (sfinda(x, size) == NULL) {
     return true;
   }
   return false;
