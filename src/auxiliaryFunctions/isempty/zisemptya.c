@@ -13,7 +13,7 @@
 #include "isempty.h"
 
 bool		zisemptya(doubleComplex* x, int size) {
-  if (zfinda(x, size) == NOT_FOUND) {
+  if (zfinda(x, size) == NULL) {
     return true;
   }
   return false;
