@@ -15,20 +15,20 @@
 #ifndef __INT_FIND_H__
 #define __INT_FIND_H__
 
-#define s0finds0(in)			sfinds(in)
+#define s0finds0(in)			(in == 0) ? -1 : in
 
-#define d0findd0(in)			dfinds(in)
+#define d0findd0(in)			(in == 0) ? -1 : in
 
-#define c0findc0(in)			cfinds(in)
+#define c0findc0(in)			((creals(in) == 0) && (cimags(in) == 0)) ? -1 : in
 
-#define z0findz0(in)			zfinds(in)
+#define z0findz0(in)			((zreals(in) == 0) && (zimags(in) == 0)) ? -1 : in
 
-#define s2finds2(in,size,out)		sfinda(in, size[0]*size[1], out)
+#define s2finds2(in,size,out)		sfinda(in, size[0]*size[1])
 
-#define d2findd2(in,size,out)		dfinda(in, size[0]*size[1], out)
+#define d2findd2(in,size,out)		dfinda(in, size[0]*size[1])
 
-#define c2findc2(in,size,out)		cfinda(in, size[0]*size[1], out)
+#define c2findc2(in,size,out)		cfinda(in, size[0]*size[1])
 
-#define z2findz2(in,size,out)		zfinda(in, size[0]*size[1], out)
+#define z2findz2(in,size,out)		zfinda(in, size[0]*size[1])
 
 #endif /* !__INT_FIND_H__ */
