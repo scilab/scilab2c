@@ -17,7 +17,11 @@
 
 #define s0log10s0(in)			slog10s(in)
 
+#define s0log10c0(in)			clog10s(FloatComplex(in,0))
+
 #define d0log10d0(in)			dlog10s(in)
+
+#define d0log10z0(in)			zlog10s(DoubleComplex(in,0))
 
 #define c0log10c0(in)			clog10s(in)
 
@@ -25,7 +29,11 @@
 
 #define s2log10s2(in,size,out)		slog10a(in, size[0]*size[1], out)
 
+#define s2log10c2(in,size,out)		clog10a(FloatComplexMatrix(in,0), size[0]*size[1], out)
+
 #define d2log10d2(in,size,out)		dlog10a(in, size[0]*size[1], out)
+
+#define d2log10z2(in,size,out)		zlog10a(DoubleComplexMatrix(in,0), size[0]*size[1], out)
 
 #define c2log10c2(in,size,out)		clog10a(in, size[0]*size[1], out)
 

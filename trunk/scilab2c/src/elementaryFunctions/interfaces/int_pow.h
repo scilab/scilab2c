@@ -15,20 +15,20 @@
 #ifndef __INT_OPDOTHAT_H__
 #define __INT_OPDOTHAT_H__
 
-#define s0OpDotHats0(in1, in2)			spows(in1, in2)
+#define s0s0OpDotHats0(in1, in2)			spows(in1, in2)
 
-#define d0OpDotHatd0(in1, in2)			dpows(in1, in2)
+#define d0d0OpDotHatd0(in1, in2)			dpows(in1, in2)
 
-#define c0OpDotHatc0(in1, in2)			cpows(in1, in2)
+#define c0c0OpDotHatc0(in1, in2)			cpows(in1, in2)
 
-#define z0OpDotHatz0(in1, in2)			zpows(in1, in2))
+#define z0z0OpDotHatz0(in1, in2)			zpows(in1, in2)
 
-#define s2OpDotHats2(in1, size, in2, out)	spowa(in1, size[0]*size[1], in2, out)
+#define s2s0OpDotHats2(in1, size, in2, out)	spowa(in1, size[0]*size[1], in2, out)
 
-#define d2OpDotHatd2(in1, size, in2, out)	dpowa(in1, size[0]*size[1], in2, out)
+#define d2d0OpDotHatd2(in1, size, in2, out)	dpowa(in1, size[0]*size[1], in2, out)
 
-#define c2OpDotHatc2(in1, size, in2, out)	cpowa(in1, size[0]*size[1], in2, out)
+#define c2c0OpDotHatc2(in1, size, in2, out)	cpowa(in1, size[0]*size[1], in2, out)
 
-#define z2OpDotHatz2(in1, size, in2, out)	zpowa(in1, size[0]*size[1], in2, out)
+#define z2z0OpDotHatz2(in1, size, in2, out)	zpowa(in1, size[0]*size[1], in2, out)
 
 #endif /* !__INT_OPDOTHAT_H__ */

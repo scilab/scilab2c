@@ -17,7 +17,11 @@
 
 #define s0atanhs0(in)			satanhs(in)
 
+#define s0atanhc0(in)			catanhs(FloatComplex(in,0))
+
 #define d0atanhd0(in)			datanhs(in)
+
+#define d0atanhz0(in)			zatanhs(DoubleComplex(in,0))
 
 #define c0atanhc0(in)			catanhs(in)
 
@@ -25,7 +29,11 @@
 
 #define s2atanhs2(in,size,out)		satanha(in, size[0]*size[1], out)
 
+#define s2atanhc2(in,size,out)		catanha(FloatComplexMatrix(in,0), size[0]*size[1], out)
+
 #define d2atanhd2(in,size,out)		datanha(in, size[0]*size[1], out)
+
+#define d2atanhz2(in,size,out)		zatanha(DoubleComplexMatrix(in,0), size[0]*size[1], out)
 
 #define c2atanhc2(in,size,out)		catanha(in, size[0]*size[1], out)
 
