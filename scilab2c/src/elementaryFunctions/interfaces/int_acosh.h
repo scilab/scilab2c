@@ -17,7 +17,11 @@
 
 #define s0acoshs0(in)			sacoshs(in)
 
+#define s0acoshc0(in)			cacoshs(FloatComplex(in,0))
+
 #define d0acoshd0(in)			dacoshs(in)
+
+#define d0acoshz0(in)			zacoshs(DoubleComplex(in,0))
 
 #define c0acoshc0(in)			cacoshs(in)
 
@@ -25,7 +29,11 @@
 
 #define s2acoshs2(in,size,out)		sacosha(in, size[0]*size[1], out)
 
+#define s2acoshc2(in,size,out)		cacosha(FloatComplexMatrix(in,0), size[0]*size[1], out)
+
 #define d2acoshd2(in,size,out)		dacosha(in, size[0]*size[1], out)
+
+#define d2acoshz2(in,size,out)		zacosha(DoubleComplexMatrix(in,0), size[0]*size[1], out)
 
 #define c2acoshc2(in,size,out)		cacosha(in, size[0]*size[1], out)
 
