@@ -12,12 +12,17 @@
 
 #include "find.h"
 
-int		dfinda(double* x, int size) {
+double *dfinda(double* x, int size) {
   int i = 0;
+  int indiceOut = 0;
+  double* out=NULL;
+  
   for (i = 0; i < size ; ++i) {
     if (x[i] != 0) {
-      return i;
+    	out = realloc(out, (uint)(indiceOut+1)*sizeof(double));
+	out[indiceOut] = (double)i;
+	indiceOut++;
     }
   }
-  return NOT_FOUND;
+  return out;
 }
