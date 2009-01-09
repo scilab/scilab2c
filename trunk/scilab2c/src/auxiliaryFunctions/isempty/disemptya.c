@@ -12,9 +12,9 @@
 
 #include "isempty.h"
 
-bool		disemptya(double* x, int size) {
+double		disemptya(double* x, int size) {
   if (dfinda(x, size) == NULL) {
-    return true;
+    return 1;
   }
-  return false;
+  return 0;
 }
