@@ -20,20 +20,20 @@
 /*
 ** \brief Float Find function
 */
-int	sfinda(float* x, int size);
+float* sfinda(float* x, int size);
 
 /*
 ** \brief Double Find function
 */
-int	dfinda(double*x, int size);
+double* dfinda(double*x, int size);
 
 /*
 ** \brief Float Complex Find function
 */
-int	cfinda(floatComplex* z, int size);
+float* cfinda(floatComplex* z, int size);
 
 /*
 ** \brief Double Complex Find function
 */
-int	zfinda(doubleComplex* z, int size);
+double* zfinda(doubleComplex* z, int size);
 #endif /* !__FIND_H__ */
