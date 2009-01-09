@@ -12,9 +12,9 @@
 
 #include "isempty.h"
 
-bool		cisemptya(floatComplex* x, int size) {
+float	cisemptya(floatComplex* x, int size) {
   if (cfinda(x, size) == NULL) {
-    return true;
+    return 1;
   }
-  return false;
+  return 0;
 }

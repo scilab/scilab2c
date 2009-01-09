@@ -12,9 +12,9 @@
 
 #include "isempty.h"
 
-bool		zisemptya(doubleComplex* x, int size) {
+double		zisemptya(doubleComplex* x, int size) {
   if (zfinda(x, size) == NULL) {
-    return true;
+    return 1;
   }
-  return false;
+  return 0;
 }
