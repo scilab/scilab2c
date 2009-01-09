@@ -27,8 +27,8 @@
 
 #define d2absd2(in,size,out)		dabsa(in, size[0]*size[1], out)
 
-#define c2absc2(in,size,out)		cabsa(in, size[0]*size[1], out)
+#define c2abss2(in,size,out)		cabsa(in, size[0]*size[1], out)
 
-#define z2absz2(in,size,out)		zabsa(in, size[0]*size[1], out)
+#define z2absd2(in,size,out)		zabsa(in, size[0]*size[1], out)
 
 #endif /* !__INT_ABS_H__ */
