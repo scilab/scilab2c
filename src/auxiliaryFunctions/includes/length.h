@@ -64,7 +64,7 @@
  ** \param length : the number of elements.
  ** \return the length of in.
  **/
-#define	slengtha(in, size)	size
+#define	slengtha(in, size)	(float)size
 
 /**
  ** \brief Double length Array function
@@ -73,7 +73,7 @@
  ** \param length : the number of elements.
  ** \return the length of in.
  **/
-#define	dlengtha(in, size)	size
+#define	dlengtha(in, size)	(double)size
 
 /**
  ** \brief Complex Float length Array function
@@ -82,7 +82,7 @@
  ** \param length : the number of elements.
  ** \return the length of in.
  **/
-#define	clengtha(in, size)	size
+#define	clengtha(in, size)	(float)size
 
 /**
  ** \brief Complex Double length Array function
@@ -91,6 +91,6 @@
  ** \param length : the number of elements.
  ** \return the length of in.
  **/
-#define	zlengtha(in, size)	size
+#define	zlengtha(in, size)	(double)size
 
 #endif /* !__LENGTH_H__ */
