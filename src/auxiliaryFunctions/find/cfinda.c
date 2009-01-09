@@ -12,12 +12,17 @@
 
 #include "find.h"
 
-int		cfinda(floatComplex* z, int size) {
+float *cfinda(floatComplex* z, int size) {
   int i = 0;
+  int indiceOut = 0;
+  float* out=NULL;
+  
   for (i = 0; i < size ; ++i) {
     if (creals(z[i]) != 0 || cimags(z[i]) != 0) {
-      return i;
+    	out = realloc(out, (uint)(indiceOut+1)*sizeof(float));
+	out[indiceOut] = (float)i;
+	indiceOut++;
     }
   }
-  return NOT_FOUND;
+  return out;
 }
