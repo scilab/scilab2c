@@ -13,7 +13,7 @@
 #include "isempty.h"
 
 bool		disemptya(double* x, int size) {
-  if (dfinda(x, size) == NOT_FOUND) {
+  if (dfinda(x, size) == NULL) {
     return true;
   }
   return false;
