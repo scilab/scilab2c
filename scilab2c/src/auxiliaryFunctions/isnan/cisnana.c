@@ -1,6 +1,6 @@
 /*
  *  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
- *  Copyright (C) 2007-2008 - INRIA - Bruno JOFRET
+ *  Copyright (C) 2007-2008 - INRIA - Arnaud TORSET
  *
  *  This file must be used under the terms of the CeCILL.
  *  This source file is licensed as described in the file COPYING, which
@@ -12,7 +12,11 @@
 
 #include "isnan.h"
 
-float	cisnans(floatComplex in) {
-  if ((int)(isnan(creals(in))) && (int)(isnan(cimags(in)))) return 1;
-  return 0;
+
+void cisnana(floatComplex* in, int size, float* out){
+	int i=0;
+	
+	for (i=0;i<size;i++) out[i] = cisnans(in[i]);
+	
 }
+

@@ -12,7 +12,7 @@
 
 #include "isnan.h"
 
-bool	sisnans(float in) {
-  return isnan(in);
+float	sisnans(float in) {
+  return isnan(in) ? (float)1 :(float)0;
 }
 

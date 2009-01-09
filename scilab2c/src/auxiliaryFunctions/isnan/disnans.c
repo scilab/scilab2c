@@ -12,7 +12,7 @@
 
 #include "isnan.h"
 
-bool	disnans(double in) {
-  return isnan(in);
+double	disnans(double in) {
+  return isnan(in) ? 1 : 0;
 }
 
