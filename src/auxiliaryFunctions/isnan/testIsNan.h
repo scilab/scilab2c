@@ -27,6 +27,14 @@ int cisnansTest(void);
 
 int zisnansTest(void);
 
+int sisnanaTest(void);
+
+int disnanaTest(void);
+
+int cisnanaTest(void);
+
+int zisnanaTest(void);
+
 int testIsNan(void);
 
 #endif /* ! __TESTISNAN_H__ */

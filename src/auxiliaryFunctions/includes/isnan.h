@@ -22,20 +22,42 @@
 /*
 ** \brief Float Is Nan function
 */
-bool	sisnans(float x);
+float	sisnans(float x);
 
 /*
 ** \brief Double Is Nan function
 */
-bool	disnans(double x);
+double disnans(double x);
 
 /*
 ** \brief Float Complex Is Nan function
 */
-bool	cisnans(floatComplex z);
+float	cisnans(floatComplex z);
 
 /*
 ** \brief Double Complex Is Nan function
 */
-bool	zisnans(doubleComplex z);
+double zisnans(doubleComplex z);
+
+/*
+** \brief Float Is Nan function
+*/
+void	sisnana(float x, int size, float* out);
+
+/*
+** \brief Double Is Nan function
+*/
+void disnana(double x, int size, double* out);
+
+/*
+** \brief Float Complex Is Nan function
+*/
+void	cisnana(floatComplex z, int size, float* out);
+
+/*
+** \brief Double Complex Is Nan function
+*/
+void zisnana(doubleComplex z, int size, double* out);
+
+
 #endif /* !__IS_NAN_H__ */

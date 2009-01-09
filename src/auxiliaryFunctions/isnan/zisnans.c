@@ -12,6 +12,6 @@
 
 #include "isnan.h"
 
-bool	zisnans(doubleComplex in) {
+double	zisnans(doubleComplex in) {
   return (isnan(zreals(in)) || isnan(zimags(in)));
 }
