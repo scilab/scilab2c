@@ -229,17 +229,17 @@ static int zprodaTest(void) {
 
 #ifdef LOCAL_DEBUG
   printf("--------\n");
+  printf("%e\n", zreals(zproda(table1, 3)));
   printf("%e\n", zimags(zproda(table1, 3)));
-  printf("%e\n", zreals(zproda(table2, 5)));
-  printf("%e\n", zimags(zproda(table2, 5)));
-  printf("%e\n", zreals(zproda(table2, 5)));
-  printf("%e\n", zimags(zproda(table2, 5)));
+  printf("%1.20f\n", zreals(zproda(table2, 5)));
+  printf("%1.20f\n", zimags(zproda(table2, 5)));
+  printf("%1.20f\n", zreals(zproda(table2, 5)) + 261744.55211053110542707);
   printf("--------\n");
 #endif
-  assert(zreals(zproda(table1, 3)) == -54.0f);
-  assert(zimags(zproda(table1, 3)) == 54.0f);
-  assert(fabs(zreals(zproda(table2, 5)) + 261744.55211053110542707f) < 1e-06);
-  assert(fabs(zimags(zproda(table2, 5)) + 261744.55211053110542707f) < 1e-06);
+  assert(zreals(zproda(table1, 3)) == -54.0);
+  assert(zimags(zproda(table1, 3)) == 54.0);
+  assert(fabs(zreals(zproda(table2, 5)) + 261744.55211053110542707) < 1e-06);
+  assert(fabs(zimags(zproda(table2, 5)) + 261744.55211053110542707) < 1e-06);
 
   return 0;
 }
@@ -271,12 +271,12 @@ static int zrowprodaTest(void) {
   for (i = 0 ; i < 3 ; ++i) {
     printf("rowProductedIn_4_3[%d] = %e + %ei\n", i, zreals(rowProductedIn_4_3[i]), zimags(rowProductedIn_4_3[i]));
   }
-  assert(fabs(zreals(rowProductedIn_4_3[0]) - 0.6787000000000000810019f) < 1e-06);
-  assert(fabs(zimags(rowProductedIn_4_3[0]) + 0.5456f) < 1e-06);
-  assert(fabs(zreals(rowProductedIn_4_3[1]) + 0.3964999999999999635847f) < 1e-06);
-  assert(fabs(zimags(rowProductedIn_4_3[1]) - 0.0f) < 1e-06);
-  assert(fabs(zreals(rowProductedIn_4_3[2]) - 0.6787000000000000810019f) < 1e-06);
-  assert(fabs(zimags(rowProductedIn_4_3[2]) - 0.5456f) < 1e-06);
+  assert(fabs(zreals(rowProductedIn_4_3[0]) - 0.6787000000000000810019) < 1e-06);
+  assert(fabs(zimags(rowProductedIn_4_3[0]) + 0.5456) < 1e-06);
+  assert(fabs(zreals(rowProductedIn_4_3[1]) + 0.3964999999999999635847) < 1e-06);
+  assert(fabs(zimags(rowProductedIn_4_3[1]) - 0.0) < 1e-06);
+  assert(fabs(zreals(rowProductedIn_4_3[2]) - 0.6787000000000000810019) < 1e-06);
+  assert(fabs(zimags(rowProductedIn_4_3[2]) - 0.5456) < 1e-06);
 
   /*
     [ 1.1i     0.3+0.8i  0.6+0.5i 0.9+0.2i ]
@@ -289,14 +289,14 @@ static int zrowprodaTest(void) {
   for (i = 0 ; i < 4 ; ++i) {
     printf("rowProductedIn_3_4[%d] = %e + %ei\n", i, zreals(rowProductedIn_3_4[i]), zimags(rowProductedIn_3_4[i]));
   }
-  assert(fabs(zreals(rowProductedIn_3_4[0]) + 0.3190000000000000612843f) < 1e-06);
-  assert(fabs(zimags(rowProductedIn_3_4[0]) + 0.9680000000000000826006f) < 1e-06);
-  assert(fabs(zreals(rowProductedIn_3_4[1]) + 0.5380000000000000337508f) < 1e-06);
+  assert(fabs(zreals(rowProductedIn_3_4[0]) + 0.3190000000000000612843) < 1e-06);
+  assert(fabs(zimags(rowProductedIn_3_4[0]) + 0.9680000000000000826006) < 1e-06);
+  assert(fabs(zreals(rowProductedIn_3_4[1]) + 0.5380000000000000337508) < 1e-06);
   assert(fabs(zimags(rowProductedIn_3_4[1]) - 0.0010000000000000563993 ) < 1e-06);
-  assert(fabs(zreals(rowProductedIn_3_4[2]) + 0.0010000000000000008882f) < 1e-06);
-  assert(fabs(zimags(rowProductedIn_3_4[2]) - 0.5379999999999999227285f) < 1e-06);
-  assert(fabs(zreals(rowProductedIn_3_4[3]) - 0.9680000000000000826006f) < 1e-06);
-  assert(fabs(zimags(rowProductedIn_3_4[3]) - 0.3190000000000000612843f) < 1e-06);
+  assert(fabs(zreals(rowProductedIn_3_4[2]) + 0.0010000000000000008882) < 1e-06);
+  assert(fabs(zimags(rowProductedIn_3_4[2]) - 0.5379999999999999227285) < 1e-06);
+  assert(fabs(zreals(rowProductedIn_3_4[3]) - 0.9680000000000000826006) < 1e-06);
+  assert(fabs(zimags(rowProductedIn_3_4[3]) - 0.3190000000000000612843) < 1e-06);
 
   /*
     [ 1.1i     0.6+0.5i ]
@@ -310,9 +310,9 @@ static int zrowprodaTest(void) {
   for (i = 0 ; i < 2 ; ++i) {
     printf("rowProductedIn_6_2[%d] = %e + %ei\n", i, zreals(rowProductedIn_6_2[i]), zimags(rowProductedIn_6_2[i]));
   }
-  assert(fabs(zreals(rowProductedIn_6_2[0]) - 0.1725900000000000766853f) < 1e-06);
-  assert(fabs(zimags(rowProductedIn_6_2[0]) - 0.5204650000000000664713f) < 1e-06);
-  assert(fabs(zreals(rowProductedIn_6_2[1]) + 0.1725899999999999934186f) < 1e-06);
+  assert(fabs(zreals(rowProductedIn_6_2[0]) - 0.1725900000000000766853) < 1e-06);
+  assert(fabs(zimags(rowProductedIn_6_2[0]) - 0.5204650000000000664713) < 1e-06);
+  assert(fabs(zreals(rowProductedIn_6_2[1]) + 0.1725899999999999934186) < 1e-06);
   assert(fabs(zimags(rowProductedIn_6_2[1]) - 0.5204649999999999554490 ) < 1e-06);
 
   /*
@@ -328,17 +328,17 @@ static int zrowprodaTest(void) {
   for (i = 0 ; i < 6 ; ++i) {
     printf("rowProductedIn_2_6[%d] = %e + %ei\n", i, zreals(rowProductedIn_2_6[i]), zimags(rowProductedIn_2_6[i]));
   }
-  assert(fabs(zreals(rowProductedIn_2_6[0]) + 1.1000000000000000888178f) < 1e-06);
-  assert(fabs(zimags(rowProductedIn_2_6[0]) - 0.11f) < 1e-06);
-  assert(fabs(zreals(rowProductedIn_2_6[1]) + 0.6600000000000001421086f) < 1e-06);
+  assert(fabs(zreals(rowProductedIn_2_6[0]) + 1.1000000000000000888178) < 1e-06);
+  assert(fabs(zimags(rowProductedIn_2_6[0]) - 0.11) < 1e-06);
+  assert(fabs(zreals(rowProductedIn_2_6[1]) + 0.6600000000000001421086) < 1e-06);
   assert(fabs(zimags(rowProductedIn_2_6[1]) - 0.4300000000000000488498 ) < 1e-06);
-  assert(fabs(zreals(rowProductedIn_2_6[2]) + 0.2199999999999999733547f) < 1e-06);
-  assert(fabs(zimags(rowProductedIn_2_6[2]) - 0.5899999999999999689138f) < 1e-06);
-  assert(fabs(zreals(rowProductedIn_2_6[3]) - 0.2199999999999999733547f) < 1e-06);
+  assert(fabs(zreals(rowProductedIn_2_6[2]) + 0.2199999999999999733547) < 1e-06);
+  assert(fabs(zimags(rowProductedIn_2_6[2]) - 0.5899999999999999689138) < 1e-06);
+  assert(fabs(zreals(rowProductedIn_2_6[3]) - 0.2199999999999999733547) < 1e-06);
   assert(fabs(zimags(rowProductedIn_2_6[3]) - 0.5899999999999999689138 ) < 1e-06);
-  assert(fabs(zreals(rowProductedIn_2_6[4]) - 0.6600000000000001421086f) < 1e-06);
-  assert(fabs(zimags(rowProductedIn_2_6[4]) - 0.4300000000000000488498f) < 1e-06);
-  assert(fabs(zreals(rowProductedIn_2_6[5]) - 1.1000000000000000888178f) < 1e-06);
+  assert(fabs(zreals(rowProductedIn_2_6[4]) - 0.6600000000000001421086) < 1e-06);
+  assert(fabs(zimags(rowProductedIn_2_6[4]) - 0.4300000000000000488498) < 1e-06);
+  assert(fabs(zreals(rowProductedIn_2_6[5]) - 1.1000000000000000888178) < 1e-06);
   assert(fabs(zimags(rowProductedIn_2_6[5]) - 0.11 ) < 1e-06);
 
   /*
@@ -369,8 +369,8 @@ static int zrowprodaTest(void) {
   */
   zrowproda(in, 12, 1, rowProductedIn_12_1);
   printf("rowProductedIn_12_1[%d] = %e + %ei\n", 0, zreals(rowProductedIn_12_1[0]), zimags(rowProductedIn_12_1[0]));
-  assert(fabs(zreals(rowProductedIn_12_1[0]) + 0.3006711243250001497351f) < 1e-06);
-  assert(fabs(zimags(rowProductedIn_12_1[0]) - 0.0000000000000000038164f) < 1e-06);
+  assert(fabs(zreals(rowProductedIn_12_1[0]) + 0.3006711243250001497351) < 1e-06);
+  assert(fabs(zimags(rowProductedIn_12_1[0]) - 0.0000000000000000038164) < 1e-06);
 
   return 0;
 }
@@ -402,14 +402,14 @@ static int zcolumnprodaTest(void) {
   for (i = 0 ; i < 4 ; ++i) {
     printf("columnProductedIn_4_3[%d] = %e + %ei\n", i, zreals(columnProductedIn_4_3[i]), zimags(columnProductedIn_4_3[i]));
   }
-  assert(fabs(zreals(columnProductedIn_4_3[0]) + 0.7480000000000001092460f) < 1e-06);
-  assert(fabs(zimags(columnProductedIn_4_3[0]) - 0.1210000000000001074696f) < 1e-06);
-  assert(fabs(zreals(columnProductedIn_4_3[1]) + 0.6069999999999999840128f) < 1e-06);
-  assert(fabs(zimags(columnProductedIn_4_3[1]) - 0.394000000000000127897f) < 1e-06);
-  assert(fabs(zreals(columnProductedIn_4_3[2]) + 0.3940000000000000168754f) < 1e-06);
-  assert(fabs(zimags(columnProductedIn_4_3[2]) - 0.606999999999999984012f) < 1e-06);
-  assert(fabs(zreals(columnProductedIn_4_3[3]) + 0.1210000000000000935918f) < 1e-06);
-  assert(fabs(zimags(columnProductedIn_4_3[3]) - 0.7479999999999999982236f) < 1e-06);
+  assert(fabs(zreals(columnProductedIn_4_3[0]) + 0.7480000000000001092460) < 1e-06);
+  assert(fabs(zimags(columnProductedIn_4_3[0]) - 0.1210000000000001074696) < 1e-06);
+  assert(fabs(zreals(columnProductedIn_4_3[1]) + 0.6069999999999999840128) < 1e-06);
+  assert(fabs(zimags(columnProductedIn_4_3[1]) - 0.394000000000000127897) < 1e-06);
+  assert(fabs(zreals(columnProductedIn_4_3[2]) + 0.3940000000000000168754) < 1e-06);
+  assert(fabs(zimags(columnProductedIn_4_3[2]) - 0.606999999999999984012) < 1e-06);
+  assert(fabs(zreals(columnProductedIn_4_3[3]) + 0.1210000000000000935918) < 1e-06);
+  assert(fabs(zimags(columnProductedIn_4_3[3]) - 0.7479999999999999982236) < 1e-06);
 
   /*
     [ 1.1i     0.3+0.8i  0.6+0.5i 0.9+0.2i ]    [ - 0.5753000000000000335731 - 0.3564000000000000500933i ]  
@@ -420,12 +420,12 @@ static int zcolumnprodaTest(void) {
   for (i = 0 ; i < 3 ; ++i) {
     printf("columnProductedIn_3_4[%d] = %e + %ei\n", i, zreals(columnProductedIn_3_4[i]), zimags(columnProductedIn_3_4[i]));
   }
-  assert(fabs(zreals(columnProductedIn_3_4[0]) + 0.5753000000000000335731f) < 1e-06);
-  assert(fabs(zimags(columnProductedIn_3_4[0]) + 0.3564000000000000500933f) < 1e-06);
-  assert(fabs(zreals(columnProductedIn_3_4[1]) + 0.6564999999999998614442f) < 1e-06);
-  assert(fabs(zimags(columnProductedIn_3_4[1]) - 0.0000000000000000693889f) < 1e-06);
-  assert(fabs(zreals(columnProductedIn_3_4[2]) + 0.5753000000000001445955f) < 1e-06);
-  assert(fabs(zimags(columnProductedIn_3_4[2]) - 0.3564000000000001056044f) < 1e-06);
+  assert(fabs(zreals(columnProductedIn_3_4[0]) + 0.5753000000000000335731) < 1e-06);
+  assert(fabs(zimags(columnProductedIn_3_4[0]) + 0.3564000000000000500933) < 1e-06);
+  assert(fabs(zreals(columnProductedIn_3_4[1]) + 0.6564999999999998614442) < 1e-06);
+  assert(fabs(zimags(columnProductedIn_3_4[1]) - 0.0000000000000000693889) < 1e-06);
+  assert(fabs(zreals(columnProductedIn_3_4[2]) + 0.5753000000000001445955) < 1e-06);
+  assert(fabs(zimags(columnProductedIn_3_4[2]) - 0.3564000000000001056044) < 1e-06);
 
   /*
     [ 1.1i     0.6+0.5i ]    [ - 0.5500000000000000444089 + 0.6600000000000000310862i ]
@@ -439,18 +439,18 @@ static int zcolumnprodaTest(void) {
   for (i = 0 ; i < 6 ; ++i) {
     printf("columnProductedIn_6_2[%d] = %e + %ei\n", i, zreals(columnProductedIn_6_2[i]), zimags(columnProductedIn_6_2[i]));
   }
-  assert(fabs(zreals(columnProductedIn_6_2[0]) + 0.5500000000000000444089f) < 1e-06);
-  assert(fabs(zimags(columnProductedIn_6_2[0]) - 0.6600000000000000310862f) < 1e-06);
-  assert(fabs(zreals(columnProductedIn_6_2[1]) + 0.3300000000000000155431f) < 1e-06);
-  assert(fabs(zimags(columnProductedIn_6_2[1]) - 0.7399999999999999911182f) < 1e-06);
-  assert(fabs(zreals(columnProductedIn_6_2[2]) + 0.1099999999999999866773f) < 1e-06);
-  assert(fabs(zimags(columnProductedIn_6_2[2]) - 0.7800000000000000266454f) < 1e-06);
-  assert(fabs(zreals(columnProductedIn_6_2[3]) - 0.1099999999999999866773f) < 1e-06);
-  assert(fabs(zimags(columnProductedIn_6_2[3]) - 0.7800000000000000266454f) < 1e-06);
-  assert(fabs(zreals(columnProductedIn_6_2[4]) - 0.3300000000000000155431f) < 1e-06);
-  assert(fabs(zimags(columnProductedIn_6_2[4]) - 0.7399999999999999911182f) < 1e-06);
-  assert(fabs(zreals(columnProductedIn_6_2[5]) - 0.5500000000000000444089f) < 1e-06);
-  assert(fabs(zimags(columnProductedIn_6_2[5]) - 0.6600000000000000310862f) < 1e-06);
+  assert(fabs(zreals(columnProductedIn_6_2[0]) + 0.5500000000000000444089) < 1e-06);
+  assert(fabs(zimags(columnProductedIn_6_2[0]) - 0.6600000000000000310862) < 1e-06);
+  assert(fabs(zreals(columnProductedIn_6_2[1]) + 0.3300000000000000155431) < 1e-06);
+  assert(fabs(zimags(columnProductedIn_6_2[1]) - 0.7399999999999999911182) < 1e-06);
+  assert(fabs(zreals(columnProductedIn_6_2[2]) + 0.1099999999999999866773) < 1e-06);
+  assert(fabs(zimags(columnProductedIn_6_2[2]) - 0.7800000000000000266454) < 1e-06);
+  assert(fabs(zreals(columnProductedIn_6_2[3]) - 0.1099999999999999866773) < 1e-06);
+  assert(fabs(zimags(columnProductedIn_6_2[3]) - 0.7800000000000000266454) < 1e-06);
+  assert(fabs(zreals(columnProductedIn_6_2[4]) - 0.3300000000000000155431) < 1e-06);
+  assert(fabs(zimags(columnProductedIn_6_2[4]) - 0.7399999999999999911182) < 1e-06);
+  assert(fabs(zreals(columnProductedIn_6_2[5]) - 0.5500000000000000444089) < 1e-06);
+  assert(fabs(zimags(columnProductedIn_6_2[5]) - 0.6600000000000000310862) < 1e-06);
 
   /*
     [ 1.1i  0.2+0.9i 0.4+0.7i 0.6+0.5i 0.8+0.3i 1+0.1i ]    [   0.2212649999999999894662 - 0.5017100000000001003286i ]
@@ -460,10 +460,10 @@ static int zcolumnprodaTest(void) {
   for (i = 0 ; i < 2 ; ++i) {
     printf("columnProductedIn_2_6[%d] = %e + %ei\n", i, zreals(columnProductedIn_2_6[i]), zimags(columnProductedIn_2_6[i]));
   }
-  assert(fabs(zreals(columnProductedIn_2_6[0]) - 0.2212649999999999894662f) < 1e-06);
-  assert(fabs(zimags(columnProductedIn_2_6[0]) + 0.5017100000000001003286f) < 1e-06);
-  assert(fabs(zreals(columnProductedIn_2_6[1]) + 0.2212649999999999894662f) < 1e-06);
-  assert(fabs(zimags(columnProductedIn_2_6[1]) + 0.5017100000000001003286f) < 1e-06);
+  assert(fabs(zreals(columnProductedIn_2_6[0]) - 0.2212649999999999894662) < 1e-06);
+  assert(fabs(zimags(columnProductedIn_2_6[0]) + 0.5017100000000001003286) < 1e-06);
+  assert(fabs(zreals(columnProductedIn_2_6[1]) + 0.2212649999999999894662) < 1e-06);
+  assert(fabs(zimags(columnProductedIn_2_6[1]) + 0.5017100000000001003286) < 1e-06);
 
   /*
   [ 1.1i 0.1+i 0.2+0.9i  0.3+0.8i 0.4+0.7i 0.5+0.6i 0.6+0.5i 0.7+0.4i 0.8+0.3i 0.9+0.2i 1+0.1i 1.1 ]
@@ -472,8 +472,8 @@ static int zcolumnprodaTest(void) {
   */
   zcolumnproda(in, 1, 12, columnProductedIn_1_12);
   printf("columnProductedIn_1_12[%d] = %e + %ei\n", 0, zreals(columnProductedIn_1_12[0]), zimags(columnProductedIn_1_12[0]));
-  assert(fabs(zreals(columnProductedIn_1_12[0]) + 0.3006711243250001497351f) < 1e-06);
-  assert(fabs(zimags(columnProductedIn_1_12[0]) - 0.0000000000000000038164f) < 1e-06);
+  assert(fabs(zreals(columnProductedIn_1_12[0]) + 0.3006711243250001497351) < 1e-06);
+  assert(fabs(zimags(columnProductedIn_1_12[0]) - 0.0000000000000000038164) < 1e-06);
 
 
   /*
