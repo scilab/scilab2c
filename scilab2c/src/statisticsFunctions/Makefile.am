@@ -12,4 +12,5 @@
 
 SUBDIRS=	mean \
 		sum\
-		variance
+		variance\
+		prod
