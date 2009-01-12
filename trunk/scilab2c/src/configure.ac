@@ -225,6 +225,7 @@ auxiliaryFunctions/pythag/Makefile
 auxiliaryFunctions/conj/Makefile
 statisticsFunctions/Makefile
 statisticsFunctions/mean/Makefile
+statisticsFunctions/prod/Makefile
 statisticsFunctions/sum/Makefile
 statisticsFunctions/variance/Makefile
 string/Makefile
