@@ -12,16 +12,16 @@
 
 #include "matrixTrace.h"
 
-void dtracea ( double* in ,int lines, double* out ){
+double dtracea ( double* in ,int lines){
     
     
     int i = 0 ;
-    *out  = 0 ;
+    double out  = 0 ;
     
     for (  i = 0 ; i < lines ; ++i)
-        *out += in[i*lines + i] ;
+        out += in[i*lines + i] ;
     
-    
+    return out;
 }
 
 
