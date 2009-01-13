@@ -213,6 +213,7 @@ elementaryFunctions/pow/Makefile
 auxiliaryFunctions/Makefile
 auxiliaryFunctions/abs/Makefile
 auxiliaryFunctions/find/Makefile
+auxiliaryFunctions/find2d/Makefile
 auxiliaryFunctions/frexp/Makefile
 auxiliaryFunctions/isempty/Makefile
 auxiliaryFunctions/isnan/Makefile

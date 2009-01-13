@@ -21,4 +21,5 @@ SUBDIRS=	abs \
 		size \
 		type \
 		length \
-		frexp
+		frexp\
+		find2d
