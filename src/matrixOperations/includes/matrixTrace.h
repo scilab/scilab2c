@@ -31,7 +31,7 @@
 ** \param out : float scalar containing the trace.
 */
 
-void stracea ( float* in ,int lines, float* out ) ;
+float stracea ( float* in ,int lines ) ;
 
 
 /*
@@ -40,7 +40,7 @@ void stracea ( float* in ,int lines, float* out ) ;
 ** \param lines : number of lines  
 ** \param out : double scalar containing the trace.
 */
-void dtracea ( double* in ,int lines, double* out ) ;
+double dtracea ( double* in ,int lines ) ;
 
 /*
 ** \brief Compute the trace of a float complex  matrix.
@@ -48,7 +48,7 @@ void dtracea ( double* in ,int lines, double* out ) ;
 ** \param lines : number of lines  
 ** \param out : float complex containing the trace.
 */
-void ctracea ( floatComplex* in ,int lines, floatComplex* out ) ;
+floatComplex ctracea ( floatComplex* in ,int lines ) ;
 
 
 /*
@@ -57,6 +57,6 @@ void ctracea ( floatComplex* in ,int lines, floatComplex* out ) ;
 ** \param lines : number of lines  
 ** \param out : double complex containing the trace.
 */
-void ztracea ( doubleComplex* in ,int lines, doubleComplex* out ) ;
+doubleComplex ztracea ( doubleComplex* in ,int lines ) ;
 
 #endif /* !__MATRICXTRACE_H__ */

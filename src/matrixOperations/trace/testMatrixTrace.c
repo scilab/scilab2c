@@ -56,7 +56,7 @@ static void straceaTest ( void ) {
     
     float out = 0.0f ;
     
-    stracea ( in , LINES , &out ) ;
+    out = stracea ( in , LINES ) ;
     
     assert(fabsf(out - Result) / fabsf( out )< 1e-07);
     
@@ -101,7 +101,7 @@ static void dtraceaTest ( void ) {
     
     double out = 0 ;
     
-    dtracea ( in , LINES , &out ) ;
+    out = dtracea ( in , LINES ) ;
     
     assert(fabs(out - Result) / fabs( out )< 1e-16);
 }
@@ -152,7 +152,7 @@ static void ctraceaTest ( void ) {
     for ( i = 0 ; i < LINES*LINES  ; i++ )
 	  in[i] = FloatComplex ( tin[i] , tin[i] ) ;
     
-    ctracea ( in , LINES , &out ) ;
+    out = ctracea ( in , LINES ) ;
     
      assert ( fabs(  creals(out) - creals (Result) )/ fabs (creals (out))  < 1e-07 );
 	 assert ( fabs(  cimags(out) - cimags (Result) )/ fabs (cimags (out))  < 1e-07 );
@@ -210,7 +210,7 @@ static void ztraceaTest ( void ) {
     for ( i = 0 ; i < LINES*LINES  ; i++ )
 	  in[i] = DoubleComplex ( tin[i] , tin[i] ) ;
     
-    ztracea ( in , LINES , &out ) ;
+    out = ztracea ( in , LINES ) ;
     
      assert ( fabs(  zreals(out) - zreals (Result) )/ fabs (zreals (out))  < 1e-16 );
 	 assert ( fabs(  zimags(out) - zimags (Result) )/ fabs (zimags (out))  < 1e-16 );   

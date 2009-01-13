@@ -12,16 +12,16 @@
 
 #include "matrixTrace.h"
 
-void stracea ( float* in ,int lines, float* out ){
+float stracea ( float* in ,int lines ){
     
     
     int i = 0 ;
-    *out  = 0 ;
+    float out  = 0 ;
     
     for (  i = 0 ; i < lines ; ++i)
-        *out += in[i*lines + i] ;
+        out += in[i*lines + i] ;
     
-    
+    return out;
 }
 
 

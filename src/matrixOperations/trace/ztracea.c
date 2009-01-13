@@ -12,7 +12,7 @@
 
 #include "matrixTrace.h"
 
-void ztracea ( doubleComplex* in ,int lines, doubleComplex* out ){
+doubleComplex ztracea ( doubleComplex* in ,int lines ){
     
     
     int i = 0 ;
@@ -25,7 +25,7 @@ void ztracea ( doubleComplex* in ,int lines, doubleComplex* out ){
         iout += zimags (in[i*lines + i] ) ;
     }
     
-    *out = DoubleComplex ( rout , iout ) ;
+    return DoubleComplex ( rout , iout ) ;
 }
 
 
