@@ -12,7 +12,7 @@
 
 #include "matrixTrace.h"
 
-void ctracea ( floatComplex* in ,int lines, floatComplex* out ){
+floatComplex ctracea ( floatComplex* in ,int lines ){
     
     
     int i = 0 ;
@@ -25,7 +25,8 @@ void ctracea ( floatComplex* in ,int lines, floatComplex* out ){
         iout += cimags (in[i*lines + i] ) ;
     }
     
-    *out = FloatComplex ( rout , iout ) ;
+    return FloatComplex ( rout , iout ) ;
+
 }
 
 
