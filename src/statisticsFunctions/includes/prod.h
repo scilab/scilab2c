@@ -21,7 +21,7 @@
 */
 #define		sprods(in)			in
 #define		srowprods(in)			in
-#define		scolumnsprods(in)		in
+#define		scolumnprods(in)		in
 #define		smatlabprods(in)			in
 
 /*
@@ -29,7 +29,7 @@
 */
 #define		dprods(in)			in
 #define		drowprods(in)			in
-#define		dcolumnsprods(in)		in
+#define		dcolumnprods(in)		in
 #define		dmatlabprods(in)			in
 
 /*
@@ -37,7 +37,7 @@
 */
 #define		cprods(in)			in
 #define		crowprods(in)			in
-#define		ccolumnsprods(in)		in
+#define		ccolumnprods(in)		in
 #define		cmatlabprods(in)			in
 
 /*
@@ -45,7 +45,7 @@
 */
 #define		zprods(in)			in
 #define		zrowprods(in)			in
-#define		zcolumnsprods(in)		in
+#define		zcolumnprods(in)		in
 #define		zmatlabprods(in)			in
 
 /*
