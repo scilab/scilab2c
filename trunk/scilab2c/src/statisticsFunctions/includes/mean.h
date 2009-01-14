@@ -21,7 +21,7 @@
 */
 #define		smeans(in)			in
 #define		srowmeans(in)			in
-#define		scolumnsmeans(in)		in
+#define		scolumnmeans(in)		in
 #define		smatlabmeans(in)		in
 
 /*
@@ -29,7 +29,7 @@
 */
 #define		dmeans(in)			in
 #define		drowmeans(in)			in
-#define		dcolumnsmeans(in)		in
+#define		dcolumnmeans(in)		in
 #define		dmatlabmeans(in)		in
 
 /*
@@ -37,7 +37,7 @@
 */
 #define		cmeans(in)			in
 #define		crowmeans(in)			in
-#define		ccolumnsmeans(in)		in
+#define		ccolumnmeans(in)		in
 #define		cmatlabmeans(in)		in
 
 /*
@@ -45,7 +45,7 @@
 */
 #define		zmeans(in)			in
 #define		zrowmeans(in)			in
-#define		zcolumnsmeans(in)		in
+#define		zcolumnmeans(in)		in
 #define		zmatlabmeans(in)		in
 
 /*

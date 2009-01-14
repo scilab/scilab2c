@@ -22,7 +22,7 @@
 */
 #define		ssums(in)			in
 #define		srowsums(in)			in
-#define		scolumnssums(in)		in
+#define		scolumnsums(in)		in
 #define		smatlabsums(in)			in
 
 /*
@@ -30,7 +30,7 @@
 */
 #define		dsums(in)			in
 #define		drowsums(in)			in
-#define		dcolumnssums(in)		in
+#define		dcolumnsums(in)		in
 #define		dmatlabsums(in)			in
 
 /*
@@ -38,7 +38,7 @@
 */
 #define		csums(in)			in
 #define		crowsums(in)			in
-#define		ccolumnssums(in)		in
+#define		ccolumnsums(in)		in
 #define		cmatlabsums(in)			in
 
 /*
@@ -46,7 +46,7 @@
 */
 #define		zsums(in)			in
 #define		zrowsums(in)			in
-#define		zcolumnssums(in)		in
+#define		zcolumnsums(in)		in
 #define		zmatlabsums(in)			in
 
 /*
