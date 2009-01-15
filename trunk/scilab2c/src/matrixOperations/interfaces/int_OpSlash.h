@@ -15,20 +15,24 @@
 #ifndef __INT_OPSLASH_H__
 #define __INT_OPSLASH_H__
 
-#define s0rdivms0(in)			srdivms(in)
 
-#define d0rdivmd0(in)			drdivms(in)
+/* Matrix / Matrix */
 
-#define c0rdivmc0(in)			crdivms(in)
+#define s2s2OpSlashs2(in1,size1,in2,size2,out)		srdivma(in1,size1[0],size1[1],in2,size2[0],size2[1],out)
 
-#define z0rdivmz0(in)			zrdivms(in)
+#define d2d2OpSlashd2(in1,size1,in2,size2,out)		drdivma(in1,size1[0],size1[1],in2,size2[0],size2[1],out)
 
-#define s2rdivms2(in,size,out)		srdivma(in, size[0]*size[1], out)
+#define c2c2OpSlashc2(in1,size1,in2,size2,out)		crdivma(in1,size1[0],size1[1],in2,size2[0],size2[1],out)
 
-#define d2rdivmd2(in,size,out)		drdivma(in, size[0]*size[1], out)
+#define c2s2OpSlashc2(in1,size1,in2,size2,out)		crdivma(in1,size1[0],size1[1],FloatComplexMatrix(in2,0,size2[0]*size2[1]),size2[0],size2[1],out)
 
-#define c2rdivmc2(in,size,out)		crdivma(in, size[0]*size[1], out)
+#define s2c2OpSlashc2(in1,size1,in2,size2,out)		crdivma(FloatComplexMatrix(in1,0,size1[0]*size1[1]),size1[0],size1[1],in2,size2[0],size2[1],out)
 
-#define z2rdivmz2(in,size,out)		zrdivma(in, size[0]*size[1], out)
+#define z2z2OpSlashz2(in1,size1,in2,size2,out)		zrdivma(in1,size1[0],size1[1],in2,size2[0],size2[1],out)
+
+#define z2d2OpSlashc2(in1,size1,in2,size2,out)		crdivma(in1,size1[0],size1[1],DoubleComplexMatrix(in2,0,size2[0]*size2[1]),size2[0],size2[1],out)
+
+#define d2z2OpSlashc2(in1,size1,in2,size2,out)		crdivma(DoubleComplexMatrix(in1,0,size1[0]*size1[1]),size1[0],size1[1],in2,size2[0],size2[1],out)
+
 
 #endif /* !__INT_OPSLASH_H__ */

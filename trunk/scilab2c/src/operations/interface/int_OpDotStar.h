@@ -73,21 +73,21 @@
 
 /* Matrix .* Matrix */
 
-#define s2s2OpDotStars2(in1,size1,in2,size2,out)		smula(in1,size1[0]*size1[1],in2,size2[0]*size2[1],out)
+#define s2s2OpDotStars2(in1,size1,in2,size2,out)		smula(in1,in2,size2[0]*size2[1],out)
 
-#define d2d2OpDotStard2(in1,size1,in2,size2,out)		dmula(in1,size1[0]*size1[1],in2,size2[0]*size2[1],out)
+#define d2d2OpDotStard2(in1,size1,in2,size2,out)		dmula(in1,in2,size2[0]*size2[1],out)
 
-#define c2c2OpDotStarc2(in1,size1,in2,size2,out)		cmula(in1,size1[0]*size1[1],in2,size2[0]*size2[1],out)
+#define c2c2OpDotStarc2(in1,size1,in2,size2,out)		cmula(in1,in2,size2[0]*size2[1],out)
 
-#define c2s2OpDotStarc2(in1,size1,in2,size2,out)		cmula(in1,size1[0]*size1[1],FloatComplexMatrix(in2,0,size2[0]*size2[1]),size2[0]*size2[1],out)
+#define c2s2OpDotStarc2(in1,size1,in2,size2,out)		cmula(in1,FloatComplexMatrix(in2,0,size2[0]*size2[1]),size2[0]*size2[1],out)
 
-#define s2c2OpDotStarc2(in1,size1,in2,size2,out)		cmula(FloatComplexMatrix(in1,0,size1[0]*size1[1]),size1[0]*size1[1],in2,size2[0]*size2[1],out)
+#define s2c2OpDotStarc2(in1,size1,in2,size2,out)		cmula(FloatComplexMatrix(in1,0,size1[0]*size1[1]),in2,size2[0]*size2[1],out)
 
-#define z2z2OpDotStarz2(in1,size1,in2,size2,out)		zmula(in1,size1[0]*size1[1],in2,size2[0]*size2[1],out)
+#define z2z2OpDotStarz2(in1,size1,in2,size2,out)		zmula(in1,in2,size2[0]*size2[1],out)
 
-#define z2d2OpDotStarc2(in1,size1,in2,size2,out)		cmula(in1,size1[0]*size1[1],DoubleComplexMatrix(in2,0,size2[0]*size2[1]),size2[0]*size2[1],out)
+#define z2d2OpDotStarc2(in1,size1,in2,size2,out)		cmula(in1,DoubleComplexMatrix(in2,0,size2[0]*size2[1]),size2[0]*size2[1],out)
 
-#define d2z2OpDotStarc2(in1,size1,in2,size2,out)		cmula(DoubleComplexMatrix(in1,0,size1[0]*size1[1]),size1[0]*size1[1],in2,size2[0]*size2[1],out)
+#define d2z2OpDotStarc2(in1,size1,in2,size2,out)		cmula(DoubleComplexMatrix(in1,0,size1[0]*size1[1]),in2,size2[0]*size2[1],out)
 
 
 #endif /* !__INT_OPDOTSTAR_H__ */

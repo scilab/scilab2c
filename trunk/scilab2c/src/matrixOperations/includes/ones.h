@@ -18,6 +18,28 @@
 #include "doubleComplex.h"
 
 /*
+** \brief create a float one value
+*/
+#define seyes(in)		1.0f
+
+/*
+** \brief create a Double one value
+*/
+#define deyes(in)		1.0
+
+/*
+** \brief create a float complex one value
+*/
+#define ceyes(in)		FloatComplex(1.0f, 0)
+
+/*
+** \brief create a Double complex one value
+*/
+#define zeyes(in)		DoubleComplex(1, 0)
+
+
+
+/*
 ** \brief create a float matrix full of one
 */
 void sonesa ( float* in , int rows , int cols );
