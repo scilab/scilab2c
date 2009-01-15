@@ -16,6 +16,13 @@
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+#define siffts(in)					in
+#define diffts(in)					in
+#define ciffts(in)					in
+#define ziffts(in)					in
+
+#define sifftma(in,rows,columns,out)		cifftma(FloatComplexMatrix(in,0),rows,columns,out)
+#define difftma(in,rows,columns,out)		zifftma(DoubleComplexMatrix(in,0),rows,columns,out)
 
 /*
 ** compute the inverse fast fourier transform of a vector

@@ -20,13 +20,13 @@
  
 
 	
-double ddeterma (double *in, int size);
+double ddeterma (double *in, int rows);
  
-float sdeterma (float *in, int size);
+float sdeterma (float *in, int rows);
  
-doubleComplex zdeterma (doubleComplex *in, int size); 
+doubleComplex zdeterma (doubleComplex *in, int rows); 
  
-floatComplex cdeterma (floatComplex *in, int size); 
+floatComplex cdeterma (floatComplex *in, int rows); 
 
 
 #endif /* __DETERM_H__ */
