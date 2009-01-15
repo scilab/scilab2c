@@ -91,8 +91,3 @@
 
 #endif /* !__INT_FIND_H__ */
 
-PrintStringInfo('s2s0'+ArgSeparator+'s2',ClassFileName,'file','y');
-PrintStringInfo('d2d0'+ArgSeparator+'d2',ClassFileName,'file','y');
-
-PrintStringInfo('s2s0'+ArgSeparator+'s2s2',ClassFileName,'file','y');
-PrintStringInfo('d2d0'+ArgSeparator+'d2d2',ClassFileName,'file','y');
