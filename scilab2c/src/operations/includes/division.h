@@ -40,14 +40,11 @@ float srdivs (float in1, float in2);
 /*
 ** \brief Compute a right division element ways for floats.
 ** \param in1 : input array.
-** \param size1 : size of in1 array.
-** \param in2 : input arry.
-** \param size2 : size of in2 array.
+** \param in2 : input array.
+** \param size : size of in2 array = rows*columns.
 ** \param out : array that contains the division in1 ./ in2.
 */
-void srdiva (float* in1, int size1,
-	     float* in2, int size2,
-	     float* out );
+void srdiva (float* in1, float* in2, int size, float* out );
 
 /*
 ** \brief Compute a right division for double.
@@ -60,14 +57,11 @@ double drdivs (double in1, double in2);
 /*
 ** \brief Compute a right division element ways for double.
 ** \param in1 : input array.
-** \param size1 : size of in1 array.
-** \param in2 : input arry.
-** \param size2 : size of in2 array.
+** \param in2 : input array.
+** \param size : size of in2 array = rows*columns.
 ** \param out : array that contains the division in1 ./ in2.
 */
-void drdiva (double* in1, int size1,
-	     double* in2, int size2,
-	     double* out );
+void drdiva (double* in1, double* in2, int size, double* out );
 
 /*
 ** \brief Compute a right division for floats complex.
@@ -80,14 +74,11 @@ floatComplex crdivs (floatComplex in1, floatComplex in2);
 /*
 ** \brief Compute a right division element ways for float complex.
 ** \param in1 : input array.
-** \param size1 : size of in1 array.
-** \param in2 : input arry.
-** \param size2 : size of in2 array.
+** \param in2 : input array.
+** \param size : size of in2 array = rows*columns.
 ** \param out : array that contains the division in1 ./ in2.
 */
-void crdiva(floatComplex* in1, int size1,
-	    floatComplex* in2, int size2,
-	    floatComplex* out );
+void crdiva(floatComplex* in1, floatComplex* in2, int size, floatComplex* out );
 
 /*
 ** \brief Compute a right division for double complex.
@@ -100,14 +91,11 @@ doubleComplex zrdivs (doubleComplex in1, doubleComplex in2);
 /*
 ** \brief Compute a right division element ways for double complex.
 ** \param in1 : input array.
-** \param size1 : size of in1 array.
-** \param in2 : input arry.
-** \param size2 : size of in2 array.
+** \param in2 : input array.
+** \param size : size of in2 array = rows*columns.
 ** \param out : array that contains the division in1 ./ in2.
 */
-void zrdiva(doubleComplex* in1, int size1,
-	    doubleComplex* in2, int size2,
-	    doubleComplex* out );
+void zrdiva(doubleComplex* in1, doubleComplex* in2, int size, doubleComplex* out );
 
 /*
 ** LEFT DIVISION
@@ -124,14 +112,11 @@ float sldivs (float in1, float in2);
 /*
 ** \brief Compute a left division element ways for floats.
 ** \param in1 : input array.
-** \param size1 : size of in1 array.
-** \param in2 : input arry.
-** \param size2 : size of in2 array.
+** \param in2 : input array.
+** \param size : size of in2 array = rows*columns.
 ** \param out : array that contains the division in1 .\ in2.
 */
-void sldiva (float* in1, int size1,
-	     float* in2, int size2,
-	     float* out );
+void sldiva (float* in1, float* in2, int size, float* out );
 
 /*
 ** \brief Compute a left division for double.
@@ -144,14 +129,11 @@ double dldivs (double in1, double in2);
 /*
 ** \brief Compute a left division element ways for double.
 ** \param in1 : input array.
-** \param size1 : size of in1 array.
-** \param in2 : input arry.
-** \param size2 : size of in2 array.
+** \param in2 : input array.
+** \param size : size of in2 array = rows*columns.
 ** \param out : array that contains the division in1 .\ in2.
 */
-void dldiva (double* in1, int size1,
-	     double* in2, int size2,
-	     double* out );
+void dldiva (double* in1, double* in2, int size, double* out );
 
 /*
 ** \brief Compute a left division for floats complex.
@@ -164,14 +146,11 @@ floatComplex cldivs (floatComplex in1, floatComplex in2);
 /*
 ** \brief Compute a left division element ways for float complex.
 ** \param in1 : input array.
-** \param size1 : size of in1 array.
-** \param in2 : input arry.
-** \param size2 : size of in2 array.
+** \param in2 : input array.
+** \param size : size of in2 array = rows*columns.
 ** \param out : array that contains the division in1 .\ in2.
 */
-void cldiva(floatComplex* in1, int size1,
-	    floatComplex* in2, int size2,
-	    floatComplex* out );
+void cldiva(floatComplex* in1, floatComplex* in2, int size, floatComplex* out );
 
 /*
 ** \brief Compute a left division for double complex.
@@ -184,14 +163,11 @@ doubleComplex zldivs (doubleComplex in1, doubleComplex in2);
 /*
 ** \brief Compute a left division element ways for double complex.
 ** \param in1 : input array.
-** \param size1 : size of in1 array.
-** \param in2 : input arry.
-** \param size2 : size of in2 array.
+** \param in2 : input array.
+** \param size : size of in2 array = rows*columns.
 ** \param out : array that contains the division in1 .\ in2.
 */
-void zldiva(doubleComplex* in1, int size1,
-	    doubleComplex* in2, int size2,
-	    doubleComplex* out );
+void zldiva(doubleComplex* in1, doubleComplex* in2, int size, doubleComplex* out );
 
 
 

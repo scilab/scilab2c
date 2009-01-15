@@ -73,21 +73,21 @@
 
 /* Matrix .\ Matrix */
 
-#define s2s2OpDotBackSlashs2(in1,size1,in2,size2,out)		sldiva(in1,size1[0]*size1[1],in2,size2[0]*size2[1],out)
+#define s2s2OpDotBackSlashs2(in1,size1,in2,size2,out)		sldiva(in1,in2,size2[0]*size2[1],out)
 
-#define d2d2OpDotBackSlashd2(in1,size1,in2,size2,out)		dldiva(in1,size1[0]*size1[1],in2,size2[0]*size2[1],out)
+#define d2d2OpDotBackSlashd2(in1,size1,in2,size2,out)		dldiva(in1,in2,size2[0]*size2[1],out)
 
-#define c2c2OpDotBackSlashc2(in1,size1,in2,size2,out)		cldiva(in1,size1[0]*size1[1],in2,size2[0]*size2[1],out)
+#define c2c2OpDotBackSlashc2(in1,size1,in2,size2,out)		cldiva(in1,in2,size2[0]*size2[1],out)
 
-#define c2s2OpDotBackSlashc2(in1,size1,in2,size2,out)		cldiva(in1,size1[0]*size1[1],FloatComplexMatrix(in2,0,size2[0]*size2[1]),size2[0]*size2[1],out)
+#define c2s2OpDotBackSlashc2(in1,size1,in2,size2,out)		cldiva(in1,FloatComplexMatrix(in2,0,size2[0]*size2[1]),size2[0]*size2[1],out)
 
-#define s2c2OpDotBackSlashc2(in1,size1,in2,size2,out)		cldiva(FloatComplexMatrix(in1,0,size1[0]*size1[1]),size1[0]*size1[1],in2,size2[0]*size2[1],out)
+#define s2c2OpDotBackSlashc2(in1,size1,in2,size2,out)		cldiva(FloatComplexMatrix(in1,0,size1[0]*size1[1]),in2,size2[0]*size2[1],out)
 
-#define z2z2OpDotBackSlashz2(in1,size1,in2,size2,out)		zldiva(in1,size1[0]*size1[1],in2,size2[0]*size2[1],out)
+#define z2z2OpDotBackSlashz2(in1,size1,in2,size2,out)		zldiva(in1,in2,size2[0]*size2[1],out)
 
-#define z2d2OpDotBackSlashc2(in1,size1,in2,size2,out)		cldiva(in1,size1[0]*size1[1],DoubleComplexMatrix(in2,0,size2[0]*size2[1]),size2[0]*size2[1],out)
+#define z2d2OpDotBackSlashc2(in1,size1,in2,size2,out)		cldiva(in1,DoubleComplexMatrix(in2,0,size2[0]*size2[1]),size2[0]*size2[1],out)
 
-#define d2z2OpDotBackSlashc2(in1,size1,in2,size2,out)		cldiva(DoubleComplexMatrix(in1,0,size1[0]*size1[1]),size1[0]*size1[1],in2,size2[0]*size2[1],out)
+#define d2z2OpDotBackSlashc2(in1,size1,in2,size2,out)		cldiva(DoubleComplexMatrix(in1,0,size1[0]*size1[1]),in2,size2[0]*size2[1],out)
 
 
 #endif /* !__INT_DOTDotBackSlash_H__ */

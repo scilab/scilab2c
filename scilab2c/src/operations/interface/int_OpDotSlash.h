@@ -73,21 +73,21 @@
 
 /* Matrix ./ Matrix */
 
-#define s2s2OpDotSlashs2(in1,size1,in2,size2,out)		srdiva(in1,size1[0]*size1[1],in2,size2[0]*size2[1],out)
+#define s2s2OpDotSlashs2(in1,size1,in2,size2,out)		srdiva(in1,in2,size2[0]*size2[1],out)
 
-#define d2d2OpDotSlashd2(in1,size1,in2,size2,out)		drdiva(in1,size1[0]*size1[1],in2,size2[0]*size2[1],out)
+#define d2d2OpDotSlashd2(in1,size1,in2,size2,out)		drdiva(in1,in2,size2[0]*size2[1],out)
 
-#define c2c2OpDotSlashc2(in1,size1,in2,size2,out)		crdiva(in1,size1[0]*size1[1],in2,size2[0]*size2[1],out)
+#define c2c2OpDotSlashc2(in1,size1,in2,size2,out)		crdiva(in1,in2,size2[0]*size2[1],out)
 
-#define c2s2OpDotSlashc2(in1,size1,in2,size2,out)		crdiva(in1,size1[0]*size1[1],FloatComplexMatrix(in2,0,size2[0]*size2[1]),size2[0]*size2[1],out)
+#define c2s2OpDotSlashc2(in1,size1,in2,size2,out)		crdiva(in1,FloatComplexMatrix(in2,0,size2[0]*size2[1]),size2[0]*size2[1],out)
 
-#define s2c2OpDotSlashc2(in1,size1,in2,size2,out)		crdiva(FloatComplexMatrix(in1,0,size1[0]*size1[1]),size1[0]*size1[1],in2,size2[0]*size2[1],out)
+#define s2c2OpDotSlashc2(in1,size1,in2,size2,out)		crdiva(FloatComplexMatrix(in1,0,size1[0]*size1[1]),in2,size2[0]*size2[1],out)
 
-#define z2z2OpDotSlashz2(in1,size1,in2,size2,out)		zrdiva(in1,size1[0]*size1[1],in2,size2[0]*size2[1],out)
+#define z2z2OpDotSlashz2(in1,size1,in2,size2,out)		zrdiva(in1,in2,size2[0]*size2[1],out)
 
-#define z2d2OpDotSlashc2(in1,size1,in2,size2,out)		crdiva(in1,size1[0]*size1[1],DoubleComplexMatrix(in2,0,size2[0]*size2[1]),size2[0]*size2[1],out)
+#define z2d2OpDotSlashc2(in1,size1,in2,size2,out)		crdiva(in1,DoubleComplexMatrix(in2,0,size2[0]*size2[1]),size2[0]*size2[1],out)
 
-#define d2z2OpDotSlashc2(in1,size1,in2,size2,out)		crdiva(DoubleComplexMatrix(in1,0,size1[0]*size1[1]),size1[0]*size1[1],in2,size2[0]*size2[1],out)
+#define d2z2OpDotSlashc2(in1,size1,in2,size2,out)		crdiva(DoubleComplexMatrix(in1,0,size1[0]*size1[1]),in2,size2[0]*size2[1],out)
 
 
 
