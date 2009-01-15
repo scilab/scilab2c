@@ -13,10 +13,9 @@
 
 #include "division.h"  
 
-void zrdiva (doubleComplex* in1, int size1, doubleComplex* in2, int size2, doubleComplex* out ){
+void zrdiva (doubleComplex* in1, doubleComplex* in2, int size, doubleComplex* out ){
 	int i=0;
-	for (i=0;i<size1;i++){
+	for (i=0;i<size;i++){
 		out[i]=zrdivs(in1[i],in2[i]);
 	}
-	for (i=0;i<size2;i++){}
 }

@@ -1331,7 +1331,7 @@ static void srdivaTest()
   int i =0;
   float out[200];
   
-  srdiva(tIn1,200,tIn2,200,out);
+  srdiva(tIn1,tIn2,200,out);
   for(i=0;i<200;i++){
 	assert( (fabs(out[i]-tRes[i]) / fabs(out[i]) ) <1e-6);
   }
@@ -1346,7 +1346,7 @@ static void drdivaTest()
   int i =0;
   double out[200];
   
-  drdiva(tIn1,200,tIn2,200,out);
+  drdiva(tIn1,tIn2,200,out);
   for(i=0;i<200;i++){
 	printf("%d : %f ; num = %f;erreur = %1.25f\n",i,out[i],tIn1[i],fabs(out[i]-tRes[i]) / fabs(out[i]));
 	assert( (fabs(out[i]-tRes[i]) / fabs(out[i]) ) <1e-16);
@@ -1370,7 +1370,7 @@ static void crdivaTest()
   	in2[i] = FloatComplex(DR[i],DI[i]);
   }
 
-  crdiva(in1,200,in2,200,out);
+  crdiva(in1,in2,200,out);
 
   for (i=0;i<200;i++){
   	assert( ( fabs(creals(out[i])-RR[i]) / fabs(creals(out[i])) ) <1e-6);
@@ -1395,7 +1395,7 @@ static void zrdivaTest()
   	in2[i] = DoubleComplex(DR[i],DI[i]);
   }
 
-  zrdiva(in1,200,in2,200,out);
+  zrdiva(in1,in2,200,out);
 
   for (i=0;i<200;i++){
   	assert( ( fabs(zreals(out[i])-RR[i]) / fabs(zreals(out[i])) ) <1e-15);
