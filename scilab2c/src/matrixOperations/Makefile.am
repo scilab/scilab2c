@@ -10,7 +10,8 @@
 ##
 ##
 
-SUBDIRS= 	cat \
+SUBDIRS= 	addition \
+		cat \
 		division \
 		expm \
 		eye \
