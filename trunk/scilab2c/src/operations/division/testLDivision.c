@@ -1343,7 +1343,7 @@ static void sldivaTest()
 	float out[200];
 	int i=0;
 
-	sldiva(M1,200,M2,200,out);
+	sldiva(M1,M2,200,out);
 	
 	for (i=0;i<200;i++){
 		assert( ( fabs(out[i]-Res[i]) / fabs(out[i]) ) <1e-6);
@@ -1359,7 +1359,7 @@ static void dldivaTest()
 	double out[200];
 	int i=0;
 
-	dldiva(M1,200,M2,200,out);
+	dldiva(M1,M2,200,out);
 
 	for (i=0;i<200;i++){
 		assert( ( fabs(out[i]-Res[i]) / fabs(out[i]) ) <1e-16);
@@ -1384,7 +1384,7 @@ static void cldivaTest()
 		in2[i] = FloatComplex(DR[i],DI[i]);
 	}
 
-	cldiva(in1,200,in2,200,out);
+	cldiva(in1,in2,200,out);
 
 	for (i=0;i<200;i++){
 		assert( ( fabs(creals(out[i])-RR[i]) / fabs(creals(out[i])) ) <1e-6);
@@ -1409,7 +1409,7 @@ static void zldivaTest()
 		in2[i] = DoubleComplex(DR[i],DI[i]);
 	}
 
-	zldiva(in1,200,in2,200,out);
+	zldiva(in1,in2,200,out);
 
 	for (i=0;i<200;i++){
 		assert( ( fabs(zreals(out[i])-RR[i]) / fabs(zreals(out[i])) ) <1e-15);
