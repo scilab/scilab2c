@@ -13,10 +13,9 @@
 
 #include "division.h"  
 
-void crdiva (floatComplex* in1, int size1, floatComplex* in2, int size2, floatComplex* out ){
+void crdiva (floatComplex* in1, floatComplex* in2, int size, floatComplex* out ){
 	int i=0;
-	for (i=0;i<size1;i++){
+	for (i=0;i<size;i++){
 		out[i]=crdivs(in1[i],in2[i]);
 	}
-	for (i=0;i<size2;i++){}
 }

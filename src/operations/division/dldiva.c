@@ -13,10 +13,9 @@
 
 #include "division.h"  
 
-void dldiva (double* in1, int size1, double* in2, int size2, double* out ){
+void dldiva (double* in1, double* in2, int size, double* out ){
 	int i=0;
-	for (i=0;i<size1;i++){
+	for (i=0;i<size;i++){
 		out[i]=dldivs(in1[i],in2[i]);
 	}
-	for (i=0;i<size2;i++){}
 }
