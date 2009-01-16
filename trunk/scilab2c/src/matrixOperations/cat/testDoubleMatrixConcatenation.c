@@ -140,6 +140,24 @@ static void   drowcataTest() {
  assert(out_6_2[9] == 8.0);
  assert(out_6_2[10] == 11.0);
  assert(out_6_2[11] == 12.0);
+ 
+ drowcata(in1, 1, 6, in2, 1, 6, out_6_2);
+ for (i = 0 ; i < 12 ; ++i) {
+    printf("out_6_2[%d] = %e\n", i, out_6_2[i]);
+ }
+ assert(out_6_2[0] == 1.0);
+ assert(out_6_2[1] == 3.0);
+ assert(out_6_2[2] == 2.0);
+ assert(out_6_2[3] == 4.0);
+ assert(out_6_2[4] == 5.0);
+ assert(out_6_2[5] == 7.0);
+ assert(out_6_2[6] == 6.0);
+ assert(out_6_2[7] == 8.0);
+ assert(out_6_2[8] == 9.0);
+ assert(out_6_2[9] == 11.0);
+ assert(out_6_2[10] == 10.0);
+ assert(out_6_2[11] == 12.0);
+ 
 }
 
 static void zrowcatsTest(void) {

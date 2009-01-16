@@ -15,13 +15,14 @@
 ** Emulate Scilab (from help cat) :
 ** then the concatenation is done according to the rows
 **
-** A1=[1 2 3 ; 4 5 6]; A2=[7 8 9 ; 10 11 12]; y=cat(1,A1,A2) => y=[1 2 3 ; 4 5 61 ;7 8 9; 10 11 12]
+** A1=[1 2 3 ; 4 5 6]; A2=[7 8 9 ; 10 11 12]; y=cat(1,A1,A2) => y=[1 2 3 ; 4 5 6 ;7 8 9; 10 11 12]
 **
 */
 
 void		drowcata(double *in1, int lines1, int columns1, double *in2, int lines2, int columns2, double* out) {
   int i = 0;
   int j = 0;
+  
   for (i = 0 ; i < columns1 && i < columns2 ; ++i)
     {
       for (j = 0 ; j < lines1 ; ++j)
