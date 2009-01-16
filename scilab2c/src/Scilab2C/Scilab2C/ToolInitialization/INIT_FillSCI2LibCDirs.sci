@@ -498,10 +498,10 @@ PrintStringInfo('s0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('d0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('c0c0'+ArgSeparator+'c0',ClassFileName,'file','y');
 PrintStringInfo('z0d0'+ArgSeparator+'z0',ClassFileName,'file','y');
-PrintStringInfo('s2s0'+ArgSeparator+'s0',ClassFileName,'file','y');/* possible ? */
-PrintStringInfo('d2d0'+ArgSeparator+'d0',ClassFileName,'file','y');/* possible ? */
-PrintStringInfo('c2s0'+ArgSeparator+'c0',ClassFileName,'file','y');/* possible ? */
-PrintStringInfo('z2d0'+ArgSeparator+'z0',ClassFileName,'file','y');/* possible ? */
+PrintStringInfo('s2s0'+ArgSeparator+'s0',ClassFileName,'file','y'); //* possible ? */
+PrintStringInfo('d2d0'+ArgSeparator+'d0',ClassFileName,'file','y'); //* possible ? */
+PrintStringInfo('c2s0'+ArgSeparator+'c0',ClassFileName,'file','y'); //* possible ? */
+PrintStringInfo('z2d0'+ArgSeparator+'z0',ClassFileName,'file','y'); //* possible ? */
 PrintStringInfo('s2s0'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d2d0'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('c2s0'+ArgSeparator+'c2',ClassFileName,'file','y');
@@ -762,7 +762,7 @@ PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'both','y');
 ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
 PrintStringInfo('NIN=          2',ClassFileName,'file','y');
 PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
-PrintStringInfo('OUT(1).TP=    FA_TP_MAX(IN(1).TP,IN(2).TP)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    FA_TP_PREC(IN(1).TP,IN(2).TP)',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(1)= FA_SZ_1(FA_SZ_OPDOTSTAR(IN(1).SZ,IN(2).SZ))',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(2)= FA_SZ_2(FA_SZ_OPDOTSTAR(IN(1).SZ,IN(2).SZ))',ClassFileName,'file','y');
 
@@ -770,31 +770,35 @@ PrintStringInfo('OUT(1).SZ(2)= FA_SZ_2(FA_SZ_OPDOTSTAR(IN(1).SZ,IN(2).SZ))',Clas
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('s0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('d0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
-PrintStringInfo('c0c0'+ArgSeparator+'c0',ClassFileName,'file','y');
-PrintStringInfo('z0z0'+ArgSeparator+'z0',ClassFileName,'file','y');
+PrintStringInfo('c0c0'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('z0z0'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('g0g0'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('g0g0'+ArgSeparator+'d0',ClassFileName,'file','y');
 
 PrintStringInfo('s2s0'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d2d0'+ArgSeparator+'d2',ClassFileName,'file','y');
-PrintStringInfo('c2c0'+ArgSeparator+'c2',ClassFileName,'file','y');
-PrintStringInfo('z2z0'+ArgSeparator+'z2',ClassFileName,'file','y');
+PrintStringInfo('c2c0'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('z2z0'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('g2g0'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('g2g0'+ArgSeparator+'d2',ClassFileName,'file','y');
 
 PrintStringInfo('s0s2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d0d2'+ArgSeparator+'d2',ClassFileName,'file','y');
-PrintStringInfo('c0c2'+ArgSeparator+'c2',ClassFileName,'file','y');
-PrintStringInfo('z0z2'+ArgSeparator+'z2',ClassFileName,'file','y');
+PrintStringInfo('c0c2'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('z0z2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('g0g2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('g0g2'+ArgSeparator+'d2',ClassFileName,'file','y');
    
 PrintStringInfo('s2s2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d2d2'+ArgSeparator+'d2',ClassFileName,'file','y');
-PrintStringInfo('c2c2'+ArgSeparator+'c2',ClassFileName,'file','y');
-PrintStringInfo('z2z2'+ArgSeparator+'z2',ClassFileName,'file','y');
+PrintStringInfo('c2c2'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('z2z2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('g2g2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('g2g2'+ArgSeparator+'d2',ClassFileName,'file','y');
+
+PrintStringInfo('c2s0'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('z2d0'+ArgSeparator+'d2',ClassFileName,'file','y');
+
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'OpLogEq';
@@ -1104,7 +1108,8 @@ PrintStringInfo('z0z0'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('z0z2'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('z2z0'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('z2z2'+ArgSeparator+'z2',ClassFileName,'file','y');
-
+PrintStringInfo('c0s0'+ArgSeparator+'c2',ClassFileName,'file','y');
+PrintStringInfo('c2s0'+ArgSeparator+'c2',ClassFileName,'file','y');
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'OpRc';
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'both','y');
@@ -1147,6 +1152,11 @@ PrintStringInfo('z0z0'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('z0z2'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('z2z0'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('z2z2'+ArgSeparator+'z2',ClassFileName,'file','y');
+
+PrintStringInfo('z0d0'+ArgSeparator+'z2',ClassFileName,'file','y');
+PrintStringInfo('z2d0'+ArgSeparator+'z2',ClassFileName,'file','y');
+PrintStringInfo('c0s0'+ArgSeparator+'c2',ClassFileName,'file','y');
+PrintStringInfo('c2s0'+ArgSeparator+'c2',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'OpCc';

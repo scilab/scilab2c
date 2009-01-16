@@ -25,7 +25,6 @@ SWSRCS	=	\
 	$(CSRCDIR)/floatComplex.c \
 	$(CSRCDIR)/RealToComplex.c \
 	$(CSRCDIR)/conj.c \
-	$(CSRCDIR)/disp.c \
 	$(CSRCDIR)/ones.c \
 	$(CSRCDIR)/zeros.c \
 	$(CSRCDIR)/OpApex.c \
@@ -39,8 +38,6 @@ SWSRCS	=	\
 	$(CSRCDIR)/OpStar.c \
 	$(CSRCDIR)/OpIns.c \
 	$(CSRCDIR)/OpExt.c \
-	$(CSRCDIR)/OpRc.c \
-	$(CSRCDIR)/OpCc.c \
 	$(CSRCDIR)/cos.c \
 	$(CSRCDIR)/cosh.c \
 	$(CSRCDIR)/sin.c \
@@ -101,7 +98,27 @@ SWSRCS	=	\
 	$(CSRCDIR)/dlog1ps.c \
 	$(CSRCDIR)/slog1pa.c \
 	$(CSRCDIR)/dlog1pa.c \
-
+	$(CSRCDIR)/dfinda.c \
+	$(CSRCDIR)/sfinda.c \
+	$(CSRCDIR)/cfinda.c \
+	$(CSRCDIR)/zfinda.c\
+	$(CSRCDIR)/scats.c \
+	$(CSRCDIR)/scata.c \
+	$(CSRCDIR)/dcats.c \
+	$(CSRCDIR)/dcata.c \
+	$(CSRCDIR)/ccats.c \
+	$(CSRCDIR)/ccata.c \
+	$(CSRCDIR)/zcats.c \
+	$(CSRCDIR)/zcata.c \
+	$(CSRCDIR)/sdisps.c \
+	$(CSRCDIR)/sdispa.c \
+	$(CSRCDIR)/ddisps.c \
+	$(CSRCDIR)/ddispa.c\
+	$(CSRCDIR)/cdisps.c \
+	$(CSRCDIR)/cdispa.c\
+	$(CSRCDIR)/zdisps.c \
+	$(CSRCDIR)/zdispa.c
+	
 #	$(CSRCDIR)/clog10s.c \
 #	$(CSRCDIR)/zlog10s.c \
 #	$(CSRCDIR)/clog10a.c \
