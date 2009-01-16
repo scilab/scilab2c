@@ -12,10 +12,11 @@
 
 #include "disp.h"
 
-void ddispa (double* in, int size) {
+double ddispa (double* in, int size) {
 	int i = 0;
 	for (i = 0; i < size; ++i) {
 		ddisps (in[i]);
 	}
-	
+	printf("\n");
+	return 0;
 }

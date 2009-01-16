@@ -12,9 +12,10 @@
 
 #include "disp.h"
 
-void zdisps (doubleComplex in) {	
+double zdisps (doubleComplex in) {	
   double RealIn = zreals(in);
   double ImgIn = zimags(in);
 
-  printf("%f + %fi" ,RealIn ,ImgIn); 
+  printf("  %f + %fi  " ,RealIn ,ImgIn); 
+  return 0;
 }
