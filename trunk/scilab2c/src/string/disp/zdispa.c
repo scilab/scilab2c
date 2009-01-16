@@ -12,10 +12,11 @@
 
 #include "disp.h"
 
-void zdispa (doubleComplex* in, int size) {
+double zdispa (doubleComplex* in, int size) {
 	int i = 0;
 	for (i = 0; i < size; ++i) {
 		zdisps (in[i]);
 	}
-	
+	printf("\n");
+	return 0;
 }

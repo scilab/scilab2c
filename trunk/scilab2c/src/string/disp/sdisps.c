@@ -12,6 +12,7 @@
 
 #include "disp.h"
 
-void sdisps (float in) {	
-	printf ("%f", in);
+double sdisps (float in) {	
+	   printf("  %s  ",in);
+   		return 0;
 }
