@@ -12,18 +12,15 @@
 
 #include "find.h"
 
-float* sfinda(float* x, int size) {
+void sfinda(float* x, int size, float* out, int *indiceOut) {
   int i = 0;
-  int indiceOut = 0;
-  float* out=NULL;
+  *indiceOut = 0;
   
   for (i = 0; i < size ; ++i) {
     if (x[i] != 0) {
-    	out = realloc(out, (uint)(indiceOut+1)*sizeof(float));
-	out[indiceOut] = (float)i;
-	indiceOut++;
+	out[*indiceOut] = (float)(i+1);
+	(*indiceOut)++;
     }
   }
-  return out;
 }
 

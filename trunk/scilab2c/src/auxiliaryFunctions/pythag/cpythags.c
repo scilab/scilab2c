@@ -13,6 +13,6 @@
 #include "pythag.h"
 
 floatComplex	cpythags(floatComplex x, floatComplex y) {
-  return (csqrts( cadds(ctimess(x,x),
-			ctimess(y,y)) ));
+  return (csqrts( cadds(cmuls(x,x),
+			cmuls(y,y)) ));
 }
