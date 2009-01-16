@@ -25,13 +25,13 @@
 
 #define z0findd0(in)						((zreals(in) == 0) && (zimags(in) == 0)) ? -1 : in
 
-#define s2finds2(in,size,out)					sfinda(in, size[0]*size[1])
+#define s2finds2(in,size,out,sizeOut)			sfinda(in, size[0]*size[1], out, sizeOut)
 
-#define d2findd2(in,size,out)					dfinda(in, size[0]*size[1])
+#define d2findd2(in,size,out,sizeOut)			dfinda(in, size[0]*size[1], out, sizeOut)
 
-#define c2finds2(in,size,out)					cfinda(in, size[0]*size[1])
+#define c2finds2(in,size,out,sizeOut)			cfinda(in, size[0]*size[1], out, sizeOut)
 
-#define z2findd2(in,size,out)					zfinda(in, size[0]*size[1])
+#define z2findd2(in,size,out,sizeOut)			zfinda(in, size[0]*size[1], out, sizeOut)
 
 /* 1 input, 2 outputs */
 

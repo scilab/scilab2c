@@ -15,25 +15,24 @@
 
 #include "floatComplex.h"
 #include "doubleComplex.h"
-#include "notFound.h"
 
 /*
 ** \brief Float Find function
 */
-float* sfinda(float* x, int size);
+void sfinda(float* x, int size, float *out, int *sizeOut);
 
 /*
 ** \brief Double Find function
 */
-double* dfinda(double*x, int size);
+void dfinda(double*x, int size, double *out, int *sizeOut);
 
 /*
 ** \brief Float Complex Find function
 */
-float* cfinda(floatComplex* z, int size);
+void cfinda(floatComplex* z, int size, float *out, int *sizeOut);
 
 /*
 ** \brief Double Complex Find function
 */
-double* zfinda(doubleComplex* z, int size);
+void zfinda(doubleComplex* z, int size, double *out, int *sizeOut);
 #endif /* !__FIND_H__ */

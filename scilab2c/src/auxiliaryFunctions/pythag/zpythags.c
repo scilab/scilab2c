@@ -13,6 +13,6 @@
 #include "pythag.h"
 
 doubleComplex	zpythags(doubleComplex x, doubleComplex y) {
-  return (zsqrts( zadds(ztimess(x,x),
-			ztimess(y,y)) ));
+  return (zsqrts( zadds(zmuls(x,x),
+			zmuls(y,y)) ));
 }

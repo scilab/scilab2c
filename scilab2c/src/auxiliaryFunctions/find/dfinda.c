@@ -10,19 +10,17 @@
  *
  */
 
+
 #include "find.h"
 
-double *dfinda(double* x, int size) {
+void dfinda(double* x, int size ,double *out, int *indiceOut) {
   int i = 0;
-  int indiceOut = 0;
-  double* out=NULL;
+  *indiceOut = 0;
   
   for (i = 0; i < size ; ++i) {
     if (x[i] != 0) {
-    	out = realloc(out, (uint)(indiceOut+1)*sizeof(double));
-	out[indiceOut] = (double)i;
-	indiceOut++;
+	out[*indiceOut] = (double)(i + 1);
+	(*indiceOut)++;
     }
   }
-  return out;
 }

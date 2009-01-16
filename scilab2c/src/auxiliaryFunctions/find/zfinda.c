@@ -12,17 +12,14 @@
 
 #include "find.h"
 
-double *zfinda(doubleComplex* z, int size) {
+void zfinda(doubleComplex* z, int size, double *out, int* indiceOut) {
   int i = 0;
-  int indiceOut = 0;
-  double* out=NULL;
+  *indiceOut = 0;
   
   for (i = 0; i < size ; ++i) {
     if (zreals(z[i]) != 0 || zimags(z[i]) != 0) {
-    	out = realloc(out, (uint)(indiceOut+1)*sizeof(double));
-	out[indiceOut] = (double)i;
-	indiceOut++;
+	out[*indiceOut] = (double)i;
+	(*indiceOut)++;
     }
   }
-  return out;
 }
