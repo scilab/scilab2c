@@ -12,10 +12,11 @@
 
 #include "disp.h"
 
-void cdispa (floatComplex* (in), int size) {
+double cdispa (floatComplex* (in), int size) {
 	int i = 0;
 	for (i = 0; i < size; ++i) {
 		cdisps (in[i]);
 	}
-	
+	printf("\n");
+	return 0;
 }
