@@ -219,7 +219,7 @@ zsinha(inptr, insizeptr[0]*insizeptr[1], outptr);
 // ---------------------
 // --- Class DISP. ---
 // ---------------------
-*/
+*//*
 #define s0dispd0(invar) \
 sdisps2 (invar, #invar );
 
@@ -245,7 +245,7 @@ cdispa2 (invar, insize, #invar );
 zdispa2 (invar, insize, #invar );
 
 #define i2dispd0(invar,insize) \
-idispa2 (invar, insize, #invar );
+idispa2 (invar, insize, #invar );*/
 /*
 // --------------------
 // --- Class ZEROS. ---
@@ -278,3 +278,4 @@ ssonesss1(inptr1, inptr2, outptr);
 
 #define s2oness2(inptr,insizeptr,outptr) \
 ssonesss1(insizeptr[0], insizeptr[1], outptr);
+
