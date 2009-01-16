@@ -23,7 +23,7 @@ UserSciCodeMainDir = '../SCI2CTests/test999_WorkingDir';
 
 // --- Path + filename of the .sci main file of the code to be translated. ---
 // It is the entry point.
-UserScilabMainFile = fullfile(UserSciCodeMainDir,'scilabcode\mainfunction.sci');
+UserScilabMainFile = fullfile(UserSciCodeMainDir,'scilabcode/mainfunction.sci');
 
 // --- List of the paths containing the .sci files written by the user. ---
 UserSciFilesPaths = ...
@@ -79,7 +79,7 @@ CopySciCodeIntoCCode = 1;
 // windows
 // unix
 // cygwin
-CCompilerPathStyle   = 'cygwin';
+CCompilerPathStyle   = 'unix';
 
 // --- Path + File name of the main SCI2C library header file.
 // Sci2CLibMainHeaderFName = 'D:\Nutricato\OpenProjects\FP6_hArtes\WP2_SCI2C\Software\svnhartes\src\Scilab2C\Scilab2C\CFiles\sci2cincludes\sci2clib.h';

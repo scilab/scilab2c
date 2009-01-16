@@ -14,7 +14,6 @@
 #include "RealToComplex.h"
 #include "conj.h"
 #include "cos.h"
-#include "disp.h"
 #include "ones.h"
 #include "zeros.h"
 #include "OpApex.h"
@@ -28,11 +27,8 @@
 #include "OpStar.h"
 #include "OpIns.h"
 #include "OpExt.h"
-#include "OpCc.h"
-#include "OpRc.h"
 #include "sin.h"
 #include "FileManagement.h"
-#include "Find.h"
 #include "OpLogGt.h"
 #include "OpLogLt.h"
 #include "OpLogGe.h"
@@ -59,3 +55,13 @@
 #include "mean.h"
 #include "int_mean.h"
 #include "pythag.h"
+/* interfacing find */
+#include "find.h"
+#include "int_find.h"
+/* interfacing cat */
+#include "cat.h"
+#include "int_OpRc.h"
+#include "int_OpCc.h"
+/* interfacing disp */
+#include "disp.h"
+#include "int_disp.h"
