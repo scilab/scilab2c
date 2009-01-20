@@ -17,13 +17,10 @@ void ccolumnvariancea(floatComplex *in, int lines, int columns, floatComplex* ou
     
     int i = 0 ;
 
-    
-    floatComplex* mean = (floatComplex*) malloc( sizeof (floatComplex) * (unsigned int) lines );
 
     
     for ( i = 0; i < lines ; i++)
     out[i] = cvariancea ( in + i*columns , columns ) ;
     
-    free ( mean );
 
 }

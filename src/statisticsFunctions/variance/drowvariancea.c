@@ -16,10 +16,7 @@
 void drowvariancea(double *in, int lines, int columns, double* out){
     
     int i = 0 ;
-    
-    
-    
-    double* mean = (double*) malloc( sizeof (double) * (unsigned int) columns );  
+
     double* transp = (double*) malloc ( sizeof (double) *(unsigned int) (lines*columns));
     
     dtransposea ( in , lines , columns , transp ) ;
@@ -29,5 +26,4 @@ void drowvariancea(double *in, int lines, int columns, double* out){
     
 
     free (transp);
-    free ( mean );
 }

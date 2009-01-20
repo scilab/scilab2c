@@ -17,8 +17,6 @@ void zrowvariancea(doubleComplex *in, int lines, int columns, doubleComplex* out
     int i = 0 ;
 
  
-    
-    doubleComplex* mean = (doubleComplex*) malloc( sizeof (doubleComplex) * (unsigned int) columns );
     doubleComplex* transp = (doubleComplex*) malloc ( sizeof (doubleComplex) *(unsigned int) (lines*columns));
          /*FIXME : NEED TO REVIEW TRANSPOSE COMPLEX FONCTIONS , they need to not do the conjugate
          automaticaly */    
@@ -35,5 +33,4 @@ void zrowvariancea(doubleComplex *in, int lines, int columns, doubleComplex* out
     }
 
     free (transp);
-    free ( mean );
 }

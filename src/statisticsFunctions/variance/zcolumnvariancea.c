@@ -17,15 +17,9 @@ void zcolumnvariancea(doubleComplex *in, int lines, int columns, doubleComplex* 
     
     
     int i = 0 ;
-
-    
-    doubleComplex* mean = (doubleComplex*) malloc( sizeof (doubleComplex) * (unsigned int) lines );
-
     
     for ( i = 0; i < lines ; i++)
     out[i] = zvariancea ( in + i*columns , columns ) ;
-    
-    free ( mean );
 
 }
 

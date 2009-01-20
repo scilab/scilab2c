@@ -16,13 +16,8 @@ void dcolumnvariancea(double *in, int lines, int columns, double* out){
     
     int i = 0 ;
     
-    
-    double* mean = (double*) malloc( sizeof (double) * (unsigned int) columns );
-
-    
     for ( i = 0; i < lines ; i++)
     out[i] = dvariancea ( in + i*columns , columns ) ;
     
-    free ( mean );
 }
 
