@@ -13,8 +13,18 @@
 #include "isempty.h"
 
 float	cisemptya(floatComplex* x, int size) {
-  if (cfinda(x, size) == NULL) {
+  float* out;
+  int indiceOut;
+
+  out = malloc((uint)size*sizeof(float));
+
+  cfinda(x, size, out, &indiceOut);
+
+  if ( out[0] == -1 /*ie tab=NULL*/) {
+    free(out);
     return 1;
   }
+  
+  free(out);
   return 0;
 }

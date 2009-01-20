@@ -133,46 +133,5 @@ bool zisimags(doubleComplex z) {
   return false;
 }
 
-/*
-** Operators
-** {
-*/
-
-/*
-** \function zadds
-** \brief add 2 Complex numbers.
-*/
-doubleComplex zadds(doubleComplex z1, doubleComplex z2) {
-#ifndef STDC99
-  return DoubleComplex(z1.real + z2.real, z1.imag + z2.imag);
-#else
-  return z1 + z2;
-#endif
-}
-
-/*
-** \function zdiffs
-** \brief diff 2 Complex numbers.
-*/
-doubleComplex zdiffs(doubleComplex z1, doubleComplex z2) {
-#ifndef STDC99
-  return DoubleComplex(z1.real - z2.real, z1.imag - z2.imag);
-#else
-  return z1 - z2;
-#endif
-}
-
-/*
-** \function ztimess
-** \brief Multiply 2 Complex numbers.
-*/
-doubleComplex ztimess(doubleComplex z1, doubleComplex z2) {
-#ifndef STDC99
-  return DoubleComplex(z1.real*z2.real - z1.imag*z2.imag,
-		       z1.real*z2.imag + z2.real*z1.imag);
-#else
-  return z1 * z2;
-#endif
-}
 
 

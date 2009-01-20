@@ -13,8 +13,18 @@
 #include "isempty.h"
 
 double		zisemptya(doubleComplex* x, int size) {
-  if (zfinda(x, size) == NULL) {
+  double* out;
+  int indiceOut;
+
+  out = malloc((uint)size*sizeof(double));
+
+  zfinda(x, size, out, &indiceOut);
+
+  if ( out[0] == -1 /*ie tab=NULL*/) {
+    free(out);
     return 1;
   }
+  
+  free(out);
   return 0;
 }

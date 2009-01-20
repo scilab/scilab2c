@@ -15,5 +15,5 @@
 #include "log.h"
 
 floatComplex		cpows(floatComplex z, floatComplex power) {
-    return cexps(ctimess(clogs(z), power));
+    return cexps(cmuls(clogs(z), power));
 }

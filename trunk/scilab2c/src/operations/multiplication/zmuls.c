@@ -11,8 +11,30 @@
  */
 
 
+#ifdef __STDC_VERSION__
+#  ifndef STDC
+#    define STDC
+#  endif
+#  if __STDC_VERSION__ >= 199901L
+#    ifndef STDC99
+#      define STDC99
+#    endif
+#  endif
+#endif
+
+#include "doubleComplex.h"
 #include "multiplication.h"
 
-doubleComplex zmuls(doubleComplex in1, doubleComplex in2){
-	return ztimess(in1,in2);
+
+/*
+** \function zmuls
+** \brief Multiply 2 Complex numbers.
+*/
+doubleComplex zmuls(doubleComplex z1, doubleComplex z2) {
+#ifndef STDC99
+  return DoubleComplex(z1.real*z2.real - z1.imag*z2.imag,
+		       z1.real*z2.imag + z2.real*z1.imag);
+#else
+  return z1 * z2;
+#endif
 }

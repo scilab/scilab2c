@@ -21,7 +21,7 @@
  
 doubleComplex zldivs (doubleComplex in1, doubleComplex in2){
 	doubleComplex zC1, zC2;
-	zC1 = ztimess(in2,zconjs(in1));
+	zC1 = zmuls(in2,zconjs(in1));
 	zC2 = DoubleComplex(zreals(in1)*zreals(in1)+zimags(in1)*zimags(in1),0);
 	return zrdivs(zC1,zC2);
 }

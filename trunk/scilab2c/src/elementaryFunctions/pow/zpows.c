@@ -15,5 +15,5 @@
 #include "exp.h"
 
 doubleComplex		zpows(doubleComplex z, doubleComplex power) {
-  return zexps(ztimess(zlogs(z), power));
+  return zexps(zmuls(zlogs(z), power));
 }

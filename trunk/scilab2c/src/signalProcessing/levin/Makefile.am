@@ -47,9 +47,6 @@ check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/matrixOperations/inversion/libMatrixInversion.la \
 			$(top_builddir)/matrixOperations/multiplication/libMatrixMultiplication.la \
-			$(top_builddir)/matrixOperations/subtraction/libMatrixSubtraction.la \
-			$(top_builddir)/matrixOperations/jmat/libJmat.la \
-			$(top_builddir)/matrixOperations/eye/libMatrixEye.la \
 			$(top_builddir)/signalProcessing/levin/libLevin.la \
 			$(top_builddir)/operations/addition/libAddition.la \
 			$(top_builddir)/operations/multiplication/libMultiplication.la \
