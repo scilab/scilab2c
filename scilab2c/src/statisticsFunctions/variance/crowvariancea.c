@@ -18,7 +18,6 @@ void crowvariancea(floatComplex *in, int lines, int columns, floatComplex* out){
 
  
     
-    floatComplex* mean = (floatComplex*) malloc( sizeof (floatComplex) * (unsigned int) columns );
     floatComplex* transp = (floatComplex*) malloc ( sizeof (floatComplex) *(unsigned int) (lines*columns));
          /*FIXME : NEED TO REVIEW TRANSPOSE COMPLEX FONCTIONS , they need to not do the conjugate
          automaticaly */    
@@ -35,6 +34,5 @@ void crowvariancea(floatComplex *in, int lines, int columns, floatComplex* out){
     }
 
     free (transp);
-    free ( mean );
 }
 
