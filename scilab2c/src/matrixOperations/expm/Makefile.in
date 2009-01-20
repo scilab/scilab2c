@@ -241,8 +241,6 @@ check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la \
 			$(top_builddir)/matrixOperations/cat/libMatrixConcatenation.la \
 			$(top_builddir)/matrixOperations/multiplication/libMatrixMultiplication.la \
-			$(top_builddir)/matrixOperations/addition/libMatrixAddition.la \
-			$(top_builddir)/matrixOperations/subtraction/libMatrixSubtraction.la \
 			$(top_builddir)/matrixOperations/infiniteNorm/libMatrixInfiniteNorm.la \
 			$(top_builddir)/matrixOperations/eye/libMatrixEye.la \
 			$(top_builddir)/lib/lapack/libscilapack.la \

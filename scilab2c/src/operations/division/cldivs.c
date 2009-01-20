@@ -21,7 +21,7 @@
  
 floatComplex cldivs (floatComplex in1, floatComplex in2){
 	floatComplex fC1, fC2;
-	fC1 = ctimess(in2,cconjs(in1));
+	fC1 = cmuls(in2,cconjs(in1));
 	fC2 = FloatComplex(creals(in1)*creals(in1)+cimags(in1)*cimags(in1),0);
 	return crdivs(fC1,fC2);
 }

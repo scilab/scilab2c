@@ -63,7 +63,6 @@ floatComplex	FloatComplex(float, float);
 floatComplex*	FloatComplexMatrix(float*, float*, int);
 bool		cisreals(floatComplex);
 bool		cisimags(floatComplex);
-void 		ccopya(floatComplex*,int,floatComplex*);
 
 
 #endif /* !__FLOATCOMPLEX_H__ */
