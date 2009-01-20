@@ -15,10 +15,7 @@
 void srowvariancea(float *in, int lines, int columns, float* out){
     
     int i = 0 ;
-    
-    
-    
-    float* mean = (float*) malloc( sizeof (float) * (unsigned int) columns );  
+  
     float* transp = (float*) malloc ( sizeof (float) *(unsigned int) (lines*columns));
     
     stransposea ( in , lines , columns , transp ) ;
@@ -28,5 +25,4 @@ void srowvariancea(float *in, int lines, int columns, float* out){
     
 
     free (transp);
-    free ( mean );
 }
