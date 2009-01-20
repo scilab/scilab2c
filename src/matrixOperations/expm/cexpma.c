@@ -77,15 +77,15 @@ void cexpma(floatComplex * in, floatComplex * out, int _iLeadDim)
 
     /* cA = A * c   */
     for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
-        pfltMatrixcA[iIndex1] = ctimess ( pfltMatrixA[iIndex1] , FloatComplex((float) fltCst , 0) ) ;
+        pfltMatrixcA[iIndex1] = cmuls ( pfltMatrixA[iIndex1] , FloatComplex((float) fltCst , 0) ) ;
 
 	/*E = Eye + cA*/
 
-    caddma (pfltMatrixEye , iSquare, pfltMatrixcA ,iSquare, out ) ;
+    cadda (pfltMatrixEye , iSquare, pfltMatrixcA ,iSquare, out ) ;
 
 	/* D = Eye - cA */
 
-    cdiffma (pfltMatrixEye , iSquare, pfltMatrixcA ,iSquare,pfltMatrixD ) ;
+    cdiffa (pfltMatrixEye , iSquare, pfltMatrixcA ,iSquare,pfltMatrixD ) ;
 
 	iMax	= 6;
 	iFlag	= 1;
@@ -110,19 +110,19 @@ void cexpma(floatComplex * in, floatComplex * out, int _iLeadDim)
                      pfltMatrixcX);*/
 
         for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
-            pfltMatrixcX[iIndex1] = ctimess ( pfltMatrixX[iIndex1] , FloatComplex((float) fltCst , 0) ) ;
+            pfltMatrixcX[iIndex1] = cmuls ( pfltMatrixX[iIndex1] , FloatComplex((float) fltCst , 0) ) ;
 
 		/* E = E + cX */
 
-        caddma ( out, iSquare , pfltMatrixcX , iSquare , out ) ;
+        cadda ( out, iSquare , pfltMatrixcX , iSquare , out ) ;
 
 		if(iFlag == 1) /* D = D + cX */
 		{
-            caddma ( pfltMatrixD, iSquare , pfltMatrixcX , iSquare , pfltMatrixD ) ;
+            cadda ( pfltMatrixD, iSquare , pfltMatrixcX , iSquare , pfltMatrixD ) ;
 		}
 		else /* D = D - cX */
 		{
-            cdiffma ( pfltMatrixD, iSquare , pfltMatrixcX , iSquare , pfltMatrixD );
+            cdiffa ( pfltMatrixD, iSquare , pfltMatrixcX , iSquare , pfltMatrixD );
 		}
 
 		/* Toggle iFlag */

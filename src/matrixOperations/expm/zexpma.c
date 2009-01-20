@@ -78,18 +78,18 @@ void zexpma(doubleComplex * in, doubleComplex * out, int _iLeadDim)
          pdblMatrixcA);*/
 
     for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
-        pdblMatrixcA[iIndex1] = ztimess ( pdblMatrixA[iIndex1] , zdblCst ) ;
+        pdblMatrixcA[iIndex1] = zmuls ( pdblMatrixA[iIndex1] , zdblCst ) ;
 
     /* cA = A * c   */
 
 
 	/*E = Eye + cA*/
 
-    zaddma (pdblMatrixEye , iSquare, pdblMatrixcA ,iSquare, out ) ;
+    zadda (pdblMatrixEye , iSquare, pdblMatrixcA ,iSquare, out ) ;
 
 	/* D = Eye - cA */
 
-    zdiffma (pdblMatrixEye , iSquare, pdblMatrixcA ,iSquare,pdblMatrixD ) ;
+    zdiffa (pdblMatrixEye , iSquare, pdblMatrixcA ,iSquare,pdblMatrixD ) ;
 
 	iMax	= 6;
 	iFlag	= 1;
@@ -115,19 +115,19 @@ void zexpma(doubleComplex * in, doubleComplex * out, int _iLeadDim)
                      pdblMatrixcX);*/
 
         for ( iIndex1 = 0 ; iIndex1 < iSquare ; iIndex1++ )
-            pdblMatrixcX[iIndex1] = ztimess ( pdblMatrixX[iIndex1] , zdblCst ) ;
+            pdblMatrixcX[iIndex1] = zmuls ( pdblMatrixX[iIndex1] , zdblCst ) ;
 
 		/* E = E + cX */
 
-        zaddma ( out, iSquare , pdblMatrixcX , iSquare , out ) ;
+        zadda ( out, iSquare , pdblMatrixcX , iSquare , out ) ;
 
 		if(iFlag == 1) /* D = D + cX */
 		{
-            zaddma ( pdblMatrixD, iSquare , pdblMatrixcX , iSquare , pdblMatrixD ) ;
+            zadda ( pdblMatrixD, iSquare , pdblMatrixcX , iSquare , pdblMatrixD ) ;
 		}
 		else /* D = D - cX */
 		{
-            zdiffma ( pdblMatrixD, iSquare , pdblMatrixcX , iSquare , pdblMatrixD );
+            zdiffa ( pdblMatrixD, iSquare , pdblMatrixcX , iSquare , pdblMatrixD );
 		}
 
 		/* Toggle iFlag */

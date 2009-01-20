@@ -78,10 +78,10 @@ void dexpma (double* in, double* out, int _iLeadDim){
 
 
 	/*E = Eye + cA*/
-    daddma (pdblMatrixEye , iSquare, pdblMatrixcA ,iSquare, out ) ;
+    dadda (pdblMatrixEye , iSquare, pdblMatrixcA ,iSquare, out ) ;
 
 	/*D = Eye - cA*/
-    ddiffma (pdblMatrixEye , iSquare, pdblMatrixcA ,iSquare,pdblMatrixD ) ;
+    ddiffa (pdblMatrixEye , iSquare, pdblMatrixcA ,iSquare,pdblMatrixD ) ;
 
 	iMax	= 6;
 	iFlag	= 1;
@@ -106,15 +106,15 @@ void dexpma (double* in, double* out, int _iLeadDim){
         pdblMatrixcX[iIndex1] = pdblMatrixX[iIndex1] * dblCst ;
 
 		/*E = E + cX*/
-        daddma ( out, iSquare , pdblMatrixcX , iSquare , out ) ;
+        dadda ( out, iSquare , pdblMatrixcX , iSquare , out ) ;
 
         if(iFlag == 1) /*D = D + cX*/
 		    {
-            daddma ( pdblMatrixD, iSquare , pdblMatrixcX , iSquare , pdblMatrixD ) ;
+            dadda ( pdblMatrixD, iSquare , pdblMatrixcX , iSquare , pdblMatrixD ) ;
 		    }
 		else /*D = D - cX*/
 		    {
-            ddiffma ( pdblMatrixD, iSquare , pdblMatrixcX , iSquare , pdblMatrixD );
+            ddiffa ( pdblMatrixD, iSquare , pdblMatrixcX , iSquare , pdblMatrixD );
             }
 
 		/*Toggle iFlag*/

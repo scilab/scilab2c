@@ -10,15 +10,13 @@
 ##
 ##
 
-SUBDIRS= 	addition \
-		cat \
+SUBDIRS= 	cat \
 		division \
 		expm \
 		eye \
 		hilbert \
 		infiniteNorm \
 		multiplication \
-		subtraction \
 		trace \
 		transpose \
 		ones \
