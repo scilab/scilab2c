@@ -13,8 +13,18 @@
 #include "isempty.h"
 
 float		sisemptya(float* x, int size) {
-  if (sfinda(x, size) == NULL) {
+  float* out;
+  int indiceOut;
+
+  out = malloc((uint)size*sizeof(float));
+
+  sfinda(x, size, out, &indiceOut);
+
+  if ( out[0] == -1 /*ie tab=NULL*/) {
+    free(out);
     return 1;
   }
+
+  free(out);
   return 0;
 }

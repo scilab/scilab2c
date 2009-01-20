@@ -13,8 +13,18 @@
 #include "isempty.h"
 
 double		disemptya(double* x, int size) {
-  if (dfinda(x, size) == NULL) {
+  double* out;
+  int indiceOut;
+
+  out = malloc((uint)size*sizeof(double));
+
+  dfinda(x, size, out, &indiceOut);
+
+  if ( out[0] == -1 /*ie tab=NULL*/) {
+    free(out);
     return 1;
   }
+  
+  free(out);
   return 0;
 }

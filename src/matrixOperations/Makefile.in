@@ -172,7 +172,6 @@ SUBDIRS = cat \
 		hilbert \
 		infiniteNorm \
 		multiplication \
-		subtraction \
 		trace \
 		transpose \
 		ones \

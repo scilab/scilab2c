@@ -13,6 +13,6 @@
 #include "disp.h"
 
 double sdisps (float in) {	
-	   printf("  %s  ",in);
+	   printf("  %f  ",in);
    		return 0;
 }

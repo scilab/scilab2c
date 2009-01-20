@@ -11,8 +11,31 @@
  */
 
 
+#ifdef __STDC_VERSION__
+#  ifndef STDC
+#    define STDC
+#  endif
+#  if __STDC_VERSION__ >= 199901L
+#    ifndef STDC99
+#      define STDC99
+#    endif
+#  endif
+#endif
+
+#include "floatComplex.h"
 #include "multiplication.h"
 
-floatComplex cmuls(floatComplex in1, floatComplex in2){
-	return ctimess(in1,in2);
+
+
+/*
+** \function cmuls
+** \brief Multiply 2 Complex numbers.
+*/
+floatComplex cmuls(floatComplex z1, floatComplex z2) {
+#ifndef STDC99
+  return FloatComplex(z1.real*z2.real - z1.imag*z2.imag,
+		      z1.real*z2.imag + z2.real*z1.imag);
+#else
+  return z1 * z2;
+#endif
 }
