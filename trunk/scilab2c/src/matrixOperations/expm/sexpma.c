@@ -79,10 +79,10 @@ void sexpma (float* in, float* out, int _iLeadDim){
 
 
 	/*E = Eye + cA*/
-    saddma (pfltMatrixEye , iSquare, pfltMatrixcA ,iSquare, out ) ;
+    sadda (pfltMatrixEye , iSquare, pfltMatrixcA ,iSquare, out ) ;
 
 	/*D = Eye - cA*/
-    sdiffma (pfltMatrixEye , iSquare, pfltMatrixcA ,iSquare,pfltMatrixD ) ;
+    sdiffa (pfltMatrixEye , iSquare, pfltMatrixcA ,iSquare,pfltMatrixD ) ;
 
 	iMax	= 6;
 	iFlag	= 1;
@@ -110,15 +110,15 @@ void sexpma (float* in, float* out, int _iLeadDim){
         pfltMatrixcX[iIndex1] = pfltMatrixX[iIndex1] * (float) dblCst ;
 
 		/*E = E + cX*/
-        saddma ( out, iSquare , pfltMatrixcX , iSquare , out ) ;
+        sadda ( out, iSquare , pfltMatrixcX , iSquare , out ) ;
 
         if(iFlag == 1) /*D = D + cX*/
 		    {
-            saddma ( pfltMatrixD, iSquare , pfltMatrixcX , iSquare , pfltMatrixD ) ;
+            sadda ( pfltMatrixD, iSquare , pfltMatrixcX , iSquare , pfltMatrixD ) ;
 		    }
 		else /*D = D - cX*/
 		    {
-            sdiffma ( pfltMatrixD, iSquare , pfltMatrixcX , iSquare , pfltMatrixD );
+            sdiffa ( pfltMatrixD, iSquare , pfltMatrixcX , iSquare , pfltMatrixD );
             }
 
 		/*Toggle iFlag*/

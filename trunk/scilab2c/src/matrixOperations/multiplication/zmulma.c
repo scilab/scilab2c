@@ -94,7 +94,7 @@ void	zmulma(doubleComplex *in1, int lines1, int columns1,
       for (k = 0; k < columns1 ; ++k)
 	{
 	  accu = zadds(accu,
-		ztimess(in1[i % lines1 + k *lines1] ,
+		zmuls(in1[i % lines1 + k *lines1] ,
 			in2[k + (i / lines1) *lines2] ));
 	}
       out[i] = accu;
