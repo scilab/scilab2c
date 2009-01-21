@@ -14,17 +14,12 @@
 
 void cfinda(floatComplex* z, int size, float *out, int *indiceOut) {
   int i = 0;
-  int indice = *indiceOut;
-  
-  indice = 0;
-
-  /* Initialisation de out à -1 */
-  for (i=0;i<size;i++) out[i]=-1;
-  
+  indiceOut[1]=0;
+    
   for (i = 0; i < size ; ++i) {
     if (creals(z[i]) != 0 || cimags(z[i]) != 0) {
-	out[indice] = (float)(i+1);
-	indice++;
+	out[indiceOut[1]] = (float)(i+1);
+	indiceOut[1]++;
     }
   }
 }
