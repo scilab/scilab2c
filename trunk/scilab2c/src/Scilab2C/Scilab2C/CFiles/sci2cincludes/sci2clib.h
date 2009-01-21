@@ -66,6 +66,7 @@
 #include "int_disp.h"/* interfacing multiplication */
 #include "multiplication.h"
 #include "int_OpStar.h"
+#include "int_OpDotStar.h"
 /* interfacing addition */
 #include "addition.h"
 #include "int_OpPlus.h"/* interfacing subtraction */
