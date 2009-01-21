@@ -29,7 +29,6 @@ SWSRCS	=	\
 	$(CSRCDIR)/zeros.c \
 	$(CSRCDIR)/OpApex.c \
 	$(CSRCDIR)/OpColon.c \
-	$(CSRCDIR)/OpDotStar.c \
 	$(CSRCDIR)/OpDotHat.c \
 	$(CSRCDIR)/OpDotSlash.c \
 	$(CSRCDIR)/OpEqual.c \

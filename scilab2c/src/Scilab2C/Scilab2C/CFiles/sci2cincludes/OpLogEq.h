@@ -26,27 +26,27 @@
 #define z0d0OpLogEqd0(in1,in2)	d0z0OpLogEqd0(in2,in1)
 
 
-void s2s0OpLogEqs2(float* in1,int *size1,float in2,float *out);		
-void c2s0OpLogEqs2(floatComplex* in1,int *size1,float in2,float* out);	
+void s2s0OpLogEqs2(float* in1,int *size,float in2,float *out);		
+#define c2s0OpLogEqs2(in1,size,in2,out)		c2c0OpLogEqs2(in1,size,FloatComplex(in2,0),out)	
 	
 void d2d0OpLogEqd2(double* in1,int *size1,double in2,double* out)	;	
-void z2d0OpLogEqd2(doubleComplex* in1,int *size1,double in2,double* out);
-		
-void s2c0OpLogEqs2(float* in1,int *size1,floatComplex in2,float* out);		
-void c2c0OpLogEqs2(floatComplex* in1,int *size1,floatComplex in2,float* out);	
+#define z2d0OpLogEqd2(in1,size,in2,out)		z2z0OpLogEqd2(in1,size,DoubleComplex(in2,0),out)
+
+#define s2c0OpLogEqs2(in1,size,in2,out) 		sfilla((float*)out,size[0],size[1],0); c2c0OpLogEqs2(FloatComplexMatrix(in1,(float*)out,size[0]*size[1]),size,in2,out)		
+void c2c0OpLogEqs2(floatComplex* in1,int *size,floatComplex in2,float* out);	
 	
-void d2z0OpLogEqd2(double* in1,int *size1,doubleComplex in2,double* out);		
-void z2z0OpLogEqd2(doubleComplex* in1,int *size1,doubleComplex in2,double* out);		
+#define d2z0OpLogEqd2(in1,size,in2,out) 		dfilla((double*)out,size[0],size[1],0); z2z0OpLogEqd2(DoubleComplexMatrix(in1,(double*)out,size[0]*size[1]),size,in2,out)
+void z2z0OpLogEqd2(doubleComplex* in1,int *size,doubleComplex in2,double* out);		
 
 
-#define  s0s2OpLogEqs2(in1,in2,in2Size,out) 	s2s0OpLogEqs2(in2,in2Size,in1,out)
-#define  c0s2OpLogEqs2(in1,in2,in2Size,out)  	s2c0OpLogEqs2(in2,in2Size,in1,out)
-#define  d0d2OpLogEqd2(in1,in2,in2Size,out)  	d2d0OpLogEqd2(in2,in2Size,in1,out)
-#define  z0d2OpLogEqd2(in1,in2,in2Size,out)  	d2z0OpLogEqd2(in2,in2Size,in1,out)
-#define  s0c2OpLogEqs2(in1,in2,in2Size,out)  	c2s0OpLogEqs2(in2,in2Size,in1,out)
-#define  c0c2OpLogEqs2(in1,in2,in2Size,out)  	c2c0OpLogEqs2(in2,in2Size,in1,out)
-#define  d0z2OpLogEqd2(in1,in2,in2Size,out)  	z2d0OpLogEqd2(in2,in2Size,in1,out)
-#define  z0z2OpLogEqd2(in1,in2,in2Size,out) 	z2z0OpLogEqd2(in2,in2Size,in1,out)
+#define  s0s2OpLogEqs2(in1,in2,inSize,out) 	s2s0OpLogEqs2(in2,inSize,in1,out)
+#define  c0s2OpLogEqs2(in1,in2,inSize,out)  	s2c0OpLogEqs2(in2,inSize,in1,out)
+#define  d0d2OpLogEqd2(in1,in2,inSize,out)  	d2d0OpLogEqd2(in2,inSize,in1,out)
+#define  z0d2OpLogEqd2(in1,in2,inSize,out)  	d2z0OpLogEqd2(in2,inSize,in1,out)
+#define  s0c2OpLogEqs2(in1,in2,inSize,out)  	c2s0OpLogEqs2(in2,inSize,in1,out)
+#define  c0c2OpLogEqs2(in1,in2,inSize,out)  	c2c0OpLogEqs2(in2,inSize,in1,out)
+#define  d0z2OpLogEqd2(in1,in2,inSize,out)  	z2d0OpLogEqd2(in2,inSize,in1,out)
+#define  z0z2OpLogEqd2(in1,in2,inSize,out) 	z2z0OpLogEqd2(in2,inSize,in1,out)
 /*
 void s2s2OpLogEqs2(float* in1, int* in1Size, float* in2, int* in2Size, float* out);
 void d2d2OpLogEqd2(double* in1, int* in1Size, double* in2, int* in2Size, double* out);

@@ -83,7 +83,7 @@ ddOpPlussa1(in1,inptr2, (insizeptr2[0]) * (insizeptr2[1]), outptr)*/
 
 
 /* --- OpDotStar. ---*/
-#define s0s0OpDotStars0(in1,in2) \
+/*#define s0s0OpDotStars0(in1,in2) \
 ssOpDotStarss1(in1,in2);
 
 #define s0s2OpDotStars2(in1,inptr2,insizeptr2,outptr) \
@@ -94,9 +94,9 @@ ssOpDotStaraa1(inptr1,inptr2, insizeptr1[0]*insizeptr1[1], outptr)
 
 #define s2s0OpDotStars2(inptr2,insizeptr2,in1,outptr) \
 ssOpDotStarsa1(in1,inptr2, insizeptr2[0]*insizeptr2[1], outptr);
-/*questa su e' una macro */
+questa su e' una macro */
 
-#define d0d0OpDotStard0(in1,in2) \
+/*#define d0d0OpDotStard0(in1,in2) \
 ddOpDotStarss1(in1,in2);
 
 #define d2d2OpDotStard2(inptr1,insizeptr1,inptr2,insizeptr2,outptr) \
@@ -107,7 +107,7 @@ ddOpDotStarsa1(in1,inptr2, (insizeptr2[0]) * (insizeptr2[1]), outptr)
 
 #define d2d0OpDotStard2(inptr2,insizeptr2,in1,outptr) \
 ddOpDotStarsa1(in1,inptr2, (insizeptr2[0]) * (insizeptr2[1]), outptr)
-/*questa su e' una macro */
+questa su e' una macro */
 
 /*
 // ---------------------
