@@ -33,9 +33,6 @@ SWSRCS	=	\
 	$(CSRCDIR)/OpDotHat.c \
 	$(CSRCDIR)/OpDotSlash.c \
 	$(CSRCDIR)/OpEqual.c \
-	$(CSRCDIR)/OpPlus.c \
-	$(CSRCDIR)/OpMinus.c \
-	$(CSRCDIR)/OpStar.c \
 	$(CSRCDIR)/OpIns.c \
 	$(CSRCDIR)/OpExt.c \
 	$(CSRCDIR)/cos.c \
@@ -117,7 +114,36 @@ SWSRCS	=	\
 	$(CSRCDIR)/cdisps.c \
 	$(CSRCDIR)/cdispa.c\
 	$(CSRCDIR)/zdisps.c \
-	$(CSRCDIR)/zdispa.c
+	$(CSRCDIR)/zdispa.c\
+	$(CSRCDIR)/cmuls.c\
+	$(CSRCDIR)/cmula.c \
+	$(CSRCDIR)/dmuls.c\
+	$(CSRCDIR)/dmula.c \
+	$(CSRCDIR)/smuls.c\
+	$(CSRCDIR)/smula.c \
+	$(CSRCDIR)/zmuls.c\
+	$(CSRCDIR)/zmula.c \
+	$(CSRCDIR)/cadds.c\
+	$(CSRCDIR)/cadda.c \
+	$(CSRCDIR)/dadds.c\
+	$(CSRCDIR)/dadda.c \
+	$(CSRCDIR)/sadds.c\
+	$(CSRCDIR)/sadda.c \
+	$(CSRCDIR)/zadds.c\
+	$(CSRCDIR)/zadda.c\
+	$(CSRCDIR)/cdiffs.c\
+	$(CSRCDIR)/cdiffa.c \
+	$(CSRCDIR)/ddiffs.c\
+	$(CSRCDIR)/ddiffa.c \
+	$(CSRCDIR)/sdiffs.c\
+	$(CSRCDIR)/sdiffa.c \
+	$(CSRCDIR)/zdiffs.c\
+	$(CSRCDIR)/sfilla.c\
+	$(CSRCDIR)/dfilla.c \
+	$(CSRCDIR)/conesa.c\
+	$(CSRCDIR)/donesa.c\
+	$(CSRCDIR)/sonesa.c\
+	$(CSRCDIR)/zonesa.c
 	
 #	$(CSRCDIR)/clog10s.c \
 #	$(CSRCDIR)/zlog10s.c \
