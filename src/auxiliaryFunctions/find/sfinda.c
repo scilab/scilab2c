@@ -26,7 +26,7 @@ void sfinda(float* x, int size, float* out, int *indiceOut) {
 	(*indiceOut)++;
     }
   }
-  //*indiceOut must be equal to 1 when goes out to display as we want */
+  /* (*indiceOut) must be equal to 1 when goes out to display as we want */
   *indiceOut=1;
 }
 
