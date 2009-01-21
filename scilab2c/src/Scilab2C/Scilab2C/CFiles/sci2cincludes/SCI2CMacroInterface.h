@@ -21,7 +21,7 @@ dOpEquala1(inptr, insizeptr[0]*insizeptr[1], outptr);
 // --- Class OPSTAR. ---
 // ---------------------
 */
-/* --- OpStar. --- */
+/* --- OpStar. --- 
 #define s0s0OpStars0(in1,in2) \
 ssOpStarss1(in1,in2);
 
@@ -29,8 +29,8 @@ ssOpStarss1(in1,in2);
 ssOpStarsa1(in1,inptr2, insizeptr2[0]*insizeptr2[1], outptr);
 
 #define s2s0OpStars2(inptr2,insizeptr2,in1,outptr) \
-ssOpStarsa1(in1,inptr2, insizeptr2[0]*insizeptr2[1], outptr);
-/*questa su e' una macro */
+ssOpStarsa1(in1,inptr2, insizeptr2[0]*insizeptr2[1], outptr);*/
+/*questa su e' una macro 
 
 #define s2s2OpStars2(inptr1,insizeptr1,inptr2,insizeptr2,outptr) \
 ssOpStaraa1(inptr1,insizeptr1[0],insizeptr1[1], inptr2, insizeptr2[1], outptr);
@@ -42,11 +42,11 @@ ddOpStarss1(in1,in2);
 ddOpStarsa1(in1,inptr2, (insizeptr2[0]) * (insizeptr2[1]), outptr)
 
 #define d2d0OpStard2(inptr2,insizeptr2,in1,outptr) \
-ddOpStarsa1(in1,inptr2, (insizeptr2[0]) * (insizeptr2[1]), outptr)
-/*questa su e' una macro */
+ddOpStarsa1(in1,inptr2, (insizeptr2[0]) * (insizeptr2[1]), outptr)*/
+/*questa su e' una macro 
 
 #define d2d2OpStard2(inptr1,insizeptr1,inptr2,insizeptr2,outptr) \
-ddOpStaraa1(inptr1,insizeptr1[0],insizeptr1[1], inptr2, insizeptr2[1], outptr);
+ddOpStaraa1(inptr1,insizeptr1[0],insizeptr1[1], inptr2, insizeptr2[1], outptr);*/
 
 /*
 // ---------------------
@@ -54,7 +54,7 @@ ddOpStaraa1(inptr1,insizeptr1[0],insizeptr1[1], inptr2, insizeptr2[1], outptr);
 // ---------------------
 */
 /* --- OpPlus. ---*/
-/*RN volendo puoi fare una sola macro del tipo sa1() che serve per tutte le operazioni*/
+/*RN volendo puoi fare una sola macro del tipo sa1() che serve per tutte le operazioni
 #define s0s0OpPluss0(in1,in2) \
 ssOpPlusss1(in1,in2);
 
@@ -65,8 +65,8 @@ ssOpPlussa1(in1,inptr2, insizeptr2[0]*insizeptr2[1], outptr);
 ssOpPlusaa1(inptr1,inptr2, insizeptr1[0]*insizeptr1[1], outptr)
 
 #define s2s0OpPluss2(inptr2,insizeptr2,in1,outptr) \
-ssOpPlussa1(in1,inptr2, insizeptr2[0]*insizeptr2[1], outptr);
-/*questa su e' una macro */
+ssOpPlussa1(in1,inptr2, insizeptr2[0]*insizeptr2[1], outptr);*/
+/*questa su e' una macro 
 
 #define d0d0OpPlusd0(in1,in2) \
 ddOpPlusss1(in1,in2);
@@ -78,7 +78,7 @@ ddOpPlusaa1(inptr1,inptr2, insizeptr1[0]*insizeptr1[1], outptr);
 ddOpPlussa1(in1,inptr2, (insizeptr2[0]) * (insizeptr2[1]), outptr)
 
 #define d2d0OpPlusd2(inptr2,insizeptr2,in1,outptr) \
-ddOpPlussa1(in1,inptr2, (insizeptr2[0]) * (insizeptr2[1]), outptr)
+ddOpPlussa1(in1,inptr2, (insizeptr2[0]) * (insizeptr2[1]), outptr)*/
 /*questa su e' una macro */
 
 

@@ -14,6 +14,7 @@
 
 double sdispa (float* in, int size){
 	int i = 0;
+	
 	for (i = 0; i < size; ++i) {
 		sdisps (in[i]);
 	}
