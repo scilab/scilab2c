@@ -6,6 +6,8 @@
 **
 ** Copyright Raffaele Nutricato
 */
+/* Modified by Arnaud Torset */
+
 
 #ifndef __OPLOGEQ_H__
 #define __OPLOGEQ_H__
@@ -24,17 +26,17 @@
 #define z0d0OpLogEqd0(in1,in2)	d0z0OpLogEqd0(in2,in1)
 
 
-void s2s0OpLogEqs2(float* in1,int *size1,float in2,float *out)		
-void c2s0OpLogEqs2(floatComplex* in1,int *size1,float in2,float* out)	
+void s2s0OpLogEqs2(float* in1,int *size1,float in2,float *out);		
+void c2s0OpLogEqs2(floatComplex* in1,int *size1,float in2,float* out);	
 	
-void d2d0OpLogEqd2(double* in1,int *size1,double in2,double* out)		
-void z2d0OpLogEqd2(doubleComplex* in1,int *size1,double in2,double* out)
+void d2d0OpLogEqd2(double* in1,int *size1,double in2,double* out)	;	
+void z2d0OpLogEqd2(doubleComplex* in1,int *size1,double in2,double* out);
 		
-void s2c0OpLogEqs2(float* in1,int *size1,floatComplex in2,float* out)		
-void c2c0OpLogEqs2(floatComplex* in1,int *size1,floatComplex in2,float* out)	
+void s2c0OpLogEqs2(float* in1,int *size1,floatComplex in2,float* out);		
+void c2c0OpLogEqs2(floatComplex* in1,int *size1,floatComplex in2,float* out);	
 	
-void d2z0OpLogEqd2(double* in1,int *size1,doubleComplex in2,double* out)		
-void z2z0OpLogEqd2(doubleComplex* in1,int *size1,doubleComplex in2,double* out)		
+void d2z0OpLogEqd2(double* in1,int *size1,doubleComplex in2,double* out);		
+void z2z0OpLogEqd2(doubleComplex* in1,int *size1,doubleComplex in2,double* out);		
 
 
 #define  s0s2OpLogEqs2(in1,in2,in2Size,out) 	s2s0OpLogEqs2(in2,in2Size,in1,out)

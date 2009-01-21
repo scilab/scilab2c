@@ -18,7 +18,6 @@
 #include "zeros.h"
 #include "OpApex.h"
 #include "OpColon.h"
-#include "OpDotStar.h"
 #include "OpDotSlash.h"
 #include "OpDotHat.h"
 #include "OpEqual.h"
@@ -64,4 +63,14 @@
 #include "int_OpCc.h"
 /* interfacing disp */
 #include "disp.h"
-#include "int_disp.h"
+#include "int_disp.h"/* interfacing multiplication */
+#include "multiplication.h"
+#include "int_OpStar.h"
+/* interfacing addition */
+#include "addition.h"
+#include "int_OpPlus.h"/* interfacing subtraction */
+#include "subtraction.h"
+#include "int_OpMinus.h"
+/* interfacing fill */
+#include "fill.h"/* interfacing ones */
+#include "ones.h"
