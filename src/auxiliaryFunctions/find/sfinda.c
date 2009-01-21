@@ -14,20 +14,16 @@
 
 void sfinda(float* x, int size, float* out, int *indiceOut) {
   int i = 0;
-  *indiceOut=0;
   
-  /* Initialisation de out à -1 */
-  for (i=0;i<size;i++) out[i]=-1;
+  indiceOut[1]=0;
 
+  
   for (i = 0; i < size ; ++i) {
-  	  
     if (x[i] != 0) {
-	out[*indiceOut] = (float)(i+1);
-	(*indiceOut)++;
+	out[indiceOut[1]] = (float)(i+1);
+	indiceOut[1]++;
     }
   }
-  /* (*indiceOut) must be equal to 1 when goes out to display as we want */
-  *indiceOut=1;
 }
 
 
