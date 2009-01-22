@@ -13,9 +13,7 @@
 #include "disp.h"
 
 double zdisps (doubleComplex in) {	
-  double RealIn = zreals(in);
-  double ImgIn = zimags(in);
 
-  printf("  %f + %fi  " ,RealIn ,ImgIn); 
+  printf("  %f + %fi  \n" ,zreals(in) ,zimags(in)); 
   return 0;
 }

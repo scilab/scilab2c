@@ -12,11 +12,12 @@
 
 #include "disp.h"
 
-double cdispa (floatComplex* (in), int size) {
-	int i = 0;
-	for (i = 0; i < size; ++i) {
-		cdisps (in[i]);
+double cdispa (floatComplex* (in), int rows, int columns) {
+	int i = 0,j = 0;
+
+	for (i = 0; i < rows; ++i) {
+		for (j=0;j<columns;j++)		printf("  %f + %fi  " ,creals(in[i+j*rows]) ,cimags(in[i+j*rows])); 
+		printf("\n");
 	}
-	printf("\n");
 	return 0;
 }

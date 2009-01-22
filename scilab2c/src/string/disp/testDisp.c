@@ -29,7 +29,7 @@ static void sdispaTest (void) {
          tabF[i] = (float) rand () ;
       }
 	
-	sdispa ( tabF, SIZE ); 
+	sdispa ( tabF, 1, SIZE ); 
 }
 
 /*
@@ -46,7 +46,7 @@ static void ddispaTest (void) {
          tabD[i] = (double) rand () ;
       }
 	
-	ddispa ( tabD, SIZE ) ;
+	ddispa ( tabD, 1, SIZE ) ;
 	
 }
 
@@ -64,7 +64,7 @@ static void cdispaTest (void) {
          tabF[i] = FloatComplex ((float) rand (), (float) rand());
       }
 	
-   	cdispa ( tabF, SIZE ) ;
+   	cdispa ( tabF, 1, SIZE ) ;
 }
 
 
@@ -82,7 +82,7 @@ static void zdispaTest (void) {
          tabD[i] = DoubleComplex ((double) rand (), (double) rand());
       }
 	
-   	zdispa ( tabD, SIZE ) ;
+   	zdispa ( tabD, 1, SIZE ) ;
 	
 }
 

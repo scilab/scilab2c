@@ -44,27 +44,31 @@ double zdisps (doubleComplex in);
 ** \param in the float scalar array to display
 ** \param size the size of the array
 */
-double sdispa (float* in, int size);
+double sdispa (float* in, int rows, int columns);
 
 /*
 ** \brief display of a double scalar array
 ** \param in the double scalar array to display
 ** \param size the size of the array
 */
-double ddispa (double* in, int size);
+double ddispa (double* in, int rows, int columns);
 
 /*
 ** \brief display of a float complex array
 ** \param in the float complex array to display
 ** \param size the size of the array
 */
-double cdispa (floatComplex* in, int size);
+double cdispa (floatComplex* in, int rows, int columns);
 
 /*
 ** \brief display of a double complex array
 ** \param in the double complex array to display
 ** \param size the size of the array
 */
-double zdispa (doubleComplex* in, int size);
+double zdispa (doubleComplex* in, int rows, int columns);
+
+
+double g2dispd0(char *array,int* tmparraysize);
+
 
 #endif /* !__DISP_H__ */
