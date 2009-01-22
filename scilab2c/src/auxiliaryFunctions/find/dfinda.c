@@ -16,6 +16,9 @@
 void dfinda(double* x, int size ,double *out, int *indiceOut) {
   int i = 0;
   indiceOut[1]=0;
+  
+  /* if out is empty */
+  out[0]=-1;
 
   
   for (i = 0; i < size ; ++i) {

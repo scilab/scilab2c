@@ -15,7 +15,10 @@
 void zfinda(doubleComplex* z, int size, double *out, int* indiceOut) {
   int i = 0;
   indiceOut[1]=0;
-    
+  
+  /* if out is empty */
+  out[0]=-1;
+  
   for (i = 0; i < size ; ++i) {
     if (zreals(z[i]) != 0 || zimags(z[i]) != 0) {
 	out[indiceOut[1]] = (double)(i+1);

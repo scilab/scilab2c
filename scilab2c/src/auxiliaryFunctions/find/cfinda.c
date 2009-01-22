@@ -15,6 +15,9 @@
 void cfinda(floatComplex* z, int size, float *out, int *indiceOut) {
   int i = 0;
   indiceOut[1]=0;
+  
+  /* if out is empty */
+  out[0]=-1;
     
   for (i = 0; i < size ; ++i) {
     if (creals(z[i]) != 0 || cimags(z[i]) != 0) {
