@@ -15,6 +15,7 @@
 
 void smula(float* in1, float* in2, int size, float* out){
 	int i=0;
+
 	for (i=0;i<size;i++){
 		out[i]=smuls(in1[i],in2[i]);
 	}
