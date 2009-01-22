@@ -13,6 +13,7 @@
 
 #include "floatComplex.h"
 #include "doubleComplex.h"
+#include "int_conj.h"
 #include "conj.h"
 
 /*
