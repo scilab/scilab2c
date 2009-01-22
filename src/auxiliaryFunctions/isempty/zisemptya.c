@@ -14,11 +14,11 @@
 
 double		zisemptya(doubleComplex* x, int size) {
   double* out;
-  int indiceOut;
+  int indiceOut[2]={0};
 
   out = malloc((uint)size*sizeof(double));
 
-  zfinda(x, size, out, &indiceOut);
+  zfinda(x, size, out, indiceOut);
 
   if ( out[0] == -1 /*ie tab=NULL*/) {
     free(out);

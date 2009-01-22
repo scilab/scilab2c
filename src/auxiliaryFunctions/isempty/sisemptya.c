@@ -11,15 +11,15 @@
  */
 
 #include "isempty.h"
-
+#include "stdio.h"
 float		sisemptya(float* x, int size) {
   float* out;
-  int indiceOut;
+  int indiceOut[2] = {0};
 
   out = malloc((uint)size*sizeof(float));
 
-  sfinda(x, size, out, &indiceOut);
-
+  sfinda(x, size, out, indiceOut);
+  
   if ( out[0] == -1 /*ie tab=NULL*/) {
     free(out);
     return 1;
