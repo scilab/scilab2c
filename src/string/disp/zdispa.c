@@ -12,11 +12,12 @@
 
 #include "disp.h"
 
-double zdispa (doubleComplex* in, int size) {
-	int i = 0;
-	for (i = 0; i < size; ++i) {
-		zdisps (in[i]);
+double zdispa (doubleComplex* in, int rows, int columns){
+	int i = 0,j = 0;
+	
+	for (i = 0; i < rows; ++i) {
+		for (j=0;j<columns;j++) printf("  %f + %fi  " ,zreals(in[i+j*rows]) ,zimags(in[i+j*rows])); 
+		printf("\n");
 	}
-	printf("\n");
 	return 0;
 }

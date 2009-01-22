@@ -12,12 +12,12 @@
 
 #include "disp.h" 
 
-double sdispa (float* in, int size){
-	int i = 0;
+double sdispa (float* in, int rows, int columns){
+	int i = 0,j = 0;
 	
-	for (i = 0; i < size; ++i) {
-		sdisps (in[i]);
+	for (i = 0; i < rows; ++i) {
+		for (j=0;j<columns;j++) printf ("  %f  ", in[i+j*rows]);
+		printf("\n");
 	}
-	printf("\n");
 	return 0;
 }

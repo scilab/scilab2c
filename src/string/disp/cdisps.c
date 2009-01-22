@@ -13,11 +13,8 @@
 #include "disp.h"
 
 double cdisps (floatComplex in){
-	
-  float RealIn = creals(in);
-  float ImgIn = cimags(in);
-  
-  printf("  %f + %fi  " ,RealIn ,ImgIn); 	
+
+  printf("  %f + %fi  \n" ,creals(in) ,cimags(in)); 	
   return 0;
 	
 }
