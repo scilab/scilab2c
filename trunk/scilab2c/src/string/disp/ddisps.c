@@ -13,6 +13,6 @@
 #include "disp.h"
 
 double ddisps (double in) {	
-	printf ("  %f  ", in);
+	printf ("  %f  \n", in);
 	return 0;
 }
