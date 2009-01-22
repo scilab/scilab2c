@@ -130,7 +130,6 @@ int testIsEmpty() {
   disemptyaTestStatus = disemptyaTest();
   cisemptyaTestStatus = cisemptyaTest();
   zisemptyaTestStatus = zisemptyaTest();
-
   return (sisemptyaTestStatus + disemptyaTestStatus +
 	  cisemptyaTestStatus + zisemptyaTestStatus);
 }

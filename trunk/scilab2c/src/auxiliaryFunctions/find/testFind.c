@@ -43,7 +43,7 @@ int sfindaTest() {
     result = ERROR;
   }
   else
-     printf("%f  ",outGood[i]);
+     printf("%f  ",outBad[0]);
     
   printf("\n");
   return result;
@@ -81,7 +81,7 @@ int dfindaTest() {
     result = ERROR;
   }
   else
-     printf("%f  ",outGood[i]);
+     printf("%f  ",outBad[0]);
     
   printf("\n");
   return result;
@@ -131,7 +131,7 @@ int cfindaTest() {
     result = ERROR;
   }
   else
-     printf("%f  ",outGood[i]);
+     printf("%f  ",outBad[0]);
     
   printf("\n");
   return result;
@@ -177,14 +177,14 @@ int zfindaTest() {
   }
   
   printf("\n");
-  
+
   if (outBad[0]!=-1) {
     printf("ERROR ! : Test Failed (empty array)\n");
     result = ERROR;
   }
   else
-     printf("%f  ",outGood[i]);
-    
+     printf("%f  ",outBad[0]);
+ 
   printf("\n");
   return result;
 }
