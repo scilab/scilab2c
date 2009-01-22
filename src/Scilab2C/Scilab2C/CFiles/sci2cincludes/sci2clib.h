@@ -75,3 +75,14 @@
 /* interfacing fill */
 #include "fill.h"/* interfacing ones */
 #include "ones.h"
+/* interfacing mean */
+#include "mean.h"
+#include "int_mean.h"/* interfacing division */
+#include "division.h"
+#include "int_OpSlash.h"
+#include "int_OpDotSlash.h"
+#include "int_OpBackSlash.h"
+#include "int_OpDotBackSlash.h"
+/* interfacing conj */
+#include "conj.h"
+#include "int_conj.h"

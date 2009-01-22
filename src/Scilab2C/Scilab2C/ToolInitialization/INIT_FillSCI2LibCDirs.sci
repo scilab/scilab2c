@@ -1107,8 +1107,17 @@ PrintStringInfo('z0z0'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('z0z2'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('z2z0'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('z2z2'+ArgSeparator+'z2',ClassFileName,'file','y');
+
+PrintStringInfo('z0d0'+ArgSeparator+'z2',ClassFileName,'file','y');
+PrintStringInfo('z2d0'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('c0s0'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('c2s0'+ArgSeparator+'c2',ClassFileName,'file','y');
+
+PrintStringInfo('s0c0'+ArgSeparator+'c2',ClassFileName,'file','y');
+PrintStringInfo('s2c0'+ArgSeparator+'c2',ClassFileName,'file','y');
+PrintStringInfo('d0z0'+ArgSeparator+'z2',ClassFileName,'file','y');
+PrintStringInfo('d2z0'+ArgSeparator+'z2',ClassFileName,'file','y');
+
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'OpRc';
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'both','y');
@@ -1161,6 +1170,12 @@ PrintStringInfo('s0c0'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('s2c0'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('d0z0'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('d2z0'+ArgSeparator+'z2',ClassFileName,'file','y');
+
+PrintStringInfo('s2c2'+ArgSeparator+'c2',ClassFileName,'file','y');
+PrintStringInfo('c2s2'+ArgSeparator+'c2',ClassFileName,'file','y');
+PrintStringInfo('d2z2'+ArgSeparator+'z2',ClassFileName,'file','y');
+PrintStringInfo('z2d2'+ArgSeparator+'z2',ClassFileName,'file','y');
+
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'OpCc';

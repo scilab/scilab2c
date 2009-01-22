@@ -142,7 +142,29 @@ SWSRCS	=	\
 	$(CSRCDIR)/conesa.c\
 	$(CSRCDIR)/donesa.c\
 	$(CSRCDIR)/sonesa.c\
-	$(CSRCDIR)/zonesa.c
+	$(CSRCDIR)/zonesa.c\
+	$(CSRCDIR)/crdivs.c\
+	$(CSRCDIR)/crdiva.c \
+	$(CSRCDIR)/drdivs.c\
+	$(CSRCDIR)/drdiva.c \
+	$(CSRCDIR)/srdivs.c\
+	$(CSRCDIR)/srdiva.c \
+	$(CSRCDIR)/zrdivs.c\
+	$(CSRCDIR)/zrdiva.c\
+	$(CSRCDIR)/cldivs.c\
+	$(CSRCDIR)/cldiva.c \
+	$(CSRCDIR)/dldivs.c\
+	$(CSRCDIR)/dldiva.c \
+	$(CSRCDIR)/sldivs.c\
+	$(CSRCDIR)/sldiva.c \
+	$(CSRCDIR)/zldivs.c\
+	$(CSRCDIR)/zldiva.c\
+	$(CSRCDIR)/cconjs.c\
+	$(CSRCDIR)/cconja.c\
+	$(CSRCDIR)/zconjs.c\
+	$(CSRCDIR)/zconja.c\
+	$(CSRCDIR)/disp.c
+	
 	
 #	$(CSRCDIR)/clog10s.c \
 #	$(CSRCDIR)/zlog10s.c \
