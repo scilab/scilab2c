@@ -11,11 +11,12 @@
  */
 
 #include "cat.h"
+#include "stdio.h"
 /*
 ** Emulate Scilab (from help cat) :
 ** then the concatenation is done according to the rows
 **
-** A1=[1 2 3 ; 4 5 6]; A2=[7 8 9 ; 10 11 12]; y=cat(1,A1,A2) => y=[1 2 3 ; 4 5 61 ;7 8 9; 10 11 12]
+** A1=[1 2 3 ; 4 5 6]; A2=[7 8 9 ; 10 11 12]; y=cat(1,A1,A2) => y=[1 2 3 ; 4 5 6 ;7 8 9; 10 11 12]
 **
 */
 
@@ -28,7 +29,7 @@ void		srowcata(float *in1, int lines1, int columns1, float *in2, int lines2, int
 	{
 	  out[i*(lines1 + lines2) + j] = in1[i*lines1 + j];
 	}
-       for (j = 0 ; j < lines1 ; ++j)
+       for (j = 0 ; j < lines2 ; ++j)
 	{
 	  out[i*(lines1 + lines2) + lines1 + j] = in2[i*lines2 + j];
 	}
