@@ -70,7 +70,6 @@ static void scolumncataTest(void) {
   float in1[12] = {0.0, 1.0, 2.0 , 3.0 , 4.0, 5.0 , 6.0 , 7.0 , 8.0 , 9.0, 10.0 , 11.0};
   float in2_1_1[1] = {12.0};
   float out_1_13[13] = {0};
-
   float in2_2_2[4] = {FPI, FPI / 2, FPI / 3, FPI / 4};
   float out_2_8[16] = {0};
 
@@ -99,6 +98,8 @@ static void scolumncataTest(void) {
     assert(out_2_8[i + 12] == in2_2_2[i]);
   }
 
+	
+
 }
 
 static void   srowcataTest() {
@@ -107,6 +108,10 @@ static void   srowcataTest() {
   float in2[6] = {3.0 , 4.0 , 7.0 , 8.0 , 11.0 , 12.0};
   float out_4_3[12] = {0};
   float out_6_2[12] = {0};
+  
+  float inNono1[6]={1.0,3.0,5.0,2.0,4.0,6.0};
+  float inNono2[2]={1.0,2.0};
+  float outNono[8]={0};
   /*
   ** [ 1 5 9  ] ; [ 3 7 11 ] => [ 1 5 9  ]
   ** [ 2 6 10 ]   [ 4 8 12 ]	[ 2 6 10 ]
@@ -140,6 +145,18 @@ static void   srowcataTest() {
  assert(out_6_2[9] == 8.0);
  assert(out_6_2[10] == 11.0);
  assert(out_6_2[11] == 12.0);
+ 
+ 
+ srowcata(inNono1, 3, 2, inNono2, 1, 2, outNono);
+ assert(outNono[0] == 1.0);
+ assert(outNono[1] == 3.0);
+ assert(outNono[2] == 5.0);
+ assert(outNono[3] == 1.0);
+ assert(outNono[4] == 2.0);
+ assert(outNono[5] == 4.0);
+ assert(outNono[6] == 6.0);
+ assert(outNono[7] == 2.0); 
+ 
 }
 
 static void crowcatsTest(void) {
