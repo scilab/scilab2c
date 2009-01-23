@@ -50,8 +50,6 @@ void zchola(doubleComplex * in, int size, doubleComplex *out){
 	doubleComplex tmp,transposee;
 	double accu;
 	
-	for (i=0;i<size*size;i++) out[i]=DoubleComplex(0,0); /* Voir si on peut l'enlever */
-
 	for (i=0;i<size;i++){
 		accu=0.0f;
 		for (j=0;j<i;j++){
