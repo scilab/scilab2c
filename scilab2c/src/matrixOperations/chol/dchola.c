@@ -44,7 +44,6 @@ void dchola(double * in, int size, double *out){
 	int i=0, j=0, k=0;
 	double tmp=0, accu=0;
 
-	for (i=0;i<size*size;i++) out[i]=0; /* Voir si on peut l'enlever */
 
 	for (i=0;i<size;i++){
 		accu=0;

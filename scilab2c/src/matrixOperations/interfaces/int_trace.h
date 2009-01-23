@@ -23,12 +23,12 @@
 
 #define z0tracez0(in)			in
 
-#define s2traces0(in,size,out)		stracea(in, size[0])
+#define s2traces0(in,size)		stracea(in, size[0])
 
-#define d2traced0(in,size,out)		dtracea(in, size[0])
+#define d2traced0(in,size)		dtracea(in, size[0])
 
-#define c2tracec0(in,size,out)		ctracea(in, size[0])
+#define c2tracec0(in,size)		ctracea(in, size[0])
 
-#define z2tracez0(in,size,out)		ztracea(in, size[0])
+#define z2tracez0(in,size)		ztracea(in, size[0])
 
 #endif /* !__INT_TRACE_H__ */

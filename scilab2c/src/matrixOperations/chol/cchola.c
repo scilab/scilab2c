@@ -60,8 +60,6 @@ void cchola(floatComplex * in, int size, floatComplex *out){
 	int i=0, j=0, k=0;
 	floatComplex tmp,transposee;
 	float accu;
-	
-	for (i=0;i<size*size;i++) out[i]=FloatComplex(0,0); /* Voir si on peut l'enlever */
 
 	for (i=0;i<size;i++){
 		accu=0.0f;
