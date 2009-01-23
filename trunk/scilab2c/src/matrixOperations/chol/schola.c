@@ -52,8 +52,6 @@ void schola(float * in, int size, float *out){
 	int i=0, j=0, k=0;
 	float tmp=0, accu=0;
 	
-	for (i=0;i<size*size;i++) out[i]=0; /* Voir si on peut l'enlever */
-
 	for (i=0;i<size;i++){
 		accu=0;
 		for (j=0;j<i;j++){
