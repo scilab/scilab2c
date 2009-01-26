@@ -82,7 +82,9 @@
 /* interfacing pow */
 #include "pow.h"
 #include "int_pow.h"
-
+/* interfacing log */
+#include "log.h"
+#include "int_log.h"
 
 
 /* OPERATIONS */
