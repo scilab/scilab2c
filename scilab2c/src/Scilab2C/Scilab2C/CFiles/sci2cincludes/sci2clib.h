@@ -68,6 +68,8 @@
 /* interfacing conj */
 #include "conj.h"
 #include "int_conj.h"
+/* interfacing pythag */
+#include "pythag.h"
 
 /* ELEMENTARY FUNCTIONS */
 
