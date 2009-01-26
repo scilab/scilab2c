@@ -30,7 +30,7 @@ double	dvariancea(double *in, int size)
     }
     
     if ( fabs ( sumc) > 1e-16)
-        variance =  ( temp - dpows( sumc,2)/size)/ ( size -1);
+        variance =  ( temp - dpows( sumc,2))/ ( size-1);
     else 
         variance = ( temp )/ ( size -1);    
     

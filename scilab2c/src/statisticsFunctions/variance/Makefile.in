@@ -33,8 +33,9 @@ POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
 check_PROGRAMS = testFloatVariance$(EXEEXT) \
-	testDoubleVariance$(EXEEXT)
-TESTS = testFloatVariance$(EXEEXT) testDoubleVariance$(EXEEXT)
+	testDoubleVariance$(EXEEXT) testDoubleVarianceNono$(EXEEXT)
+TESTS = testFloatVariance$(EXEEXT) testDoubleVariance$(EXEEXT) \
+	testDoubleVarianceNono$(EXEEXT)
 subdir = statisticsFunctions/variance
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -101,6 +102,14 @@ testDoubleVariance_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(testDoubleVariance_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
+am_testDoubleVarianceNono_OBJECTS =  \
+	testDoubleVarianceNono-testDoubleVarianceNono.$(OBJEXT)
+testDoubleVarianceNono_OBJECTS = $(am_testDoubleVarianceNono_OBJECTS)
+testDoubleVarianceNono_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testDoubleVarianceNono_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
+	$(testDoubleVarianceNono_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
 am_testFloatVariance_OBJECTS =  \
 	testFloatVariance-testFloatVariance.$(OBJEXT)
 testFloatVariance_OBJECTS = $(am_testFloatVariance_OBJECTS)
@@ -122,9 +131,9 @@ LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
 SOURCES = $(libVariance_la_SOURCES) $(testDoubleVariance_SOURCES) \
-	$(testFloatVariance_SOURCES)
+	$(testDoubleVarianceNono_SOURCES) $(testFloatVariance_SOURCES)
 DIST_SOURCES = $(libVariance_la_SOURCES) $(testDoubleVariance_SOURCES) \
-	$(testFloatVariance_SOURCES)
+	$(testDoubleVarianceNono_SOURCES) $(testFloatVariance_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -307,6 +316,9 @@ testFloatVariance_LDADD = $(check_LDADD)
 testDoubleVariance_SOURCES = testDoubleVariance.c
 testDoubleVariance_CFLAGS = $(check_INCLUDES)
 testDoubleVariance_LDADD = $(check_LDADD)
+testDoubleVarianceNono_SOURCES = testDoubleVarianceNono.c
+testDoubleVarianceNono_CFLAGS = $(check_INCLUDES)
+testDoubleVarianceNono_LDADD = $(check_LDADD)
 all: all-am
 
 .SUFFIXES:
@@ -379,6 +391,9 @@ clean-checkPROGRAMS:
 testDoubleVariance$(EXEEXT): $(testDoubleVariance_OBJECTS) $(testDoubleVariance_DEPENDENCIES) 
 	@rm -f testDoubleVariance$(EXEEXT)
 	$(testDoubleVariance_LINK) $(testDoubleVariance_OBJECTS) $(testDoubleVariance_LDADD) $(LIBS)
+testDoubleVarianceNono$(EXEEXT): $(testDoubleVarianceNono_OBJECTS) $(testDoubleVarianceNono_DEPENDENCIES) 
+	@rm -f testDoubleVarianceNono$(EXEEXT)
+	$(testDoubleVarianceNono_LINK) $(testDoubleVarianceNono_OBJECTS) $(testDoubleVarianceNono_LDADD) $(LIBS)
 testFloatVariance$(EXEEXT): $(testFloatVariance_OBJECTS) $(testFloatVariance_DEPENDENCIES) 
 	@rm -f testFloatVariance$(EXEEXT)
 	$(testFloatVariance_LINK) $(testFloatVariance_OBJECTS) $(testFloatVariance_LDADD) $(LIBS)
@@ -402,6 +417,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libVariance_la-zrowvariancea.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libVariance_la-zvariancea.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleVariance-testDoubleVariance.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleVarianceNono-testDoubleVarianceNono.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatVariance-testFloatVariance.Po@am__quote@
 
 .c.o:
@@ -522,6 +538,20 @@ testDoubleVariance-testDoubleVariance.obj: testDoubleVariance.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleVariance.c' object='testDoubleVariance-testDoubleVariance.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleVariance_CFLAGS) $(CFLAGS) -c -o testDoubleVariance-testDoubleVariance.obj `if test -f 'testDoubleVariance.c'; then $(CYGPATH_W) 'testDoubleVariance.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleVariance.c'; fi`
+
+testDoubleVarianceNono-testDoubleVarianceNono.o: testDoubleVarianceNono.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleVarianceNono_CFLAGS) $(CFLAGS) -MT testDoubleVarianceNono-testDoubleVarianceNono.o -MD -MP -MF $(DEPDIR)/testDoubleVarianceNono-testDoubleVarianceNono.Tpo -c -o testDoubleVarianceNono-testDoubleVarianceNono.o `test -f 'testDoubleVarianceNono.c' || echo '$(srcdir)/'`testDoubleVarianceNono.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleVarianceNono-testDoubleVarianceNono.Tpo $(DEPDIR)/testDoubleVarianceNono-testDoubleVarianceNono.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleVarianceNono.c' object='testDoubleVarianceNono-testDoubleVarianceNono.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleVarianceNono_CFLAGS) $(CFLAGS) -c -o testDoubleVarianceNono-testDoubleVarianceNono.o `test -f 'testDoubleVarianceNono.c' || echo '$(srcdir)/'`testDoubleVarianceNono.c
+
+testDoubleVarianceNono-testDoubleVarianceNono.obj: testDoubleVarianceNono.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleVarianceNono_CFLAGS) $(CFLAGS) -MT testDoubleVarianceNono-testDoubleVarianceNono.obj -MD -MP -MF $(DEPDIR)/testDoubleVarianceNono-testDoubleVarianceNono.Tpo -c -o testDoubleVarianceNono-testDoubleVarianceNono.obj `if test -f 'testDoubleVarianceNono.c'; then $(CYGPATH_W) 'testDoubleVarianceNono.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleVarianceNono.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleVarianceNono-testDoubleVarianceNono.Tpo $(DEPDIR)/testDoubleVarianceNono-testDoubleVarianceNono.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleVarianceNono.c' object='testDoubleVarianceNono-testDoubleVarianceNono.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleVarianceNono_CFLAGS) $(CFLAGS) -c -o testDoubleVarianceNono-testDoubleVarianceNono.obj `if test -f 'testDoubleVarianceNono.c'; then $(CYGPATH_W) 'testDoubleVarianceNono.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleVarianceNono.c'; fi`
 
 testFloatVariance-testFloatVariance.o: testFloatVariance.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatVariance_CFLAGS) $(CFLAGS) -MT testFloatVariance-testFloatVariance.o -MD -MP -MF $(DEPDIR)/testFloatVariance-testFloatVariance.Tpo -c -o testFloatVariance-testFloatVariance.o `test -f 'testFloatVariance.c' || echo '$(srcdir)/'`testFloatVariance.c
