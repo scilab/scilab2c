@@ -65,6 +65,7 @@
 #include "disp.h"
 #include "int_disp.h"/* interfacing multiplication */
 #include "multiplication.h"
+#include "matrixMultiplication.h"
 #include "int_OpStar.h"
 #include "int_OpDotStar.h"
 /* interfacing addition */
@@ -86,3 +87,24 @@
 /* interfacing conj */
 #include "conj.h"
 #include "int_conj.h"
+/* interfacing acos */
+#include "acos.h"
+#include "int_acos.h"
+/* interefacing lapack */
+#include "lapack.h"
+/* interfacing atan */
+#include "atan.h"
+#include "int_atan.h"
+/* interefacing lnp1m1 */
+#include "lnp1m1.h"
+/* interefacing blas */
+#include "blas.h"
+/* interefacing eye */
+#include "eye.h"
+#include "int_eye.h"
+/* interefacing trace */
+#include "matrixTrace.h"
+#include "int_trace.h"
+/* interfacing sum */
+#include "sum.h"
+#include "int_sum.h"
