@@ -70,10 +70,6 @@ SWSRCS	=	\
 	$(CSRCDIR)/dmeana.c \
 	$(CSRCDIR)/cmeana.c \
 	$(CSRCDIR)/zmeana.c \
-	$(CSRCDIR)/ssuma.c \
-	$(CSRCDIR)/dsuma.c \
-	$(CSRCDIR)/csuma.c \
-	$(CSRCDIR)/zsuma.c \
 	$(CSRCDIR)/sexps.c \
 	$(CSRCDIR)/dexps.c \
 	$(CSRCDIR)/cexps.c \
@@ -137,8 +133,11 @@ SWSRCS	=	\
 	$(CSRCDIR)/sdiffs.c\
 	$(CSRCDIR)/sdiffa.c \
 	$(CSRCDIR)/zdiffs.c\
+	$(CSRCDIR)/zdiffa.c \
+	$(CSRCDIR)/cfilla.c\
+	$(CSRCDIR)/dfilla.c\
 	$(CSRCDIR)/sfilla.c\
-	$(CSRCDIR)/dfilla.c \
+	$(CSRCDIR)/zfilla.c \
 	$(CSRCDIR)/conesa.c\
 	$(CSRCDIR)/donesa.c\
 	$(CSRCDIR)/sonesa.c\
@@ -163,7 +162,69 @@ SWSRCS	=	\
 	$(CSRCDIR)/cconja.c\
 	$(CSRCDIR)/zconjs.c\
 	$(CSRCDIR)/zconja.c\
-	$(CSRCDIR)/disp.c
+	$(CSRCDIR)/disp.c\
+	$(CSRCDIR)/ceyea.c\
+	$(CSRCDIR)/deyea.c\
+	$(CSRCDIR)/seyea.c\
+	$(CSRCDIR)/zeyea.c\
+	$(CSRCDIR)/ctracea.c\
+	$(CSRCDIR)/dtracea.c\
+	$(CSRCDIR)/stracea.c\
+	$(CSRCDIR)/ztracea.c\
+	$(CSRCDIR)/srowmeana.c \
+	$(CSRCDIR)/drowmeana.c \
+	$(CSRCDIR)/crowmeana.c \
+	$(CSRCDIR)/zrowmeana.c \
+	$(CSRCDIR)/scolumnmeana.c \
+	$(CSRCDIR)/dcolumnmeana.c \
+	$(CSRCDIR)/ccolumnmeana.c \
+	$(CSRCDIR)/zcolumnmeana.c \
+	$(CSRCDIR)/ssuma.c \
+	$(CSRCDIR)/dsuma.c \
+	$(CSRCDIR)/csuma.c \
+	$(CSRCDIR)/zsuma.c \
+	$(CSRCDIR)/srowsuma.c \
+	$(CSRCDIR)/drowsuma.c \
+	$(CSRCDIR)/crowsuma.c \
+	$(CSRCDIR)/zrowsuma.c \
+	$(CSRCDIR)/scolumnsuma.c \
+	$(CSRCDIR)/dcolumnsuma.c \
+	$(CSRCDIR)/ccolumnsuma.c \
+	$(CSRCDIR)/zcolumnsuma.c\
+	$(CSRCDIR)/cmulma.c\
+	$(CSRCDIR)/dmulma.c\
+	$(CSRCDIR)/smulma.c\
+	$(CSRCDIR)/zmulma.c
+
+#	$(CSRCDIR)/svariancea.c \
+#	$(CSRCDIR)/dvariancea.c \
+#	$(CSRCDIR)/cvariancea.c \
+#	$(CSRCDIR)/zvariancea.c \
+#	$(CSRCDIR)/srowvariancea.c \
+#	$(CSRCDIR)/drowvariancea.c \
+#	$(CSRCDIR)/crowvariancea.c \
+#	$(CSRCDIR)/zrowvariancea.c \
+#	$(CSRCDIR)/scolumnvariancea.c \
+#	$(CSRCDIR)/dcolumnvariancea.c \
+#	$(CSRCDIR)/ccolumnvariancea.c \
+#	$(CSRCDIR)/zcolumnvariancea.c \
+#	$(CSRCDIR)/cpows.c \
+#	$(CSRCDIR)/cpowa.c \
+#	$(CSRCDIR)/dpows.c \
+#	$(CSRCDIR)/dpowa.c \
+#	$(CSRCDIR)/spows.c \
+#	$(CSRCDIR)/spowa.c \
+#	$(CSRCDIR)/zpows.c \
+#	$(CSRCDIR)/zpowa.c \
+#	$(CSRCDIR)/ctransposea.c \
+#	$(CSRCDIR)/dtransposea.c \
+#	$(CSRCDIR)/stransposea.c \
+#	$(CSRCDIR)/ztransposea.c
+	
+	
+	
+	
+	
 	
 	
 #	$(CSRCDIR)/clog10s.c \
@@ -189,7 +250,7 @@ compileexecute: $(SWOBJS)
 	@echo "============================"
 	@echo "Generation of the executable"
 	@echo "============================"
-	$(CC) $(CFLAGS) $(SWOBJS) $(SCI2CDIR)/*.c -o $(EXEFILE)
+	$(CC) $(CFLAGS) $(SWOBJS) $(SCI2CDIR)/*.c -llapack -lblas -o $(EXEFILE)
 	@echo " "
 	@echo "=============="
 	@echo "Executing code"
