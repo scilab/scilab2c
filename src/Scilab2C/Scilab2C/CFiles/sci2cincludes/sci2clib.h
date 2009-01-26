@@ -49,10 +49,6 @@
 #include "int_log.h"
 #include "log10.h"
 #include "int_log10.h"
-#include "sum.h"
-#include "int_sum.h"
-#include "mean.h"
-#include "int_mean.h"
 #include "pythag.h"
 /* interfacing find */
 #include "find.h"
@@ -75,10 +71,7 @@
 #include "int_OpMinus.h"
 /* interfacing fill */
 #include "fill.h"/* interfacing ones */
-#include "ones.h"
-/* interfacing mean */
-#include "mean.h"
-#include "int_mean.h"/* interfacing division */
+#include "ones.h"/* interfacing division */
 #include "division.h"
 #include "int_OpSlash.h"
 #include "int_OpDotSlash.h"
@@ -105,6 +98,17 @@
 /* interefacing trace */
 #include "matrixTrace.h"
 #include "int_trace.h"
+
+/* STATISTICS FUNCTIONS */
+
+/* interfacing mean */
+#include "mean.h"
+#include "int_mean.h"
 /* interfacing sum */
 #include "sum.h"
 #include "int_sum.h"
+/* interfacing variance */
+#include "variance.h"
+#include "int_variance.h"
+
+
