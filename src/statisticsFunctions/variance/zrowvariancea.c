@@ -15,22 +15,7 @@
 void zrowvariancea(doubleComplex *in, int lines, int columns, doubleComplex* out){
     
     int i = 0 ;
-
- 
-    doubleComplex* transp = (doubleComplex*) malloc ( sizeof (doubleComplex) *(unsigned int) (lines*columns));
-         /*FIXME : NEED TO REVIEW TRANSPOSE COMPLEX FONCTIONS , they need to not do the conjugate
-         automaticaly */    
-    ztransposea ( in , lines , columns , transp ) ;
-    
-    for ( i = 0 ; i < columns *lines ; i++) 
-             transp[i] = DoubleComplex ( zreals (transp[i] ) , zimags(transp[i]));
     
     for ( i = 0; i < columns ; i++)
-    {
-
-    
-    out[i] = zvariancea ( transp + i*lines , lines ) ;
-    }
-
-    free (transp);
+    out[i] = zvariancea ( in + i*lines , lines ) ;
 }

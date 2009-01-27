@@ -15,27 +15,14 @@
 void dcolumnvariancea(double *in, int lines, int columns, double* out){
     
     int i = 0 ;
-    int j = 0 ;
     
     double* transp = (double*) malloc ( sizeof (double) *(unsigned int) (lines*columns));
-    
-    
-    for ( i = 0; i < 5 ; i++){
-    	for ( j = 0; j < 4 ; j++)
-    		printf("%f   ",in[i+j*lines]);
-    	printf("\n");
-    }
+
     
     
     dtransposea ( in , lines , columns , transp ) ;
     
-    
-    for ( i = 0; i < 4 ; i++){
-    	for ( j = 0; j < 5 ; j++)
-    		printf("%f   ",transp[i+j*columns]);
-    	printf("\n");
-    }
-    
+
     for ( i = 0; i < lines ; i++)
     out[i] = dvariancea ( transp + i*columns , columns ) ;
     
