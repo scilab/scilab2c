@@ -17,22 +17,18 @@ double	dvariancea(double *in, int size)
     int i = 0 ;
     
     double temp = 0 ;
-    double sumc = 0 ;
     double variance = 0;
     
     double mean =  dmeana ( in , size );
  
     for ( i = 0 ; i < size ; i++)
     { 
-
        temp += dpows (  (in[i]  - mean ) ,2 ) ;
-       sumc += (in[i]  - mean);     
     }
     
-    if ( fabs ( sumc) > 1e-16)
-        variance =  ( temp - dpows( sumc,2))/ ( size-1);
-    else 
-        variance = ( temp )/ ( size -1);    
+    
+    variance =  ( temp )/ ( size -1);
+   
     
     return variance ;
 }
