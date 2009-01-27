@@ -107,7 +107,7 @@ static void  dvariancesTest (void ) {
     
     double toTest =  dvariances (SINGLE) ;
      
-    assert ( fabs ( toTest - SINGLE ) / fabs( toTest) < 1e-06 ) ;
+    assert ( fabs ( toTest - SINGLE ) / fabs( toTest) < 1e-16 ) ;
 }    
 
 
@@ -115,14 +115,14 @@ static void  drowvariancesTest (void ) {
     
     double toTest = drowvariances (SINGLE) ;
      
-    assert ( fabs ( toTest - SINGLE ) / fabs( toTest) < 1e-06 ) ;
+    assert ( fabs ( toTest - SINGLE ) / fabs( toTest) < 1e-16 ) ;
 } 
 
 static void  dcolumnvariancesTest (void) {
     
     double toTest =  dcolumnvariances (SINGLE) ;
      
-    assert ( fabs ( toTest - SINGLE ) / fabs( toTest) < 1e-06 ) ;
+    assert ( fabs ( toTest - SINGLE ) / fabs( toTest) < 1e-16 ) ;
 } 
 
 
@@ -130,24 +130,24 @@ static void  zvariancesTest (void ) {
     
     doubleComplex toTest = zvariances ( DoubleComplex ( SINGLE , SINGLE ) );
      
-    assert ( fabs ( zreals( toTest) - SINGLE ) / fabs( zreals( toTest)) < 1e-06 ) ;
-    assert ( fabs ( zimags( toTest) - SINGLE ) / fabs( zimags( toTest)) < 1e-06 ) ;
+    assert ( fabs ( zreals( toTest) - SINGLE ) / fabs( zreals( toTest)) < 1e-16 ) ;
+    assert ( fabs ( zimags( toTest) - SINGLE ) / fabs( zimags( toTest)) < 1e-16 ) ;
 }   
 
 static void  zrowvariancesTest (void ) {
     
     doubleComplex toTest = zrowvariances ( DoubleComplex ( SINGLE , SINGLE ) );
      
-    assert ( fabs ( zreals( toTest) - SINGLE ) / fabs( zreals( toTest)) < 1e-06 ) ;
-    assert ( fabs ( zimags( toTest) - SINGLE ) / fabs( zimags( toTest)) < 1e-06 ) ;
+    assert ( fabs ( zreals( toTest) - SINGLE ) / fabs( zreals( toTest)) < 1e-16 ) ;
+    assert ( fabs ( zimags( toTest) - SINGLE ) / fabs( zimags( toTest)) < 1e-16 ) ;
 }
 
 static void  zcolumnvariancesTest (void ) {
     
     doubleComplex toTest = zrowvariances ( DoubleComplex ( SINGLE , SINGLE ) );
      
-    assert ( fabs ( zreals( toTest) - SINGLE ) / fabs( zreals( toTest)) < 1e-06 ) ;
-    assert ( fabs ( zimags( toTest) - SINGLE ) / fabs( zimags( toTest)) < 1e-06 ) ;
+    assert ( fabs ( zreals( toTest) - SINGLE ) / fabs( zreals( toTest)) < 1e-16 ) ;
+    assert ( fabs ( zimags( toTest) - SINGLE ) / fabs( zimags( toTest)) < 1e-16 ) ;
 }   
 
 
@@ -163,11 +163,11 @@ static void  dvarianceaTest ( void){
     
 
     
-    printf ( "out : %e\t result : %e\t\n" , out , result ) ; 
+    printf ( "out : %1.20f\t result : %1.20f\t\n" , out , result ) ; 
     
 
     
-    assert ( fabs ( out - result ) / fabs( out ) < 1e-06 ) ;
+    assert ( fabs ( out - result ) / fabs( out ) < 1e-11 ) ;
     
 }
 
@@ -184,8 +184,8 @@ static void drowvarianceaTest ( void )
     
     for ( i = 0 ; i < COLUMNS ; i++)
     {
-            printf ( "ROWout : %e\t result : %e\t\n" , out[i] , result [i] ) ; 
-           assert ( fabs ( out[i] - result[i] ) / fabs( out[i] ) < 1e-06 ) ;
+            printf ( "ROWout : %1.20f\t result : %1.20f\t\n" , out[i] , result [i] ) ; 
+           assert ( fabs ( out[i] - result[i] ) / fabs( out[i] ) < 1e-16 ) ;
     }
     
 }
@@ -204,8 +204,10 @@ static void dcolumnvarianceaTest ( void )
     
     for ( i = 0 ; i <  LINES ; i++)
     {
-            printf ( "%dCOLout : %e\t result : %e\t\n" ,i, out[i] , result [i] ) ; 
-          assert ( fabs ( out[i] - result[i] ) / fabs( out[i] ) < 1e-06 ) ;
+            printf ( "%dCOLout : %1.20f\t result : %1.20f\t\n" ,i, out[i] , result [i] ) ;  } 
+     for ( i = 0 ; i <  LINES ; i++)
+    {
+          assert ( fabs ( out[i] - result[i] ) / fabs( out[i] ) < 1e-16 ) ;
     }
     
 }
@@ -222,8 +224,8 @@ static void  zvarianceaTest ( void){
     doubleComplex* mtoTest = DoubleComplexMatrix ( rmtoTest , imtoTest , LINES*COLUMNS ) ;
     doubleComplex out = zvariancea ( mtoTest ,  LINES*COLUMNS );  ;
     
-            assert ( fabs(  zreals(out) -  zreals (Result) ) / fabs (zreals (out)) < 1e-06 );
-            assert(  fabs(  zimags(out) -  zimags (Result )) / fabs (zimags (out)) < 1e-06 );
+            assert ( fabs(  zreals(out) -  zreals (Result) ) / fabs (zreals (out)) < 1e-16 );
+            assert(  fabs(  zimags(out) -  zimags (Result )) / fabs (zimags (out)) < 1e-16 );
 
     
 }
@@ -273,8 +275,8 @@ static void zcolumnvarianceaTest ( void) {
     for ( i = 0 ; i < LINES ; i++)
     {
         printf ( "%d out : %e  %e \t result %e %e \n" , i , zreals(out[i])  , zimags(out[i]), zreals(Result[i]) ,zimags( Result[i]));
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) < 1e-06 );
-        assert(  fabs(  zimags(out[i]) -  zimags (Result[i])) / fabs (zimags (out[i])) < 1e-06);
+        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) < 1e-16 );
+        assert(  fabs(  zimags(out[i]) -  zimags (Result[i])) / fabs (zimags (out[i])) < 1e-16);
       
     }
     
