@@ -12,17 +12,16 @@
 
 #include "matrixTranspose.h"
 
-void ztransposea ( doubleComplex* in , int lines1 , int column1, doubleComplex* out ){
-	int newCoord = 0 ;
-	int index    = 0 ;
+void ztransposea ( doubleComplex* in , int lines , int columns, doubleComplex* out ){
 	
-	for(index = 0 ; index <  lines1 * column1 ; index++)
+	int i    = 0 ;
+	int j    = 0 ;
+	
+	for(i = 0 ; i <  lines ; i++)
 	{
-		 newCoord	= index % column1 * lines1 + ( index / column1);
-	
-		out[newCoord]	=  DoubleComplex (  zreals( in[index]) , zimags ( in[index]));
+		for(j = 0 ; j <  columns ; j++)
+
+		out[j+i*columns]	= in[i+j*lines];
 	}
-
 	
-
 }

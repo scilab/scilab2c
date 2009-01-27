@@ -11,17 +11,16 @@
  */
 #include "matrixTranspose.h"
 
-void stransposea ( float* in , int lines1 , int column1, float* out ){
+void stransposea ( float* in , int lines , int columns, float* out ){
 	
+	int i    = 0 ;
+	int j    = 0 ;
 	
-	int newCoord = 0 ;
-	int index    = 0 ;
-	
-	for(index = 0 ; index <  lines1 * column1 ; index++)
+	for(i = 0 ; i <  lines ; i++)
 	{
-		 newCoord	= index % column1 * lines1 + ( index / column1);
+		for(j = 0 ; j <  columns ; j++)
 
-		out[newCoord]	= in[index];
+		out[j+i*columns]	= in[i+j*lines];
 	}
 	
 }
