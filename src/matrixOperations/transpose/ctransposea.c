@@ -12,17 +12,16 @@
 
 #include "matrixTranspose.h"
 
-void ctransposea ( floatComplex* in , int lines1 , int column1, floatComplex* out ){
-
+void ctransposea ( floatComplex* in , int lines , int columns, floatComplex* out ){
 	
-	int newCoord = 0 ;
-	int index    = 0 ;
+	int i    = 0 ;
+	int j    = 0 ;
 	
-	for(index = 0 ; index <  lines1 * column1 ; index++)
+	for(i = 0 ; i <  lines ; i++)
 	{
-		 newCoord	= index % column1 * lines1 + ( index / column1);
+		for(j = 0 ; j <  columns ; j++)
 
-		out[newCoord]	=  FloatComplex (  creals( in[index]) , cimags ( in[index]));
+		out[j+i*columns]	= in[i+j*lines];
 	}
-
+	
 }
