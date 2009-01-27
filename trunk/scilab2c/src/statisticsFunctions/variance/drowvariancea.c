@@ -17,13 +17,7 @@ void drowvariancea(double *in, int lines, int columns, double* out){
     
     int i = 0 ;
 
-    double* transp = (double*) malloc ( sizeof (double) *(unsigned int) (lines*columns));
-    
-    dtransposea ( in , lines , columns , transp ) ;
-    
     for ( i = 0; i < columns ; i++)
-    out[i] = dvariancea ( transp + i*lines , lines ) ;
+    out[i] = dvariancea ( in + i*lines , lines  ) ;
     
-
-    free (transp);
 }
