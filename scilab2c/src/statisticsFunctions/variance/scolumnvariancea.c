@@ -17,9 +17,18 @@
 void scolumnvariancea(float *in, int lines, int columns, float* out){
     int i = 0 ;
     
+    float* transp = (float*) malloc ( sizeof (floatComplex) *(unsigned int) (lines*columns));
+
+    
+    
+    stransposea ( in , lines , columns , transp ) ;
+    
 
     for ( i = 0; i < lines ; i++)
-    out[i] = svariancea ( in + i*columns , columns ) ;
+    out[i] = svariancea ( transp + i*columns , columns ) ;
+    
+
+    free (transp);
 
 }
 

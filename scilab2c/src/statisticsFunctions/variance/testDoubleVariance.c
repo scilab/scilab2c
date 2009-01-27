@@ -34,11 +34,14 @@
  0.031808692031,0.706323316786,0.008731670678,0.270014822017,0.153652121313}
 
 
-#define MATRIXROW {0.168824942350,0.072908122527,0.057987977092,0.149998975703,0.085086319404,\
-0.108508638451,0.096937985957,0.107281660264,0.091363871817,0.128577818421}
-
-#define MATRIXCOL { 0.123307827428,0.123213594199,0.054037725959,0.092551230301,0.055505564488,\
-0.127629921958,0.138516743375 }
+#define MATRIXROW {0.1688249423502767021521  ,  0.0729081225272336097554  ,  0.0579879770921138057438  ,  0.1499989757031960635469  ,  0.0850863194040760717485 ,    0.1085086384507867873772  ,  0.0969379859569881041637 ,   0.1072816602642319844252 ,   0.0913638718167188862429 ,   0.1285778184208021535095  }
+#define MATRIXCOL {    0.1233078274276283442523,  \
+    0.1232135941992091865416 , \
+    0.0540377259589001762707 , \
+    0.0925512303008872161403 , \
+    0.0555055644879708723338 , \
+    0.1276299219577190779962 , \
+    0.1385167433745558840386  }
 
 
 #define IMATRIX {0.05826747464016080,0.99946373142302036,0.85600351681932807,0.62329693790525198,\
@@ -158,7 +161,7 @@ static void  zcolumnvariancesTest (void ) {
 static void  dvarianceaTest ( void){
     
     double mtoTest[] = MATRIX ;
-    double result = 0.100753297434;
+    double result = 0.1007532974338590653352;
     double out = dvariancea ( mtoTest , LINES*COLUMNS );  ;
     
 
@@ -167,7 +170,7 @@ static void  dvarianceaTest ( void){
     
 
     
-    assert ( fabs ( out - result ) / fabs( out ) < 1e-11 ) ;
+    assert ( fabs ( out - result ) / fabs( out ) < 1e-15 ) ;
     
 }
 
@@ -177,15 +180,15 @@ static void drowvarianceaTest ( void )
     int i = 0 ;
     
     double mtoTest[] = MATRIX ; 
-    double result[COLUMNS] =  MATRIXROW ;
-    double out[COLUMNS]  ;
+    double result[LINES] =  MATRIXCOL ;
+    double out[LINES]  ;
     
-    drowvariancea ( mtoTest , LINES , COLUMNS , out ) ;
+    drowvariancea ( mtoTest , COLUMNS , LINES , out ) ;
     
-    for ( i = 0 ; i < COLUMNS ; i++)
+    for ( i = 0 ; i < LINES ; i++)
     {
             printf ( "ROWout : %1.20f\t result : %1.20f\t\n" , out[i] , result [i] ) ; 
-           assert ( fabs ( out[i] - result[i] ) / fabs( out[i] ) < 1e-16 ) ;
+           assert ( fabs ( out[i] - result[i] ) / fabs( out[i] ) < 1e-15 ) ;
     }
     
 }
@@ -195,19 +198,19 @@ static void dcolumnvarianceaTest ( void )
     int i = 0 ;
     
     double mtoTest[] = MATRIX ; 
-    double result[LINES] =  MATRIXCOL ;
-    double out[ LINES]  ;
+    double result[COLUMNS] =  MATRIXROW ;
+    double out[ COLUMNS]  ;
   
     
     
-    dcolumnvariancea ( mtoTest , LINES , COLUMNS , out ) ;
+    dcolumnvariancea ( mtoTest ,  COLUMNS, LINES , out ) ;
     
-    for ( i = 0 ; i <  LINES ; i++)
+    for ( i = 0 ; i <  COLUMNS; i++)
     {
             printf ( "%dCOLout : %1.20f\t result : %1.20f\t\n" ,i, out[i] , result [i] ) ;  } 
-     for ( i = 0 ; i <  LINES ; i++)
+     for ( i = 0 ; i <  COLUMNS; i++)
     {
-          assert ( fabs ( out[i] - result[i] ) / fabs( out[i] ) < 1e-16 ) ;
+          assert ( fabs ( out[i] - result[i] ) / fabs( out[i] ) < 1e-15 ) ;
     }
     
 }
@@ -224,8 +227,8 @@ static void  zvarianceaTest ( void){
     doubleComplex* mtoTest = DoubleComplexMatrix ( rmtoTest , imtoTest , LINES*COLUMNS ) ;
     doubleComplex out = zvariancea ( mtoTest ,  LINES*COLUMNS );  ;
     
-            assert ( fabs(  zreals(out) -  zreals (Result) ) / fabs (zreals (out)) < 1e-16 );
-            assert(  fabs(  zimags(out) -  zimags (Result )) / fabs (zimags (out)) < 1e-16 );
+            assert ( fabs(  zreals(out) -  zreals (Result) ) / fabs (zreals (out)) < 1e-11 );
+            assert(  fabs(  zimags(out) -  zimags (Result )) / fabs (zimags (out)) < 1e-11 );
 
     
 }
@@ -275,8 +278,8 @@ static void zcolumnvarianceaTest ( void) {
     for ( i = 0 ; i < LINES ; i++)
     {
         printf ( "%d out : %e  %e \t result %e %e \n" , i , zreals(out[i])  , zimags(out[i]), zreals(Result[i]) ,zimags( Result[i]));
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) < 1e-16 );
-        assert(  fabs(  zimags(out[i]) -  zimags (Result[i])) / fabs (zimags (out[i])) < 1e-16);
+        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) < 1e-11 );
+        assert(  fabs(  zimags(out[i]) -  zimags (Result[i])) / fabs (zimags (out[i])) < 1e-11);
       
     }
     
