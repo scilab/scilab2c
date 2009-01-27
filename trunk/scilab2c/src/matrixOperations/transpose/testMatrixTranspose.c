@@ -115,7 +115,7 @@ static void stranspaTest (void ) {
  0.14596485672518611f,0.07141010463237762f,0.67337385797873139f,0.65369247179478407f,
  0.19968961318954825f,0.60141251794993877f,0.18993748771026731f};
 
-	stransposea  ( in , LINE  , COLUMN , out );
+	stransposea  ( in ,  COLUMN , LINE , out );
 	
 	
 
@@ -225,8 +225,7 @@ static void dtranspaTest (void ) {
  0.14596485672518611,0.07141010463237762,0.67337385797873139,0.65369247179478407,
  0.19968961318954825,0.60141251794993877,0.18993748771026731};
 
-	dtransposea  ( in , LINE  , COLUMN , out );
-	
+	dtransposea  ( in ,  COLUMN , LINE , out );
 	
 
 	for ( i = 0 ; i < LINE*COLUMN  ; i++ )
@@ -349,7 +348,7 @@ static void ctranspaTest (void ) {
 	}
 	
 
-	ctransposea  ( in , LINE  , COLUMN , out );
+	ctransposea  ( in ,  COLUMN , LINE , out );
 	
 	
 
@@ -480,7 +479,7 @@ static void ztranspaTest (void ) {
 	
 	
 
-	ztransposea  ( in , LINE  , COLUMN , out );
+	ztransposea  ( in , COLUMN  ,  LINE, out );
 	
 	
 
