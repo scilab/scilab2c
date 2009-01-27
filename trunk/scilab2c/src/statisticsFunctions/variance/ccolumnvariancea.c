@@ -16,11 +16,19 @@
 void ccolumnvariancea(floatComplex *in, int lines, int columns, floatComplex* out){
     
     int i = 0 ;
-
+    
+    floatComplex* transp = (floatComplex*) malloc ( sizeof (double) *(unsigned int) (lines*columns));
 
     
+    
+    ctransposea ( in , lines , columns , transp ) ;
+    
+
     for ( i = 0; i < lines ; i++)
-    out[i] = cvariancea ( in + i*columns , columns ) ;
+    out[i] = cvariancea ( transp + i*columns , columns ) ;
+    
+
+    free (transp);
     
 
 }

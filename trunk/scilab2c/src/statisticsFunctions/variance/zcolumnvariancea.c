@@ -15,11 +15,20 @@
 
 void zcolumnvariancea(doubleComplex *in, int lines, int columns, doubleComplex* out){
     
-    
     int i = 0 ;
     
+    doubleComplex* transp = (doubleComplex*) malloc ( sizeof (doubleComplex) *(unsigned int) (lines*columns));
+
+    
+    
+    ztransposea ( in , lines , columns , transp ) ;
+    
+
     for ( i = 0; i < lines ; i++)
-    out[i] = zvariancea ( in + i*columns , columns ) ;
+    out[i] = zvariancea ( transp + i*columns , columns ) ;
+    
+
+    free (transp);
 
 }
 

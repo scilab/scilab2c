@@ -73,20 +73,16 @@ check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
 			@LIBMATH@
 
-check_PROGRAMS	= 	testFloatVariance testDoubleVariance   testDoubleVarianceNono
+check_PROGRAMS	= 	testFloatVarianceNono testDoubleVarianceNono
 
-TESTS		=	testFloatVariance testDoubleVariance   testDoubleVarianceNono
+TESTS		=	testFloatVarianceNono testDoubleVarianceNono
 
 #
 # -*- Variance Tests -*-
 #
-testFloatVariance_SOURCES = testFloatVariance.c
-testFloatVariance_CFLAGS =	$(check_INCLUDES)
-testFloatVariance_LDADD =	$(check_LDADD)
-
-testDoubleVariance_SOURCES =testDoubleVariance.c
-testDoubleVariance_CFLAGS =	$(check_INCLUDES)
-testDoubleVariance_LDADD =	$(check_LDADD)
+testFloatVarianceNono_SOURCES = testFloatVarianceNono.c
+testFloatVarianceNono_CFLAGS =	$(check_INCLUDES)
+testFloatVarianceNono_LDADD =	$(check_LDADD)
 
 testDoubleVarianceNono_SOURCES =testDoubleVarianceNono.c
 testDoubleVarianceNono_CFLAGS =	$(check_INCLUDES)
