@@ -82,10 +82,6 @@ SWSRCS	=	\
 	$(CSRCDIR)/dlog10s.c \
 	$(CSRCDIR)/slog10a.c \
 	$(CSRCDIR)/dlog10a.c \
-	$(CSRCDIR)/slogs.c \
-	$(CSRCDIR)/dlogs.c \
-	$(CSRCDIR)/sloga.c \
-	$(CSRCDIR)/dloga.c \
 	$(CSRCDIR)/slog1ps.c \
 	$(CSRCDIR)/dlog1ps.c \
 	$(CSRCDIR)/slog1pa.c \
@@ -194,34 +190,69 @@ SWSRCS	=	\
 	$(CSRCDIR)/cmulma.c\
 	$(CSRCDIR)/dmulma.c\
 	$(CSRCDIR)/smulma.c\
-	$(CSRCDIR)/zmulma.c
-
-#	$(CSRCDIR)/svariancea.c \
-#	$(CSRCDIR)/dvariancea.c \
-#	$(CSRCDIR)/cvariancea.c \
-#	$(CSRCDIR)/zvariancea.c \
-#	$(CSRCDIR)/srowvariancea.c \
-#	$(CSRCDIR)/drowvariancea.c \
-#	$(CSRCDIR)/crowvariancea.c \
-#	$(CSRCDIR)/zrowvariancea.c \
-#	$(CSRCDIR)/scolumnvariancea.c \
-#	$(CSRCDIR)/dcolumnvariancea.c \
-#	$(CSRCDIR)/ccolumnvariancea.c \
-#	$(CSRCDIR)/zcolumnvariancea.c \
-#	$(CSRCDIR)/cpows.c \
-#	$(CSRCDIR)/cpowa.c \
-#	$(CSRCDIR)/dpows.c \
-#	$(CSRCDIR)/dpowa.c \
-#	$(CSRCDIR)/spows.c \
-#	$(CSRCDIR)/spowa.c \
-#	$(CSRCDIR)/zpows.c \
-#	$(CSRCDIR)/zpowa.c \
-#	$(CSRCDIR)/ctransposea.c \
-#	$(CSRCDIR)/dtransposea.c \
-#	$(CSRCDIR)/stransposea.c \
-#	$(CSRCDIR)/ztransposea.c
-	
-	
+	$(CSRCDIR)/zmulma.c\
+	$(CSRCDIR)/svariancea.c \
+	$(CSRCDIR)/dvariancea.c \
+	$(CSRCDIR)/cvariancea.c \
+	$(CSRCDIR)/zvariancea.c \
+	$(CSRCDIR)/srowvariancea.c \
+	$(CSRCDIR)/drowvariancea.c \
+	$(CSRCDIR)/crowvariancea.c \
+	$(CSRCDIR)/zrowvariancea.c \
+	$(CSRCDIR)/scolumnvariancea.c \
+	$(CSRCDIR)/dcolumnvariancea.c \
+	$(CSRCDIR)/ccolumnvariancea.c \
+	$(CSRCDIR)/zcolumnvariancea.c \
+	$(CSRCDIR)/cpows.c \
+	$(CSRCDIR)/cpowa.c \
+	$(CSRCDIR)/dpows.c \
+	$(CSRCDIR)/dpowa.c \
+	$(CSRCDIR)/spows.c \
+	$(CSRCDIR)/spowa.c \
+	$(CSRCDIR)/zpows.c \
+	$(CSRCDIR)/zpowa.c \
+	$(CSRCDIR)/ctransposea.c \
+	$(CSRCDIR)/dtransposea.c \
+	$(CSRCDIR)/stransposea.c \
+	$(CSRCDIR)/ztransposea.c \
+	$(CSRCDIR)/clogs.c \
+	$(CSRCDIR)/cloga.c \
+	$(CSRCDIR)/dlogs.c \
+	$(CSRCDIR)/dloga.c \
+	$(CSRCDIR)/slogs.c \
+	$(CSRCDIR)/sloga.c \
+	$(CSRCDIR)/zlogs.c \
+	$(CSRCDIR)/zloga.c \
+	$(CSRCDIR)/cpythags.c\
+	$(CSRCDIR)/dpythags.c \
+	$(CSRCDIR)/spythags.c\
+	$(CSRCDIR)/zpythags.c \
+	$(CSRCDIR)/cacoss.c \
+	$(CSRCDIR)/cacosa.c \
+	$(CSRCDIR)/dacoss.c \
+	$(CSRCDIR)/dacosa.c \
+	$(CSRCDIR)/sacoss.c \
+	$(CSRCDIR)/sacosa.c \
+	$(CSRCDIR)/zacoss.c \
+	$(CSRCDIR)/zacosa.c  \
+	$(CSRCDIR)/catans.c \
+	$(CSRCDIR)/catana.c \
+	$(CSRCDIR)/datans.c \
+	$(CSRCDIR)/datana.c \
+	$(CSRCDIR)/satans.c \
+	$(CSRCDIR)/satana.c \
+	$(CSRCDIR)/zatans.c \
+	$(CSRCDIR)/zatana.c \
+	$(CSRCDIR)/dlnp1m1s.c \
+	$(CSRCDIR)/slnp1m1s.c\
+	$(CSRCDIR)/cacoshs.c \
+	$(CSRCDIR)/cacosha.c \
+	$(CSRCDIR)/dacoshs.c \
+	$(CSRCDIR)/dacosha.c \
+	$(CSRCDIR)/sacoshs.c \
+	$(CSRCDIR)/sacosha.c \
+	$(CSRCDIR)/zacoshs.c \
+	$(CSRCDIR)/zacosha.c 
 	
 	
 	
@@ -231,10 +262,6 @@ SWSRCS	=	\
 #	$(CSRCDIR)/zlog10s.c \
 #	$(CSRCDIR)/clog10a.c \
 #	$(CSRCDIR)/zlog10a.c \
-#	$(CSRCDIR)/cloga.c \
-#	$(CSRCDIR)/zloga.c \
-#	$(CSRCDIR)/clogs.c \
-#	$(CSRCDIR)/zlogs.c \
 #	$(CSRCDIR)/clog1ps.c \
 #	$(CSRCDIR)/zlog1ps.c \
 #	$(CSRCDIR)/clog1pa.c \
