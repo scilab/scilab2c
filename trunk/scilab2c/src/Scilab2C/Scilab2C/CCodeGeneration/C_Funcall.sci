@@ -105,14 +105,14 @@ for counterin = 1:NInArg
       
    if (InArg(counterin).Dimension == 0)
       if (FlagCall == 0)
-         CCall = CCall+TmpInArgType+' ';
+         CCall = CCall+' ';
       end
       CCall = CCall+TmpInArgName+',';
    else
       if (FlagCall == 0)
-         CCall = CCall+TmpInArgType+'* '+TmpInArgName+', SCI2Cint* __'+TmpInArgName+'Size,';
+         CCall = CCall+TmpInArgName+', SCI2Cint* __'+TmpInArgName+'Size,';
       else
-         CCall = CCall+'('+TmpInArgType+'* )'+TmpInArgName+',  '+TmpInArgSizeVar+',';
+         CCall = CCall+TmpInArgName+',  '+TmpInArgSizeVar+',';
       end
    end
 end
@@ -123,7 +123,7 @@ for counterout = 1:NOutArg
    if (counterout == PosFirstOutScalar)
       if (FlagCall == 0)
          // --- Write in the declaration file the returned output scalar (if any). ---
-         outscalardeclaration = TmpOutArgType+' '+TmpOutArgName+';';
+         outscalardeclaration = TmpOutArgName+';';
          PrintStringInfo(C_IndentBlanks(1)+outscalardeclaration,CDeclarationFileName,'file','y');
          PrintStringInfo(' ',CDeclarationFileName,'file','y');
       end
@@ -140,7 +140,7 @@ for counterout = 1:NOutArg
          end
       else
          if (FlagCall == 0)
-            CCall = CCall+TmpOutArgType+'* '+TmpOutArgName+',';
+            CCall = CCall+TmpOutArgName+',';
             if (OutArg(counterout).FindLike == 1)  
                CCall = CCall+'SCI2Cint* __'+TmpOutArgName+'Size'+',';
             end
@@ -152,7 +152,7 @@ for counterout = 1:NOutArg
             PrintStringInfo(C_IndentBlanks(1)+outscalardeclaration,CInitVarsFileName,'file','y');
             PrintStringInfo(' ',CInitVarsFileName,'file','y');
          else
-            CCall = CCall+'('+TmpOutArgType+'* )'+OutArg(counterout).Name+',';
+            CCall = CCall+OutArg(counterout).Name+',';
             if (OutArg(counterout).FindLike == 1)  
                CCall = CCall+'(SCI2Cint* ) __'+TmpOutArgName+'Size'+',';
             end            
