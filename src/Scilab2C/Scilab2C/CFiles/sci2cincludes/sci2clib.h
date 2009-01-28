@@ -76,6 +76,9 @@
 /* interfacing acos */
 #include "acos.h"
 #include "int_acos.h"
+/* interfacing acosh */
+#include "acosh.h"
+#include "int_acosh.h"
 /* interfacing atan */
 #include "atan.h"
 #include "int_atan.h"
