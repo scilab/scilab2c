@@ -36,88 +36,69 @@
 
 /* Scalar / Matrix */
 
-/* On transforme s0 en s2 pour appeler s2s2OpDotSlashs2*/
-#define s0s2OpSlashs2(in1,in2,size,out)			{float* temp;\
-									sfilla((float*)temp,size[0],size[1],in1);\
-									s2s2OpDotSlashs2((float*)temp,size,in2,size,out);\
-									}
 
-/* On transforme d0 en d2 */
-#define d0d2OpSlashd2(in1,in2,size,out)			{double* temp;\
-									dfilla((double*)temp,size[0],size[1],in1);\
-									d2d2OpDotSlashd2((double*)temp,size,in2,size,out);\
-									}
-									
-/* On transforme c0 en c2 */									
-#define c0c2OpSlashc2(in1,in2,size,out)			{floatComplex* temp;\
-									cfilla((floatComplex*)temp,size[0],size[1],in1);\
-									c2c2OpDotSlashc2((floatComplex*)temp,size,in2,size,out);\
-									}
-									
-/* On transforme z0 en z2 */
-#define z0z2OpSlashz2(in1,in2,size,out)			{doubleComplex* temp;\
-									zfilla((doubleComplex*)temp,size[0],size[1],in1);\
-									z2z2OpDotSlashz2((doubleComplex*)temp,size,in2,size,out);\
-									}
+#define s0s2OpSlashs2(in1,in2,size,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=in1/in2[i];}
 
-/* On transforme s0 en c0 pour appeler c0c2OpSlashc2 */
+
+#define d0d2OpSlashd2(in1,in2,size,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=in1/in2[i];}
+									
+									
+#define c0c2OpSlashc2(in1,in2,size,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=crdivs(in1,in2[i]);}
+
+
+#define z0z2OpSlashz2(in1,in2,size,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=zrdivs(in1,in2[i]);}
+
+
+
 #define s0c2OpSlashc2(in1,in2,size,out)			c0c2OpSlashc2(FloatComplex(in1,0),in2,size,out)
 
-/* On transforme d0 en z0 */
+
 #define d0z2OpSlashz2(in1,in2,size,out)			z0z2OpSlashz2(DoubleComplex(in1,0),in2,size,out)
 
-/* On transforme s2 en c2 */
-#define c0s2OpSlashc2(in1,in2,size,out)			{sfilla((float*)out,size[0],size[1],0);\
-									c0c2OpSlashc2(in1,FloatComplexMatrix(in2,(float*)out,size[0]*size[1]),size,out);\
-									}
 
-/* On transforme d2 en z2 */
-#define z0d2OpSlashz2(in1,in2,size,out)			{dfilla((double*)out,size[0],size[1],0);\
-									z0z2OpSlashz2(in1,DoubleComplexMatrix(in2,(double*)out,size[0]*size[1]),size,out);\
-									}
+
+#define c0s2OpSlashc2(in1,in2,size,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=crdivs(in1,FloatComplex(in2[i],0));}
+
+
+#define z0d2OpSlashz2(in1,in2,size,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=zrdivs(in1,DoubleComplex(in2[i],0));}
 
 
 /* Matrix / Scalar */
 
-/* On transforme s0 en s2 pour appeler s2s2OpDotSlashs2*/
-#define s2s0OpSlashs2(in1,size,in2,out)			{float* temp;\
-									sfilla((float*)temp,size[0],size[1],in2);\
-									s2s2OpDotSlashs2(in1,size,(float*)temp,size,out);\
-									}
 
-/* On transforme d0 en d2 */
-#define d2d0OpSlashd2(in1,size,in2,out)			{double* temp;\
-									dfilla((double*)temp,size[0],size[1],in2);\
-									d2d2OpDotSlashd2(in1,size,(double*)temp,size,out);\
-									}
+#define s2s0OpSlashs2(in1,size,in2,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=in1[i]/in2;}
+
+
+#define d2d0OpSlashd2(in1,size,in2,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=in1[i]/in2;}
 									
-/* On transforme c0 en c2 */
-#define c2c0OpSlashc2(in1,size,in2,out)			{floatComplex* temp;\
-									cfilla((floatComplex*)temp,size[0],size[1],in2);\
-									c2c2OpDotSlashc2(in1,size,(floatComplex*)temp,size,out);\
-									}
 
-/* On transforme z0 en z2 */
-#define z2z0OpSlashz2(in1,size,in2,out)			{doubleComplex* temp;\
-									zfilla((doubleComplex*)temp,size[0],size[1],in2);\
-									z2z2OpDotSlashz2(in1,size,(doubleComplex*)temp,size,out);\
-									}
+#define c2c0OpSlashc2(in1,size,in2,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=crdivs(in1[i],in2);}
 
-/* On transforme s2 en c2 pour appeler c2c0OpSlashc2 */
-#define s2c0OpSlashc2(in1,size,in2,out)			{sfilla((float*)out,size[0],size[1],0);\
-									c2c0OpSlashc2(FloatComplexMatrix(in1,(float*)out,size[0]*size[1]),size,in2,out);\
-									}
-			
-/* On transforme d2 en z2 */
-#define d2z0OpSlashz2(in1,size,in2,out)			{dfilla((double*)out,size[0],size[1],0);\
-									z0z2OpSlashz2(DoubleComplexMatrix(in1,(double*)out,size[0]*size[1]),size,in2,out);\
-									}
 
-		
-/* On transforme s0 en c0 */
+#define z2z0OpSlashz2(in1,size,in2,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=zrdivs(in1[i],in2);}
+
+
+#define s2c0OpSlashc2(in1,size,in2,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=crdivs(FloatComplex(in1[i],0),in2);}
+
+
+#define d2z0OpSlashz2(in1,size,in2,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=zrdivs(DoubleComplex(in1[i],0),in2);}
+
+
 #define c2s0OpSlashc2(in1,size,in2,out)			c2c0OpSlashc2(in1,size,FloatComplex(in2,0),out)
 			
-/* On transforme d0 en z0 */
+
 #define z2d0OpSlashz2(in1,size,in2,out)			z2z0OpSlashz2(in1,size,DoubleComplex(in2,0),out)
 			
 
@@ -132,14 +113,28 @@
 
 #define c2c2OpSlashc2(in1,size1,in2,size2,out)		crdivma(in1,size1[0],size1[1],in2,size2[0],size2[1],out)
 
-#define c2s2OpSlashc2(in1,size1,in2,size2,out)		crdivma(in1,size1[0],size1[1],FloatComplexMatrix(in2,0,size2[0]*size2[1]),size2[0],size2[1],out)
-
-#define s2c2OpSlashc2(in1,size1,in2,size2,out)		crdivma(FloatComplexMatrix(in1,0,size1[0]*size1[1]),size1[0],size1[1],in2,size2[0],size2[1],out)
-
 #define z2z2OpSlashz2(in1,size1,in2,size2,out)		zrdivma(in1,size1[0],size1[1],in2,size2[0],size2[1],out)
 
-#define z2d2OpSlashc2(in1,size1,in2,size2,out)		crdivma(in1,size1[0],size1[1],DoubleComplexMatrix(in2,0,size2[0]*size2[1]),size2[0],size2[1],out)
+/* FIXME: There is some malloc in the define below, maybe they can be remove */
+#define c2s2OpSlashc2(in1,size1,in2,size2,out)		{float* temp;\
+									temp=malloc((uint)(size2[0]*size2[1])*sizeof(float));\
+									sfilla(temp,size2[0],size2[1],0);\
+									c2c2OpSlashc2(in1, size1, FloatComplexMatrix(in2,temp,size2[0]*size2[1]), size2, out);}
 
-#define d2z2OpSlashc2(in1,size1,in2,size2,out)		crdivma(DoubleComplexMatrix(in1,0,size1[0]*size1[1]),size1[0],size1[1],in2,size2[0],size2[1],out)
+#define s2c2OpSlashc2(in1,size1,in2,size2,out)		{float* temp;\
+									temp=malloc((uint)(size1[0]*size1[1])*sizeof(float));\
+									sfilla(temp,size1[0],size1[1],0);\
+									c2c2OpSlashc2(FloatComplexMatrix(in2,temp,size1[0]*size1[1]), size1, in2, size2, out);}
+
+#define z2d2OpSlashc2(in1,size1,in2,size2,out)		{double* temp;\
+									temp=malloc((uint)(size2[0]*size2[1])*sizeof(double));\
+									dfilla(temp,size2[0],size2[1],0);\
+									z2z2OpSlashz2(in1, size1, DoubleComplexMatrix(in2,temp,size2[0]*size2[1]), size2, out);}
+
+#define d2z2OpSlashc2(in1,size1,in2,size2,out)		{double* temp;\
+									temp=malloc((uint)(size2[0]*size2[1])*sizeof(double));\
+									dfilla(temp,size1[0],size1[1],0);\
+									z2z2OpSlashz2(DoubleComplexMatrix(in1,temp,size1[0]*size1[1]), size1, in2, size2, out);}
+
 
 #endif /* !__INT_OPSLASH_H__ */
