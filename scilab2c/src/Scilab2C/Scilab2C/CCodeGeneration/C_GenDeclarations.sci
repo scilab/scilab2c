@@ -48,7 +48,7 @@ if (ArgStruct.Dimension > 0)
    else
       // Declare the array with its size.
       Cdeclaration(1) = Cdeclaration(1)+C_Type(ArgStruct.Type)+...
-         ' '+ArgStruct.Name+'['+ArgStruct.Size(1)+']['+ArgStruct.Size(2)+'];';
+         ' '+ArgStruct.Name+'['+ArgStruct.Size(1)+'*'+ArgStruct.Size(2)+'];';
       Cdeclaration(2) = Cdeclaration(2)+C_Type('i')+' __'+ArgStruct.Name+'Size[2] = {'+ArgStruct.Size(1)+','+ArgStruct.Size(2)+'};';
       NDeclarations   = 2;
    end
