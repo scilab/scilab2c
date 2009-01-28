@@ -39,49 +39,77 @@
 /* Matrix + Scalar */
 
 /*On transforme le scalaire en tableau et on se ramene à s2s2...s2*/
-#define s2s0OpPluss2(in1,size,in2,out)		sfilla((float*)out,size[0],size[1],in2);\
-								s2s2OpPluss2(in1,size,(float*)out,size,out)
+#define s2s0OpPluss2(in1,size,in2,out)		{float* temp;\
+								temp=malloc((uint)(size[0]*size[1])*sizeof(float));\
+								sfilla((float*)temp,size[0],size[1],in2);\
+								s2s2OpPluss2(in1,size,(float*)temp,size,out);\
+								free(temp);\
+								}
 								
 /*On transforme le scalaire en tableau et on se ramene à d2d2...d2*/
-#define d2d0OpPlusd2(in1,size,in2,out)		dfilla((double*)out,size[0],size[1],in2);\
-								d2d2OpPlusd2(in1,size,(double*)out,size,out)
+#define d2d0OpPlusd2(in1,size,in2,out)		{double* temp;\
+								temp=malloc((uint)(size[0]*size[1])*sizeof(double));\
+								dfilla((double*)out,size[0],size[1],in2);\
+								d2d2OpPlusd2(in1,size,(double*)out,size,out);\
+								free(temp);\
+								}
 								
 /*On transforme le scalaire en tableau et on se ramene à c2c2...c2*/								
-#define c2c0OpPlusc2(in1,size,in2,out)		cfilla((floatComplex*)out,size[0],size[1],in2);\
-								c2c2OpPlusc2(in1,size,(floatComplex*)out,size,out)
+#define c2c0OpPlusc2(in1,size,in2,out)		{floatComplex* temp;\
+								temp=malloc((uint)(size[0]*size[1])*sizeof(floatComplex));\
+								cfilla((floatComplex*)temp,size[0],size[1],in2);\
+								c2c2OpPlusc2(in1,size,(floatComplex*)temp,size,out);\
+								free(temp);\
+								}
 								
 /*On transforme le scalaire float en scalaire floatComplex pour pouvoir utiliser c2c0...c2*/	
 #define c2s0OpPlusc2(in1,size,in2,out)		c2c0OpPlusc2(in1,size,FloatComplex(in2,0),out)
 
 /*On transforme le tableau de float en tableau de floatComplex pour pouvoir utiliser c2c0...c2*/	
 #define s2c0OpPlusc2(in1,size,in2,out)		sfilla((float*)out,size[0],size[1],0);\
-								c2c0OpPlusc2(FloatComplexMatrix(in1,(float*)out,size[0]*size[1]),size,in2,out)
+								c2c0OpPlusc2(FloatComplexMatrix(in1,(float*)out,size[0]*size[1]),size,in2,out);
 								
 /*On transforme le scalaire en tableau et on se ramene à z2z2...z2*/
-#define z2z0OpPlusz2(in1,size,in2,out)		zfilla((doubleComplex*)out,size[0],size[1],in2);\
-								z2z2OpPlusz2(in1,size,(doubleComplex*)out,size,out)
+#define z2z0OpPlusz2(in1,size,in2,out)		{doubleComplex* temp;\
+								temp=malloc((uint)(size[0]*size[1])*sizeof(doubleComplex));\
+								zfilla((doubleComplex*)temp,size[0],size[1],in2);\
+								z2z2OpPlusz2(in1,size,(doubleComplex*)temp,size,out);\
+								free(temp);\
+								}
 								
 /*On transforme le scalaire double en scalaire doubleComplex pour pouvoir utiliser z2z0...z2*/
 #define z2d0OpPlusz2(in1,size,in2,out)		z2z0OpPlusz2(in1,size,DoubleComplex(in2,0),out)
 
 /*On transforme le tableau de double en tableau de doubleComplex pour pouvoir utiliser z2z0...z2*/
 #define d2z0OpPlusz2(in1,size,in2,out)		dfilla((double*)out,size[0],size[1],0);\
-								z2z0OpPlusz2(DoubleComplexMatrix(in1,(double*)out,size[0]*size[1]),size,in2,out)
+								z2z0OpPlusz2(DoubleComplexMatrix(in1,(double*)out,size[0]*size[1]),size,in2,out);
 
 
 /* Scalar + Matrix */
 
 /*On transforme le scalaire en tableau et on se ramene à s2s2...s2*/
-#define s0s2OpPluss2(in1,in2,size,out)		sfilla((float*)out,size[0],size[1],in1);\
-								s2s2OpPluss2((float*)out,size,in2,size,out)
+#define s0s2OpPluss2(in1,in2,size,out)		{float* temp;\
+								temp=malloc((uint)(size[0]*size[1])*sizeof(float));\
+								sfilla((float*)temp,size[0],size[1],in1);\
+								s2s2OpPluss2((float*)temp,size,in2,size,out);\
+								free(temp);\
+								}
 								
 /*On transforme le scalaire en tableau et on se ramene à d2d2...d2*/
-#define d0d2OpPlusd2(in1,in2,size,out)		dfilla((double*)out,size[0],size[1],in1);\
-								d2d2OpPlusd2((double*)out,size,in2,size,out)
+#define d0d2OpPlusd2(in1,in2,size,out)		{double* temp;\
+								temp=malloc((uint)(size[0]*size[1])*sizeof(double));\
+								dfilla((double*)temp,size[0],size[1],in1);\
+								d2d2OpPlusd2((double*)temp,size,in2,size,out);\
+								free(temp);\
+								}
 								
 /*On transforme le scalaire en tableau et on se ramene à c2c2...c2*/
-#define c0c2OpPlusc2(in1,in2,size,out)		cfilla((floatComplex*)out,size[0],size[1],in1);\
-								c2c2OpPlusc2((floatComplex*)out,size,in2,size,out)
+#define c0c2OpPlusc2(in1,in2,size,out)		{floatComplex* temp;\
+								temp=malloc((uint)(size[0]*size[1])*sizeof(floatComplex));\
+								cfilla((floatComplex*)temp,size[0],size[1],in1);\
+								c2c2OpPlusc2((floatComplex*)temp,size,in2,size,out);\
+								free(temp);\
+								}
 								
 /*On transforme le scalaire float en scalaire floatComplex pour pouvoir utiliser c0c2...c2*/	
 #define s0c2OpPlusc2(in1,in2,size,out)		c0c2OpPlusc2(FloatComplex(in1,0),in2,size,out)	
@@ -91,8 +119,12 @@
 								c0c2OpPlusc2(in1,FloatComplexMatrix(in2,(float*)out,size[0]*size[1]),size,out)
 								
 /*On transforme le scalaire en tableau et on se ramene à z2z2...z2*/
-#define z0z2OpPlusz2(in1,in2,size,out)		zfilla((doubleComplex*)out,size[0],size[1],in1);\
-								z2z2OpPlusz2((doubleComplex*)out,size,in2,size,out)
+#define z0z2OpPlusz2(in1,in2,size,out)		{doubleComplex* temp;\
+								temp=malloc((uint)(size[0]*size[1])*sizeof(doubleComplex));\
+								zfilla((doubleComplex*)temp,size[0],size[1],in1);\
+								z2z2OpPlusz2((doubleComplex*)temp,size,in2,size,out);\
+								free(temp);\
+								}
 								
 /*On transforme le scalaire double en scalaire doubleComplex pour pouvoir utiliser z0z2...z2*/
 #define d0z2OpPlusz2(in1,in2,size,out)		z0z2OpPlusz2(DoubleComplex(in1,0),in2,size,out)
