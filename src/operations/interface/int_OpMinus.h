@@ -108,8 +108,9 @@
 #define d0z2OpMinusz2(in1,in2,size,out)		z0z2OpMinusz2(DoubleComplex(in1,0),in2,size,out)
 
 
-#define z0d2OpMinusz2(in1,in2,size,out)		dfilla((double*)out,size[0],size[1],0);\
-								z0z2OpMinusz2(in1,DoubleComplexMatrix(in2,(double*)out,size[0]*size[1]),size,out)
+#define z0d2OpMinusz2(in1,in2,size,out)		{int i=0;\
+								for (i=0;i<size[0]*size[1];i++) out[i]=zdiffs(in1,DoubleComplex(in2[i],0));\
+								}
 								
 
 
@@ -123,21 +124,21 @@
 
 
 #define s2c2OpMinusc2(in1,size1,in2,size2,out)		{int i;\
-									for (i=0;i<size[0]*size[1];i++) out[i]=cdiffs(FloatComplex(in1[i],0),in2[i]);}
+									for (i=0;i<size1[0]*size2[1];i++) out[i]=cdiffs(FloatComplex(in1[i],0),in2[i]);}
 									
 
 #define c2s2OpMinusc2(in1,size1,in2,size2,out)		{int i;\
-									for (i=0;i<size[0]*size[1];i++) out[i]=cdiffs(in1[i],FloatComplex(in2[i],0));}
+									for (i=0;i<size1[0]*size2[1];i++) out[i]=cdiffs(in1[i],FloatComplex(in2[i],0));}
 
 #define z2z2OpMinusz2(in1,size1,in2,size2,out)		zdiffa(in1, size1[0]*size1[1], in2, size2[0]*size2[1], out)
 
 
 #define d2z2OpMinusz2(in1,size1,in2,size2,out)		{int i;\
-									for (i=0;i<size[0]*size[1];i++) out[i]=zdiffs(DoubleComplex(in1[i],0),in2[i]);}
+									for (i=0;i<size1[0]*size2[1];i++) out[i]=zdiffs(DoubleComplex(in1[i],0),in2[i]);}
 									
 
 #define z2d2OpMinusz2(in1,size1,in2,size2,out)		{int i;\
-									for (i=0;i<size[0]*size[1];i++) out[i]=zdiffs(in1[i],DoubleComplex(in2[i],0));}
+									for (i=0;i<size1[0]*size2[1];i++) out[i]=zdiffs(in1[i],DoubleComplex(in2[i],0));}
 
 
 

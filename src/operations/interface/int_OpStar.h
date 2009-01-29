@@ -38,11 +38,11 @@
 
 
 #define s0s2OpStars2(in1,in2,size,out)			{int i=0;\
-									for (i=0;i<size[0]*size[1];i++) out[i]=in1/in2[i];}
+									for (i=0;i<size[0]*size[1];i++) out[i]=in1*in2[i];}
 
 
 #define d0d2OpStard2(in1,in2,size,out)			{int i=0;\
-									for (i=0;i<size[0]*size[1];i++) out[i]=in1/in2[i];}
+									for (i=0;i<size[0]*size[1];i++) out[i]=in1*in2[i];}
 
 
 #define c0c2OpStarc2(in1,in2,size,out)			{int i=0;\
@@ -69,11 +69,11 @@
 
 
 #define s2s0OpStars2(in1,size,in2,out)			{int i=0;\
-									for (i=0;i<size[0]*size[1];i++) out[i]=in1[i]/in2;}
+									for (i=0;i<size[0]*size[1];i++) out[i]=in1[i]*in2;}
 									
 
 #define d2d0OpStard2(in1,size,in2,out)			{int i=0;\
-									for (i=0;i<size[0]*size[1];i++) out[i]=in1[i]/in2;}
+									for (i=0;i<size[0]*size[1];i++) out[i]=in1[i]*in2;}
 
 
 #define c2c0OpStarc2(in1,size,in2,out)			{int i=0;\
@@ -88,7 +88,7 @@
 									
 
 #define d2z0OpStarz2(in1,size,in2,out)			{int i=0;\
-									for (i=0;i<size[0]*size[1];i++) out[i]=cmuls(DoubleComplex(in1[i],0),in2);}
+									for (i=0;i<size[0]*size[1];i++) out[i]=zmuls(DoubleComplex(in1[i],0),in2);}
 
 
 #define c2s0OpStarc2(in1,size,in2,out)			c2c0OpStarc2(in1,size,FloatComplex(in2,0),out)
@@ -115,14 +115,14 @@
 #define s2c2OpStarc2(in1,size1,in2,size2,out)		{float* temp;\
 									temp=malloc((uint)(size1[0]*size1[1])*sizeof(float));\
 									sfilla(temp,size1[0],size1[1],0);\
-									c2c2OpStarc2(FloatComplexMatrix(in2,temp,size1[0]*size1[1]), size1, in2, size2, out);}
+									c2c2OpStarc2(FloatComplexMatrix(in1,temp,size1[0]*size1[1]), size1, in2, size2, out);}
 
-#define z2d2OpStarc2(in1,size1,in2,size2,out)		{double* temp;\
+#define z2d2OpStarz2(in1,size1,in2,size2,out)		{double* temp;\
 									temp=malloc((uint)(size2[0]*size2[1])*sizeof(double));\
 									dfilla(temp,size2[0],size2[1],0);\
 									z2z2OpStarz2(in1, size1, DoubleComplexMatrix(in2,temp,size2[0]*size2[1]), size2, out);}
 
-#define d2z2OpStarc2(in1,size1,in2,size2,out)		{double* temp;\
+#define d2z2OpStarz2(in1,size1,in2,size2,out)		{double* temp;\
 									temp=malloc((uint)(size2[0]*size2[1])*sizeof(double));\
 									dfilla(temp,size1[0],size1[1],0);\
 									z2z2OpStarz2(DoubleComplexMatrix(in1,temp,size1[0]*size1[1]), size1, in2, size2, out);}
