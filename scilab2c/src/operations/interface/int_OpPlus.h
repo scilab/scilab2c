@@ -72,11 +72,11 @@
 /* Scalar + Matrix */
 
 #define s0s2OpPluss2(in1,in2,size,out)		{int i=0;\
-								for (i=0;i<size[0]*size[1];i++) out[i]=in1+in2;[i]\
+								for (i=0;i<size[0]*size[1];i++) out[i]=in1+in2[i];\
 								}
 								
 #define d0d2OpPlusd2(in1,in2,size,out)		{int i=0;\
-								for (i=0;i<size[0]*size[1];i++) out[i]=in1+in2;[i]\
+								for (i=0;i<size[0]*size[1];i++) out[i]=in1+in2[i];\
 								}
 								
 #define c0c2OpPlusc2(in1,in2,size,out)		{int i=0;\
@@ -113,23 +113,23 @@
 
 
 #define s2c2OpPlusc2(in1,size1,in2,size2,out)		{int i=0;\
-									for (i=0;i<size[0]*size[1];i++) out[i]=cadds(FloatComplex(in1[i],0),in2[i]);\
+									for (i=0;i<size1[0]*size2[1];i++) out[i]=cadds(FloatComplex(in1[i],0),in2[i]);\
 									}
 									
 #define c2s2OpPlusc2(in1,size1,in2,size2,out)		{int i=0;\
-									for (i=0;i<size[0]*size[1];i++) out[i]=cadds(in1[i],FloatComplex(in2[i],0));\
+									for (i=0;i<size1[0]*size2[1];i++) out[i]=cadds(in1[i],FloatComplex(in2[i],0));\
 									}
 
 #define z2z2OpPlusz2(in1,size1,in2,size2,out)		zadda(in1, size1[0]*size1[1], in2, size2[0]*size2[1], out)
 
 
 #define d2z2OpPlusz2(in1,size1,in2,size2,out)		{int i=0;\
-									for (i=0;i<size[0]*size[1];i++) out[i]=zadds(DoubleComplex(in1[i],0),in2[i]);\
+									for (i=0;i<size1[0]*size2[1];i++) out[i]=zadds(DoubleComplex(in1[i],0),in2[i]);\
 									}
 									
 
 #define z2d2OpPlusz2(in1,size1,in2,size2,out)		{int i=0;\
-									for (i=0;i<size[0]*size[1];i++) out[i]=zadds(in1[i],DoubleComplex(in2[i],0));\
+									for (i=0;i<size1[0]*size2[1];i++) out[i]=zadds(in1[i],DoubleComplex(in2[i],0));\
 									}
 
 
