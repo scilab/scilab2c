@@ -98,7 +98,19 @@ void	zrdivma(	doubleComplex* in1, int lines1, int columns1 ,
 			{
 				cNorm	= 'N';
 				C2F(zgetrs)(&cNorm, &columns2, &lines1, poAf, &columns2, pIpiv, poBt, &columns2, &iInfo);
-				ztransposea(poBt, columns2, lines2, out);
+				{
+				int i,j,ij,ji;
+				for(j = 0 ; j < lines2 ; j++)
+				{
+					for(i = 0 ; i < lines1 ; i++)
+					{
+						ij = i + j * lines1;
+						ji = j + i * max(lines2, columns2);
+						out[ij] 	=  DoubleComplex (  zreals( poBt[ji]) , -zimags ( poBt[ji]));
+					    printf ( "\n\t\t\t<debug>%e + %e\n " ,  zreals( poBt[ji]) , -zimags ( poBt[ji]));
+                   		}
+                   	}
+                   	}
 				
 				iExit = 1;
 			}

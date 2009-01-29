@@ -408,26 +408,31 @@ static void zrdivmaTest ( void ){
  -0.44037299008464365}
 ;*/
     
-    double tin1[] = { 1 , 3 , 2 ,4};
-    double tin2[] = { 1 , 2};
-    
-	
+	double bR[6]={1,4,2,5,3,6};
+	double bI[6]={1,0,4,0,1,2};
+	double dR[9]={4,8,3,2,8,4,3,4,5};
+	double dI[9]={0,0,4,0,-1,0,0,0,0};
+	double rR[6]={0.9845119462120300868335,1.191739704646416209144,- 0.1118981870572697823185,
+	0.2069876335694560698375,0.0988113819185977154680,0.3193660703565854852570};
+	double rI[6]={- 1.3492616160403412273183,- 0.3196061952215153434409,0.5309160763597071674980,
+	- 0.3168447592748228625048,0.5848241085364388469614,0.8452395245527674072505};
 	doubleComplex* in1 ;
 	doubleComplex* in2 ;
-	doubleComplex out[ZLINES2*ZCOLUMNS]  ;
-	doubleComplex Result[ZLINES1*ZLINES2] ;
+	doubleComplex* out  ;
+	doubleComplex* Result ;
 
-	in1 = DoubleComplexMatrix (  tin1 , tin1 , ZLINES1*ZCOLUMNS );
-	in2 = DoubleComplexMatrix (  tin2 , tin2 , ZLINES2*ZCOLUMNS );
+	in1 = DoubleComplexMatrix ( bR,bI,6 );
+	in2 = DoubleComplexMatrix ( dR,dI,9 );
+	out = malloc((uint)6*sizeof(doubleComplex));
+	Result = malloc((uint)6*sizeof(doubleComplex));
 	
-    Result[0] = DoubleComplex ( 1 ,  0 );
-    Result[1] = DoubleComplex ( 2.2   , 0 );
+    Result = DoubleComplexMatrix ( rR   , rI , 6 );
     
-	zrdivma ( in1 , ZLINES1 , ZCOLUMNS , in2 ,ZLINES2 , ZCOLUMNS , out) ;
+	zrdivma ( in1 , 2 , 3 , in2 ,3 , 3 , out) ;
 	
-    for ( i = 0 ; i < (ZLINES2*ZCOLUMNS )  ; i++ )
+    for ( i = 0 ; i < (6 )  ; i++ )
 	{
-	  printf ( "\t\t %d out : %e + %e * i  result : %e + %e * i  assert : %e + %e \n" ,
+	  printf ( "\t\t %d out : %1.20f + %1.20f * i  result : %1.20f + %1.20f * i  assert : %e + %e \n" ,
               i ,zreals(out[i]) , zimags(out[i]) , zreals (Result[i])  , zimags (Result[i]),
               fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) ,
               fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i])));
@@ -437,13 +442,13 @@ static void zrdivmaTest ( void ){
     if (  zreals(out[i])  < 1e-16 && zreals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else         
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 1e-16 );
+        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 1e-15 );
     
         
     if (  zimags(out[i])  < 1e-16 && zimags (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else         
-	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-16  ) ;
+	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-15  ) ;
 
 	}
 }
