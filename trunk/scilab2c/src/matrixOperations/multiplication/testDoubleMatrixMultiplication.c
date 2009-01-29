@@ -118,6 +118,9 @@ static void dmulmaTest(void) {
   double M8[6] = {1.0, 3.0, 5.0, 2.0, 4.0, 6.0};
   double M7_by_M8[4];
   double miscM7_by_M8[9];
+  double M9[6] = {1, 4, 2, 5, 3, 6};
+  double M10[9] = {4, 8, 3, 2, 8, 4, 3, 4, 5};
+  double M9_by_M10[6];
 
   int i = 0;
 
@@ -192,6 +195,23 @@ static void dmulmaTest(void) {
   assert(miscM7_by_M8[6] == 34.0);
   assert(miscM7_by_M8[7] == 34.0);
   assert(miscM7_by_M8[8] == 44.0);
+
+   /*
+     [ 1 2 3 ] * [ 4 2 3 ] = [ 29 30 26 ]
+     [ 4 5 6 ]   [ 8 8 4 ]   [ 74 72 62 ]
+                 [ 3 4 5 ]
+   */
+  dmulma(M9, 2, 3, M10, 3, 3, M9_by_M10);
+  for (i = 0; i < 6; ++i) {
+    printf("M9_by_M10[%d] = %e\n", i, M9_by_M10[i]);
+  }
+  assert(M9_by_M10[0] == 29.0);
+  assert(M9_by_M10[1] == 74.0);
+  assert(M9_by_M10[2] == 30.0);
+  assert(M9_by_M10[3] == 72.0);
+  assert(M9_by_M10[4] == 26.0);
+  assert(M9_by_M10[5] == 62.0);
+
 }
 
 static int testDoubleMultiplication(void) {
