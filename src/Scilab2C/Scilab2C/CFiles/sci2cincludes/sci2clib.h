@@ -104,6 +104,7 @@
 #include "int_OpDotStar.h"
 /* interfacing division */
 #include "division.h"
+#include "matrixDivision.h"
 #include "int_OpSlash.h"
 #include "int_OpDotSlash.h"
 #include "int_OpBackSlash.h"
