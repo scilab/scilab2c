@@ -72,6 +72,8 @@
 #include "pythag.h"
 /* interfacing frexp */
 #include "frexp.h"
+/* interfacing sign */
+#include "sign.h"
 
 /* ELEMENTARY FUNCTIONS */
 
