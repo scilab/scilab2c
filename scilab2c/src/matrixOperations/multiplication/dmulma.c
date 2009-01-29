@@ -37,8 +37,8 @@ void	dmulma(double *in1, int lines1, int columns1,
   double Zero		= 0;
 
   /* Cr <-  1*Ar*Br + 0*Cr */
-  dgemm_("N","N", &columns2, &columns2, &columns1, &One,
-	 in1 , &lines1, in2, &lines2, &Zero, out, &columns2);
+  dgemm_("N","N", &lines1, &columns2, &columns1, &One,
+	 in1 , &lines1, in2, &lines2, &Zero, out, &lines1);
 #else
   /*
   ** DO NOT USE ANY BLAS FUNCTION.
