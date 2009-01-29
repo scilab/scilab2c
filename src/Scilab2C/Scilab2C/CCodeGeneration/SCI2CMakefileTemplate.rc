@@ -70,14 +70,6 @@ SWSRCS	=	\
 	$(CSRCDIR)/dmeana.c \
 	$(CSRCDIR)/cmeana.c \
 	$(CSRCDIR)/zmeana.c \
-	$(CSRCDIR)/sexps.c \
-	$(CSRCDIR)/dexps.c \
-	$(CSRCDIR)/cexps.c \
-	$(CSRCDIR)/zexps.c \
-	$(CSRCDIR)/sexpa.c \
-	$(CSRCDIR)/dexpa.c \
-	$(CSRCDIR)/cexpa.c \
-	$(CSRCDIR)/zexpa.c \
 	$(CSRCDIR)/slog10s.c \
 	$(CSRCDIR)/dlog10s.c \
 	$(CSRCDIR)/slog10a.c \
@@ -260,8 +252,33 @@ SWSRCS	=	\
 	$(CSRCDIR)/cldivma.c \
 	$(CSRCDIR)/dldivma.c \
 	$(CSRCDIR)/sldivma.c \
-	$(CSRCDIR)/zldivma.c 
-	
+	$(CSRCDIR)/zldivma.c \
+#####   invesion	#########\
+	$(CSRCDIR)/cinverma.c \
+	$(CSRCDIR)/dinverma.c \
+	$(CSRCDIR)/sinverma.c \
+	$(CSRCDIR)/zinverma.c \
+#####   exp and expm	#########\
+	$(CSRCDIR)/cexps.c \
+	$(CSRCDIR)/dexps.c \
+	$(CSRCDIR)/cexps.c \
+	$(CSRCDIR)/zexps.c \
+	$(CSRCDIR)/cexpa.c \
+	$(CSRCDIR)/dexpa.c \
+	$(CSRCDIR)/sexpa.c \
+	$(CSRCDIR)/zexpa.c \
+	$(CSRCDIR)/cexpma.c \
+	$(CSRCDIR)/dexpma.c \
+	$(CSRCDIR)/sexpma.c \
+	$(CSRCDIR)/zexpma.c \
+#####   frexp	#########\	
+	$(CSRCDIR)/dfrexps.c \
+	$(CSRCDIR)/sfrexps.c \
+#####   frexp	#########\		
+	$(CSRCDIR)/cinfnorma.c \	
+	$(CSRCDIR)/dinfnorma.c \	
+	$(CSRCDIR)/sinfnorma.c \	
+	$(CSRCDIR)/zinfnorma.c 
 	
 	
 	
