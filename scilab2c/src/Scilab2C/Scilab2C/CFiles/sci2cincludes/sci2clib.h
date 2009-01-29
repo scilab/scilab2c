@@ -70,6 +70,8 @@
 #include "int_conj.h"
 /* interfacing pythag */
 #include "pythag.h"
+/* interfacing frexp */
+#include "frexp.h"
 
 /* ELEMENTARY FUNCTIONS */
 
@@ -90,6 +92,9 @@
 /* interfacing log */
 #include "log.h"
 #include "int_log.h"
+/* interfacing exp */
+#include "exp.h"
+#include "int_exp.h"
 
 
 /* OPERATIONS */
@@ -131,6 +136,11 @@
 /* interefacing inversion */
 #include "matrixInversion.h"
 #include "int_invert.h"
+/* interfacing expm */
+#include "matrixExponential.h"
+#include "int_expm.h"
+/* interefacing infinite norm */
+#include "infiniteNorm.h"
 
 /* STATISTICS FUNCTIONS */
 
