@@ -1,0 +1,1 @@
+../../../../elementaryFunctions/pow/spows.c
