@@ -126,12 +126,12 @@
 									sfilla(temp,size1[0],size1[1],0);\
 									c2c2OpSlashc2(FloatComplexMatrix(in2,temp,size1[0]*size1[1]), size1, in2, size2, out);}
 
-#define z2d2OpSlashc2(in1,size1,in2,size2,out)		{double* temp;\
+#define z2d2OpSlashz2(in1,size1,in2,size2,out)		{double* temp;\
 									temp=malloc((uint)(size2[0]*size2[1])*sizeof(double));\
 									dfilla(temp,size2[0],size2[1],0);\
 									z2z2OpSlashz2(in1, size1, DoubleComplexMatrix(in2,temp,size2[0]*size2[1]), size2, out);}
 
-#define d2z2OpSlashc2(in1,size1,in2,size2,out)		{double* temp;\
+#define d2z2OpSlashz2(in1,size1,in2,size2,out)		{double* temp;\
 									temp=malloc((uint)(size2[0]*size2[1])*sizeof(double));\
 									dfilla(temp,size1[0],size1[1],0);\
 									z2z2OpSlashz2(DoubleComplexMatrix(in1,temp,size1[0]*size1[1]), size1, in2, size2, out);}

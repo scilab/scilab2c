@@ -252,7 +252,15 @@ SWSRCS	=	\
 	$(CSRCDIR)/sacoshs.c \
 	$(CSRCDIR)/sacosha.c \
 	$(CSRCDIR)/zacoshs.c \
-	$(CSRCDIR)/zacosha.c 
+	$(CSRCDIR)/zacosha.c\
+	$(CSRCDIR)/crdivma.c \
+	$(CSRCDIR)/drdivma.c \
+	$(CSRCDIR)/srdivma.c \
+	$(CSRCDIR)/zrdivma.c\
+	$(CSRCDIR)/cldivma.c \
+	$(CSRCDIR)/dldivma.c \
+	$(CSRCDIR)/sldivma.c \
+	$(CSRCDIR)/zldivma.c 
 	
 	
 	
