@@ -32,7 +32,8 @@ libMatrixDivision_la_SOURCES = 	$(HEAD) \
 				crdivma.c \
 				cldivma.c
 
-check_PROGRAMS = 	testMatrixRDivision
+check_PROGRAMS = 	testMatrixRDivision \
+			testMatrixLDivision
 
 check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
@@ -52,10 +53,13 @@ check_INCLUDES =	-I $(top_builddir)/type \
 			-I $(top_builddir)/operations/includes \
 			-I $(top_builddir)/elementaryFunctions/includes
 
-
+ztestMatrixLDivision_SOURCES =    testMatrixLDivision.c
+testMatrixLDivision_LDADD = $(check_LDADD)
+testMatrixLDivision_CFLAGS = $(check_INCLUDES)
 
 testMatrixRDivision_SOURCES =    testMatrixRDivision.c
 testMatrixRDivision_LDADD = $(check_LDADD)
 testMatrixRDivision_CFLAGS = $(check_INCLUDES)
 
-TESTS =		testMatrixRDivision
+TESTS =		testMatrixRDivision \
+		testMatrixLDivision
