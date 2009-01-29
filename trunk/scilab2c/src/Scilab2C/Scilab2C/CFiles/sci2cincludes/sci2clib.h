@@ -42,8 +42,6 @@
 #include "int_sqrt.h"
 #include "abs.h"
 #include "int_abs.h"
-#include "exp.h"
-#include "int_exp.h"
 #include "log1p.h"
 #include "log.h"
 #include "int_log.h"
