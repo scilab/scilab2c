@@ -80,7 +80,6 @@ void	zmulma(doubleComplex *in1, int lines1, int columns1,
   free(RealOut);
   free(ImagOut);
 #else
-    */
   /*
   ** DO NOT USE ANY BLAS FUNCTION.
   */
