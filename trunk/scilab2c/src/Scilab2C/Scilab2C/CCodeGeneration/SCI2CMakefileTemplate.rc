@@ -253,12 +253,10 @@ SWSRCS	=	\
 	$(CSRCDIR)/dldivma.c \
 	$(CSRCDIR)/sldivma.c \
 	$(CSRCDIR)/zldivma.c \
-#####   invesion	#########\
 	$(CSRCDIR)/cinverma.c \
 	$(CSRCDIR)/dinverma.c \
 	$(CSRCDIR)/sinverma.c \
 	$(CSRCDIR)/zinverma.c \
-#####   exp and expm	#########\
 	$(CSRCDIR)/cexps.c \
 	$(CSRCDIR)/dexps.c \
 	$(CSRCDIR)/cexps.c \
@@ -271,14 +269,20 @@ SWSRCS	=	\
 	$(CSRCDIR)/dexpma.c \
 	$(CSRCDIR)/sexpma.c \
 	$(CSRCDIR)/zexpma.c \
-#####   frexp	#########\	
 	$(CSRCDIR)/dfrexps.c \
 	$(CSRCDIR)/sfrexps.c \
-#####   frexp	#########\		
-	$(CSRCDIR)/cinfnorma.c \	
-	$(CSRCDIR)/dinfnorma.c \	
-	$(CSRCDIR)/sinfnorma.c \	
-	$(CSRCDIR)/zinfnorma.c 
+	$(CSRCDIR)/cinfnorma.c \
+	$(CSRCDIR)/dinfnorma.c \
+	$(CSRCDIR)/sinfnorma.c \
+	$(CSRCDIR)/zinfnorma.c \
+	$(CSRCDIR)/csigns.c \
+	$(CSRCDIR)/csigna.c \
+	$(CSRCDIR)/dsigns.c \
+	$(CSRCDIR)/dsigna.c \
+	$(CSRCDIR)/ssigns.c \
+	$(CSRCDIR)/ssigna.c \
+	$(CSRCDIR)/zsigns.c \
+	$(CSRCDIR)/zsigna.c 	
 	
 	
 	
