@@ -128,6 +128,9 @@
 #include "int_trace.h"
 /* interfacing tranpose */
 #include "matrixTranspose.h"
+/* interefacing inversion */
+#include "matrixInversion.h"
+#include "int_invert.h"
 
 /* STATISTICS FUNCTIONS */
 
