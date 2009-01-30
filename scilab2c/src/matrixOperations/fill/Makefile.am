@@ -11,7 +11,6 @@
 ##
 
 libMatrixFill_la_CFLAGS =	-I $(top_builddir)/type \
-				-I $(top_builddir)/operations/includes \
 				-I $(top_builddir)/matrixOperations/includes
 
 instdir = $(top_builddir)/lib
@@ -36,12 +35,9 @@ check_PROGRAMS = 	testDoubleFill   testFloatFill
 
 check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
-			$(top_builddir)/matrixOperations/ones/libMatrixOnes.la \
 			libMatrixFill.la
 
 check_INCLUDES =	-I $(top_builddir)/type \
-			-I $(top_builddir)/operations/includes \
 			-I $(top_builddir)/matrixOperations/includes
 
 testDoubleFill_SOURCES = testDoubleFill.c

@@ -28,6 +28,7 @@ static void zfillaTest(){
 	doubleComplex in[9];
 	doubleComplex constant=DoubleComplex(1,1);
 	int i;
+	
 	zfilla(in, 3, 3, constant);
 	for (i=0;i<9;i++)
 		printf("indice : %d  --  valeur : %f+%f *i\n",i,zreals(in[i]),zimags(in[i]));

@@ -13,12 +13,10 @@
 
 
 #include "fill.h"
-#include "ones.h"
 
 
 void dfilla (double* in, int rows, int cols, double constant){
 	int i;
 	
-	donesa(in,rows,cols);
-	for (i=0;i<rows*cols;i++) in[i]*=constant;
+	for (i=0;i<rows*cols;i++) in[i]=constant;
 }
