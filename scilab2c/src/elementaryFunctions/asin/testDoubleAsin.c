@@ -476,7 +476,7 @@ void zasinaTest(void) {
 
 	for (i=0;i<200;i++){
 		assert( ( (fabs(zreals(out[i])-resR[i])) / (fabs(zreals(out[i]))) ) <1e-15);
-		assert( ( (fabs(zimags(out[i])-resI[i])) / (fabs(zimags(out[i]))) ) <1e-1);
+		assert( ( (fabs(zimags(out[i])-resI[i])) / (fabs(zimags(out[i]))) ) <1e-15);
 	}
 }
 
