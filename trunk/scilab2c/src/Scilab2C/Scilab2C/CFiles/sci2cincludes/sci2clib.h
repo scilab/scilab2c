@@ -11,17 +11,12 @@
 #include "max.h"
 #include "floatComplex.h"
 #include "RealToComplex.h"
-#include "conj.h"
 #include "ones.h"
 #include "zeros.h"
 #include "OpApex.h"
 #include "OpColon.h"
-#include "OpDotSlash.h"
 #include "OpDotHat.h"
 #include "OpEqual.h"
-#include "OpPlus.h"
-#include "OpMinus.h"
-#include "OpStar.h"
 #include "OpIns.h"
 #include "OpExt.h"
 #include "FileManagement.h"
@@ -33,8 +28,6 @@
 #include "OpLogOr.h"
 #include "OpLogAnd.h"
 #include "ConvertPrecision.h"
-#include "sqrt.h"
-#include "int_sqrt.h"
 #include "abs.h"
 #include "int_abs.h"
 #include "log10.h"
@@ -73,6 +66,9 @@
 /* interfacing acosh */
 #include "acosh.h"
 #include "int_acosh.h"
+/* interfacing asin */
+#include "asin.h"
+#include "int_asin.h"
 /* interfacing atan */
 #include "atan.h"
 #include "int_atan.h"
@@ -102,6 +98,9 @@
 /* interfacing sinh */
 #include "sinh.h"
 #include "int_sinh.h"
+/* interfacing sqrt */
+#include "sqrt.h"
+#include "int_sqrt.h"
 
 /* OPERATIONS */
 /* interfacing addition */
