@@ -399,7 +399,7 @@
  -18.7135188739136353f,-17.6467699531147559f,-16.5820479292089722f,-17.0861611432949942f,\
  -19.7638794191151916f,-21.2748129090505991f}
 
-
+/* FIXME: assert are 1e04 and 1e14 */
 static void sexpmaTest (void ) {
   
   int i = 0 ;
@@ -410,6 +410,11 @@ static void sexpmaTest (void ) {
   
   float out[LEADDIM*LEADDIM] ;
     
+  float mon_test[9]={4,8,3,2,8,4,3,4,5};
+  float result_mon_test[9]={179660.90104359941324219f,452187.79172967246267945f,273148.88425553269917145f,
+  163436.47016010177321732f,411353.63271151197841391f,248489.23907714022789150f,
+  138776.82498170930193737f,349268.28353250800864771f,210989.61389596699154936f}; 
+  float out_mon_test[9] ;
     
   sexpma ( in,  out, LEADDIM) ; 
         
@@ -417,6 +422,13 @@ static void sexpmaTest (void ) {
 	{
 		printf ( "\t\t %d out : %e\tresult : %e\tassert : %e \n" , i , out[i] , result[i] , fabs ( out[i] - result[i] ) / fabs( out[i]) ) ;	
 		assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 1e-5 ) ;
+	} 
+	
+  sexpma(mon_test,out_mon_test,3);
+    	for ( i = 0 ; i < 9  ; i++ )
+	{
+		printf ( "\t\t %d out : %e\tresult : %e\tassert : %e \n" , i , out[i] , result[i] , fabs ( out[i] - result[i] ) / fabs( out[i]) ) ;	
+		assert ( fabs ( out_mon_test[i] - result_mon_test[i] ) / fabs( out_mon_test[i]) < 1e-5 ) ;
 	}  
 }
 

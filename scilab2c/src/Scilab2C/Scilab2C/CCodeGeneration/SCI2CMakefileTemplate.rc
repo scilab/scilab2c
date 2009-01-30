@@ -259,7 +259,7 @@ SWSRCS	=	\
 	$(CSRCDIR)/zinverma.c \
 	$(CSRCDIR)/cexps.c \
 	$(CSRCDIR)/dexps.c \
-	$(CSRCDIR)/cexps.c \
+	$(CSRCDIR)/sexps.c \
 	$(CSRCDIR)/zexps.c \
 	$(CSRCDIR)/cexpa.c \
 	$(CSRCDIR)/dexpa.c \
@@ -282,7 +282,11 @@ SWSRCS	=	\
 	$(CSRCDIR)/ssigns.c \
 	$(CSRCDIR)/ssigna.c \
 	$(CSRCDIR)/zsigns.c \
-	$(CSRCDIR)/zsigna.c 	
+	$(CSRCDIR)/zsigna.c \
+	$(CSRCDIR)/cdeterma.c \
+	$(CSRCDIR)/ddeterma.c \
+	$(CSRCDIR)/sdeterma.c \
+	$(CSRCDIR)/zdeterma.c	
 	
 	
 	

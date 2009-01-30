@@ -433,6 +433,9 @@ void dexpsTest(void) {
 		out=dexps(in[i]);
 		assert(( (fabs(out-res[i]))/(fabs(out)) )<1e-15);
 	}
+	
+	assert(( (fabs(exp(3)-20.085536923187671476398))/(exp(3)) )<1e-15);
+	
 }
 
 void zexpsTest(void) {

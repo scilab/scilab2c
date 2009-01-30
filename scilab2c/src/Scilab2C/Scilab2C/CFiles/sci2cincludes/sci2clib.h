@@ -141,6 +141,9 @@
 #include "int_expm.h"
 /* interefacing infinite norm */
 #include "infiniteNorm.h"
+/* interefacing determinant */
+#include "determ.h"
+#include "int_det.h"
 
 /* STATISTICS FUNCTIONS */
 
