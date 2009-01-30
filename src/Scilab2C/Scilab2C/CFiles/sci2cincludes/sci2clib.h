@@ -36,8 +36,6 @@
 #include "OpLogOr.h"
 #include "OpLogAnd.h"
 #include "ConvertPrecision.h"
-#include "SCI2Cfft.h"
-#include "SCI2Cconvol.h"
 #include "sqrt.h"
 #include "int_sqrt.h"
 #include "abs.h"
@@ -95,7 +93,18 @@
 /* interfacing exp */
 #include "exp.h"
 #include "int_exp.h"
-
+/* interfacing sin */
+#include "sin.h"
+#include "int_sin.h"
+/* interfacing cos */
+#include "cos.h"
+#include "int_cos.h"
+/* interfacing cosh */
+#include "cosh.h"
+#include "int_cosh.h"
+/* interfacing sinh */
+#include "sinh.h"
+#include "int_sinh.h"
 
 /* OPERATIONS */
 /* interfacing addition */
