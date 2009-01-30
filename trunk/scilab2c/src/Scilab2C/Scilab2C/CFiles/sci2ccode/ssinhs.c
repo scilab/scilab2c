@@ -1,0 +1,1 @@
+../../../../elementaryFunctions/sinh/ssinhs.c
