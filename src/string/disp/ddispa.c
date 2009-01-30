@@ -16,7 +16,7 @@ double ddispa (double* in, int rows, int columns){
 	int i = 0,j = 0;
 	
 	for (i = 0; i < rows; ++i) {
-		for (j=0;j<columns;j++) printf ("  %f  ", in[i+j*rows]);
+		for (j=0;j<columns;j++) printf ("  %1.20f  ", in[i+j*rows]);
 		printf("\n");
 	}
 	return 0;

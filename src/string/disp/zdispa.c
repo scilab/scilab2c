@@ -16,7 +16,7 @@ double zdispa (doubleComplex* in, int rows, int columns){
 	int i = 0,j = 0;
 	
 	for (i = 0; i < rows; ++i) {
-		for (j=0;j<columns;j++) printf("  %f + %fi  " ,zreals(in[i+j*rows]) ,zimags(in[i+j*rows])); 
+		for (j=0;j<columns;j++) printf("  %1.20f + %1.20fi  " ,zreals(in[i+j*rows]) ,zimags(in[i+j*rows])); 
 		printf("\n");
 	}
 	return 0;
