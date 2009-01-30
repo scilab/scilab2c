@@ -433,6 +433,15 @@ void sexpsTest(void) {
 		out=sexps(in[i]);
 		assert(( (fabs(out-res[i]))/(fabs(out)) )<1e-6);
 	}
+	
+	assert(( (fabs(sexps(0)-1))/(fabs(sexps(0))) )<1e-6);
+	assert(( (fabs(sexps(1)-2.7182818284590450907956))/(fabs(sexps(1))) )<1e-6);
+	assert(( (fabs(sexps(2)-7.3890560989306504069418))/(fabs(sexps(2))) )<1e-6);
+	assert(( (fabs(sexps(3)-20.085536923187671476398))/(fabs(sexps(3))) )<1e-6);
+	assert(( (fabs(sexps(4)-54.598150033144236203952))/(fabs(sexps(4))) )<1e-6);
+	assert(( (fabs(sexps(5)-148.41315910257662835647))/(fabs(sexps(5))) )<1e-6);
+	assert(( (fabs(sexps(6)-403.42879349273533762243))/(fabs(sexps(6))) )<1e-6);
+	assert(( (fabs(sexps(7)-1096.6331584284580458188))/(fabs(sexps(7))) )<1e-6);
 }
 
 void cexpsTest(void) {
@@ -456,10 +465,18 @@ void sexpaTest(void) {
 	float res[]=RESULT;
 	float out[200];
 	int i,j;
+	float mon_test[6]={1.0f,4.0f,2.0f,5.0f,3.0f,6.0f};
+	float result_mon_test[6]={2.7182818284590450907956f,54.598150033144236203952f,7.3890560989306504069418f,
+	148.41315910257662835647f,20.085536923187671476398f,403.42879349273533762243f};
+	float out_mon_test[6];
 	j=1;
 	sexpa(in,200,out);
 	for (i=0;i<200;i++){
 		assert(( (fabs(out[i]-res[i]))/(fabs(out[i])) )<1e-6);
+	}
+	sexpa(mon_test,6,out_mon_test);
+	for (i=0;i<6;i++){
+		assert(( (fabs(out_mon_test[i]-result_mon_test[i]))/(fabs(out_mon_test[i])) )<1e-6);
 	}
 }
 
@@ -483,7 +500,7 @@ void cexpaTest(void) {
 
 
 int testExp(void) {
-  printf("\n>>>> Hyperbolic Cosine Tests\n");
+  printf("\n>>>> Float Exp Tests\n");
   sexpsTest();
   cexpsTest();
   sexpaTest();

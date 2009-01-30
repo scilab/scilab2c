@@ -12,23 +12,23 @@
 
 /* THIS IS AN AUTOMATICALLY GENERATED FILE : DO NOT EDIT BY HAND. */
 
-#ifndef __INT_INVERT_H__
-#define __INT_INVERT_H__
+#ifndef __INT_INV_H__
+#define __INT_INV_H__
 
-#define s0inverts0(in)				1/in
+#define s0invs0(in)				1.0f/in
 
-#define d0invertd0(in)				1/in
+#define d0invd0(in)				1.0/in
 
-#define c0invertc0(in)				crdivs(FloatComplex(1,0),in)
+#define c0invc0(in)				crdivs(FloatComplex(1,0),in)
 
-#define z0invertz0(in)				zrdivs(DoubleComplex(1,0),in)
+#define z0invz0(in)				zrdivs(DoubleComplex(1,0),in)
 
-#define s2inverts2(in,size,out)		sinverma(in, out, size[0])
+#define s2invs2(in,size,out)		sinverma(in, out, size[0])
 
-#define d2invertd2(in,size,out)		dinverma(in, out, size[0])
+#define d2invd2(in,size,out)		dinverma(in, out, size[0])
 
-#define c2invertc2(in,size,out)		cinverma(in, out, size[0])
+#define c2invc2(in,size,out)		cinverma(in, out, size[0])
 
-#define z2invertz2(in,size,out)		zinverma(in, out, size[0])
+#define z2invz2(in,size,out)		zinverma(in, out, size[0])
 
-#endif /* !__INT_INVERT_H__ */
+#endif /* !__INT_INV_H__ */
