@@ -1,0 +1,1 @@
+../../../../elementaryFunctions/asinh/dasinhs.c
