@@ -24,20 +24,14 @@ SWSRCS	=	\
 	$(CSRCDIR)/doubleComplex.c \
 	$(CSRCDIR)/floatComplex.c \
 	$(CSRCDIR)/RealToComplex.c \
-	$(CSRCDIR)/conj.c \
 	$(CSRCDIR)/ones.c \
 	$(CSRCDIR)/zeros.c \
 	$(CSRCDIR)/OpApex.c \
 	$(CSRCDIR)/OpColon.c \
 	$(CSRCDIR)/OpDotHat.c \
-	$(CSRCDIR)/OpDotSlash.c \
 	$(CSRCDIR)/OpEqual.c \
 	$(CSRCDIR)/OpIns.c \
 	$(CSRCDIR)/OpExt.c \
-	$(CSRCDIR)/cos.c \
-	$(CSRCDIR)/cosh.c \
-	$(CSRCDIR)/sin.c \
-	$(CSRCDIR)/sinh.c  \
 	$(CSRCDIR)/FileManagement.c \
 	$(CSRCDIR)/OpLogLt.c \
 	$(CSRCDIR)/OpLogGt.c \
@@ -48,8 +42,6 @@ SWSRCS	=	\
 	$(CSRCDIR)/OpLogAnd.c \
 	$(CSRCDIR)/Find.c \
 	$(CSRCDIR)/ConvertPrecision.c \
-	$(CSRCDIR)/SCI2Cfft.c \
-	$(CSRCDIR)/SCI2Cconvol.c \
 	$(CSRCDIR)/ssqrts.c \
 	$(CSRCDIR)/dsqrts.c \
 	$(CSRCDIR)/csqrts.c \
@@ -286,9 +278,47 @@ SWSRCS	=	\
 	$(CSRCDIR)/cdeterma.c \
 	$(CSRCDIR)/ddeterma.c \
 	$(CSRCDIR)/sdeterma.c \
-	$(CSRCDIR)/zdeterma.c	
-	
-	
+	$(CSRCDIR)/zdeterma.c \
+	$(CSRCDIR)/csins.c \
+	$(CSRCDIR)/csina.c \
+	$(CSRCDIR)/dsins.c \
+	$(CSRCDIR)/dsina.c \
+	$(CSRCDIR)/ssins.c \
+	$(CSRCDIR)/ssina.c \
+	$(CSRCDIR)/zsins.c \
+	$(CSRCDIR)/zsina.c \
+	$(CSRCDIR)/csinhs.c \
+	$(CSRCDIR)/csinha.c \
+	$(CSRCDIR)/dsinhs.c \
+	$(CSRCDIR)/dsinha.c \
+	$(CSRCDIR)/ssinhs.c \
+	$(CSRCDIR)/ssinha.c \
+	$(CSRCDIR)/zsinhs.c \
+	$(CSRCDIR)/zsinha.c \
+	$(CSRCDIR)/ccoshs.c \
+	$(CSRCDIR)/ccosha.c \
+	$(CSRCDIR)/dcoshs.c \
+	$(CSRCDIR)/dcosha.c \
+	$(CSRCDIR)/scoshs.c \
+	$(CSRCDIR)/scosha.c \
+	$(CSRCDIR)/zcoshs.c \
+	$(CSRCDIR)/zcosha.c\
+	$(CSRCDIR)/ccoss.c \
+	$(CSRCDIR)/ccosa.c \
+	$(CSRCDIR)/dcoss.c \
+	$(CSRCDIR)/dcosa.c \
+	$(CSRCDIR)/scoss.c \
+	$(CSRCDIR)/scosa.c \
+	$(CSRCDIR)/zcoss.c \
+	$(CSRCDIR)/zcosa.c \
+	$(CSRCDIR)/casins.c \
+	$(CSRCDIR)/casina.c \
+	$(CSRCDIR)/dasins.c \
+	$(CSRCDIR)/dasina.c \
+	$(CSRCDIR)/sasins.c \
+	$(CSRCDIR)/sasina.c \
+	$(CSRCDIR)/zasins.c \
+	$(CSRCDIR)/zasina.c 
 	
 	
 #	$(CSRCDIR)/clog10s.c \
