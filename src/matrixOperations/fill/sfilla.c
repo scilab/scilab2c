@@ -13,12 +13,10 @@
 
 
 #include "fill.h"
-#include "ones.h"
 
 
 void sfilla (float* in, int rows, int cols, float constant){
 	int i;
 	
-	sonesa(in,rows,cols);
-	for (i=0;i<rows*cols;i++) in[i]*=constant;
+	for (i=0;i<rows*cols;i++) in[i]=constant;
 }
