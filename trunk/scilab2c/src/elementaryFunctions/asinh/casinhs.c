@@ -22,5 +22,5 @@ floatComplex		casinhs(floatComplex z) {
   floatComplex i_z = FloatComplex(-cimags(z), creals(z));
   floatComplex asin_i_z = casins(i_z);
 
-  return FloatComplex(cimags(asin_i_z), creals(asin_i_z));
+  return FloatComplex(cimags(asin_i_z), -creals(asin_i_z));
 }
