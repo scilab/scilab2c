@@ -13,12 +13,10 @@
 
 
 #include "fill.h"
-#include "ones.h"
-#include "multiplication.h"
+
 
 void zfilla (doubleComplex* in, int rows, int cols, doubleComplex constant){
 	int i;
-	
-	zonesa(in,rows,cols);
-	for (i=0;i<rows*cols;i++) in[i]=zmuls(in[i],constant);
+
+	for (i=0;i<rows*cols;i++) in[i]=DoubleComplex(zreals(constant),zimags(constant));
 }

@@ -13,12 +13,9 @@
 
 
 #include "fill.h"
-#include "ones.h"
-#include "multiplication.h"
 
 void cfilla (floatComplex* in, int rows, int cols, floatComplex constant){
 	int i;
-	
-	conesa(in,rows,cols);
-	for (i=0;i<rows*cols;i++) in[i]=cmuls(in[i],constant);
+
+	for (i=0;i<rows*cols;i++) in[i]=FloatComplex(creals(constant),cimags(constant));
 }
