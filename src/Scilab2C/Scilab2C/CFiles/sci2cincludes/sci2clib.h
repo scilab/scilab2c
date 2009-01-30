@@ -69,6 +69,9 @@
 /* interfacing asin */
 #include "asin.h"
 #include "int_asin.h"
+/* interfacing asinh */
+#include "asinh.h"
+#include "int_asinh.h"
 /* interfacing atan */
 #include "atan.h"
 #include "int_atan.h"
