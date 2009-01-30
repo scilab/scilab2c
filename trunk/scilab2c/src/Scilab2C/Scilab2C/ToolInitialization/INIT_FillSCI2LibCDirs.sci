@@ -430,6 +430,10 @@ PrintStringInfo('s2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('s2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('d2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d2'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('c2'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('c2'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('z2'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('z2'+ArgSeparator+'d2',ClassFileName,'file','y');
 
 //NUT: no mixed input types are allowed.
 PrintStringInfo('s0s0'+ArgSeparator+'s0',ClassFileName,'file','y');

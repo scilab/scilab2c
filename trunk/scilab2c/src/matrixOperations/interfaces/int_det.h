@@ -23,12 +23,12 @@
 
 #define z0detz0(in)			in
 
-#define s2dets0(in,size,out)		sdeterma(in, size[0])
+#define s2dets0(in,size)		sdeterma(in, size[0])
 
-#define d2detd0(in,size,out)		ddeterma(in, size[0])
+#define d2detd0(in,size)		ddeterma(in, size[0])
 
-#define c2detc0(in,size,out)		cdeterma(in, size[0])
+#define c2detc0(in,size)		cdeterma(in, size[0])
 
-#define z2detz0(in,size,out)		zdeterma(in, size[0])
+#define z2detz0(in,size)		zdeterma(in, size[0])
 
 #endif /* !__INT_DETERM_H__ */
