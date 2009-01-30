@@ -318,7 +318,15 @@ SWSRCS	=	\
 	$(CSRCDIR)/sasins.c \
 	$(CSRCDIR)/sasina.c \
 	$(CSRCDIR)/zasins.c \
-	$(CSRCDIR)/zasina.c 
+	$(CSRCDIR)/zasina.c \
+	$(CSRCDIR)/casinhs.c \
+	$(CSRCDIR)/casinha.c \
+	$(CSRCDIR)/dasinhs.c \
+	$(CSRCDIR)/dasinha.c \
+	$(CSRCDIR)/sasinhs.c \
+	$(CSRCDIR)/sasinha.c \
+	$(CSRCDIR)/zasinhs.c \
+	$(CSRCDIR)/zasinha.c 
 	
 	
 #	$(CSRCDIR)/clog10s.c \
