@@ -1,5 +1,4 @@
 #define SCI2Cint int
-#include "SCI2CMacroInterface.h"
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
