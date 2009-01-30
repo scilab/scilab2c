@@ -12,7 +12,6 @@
 #include "floatComplex.h"
 #include "RealToComplex.h"
 #include "conj.h"
-#include "cos.h"
 #include "ones.h"
 #include "zeros.h"
 #include "OpApex.h"
@@ -25,7 +24,6 @@
 #include "OpStar.h"
 #include "OpIns.h"
 #include "OpExt.h"
-#include "sin.h"
 #include "FileManagement.h"
 #include "OpLogGt.h"
 #include "OpLogLt.h"
@@ -39,9 +37,6 @@
 #include "int_sqrt.h"
 #include "abs.h"
 #include "int_abs.h"
-#include "log1p.h"
-#include "log.h"
-#include "int_log.h"
 #include "log10.h"
 #include "int_log10.h"
 #include "pythag.h"
@@ -89,6 +84,9 @@
 /* interfacing log */
 #include "log.h"
 #include "int_log.h"
+/* interfacing log1p */
+#include "log1p.h"
+#include "int_log1p.h"
 /* interfacing exp */
 #include "exp.h"
 #include "int_exp.h"
