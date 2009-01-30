@@ -1,0 +1,1 @@
+../../../../elementaryFunctions/cos/scosa.c
