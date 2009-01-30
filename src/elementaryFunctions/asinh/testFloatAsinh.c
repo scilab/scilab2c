@@ -12,6 +12,9 @@
 
 #include "testAsinh.h"
 
+
+/*FIXME : results are not verify with assert */
+
 void sasinhsTest(void) {
   printf(">> Float scalar\n");
   printf("sasinhs(0) = %f\n", sasinhs(0.0f));
