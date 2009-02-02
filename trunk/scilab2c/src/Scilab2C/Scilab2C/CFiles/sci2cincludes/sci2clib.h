@@ -114,6 +114,12 @@
 /* interfacing tan */
 #include "tan.h"
 #include "int_tan.h"
+/* interfacing tanh */
+#include "tanh.h"
+#include "int_tanh.h"
+
+
+
 
 /* OPERATIONS */
 /* interfacing addition */
