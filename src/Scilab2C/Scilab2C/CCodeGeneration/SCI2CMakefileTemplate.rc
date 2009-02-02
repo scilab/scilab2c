@@ -350,7 +350,15 @@ SWSRCS	=	\
 	$(CSRCDIR)/stans.c \
 	$(CSRCDIR)/stana.c \
 	$(CSRCDIR)/ztans.c \
-	$(CSRCDIR)/ztana.c  
+	$(CSRCDIR)/ztana.c \
+	$(CSRCDIR)/ctanhs.c \
+	$(CSRCDIR)/ctanha.c \
+	$(CSRCDIR)/dtanhs.c \
+	$(CSRCDIR)/dtanha.c \
+	$(CSRCDIR)/stanhs.c \
+	$(CSRCDIR)/stanha.c \
+	$(CSRCDIR)/ztanhs.c \
+	$(CSRCDIR)/ztanha.c  
 	
 	
 #	$(CSRCDIR)/clog1ps.c \
