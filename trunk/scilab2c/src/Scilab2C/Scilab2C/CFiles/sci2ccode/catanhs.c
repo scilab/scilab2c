@@ -1,0 +1,1 @@
+../../../../elementaryFunctions/atanh/catanhs.c
