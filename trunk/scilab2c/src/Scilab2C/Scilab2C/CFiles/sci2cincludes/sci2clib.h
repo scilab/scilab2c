@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include "SCI2CMacroInterface.h"
 #include "constant.h"
 #include "notFound.h"
 #include "doubleComplex.h"
@@ -51,6 +52,9 @@
 /* interfacing conj */
 #include "conj.h"
 #include "int_conj.h"
+/* interfacing isempty */
+#include "isempty.h"
+#include "int_isempty.h"
 /* interfacing pythag */
 #include "pythag.h"
 /* interfacing frexp */

@@ -358,8 +358,11 @@ SWSRCS	=	\
 	$(CSRCDIR)/stanhs.c \
 	$(CSRCDIR)/stanha.c \
 	$(CSRCDIR)/ztanhs.c \
-	$(CSRCDIR)/ztanha.c  
-	
+	$(CSRCDIR)/ztanha.c \
+	$(CSRCDIR)/cisemptya.c \
+	$(CSRCDIR)/disemptya.c \
+	$(CSRCDIR)/sisemptya.c \
+	$(CSRCDIR)/zisemptya.c 
 	
 #	$(CSRCDIR)/clog1ps.c \
 #	$(CSRCDIR)/zlog1ps.c \
