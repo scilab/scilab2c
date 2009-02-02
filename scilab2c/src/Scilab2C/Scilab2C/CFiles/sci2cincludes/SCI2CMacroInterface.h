@@ -139,7 +139,7 @@ dOpApexa(inptr, insizeptr[0],insizeptr[1], outptr);
 // --- Class SIN. ---
 // ---------------------
 */
-/* --- sin. ---*/
+/* --- sin. ---*//*
 #define s0sins0(inptr) \
 ssins(inptr);
 
@@ -163,8 +163,8 @@ csina(inptr, insizeptr[0]*insizeptr[1], outptr);
 
 #define z2sinz2(inptr,insizeptr,outptr) \
 zsina(inptr, insizeptr[0]*insizeptr[1], outptr);
-
-/* --- cos. ---*/
+*/
+/* --- cos. ---*//*
 #define s0coss0(inptr) \
 scoss(inptr);
 
@@ -188,8 +188,8 @@ ccosa(inptr, insizeptr[0]*insizeptr[1], outptr);
 
 #define z2cosz2(inptr,insizeptr,outptr) \
 zcosa(inptr, insizeptr[0]*insizeptr[1], outptr);
-
-/* --- sinh. ---*/
+*/
+/* --- sinh. ---*//*
 #define s0sinhs0(inptr) \
 ssinhs(inptr);
 
@@ -214,7 +214,7 @@ csinha(inptr, insizeptr[0]*insizeptr[1], outptr);
 #define z2sinhz2(inptr,insizeptr,outptr) \
 zsinha(inptr, insizeptr[0]*insizeptr[1], outptr);
 
-
+*/
 /*
 // ---------------------
 // --- Class DISP. ---
@@ -251,7 +251,7 @@ idispa2 (invar, insize, #invar );*/
 // --- Class ZEROS. ---
 // --------------------
 */
-/* --- ones. ---*/
+/* --- ones. ---*//*
 #define d0d0onesd2(inptr1,inptr2,outptr) \
 ddonesss1(inptr1, inptr2, outptr);
 
@@ -278,4 +278,4 @@ ssonesss1(inptr1, inptr2, outptr);
 
 #define s2oness2(inptr,insizeptr,outptr) \
 ssonesss1(insizeptr[0], insizeptr[1], outptr);
-
+*/
