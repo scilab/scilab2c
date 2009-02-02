@@ -62,10 +62,6 @@ SWSRCS	=	\
 	$(CSRCDIR)/dmeana.c \
 	$(CSRCDIR)/cmeana.c \
 	$(CSRCDIR)/zmeana.c \
-	$(CSRCDIR)/slog10s.c \
-	$(CSRCDIR)/dlog10s.c \
-	$(CSRCDIR)/slog10a.c \
-	$(CSRCDIR)/dlog10a.c \
 	$(CSRCDIR)/slog1ps.c \
 	$(CSRCDIR)/dlog1ps.c \
 	$(CSRCDIR)/slog1pa.c \
@@ -338,13 +334,17 @@ SWSRCS	=	\
 	$(CSRCDIR)/satanhs.c \
 	$(CSRCDIR)/satanha.c \
 	$(CSRCDIR)/zatanhs.c \
-	$(CSRCDIR)/zatanha.c 
+	$(CSRCDIR)/zatanha.c \
+	$(CSRCDIR)/clog10s.c \
+	$(CSRCDIR)/clog10a.c \
+	$(CSRCDIR)/dlog10s.c \
+	$(CSRCDIR)/dlog10a.c \
+	$(CSRCDIR)/slog10s.c \
+	$(CSRCDIR)/slog10a.c \
+	$(CSRCDIR)/zlog10s.c \
+	$(CSRCDIR)/zlog10a.c 
 	
 	
-#	$(CSRCDIR)/clog10s.c \
-#	$(CSRCDIR)/zlog10s.c \
-#	$(CSRCDIR)/clog10a.c \
-#	$(CSRCDIR)/zlog10a.c \
 #	$(CSRCDIR)/clog1ps.c \
 #	$(CSRCDIR)/zlog1ps.c \
 #	$(CSRCDIR)/clog1pa.c \

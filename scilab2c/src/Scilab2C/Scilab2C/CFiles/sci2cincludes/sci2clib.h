@@ -79,29 +79,32 @@
 /* interfacing atanh */
 #include "atanh.h"
 #include "int_atanh.h"
-/* interfacing lnp1m1 */
-#include "lnp1m1.h"
-/* interfacing pow */
-#include "pow.h"
-#include "int_pow.h"
-/* interfacing log */
-#include "log.h"
-#include "int_log.h"
-/* interfacing log1p */
-#include "log1p.h"
-#include "int_log1p.h"
-/* interfacing exp */
-#include "exp.h"
-#include "int_exp.h"
-/* interfacing sin */
-#include "sin.h"
-#include "int_sin.h"
 /* interfacing cos */
 #include "cos.h"
 #include "int_cos.h"
 /* interfacing cosh */
 #include "cosh.h"
 #include "int_cosh.h"
+/* interfacing exp */
+#include "exp.h"
+#include "int_exp.h"
+/* interfacing lnp1m1 */
+#include "lnp1m1.h"
+/* interfacing log */
+#include "log.h"
+#include "int_log.h"
+/* interfacing log10 */
+#include "log10.h"
+#include "int_log10.h"
+/* interfacing log1p */
+#include "log1p.h"
+#include "int_log1p.h"
+/* interfacing pow */
+#include "pow.h"
+#include "int_pow.h"
+/* interfacing sin */
+#include "sin.h"
+#include "int_sin.h"
 /* interfacing sinh */
 #include "sinh.h"
 #include "int_sinh.h"
