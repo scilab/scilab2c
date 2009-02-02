@@ -326,7 +326,19 @@ SWSRCS	=	\
 	$(CSRCDIR)/sasinhs.c \
 	$(CSRCDIR)/sasinha.c \
 	$(CSRCDIR)/zasinhs.c \
-	$(CSRCDIR)/zasinha.c 
+	$(CSRCDIR)/zasinha.c \
+	$(CSRCDIR)/datan2s.c \
+	$(CSRCDIR)/datan2a.c \
+	$(CSRCDIR)/satan2s.c \
+	$(CSRCDIR)/satan2a.c \
+	$(CSRCDIR)/catanhs.c \
+	$(CSRCDIR)/catanha.c \
+	$(CSRCDIR)/datanhs.c \
+	$(CSRCDIR)/datanha.c \
+	$(CSRCDIR)/satanhs.c \
+	$(CSRCDIR)/satanha.c \
+	$(CSRCDIR)/zatanhs.c \
+	$(CSRCDIR)/zatanha.c 
 	
 	
 #	$(CSRCDIR)/clog10s.c \
