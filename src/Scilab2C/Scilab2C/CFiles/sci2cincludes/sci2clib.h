@@ -74,7 +74,11 @@
 #include "int_asinh.h"
 /* interfacing atan */
 #include "atan.h"
+#include "atan2.h"
 #include "int_atan.h"
+/* interfacing atanh */
+#include "atanh.h"
+#include "int_atanh.h"
 /* interfacing lnp1m1 */
 #include "lnp1m1.h"
 /* interfacing pow */
