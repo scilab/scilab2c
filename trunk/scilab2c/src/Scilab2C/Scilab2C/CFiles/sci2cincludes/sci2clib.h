@@ -111,6 +111,9 @@
 /* interfacing sqrt */
 #include "sqrt.h"
 #include "int_sqrt.h"
+/* interfacing tan */
+#include "tan.h"
+#include "int_tan.h"
 
 /* OPERATIONS */
 /* interfacing addition */

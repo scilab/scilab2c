@@ -342,7 +342,15 @@ SWSRCS	=	\
 	$(CSRCDIR)/slog10s.c \
 	$(CSRCDIR)/slog10a.c \
 	$(CSRCDIR)/zlog10s.c \
-	$(CSRCDIR)/zlog10a.c 
+	$(CSRCDIR)/zlog10a.c \
+	$(CSRCDIR)/ctans.c \
+	$(CSRCDIR)/ctana.c \
+	$(CSRCDIR)/dtans.c \
+	$(CSRCDIR)/dtana.c \
+	$(CSRCDIR)/stans.c \
+	$(CSRCDIR)/stana.c \
+	$(CSRCDIR)/ztans.c \
+	$(CSRCDIR)/ztana.c  
 	
 	
 #	$(CSRCDIR)/clog1ps.c \
