@@ -469,14 +469,30 @@ void zsinhaTest(void) {
 	double resI[]=ZRESULTI;
 	doubleComplex *in,out[200];
 	int i;
-
-
+	double mon_testR[9]={1,8,3,2,8,4,3,4,5};
+	double mon_testI[9]={0,0,4,0,-1,0,3,0,0};
+	double mon_resR[9]={1.1752011936438013783857,1490.4788257895500009909,- 6.548120040911003414408,
+	3.6268604078470190188455,805.30914642173127049318,27.289917197127749659558,
+	- 9.9176210100175374861919,27.289917197127749659558,74.203210577788766499907};
+	double mon_resI[9]={0,0,- 7.6192317203214106058340,
+	0,- 1254.1949676545177680964,0,
+	1.4207485419881773491824,0,0};
+	doubleComplex* mon_test;
+	doubleComplex mon_out[9];
+	
+mon_test=DoubleComplexMatrix(mon_testR,mon_testI,9);
 	in=DoubleComplexMatrix(inR,inI,200);
 	zsinha(in,200,out);
 
 	for (i=0;i<200;i++){
 		assert(( (fabs(zreals(out[i])-resR[i]))/(fabs(zreals(out[i]))) )<1e-15);	
 		assert(( (fabs(zimags(out[i])-resI[i]))/(fabs(zimags(out[i]))) )<1e-15);			
+	}
+	zsinha(mon_test,9,mon_out);
+	for (i=0;i<9;i++){
+	printf("%f + %f*i\n",zreals(mon_out[i]),zimags(mon_out[i]));
+		assert(( (fabs(zreals(mon_out[i])-mon_resR[i]))/(fabs(zreals(mon_out[i]))) )<1e-15);	
+		if (zimags(mon_out[i])!=0) assert(( (fabs(zimags(mon_out[i])-mon_resI[i]))/(fabs(zimags(mon_out[i]))) )<1e-15);			
 	}
 }
 

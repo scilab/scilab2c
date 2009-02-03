@@ -19,16 +19,16 @@
 
 #define d0isemptyd0(in)			disemptys(in)
 
-#define c0isemptyc0(in)			cisemptys(in)
+#define c0isemptys0(in)			cisemptys(in)
 
-#define z0isemptyz0(in)			zisemptys(in)
+#define z0isemptyd0(in)			zisemptys(in)
 
-#define s2isemptys0(in,size,out)		sisemptya(in, size[0]*size[1])
+#define s2isemptys0(in,size)		sisemptya(in, size[0]*size[1])
 
-#define d2isemptyd0(in,size,out)		disemptya(in, size[0]*size[1])
+#define d2isemptyd0(in,size)		disemptya(in, size[0]*size[1])
 
-#define c2isemptyc0(in,size,out)		cisemptya(in, size[0]*size[1])
+#define c2isemptys0(in,size)		cisemptya(in, size[0]*size[1])
 
-#define z2isemptyz0(in,size,out)		zisemptya(in, size[0]*size[1])
+#define z2isemptyd0(in,size)		zisemptya(in, size[0]*size[1])
 
 #endif /* !__INT_ISEMPTY_H__ */
