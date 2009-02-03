@@ -55,6 +55,9 @@
 /* interfacing isempty */
 #include "isempty.h"
 #include "int_isempty.h"
+/* interfacing isnan */
+#include "isnan.h"
+#include "int_isnan.h"
 /* interfacing pythag */
 #include "pythag.h"
 /* interfacing frexp */

@@ -362,7 +362,15 @@ SWSRCS	=	\
 	$(CSRCDIR)/cisemptya.c \
 	$(CSRCDIR)/disemptya.c \
 	$(CSRCDIR)/sisemptya.c \
-	$(CSRCDIR)/zisemptya.c 
+	$(CSRCDIR)/zisemptya.c \
+	$(CSRCDIR)/cisnans.c \
+	$(CSRCDIR)/cisnana.c \
+	$(CSRCDIR)/disnans.c \
+	$(CSRCDIR)/disnana.c \
+	$(CSRCDIR)/sisnans.c \
+	$(CSRCDIR)/sisnana.c \
+	$(CSRCDIR)/zisnans.c \
+	$(CSRCDIR)/zisnana.c 
 	
 #	$(CSRCDIR)/clog1ps.c \
 #	$(CSRCDIR)/zlog1ps.c \
