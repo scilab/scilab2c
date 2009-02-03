@@ -42,22 +42,22 @@ double zisnans(doubleComplex z);
 /*
 ** \brief Float Is Nan function
 */
-void	sisnana(float x, int size, float* out);
+void	sisnana(float* x, int size, float* out);
 
 /*
 ** \brief Double Is Nan function
 */
-void disnana(double x, int size, double* out);
+void disnana(double* x, int size, double* out);
 
 /*
 ** \brief Float Complex Is Nan function
 */
-void	cisnana(floatComplex z, int size, float* out);
+void	cisnana(floatComplex* z, int size, float* out);
 
 /*
 ** \brief Double Complex Is Nan function
 */
-void zisnana(doubleComplex z, int size, double* out);
+void zisnana(doubleComplex* z, int size, double* out);
 
 
 #endif /* !__IS_NAN_H__ */

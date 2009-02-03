@@ -456,10 +456,21 @@ void dcoshaTest(void) {
 	double res[]=RESULT;
 	double out[200];
 	int i;
-
+	double mon_test[9]={1,8,3,2,8,4,3,4,5};
+	double mon_res[9]={1.5430806348152437124099,1490.4791612521778461087,10.06766199577776710328,
+	3.7621956910836313880964,1490.4791612521778461087,27.308232836016486544395,
+	10.06766199577776710328,27.308232836016486544395,74.209948524787861856566}; 
+	double mon_out[9];
 	dcosha(in,200,out);
+	
+	dcosha(mon_test,9,mon_out);
+	
 	for (i=0;i<200;i++){
 		assert(( (fabs(out[i]-res[i]))/(fabs(out[i])) )<1e-15);
+	}
+	
+	for (i=0;i<9;i++){
+		assert(( (fabs(mon_out[i]-mon_res[i]))/(fabs(mon_out[i])) )<1e-15);
 	}
 }
 

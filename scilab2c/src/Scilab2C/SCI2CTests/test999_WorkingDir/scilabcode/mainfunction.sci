@@ -2,16 +2,16 @@
 
 function mainfunction()
 
-//test asinh
+//test length
 
 
-disp (asinh(7));
-disp (asinh(2+11*%i))
+disp(length(4));
+disp(length(3+%i*4));
 
-c=[4 2 3 ;8 8 4; 3 4 5]
-d=[4 2 3 ;8 8-1*%i 4; 3+4*%i 4 5]
+c=[1 5 4 8; 2 9 4 5; 3 6 4 7]
+d=[1 5+%i*4 4 8+%i; 2-%i*3 9+%i*7 4+%i*2 5; 3 6 4 7-%i; 3 6 4 7-%i]
 
-disp (asinh(c))
-disp (asinh(d))
+disp(length(c));
+disp(length(d));
 
 endfunction
