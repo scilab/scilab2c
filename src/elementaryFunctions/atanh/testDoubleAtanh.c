@@ -550,6 +550,10 @@ void zatanhsTest() {
 		assert( ( (fabs(zreals(out)-resR[i])) / (fabs(zreals(out))) ) <1e-15);
 		assert( ( (fabs(zimags(out)-resI[i])) / (fabs(zimags(out))) ) <1e-15);	
 	}
+	out=zatanhs((DoubleComplex(2.0/10.0,11.0/10.0)));
+	assert( ( (fabs(zreals(out)-0.0898435002269743487879)) / (fabs(zreals(out))) ) <1e-15);
+	assert( ( (fabs(zimags(out)-0.8419736541926906570055)) / (fabs(zimags(out))) ) <1e-16);
+	
 }
 
 void datanhaTest(void) {
