@@ -6,8 +6,6 @@
 #include "constant.h"
 #include "notFound.h"
 #include "doubleComplex.h"
-#include "length.h"
-#include "int_length.h"
 #include "min.h"
 #include "max.h"
 #include "floatComplex.h"
@@ -58,6 +56,9 @@
 /* interfacing isnan */
 #include "isnan.h"
 #include "int_isnan.h"
+/* interfacing length */
+#include "length.h"
+#include "int_length.h"
 /* interfacing pythag */
 #include "pythag.h"
 /* interfacing frexp */
