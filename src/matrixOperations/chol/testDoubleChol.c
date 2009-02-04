@@ -54,6 +54,19 @@ static void dcholaTest(void){
 	}
 }
 
+
+static void zcholsTest(void){
+	doubleComplex in;
+	double out;
+	in=DoubleComplex(3,1);
+		printf("\n >>> ZCholS <<<\n");
+	out=zchols(in);
+	printf("result : %f\n",out);
+
+}
+
+
+
 static void zcholaTest(void){
 	double inR[9]= {9,4,2,4,5,1,2,1,4};
 	double inI[9]= {1,-1,2,-1,-4,1,2,1,4};
@@ -85,6 +98,7 @@ static int cholTest(void){
 	printf("\n >>> Double Chol <<<\n");
 	dcholsTest();
 	dcholaTest();
+	zcholsTest();
 	zcholaTest();	
 	return 0;
 }
