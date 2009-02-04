@@ -15,6 +15,9 @@
 
 double		zisemptya(doubleComplex* x, int size) {
 
-  return (size==0) ? 1.0 : 0.0;
+	if (size!=0)
+		printf("%f+%f*i\n",x[0]);
+
+	return (size==0) ? 1.0 : 0.0;
   
 }

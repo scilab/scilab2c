@@ -15,6 +15,9 @@
 
 float		sisemptya(float* x, int size) {
 
-  return (size==0) ? 1.0f : 0.0f;
+	if (size!=0)
+		printf("%f\n",x[0]);
+		
+	return (size==0) ? 1.0f : 0.0f;
   
 }
