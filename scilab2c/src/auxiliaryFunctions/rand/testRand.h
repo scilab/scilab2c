@@ -22,11 +22,11 @@
 int srandsTest(void);
 
 int drandsTest(void);
-
+int drandaTest(void);
 int crandsTest(void);
 
 int zrandsTest(void);
-
+int zrandaTest(void);
 int testRand(void);
 
 #endif /* ! __TESTRAND_H__ */

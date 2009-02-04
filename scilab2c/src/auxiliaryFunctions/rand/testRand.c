@@ -12,68 +12,84 @@
 
 #include "testRand.h"
 
-int srandsTest() {
-
-  float nan = 0.0f / 0.0f;
-  float result = nan;
-
-  printf(">> Float \n");
-  result = srands();
-
-  assert(&result != &nan);
-  return 0;
-}
+/*
 
 int drandsTest() {
 
   double nan = 0.0 / 0.0;
   double result = nan;
-
+  int i=0;
   printf(">> Double\n");
+  for (i=0;i<10;i++){
   result = drands();
-
+  printf("%1.20f\n",result);
+  }
+	
   assert(&result != &nan);
 
   return 0;
 }
+*/
 
-int crandsTest() {
-
-  floatComplex nan_nan = FloatComplex(0.0f/0.0f, 0.0f/0.0f);
-  floatComplex result = nan_nan;
-
-  printf(">> Float Complex\n");
-  result = crands();
-
-  assert(&result != &nan_nan);
-
-  return 0;
-}
-
+/*
 int zrandsTest() {
-  doubleComplex nan_nan = DoubleComplex(0./0., 0./0.);
-  doubleComplex result = nan_nan;
 
-  printf(">> Double Complex\n");
+  double nan = 0.0 / 0.0;
+  doubleComplex result = DoubleComplex(nan,nan);
+  int i=0;
+  printf(">> DoubleComplex\n");
+  for (i=0;i<10;i++){
   result = zrands();
+  printf("%1.20f+%1.20f\n",zreals(result),zimags(result));
+  }
 
-  assert(&result != &nan_nan);
+  assert(zreals(result) != nan);
 
   return 0;
 }
+*/
 
+
+int drandaTest() {
+  int i;
+  double nan = 0.0 / 0.0;
+  double *result;
+  result=malloc((uint)12*sizeof(double));
+  printf(">> Double Array\n");
+  dranda(result,12);
+  for (i=0;i<12;i++){
+  printf("%1.20f\n",result[i]);
+
+  assert(result[i] != nan);}
+
+  return 0;
+}
+  
+
+/*
+int zrandaTest() {
+  int i;
+  double nan = 0.0 / 0.0;
+  doubleComplex *result;
+  result=malloc((uint)12*sizeof(doubleComplex));
+  printf(">> DoubleComplex Array\n");
+  zranda(result,12);
+  for (i=0;i<12;i++){
+  printf("%1.20f+%1.20f\n",zreals(result[i]),zimags(result[i]));
+
+  assert(zreals(result[i]) != nan);}
+
+  return 0;
+}
+*/
 
 int testRand() {
-  int srandsTestStatus, drandsTestStatus = 0;
-  int crandsTestStatus, zrandsTestStatus = 0;
+/*  int drandsTestStatus = 0;*/
+  int zrandaTestStatus = 0;
   printf("\n>>>> Rand Tests\n");
-  srandsTestStatus = srandsTest();
-  drandsTestStatus = drandsTest();
-  crandsTestStatus = crandsTest();
-  zrandsTestStatus = zrandsTest();
-
-  return (srandsTestStatus + drandsTestStatus +
-	  crandsTestStatus + zrandsTestStatus);
+ /* drandsTestStatus = drandsTest();*/
+  zrandaTestStatus = drandaTest();
+  return (zrandaTestStatus);
 }
 
 int main(void) {

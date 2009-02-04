@@ -13,6 +13,10 @@
 #include "rand.h"
 
 doubleComplex zrands(void) {
-  /* FIXME : Implementation */
-  return DoubleComplex(0, 0);
+  double Real_rand=drands();
+  double Imag_rand=drands();
+  return DoubleComplex(Real_rand,Imag_rand );
+  
+  /* We can't do return DoubleComplex(drands(),drands()) 
+  cause the result is false; it give imag+real*i instead of real+imag*i */
 }
