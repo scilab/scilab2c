@@ -11,20 +11,10 @@
  */
 
 #include "isempty.h"
+#include "length.h"
 
 double		disemptya(double* x, int size) {
-  double* out;
-  int indiceOut[2]={0};
 
-  out = malloc((uint)size*sizeof(double));
-
-  dfinda(x, size, out, indiceOut);
-
-  if ( out[0] == -1 /*ie tab=NULL*/) {
-    free(out);
-    return 1;
-  }
+  return (size==0) ? 1.0 : 0.0;
   
-  free(out);
-  return 0;
 }
