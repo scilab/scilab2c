@@ -11,7 +11,7 @@
  */
 
 #include "isempty.h"
-#include "length.h"
+#include <stdio.h>
 
 double		disemptya(double* x, int size) {
 
