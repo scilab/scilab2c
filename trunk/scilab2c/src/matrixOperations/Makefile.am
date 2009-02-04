@@ -28,7 +28,8 @@ SUBDIRS= 	cat \
  		fill \
  		magnitude \
  		squaredMagnitude\
- 		logm
+ 		logm \
+ 		powm
  		
  		
  		

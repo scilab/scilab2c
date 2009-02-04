@@ -42,6 +42,22 @@ static void scholaTest(void){
 }
 
 
+static void ccholsTest(void){
+	floatComplex in;
+	float out;
+	in=FloatComplex(3,1);
+		printf("\n >>> ZCholS <<<\n");
+	out=cchols(in);
+	printf("result : %f\n",out);
+
+}
+
+
+
+
+
+
+
 static void ccholaTest(void){
 	float inR[9]= {9.0f,4.0f,2.0f,4.0f,5.0f,1.0f,2.0f,1.0f,4.0f};
 	float inI[9]= {0.0f,-1.0f,2.0f,-1.0f,0.0f,1.0f,2.0f,1.0f,0.0f};
@@ -69,6 +85,7 @@ static int cholTest(void){
 	printf("\n >>> Float Chol <<<\n");
 	scholsTest();
 	scholaTest();
+	ccholsTest();
 	ccholaTest();
 	return 0;
 }

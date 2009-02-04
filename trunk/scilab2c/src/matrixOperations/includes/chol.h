@@ -19,15 +19,18 @@
  
 
 	
-double dchols (double in);
-void dchola (double *in, int size, double *out);
+double dchols(double in);
+void dchola(double *in, int size, double *out);
  
-float schols (float in);
-void schola (float *in, int size, float *out);
+float schols(float in);
+void schola(float *in, int size, float *out);
  
+#define zchols(in) 		dchols(zreals(in))
+
 void zchola (doubleComplex *in, int size, doubleComplex *out); 
  
-void cchola (floatComplex *in, int size, floatComplex *out); 
+#define cchols(in) 		schols(creals(in))
+void cchola(floatComplex *in, int size, floatComplex *out); 
 
 
 #endif /* __CHOL_H__ */
