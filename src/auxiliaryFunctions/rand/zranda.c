@@ -14,20 +14,12 @@
 #include <stdio.h>
 void zranda(doubleComplex *out, int size) {
   int i = 0;
-  double *Real_randa, *Imag_randa;
-  Real_randa = malloc((uint)size*sizeof(double));
-  Imag_randa = malloc((uint)size*sizeof(double));
-   
+
   for (i = 0 ; i < size ; ++i) {
-    Real_randa[i]=drands();
+    out[i] = DoubleComplex(drands(), 0);
   }
 
-  for (i = 0 ; i < size ; ++i) {  
-    Imag_randa[i]=drands();
+  for (i = 0 ; i < size ; ++i) {
+    out[i] = DoubleComplex(zreals(out[i]), drands());
   }
-
-  for (i = 0 ; i < size ; ++i) {  
-    out[i]=DoubleComplex(Real_randa[i],Imag_randa[i]);
-  }	
-
 }
