@@ -11,20 +11,10 @@
  */
 
 #include "isempty.h"
+#include "length.h"
 
 float	cisemptya(floatComplex* x, int size) {
-  float* out;
-  int indiceOut[2] = {0};
 
-  out = malloc((uint)size*sizeof(float));
-
-  cfinda(x, size, out, indiceOut);
-
-  if ( out[0] == -1 /*ie tab=NULL*/) {
-    free(out);
-    return 1;
-  }
+  return (size==0) ? 1.0f : 0.0f;
   
-  free(out);
-  return 0;
 }
