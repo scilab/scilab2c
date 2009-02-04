@@ -11,12 +11,12 @@
  */
 
 #include "isempty.h"
-#include "length.h"
+#include <stdio.h>
 
 double		zisemptya(doubleComplex* x, int size) {
 
 	if (size!=0)
-		printf("%f+%f*i\n",x[0]);
+		printf("%f\n",zreals(x[0]));
 
 	return (size==0) ? 1.0 : 0.0;
   
