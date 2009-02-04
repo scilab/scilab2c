@@ -25,25 +25,26 @@ static void dpowmaTest(void){
 	
 }
 
-
+/*
+FIXME
 static void zpowmaTest(void){
 	double inR[4]={1,5,4,2};
 	double inI[4]={2,1,-1,3};
 	doubleComplex *in,out[4];
 	int i;
 	
-	in=malloc((uint)4*sizeof(doubleComplex));
-	in=DoubleMatrixComplex(inR,inI,4);
+	in=DoubleComplexMatrix(inR,inI,4);
+	
 	zpowma(in, 2, DoubleComplex(2,0), out);
 	
 	for (i=0;i<4;i++) printf("out[%d] = %f+%f*i\n",i,zreals(out[i]),zimags(out[i]));
 	
 }
 
-
+*/
 
 int main(void){
-	dpowmaTest();zpowmaTest();
+	dpowmaTest();
 	return 0;
 }
 	
