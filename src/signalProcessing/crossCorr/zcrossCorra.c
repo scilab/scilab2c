@@ -26,6 +26,8 @@ void zcrossCorra(doubleComplex* in1, int rows1, int cols1, doubleComplex* in2, i
 	for (i=0;i<(rows2*cols2);i++) in2Copy[i]=zconjs(in2[rows2*cols2-1-i]);
 	
 	zconv2da(in1, rows1, cols1, in2Copy, rows2, cols2, out);
+
+	free(in2Copy);	
 				
 }
 

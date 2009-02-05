@@ -138,6 +138,8 @@ floatComplex cdeterma(floatComplex *in, int size){
 			  for (i=0;i<size;i++){
 			  	out = cmuls(out,inCopy[i*size+i]);
 			  }
+			  free(inCopy);
+			  break;
 	}
 #endif
 

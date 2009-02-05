@@ -44,6 +44,10 @@ void cconva(floatComplex *in1, int size1, floatComplex *in2,int size2, floatComp
 	for (i=0;i<size1+size2-1;i++){
 		out[i]=result[i];
 	}
+	
+	free(in1b);
+	free(in2b);
+	free(result);
 }
 
 

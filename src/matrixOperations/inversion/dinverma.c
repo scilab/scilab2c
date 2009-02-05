@@ -30,6 +30,9 @@ void dinverma ( double* in, double* out, int leadDimIn )
 
     dgetrf_ ( &leadDimIn, &leadDimIn, out, &leadDimIn, vectPivot, &info );   
     dgetri_ ( &leadDimIn, out, &leadDimIn , vectPivot,  work , &leadDimIn , &info ); 
+    
+    free(vectPivot);
+    free(work);
 
 
 }

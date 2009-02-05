@@ -213,6 +213,19 @@ static int testFft(void){
 	else			assert(1);
 	}
 	
+	
+	free(in1);
+	free(in2);
+	free(in3);
+	free(in4);
+	free(in6);
+	free(in9);
+	free(out1);
+	free(out2);
+	free(out3);
+	free(out4);
+	free(out6);
+	free(out9);
 	return 0;
 }
 

@@ -103,5 +103,13 @@ void zlogma (doubleComplex* in, int size, doubleComplex* out){
 	/* Vp * diag(log(diag(vp))*inv(Vp) */
 	zmulma(tmp, size, size, eigenvectors, size, size, out);
 	
+	
+	free(eigenvalues);
+	free(eigenvectors);
+	free(tmp);
+	free(pdblWork);
+	free(pdblRWork);
+	free(inCopy);
+	
 
 }

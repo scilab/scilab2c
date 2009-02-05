@@ -84,6 +84,8 @@ float sdeterma(float * in, int size){
 			  for (i=0;i<size;i++){
 			  	out *= inCopy[i*size+i];
 			  }
+			  free(inCopy);
+			  break;
 		
 	}
 

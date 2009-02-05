@@ -48,6 +48,9 @@ static int doubleVariance(void){
 		for (i=0;i<4;i++)assert(fabs(outRows[i]-resultRows[i])/fabs(outRows[i]) <1e-16);
 	
 		for (i=0;i<5;i++)assert(fabs(outColumns[i]-resultColumns[i])/fabs(outColumns[i]) <1e-16);
+		
+		free(outColumns);
+		free(outRows);
 	
 	}
 	
@@ -119,7 +122,9 @@ static int doubleVariance(void){
 		for (i=0;i<10;i++)assert(fabs(outRows2[i]-resultRows2[i])/fabs(outRows2[i]) <1e-16);
 	
 		for (i=0;i<7;i++)assert(fabs(outColumns2[i]-resultColumns2[i])/fabs(outColumns2[i]) <1e-16);	
-	
+		
+		free(outColumns2);
+		free(outRows2);
 	}
 	
 	
@@ -187,7 +192,9 @@ static int doubleComplexVariance(void){
 			assert(fabs(zimags(outCol[i])-colVarianceI[i])/fabs(zimags(outCol[i])) <1e-15);			
 		}
 		
-		
+		free(in);
+		free(outCol);
+		free(outRow);		
 		
 	}
 	
@@ -325,6 +332,9 @@ static int doubleComplexVariance(void){
 			assert(fabs(zreals(outCol[i])-colVarianceR[i])/fabs(zreals(outCol[i])) <1e-15);			
 			assert(fabs(zimags(outCol[i])-colVarianceI[i])/fabs(zimags(outCol[i])) <1e-14);			
 		}
+		free(in);
+		free(outCol);
+		free(outRow);
 		
 	}
 	

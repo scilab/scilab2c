@@ -127,6 +127,8 @@ doubleComplex zdeterma(doubleComplex * in, int size){
 			  for (i=0;i<size;i++){
 			  	out = zmuls(out,inCopy[i*size+i]);
 			  }
+			  free(inCopy);
+			  break;
 	}
 #endif
 	return out;

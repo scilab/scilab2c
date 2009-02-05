@@ -516,7 +516,23 @@ static void dhilbertaTest(void){
 	else 			   assert(1);	
 	}
 
-
+	free(out2);
+	free(out3);
+	free(out4);
+	free(out5);
+	free(out7);
+	
+	free(out12);
+	free(out13);
+	free(out14);
+	free(out15);
+	free(out17);	
+	
+	free(out31);
+	free(out32);
+	free(out34);
+	free(out35);
+	free(out37);
 }
 
 static void shilbertaTest(void){
@@ -794,7 +810,24 @@ static void shilbertaTest(void){
 	if (cimags(out37[i])>1e-16) assert( (fabs(cimags(out37[i])+resI37[i]) / fabs(cimags(out37[i])) )<1e-5);
 	else 			   assert(1);	
 	}
-
+	
+	free(out2);
+	free(out3);
+	free(out4);
+	free(out5);
+	free(out7);
+	
+	free(out12);
+	free(out13);
+	free(out14);
+	free(out15);
+	free(out17);	
+	
+	free(out31);
+	free(out32);
+	free(out34);
+	free(out35);
+	free(out37);
 
 }	
 

@@ -23,4 +23,6 @@ void dlogma (double* in, int size, doubleComplex* out){
 	for (i=0;i<size*size;i++) inCpx[i] = DoubleComplex(in[i],0);
 	
 	zlogma(inCpx, size, out);
+	
+	free(inCpx);
 }

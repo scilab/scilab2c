@@ -31,5 +31,7 @@ void dlpc2cepa(double* in, int size, double* out){
 	zifftma(inCpx,size, size, inCpx);
 	
  	zreala(inCpx,size*size,out);
+ 	
+ 	free(inCpx);
 }
  
