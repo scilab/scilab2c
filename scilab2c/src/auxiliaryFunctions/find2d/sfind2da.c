@@ -13,26 +13,23 @@
 #include "find2d.h"
 #include <malloc.h>
 #include <stdio.h>
-
-void sfind2da(float* x, int rows, int columns, float** out1, float** out2) {
+void sfind2da(float* x, int rows, int columns, float* out1,int* indiceOut1, float* out2,int* indiceOut2) {
   int i = 0, j=0;
-  int indiceOut = 0;
-  float* out_1 = NULL, *out_2=NULL;
-
-  /* We suppose out1 and out2 are NULL on input */
+  indiceOut1[1] = 0;
+  
+  /* if out are empties */
+  out1[0]=-1;
+  out2[0]=-1;
   
   for (i = 0; i < rows ; ++i) {
   	for	(j = 0; j < columns ; ++j) {
-	    if (x[i*columns+j] != 0) {
-	    	out_1 = realloc(out_1, (uint)(indiceOut+1)*sizeof(float));
-	    	out_2 = realloc(out_2, (uint)(indiceOut+1)*sizeof(float));
+	    if (x[j*rows+i] != 0) {
 	    	
-		out_1[indiceOut] = (float)i;
-		out_2[indiceOut] = (float)j;
-		indiceOut++;
+		out1[indiceOut1[1]] = (float)(i+1);
+		out2[indiceOut1[1]] = (float)(j+1);
+		indiceOut1[1]++;
 	    }
 	}
   }
-  *out1=out_1;
-  *out2=out_2;
+  indiceOut2[1]=indiceOut1[1];
 }
