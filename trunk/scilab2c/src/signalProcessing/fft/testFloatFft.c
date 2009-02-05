@@ -355,7 +355,9 @@ static void cfftmaTest2 (void )
 
     }
 
-
+    free(out);
+    free(in);
+    free(Result);
 }
 
 static void cfftmaTest3 (void )
@@ -408,6 +410,9 @@ static void cfftmaTest3 (void )
     }
 
 
+    free(out);
+    free(in);
+    free(Result);
 }
 
 
@@ -453,6 +458,9 @@ static void cfftmaTest4 (void )
 
     }
 
+    free(out);
+    free(in);
+    free(Result);
 
 }
 
@@ -506,6 +514,9 @@ static void cfftmaTest5 (void )
 
     }
 
+    free(out);
+    free(in);
+    free(Result);
 
 }
 
@@ -560,6 +571,9 @@ static void cfftmaTest6 (void )
     }
 
 
+    free(out);
+    free(in);
+    free(Result);
 }
 
 
@@ -612,6 +626,9 @@ static void cfftmaTest7 (void )
 
     }
 
+    free(out);
+    free(in);
+    free(Result);
 
 }
 
@@ -657,6 +674,9 @@ static void cfftmaTest8 (void )
 
     }
 
+    free(out);
+    free(in);
+    free(Result);
 
 }
 
@@ -703,6 +723,9 @@ static void cfftmaTest9 (void )
 
     }
 
+    free(out);
+    free(in);
+    free(Result);
 
 }
 
@@ -758,6 +781,8 @@ static void cfftmaTest10 (void )
 
     }
 
+    free(out);
+    free(in);
 }
 
 static void cfftmaTest11 (void )
@@ -812,6 +837,8 @@ static void cfftmaTest11 (void )
 
     }
 
+    free(out);
+    free(in);
 }
 
 
@@ -867,6 +894,8 @@ static void cfftmaTest12 (void )
 
     }
 
+    free(out);
+    free(in);
 }
 
 
@@ -922,6 +951,8 @@ static void cfftmaTest13 (void )
 
     }
 
+    free(out);
+    free(in);
 }
 
 
@@ -977,6 +1008,8 @@ static void cfftmaTest14 (void )
 
     }
 
+    free(out);
+    free(in);
 }
 
 
@@ -1033,6 +1066,8 @@ static void cfftmaTest15 (void )
 
     }
 
+    free(out);
+    free(in);
 }
 
 
@@ -1089,6 +1124,8 @@ static void cfftmaTest16 (void )
 
     }
 
+    free(out);
+    free(in);
 }
 
 
@@ -1145,6 +1182,8 @@ static void cfftmaTest32 (void )
 
     }
 
+    free(out);
+    free(in);
 }
 
 static int testFft(void) {

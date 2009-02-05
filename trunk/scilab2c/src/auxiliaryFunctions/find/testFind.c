@@ -46,6 +46,8 @@ int sfindaTest() {
      printf("%f  ",outBad[0]);
     
   printf("\n");
+  free(outBad);
+  free(outGood);
   return result;
 }
 
@@ -84,6 +86,8 @@ int dfindaTest() {
      printf("%f  ",outBad[0]);
     
   printf("\n");
+  free(outBad);
+  free(outGood);
   return result;
 }
 
@@ -134,6 +138,8 @@ int cfindaTest() {
      printf("%f  ",outBad[0]);
     
   printf("\n");
+  free(outBad);
+  free(outGood);
   return result;
 }
 
@@ -186,6 +192,8 @@ int zfindaTest() {
      printf("%f  ",outBad[0]);
  
   printf("\n");
+  free(outBad);
+  free(outGood);
   return result;
 }
 

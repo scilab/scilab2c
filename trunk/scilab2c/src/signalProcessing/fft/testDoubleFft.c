@@ -352,7 +352,10 @@ static void zfftmaTest2 (void )
 	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-12 ) ;
 
     }
-
+    
+    free(out);
+    free(in);
+    free(Result);
 
 }
 
@@ -404,7 +407,10 @@ static void zfftmaTest3 (void )
 	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-12 ) ;
 
     }
-
+    
+    free(out);
+    free(in);
+    free(Result);
 
 }
 
@@ -450,7 +456,10 @@ static void zfftmaTest4 (void )
 	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-12 ) ;
 
     }
-
+    
+    free(out);
+    free(in);
+    free(Result);
 
 }
 
@@ -504,7 +513,10 @@ static void zfftmaTest5 (void )
 
     }
 
-
+    
+    free(out);
+    free(in);
+    free(Result);
 }
 
 
@@ -556,7 +568,10 @@ static void zfftmaTest6 (void )
 	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-12 ) ;
 
     }
-
+    
+    free(out);
+    free(in);
+    free(Result);
 
 }
 
@@ -609,7 +624,10 @@ static void zfftmaTest7 (void )
 	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-12 ) ;
 
     }
-
+    
+    free(out);
+    free(in);
+    free(Result);
 
 }
 
@@ -654,7 +672,10 @@ static void zfftmaTest8 (void )
 	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-12 ) ;
 
     }
-
+    
+    free(out);
+    free(in);
+    free(Result);
 
 }
 
@@ -700,7 +721,10 @@ static void zfftmaTest9 (void )
 	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-12 ) ;
 
     }
-
+    
+    free(out);
+    free(in);
+    free(Result);
 
 }
 
@@ -755,7 +779,9 @@ static void zfftmaTest10 (void )
 	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 1e-12 ) ;
 
     }
-
+    
+    free(out);
+    free(in);
 }
 
 static void zfftmaTest11 (void )
@@ -809,7 +835,9 @@ static void zfftmaTest11 (void )
 	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 1e-12 ) ;
 
     }
-
+    
+    free(out);
+    free(in);
 }
 
 
@@ -864,7 +892,9 @@ static void zfftmaTest12 (void )
 	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 1e-12 ) ;
 
     }
-
+    
+    free(out);
+    free(in);
 }
 
 
@@ -919,7 +949,9 @@ static void zfftmaTest13 (void )
 	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 1e-12 ) ;
 
     }
-
+    
+    free(out);
+    free(in);
 }
 
 
@@ -974,7 +1006,9 @@ static void zfftmaTest14 (void )
 	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 1e-12 ) ;
 
     }
-
+    
+    free(out);
+    free(in);
 }
 
 
@@ -1030,7 +1064,9 @@ static void zfftmaTest15 (void )
 	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 1e-12 ) ;
 
     }
-
+    
+    free(out);
+    free(in);
 }
 
 
@@ -1086,7 +1122,9 @@ static void zfftmaTest16 (void )
 	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 1e-12 ) ;
 
     }
-
+    
+    free(out);
+    free(in);
 }
 
 
@@ -1142,7 +1180,9 @@ static void zfftmaTest32 (void )
 	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 1e-12 ) ;
 
     }
-
+    
+    free(out);
+    free(in);
 }
 
 static int testFft(void) {

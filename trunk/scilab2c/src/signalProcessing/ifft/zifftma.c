@@ -147,6 +147,11 @@ void zifftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 		}
 
 	}
+    
+  free(realIn);
+  free(imagIn);
+  free(inCopy);
+  free(inTemp);
 
 
 }

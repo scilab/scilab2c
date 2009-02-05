@@ -54,6 +54,7 @@ void cchola(floatComplex * in, int size, floatComplex *out){
 			out[j+i*size]=FloatComplex(0,0);
 		}
 	}
+	free(tmp);
 #else
 	/* Do not use Lapack functions*/
 

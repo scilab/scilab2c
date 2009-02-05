@@ -396,6 +396,9 @@ static void zifftmaTest2 (void )
 
     }
 
+    free(out);
+    free(in);
+    free(Result);
 
 }
 
@@ -448,6 +451,10 @@ static void zifftmaTest3 (void )
 
     }
 
+    free(out);
+    free(in);
+    free(Result);
+
 
 }
 
@@ -493,6 +500,10 @@ static void zifftmaTest4 (void )
 	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-12 ) ;
 */
     }
+
+    free(out);
+    free(in);
+    free(Result);
 
 
 }
@@ -547,6 +558,10 @@ static void zifftmaTest5 (void )
 
     }
 
+    free(out);
+    free(in);
+    free(Result);
+
 
 }
 
@@ -599,6 +614,10 @@ static void zifftmaTest6 (void )
 	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-12 ) ;
 
     }
+
+    free(out);
+    free(in);
+    free(Result);
 
 
 }
@@ -653,6 +672,10 @@ static void zifftmaTest7 (void )
 
     }
 
+    free(out);
+    free(in);
+    free(Result);
+
 
 }
 
@@ -697,6 +720,10 @@ static void zifftmaTest8 (void )
 	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-12 ) ;
 */
     }
+
+    free(out);
+    free(in);
+    free(Result);
 
 
 }
@@ -743,6 +770,10 @@ static void zifftmaTest9 (void )
 	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-12 ) ;
 
     }
+
+    free(out);
+    free(in);
+    free(Result);
 
 
 }
@@ -799,6 +830,9 @@ static void zifftmaTest10 (void )
 
     }
 
+    free(out);
+    free(in);
+
 }
 
 static void zifftmaTest11 (void )
@@ -852,6 +886,9 @@ static void zifftmaTest11 (void )
 	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 1e-12 ) ;
 
     }
+
+    free(out);
+    free(in);
 
 }
 
@@ -908,6 +945,9 @@ static void zifftmaTest12 (void )
 
     }
 
+    free(out);
+    free(in);
+
 }
 
 
@@ -963,6 +1003,9 @@ static void zifftmaTest13 (void )
 
     }
 
+    free(out);
+    free(in);
+
 }
 
 
@@ -1017,6 +1060,9 @@ static void zifftmaTest14 (void )
 	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 1e-12 ) ;
 
     }
+
+    free(out);
+    free(in);
 
 }
 
@@ -1074,6 +1120,9 @@ static void zifftmaTest15 (void )
 
     }
 
+    free(out);
+    free(in);
+
 }
 
 
@@ -1130,6 +1179,9 @@ static void zifftmaTest16 (void )
 
     }
 
+    free(out);
+    free(in);
+
 }
 
 
@@ -1185,6 +1237,10 @@ static void zifftmaTest32 (void )
 	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 1e-12 ) ;
 
     }
+
+    free(out);
+    free(in);
+
 
 }
 

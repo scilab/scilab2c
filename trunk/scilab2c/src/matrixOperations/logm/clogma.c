@@ -30,6 +30,10 @@ void clogma (floatComplex* in, int size, floatComplex* out){
 	
 	for(i=0;i<size*size;i++)
 		out[i]=FloatComplex( (float)zreals(outCopy[i]),(float)zimags(outCopy[i]));
+		
+	
+	free(inCopy);
+	free(outCopy);
 	
 	
 }

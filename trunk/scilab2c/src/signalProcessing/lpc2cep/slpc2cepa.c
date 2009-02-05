@@ -30,6 +30,8 @@ void slpc2cepa(float *in, int size, float*out){
 	cifftma(inCpx,size,size,inCpx);
 	
 	creala(inCpx,size*size,out);
+ 	
+ 	free(inCpx);
 }
 
 

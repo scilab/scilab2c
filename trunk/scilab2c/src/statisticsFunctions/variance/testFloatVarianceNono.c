@@ -48,7 +48,9 @@ static int floatVariance(void){
 		for (i=0;i<4;i++)assert(fabs(outRows[i]-resultRows[i])/fabs(outRows[i]) <1e-06);
 	
 		for (i=0;i<5;i++)assert(fabs(outColumns[i]-resultColumns[i])/fabs(outColumns[i]) <1e-06);
-	
+		
+		free(outColumns);
+		free(outRows);
 	}
 	
 	
@@ -118,7 +120,10 @@ static int floatVariance(void){
 		assert(fabs(out2-result2)/fabs(out2) <1e-06);
 		for (i=0;i<10;i++)assert(fabs(outRows2[i]-resultRows2[i])/fabs(outRows2[i]) <1e-06);
 	
-		for (i=0;i<7;i++)assert(fabs(outColumns2[i]-resultColumns2[i])/fabs(outColumns2[i]) <1e-06);	
+		for (i=0;i<7;i++)assert(fabs(outColumns2[i]-resultColumns2[i])/fabs(outColumns2[i]) <1e-06);
+		
+		free(outColumns2);
+		free(outRows2);	
 	
 	}
 	
@@ -187,6 +192,9 @@ static int floatComplexVariance(void){
 			assert(fabs(cimags(outCol[i])-colVarianceI[i])/fabs(cimags(outCol[i])) <1e-5);			
 		}
 		
+		free(in);
+		free(outCol);
+		free(outRow);
 		
 		
 	}
@@ -326,6 +334,9 @@ static int floatComplexVariance(void){
 			assert(fabs(cimags(outCol[i])-colVarianceI[i])/fabs(cimags(outCol[i])) <1e-5);			
 		}
 		
+		free(in);
+		free(outCol);
+		free(outRow);
 	}
 	
 	return 0;

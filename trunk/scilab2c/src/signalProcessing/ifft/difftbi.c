@@ -314,5 +314,8 @@ c    *********************************************
          lnow = istak[lnow-1] ;
          in-- ;
       }
-   return ;
+    
+    free(istak);
+    free(rstak);
+    return ;
 }

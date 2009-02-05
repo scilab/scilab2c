@@ -21,12 +21,14 @@ void dcrossCorra(double* in1, int rows1, int cols1, double* in2, int rows2, int 
 	double *in2Copy;
 	int i;
 	
-	in2Copy=malloc((uint)rows2*sizeof(double));
+	in2Copy=malloc((uint)(rows2*cols2)*sizeof(double));
 	
 	/* We change in2 to be in appropriate form in in2Copy*/
 	for (i=0;i<(rows2*cols2);i++) in2Copy[i]=in2[rows2*cols2-1-i];
 	
 	dconv2da(in1, rows1, cols1, in2Copy, rows2, cols2, out);
+
+	free(in2Copy);
 }
 
 

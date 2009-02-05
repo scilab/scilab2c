@@ -26,7 +26,8 @@ void ccrossCorra(floatComplex* in1, int rows1, int cols1, floatComplex* in2, int
 	for (i=0;i<(rows2*cols2);i++) in2Copy[i]=cconjs(in2[rows2*cols2-1-i]);
 	
 	cconv2da(in1, rows1, cols1, in2Copy, rows2, cols2, out);
-			
+
+	free(in2Copy);			
 }
 
 

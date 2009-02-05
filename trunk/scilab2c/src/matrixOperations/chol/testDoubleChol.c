@@ -91,6 +91,7 @@ static void zcholaTest(void){
 	if (zimags(out[i])>1e-16)	
 		assert( (fabs(zimags(out[i])-resI[i]) / fabs(zimags(out[i]))) <1e-15);
 	}
+	free(out);
 }
 
 

@@ -61,7 +61,7 @@ int drandaTest() {
   printf("%1.20f\n",result[i]);
 
   assert(result[i] != nan);}
-
+  free(result);
   return 0;
 }
   
@@ -78,6 +78,7 @@ int zrandaTest() {
   printf("%1.20f+%1.20f\n",zreals(result[i]),zimags(result[i]));
 
   assert(zreals(result[i]) != nan);}
+  free(result);
 
   return 0;
 }
