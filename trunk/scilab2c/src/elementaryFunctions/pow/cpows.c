@@ -15,5 +15,14 @@
 #include "log.h"
 
 floatComplex		cpows(floatComplex z, floatComplex power) {
-    return cexps(cmuls(clogs(z), power));
+      /*Cas z=0 */
+  if ( (creals(z)==0) && (cimags(z)==0) ){
+  	/* Cas 0^0 */
+  	if ( (creals(power)==0) && (cimags(power)==0) ) return FloatComplex(1,0);
+  	/* Cas 0^x, x!=0 */
+  	return FloatComplex(0,0);
+  }
+  
+  /* Cas z!=0 */
+  return cexps(cmuls(clogs(z), power));
 }
