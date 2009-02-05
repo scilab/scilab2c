@@ -15,5 +15,14 @@
 #include "exp.h"
 
 doubleComplex		zpows(doubleComplex z, doubleComplex power) {
+  /*Cas z=0 */
+  if ( (zreals(z)==0) && (zimags(z)==0) ){
+  	/* Cas 0^0 */
+  	if ( (zreals(power)==0) && (zimags(power)==0) ) return DoubleComplex(1,0);
+  	/* Cas 0^x, x!=0 */
+  	return DoubleComplex(0,0);
+  }
+  
+  /* Cas z!=0 */
   return zexps(zmuls(zlogs(z), power));
 }
