@@ -451,6 +451,9 @@ static void zrdivmaTest ( void ){
 	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-15  ) ;
 
 	}
+	
+	free(Result);
+	free(out);
 }
 
 static int testRDivma   (void) {

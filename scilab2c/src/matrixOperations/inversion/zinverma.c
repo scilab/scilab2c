@@ -30,6 +30,7 @@ void zinverma ( doubleComplex* in, doubleComplex* out, int leadDimIn )
     zgetrf_ ( &leadDimIn, &leadDimIn, out, &leadDimIn, vectPivot, &info );  
     zgetri_ ( &leadDimIn, out, &leadDimIn , vectPivot,  work , &leadDimIn , &info ); 
 
-
+    free(vectPivot);
+    free(work);
 }
 

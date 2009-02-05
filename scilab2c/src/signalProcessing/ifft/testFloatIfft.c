@@ -393,6 +393,9 @@ static void cifftmaTest2 (void )
 
     }
 
+    free(out);
+    free(in);
+    free(Result);
 
 }
 
@@ -444,7 +447,9 @@ static void cifftmaTest3 (void )
 	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 1e-4 ) ;
 */
     }
-
+    free(out);
+    free(in);
+    free(Result);
 
 }
 
@@ -490,7 +495,9 @@ static void cifftmaTest4 (void )
 	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 1e-4 ) ;
 */
     }
-
+    free(out);
+    free(in);
+    free(Result);
 
 }
 
@@ -543,7 +550,9 @@ static void cifftmaTest5 (void )
 	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 1e-4 ) ;
 
     }
-
+    free(out);
+    free(in);
+    free(Result);
 
 }
 
@@ -596,7 +605,9 @@ static void cifftmaTest6 (void )
 	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 1e-4 ) ;
 
     }
-
+    free(out);
+    free(in);
+    free(Result);
 
 }
 
@@ -649,7 +660,9 @@ static void cifftmaTest7 (void )
 	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 1e-4 ) ;
 
     }
-
+    free(out);
+    free(in);
+    free(Result);
 
 }
 
@@ -694,7 +707,9 @@ static void cifftmaTest8 (void )
 	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 1e-4 ) ;
 
     }
-
+    free(out);
+    free(in);
+    free(Result);
 
 }
 
@@ -740,7 +755,9 @@ static void cifftmaTest9 (void )
 	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 1e-4 ) ;
 
     }
-
+    free(out);
+    free(in);
+    free(Result);
 
 }
 
@@ -795,7 +812,8 @@ static void cifftmaTest10 (void )
 	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 1e-4 ) ;
 
     }
-
+    free(out);
+    free(in);
 }
 
 static void cifftmaTest11 (void )
@@ -849,6 +867,8 @@ static void cifftmaTest11 (void )
 	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 1e-4 ) ;
 
     }
+    free(out);
+    free(in);
 
 }
 
@@ -904,6 +924,8 @@ static void cifftmaTest12 (void )
 	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 1e-4 ) ;
 
     }
+    free(out);
+    free(in);
 
 }
 
@@ -959,6 +981,8 @@ static void cifftmaTest13 (void )
 	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 1e-4 ) ;
 
     }
+    free(out);
+    free(in);
 
 }
 
@@ -1014,6 +1038,8 @@ static void cifftmaTest14 (void )
 	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 1e-4 ) ;
 
     }
+    free(out);
+    free(in);
 
 }
 
@@ -1070,6 +1096,8 @@ static void cifftmaTest15 (void )
 	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 1e-4 ) ;
 
     }
+    free(out);
+    free(in);
 
 }
 
@@ -1126,6 +1154,8 @@ static void cifftmaTest16 (void )
 	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 1e-4 ) ;
 
     }
+    free(out);
+    free(in);
 
 }
 
@@ -1182,6 +1212,8 @@ static void cifftmaTest32 (void )
 	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 1e-4 ) ;
 
     }
+    free(out);
+    free(in);
 
 }
 

@@ -31,6 +31,9 @@ static void zlogmaTest(void){
 
 	zlogma(in,3,out);
 	for(i=0;i<9;i++) printf("out[%d] = %f + %f *i\n",i,zreals(out[i]),zimags(out[i]));
+	
+	free(in);
+	free(out);
 }
 
 static int logmTest(void){

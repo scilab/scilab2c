@@ -36,6 +36,8 @@ void sconva(float *in1, int size1, float *in2,int size2, float *out){
 	creala(result,size1+size2-1,out);
 
 	free(result);
+	free(in1Cpx);
+	free(in2Cpx);
 }
 
 

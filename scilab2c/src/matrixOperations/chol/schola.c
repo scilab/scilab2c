@@ -46,7 +46,7 @@ void schola(float * in, int size, float *out){
 			out[j+i*size]=0;
 		}
 	}
-	
+	free(tmp);
 #else
 	/* Do not use Lapack functions*/
 	int i=0, j=0, k=0;

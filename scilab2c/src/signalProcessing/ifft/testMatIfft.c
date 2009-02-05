@@ -212,7 +212,19 @@ static int testIfft(void){
 	
 	if (zimags(out9[i])>1e-15)	assert( (fabs(zimags(out9[i])-resI9[i]) / fabs(zimags(out9[i]))) < 1e-15 );
 	else			assert(1);
-	}
+	}	
+	free(in1);
+	free(in2);
+	free(in3);
+	free(in4);
+	free(in6);
+	free(in9);
+	free(out1);
+	free(out2);
+	free(out3);
+	free(out4);
+	free(out6);
+	free(out9);
 	return 0;
 }
 
