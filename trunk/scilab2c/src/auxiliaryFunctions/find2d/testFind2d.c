@@ -17,23 +17,23 @@ int sfind2daTest() {
   int result = 0, i = 0;
   float goodArray[6] = {0.,2.,3.,0.,5.,10.};
   float badArray[6] = {0.,0.,0.,0.,0.,0.};
-  float out1_1_6[4] = {0.,0.,0.,0.};
-  float out1_2_3[4] = {0.,0.,1.,1.};
-  float out1_3_2[4] = {0.,1.,2.,2.};
-  float out1_6_1[4] = {1.,2.,4.,5.};
-  float out2_1_6[4] = {1.,2.,4.,5.};
-  float out2_2_3[4] = {1.,2.,1.,2.};
-  float out2_3_2[4] = {1.,0.,0.,1.};
-  float out2_6_1[4] = {0.,0.,0.,0.};
-  float *out1Good = NULL, *out1Bad = NULL, *out2Good = NULL, *out2Bad = NULL;
-
+  float out1_1_6[4] = {1.,1.,1.,1.};
+  float out1_2_3[4] = {1.,1.,2.,2.};
+  float out1_3_2[4] = {2.,2.,3.,3.};
+  float out1_6_1[4] = {2.,3.,5.,6.};
+  float out2_1_6[4] = {2.,3.,5.,6.};
+  float out2_2_3[4] = {2.,3.,1.,3.};
+  float out2_3_2[4] = {1.,2.,1.,2.};
+  float out2_6_1[4] = {1.,1.,1.,1.};
+  float out1Good[6] = {0}, out1Bad[6] = {0}, out2Good[6] = {0}, out2Bad[6] = {0};
+  int size1[2]={0},size2[2]={0};
   printf(">> Floats \n");
   
   /* Test tab 1 ligne 6 colonnes */
-  sfind2da(goodArray, 1, 6, &out1Good, &out2Good);
-  sfind2da(badArray, 1, 6, &out1Bad, &out2Bad);
+  sfind2da(goodArray, 1, 6, out1Good, size1, out2Good, size2);
   
-  for (i=0;i<4;i++){
+  
+  for (i=0;i<size1[1];i++){
   	if ( (out1Good[i] != out1_1_6[i]) || (out2Good[i] != out2_1_6[i]) ) {
 	    printf("ERROR ! : Test Failed (non empty array)\n");
 	    result = ERROR;
@@ -43,8 +43,8 @@ int sfind2daTest() {
   }
   
   printf("\n");
-  
-  if ((out1Bad!=NULL) || (out2Bad!=NULL) ) {
+  sfind2da(badArray, 1, 6, out1Bad, size1,out2Bad,size2);
+  if ((out1Bad[0]!=-1) || (out2Bad[0]!=-1) ) {
     printf("ERROR ! : Test Failed (empty array)\n");
     result = ERROR;
   }
@@ -54,14 +54,10 @@ int sfind2daTest() {
   printf("\n");
   
    /* Test tab 2 lignes 3 colonnes */
-  out1Good = NULL;
-  out1Bad = NULL; 
-  out2Good = NULL; 
-  out2Bad = NULL;
-  sfind2da(goodArray, 2, 3, &out1Good, &out2Good);
-  sfind2da(badArray, 2, 3, &out1Bad, &out2Bad);
+  sfind2da(goodArray, 2, 3, out1Good, size1, out2Good, size2);
   
-  for (i=0;i<4;i++){
+  
+  for (i=0;i<size1[1];i++){
   	if ( (out1Good[i] != out1_2_3[i]) || (out2Good[i] != out2_2_3[i]) ) {
 	    printf("ERROR ! : Test Failed (non empty array)\n");
 	    result = ERROR;
@@ -71,8 +67,8 @@ int sfind2daTest() {
   }
   
   printf("\n");
-  
-  if ((out1Bad!=NULL) || (out2Bad!=NULL) ) {
+  sfind2da(badArray, 2, 3, out1Bad, size1, out2Bad, size2);
+  if ((out1Bad[0]!=-1) || (out2Bad[0]!=-1) ) {
     printf("ERROR ! : Test Failed (empty array)\n");
     result = ERROR;
   }
@@ -82,14 +78,10 @@ int sfind2daTest() {
   printf("\n");
   
    /* Test tab 3 lignes 2 colonnes */
-  out1Good = NULL;
-  out1Bad = NULL; 
-  out2Good = NULL; 
-  out2Bad = NULL;
-  sfind2da(goodArray, 3, 2, &out1Good, &out2Good);
-  sfind2da(badArray, 3, 2, &out1Bad, &out2Bad);
+  sfind2da(goodArray, 3, 2, out1Good, size1, out2Good, size1);
   
-  for (i=0;i<4;i++){
+  
+  for (i=0;i<size1[1];i++){
   	if ( (out1Good[i] != out1_3_2[i]) || (out2Good[i] != out2_3_2[i]) ) {
 	    printf("ERROR ! : Test Failed (non empty array)\n");
 	    result = ERROR;
@@ -99,8 +91,8 @@ int sfind2daTest() {
   }
   
   printf("\n");
-  
-  if ((out1Bad!=NULL) || (out2Bad!=NULL) ) {
+  sfind2da(badArray, 3, 2, out1Bad, size1, out2Bad, size1);
+  if ((out1Bad[0]!=-1) || (out2Bad[0]!=-1) ) {
     printf("ERROR ! : Test Failed (empty array)\n");
     result = ERROR;
   }
@@ -110,14 +102,10 @@ int sfind2daTest() {
   printf("\n");
   
    /* Test tab 6 lignes 1 colonne */
-  out1Good = NULL;
-  out1Bad = NULL; 
-  out2Good = NULL; 
-  out2Bad = NULL;
-  sfind2da(goodArray, 6, 1, &out1Good, &out2Good);
-  sfind2da(badArray, 6, 1, &out1Bad, &out2Bad);
+  sfind2da(goodArray, 6, 1, out1Good, size1, out2Good, size1);
   
-  for (i=0;i<4;i++){
+  
+  for (i=0;i<size1[1];i++){
   	if ( (out1Good[i] != out1_6_1[i]) || (out2Good[i] != out2_6_1[i]) ) {
 	    printf("ERROR ! : Test Failed (non empty array)\n");
 	    result = ERROR;
@@ -127,8 +115,8 @@ int sfind2daTest() {
   }
   
   printf("\n");
-  
-  if ((out1Bad!=NULL) || (out2Bad!=NULL) ) {
+  sfind2da(badArray, 6, 1, out1Bad, size1, out2Bad, size1);
+  if ((out1Bad[0]!=-1) || (out2Bad[0]!=-1) ) {
     printf("ERROR ! : Test Failed (empty array)\n");
     result = ERROR;
   }
@@ -145,23 +133,24 @@ int dfind2daTest() {
   int result = 0, i = 0;
   double goodArray[6] = {0.,2.,3.,0.,5.,10.};
   double badArray[6] = {0.,0.,0.,0.,0.,0.};
-  double out1_1_6[4] = {0.,0.,0.,0.};
-  double out1_2_3[4] = {0.,0.,1.,1.};
-  double out1_3_2[4] = {0.,1.,2.,2.};
-  double out1_6_1[4] = {1.,2.,4.,5.};
-  double out2_1_6[4] = {1.,2.,4.,5.};
-  double out2_2_3[4] = {1.,2.,1.,2.};
-  double out2_3_2[4] = {1.,0.,0.,1.};
-  double out2_6_1[4] = {0.,0.,0.,0.};
-  double *out1Good = NULL, *out1Bad = NULL, *out2Good = NULL, *out2Bad = NULL;
+  double out1_1_6[4] = {1.,1.,1.,1.};
+  double out1_2_3[4] = {1.,1.,2.,2.};
+  double out1_3_2[4] = {2.,2.,3.,3.};
+  double out1_6_1[4] = {2.,3.,5.,6.};
+  double out2_1_6[4] = {2.,3.,5.,6.};
+  double out2_2_3[4] = {2.,3.,1.,3.};
+  double out2_3_2[4] = {1.,2.,1.,2.};
+  double out2_6_1[4] = {1.,1.,1.,1.};
+  double out1Good[6] = {0}, out1Bad[6] = {0}, out2Good[6] = {0}, out2Bad[6] = {0};
+  int size1[2]={0},size2[2]={0};
 
   printf(">> Double \n");
   
   /* Test tab 1 ligne 6 colonnes */
-  dfind2da(goodArray, 1, 6, &out1Good, &out2Good);
-  dfind2da(badArray, 1, 6, &out1Bad, &out2Bad);
+  dfind2da(goodArray, 1, 6, out1Good, size1, out2Good, size2);
   
-  for (i=0;i<4;i++){
+  
+  for (i=0;i<size1[1];i++){
   	if ( (out1Good[i] != out1_1_6[i]) || (out2Good[i] != out2_1_6[i]) ) {
 	    printf("ERROR ! : Test Failed (non empty array)\n");
 	    result = ERROR;
@@ -171,8 +160,8 @@ int dfind2daTest() {
   }
   
   printf("\n");
-  
-  if ((out1Bad!=NULL) || (out2Bad!=NULL) ) {
+  dfind2da(badArray, 1, 6, out1Bad, size1, out2Bad, size2);
+  if ((out1Bad[0]!=-1) || (out2Bad[0]!=-1) ) {
     printf("ERROR ! : Test Failed (empty array)\n");
     result = ERROR;
   }
@@ -182,25 +171,21 @@ int dfind2daTest() {
   printf("\n");
   
    /* Test tab 2 lignes 3 colonnes */
-  out1Good = NULL;
-  out1Bad = NULL; 
-  out2Good = NULL; 
-  out2Bad = NULL;
-  dfind2da(goodArray, 2, 3, &out1Good, &out2Good);
-  dfind2da(badArray, 2, 3, &out1Bad, &out2Bad);
+  dfind2da(goodArray, 2, 3, out1Good, size1, out2Good, size2);
   
-  for (i=0;i<4;i++){
+  
+  for (i=0;i<size1[1];i++){
   	if ( (out1Good[i] != out1_2_3[i]) || (out2Good[i] != out2_2_3[i]) ) {
 	    printf("ERROR ! : Test Failed (non empty array)\n");
 	    result = ERROR;
       }
-      else 
+      else       
      	    printf("(%f-%f)  ",out1Good[i],out2Good[i]);
   }
   
   printf("\n");
-  
-  if ((out1Bad!=NULL) || (out2Bad!=NULL) ) {
+  dfind2da(badArray, 2, 3, out1Bad, size1, out2Bad, size2);
+  if ((out1Bad[0]!=-1) || (out2Bad[0]!=-1) ) {
     printf("ERROR ! : Test Failed (empty array)\n");
     result = ERROR;
   }
@@ -210,14 +195,10 @@ int dfind2daTest() {
   printf("\n");
   
    /* Test tab 3 lignes 2 colonnes */
-  out1Good = NULL;
-  out1Bad = NULL; 
-  out2Good = NULL; 
-  out2Bad = NULL;
-  dfind2da(goodArray, 3, 2, &out1Good, &out2Good);
-  dfind2da(badArray, 3, 2, &out1Bad, &out2Bad);
+  dfind2da(goodArray, 3, 2, out1Good, size1, out2Good, size2);
+
   
-  for (i=0;i<4;i++){
+  for (i=0;i<size1[1];i++){
   	if ( (out1Good[i] != out1_3_2[i]) || (out2Good[i] != out2_3_2[i]) ) {
 	    printf("ERROR ! : Test Failed (non empty array)\n");
 	    result = ERROR;
@@ -227,8 +208,8 @@ int dfind2daTest() {
   }
   
   printf("\n");
-  
-  if ((out1Bad!=NULL) || (out2Bad!=NULL) ) {
+    dfind2da(badArray, 3, 2, out1Bad, size1, out2Bad, size2);
+  if ((out1Bad[0]!=-1) || (out2Bad[0]!=-1) ) {
     printf("ERROR ! : Test Failed (empty array)\n");
     result = ERROR;
   }
@@ -238,14 +219,10 @@ int dfind2daTest() {
   printf("\n");
   
    /* Test tab 6 lignes 1 colonne */
-  out1Good = NULL;
-  out1Bad = NULL; 
-  out2Good = NULL; 
-  out2Bad = NULL;
-  dfind2da(goodArray, 6, 1, &out1Good, &out2Good);
-  dfind2da(badArray, 6, 1, &out1Bad, &out2Bad);
+  dfind2da(goodArray, 6, 1, out1Good, size1, out2Good, size2);
+
   
-  for (i=0;i<4;i++){
+  for (i=0;i<size1[1];i++){
   	if ( (out1Good[i] != out1_6_1[i]) || (out2Good[i] != out2_6_1[i]) ) {
 	    printf("ERROR ! : Test Failed (non empty array)\n");
 	    result = ERROR;
@@ -255,8 +232,8 @@ int dfind2daTest() {
   }
   
   printf("\n");
-  
-  if ((out1Bad!=NULL) || (out2Bad!=NULL) ) {
+    dfind2da(badArray, 6, 1, out1Bad, size1, out2Bad, size2);
+  if ((out1Bad[0]!=-1) || (out2Bad[0]!=-1) ) {
     printf("ERROR ! : Test Failed (empty array)\n");
     result = ERROR;
   }
@@ -273,15 +250,16 @@ int cfind2daTest() {
   int result = 0, i = 0;
   floatComplex goodArray[6]; 
   floatComplex badArray[6]; 
-  float out1_1_6[4] = {0.,0.,0.,0.};
-  float out1_2_3[4] = {0.,0.,1.,1.};
-  float out1_3_2[4] = {0.,1.,2.,2.};
-  float out1_6_1[4] = {1.,2.,4.,5.};
-  float out2_1_6[4] = {1.,2.,4.,5.};
-  float out2_2_3[4] = {1.,2.,1.,2.};
-  float out2_3_2[4] = {1.,0.,0.,1.};
-  float out2_6_1[4] = {0.,0.,0.,0.};
-  float *out1Good = NULL, *out1Bad = NULL, *out2Good = NULL, *out2Bad = NULL;
+  float out1_1_6[4] = {1.,1.,1.,1.};
+  float out1_2_3[4] = {1.,1.,2.,2.};
+  float out1_3_2[4] = {2.,2.,3.,3.};
+  float out1_6_1[4] = {2.,3.,5.,6.};
+  float out2_1_6[4] = {2.,3.,5.,6.};
+  float out2_2_3[4] = {2.,3.,1.,3.};
+  float out2_3_2[4] = {1.,2.,1.,2.};
+  float out2_6_1[4] = {1.,1.,1.,1.};
+  float out1Good[6] = {0}, out1Bad[6] = {0}, out2Good[6] = {0}, out2Bad[6] = {0};
+  int size1[2]={0},size2[2]={0};
  
    /* Good values in goodArray */ 
   goodArray[0] = FloatComplex(0., 0.); 
@@ -301,10 +279,10 @@ int cfind2daTest() {
   printf(">> Float Complex \n");
    
   /* Test tab 1 ligne 6 colonnes */
-  cfind2da(goodArray, 1, 6, &out1Good, &out2Good);
-  cfind2da(badArray, 1, 6, &out1Bad, &out2Bad);
+  cfind2da(goodArray, 1, 6, out1Good, size1, out2Good, size2);
+
   
-  for (i=0;i<4;i++){
+  for (i=0;i<size1[1];i++){
   	if ( (out1Good[i] != out1_1_6[i]) || (out2Good[i] != out2_1_6[i]) ) {
 	    printf("ERROR ! : Test Failed (non empty array)\n");
 	    result = ERROR;
@@ -314,8 +292,8 @@ int cfind2daTest() {
   }
   
   printf("\n");
-  
-  if ((out1Bad!=NULL) || (out2Bad!=NULL) ) {
+    cfind2da(badArray, 1, 6, out1Bad, size1, out2Bad, size2);
+  if ((out1Bad[0]!=-1) || (out2Bad[0]!=-1) ) {
     printf("ERROR ! : Test Failed (empty array)\n");
     result = ERROR;
   }
@@ -325,14 +303,10 @@ int cfind2daTest() {
   printf("\n");
   
    /* Test tab 2 lignes 3 colonnes */
-  out1Good = NULL;
-  out1Bad = NULL; 
-  out2Good = NULL; 
-  out2Bad = NULL;
-  cfind2da(goodArray, 2, 3, &out1Good, &out2Good);
-  cfind2da(badArray, 2, 3, &out1Bad, &out2Bad);
+  cfind2da(goodArray, 2, 3, out1Good, size1, out2Good, size2);
+
   
-  for (i=0;i<4;i++){
+  for (i=0;i<size1[1];i++){
   	if ( (out1Good[i] != out1_2_3[i]) || (out2Good[i] != out2_2_3[i]) ) {
 	    printf("ERROR ! : Test Failed (non empty array)\n");
 	    result = ERROR;
@@ -342,8 +316,8 @@ int cfind2daTest() {
   }
   
   printf("\n");
-  
-  if ((out1Bad!=NULL) || (out2Bad!=NULL) ) {
+    cfind2da(badArray, 2, 3, out1Bad, size1, out2Bad, size2);
+  if ((out1Bad[0]!=-1) || (out2Bad[0]!=-1) ) {
     printf("ERROR ! : Test Failed (empty array)\n");
     result = ERROR;
   }
@@ -353,14 +327,10 @@ int cfind2daTest() {
   printf("\n");
   
    /* Test tab 3 lignes 2 colonnes */
-  out1Good = NULL;
-  out1Bad = NULL; 
-  out2Good = NULL; 
-  out2Bad = NULL;
-  cfind2da(goodArray, 3, 2, &out1Good, &out2Good);
-  cfind2da(badArray, 3, 2, &out1Bad, &out2Bad);
+  cfind2da(goodArray, 3, 2, out1Good, size1, out2Good, size2);
+
   
-  for (i=0;i<4;i++){
+  for (i=0;i<size1[1];i++){
   	if ( (out1Good[i] != out1_3_2[i]) || (out2Good[i] != out2_3_2[i]) ) {
 	    printf("ERROR ! : Test Failed (non empty array)\n");
 	    result = ERROR;
@@ -370,8 +340,8 @@ int cfind2daTest() {
   }
   
   printf("\n");
-  
-  if ((out1Bad!=NULL) || (out2Bad!=NULL) ) {
+    cfind2da(badArray, 3, 2, out1Bad, size1, out2Bad, size2);
+  if ((out1Bad[0]!=-1) || (out2Bad[0]!=-1) ) {
     printf("ERROR ! : Test Failed (empty array)\n");
     result = ERROR;
   }
@@ -381,14 +351,10 @@ int cfind2daTest() {
   printf("\n");
   
    /* Test tab 6 lignes 1 colonne */
-  out1Good = NULL;
-  out1Bad = NULL; 
-  out2Good = NULL; 
-  out2Bad = NULL;
-  cfind2da(goodArray, 6, 1, &out1Good, &out2Good);
-  cfind2da(badArray, 6, 1, &out1Bad, &out2Bad);
+  cfind2da(goodArray, 6, 1, out1Good, size1, out2Good, size2);
+
   
-  for (i=0;i<4;i++){
+  for (i=0;i<size1[1];i++){
   	if ( (out1Good[i] != out1_6_1[i]) || (out2Good[i] != out2_6_1[i]) ) {
 	    printf("ERROR ! : Test Failed (non empty array)\n");
 	    result = ERROR;
@@ -398,8 +364,8 @@ int cfind2daTest() {
   }
   
   printf("\n");
-  
-  if ((out1Bad!=NULL) || (out2Bad!=NULL) ) {
+    cfind2da(badArray, 6, 1, out1Bad, size1, out2Bad, size2);
+  if ((out1Bad[0]!=-1) || (out2Bad[0]!=-1) ) {
     printf("ERROR ! : Test Failed (empty array)\n");
     result = ERROR;
   }
@@ -416,15 +382,16 @@ int zfind2daTest() {
   int result = 0, i = 0;
   doubleComplex goodArray[6]; 
   doubleComplex badArray[6]; 
-  double out1_1_6[4] = {0.,0.,0.,0.};
-  double out1_2_3[4] = {0.,0.,1.,1.};
-  double out1_3_2[4] = {0.,1.,2.,2.};
-  double out1_6_1[4] = {1.,2.,4.,5.};
-  double out2_1_6[4] = {1.,2.,4.,5.};
-  double out2_2_3[4] = {1.,2.,1.,2.};
-  double out2_3_2[4] = {1.,0.,0.,1.};
-  double out2_6_1[4] = {0.,0.,0.,0.};
-  double *out1Good = NULL, *out1Bad = NULL, *out2Good = NULL, *out2Bad = NULL;
+  double out1_1_6[4] = {1.,1.,1.,1.};
+  double out1_2_3[4] = {1.,1.,2.,2.};
+  double out1_3_2[4] = {2.,2.,3.,3.};
+  double out1_6_1[4] = {2.,3.,5.,6.};
+  double out2_1_6[4] = {2.,3.,5.,6.};
+  double out2_2_3[4] = {2.,3.,1.,3.};
+  double out2_3_2[4] = {1.,2.,1.,2.};
+  double out2_6_1[4] = {1.,1.,1.,1.};
+  double out1Good[6] = {0}, out1Bad[6] = {0}, out2Good[6] = {0}, out2Bad[6] = {0};
+  int size1[2]={0},size2[2]={0};
   
   
   /* Good values in goodArray */
@@ -446,10 +413,10 @@ int zfind2daTest() {
   printf(">> Double Complex \n");
   
   /* Test tab 1 ligne 6 colonnes */
-  zfind2da(goodArray, 1, 6, &out1Good, &out2Good);
-  zfind2da(badArray, 1, 6, &out1Bad, &out2Bad);
+  zfind2da(goodArray, 1, 6, out1Good, size1, out2Good, size2);
+
   
-  for (i=0;i<4;i++){
+  for (i=0;i<size1[1];i++){
   	if ( (out1Good[i] != out1_1_6[i]) || (out2Good[i] != out2_1_6[i]) ) {
 	    printf("ERROR ! : Test Failed (non empty array)\n");
 	    result = ERROR;
@@ -459,8 +426,8 @@ int zfind2daTest() {
   }
   
   printf("\n");
-  
-  if ((out1Bad!=NULL) || (out2Bad!=NULL) ) {
+    zfind2da(badArray, 1, 6, out1Bad, size1, out2Bad, size2);
+  if ((out1Bad[0]!=-1) || (out1Bad[0]!=-1) ) {
     printf("ERROR ! : Test Failed (empty array)\n");
     result = ERROR;
   }
@@ -470,14 +437,10 @@ int zfind2daTest() {
   printf("\n");
   
    /* Test tab 2 lignes 3 colonnes */
-  out1Good = NULL;
-  out1Bad = NULL; 
-  out2Good = NULL; 
-  out2Bad = NULL;
-  zfind2da(goodArray, 2, 3, &out1Good, &out2Good);
-  zfind2da(badArray, 2, 3, &out1Bad, &out2Bad);
+  zfind2da(goodArray, 2, 3, out1Good, size1, out2Good, size2);
+
   
-  for (i=0;i<4;i++){
+  for (i=0;i<size1[1];i++){
   	if ( (out1Good[i] != out1_2_3[i]) || (out2Good[i] != out2_2_3[i]) ) {
 	    printf("ERROR ! : Test Failed (non empty array)\n");
 	    result = ERROR;
@@ -487,8 +450,8 @@ int zfind2daTest() {
   }
   
   printf("\n");
-  
-  if ((out1Bad!=NULL) || (out2Bad!=NULL) ) {
+    zfind2da(badArray, 2, 3, out1Bad, size1, out2Bad, size2);
+  if ((out1Bad[0]!=-1) || (out1Bad[0]!=-1) ) {
     printf("ERROR ! : Test Failed (empty array)\n");
     result = ERROR;
   }
@@ -498,14 +461,10 @@ int zfind2daTest() {
   printf("\n");
   
    /* Test tab 3 lignes 2 colonnes */
-  out1Good = NULL;
-  out1Bad = NULL; 
-  out2Good = NULL; 
-  out2Bad = NULL;
-  zfind2da(goodArray, 3, 2, &out1Good, &out2Good);
-  zfind2da(badArray, 3, 2, &out1Bad, &out2Bad);
+  zfind2da(goodArray, 3, 2, out1Good, size1, out2Good, size2);
   
-  for (i=0;i<4;i++){
+
+  for (i=0;i<size1[1];i++){
   	if ( (out1Good[i] != out1_3_2[i]) || (out2Good[i] != out2_3_2[i]) ) {
 	    printf("ERROR ! : Test Failed (non empty array)\n");
 	    result = ERROR;
@@ -515,8 +474,8 @@ int zfind2daTest() {
   }
   
   printf("\n");
-  
-  if ((out1Bad!=NULL) || (out2Bad!=NULL) ) {
+  zfind2da(badArray, 3, 2, out1Bad, size1, out2Bad, size2);
+  if ((out1Bad[0]!=-1) || (out1Bad[0]!=-1) ) {
     printf("ERROR ! : Test Failed (empty array)\n");
     result = ERROR;
   }
@@ -526,14 +485,10 @@ int zfind2daTest() {
   printf("\n");
   
    /* Test tab 6 lignes 1 colonne */
-  out1Good = NULL;
-  out1Bad = NULL; 
-  out2Good = NULL; 
-  out2Bad = NULL;
-  zfind2da(goodArray, 6, 1, &out1Good, &out2Good);
-  zfind2da(badArray, 6, 1, &out1Bad, &out2Bad);
-  
-  for (i=0;i<4;i++){
+  zfind2da(goodArray, 6, 1, out1Good, size1, out2Good, size2);
+ 
+
+  for (i=0;i<size1[1];i++){
   	if ( (out1Good[i] != out1_6_1[i]) || (out2Good[i] != out2_6_1[i]) ) {
 	    printf("ERROR ! : Test Failed (non empty array)\n");
 	    result = ERROR;
@@ -543,8 +498,8 @@ int zfind2daTest() {
   }
   
   printf("\n");
-  
-  if ((out1Bad!=NULL) || (out2Bad!=NULL) ) {
+   zfind2da(badArray, 6, 1, out1Bad, size1, out2Bad, size2);
+  if ((out1Bad[0]!=-1) || (out1Bad[0]!=-1) ) {
     printf("ERROR ! : Test Failed (empty array)\n");
     result = ERROR;
   }
