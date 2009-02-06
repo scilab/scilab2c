@@ -14,5 +14,6 @@
 #include "abs.h"
 
 doubleComplex zsigns(doubleComplex in) {
+  if ( (zreals(in)==0) && (zimags(in)==0) ) return DoubleComplex(0,0);
   return DoubleComplex(zreals(in) / zabss(in), zimags(in) / zabss(in));
 }

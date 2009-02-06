@@ -14,5 +14,6 @@
 #include "abs.h"
 
 floatComplex csigns(floatComplex in) {
+  if ( (creals(in)==0) && (cimags(in)==0) ) return FloatComplex(0,0);
   return FloatComplex(creals(in) / cabss(in), cimags(in) / cabss(in));
 }
