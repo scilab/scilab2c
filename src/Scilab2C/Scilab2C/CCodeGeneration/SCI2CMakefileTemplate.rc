@@ -40,7 +40,6 @@ SWSRCS	=	\
 	$(CSRCDIR)/OpLogEq.c \
 	$(CSRCDIR)/OpLogOr.c \
 	$(CSRCDIR)/OpLogAnd.c \
-	$(CSRCDIR)/Find.c \
 	$(CSRCDIR)/ConvertPrecision.c \
 	$(CSRCDIR)/ssqrts.c \
 	$(CSRCDIR)/dsqrts.c \
@@ -70,6 +69,10 @@ SWSRCS	=	\
 	$(CSRCDIR)/sfinda.c \
 	$(CSRCDIR)/cfinda.c \
 	$(CSRCDIR)/zfinda.c\
+	$(CSRCDIR)/dfind2da.c \
+	$(CSRCDIR)/sfind2da.c \
+	$(CSRCDIR)/cfind2da.c \
+	$(CSRCDIR)/zfind2da.c\
 	$(CSRCDIR)/scats.c \
 	$(CSRCDIR)/scata.c \
 	$(CSRCDIR)/dcats.c \
@@ -370,7 +373,27 @@ SWSRCS	=	\
 	$(CSRCDIR)/sisnans.c \
 	$(CSRCDIR)/sisnana.c \
 	$(CSRCDIR)/zisnans.c \
-	$(CSRCDIR)/zisnana.c 
+	$(CSRCDIR)/zisnana.c \
+	$(CSRCDIR)/cconva.c \
+	$(CSRCDIR)/dconva.c \
+	$(CSRCDIR)/sconva.c \
+	$(CSRCDIR)/zconva.c \
+	$(CSRCDIR)/cconv2da.c \
+	$(CSRCDIR)/dconv2da.c \
+	$(CSRCDIR)/sconv2da.c \
+	$(CSRCDIR)/zconv2da.c 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 #	$(CSRCDIR)/clog1ps.c \
 #	$(CSRCDIR)/zlog1ps.c \
