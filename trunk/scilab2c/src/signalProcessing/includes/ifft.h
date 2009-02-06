@@ -21,8 +21,16 @@
 #define ciffts(in)					in
 #define ziffts(in)					in
 
-#define sifftma(in,rows,columns,out)		cifftma(FloatComplexMatrix(in,0),rows,columns,out)
-#define difftma(in,rows,columns,out)		zifftma(DoubleComplexMatrix(in,0),rows,columns,out)
+#define sifftma(in,rows,columns,out)		{float* temp;\
+								temp=malloc((uint)(rows*columns)*sizeof(float));\
+								sfilla(temp,rows,columns,0);\
+								cifftma(FloatComplexMatrix(in,temp,rows*columns),rows,columns,out);\
+								}
+#define difftma(in,rows,columns,out)		{double* temp;\
+								temp=malloc((uint)(rows*columns)*sizeof(double));\
+								dfilla(temp,rows,columns,0);\
+								zifftma(DoubleComplexMatrix(in,temp,rows*columns),rows,columns,out);\
+								}
 
 /*
 ** compute the inverse fast fourier transform of a vector

@@ -15,9 +15,9 @@
 #ifndef __INT_IFFT_H__
 #define __INT_IFFT_H__
 
-#define s0ifftc0(in)			FloatComlex(siffts(in),0)
+#define s0ifftc0(in)			FloatComplex(siffts(in),0)
 
-#define d0ifftz0(in)			DoubleComlex(diffts(in),0)
+#define d0ifftz0(in)			DoubleComplex(diffts(in),0)
 
 #define c0ifftc0(in)			ciffts(in)
 
