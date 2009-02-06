@@ -724,6 +724,11 @@ PrintStringInfo('d0z2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('c0s2'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('z0d2'+ArgSeparator+'z2',ClassFileName,'file','y');
 
+PrintStringInfo('s0c0'+ArgSeparator+'c0',ClassFileName,'file','y');
+PrintStringInfo('d0z0'+ArgSeparator+'z0',ClassFileName,'file','y');
+PrintStringInfo('c0s0'+ArgSeparator+'c0',ClassFileName,'file','y');
+PrintStringInfo('z0d0'+ArgSeparator+'z0',ClassFileName,'file','y');
+
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'OpDotHat';
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'both','y');
@@ -817,6 +822,10 @@ PrintStringInfo('g2g2'+ArgSeparator+'d2',ClassFileName,'file','y');
 
 PrintStringInfo('c2s0'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('z2d0'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('z0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('c0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('d2z0'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('s2cF0'+ArgSeparator+'s2',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'OpLogEq';
@@ -1212,7 +1221,7 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 
 
 // -------------------
-// --- Class Find. ---
+// --- Class FOpFind. ---
 // -------------------
 ClassName = 'Find';
 
@@ -1996,8 +2005,25 @@ PrintStringInfo('d2d2d2'+ArgSeparator+'d2d2',ClassFileName,'file','y');
 PrintStringInfo('c2c2c2'+ArgSeparator+'c2c2',ClassFileName,'file','y');
 PrintStringInfo('z2z2z2'+ArgSeparator+'z2z2',ClassFileName,'file','y');
 
-//NUT non metto tutte le combinazioni ma prima cerco di capire cosa mi offre INRIA
-//NUT come libreria a disposizione.
+PrintStringInfo('s0c0'+ArgSeparator+'c0',ClassFileName,'file','y');
+PrintStringInfo('d0z0'+ArgSeparator+'z0',ClassFileName,'file','y');
+PrintStringInfo('c0s0'+ArgSeparator+'c0',ClassFileName,'file','y');
+PrintStringInfo('z0d0'+ArgSeparator+'z0',ClassFileName,'file','y');
+
+PrintStringInfo('s2c2'+ArgSeparator+'c2',ClassFileName,'file','y');
+PrintStringInfo('d2z2'+ArgSeparator+'z2',ClassFileName,'file','y');
+PrintStringInfo('c2s2'+ArgSeparator+'c2',ClassFileName,'file','y');
+PrintStringInfo('z2d2'+ArgSeparator+'z2',ClassFileName,'file','y');
+
+PrintStringInfo('s0c2'+ArgSeparator+'c2',ClassFileName,'file','y');
+PrintStringInfo('d0z2'+ArgSeparator+'z2',ClassFileName,'file','y');
+PrintStringInfo('c0s2'+ArgSeparator+'c2',ClassFileName,'file','y');
+PrintStringInfo('z0d2'+ArgSeparator+'z2',ClassFileName,'file','y');
+
+PrintStringInfo('s2c0'+ArgSeparator+'c2',ClassFileName,'file','y');
+PrintStringInfo('d2z0'+ArgSeparator+'z2',ClassFileName,'file','y');
+PrintStringInfo('c2s0'+ArgSeparator+'c2',ClassFileName,'file','y');
+PrintStringInfo('z2d0'+ArgSeparator+'z2',ClassFileName,'file','y');
 
 
 // --- Annotation Function And Function List Function. ---
