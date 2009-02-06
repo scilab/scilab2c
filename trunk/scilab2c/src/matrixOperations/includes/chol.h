@@ -25,11 +25,11 @@ void dchola(double *in, int size, double *out);
 float schols(float in);
 void schola(float *in, int size, float *out);
  
-#define zchols(in) 		dchols(zreals(in))
+#define zchols(in) 		DoubleComplex(dchols(zreals(in)),0)
 
 void zchola (doubleComplex *in, int size, doubleComplex *out); 
  
-#define cchols(in) 		schols(creals(in))
+#define cchols(in) 		FloatComplex(schols(creals(in)),0)
 void cchola(floatComplex *in, int size, floatComplex *out); 
 
 
