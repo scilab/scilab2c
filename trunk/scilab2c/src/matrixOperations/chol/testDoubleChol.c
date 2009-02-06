@@ -57,11 +57,11 @@ static void dcholaTest(void){
 
 static void zcholsTest(void){
 	doubleComplex in;
-	double out;
+	doubleComplex out;
 	in=DoubleComplex(3,1);
 		printf("\n >>> ZCholS <<<\n");
 	out=zchols(in);
-	printf("result : %f\n",out);
+	printf("result : %f\n",zreals(out));
 
 }
 
