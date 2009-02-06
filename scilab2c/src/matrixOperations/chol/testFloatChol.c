@@ -44,11 +44,11 @@ static void scholaTest(void){
 
 static void ccholsTest(void){
 	floatComplex in;
-	float out;
+	floatComplex out;
 	in=FloatComplex(3,1);
-		printf("\n >>> ZCholS <<<\n");
+		printf("\n >>> CCholS <<<\n");
 	out=cchols(in);
-	printf("result : %f\n",out);
+	printf("result : %f\n",creals(out));
 
 }
 
