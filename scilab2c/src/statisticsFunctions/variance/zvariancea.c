@@ -20,11 +20,12 @@ doubleComplex	zvariancea(doubleComplex *in, int size)
     doubleComplex temp = DoubleComplex ( 0 , 0 ) ; 
     doubleComplex variance = DoubleComplex ( 0 , 0 );
     doubleComplex mean =  zmeana ( in , size ) ;
-     
+
     for ( i = 0 ; i < size ; i++)
     {
        temp = zdiffs( in[i] , mean ) ;
-       sum  = zadds ( sum , zpows ( temp  , DoubleComplex ( 2, 0) ) );
+       sum  = zadds ( sum , zpows ( temp  , DoubleComplex ( 2, 0) ) ); 
+           printf("sum[%d] : %f+%f*i\n",i,zreals(sum), zimags(sum));
     }
  
     variance = zrdivs (sum , DoubleComplex ( (size - 1),0 ));
