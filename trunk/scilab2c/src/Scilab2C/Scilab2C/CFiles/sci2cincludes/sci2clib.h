@@ -66,6 +66,13 @@
 #include "frexp.h"
 /* interfacing sign */
 #include "sign.h"
+#include "int_sign.h"
+/* interfacing size */
+#include "size.h"
+#include "int_size.h"
+/* interfacing type */
+#include "type.h"
+#include "int_type.h"
 
 /* ELEMENTARY FUNCTIONS */
 
@@ -156,28 +163,31 @@
 #include "cat.h"
 #include "int_OpRc.h"
 #include "int_OpCc.h"
-/* interfacing fill */
-#include "fill.h"/* interfacing ones */
-#include "ones.h"
+/* interefacing chol */
+#include "chol.h"
+#include "int_chol.h"
+/* interefacing determinant */
+#include "determ.h"
+#include "int_det.h"
+/* interfacing expm */
+#include "matrixExponential.h"
+#include "int_expm.h"
 /* interefacing eye */
 #include "eye.h"
 #include "int_eye.h"
+/* interfacing fill */
+#include "fill.h"
+/* interefacing inversion */
+#include "matrixInversion.h"
+#include "int_invert.h"
+/* interefacing infinite norm */
+#include "infiniteNorm.h"/* interfacing ones */
+#include "ones.h"
 /* interfacing trace */
 #include "matrixTrace.h"
 #include "int_trace.h"
 /* interfacing tranpose */
 #include "matrixTranspose.h"
-/* interefacing inversion */
-#include "matrixInversion.h"
-#include "int_invert.h"
-/* interfacing expm */
-#include "matrixExponential.h"
-#include "int_expm.h"
-/* interefacing infinite norm */
-#include "infiniteNorm.h"
-/* interefacing determinant */
-#include "determ.h"
-#include "int_det.h"
 
 
 /* STATISTICS FUNCTIONS */
@@ -185,6 +195,17 @@
 #include "conv.h"
 #include "conv2d.h"
 #include "int_convol.h"
+/* interefacing fft */
+#include "fft.h"
+#include "fft_internal.h"
+#include "int_fft.h"
+/* interefacing ifft */
+#include "ifft.h"
+#include "ifft_internal.h"
+#include "int_ifft.h"
+
+
+
 
 /* STATISTICS FUNCTIONS */
 
