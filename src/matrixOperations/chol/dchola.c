@@ -58,5 +58,12 @@ void dchola(double * in, int size, double *out){
 		out[i*size+i]=sqrt(in[i*size+i]-accu);	
 	}
 
+	/*Zeros in the lower triangular part*/
+	for (i=0;i<size;i++){
+		for (j=i+1;j<size;j++){
+			out[j+i*size]=0;
+		}
+	}
+
 #endif
 }

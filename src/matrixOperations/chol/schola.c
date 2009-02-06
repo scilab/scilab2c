@@ -11,7 +11,7 @@
  */
 
 
-#ifdef WITHOUT_LAPACK
+#ifndef WITHOUT_LAPACK
 #include "lapack.h"
 #else
 #include "sqrt.h"
@@ -26,19 +26,22 @@ void schola(float * in, int size, float *out){
 	   param U : output upper triangular matrix
 	*/
 	
-#ifdef WITHOUT_LAPACK
+#ifndef WITHOUT_LAPACK
 
 	/*We have to use a double, copy of in,
 	  cause dpotrf works only with double, not with float*/
 	double* tmp;
 	int i=0,j=0,info=0;
 	
-	tmp=malloc((unsigned int)(size*size)*sizeof(float));
+	tmp=malloc((unsigned int)(size*size)*sizeof(double));
 	for (i=0;i<size*size;i++) tmp[i]=(double)in[i];
 	
 	C2F(dpotrf)("U", &size, tmp, &size, &info);
 	
 	for (i=0;i<size*size;i++) out[i]=(float)tmp[i];
+	
+	free(tmp);
+	
 	
 	/*Zeros in the lower triangular part*/
 	for (i=0;i<size;i++){
@@ -46,12 +49,12 @@ void schola(float * in, int size, float *out){
 			out[j+i*size]=0;
 		}
 	}
-	free(tmp);
+	
 #else
 	/* Do not use Lapack functions*/
 	int i=0, j=0, k=0;
 	float tmp=0, accu=0;
-	
+			printf("passe\n");
 	for (i=0;i<size;i++){
 		accu=0;
 		for (j=0;j<i;j++){
@@ -63,6 +66,13 @@ void schola(float * in, int size, float *out){
 			accu+=out[i*size+j]*out[i*size+j];
 		}
 		out[i*size+i]=ssqrts(in[i*size+i]-accu);	
+	}
+	
+	/*Zeros in the lower triangular part*/
+	for (i=0;i<size;i++){
+		for (j=i+1;j<size;j++){
+			out[j+i*size]=0;
+		}
 	}
 
 #endif
