@@ -381,12 +381,31 @@ SWSRCS	=	\
 	$(CSRCDIR)/cconv2da.c \
 	$(CSRCDIR)/dconv2da.c \
 	$(CSRCDIR)/sconv2da.c \
-	$(CSRCDIR)/zconv2da.c 
-	
-	
-	
-	
-	
+	$(CSRCDIR)/zconv2da.c \
+	$(CSRCDIR)/cfftma.c \
+	$(CSRCDIR)/zfftma.c \
+	$(CSRCDIR)/dfft2.c \
+	$(CSRCDIR)/dfftbi.c \
+	$(CSRCDIR)/dfftmx.c \
+	$(CSRCDIR)/fft842.c \
+	$(CSRCDIR)/r2tx.c \
+	$(CSRCDIR)/r4tx.c \
+	$(CSRCDIR)/r8tx.c \
+	$(CSRCDIR)/cifftma.c \
+	$(CSRCDIR)/zifftma.c \
+	$(CSRCDIR)/difft2.c \
+	$(CSRCDIR)/difftbi.c \
+	$(CSRCDIR)/difftmx.c \
+	$(CSRCDIR)/ifft842.c \
+	$(CSRCDIR)/ir2tx.c \
+	$(CSRCDIR)/ir4tx.c \
+	$(CSRCDIR)/ir8tx.c \
+	$(CSRCDIR)/cchola.c \
+	$(CSRCDIR)/dchols.c \
+	$(CSRCDIR)/dchola.c \
+	$(CSRCDIR)/schols.c \
+	$(CSRCDIR)/schola.c \
+	$(CSRCDIR)/zchola.c 
 	
 	
 	
