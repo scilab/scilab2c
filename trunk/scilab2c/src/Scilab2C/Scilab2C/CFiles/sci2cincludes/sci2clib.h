@@ -43,6 +43,7 @@
 
 /* interfacing find */
 #include "find.h"
+#include "find2d.h"
 #include "int_find.h"
 /* interfacing disp */
 #include "disp.h"
@@ -109,7 +110,8 @@
 #include "int_log1p.h"
 /* interfacing pow */
 #include "pow.h"
-#include "int_pow.h"
+#include "int_OpHat.h"
+#include "int_OpDotHat.h"
 /* interfacing sin */
 #include "sin.h"
 #include "int_sin.h"
@@ -176,6 +178,13 @@
 /* interefacing determinant */
 #include "determ.h"
 #include "int_det.h"
+
+
+/* STATISTICS FUNCTIONS */
+/* interefacing convol */
+#include "conv.h"
+#include "conv2d.h"
+#include "int_convol.h"
 
 /* STATISTICS FUNCTIONS */
 
