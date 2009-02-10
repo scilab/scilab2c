@@ -11,8 +11,8 @@
  */
 
 
-#ifndef __ONES_H__
-#define __ONES_H__
+#ifndef __ZEROS_H__
+#define __ZEROS_H__
 
 #include "floatComplex.h"
 #include "doubleComplex.h"
@@ -20,40 +20,40 @@
 /*
 ** \brief create a float one value
 */
-#define soness(in)		1.0f
+#define szeross(in)		0.0f
 
 /*
 ** \brief create a Double one value
 */
-#define doness(in)		1.0
+#define dzeross(in)		0
 
 /*
 ** \brief create a float complex one value
 */
-#define coness(in)		FloatComplex(1.0f, 0)
+#define czeross(in)		FloatComplex(0.0f, 0)
 
 /*
 ** \brief create a Double complex one value
 */
-#define zoness(in)		DoubleComplex(1, 0)
+#define zzeross(in)		DoubleComplex(0, 0)
 
 
 
 /*
 ** \brief create a float matrix full of one
 */
-void sonesa ( float* in , int rows , int cols );
+void szerosa ( float* in , int rows , int cols );
 /*
 ** \brief create a float complex matrix full of one
 */
-void conesa ( floatComplex* in , int rows ,int cols );
+void czerosa ( floatComplex* in , int rows ,int cols );
 /*
 ** \brief create a double  matrix full of one
 */
-void donesa ( double* in , int rows ,int cols );
+void dzerosa ( double* in , int rows ,int cols );
 /*
 ** \brief create a double complex  matrix full of one
 */
-void zonesa ( doubleComplex* in , int rows ,int cols );
+void zzerosa ( doubleComplex* in , int rows ,int cols );
 
-#endif /* !__ONES_H__ */
+#endif /* !__ZEROS_H__ */
