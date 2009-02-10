@@ -37,7 +37,7 @@
 #include "subtraction.h"
 
 
-floatComplex cleva(floatComplex* in,int size, floatComplex* ar){
+floatComplex cleva2(floatComplex* in,int size, floatComplex* ar){
 	int i=0, j=0;
 	floatComplex accu=FloatComplex(0,0);
 	floatComplex* ak1;
