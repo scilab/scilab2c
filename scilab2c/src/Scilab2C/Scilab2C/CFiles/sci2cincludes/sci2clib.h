@@ -34,9 +34,9 @@
 #include "pythag.h"
 
 /* LIB */
-/* interefacing lapack */
+/* interfacing lapack */
 #include "lapack.h"
-/* interefacing blas */
+/* interfacing blas */
 #include "blas.h"
 
 /* AUXILIARY FUNCTIONS */
@@ -163,24 +163,24 @@
 #include "cat.h"
 #include "int_OpRc.h"
 #include "int_OpCc.h"
-/* interefacing chol */
+/* interfacing chol */
 #include "chol.h"
 #include "int_chol.h"
-/* interefacing determinant */
+/* interfacing determinant */
 #include "determ.h"
 #include "int_det.h"
 /* interfacing expm */
 #include "matrixExponential.h"
 #include "int_expm.h"
-/* interefacing eye */
+/* interfacing eye */
 #include "eye.h"
 #include "int_eye.h"
 /* interfacing fill */
 #include "fill.h"
-/* interefacing inversion */
+/* interfacing inversion */
 #include "matrixInversion.h"
 #include "int_invert.h"
-/* interefacing infinite norm */
+/* interfacing infinite norm */
 #include "infiniteNorm.h"/* interfacing ones */
 #include "ones.h"
 /* interfacing trace */
@@ -191,18 +191,22 @@
 
 
 /* STATISTICS FUNCTIONS */
-/* interefacing convol */
+/* interfacing convol */
 #include "conv.h"
 #include "conv2d.h"
 #include "int_convol.h"
-/* interefacing fft */
+/* interfacing fft */
 #include "fft.h"
 #include "fft_internal.h"
 #include "int_fft.h"
-/* interefacing ifft */
+/* interfacing ifft */
 #include "ifft.h"
 #include "ifft_internal.h"
 #include "int_ifft.h"
+/* interfacing lev */
+#include "lev.h"
+#include "int_lev.h"
+
 
 
 

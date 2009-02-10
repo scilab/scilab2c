@@ -15,7 +15,7 @@
 #ifndef __INT_CONJ_H__
 #define __INT_CONJ_H__
 
-#define copy(in, size, out)		for (int i=0; i<size;i++) out[i]=in[i];
+#define copy(in, size, out)		{int i;for (i=0; i<size;i++) out[i]=in[i];}
 
 #define s0conjs0(in)			in
 

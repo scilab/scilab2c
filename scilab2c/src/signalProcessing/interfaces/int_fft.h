@@ -49,4 +49,7 @@
 
 #define z2d0fftz2(in1,size,in2,out)		(in2==-1) ? z2fftz2(in1,size,out) : z2ifftz2(in1,size,out)
 
+
+
+
 #endif /* !__INT_FFT_H__ */

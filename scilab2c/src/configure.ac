@@ -240,6 +240,7 @@ signalProcessing/conv2d/Makefile
 signalProcessing/hilbert/Makefile
 signalProcessing/crossCorr/Makefile
 signalProcessing/lpc2cep/Makefile
+signalProcessing/lev/Makefile
 ])
 
 

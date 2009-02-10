@@ -2351,13 +2351,13 @@ ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
 PrintStringInfo('NIN=          1',ClassFileName,'file','y');
 PrintStringInfo('NOUT=         1',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
-PrintStringInfo('OUT(1).SZ(1)= FA_SUB(IN(1).SZ(1),''1'')',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= FA_SUB(FA_ADD(IN(1).SZ(1),IN(1).SZ(2)),''2'')',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 
 PrintStringInfo('NIN=          1',ClassFileName,'file','y');
 PrintStringInfo('NOUT=         2',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
-PrintStringInfo('OUT(1).SZ(1)= FA_SUB (IN(1).SZ(1),''1'')',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= FA_SUB(FA_ADD(IN(1).SZ(1),IN(1).SZ(2)),''2'')',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 PrintStringInfo('OUT(2).TP=    IN(1).TP',ClassFileName,'file','y');
 PrintStringInfo('OUT(2).SZ(1)= ''1''',ClassFileName,'file','y');
@@ -2366,13 +2366,13 @@ PrintStringInfo('OUT(2).SZ(2)= ''1''',ClassFileName,'file','y');
 PrintStringInfo('NIN=          1',ClassFileName,'file','y');
 PrintStringInfo('NOUT=         3',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
-PrintStringInfo('OUT(1).SZ(1)= FA_SUB(IN(1).SZ(1),''1'')',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= FA_SUB(FA_ADD(IN(1).SZ(1),IN(1).SZ(2)),''2'')',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 PrintStringInfo('OUT(2).TP=    IN(1).TP',ClassFileName,'file','y');
 PrintStringInfo('OUT(2).SZ(1)= ''1''',ClassFileName,'file','y');
 PrintStringInfo('OUT(2).SZ(2)= ''1''',ClassFileName,'file','y');
 PrintStringInfo('OUT(3).TP=    IN(1).TP',ClassFileName,'file','y');
-PrintStringInfo('OUT(3).SZ(1)= FA_SUB(IN(1).SZ(1),''1'')',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).SZ(1)= FA_SUB(FA_ADD(IN(1).SZ(1),IN(1).SZ(2)),''2'')',ClassFileName,'file','y');
 PrintStringInfo('OUT(3).SZ(2)= ''1''',ClassFileName,'file','y');
 
 // --- Function List Class. ---
