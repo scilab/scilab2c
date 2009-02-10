@@ -405,7 +405,16 @@ SWSRCS	=	\
 	$(CSRCDIR)/dchola.c \
 	$(CSRCDIR)/schols.c \
 	$(CSRCDIR)/schola.c \
-	$(CSRCDIR)/zchola.c 
+	$(CSRCDIR)/zchola.c \
+	$(CSRCDIR)/cleva.c \
+	$(CSRCDIR)/dleva.c \
+	$(CSRCDIR)/sleva.c \
+	$(CSRCDIR)/zleva.c \
+	$(CSRCDIR)/cleva2.c \
+	$(CSRCDIR)/dleva2.c \
+	$(CSRCDIR)/sleva2.c \
+	$(CSRCDIR)/zleva2.c  
+	
 	
 	
 	
