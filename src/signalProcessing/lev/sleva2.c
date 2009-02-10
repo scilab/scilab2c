@@ -32,7 +32,7 @@
 #include "stdlib.h"
 
 
-float sleva(float* in,int size, float* ar, float* rc){
+float sleva2(float* in,int size, float* ar){
 	int i=0, j=0;
 	float accu=0;
 	float* ak1;
