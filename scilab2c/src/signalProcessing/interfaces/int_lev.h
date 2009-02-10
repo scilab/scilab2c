@@ -43,10 +43,10 @@
 
 
 #define z2levz2(in,size,out)				{doubleComplex sigma2;\
-								sigma2=zleva2(in,size[0]*size[1],out,out2);\
+								sigma2=zleva2(in,size[0]*size[1],out);\
 								}
 			
-#define z2levz2z0(in,size,out)			zleva2(in,size[0]*size[1],out,out2);
+#define z2levz2z0(in,size,out)			zleva2(in,size[0]*size[1],out);
 			
 #define z2levz2z0z2(in,size,out1,out2)		zleva(in,size[0]*size[1],out1,out2);
 

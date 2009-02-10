@@ -36,7 +36,7 @@
 #include "division.h"
 #include "subtraction.h"
 
-doubleComplex zleva(doubleComplex* in,int size, doubleComplex* ar, doubleComplex* rc){
+doubleComplex zleva2(doubleComplex* in,int size, doubleComplex* ar){
 	int i=0, j=0;
 	doubleComplex accu=DoubleComplex(0,0);
 	doubleComplex* ak1;
