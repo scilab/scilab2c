@@ -186,6 +186,7 @@ matrixOperations/magnitude/Makefile
 matrixOperations/squaredMagnitude/Makefile
 matrixOperations/logm/Makefile
 matrixOperations/powm/Makefile
+matrixOperations/zeros/Makefile
 implicitList/Makefile
 elementaryFunctions/Makefile
 elementaryFunctions/cos/Makefile
