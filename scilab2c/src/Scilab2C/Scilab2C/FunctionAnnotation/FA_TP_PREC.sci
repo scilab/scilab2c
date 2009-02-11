@@ -1,5 +1,5 @@
-function opout = FA_TP_PREC(in1,in2)
-// function opout = FA_TP_PREC(in1,in2)
+function opout = FA_TP_PREC(in1,in2,in3)
+// function opout = FA_TP_PREC(in1,in2,in3)
 // -----------------------------------------------------------------
 //
 // Status:
@@ -19,8 +19,9 @@ function opout = FA_TP_PREC(in1,in2)
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-SCI2CNInArgCheck(argn(2),2,2);
+SCI2CNInArgCheck(argn(2),2,3);
 
+if (argn(2)==2) then 
 in1Pin2 = in1+in2;
 
 select (in1Pin2),
@@ -29,6 +30,23 @@ select (in1Pin2),
 	case 'cs' then opout = 's',
 	case 'cc' then opout = 's',
 	else opout = 'd',
+end
+end
+
+if (argn(2)==3) then 
+in1Pin2 = in1+in2+in3;
+
+select (in1Pin2),
+	case 'sss' then opout = 's',
+	case 'ssc' then opout = 's',
+	case 'scs' then opout = 's',
+	case 'scc' then opout = 's',
+	case 'ccc' then opout = 's',
+	case 'ccs' then opout = 's',
+	case 'csc' then opout = 's',
+	case 'css' then opout = 's',
+	else opout = 'd',
+end
 end
 
 endfunction
