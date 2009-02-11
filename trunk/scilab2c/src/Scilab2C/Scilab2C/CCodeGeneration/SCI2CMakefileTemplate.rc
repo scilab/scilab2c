@@ -24,10 +24,8 @@ SWSRCS	=	\
 	$(CSRCDIR)/doubleComplex.c \
 	$(CSRCDIR)/floatComplex.c \
 	$(CSRCDIR)/RealToComplex.c \
-	$(CSRCDIR)/ones.c \
 	$(CSRCDIR)/zeros.c \
 	$(CSRCDIR)/OpApex.c \
-	$(CSRCDIR)/OpColon.c \
 	$(CSRCDIR)/OpDotHat.c \
 	$(CSRCDIR)/OpEqual.c \
 	$(CSRCDIR)/OpIns.c \
@@ -141,7 +139,6 @@ SWSRCS	=	\
 	$(CSRCDIR)/cconja.c\
 	$(CSRCDIR)/zconjs.c\
 	$(CSRCDIR)/zconja.c\
-	$(CSRCDIR)/disp.c\
 	$(CSRCDIR)/ceyea.c\
 	$(CSRCDIR)/deyea.c\
 	$(CSRCDIR)/seyea.c\
@@ -413,7 +410,10 @@ SWSRCS	=	\
 	$(CSRCDIR)/cleva2.c \
 	$(CSRCDIR)/dleva2.c \
 	$(CSRCDIR)/sleva2.c \
-	$(CSRCDIR)/zleva2.c  
+	$(CSRCDIR)/zleva2.c \
+	$(CSRCDIR)/cimplicitLists.c \
+	$(CSRCDIR)/dimplicitLists.c \
+	$(CSRCDIR)/simplicitLists.c \
 	
 	
 	

@@ -135,7 +135,10 @@
 #include "tanh.h"
 #include "int_tanh.h"
 
-
+/* IMPLICIT LISTS */
+/* interfacing implicitList/OpColon */
+#include "implicitList.h"
+#include "int_OpColon.h"
 
 
 /* OPERATIONS */
@@ -183,6 +186,7 @@
 /* interfacing infinite norm */
 #include "infiniteNorm.h"/* interfacing ones */
 #include "ones.h"
+#include "int_ones.h"
 /* interfacing trace */
 #include "matrixTrace.h"
 #include "int_trace.h"
