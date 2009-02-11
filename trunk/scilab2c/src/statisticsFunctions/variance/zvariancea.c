@@ -25,8 +25,7 @@ doubleComplex	zvariancea(doubleComplex *in, int size)
     {
        temp = zdiffs( in[i] , mean ) ;
        sum  = zadds ( sum , zpows ( temp  , DoubleComplex ( 2, 0) ) ); 
-           printf("sum[%d] : %f+%f*i\n",i,zreals(sum), zimags(sum));
-    }
+      }
  
     variance = zrdivs (sum , DoubleComplex ( (size - 1),0 ));
   
