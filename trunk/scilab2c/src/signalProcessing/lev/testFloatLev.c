@@ -186,7 +186,7 @@ static void clevaTest(void) {
 
 
 static int levTest(void) {
-  printf("\n>>>> Levin Tests\n");
+  printf("\n>>>> Lev Tests\n");
   slevaTest();
   clevaTest();
   return 0;
