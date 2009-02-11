@@ -11,8 +11,10 @@
  */
 
 #include "levin.h"
+#include "levinUtils.h"
 #include "matrixInversion.h"
 #include "matrixMultiplication.h"
+#include "zeros.h"
 #include <malloc.h>
 #include <stdio.h>
 
@@ -32,13 +34,16 @@ void dlevina (int n, double* cov, int lCov, int cCov, double* la, double* sig, d
 	Enter now in a element of the list. Take the first for example.
 	This is, like said before, a cCov*cCov matrix. In la, it contains (n+1)*cCov*cCov. Each element of the matrix contains (n+1)
 	elements. As it's stocked by columns, if we represent a matrix like [a   c], for example, the elements 0 to n of la represent 
-									    [b   d]
+							     					  [b   d]
 	a, the elements (n+1) to 2(n+1)-1 represent b,...
 	
 	To finish, look at the elements of the matrix, the polynomes. The coefficients of the polynomes are stocked in increasing order.
 
-	For example, if la in Scilab is  : list( [3+2x  5-2x ],[3+x-x^2    -1+2x    ]) 
-					       ( [-5+x  -2+4x],[1+6x+3x^2  -2x-x^2  ]), the result in dlevin will be : 
+	For example, if la in Scilab is  : list( [3+2x  5-2x ]) 
+					     		   ( [-5+x  -2+4x])
+					     		   ([3+x-x^2    -1+2x    ])
+					     		   ([1+6x+3x^2  -2x-x^2  ])
+		the result in dlevin will be : 
 		-la is a table of 2*3*2*2 elements(n=2,cCov=2);
 		-la[]={3,2,0,  -5,1,0,   5,-2,0,   -2,4,0,   3,1,-1,   1,6,3   -1,2,0,   0,-2,-1}.
 
@@ -50,16 +55,24 @@ void dlevina (int n, double* cov, int lCov, int cCov, double* la, double* sig, d
 	The greatest size of a element of the list is : cCov*cCov.
 
 	Let see an example so know how it's stocked.
-	In Scilab, if sig is : list( [1  3],[5  7]) 
-				   ( [2  4],[6  8]),the result in dlevin will be :
+	In Scilab, if sig is : list( [1  3]) 
+				   	   ( [2  4])
+				   	   ( [5  7])
+				   	   ( [6  8])
+	the result in dlevin will be :
 		-sig={1,2,  5,6,  3,4,  7,8}.
 	It's as if we put the matrix the ones under the others and we take the first column, the second,...
 
-
+	>>>CAREFUL<<<
+	la/lb and sig are stored differently 
 
 
 */
+
+
 	int i=0;
+	
+	
 /*version ISO C99	
 	double tmp1[n*cCov*cCov], tmp2[n*cCov*cCov];
 	double sig1[cCov], gam[cCov];
@@ -70,7 +83,7 @@ void dlevina (int n, double* cov, int lCov, int cCov, double* la, double* sig, d
 	double *sig1, *gam;
 	double *R1,*R2,*R3,*R4;
 
-
+	/* FIXME : malloc here */
 
 	tmp1=malloc((unsigned int)((n+1)*cCov*cCov)*sizeof(double));
 	tmp2=malloc((unsigned int)((n+1)*cCov*cCov)*sizeof(double));
@@ -86,9 +99,9 @@ void dlevina (int n, double* cov, int lCov, int cCov, double* la, double* sig, d
 	/* 
 	 * Initializations
 	 * */
-	dinitTab(sig,n*cCov*cCov);
-	dinitTab(la,n*(n+1)*cCov*cCov);
-	dinitTab(lb,n*(n+1)*cCov*cCov);
+	dzerosa(sig,n*cCov*cCov,1);
+	dzerosa(la,n*(n+1)*cCov*cCov,1);
+	dzerosa(lb,n*(n+1)*cCov*cCov,1);
 
 	/*equal to eye(la) and eye(lb)
 	  but we can't use eye cause to the indexation*/
@@ -105,49 +118,38 @@ void dlevina (int n, double* cov, int lCov, int cCov, double* la, double* sig, d
 /* case i=0 */
 
 
-	/*calculation of sig */
+	/*computation of sig */
 	dlevinmul(la,R4,n,cCov,0,sig,n*cCov,0,'d');
-	/*calculation of gam1 */
+	/*computation of gam1 */
 	dlevinmul(lb,R2,n,cCov,0,gam,cCov,0,'u');	
-	/*calculation of c1*r1 */
+	/*computation of c1*r1 */
 	dlevinmul(la,R1,n,cCov,0,tmp1,cCov,0,'u');
-	/*calculation of inv(gam1) */
+	/*computation of inv(gam1) */
 	dinverma(gam,sig1,cCov);
-	dinitTab(gam,cCov*cCov);
-	/*calculation of k1 = c1*r1*inv(gam1) */
+	/*computation of k1 = c1*r1*inv(gam1) */
 	dmulma(tmp1,cCov,cCov,sig1,cCov,cCov,tmp2);
-	dinitTab(tmp1,n*cCov*cCov);
-	dinitTab(sig1,cCov*cCov);
-	/*calculation of k1*lb */
+	/*computation of k1*lb */
 	dlevinmul2(tmp2,lb,0,n,cCov,tmp1);
-	dinitTab(tmp2,n*cCov*cCov);
-	/*calculation of k1*lb*z */
+	/*computation of k1*lb*z */
 	ddecalage(tmp1,0,n,cCov,tmp1);
-	/*calculation of la */
+	/*computation of la */
 	dlevinsub(la,tmp1,n,cCov,0,0,la);
-	dinitTab(tmp1,n*cCov*cCov);
 
-	/*calculation of sig1 (we extract the value if sig at time 0)*/
+	/*computation of sig1 (we extract the value if sig at time 0)*/
 	dlevinsig(sig,0,cCov,n*cCov,sig1);
-	/*calculation of c2*r3 */
+	/*computation of c2*r3 */
 	dlevinmul(lb,R3,n,cCov,0,tmp1,cCov,0,'d');
-	/*calculation of inv(sig1)*/
+	/*computation of inv(sig1)*/
 	dinverma(sig1,gam,cCov);
-	dinitTab(sig1,cCov*cCov);
-	/*calculation of k2 = c2*r3*inv(sig1) */
+	/*computation of k2 = c2*r3*inv(sig1) */
 	dmulma(tmp1,cCov,cCov,gam,cCov,cCov,tmp2);
-	dinitTab(tmp1,n*cCov*cCov);
-	dinitTab(gam,cCov*cCov);
-	/*calculation of k2*la (here it's lb cause la have been modified
+	/*computation of k2*la (here it's lb cause la have been modified
 	  and the precedent values hadn't been saved)*/
 	dlevinmul2(tmp2,lb,0,n,cCov,tmp1);
-	dinitTab(tmp2,n*cCov*cCov);
-	/*calculation of lb*z */
+	/*computation of lb*z */
 	ddecalage(lb,0,n,cCov,lb);
-	/*calculation of lb */
+	/*computation of lb */
 	dlevinsub(lb,tmp1,n,cCov,0,0,lb);
-	dinitTab(tmp1,n*cCov*cCov);
-	dinitTab(tmp2,n*cCov*cCov);
 
 
 	for (i=1;i<n;i++){
@@ -155,30 +157,21 @@ void dlevina (int n, double* cov, int lCov, int cCov, double* la, double* sig, d
 		dlevinmul(lb,R2,n,cCov,i,gam,cCov,0,'u');
 		dlevinmul(la,R1,n,cCov,i,tmp1,cCov,0,'u');
 		dinverma(gam,sig1,cCov);
-		dinitTab(gam,cCov*cCov);
 		dmulma(tmp1,cCov,cCov,sig1,cCov,cCov,tmp2);
-
-		dinitTab(tmp1,n*cCov*cCov);
+		
 		dlevinmul2(tmp2,lb,i-1,n,cCov,tmp1);
-		dinitTab(tmp2,n*cCov*cCov);
 		ddecalage(tmp1,0,n,cCov,tmp1);
 		dlevinsub(la,tmp1,n,cCov,i,i,la);/*a*/
-		dinitTab(tmp1,n*cCov*cCov);
 
-		/*calculation of sig1 (we extract the value if sig at time i)*/
+		/*computation of sig1 (we extract the value if sig at time i)*/
 		dlevinsig(sig,i,cCov,n*cCov,sig1);		
 		dlevinmul(lb,R3,n,cCov,i,tmp1,cCov,0,'d');
 		dinverma(sig1,gam,cCov);
-		dinitTab(sig1,cCov*cCov);
 		dmulma(tmp1,cCov,cCov,gam,cCov,cCov,tmp2);
-		dinitTab(tmp1,n*cCov*cCov);
-		/*calculation of k2*la (now it's la at time (i-1))*/
+		/*computation of k2*la (now it's la at time (i-1))*/
 		dlevinmul2(tmp2,la,i-1,n,cCov,tmp1);
-		dinitTab(tmp2,n*cCov*cCov);
 		ddecalage(lb,(i-1)*(n+1)*cCov*cCov,n,cCov,tmp2);
 		dlevinsub(tmp2,tmp1,n,cCov,0,i,lb);
-		dinitTab(tmp1,n*cCov*cCov);
-		dinitTab(tmp2,n*cCov*cCov);
 	}
 
 
