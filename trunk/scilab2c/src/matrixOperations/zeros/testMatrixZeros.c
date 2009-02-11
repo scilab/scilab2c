@@ -108,13 +108,13 @@ static void czerosaTest ( void )
 
 
 
-static int testEye(void) {
+static int testZeros(void) {
 
-  printf("\n>>>> Matrix ONES Tests\n");
-  printf("\t>>>> Matrix Double Realt Tests\n");
+  printf("\n>>>> Matrix ZEROS Tests\n");
+  printf("\t>>>> Matrix Double Real Tests\n");
   dzerosaTest();
 
-  printf("\n\n\t>>>> Matrix Float Realt Tests\n");
+  printf("\n\n\t>>>> Matrix Float Real Tests\n");
   szerosaTest();
 
   printf("\n\n\n");
@@ -131,7 +131,7 @@ static int testEye(void) {
 
 
 int main(void) {
-  assert(testEye() == 0);
+  assert(testZeros() == 0);
   return 0;
 }
 
