@@ -14,7 +14,30 @@
 
 #ifndef __INT_LEVIN_H__
 #define __INT_LEVIN_H__
-/* FIXME : malloc here */
+
+/* FIXME : many malloc here */
+		
+#define s0s2levins2(in1,in2,size,out1,out2)		{float* out2;\
+									float* out3;\
+									out2 = malloc((uint)*(size[1]*size[1]*in1)*sizeof(float));\
+									out3 = malloc((uint)*(size[1]*size[1]*in1*(in1+1))*sizeof(float));\
+									slevina (in1, in2, size[0], size[1], out1, out2, out3);\
+									free(out3);\
+									free(out2);\
+									}
+
+
+#define s0s2levins2(in1,in2,size,out1,out2)		{double* out2;\
+									double* out3;\
+									out2 = malloc((uint)*(size[1]*size[1]*in1)*sizeof(double));\
+									out3 = malloc((uint)*(size[1]*size[1]*in1*(in1+1))*sizeof(double));\
+									slevina (in1, in2, size[0], size[1], out1, out2, out3);\
+									free(out3);\
+									free(out2);\
+									}
+
+
+
 #define s0s2levins2s2(in1,in2,size,out1,out2)		{float* out3;\
 									out3 = malloc((uint)*(size[1]*size[1]*in1*(in1+1))*sizeof(float));\
 									slevina (in1, in2, size[0], size[1], out1, out2, out3);\
