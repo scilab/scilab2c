@@ -414,6 +414,11 @@ SWSRCS	=	\
 	$(CSRCDIR)/cimplicitLists.c \
 	$(CSRCDIR)/dimplicitLists.c \
 	$(CSRCDIR)/simplicitLists.c \
+	$(CSRCDIR)/zimplicitLists.c \
+	$(CSRCDIR)/czerosa.c \
+	$(CSRCDIR)/dzerosa.c \
+	$(CSRCDIR)/szerosa.c \
+	$(CSRCDIR)/zzerosa.c 
 	
 	
 	

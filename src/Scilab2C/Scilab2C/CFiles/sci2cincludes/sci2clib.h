@@ -191,7 +191,9 @@
 #include "matrixTrace.h"
 #include "int_trace.h"
 /* interfacing tranpose */
-#include "matrixTranspose.h"
+#include "matrixTranspose.h"/* interfacing zeros */
+#include "zeros.h"
+#include "int_zeros.h"
 
 
 /* STATISTICS FUNCTIONS */
