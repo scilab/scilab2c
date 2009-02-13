@@ -420,7 +420,7 @@
 0.3345663906426585842979,0.0670148638928397127890}
 
 
-
+/* FIXME : assert à 1e-14 */
 
 void dlog10sTest(void) {
 	double in[]=SOURCE;
