@@ -54,9 +54,7 @@ pkglibLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkglib_LTLIBRARIES)
 libIsempty_la_LIBADD =
 am__objects_1 =
-am__objects_2 = libIsempty_la-sisemptya.lo libIsempty_la-disemptya.lo \
-	libIsempty_la-cisemptya.lo libIsempty_la-zisemptya.lo
-am_libIsempty_la_OBJECTS = $(am__objects_1) $(am__objects_2)
+am_libIsempty_la_OBJECTS = $(am__objects_1)
 libIsempty_la_OBJECTS = $(am_libIsempty_la_OBJECTS)
 libIsempty_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libIsempty_la_CFLAGS) \
@@ -203,11 +201,6 @@ libIsempty_la_CFLAGS = -I ../../type \
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libIsempty.la
 libIsempty_la_SOURCES = $(HEAD) $(SRC)
-SRC = sisemptya.c \
-		disemptya.c \
-		cisemptya.c \
-		zisemptya.c
-
 HEAD = ../includes/isempty.h
 
 ####
@@ -307,10 +300,6 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libIsempty_la-cisemptya.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libIsempty_la-disemptya.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libIsempty_la-sisemptya.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libIsempty_la-zisemptya.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testIsEmpty-testIsEmpty.Po@am__quote@
 
 .c.o:
@@ -333,34 +322,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
-
-libIsempty_la-sisemptya.lo: sisemptya.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIsempty_la_CFLAGS) $(CFLAGS) -MT libIsempty_la-sisemptya.lo -MD -MP -MF $(DEPDIR)/libIsempty_la-sisemptya.Tpo -c -o libIsempty_la-sisemptya.lo `test -f 'sisemptya.c' || echo '$(srcdir)/'`sisemptya.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libIsempty_la-sisemptya.Tpo $(DEPDIR)/libIsempty_la-sisemptya.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sisemptya.c' object='libIsempty_la-sisemptya.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIsempty_la_CFLAGS) $(CFLAGS) -c -o libIsempty_la-sisemptya.lo `test -f 'sisemptya.c' || echo '$(srcdir)/'`sisemptya.c
-
-libIsempty_la-disemptya.lo: disemptya.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIsempty_la_CFLAGS) $(CFLAGS) -MT libIsempty_la-disemptya.lo -MD -MP -MF $(DEPDIR)/libIsempty_la-disemptya.Tpo -c -o libIsempty_la-disemptya.lo `test -f 'disemptya.c' || echo '$(srcdir)/'`disemptya.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libIsempty_la-disemptya.Tpo $(DEPDIR)/libIsempty_la-disemptya.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='disemptya.c' object='libIsempty_la-disemptya.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIsempty_la_CFLAGS) $(CFLAGS) -c -o libIsempty_la-disemptya.lo `test -f 'disemptya.c' || echo '$(srcdir)/'`disemptya.c
-
-libIsempty_la-cisemptya.lo: cisemptya.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIsempty_la_CFLAGS) $(CFLAGS) -MT libIsempty_la-cisemptya.lo -MD -MP -MF $(DEPDIR)/libIsempty_la-cisemptya.Tpo -c -o libIsempty_la-cisemptya.lo `test -f 'cisemptya.c' || echo '$(srcdir)/'`cisemptya.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libIsempty_la-cisemptya.Tpo $(DEPDIR)/libIsempty_la-cisemptya.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cisemptya.c' object='libIsempty_la-cisemptya.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIsempty_la_CFLAGS) $(CFLAGS) -c -o libIsempty_la-cisemptya.lo `test -f 'cisemptya.c' || echo '$(srcdir)/'`cisemptya.c
-
-libIsempty_la-zisemptya.lo: zisemptya.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIsempty_la_CFLAGS) $(CFLAGS) -MT libIsempty_la-zisemptya.lo -MD -MP -MF $(DEPDIR)/libIsempty_la-zisemptya.Tpo -c -o libIsempty_la-zisemptya.lo `test -f 'zisemptya.c' || echo '$(srcdir)/'`zisemptya.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libIsempty_la-zisemptya.Tpo $(DEPDIR)/libIsempty_la-zisemptya.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zisemptya.c' object='libIsempty_la-zisemptya.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIsempty_la_CFLAGS) $(CFLAGS) -c -o libIsempty_la-zisemptya.lo `test -f 'zisemptya.c' || echo '$(srcdir)/'`zisemptya.c
 
 testIsEmpty-testIsEmpty.o: testIsEmpty.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testIsEmpty_CFLAGS) $(CFLAGS) -MT testIsEmpty-testIsEmpty.o -MD -MP -MF $(DEPDIR)/testIsEmpty-testIsEmpty.Tpo -c -o testIsEmpty-testIsEmpty.o `test -f 'testIsEmpty.c' || echo '$(srcdir)/'`testIsEmpty.c

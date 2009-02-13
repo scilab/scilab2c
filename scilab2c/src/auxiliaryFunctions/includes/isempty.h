@@ -43,21 +43,21 @@
 /*
 ** \brief Float Is Empty function
 */
-float	sisemptya(float* x, int size);
+#define	sisemptya(in,size)		(size==0) ? 1.0f : 0.0f 
 
 /*
 ** \brief Double Is Empty function
 */
-double disemptya(double*x, int size);
+#define	disemptya(in,size)		(size==0) ? 1.0 : 0.0
 
 /*
 ** \brief Float Complex Is Empty function
 */
-float	cisemptya(floatComplex* z, int size);
+#define	cisemptya(in,size)		(size==0) ? 1.0f : 0.0f 
 
 /*
 ** \brief Double Complex Is Empty function
 */
-double zisemptya(doubleComplex* z, int size);
+#define	zisemptya(in,size)		(size==0) ? 1.0 : 0.0 
 
 #endif /* !__IS_EMPTY_H__ */
