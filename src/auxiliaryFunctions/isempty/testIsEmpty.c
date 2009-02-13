@@ -14,56 +14,71 @@
 
 int sisemptyaTest() {
   int result = 0;
-  float empty[5] = {0., 0., 0., 0., 0.};
+  float *empty;
   float full[5] = {1., 2., 3., 0., 0.};
-
+  float out;
+  
+  empty = NULL;
+  full[4]=0;
+  
   printf(">> Float array\n");
-  if (sisemptya(empty, 0) == 0) {
-    printf("ERROR ! : Test Failed (empty array)\n");
+  
+  out=sisemptya(empty, 0);
+  if (out == 0) {
+    printf("ERROR1 ! : Test Failed (empty array)\n");
     result = ERROR;
   }
-  assert (sisemptya(empty, 0) == 1);
-
-  if (sisemptya(full, 5) == 1) {
-    printf("ERROR ! : Test Failed (non empty array)\n");
+  assert (out == 1);
+  
+  
+  out = sisemptya(full, 5);
+  if ( out == 1) {
+    printf("ERROR2 ! : Test Failed (non empty array)\n");
     result = ERROR;
   }
-  assert(sisemptya(full, 5) == 0);
+  assert(out == 0);
 
   return result;
 }
 
 int disemptyaTest() {
   int result = 0;
-  double empty[5] = {0., 0., 0., 0., 0.};
+  double *empty;
   double full[5] = {1., 2., 3., 0., 0.};
-
+  double out;
+  
+  empty = NULL;
+  full[4]=0;
+  
+  
   printf(">> Double array\n");
-  if (disemptya(empty, 0) == 0) {
-    printf("ERROR ! : Test Failed (empty array)\n");
+  out=disemptya(empty, 0);
+  if (out == 0) {
+    printf("ERROR1 ! : Test Failed (empty array)\n");
     result = ERROR;
   }
-  assert(disemptya(empty, 0) == 1);
-
-  if (disemptya(full, 5) == 1) {
-    printf("ERROR ! : Test Failed (non empty array)\n");
+  
+  assert(out == 1);
+  
+  
+  out=disemptya(full, 5);
+  if (out == 1) {
+    printf("ERROR2 ! : Test Failed (non empty array)\n");
     result = ERROR;
   }
-  assert(disemptya(full, 5) == 0);
+  assert(out == 0);
 
   return result;
 }
 
 int cisemptyaTest() {
   int result = 0;
-  floatComplex empty[5];
+  floatComplex *empty;
   floatComplex full[5];
+  float out;
 
-  empty[0] = FloatComplex(0., 0.);
-  empty[1] = FloatComplex(0., 0.);
-  empty[2] = FloatComplex(0., 0.);
-  empty[3] = FloatComplex(0., 0.);
-  empty[4] = FloatComplex(0., 0.);
+  empty=NULL;
+  
   full[0] = FloatComplex(0.,1.);
   full[1] = FloatComplex(0., 2.);
   full[2] = FloatComplex(0., 3.);
@@ -71,17 +86,21 @@ int cisemptyaTest() {
   full[4] = FloatComplex(0., 0.);
 
   printf(">> Float Complex array\n");
-  if (cisemptya(empty, 0) == 0) {
-    printf("ERROR ! : Test Failed (empty array)\n");
+  
+  out = cisemptya(empty, 0);
+  if (out == 0) {
+    printf("ERROR1 ! : Test Failed (empty array)\n");
     result = ERROR;
   }
-  assert (cisemptya(empty, 0) == 1);
+  assert (out == 1);
 
-  if (cisemptya(full, 5) == 1) {
-    printf("ERROR ! : Test Failed (non empty array)\n");
+
+  out = cisemptya(full, 5);
+  if (out == 1) {
+    printf("ERROR2 ! : Test Failed (non empty array)\n");
     result = ERROR;
   }
-  assert(cisemptya(full, 5) == 0);
+  assert(out == 0);
 
 
   return result;
@@ -89,14 +108,11 @@ int cisemptyaTest() {
 
 int zisemptyaTest() {
   int result = 0;
-  doubleComplex empty[5];
+  doubleComplex *empty;
   doubleComplex full[5];
+  double out;
 
-  empty[0] = DoubleComplex(0., 0.);
-  empty[1] = DoubleComplex(0., 0.);
-  empty[2] = DoubleComplex(0., 0.);
-  empty[3] = DoubleComplex(0., 0.);
-  empty[4] = DoubleComplex(0., 0.);
+  empty=NULL;
 
   full[0] = DoubleComplex(0.,1.);
   full[1] = DoubleComplex(0., 2.);
@@ -105,17 +121,20 @@ int zisemptyaTest() {
   full[4] = DoubleComplex(0., 0.);;
 
   printf(">> Double Complex array\n");
-  if (zisemptya(empty, 0) == 0) {
-    printf("ERROR ! : Test Failed (empty array)\n");
+  
+  out = zisemptya(empty, 0);
+  if (out == 0) {
+    printf("ERROR1 ! : Test Failed (empty array)\n");
     result = ERROR;
   }
-  assert (zisemptya(empty, 0) == 1);
+  assert (out == 1);
 
-  if (zisemptya(full, 5) == 1) {
-    printf("ERROR ! : Test Failed (non empty array)\n");
+  out = zisemptya(full, 5);
+  if (out == 1) {
+    printf("ERROR2 ! : Test Failed (non empty array)\n");
     result = ERROR;
   }
-  assert(zisemptya(full, 5) == 0);
+  assert(out == 0);
 
 
   return result;

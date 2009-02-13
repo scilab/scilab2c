@@ -19,11 +19,6 @@ pkglib_LTLIBRARIES =	libIsempty.la
 
 libIsempty_la_SOURCES =	$(HEAD) $(SRC)
 
-SRC	=	sisemptya.c \
-		disemptya.c \
-		cisemptya.c \
-		zisemptya.c
-
 HEAD	=	../includes/isempty.h
 
 ####
