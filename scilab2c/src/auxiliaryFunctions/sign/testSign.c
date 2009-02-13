@@ -43,11 +43,12 @@ int dsignsTest() {
 }
 
 int csignsTest() {
-
+  floatComplex zero = FloatComplex(0., 0.);
   floatComplex i = FloatComplex(0., 1.);
   floatComplex oneAndI = FloatComplex(1., 1.);
   floatComplex sign_i = csigns(i);
   floatComplex sign_oneAndI =  csigns(oneAndI);
+  floatComplex sign_zero = csigns(zero);
 
   printf(">> Float Complex\n");
   /* sign(%i) = %i */
@@ -56,24 +57,31 @@ int csignsTest() {
   /* sign(1+%i) = (1+%i) / sqrt(2) */
   assert(creals(sign_oneAndI) == 1 / sqrtf(2));
   assert(cimags(sign_oneAndI) == 1 / sqrtf(2));
+  /* sign(0) = 0 */
+  assert(creals(sign_zero) == 0);
+  assert(cimags(sign_zero) == 0);
 
   return 0;
 }
 
 int zsignsTest() {
+  floatComplex zero = FloatComplex(0., 0.);
   doubleComplex i = DoubleComplex(0., 1.);
   doubleComplex oneAndI = DoubleComplex(1., 1.);
   doubleComplex sign_i = zsigns(i);
   doubleComplex sign_oneAndI =  zsigns(oneAndI);
+  floatComplex sign_zero = csigns(zero);
 
   printf(">> Double Complex\n");
   /* sign(%i) = %i */
   assert(zreals(sign_i) == 0);
   assert(zimags(sign_i) == 1);
   /* sign(1+%i) = (1+%i) / sqrt(2) */
-
   assert ( fabs ( zreals(sign_oneAndI) - (sqrt(2)/2) ) / fabs(  zreals(sign_oneAndI)) < 1e-15) ;
   assert ( fabs ( zimags(sign_oneAndI) - 1 / sqrt(2) ) / fabs(  zimags(sign_oneAndI)) < 1e-15) ;
+  /* sign(0) = 0 */
+  assert(creals(sign_zero) == 0);
+  assert(cimags(sign_zero) == 0);
 
   return 0;
 }
