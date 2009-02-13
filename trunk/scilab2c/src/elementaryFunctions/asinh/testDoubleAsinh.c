@@ -446,8 +446,6 @@ void zasinhsTest(void) {
 	for (i=0;i<200;i++){
 		in=DoubleComplex(inR[i],inI[i]);
 		out = zasinhs(in);
-		printf("%d - trouvé : %1.20f  - espéré : %1.20f - erreur %1.20f\n",i,zreals(out),resR[i],(fabs(zreals(out)-resI[i])) / (fabs(zreals(out))));
-		printf("detail : %1.20f - %1.20f / %1.20f\n",zreals(out)-resI[i],(fabs(zreals(out)-resI[i])),(fabs(zreals(out))));
 
 		assert( ( ( fabs( zreals(out)-resR[i] ) ) / (fabs(zreals(out)) ) ) <1e-15);
 		assert( ( ( fabs( zimags(out)-resI[i] ) ) / (fabs(zimags(out)) ) ) <1e-15);
