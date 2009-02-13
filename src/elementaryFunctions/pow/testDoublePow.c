@@ -472,7 +472,7 @@ void dpowaTest(void) {
 	dpowa(in1,200,0,out2);
 	dpowa(in1,200,1,out3);
 	for (i=0;i<200;i++){
-		assert(( (fabs(out1[i]-res[i]))/(fabs(out1[i])) )<1e-16);
+		assert(( (fabs(out1[i]-res[i]))/(fabs(out1[i])) )<1e-15);
 		assert(( (fabs(out2[i]-1))/(fabs(out2[i])) )<1e-16);
 		assert(( (fabs(out3[i]-in1[i]))/(fabs(out3[i])) )<1e-16);
 	}
@@ -492,8 +492,8 @@ void zpowaTest(void) {
 	zpowa(in1,200,in2,out);
 
 	for (i=0;i<200;i++){
-		assert(( (fabs(zreals(out[i])-resR[i]))/(fabs(zreals(out[i]))) )<1e-16);	
-		assert(( (fabs(zimags(out[i])-resI[i]))/(fabs(zimags(out[i]))) )<1e-16);			
+		assert(( (fabs(zreals(out[i])-resR[i]))/(fabs(zreals(out[i]))) )<1e-15);	
+		assert(( (fabs(zimags(out[i])-resI[i]))/(fabs(zimags(out[i]))) )<1e-15);			
 	}
 }
 
@@ -501,11 +501,9 @@ int testPow(void) {
   printf("\n>>>> Double Powonential Tests\n");
   dpowsTest();
   zpowsTest();
-  /* FIXME : Implement some test here ... */
-  /*
-    dpowaTest();
-    zpowaTest();
-  */
+  dpowaTest();
+  zpowaTest();
+
   return 0;
 }
 
