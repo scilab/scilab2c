@@ -11,10 +11,10 @@
 ##
 
 libMatrixInversion_la_CFLAGS =	-I $(top_builddir)/type \
-					-I $(top_builddir)/matrixOperations/includes \
-                    -I $(top_builddir)/auxiliaryFunctions/includes \
-                    -I $(top_builddir)/includes \
-                    -I $(top_builddir)/elementaryFunctions/includes
+						-I $(top_builddir)/matrixOperations/includes \
+						-I $(top_builddir)/auxiliaryFunctions/includes \
+						-I $(top_builddir)/includes \
+						-I $(top_builddir)/elementaryFunctions/includes
 
 
 instdir = $(top_builddir)/lib
