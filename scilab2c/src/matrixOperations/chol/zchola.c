@@ -10,7 +10,7 @@
  *
  */
 
-#ifdef WITHOUT_LAPACK
+#ifndef WITHOUT_LAPACK
 #include "lapack.h"
 #else
 #include "multiplication.h"
@@ -29,7 +29,7 @@ void zchola(doubleComplex * in, int size, doubleComplex *out){
 	   param out : output upper triangular matrix
 	*/
 	
-#ifdef WITHOUT_LAPACK	
+#ifndef WITHOUT_LAPACK	
 	int i=0, j=0, info=0;
 	
 	for(i=0;i<size*size;i++)	out[i]=in[i];
@@ -65,6 +65,14 @@ void zchola(doubleComplex * in, int size, doubleComplex *out){
 		tmp = DoubleComplex(zreals(in[i*size+i])-accu,0);
 		out[i*size+i]=zsqrts(tmp);	
 	}
+	
+	/*Zeros in the lower triangular part*/
+	for (i=0;i<size;i++){
+		for (j=i+1;j<size;j++){
+			out[j+i*size]=DoubleComplex(0,0);
+		}
+	}
+
 
 	
 #endif		
