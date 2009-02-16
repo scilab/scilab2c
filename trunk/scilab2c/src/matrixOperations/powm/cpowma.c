@@ -15,11 +15,11 @@
 #include "matrixExponential.h"
 #include "multiplication.h"
 
-void zpowma(doubleComplex* in, int rows, doubleComplex expand, doubleComplex* out){
+void cpowma(floatComplex* in, int rows, floatComplex expand, floatComplex* out){
 	int i=0;
 	/* use the formula a^b=exp(b*ln(a)) */
-	zlogma(in,rows,out);
-	for(i=0;i<rows*rows;i++) out[i]= zmuls(expand,out[i]);
-	zexpma(out,out,(int)rows);
+	clogma(in,rows,out);
+	for(i=0;i<rows*rows;i++) out[i]= cmuls(expand,out[i]);
+	cexpma(out,out,(int)rows);
 					
 }
