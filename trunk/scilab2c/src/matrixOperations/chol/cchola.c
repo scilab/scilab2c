@@ -77,6 +77,13 @@ void cchola(floatComplex * in, int size, floatComplex *out){
 		tmp = FloatComplex(creals(in[i*size+i])-accu,0);
 		out[i*size+i]=csqrts(tmp);	
 	}
+	
+	/*Zeros in the lower triangular part*/
+	for (i=0;i<size;i++){
+		for (j=i+1;j<size;j++){
+			out[j+i*size]=FloatComplex(0,0);
+		}
+	}
 
 #endif	
 }
