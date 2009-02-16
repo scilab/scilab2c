@@ -15,20 +15,20 @@
 #include "logm.h"
 
 
-void clogma (floatComplex* in, int size, floatComplex* out){
+void clogma (floatComplex* in, int rows, floatComplex* out){
 	doubleComplex *inCopy, *outCopy;
 	int i=0;
 	
-	inCopy = malloc((uint)(size*size)*sizeof(doubleComplex));
-	outCopy = malloc((uint)(size*size)*sizeof(doubleComplex));
+	inCopy = malloc((uint)(rows*rows)*sizeof(doubleComplex));
+	outCopy = malloc((uint)(rows*rows)*sizeof(doubleComplex));
 	
-	for(i=0;i<size*size;i++)
+	for(i=0;i<rows*rows;i++)
 		inCopy[i]=DoubleComplex ((double)creals(in[i]), (double)cimags(in[i]));
 	
 	
-	zlogma(inCopy,size,outCopy);
+	zlogma(inCopy,rows,outCopy);
 	
-	for(i=0;i<size*size;i++)
+	for(i=0;i<rows*rows;i++)
 		out[i]=FloatComplex( (float)zreals(outCopy[i]),(float)zimags(outCopy[i]));
 		
 	
