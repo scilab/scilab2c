@@ -55,7 +55,8 @@ LTLIBRARIES = $(pkglib_LTLIBRARIES)
 libMatrixPow_la_LIBADD =
 am__objects_1 =
 am_libMatrixPow_la_OBJECTS = $(am__objects_1) \
-	libMatrixPow_la-dpowma.lo libMatrixPow_la-spowma.lo
+	libMatrixPow_la-spowma.lo libMatrixPow_la-dpowma.lo \
+	libMatrixPow_la-cpowma.lo libMatrixPow_la-zpowma.lo
 libMatrixPow_la_OBJECTS = $(am_libMatrixPow_la_OBJECTS)
 libMatrixPow_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libMatrixPow_la_CFLAGS) \
@@ -199,28 +200,57 @@ top_srcdir = @top_srcdir@
 libMatrixPow_la_CFLAGS = -I $(top_builddir)/type \
 					-I $(top_builddir)/includes \
 					-I $(top_builddir)/operations/includes\
+					-I $(top_builddir)/auxiliaryFunctions/includes\
+					-I $(top_builddir)/elementaryFunctions/includes\
 					-I $(top_builddir)/matrixOperations/includes
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libMatrixPow.la
 HEAD = ../includes/matrixPow.h
 libMatrixPow_la_SOURCES = $(HEAD) \
+				spowma.c\
 				dpowma.c\
-				spowma.c
+				cpowma.c\
+				zpowma.c
 
 check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/lib/lapack/libscilapack.la \
-			$(top_builddir)/matrixOperations/eye/libMatrixEye.la \
+			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/auxiliaryFunctions/sign/libSign.la \
+			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
+			$(top_builddir)/auxiliaryFunctions/frexp/libFrexp.la \
+			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
+			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
+			$(top_builddir)/elementaryFunctions/exp/libExp.la \
+			$(top_builddir)/elementaryFunctions/cos/libCos.la \
+			$(top_builddir)/elementaryFunctions/pow/libPow.la \
+			$(top_builddir)/elementaryFunctions/log/libLog.la \
+			$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
+			$(top_builddir)/elementaryFunctions/lnp1m1/libLnp1m1.la\
+			$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
+			$(top_builddir)/elementaryFunctions/sin/libSin.la \
+			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
+			$(top_builddir)/matrixOperations/inversion/libMatrixInversion.la \
 			$(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la \
+			$(top_builddir)/matrixOperations/cat/libMatrixConcatenation.la \
+			$(top_builddir)/matrixOperations/expm/libMatrixExponential.la \
+			$(top_builddir)/matrixOperations/logm/libLogm.la \
+			$(top_builddir)/matrixOperations/infiniteNorm/libMatrixInfiniteNorm.la \
+			$(top_builddir)/matrixOperations/eye/libMatrixEye.la \
 			$(top_builddir)/matrixOperations/multiplication/libMatrixMultiplication.la \
+			$(top_builddir)/matrixOperations/division/libMatrixDivision.la \
 			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/lib/blas/libsciblas.la \
 			$(top_builddir)/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/operations/subtraction/libSubtraction.la \
+			$(top_builddir)/operations/division/libDivision.la \
+			$(top_builddir)/lib/blas/libsciblas.la \
 			libMatrixPow.la
 
 check_INCLUDES = -I $(top_builddir)/type \
 			-I $(top_builddir)/includes \
+			-I $(top_builddir)/auxiliaryFunctions/includes\
+			-I $(top_builddir)/elementaryFunctions/includes\
 			-I $(top_builddir)/operations/includes\
 			-I $(top_builddir)/matrixOperations/includes
 
@@ -306,8 +336,10 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixPow_la-cpowma.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixPow_la-dpowma.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixPow_la-spowma.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixPow_la-zpowma.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleMatrixPow-testDoublePowm.Po@am__quote@
 
 .c.o:
@@ -331,6 +363,13 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
+libMatrixPow_la-spowma.lo: spowma.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixPow_la_CFLAGS) $(CFLAGS) -MT libMatrixPow_la-spowma.lo -MD -MP -MF $(DEPDIR)/libMatrixPow_la-spowma.Tpo -c -o libMatrixPow_la-spowma.lo `test -f 'spowma.c' || echo '$(srcdir)/'`spowma.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixPow_la-spowma.Tpo $(DEPDIR)/libMatrixPow_la-spowma.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='spowma.c' object='libMatrixPow_la-spowma.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixPow_la_CFLAGS) $(CFLAGS) -c -o libMatrixPow_la-spowma.lo `test -f 'spowma.c' || echo '$(srcdir)/'`spowma.c
+
 libMatrixPow_la-dpowma.lo: dpowma.c
 @am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixPow_la_CFLAGS) $(CFLAGS) -MT libMatrixPow_la-dpowma.lo -MD -MP -MF $(DEPDIR)/libMatrixPow_la-dpowma.Tpo -c -o libMatrixPow_la-dpowma.lo `test -f 'dpowma.c' || echo '$(srcdir)/'`dpowma.c
 @am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixPow_la-dpowma.Tpo $(DEPDIR)/libMatrixPow_la-dpowma.Plo
@@ -338,12 +377,19 @@ libMatrixPow_la-dpowma.lo: dpowma.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixPow_la_CFLAGS) $(CFLAGS) -c -o libMatrixPow_la-dpowma.lo `test -f 'dpowma.c' || echo '$(srcdir)/'`dpowma.c
 
-libMatrixPow_la-spowma.lo: spowma.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixPow_la_CFLAGS) $(CFLAGS) -MT libMatrixPow_la-spowma.lo -MD -MP -MF $(DEPDIR)/libMatrixPow_la-spowma.Tpo -c -o libMatrixPow_la-spowma.lo `test -f 'spowma.c' || echo '$(srcdir)/'`spowma.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixPow_la-spowma.Tpo $(DEPDIR)/libMatrixPow_la-spowma.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='spowma.c' object='libMatrixPow_la-spowma.lo' libtool=yes @AMDEPBACKSLASH@
+libMatrixPow_la-cpowma.lo: cpowma.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixPow_la_CFLAGS) $(CFLAGS) -MT libMatrixPow_la-cpowma.lo -MD -MP -MF $(DEPDIR)/libMatrixPow_la-cpowma.Tpo -c -o libMatrixPow_la-cpowma.lo `test -f 'cpowma.c' || echo '$(srcdir)/'`cpowma.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixPow_la-cpowma.Tpo $(DEPDIR)/libMatrixPow_la-cpowma.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cpowma.c' object='libMatrixPow_la-cpowma.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixPow_la_CFLAGS) $(CFLAGS) -c -o libMatrixPow_la-spowma.lo `test -f 'spowma.c' || echo '$(srcdir)/'`spowma.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixPow_la_CFLAGS) $(CFLAGS) -c -o libMatrixPow_la-cpowma.lo `test -f 'cpowma.c' || echo '$(srcdir)/'`cpowma.c
+
+libMatrixPow_la-zpowma.lo: zpowma.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixPow_la_CFLAGS) $(CFLAGS) -MT libMatrixPow_la-zpowma.lo -MD -MP -MF $(DEPDIR)/libMatrixPow_la-zpowma.Tpo -c -o libMatrixPow_la-zpowma.lo `test -f 'zpowma.c' || echo '$(srcdir)/'`zpowma.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMatrixPow_la-zpowma.Tpo $(DEPDIR)/libMatrixPow_la-zpowma.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zpowma.c' object='libMatrixPow_la-zpowma.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMatrixPow_la_CFLAGS) $(CFLAGS) -c -o libMatrixPow_la-zpowma.lo `test -f 'zpowma.c' || echo '$(srcdir)/'`zpowma.c
 
 testDoubleMatrixPow-testDoublePowm.o: testDoublePowm.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleMatrixPow_CFLAGS) $(CFLAGS) -MT testDoubleMatrixPow-testDoublePowm.o -MD -MP -MF $(DEPDIR)/testDoubleMatrixPow-testDoublePowm.Tpo -c -o testDoubleMatrixPow-testDoublePowm.o `test -f 'testDoublePowm.c' || echo '$(srcdir)/'`testDoublePowm.c
