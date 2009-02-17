@@ -11,11 +11,10 @@
  */
  
 #include "dist.h"
-#include "pow.h"
-#include "sqrt.h"
+#include "abs.h"
 
 float sdists(float in1, float in2){
-	return ssqrts(spows(in1-in2,2));
+	return sabss(in2-in1);
 }
 
 

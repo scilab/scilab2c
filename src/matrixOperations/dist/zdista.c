@@ -10,18 +10,45 @@
  *
  */
  
-
 #include "dist.h"
-#include "pow.h"
+#include "matrixTranspose.h"
+#include "matrixMultiplication.h"
+#include "spec.h"
 #include "sqrt.h"
+#include "conj.h"
+#include "subtraction.h"
+#include "stdio.h"
 
 double zdista(doubleComplex* in1,doubleComplex* in2, int lines, int columns){
-	int i;
-	double accu=0;
-	for (i=0;i<lines*columns;i++){
-		accu+=dpows(zreals(in1[i])-zreals(in2[i]),2);
-		accu+=dpows(zimags(in1[i])-zimags(in2[i]),2);
-	}
+	int i=0;
+	double out = 0;
+	doubleComplex *a, *at, *mul;
+	doubleComplex *eigenvalues;
 	
-	return dsqrts(accu);
+	
+	/* FIXME : malloc here*/
+	a=malloc((uint)(lines*columns)*sizeof(doubleComplex));
+	at=malloc((uint)(lines*columns)*sizeof(doubleComplex));
+	mul=malloc((uint)(lines*lines)*sizeof(doubleComplex));
+	eigenvalues=malloc((uint)(lines)*sizeof(doubleComplex));
+		
+	for (i=0;i<lines*columns;i++) a[i]=zdiffs(in1[i],in2[i]);
+	ztransposea(a,lines, columns,at);
+	zconja(at,lines*columns,at);
+	zmulma(a,lines,columns,at,columns,lines,mul);
+	zspeca(mul,lines,eigenvalues);
+	zsqrta(eigenvalues,lines,eigenvalues);
+	
+	/* Research of the higher value of eigenvalues*/
+	for (i=0;i<lines;i++){
+		if (zreals(eigenvalues[i])>out) out = zreals(eigenvalues[i]);
+	}
+		
+	
+	free(a);
+	free(at);
+	free(mul);
+	free(eigenvalues);
+	
+	return out;
 }

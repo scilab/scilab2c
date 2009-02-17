@@ -11,16 +11,44 @@
  */
  
 #include "dist.h"
-#include "pow.h"
+#include "matrixTranspose.h"
+#include "matrixMultiplication.h"
+#include "spec.h"
 #include "sqrt.h"
+#include "conj.h"
+#include "subtraction.h"
+#include "stdio.h"
 
 float cdista(floatComplex* in1,floatComplex* in2, int lines, int columns){
-	int i;
-	float accu=0;
-	for (i=0;i<lines*columns;i++){
-		accu+=spows(creals(in1[i])-creals(in2[i]),2);
-		accu+=spows(cimags(in1[i])-cimags(in2[i]),2);
-	}
+	int i=0;
+	float out = 0;
+	floatComplex *a, *at, *mul;
+	floatComplex *eigenvalues;
 	
-	return ssqrts(accu);
+	
+	/* FIXME : malloc here*/
+	a=malloc((uint)(lines*columns)*sizeof(floatComplex));
+	at=malloc((uint)(lines*columns)*sizeof(floatComplex));
+	mul=malloc((uint)(lines*lines)*sizeof(floatComplex));
+	eigenvalues=malloc((uint)(lines)*sizeof(floatComplex));
+		
+	for (i=0;i<lines*columns;i++) a[i]=cdiffs(in1[i],in2[i]);
+	ctransposea(a,lines, columns,at);
+	cconja(at,lines*columns,at);
+	cmulma(a,lines,columns,at,columns,lines,mul);
+	cspeca(mul,lines,eigenvalues);
+	csqrta(eigenvalues,lines,eigenvalues);
+	
+	/* Research of the higher value of eigenvalues*/
+	for (i=0;i<lines;i++){
+		if (creals(eigenvalues[i])>out) out = creals(eigenvalues[i]);
+	}
+		
+	
+	free(a);
+	free(at);
+	free(mul);
+	free(eigenvalues);
+	
+	return out;
 }
