@@ -11,15 +11,40 @@
  */
  
 #include "dist.h"
-#include "pow.h"
+#include "matrixTranspose.h"
+#include "matrixMultiplication.h"
+#include "spec.h"
 #include "sqrt.h"
 
+
 double ddista(double* in1,double* in2, int lines, int columns){
-	int i;
-	double accu=0;
-	for (i=0;i<lines*columns;i++){
-		accu+=dpows(in1[i]-in2[i],2);
+	int i=0;
+	double out=0;
+	double *a, *at, *mul;
+	doubleComplex *eigenvalues;
+	
+	
+	/* FIXME : malloc here*/
+	a=malloc((uint)(lines*columns)*sizeof(double));
+	at=malloc((uint)(lines*columns)*sizeof(double));
+	mul=malloc((uint)(lines*lines)*sizeof(double));
+	eigenvalues=malloc((uint)(lines)*sizeof(doubleComplex));
+		
+	for (i=0;i<lines*columns;i++) a[i]=in1[i]-in2[i];
+	dtransposea(a,lines, columns,at);
+	dmulma(a,lines,columns,at,columns,lines,mul);
+	dspeca(mul,lines,eigenvalues);
+	zsqrta(eigenvalues,lines,eigenvalues);
+	
+	/* Research of the higher value of eigenvalues*/
+	for (i=0;i<lines;i++){
+		if (zreals(eigenvalues[i])>out) out = zreals(eigenvalues[i]);
 	}
 	
-	return dsqrts(accu);
+	free(a);
+	free(at);
+	free(mul);
+	free(eigenvalues);
+	
+	return out;
 }

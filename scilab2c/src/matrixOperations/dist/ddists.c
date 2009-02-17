@@ -11,11 +11,10 @@
  */
  
 #include "dist.h"
-#include "pow.h"
-#include "sqrt.h"
+#include "abs.h"
 
 double ddists(double in1, double in2){
-	return dsqrts(dpows(in1-in2,2));
+	return dabss(in2-in1);
 }
 
 

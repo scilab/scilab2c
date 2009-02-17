@@ -11,9 +11,10 @@
 ##
 
 libDist_la_CFLAGS =	-I $(top_builddir)/type \
-			-I $(top_builddir)/matrixOperations/includes \
-			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/elementaryFunctions/includes
+				-I $(top_builddir)/matrixOperations/includes \
+				-I $(top_builddir)/operations/includes \
+				-I $(top_builddir)/elementaryFunctions/includes\
+				-I $(top_builddir)/auxiliaryFunctions/includes
 
 
 instdir = $(top_builddir)/lib
@@ -40,7 +41,7 @@ libDist_la_SOURCES = 	$(HEAD) \
 
 check_PROGRAMS = 	testDoubleDist   testFloatDist
 
-check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
+check_LDADD =	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
 			$(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/elementaryFunctions/pow/libPow.la \
@@ -55,14 +56,21 @@ check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
 			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
 			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
 			$(top_builddir)/operations/multiplication/libMultiplication.la \
 			$(top_builddir)/operations/addition/libAddition.la \
+			$(top_builddir)/operations/subtraction/libSubtraction.la \
+			$(top_builddir)/matrixOperations/multiplication/libMatrixMultiplication.la \
+			$(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la \
+			$(top_builddir)/matrixOperations/spec/libSpec.la \
+			$(top_builddir)/matrixOperations/zeros/libMatrixZeros.la \
 			libDist.la
 
 check_INCLUDES =	-I $(top_builddir)/type \
 			-I $(top_builddir)/matrixOperations/includes \
 			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/elementaryFunctions/includes
+			-I $(top_builddir)/elementaryFunctions/includes\
+			-I $(top_builddir)/auxiliaryFunctions/includes 
 
 testDoubleDist_SOURCES = testDoubleDist.c
 testDoubleDist_LDADD = $(check_LDADD)
