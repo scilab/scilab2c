@@ -23,12 +23,12 @@
 
 #define z0z0distd0(in1,in2)			zdists(in1,in2)
 
-#define s2s2dists0(in1,size1,in2,size2)		sdista(in1, in2, size1[0], size2[0])
+#define s2s2dists0(in1,size1,in2,size2)		sdista(in1, in2, size1[0], size2[1])
 
-#define d2d2distd0(in1,size1,in2,size2)		ddista(in1, in2,  size1[0], size2[0])
+#define d2d2distd0(in1,size1,in2,size2)		ddista(in1, in2, size1[0], size2[1])
 
-#define c2c2dists0(in1,size1,in2,size2)		cdista(in1, in2,  size1[0], size2[0])
+#define c2c2dists0(in1,size1,in2,size2)		cdista(in1, in2, size1[0], size2[1])
 
-#define z2z2distd0(in1,size1,in2,size2)		zdista(in1, in2,  size1[0], size2[0])
+#define z2z2distd0(in1,size1,in2,size2)		zdista(in1, in2, size1[0], size2[1])
 
 #endif /* !__INT_DIST_H__ */
