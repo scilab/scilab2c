@@ -149,4 +149,7 @@ extern int C2F(zpotrf)();
 /* used in logm */
 extern int C2F(zgeev)();
 extern int C2F(zheev)();
+/* used in spec */
+extern int C2F(dgeev)();
+extern int C2F(dsyev)();
 #endif /* !__LAPACK_H__ */
