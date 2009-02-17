@@ -194,7 +194,9 @@
 #include "matrixTrace.h"
 #include "int_trace.h"
 /* interfacing tranpose */
-#include "matrixTranspose.h"/* interfacing zeros */
+#include "matrixTranspose.h"
+#include "int_OpApex.h"
+#include "int_OpDotApex.h"/* interfacing zeros */
 #include "zeros.h"
 #include "int_zeros.h"
 

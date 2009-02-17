@@ -24,8 +24,6 @@ SWSRCS	=	\
 	$(CSRCDIR)/doubleComplex.c \
 	$(CSRCDIR)/floatComplex.c \
 	$(CSRCDIR)/RealToComplex.c \
-	$(CSRCDIR)/zeros.c \
-	$(CSRCDIR)/OpApex.c \
 	$(CSRCDIR)/OpDotHat.c \
 	$(CSRCDIR)/OpEqual.c \
 	$(CSRCDIR)/OpIns.c \
