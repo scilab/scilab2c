@@ -17,9 +17,9 @@
 
 /* Only eigenvalues */
 
-#define s0specs0(in)			sspecs(in)
+#define s0specc0(in)			sspecs(in)
 
-#define d0specd0(in)			dspecs(in)
+#define d0specz0(in)			dspecs(in)
 
 #define c0specc0(in)			cspecs(in)
 
@@ -35,20 +35,20 @@
 
 /* Eigenvalues and eigenvectors */
 
-#define s0specs0s0(in,out)			sspec2s(in,out)
+#define s0specc0c0(in,out)			sspec2s(in,out)
 
-#define d0specd0d0(in,out)			dspec2s(in,out)
+#define d0specz0z0(in,out)			dspec2s(in,out)
 
 #define c0specc0c0(in,out)			cspec2s(in,out)
 
 #define z0specz0z0(in,out)			zspec2s(in,out)
 
-#define s2specc2c2(in,size,out)		sspeca(in, size[0], out)
+#define s2specc2c2(in,size,out1,out2)		sspec2a(in, size[0], out2, out1)
 
-#define d2specz2z2(in,size,out)		dspeca(in, size[0], out)
+#define d2specz2z2(in,size,out1,out2)		dspec2a(in, size[0], out2, out1)
 
-#define c2specc2c2(in,size,out)		cspeca(in, size[0], out)
+#define c2specc2c2(in,size,out1,out2)		cspec2a(in, size[0], out2, out1)
 
-#define z2specz2z2(in,size,out)		zspeca(in, size[0], out)
+#define z2specz2z2(in,size,out1,out2)		zspec2a(in, size[0], out2, out1)
 
 #endif /* !__INT_SPEC_H__ */

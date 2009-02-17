@@ -59,15 +59,36 @@ void dspec2a(double* in, int rows,doubleComplex* eigenvalues,doubleComplex* eige
 	/* apply lapack function according to symmetry */
 	if(symmetric){	
 		C2F(dsyev)( "V", "U", &rows, inCopy, &rows, outReal, pdblWork, &iWorkSize, &INFO );
-		for (i=0;i<rows*rows;i++) eigenvectors[i]=DoubleComplex(inCopy[i],0);
 		dzerosa(outImag,1,rows);
 	}
 	else {	
 		pdblRightvectors=malloc((uint)(rows*rows) * sizeof(double));
 		C2F(dgeev)( "N", "V", &rows, inCopy, &rows, outReal, outImag,
         			pdblLeftvectors, &rows, pdblRightvectors, &rows, pdblWork, &iWorkSize, &INFO );  
-        	      	
-        	for(j = 0 ; j < rows ; j+=2){
+	}
+	
+	/* Computation of eigenvalues */
+	zzerosa(eigenvalues,1,rows*rows);
+	for (i=0;i<rows;i++) eigenvalues[i+i*rows]=DoubleComplex(outReal[i],outImag[i]);
+	
+	
+	
+	/* Computation of eigenvectors */
+	j=0;
+	while (j<rows)
+	{
+		if (outImag[j]==0)
+		{	
+			for(i = 0 ; i < rows ; i++)
+			{
+				ij = i + j * rows;
+				if (symmetric)	eigenvectors[ij] = DoubleComplex(inCopy[ij],0);
+				else eigenvectors[ij] = DoubleComplex(pdblRightvectors[ij],0);
+			}
+			j = j + 1;
+		}
+		else
+		{
 			for(i = 0 ; i < rows ; i++)
 			{
 				ij = i + j * rows;
@@ -75,14 +96,9 @@ void dspec2a(double* in, int rows,doubleComplex* eigenvalues,doubleComplex* eige
 				eigenvectors[ij] = DoubleComplex(pdblRightvectors[ij],pdblRightvectors[ij1]);
 				eigenvectors[ij1] = DoubleComplex(pdblRightvectors[ij],-pdblRightvectors[ij1]);
 			}
+			j = j + 2;
 		}
-		
 	}
-	
-	
-	zzerosa(eigenvalues,1,rows*rows);
-	for (i=0;i<rows;i++) eigenvalues[i+i*rows]=DoubleComplex(outReal[i],outImag[i]);
-
 
 	free(inCopy);
 	free(outReal);
