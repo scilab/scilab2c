@@ -6,14 +6,8 @@
 #include "constant.h"
 #include "notFound.h"
 #include "doubleComplex.h"
-#include "min.h"
-#include "max.h"
 #include "floatComplex.h"
 #include "RealToComplex.h"
-#include "ones.h"
-#include "zeros.h"
-#include "OpApex.h"
-#include "OpColon.h"
 #include "OpDotHat.h"
 #include "OpEqual.h"
 #include "OpIns.h"
@@ -27,11 +21,7 @@
 #include "OpLogOr.h"
 #include "OpLogAnd.h"
 #include "ConvertPrecision.h"
-#include "abs.h"
-#include "int_abs.h"
-#include "log10.h"
-#include "int_log10.h"
-#include "pythag.h"
+
 
 /* LIB */
 /* interfacing lapack */
@@ -41,16 +31,21 @@
 
 /* AUXILIARY FUNCTIONS */
 
+/* interfacing abs */
+#include "abs.h"
+#include "int_abs.h"
+/* interfacing conj */
+#include "conj.h"
+#include "int_conj.h"
+/* interfacing disp */
+#include "disp.h"
+#include "int_disp.h"
 /* interfacing find */
 #include "find.h"
 #include "find2d.h"
 #include "int_find.h"
-/* interfacing disp */
-#include "disp.h"
-#include "int_disp.h"
-/* interfacing conj */
-#include "conj.h"
-#include "int_conj.h"
+/* interfacing frexp */
+#include "frexp.h"
 /* interfacing isempty */
 #include "isempty.h"
 #include "int_isempty.h"
@@ -60,10 +55,14 @@
 /* interfacing length */
 #include "length.h"
 #include "int_length.h"
+/* interfacing max */
+#include "max.h"
+#include "int_max.h"
+/* interfacing min */
+#include "min.h"
+#include "int_min.h"
 /* interfacing pythag */
 #include "pythag.h"
-/* interfacing frexp */
-#include "frexp.h"
 /* interfacing sign */
 #include "sign.h"
 #include "int_sign.h"
