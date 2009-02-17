@@ -15,8 +15,8 @@
 #include "matrixMagnitude.h"
 
 float smagna(float* in, int rows, int cols){
-	int i,j;
-	float  out=0, colSum;
+	int i=0,j=0;
+	float  out=0, colSum=0;
 	
 	if ((rows==1)||(cols==1)){
 		for(i=0;i<cols*rows;i++){

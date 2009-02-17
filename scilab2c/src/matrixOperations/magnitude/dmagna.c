@@ -15,8 +15,8 @@
 #include "matrixMagnitude.h"
 
 double dmagna(double* in, int rows, int cols){
-	int i,j;
-	double  out=0, colSum;
+	int i=0,j=0;
+	double  out=0, colSum=0;
 	
 	
 	if ((rows==1)||(cols==1)){
