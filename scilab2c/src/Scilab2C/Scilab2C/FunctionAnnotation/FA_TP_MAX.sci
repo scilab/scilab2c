@@ -13,8 +13,19 @@ function opout = FA_TP_MAX(in1,in2)
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-SCI2CNInArgCheck(argn(2),2,2);
+SCI2CNInArgCheck(argn(2),1,2);
 
+
+if (argn(2)==1) then
+select (in1),
+	case 's' then opout = 'c'
+	case 'c' then opout = 'c'
+	else opout = 'z',
+end
+end
+
+
+if (argn(2)==2) then 
 in1Pin2 = in1+in2;
 opout = in1;
 
@@ -26,6 +37,7 @@ elseif (in1Pin2 == 'sc')
    opout = 'c';
 elseif (in1Pin2 == 'dc')
    opout = 'z';
+end
 end
 
 endfunction
