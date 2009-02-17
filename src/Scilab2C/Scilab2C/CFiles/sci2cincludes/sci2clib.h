@@ -187,6 +187,9 @@
 #include "infiniteNorm.h"/* interfacing ones */
 #include "ones.h"
 #include "int_ones.h"
+/* interfacing spec */
+#include "spec.h"
+#include "int_spec.h"
 /* interfacing trace */
 #include "matrixTrace.h"
 #include "int_trace.h"
