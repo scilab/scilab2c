@@ -359,10 +359,6 @@ SWSRCS	=	\
 	$(CSRCDIR)/stanha.c \
 	$(CSRCDIR)/ztanhs.c \
 	$(CSRCDIR)/ztanha.c \
-	$(CSRCDIR)/cisemptya.c \
-	$(CSRCDIR)/disemptya.c \
-	$(CSRCDIR)/sisemptya.c \
-	$(CSRCDIR)/zisemptya.c \
 	$(CSRCDIR)/cisnans.c \
 	$(CSRCDIR)/cisnana.c \
 	$(CSRCDIR)/disnans.c \
