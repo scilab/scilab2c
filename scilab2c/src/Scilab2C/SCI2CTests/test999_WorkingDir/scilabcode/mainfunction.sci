@@ -1,37 +1,29 @@
-//SCI2C: DEFAULT_PRECISION= FLOAT
+//SCI2C: DEFAULT_PRECISION= DOUBLE
 
 function mainfunction()
 
-//test zeros
+//test OpApex(transpose&conj) & OpDotApex(transpose)
 
 //reals
 
+disp(3')
 
-//disp(zeros())
+disp(3.')
 
-disp(zeros(1))
+a=[4 2 4 8;3 4 5 1;1 4 5 6; 7 4 5 3]
 
-disp(zeros(4))
+disp(a')
+disp(a.')
 
-disp(zeros(1,1))
+//complexes
 
-disp(zeros(1,4))
+disp((3+%i)')
 
-disp(zeros(4,4))
+disp((3+%i).')
 
-disp(zeros(4,1))
+b=2.5*a+a*%i;
 
-a=[1 2 3; 4 5 6; 7 8 9]
-
-disp(zeros(a))
-
-//complexe
-
-disp(zeros(2+%i))
-
-b=a+%i
-
-disp(zeros(b))
-
+disp(b')
+disp(b.')
 
 endfunction
