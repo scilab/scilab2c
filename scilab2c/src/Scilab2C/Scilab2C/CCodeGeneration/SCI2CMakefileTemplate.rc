@@ -418,7 +418,15 @@ SWSRCS	=	\
 	$(CSRCDIR)/czerosa.c \
 	$(CSRCDIR)/dzerosa.c \
 	$(CSRCDIR)/szerosa.c \
-	$(CSRCDIR)/zzerosa.c 
+	$(CSRCDIR)/zzerosa.c \
+	$(CSRCDIR)/cspeca.c \
+	$(CSRCDIR)/dspeca.c \
+	$(CSRCDIR)/sspeca.c \
+	$(CSRCDIR)/zspeca.c \
+	$(CSRCDIR)/cspec2a.c \
+	$(CSRCDIR)/dspec2a.c \
+	$(CSRCDIR)/sspec2a.c \
+	$(CSRCDIR)/zspec2a.c 
 	
 	
 	
