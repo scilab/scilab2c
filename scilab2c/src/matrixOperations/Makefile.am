@@ -30,7 +30,9 @@ SUBDIRS= 	cat \
  		squaredMagnitude\
  		logm \
  		powm \
- 		zeros
+ 		zeros \
+ 		spec \
+ 		spec2
  		
  		
  		

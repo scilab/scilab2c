@@ -185,7 +185,9 @@ SUBDIRS = cat \
  		squaredMagnitude\
  		logm \
  		powm \
- 		zeros
+ 		zeros \
+ 		spec \
+ 		spec2
 
 all: all-recursive
 
