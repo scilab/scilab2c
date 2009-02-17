@@ -15,15 +15,22 @@
 #include "matrixMagnitude.h"
 
 float cmagna(floatComplex* in, int rows, int cols){
-	int i,j;
-	float  out=0, colSum;
+	int i=0,j=0;
+	float  out=0, colSum=0;
 	
-	for(i=0;i<cols;i++){
-		colSum = 0;
-		for(j=0;j<rows;j++){
-			colSum += cmagns(in[i*rows+j]);
+	if ((rows==1)||(cols==1)){
+		for(i=0;i<cols*rows;i++){
+			out += cmagns(in[i]);
 		}
-		if (colSum>out) out=colSum;
+	}
+	else{	
+		for(i=0;i<cols;i++){
+			colSum = 0;
+			for(j=0;j<rows;j++){
+				colSum += cmagns(in[i*rows+j]);
+			}
+			if (colSum>out) out=colSum;
+		}
 	}
 	return out;
 }
