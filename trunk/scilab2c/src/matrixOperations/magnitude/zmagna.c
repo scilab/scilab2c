@@ -15,15 +15,23 @@
 #include "matrixMagnitude.h"
 
 double zmagna(doubleComplex* in, int rows, int cols){
-	int i,j;
-	double  out=0, colSum;
+	int i=0,j=0;
+	double  out=0, colSum=0;
+		
 	
-	for(i=0;i<cols;i++){
-		colSum = 0;
-		for(j=0;j<rows;j++){
-			colSum += zmagns(in[i*rows+j]);
+	if ((rows==1)||(cols==1)){
+		for(i=0;i<cols*rows;i++){
+			out += zmagns(in[i]);
 		}
-		if (colSum>out) out=colSum;
+	}
+	else{		
+		for(i=0;i<cols;i++){
+			colSum = 0;
+			for(j=0;j<rows;j++){
+				colSum += zmagns(in[i*rows+j]);
+			}
+			if (colSum>out) out=colSum;
+		}
 	}
 	return out;
 }
