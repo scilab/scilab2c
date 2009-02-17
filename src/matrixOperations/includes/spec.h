@@ -21,8 +21,8 @@
    If you want the eigenvalues and the eigenvectors, use spec2 */
 
 /* spec */
-#define sspecs(in) 	in
-#define dspecs(in) 	in
+#define sspecs(in) 	FloatComplex(in,0)
+#define dspecs(in) 	DoubleComplex(in,0)
 #define cspecs(in) 	in
 #define zspecs(in) 	in
 
@@ -34,10 +34,10 @@ void zspeca(doubleComplex* in, int rows,doubleComplex* out);
 
 
 /* spec2 */
-#define sspec2s(in,out)  	{out=in;return 1;}
-#define dspec2s(in,out)  	{out=in;return 1;}
-#define cspec2s(in,out)   	{out=in;return FloatComplex(1,0);}
-#define zspec2s(in,out)  	{out=in;return DoubleCompelx(1,0);}
+#define sspec2s(in,out)  	sspecs(1);*out=FloatComplex(in,0); 
+#define dspec2s(in,out)  	dspecs(1);*out=DoubleComplex(in,0); 
+#define cspec2s(in,out)   	cspecs(FloatComplex(1,0));*out=FloatComplex(creals(in),cimags(in)); 
+#define zspec2s(in,out)  	zspecs(DoubleComplex(1,0));*out=DoubleComplex(zreals(in),zimags(in)); 
 
 void sspec2a(float* in, int rows, floatComplex* eigenvalues,floatComplex* eigenvectors);
 void dspec2a(double* in, int rows, doubleComplex* eigenvalues,doubleComplex* eigenvectors);
