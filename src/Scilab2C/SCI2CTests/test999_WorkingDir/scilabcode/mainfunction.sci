@@ -2,28 +2,20 @@
 
 function mainfunction()
 
-//test OpApex(transpose&conj) & OpDotApex(transpose)
+//test max && min
 
 //reals
 
-disp(3')
+disp(max(3,-2))
 
-disp(3.')
+disp(min(3,-2))
 
-a=[4 2 4 8;3 4 5 1;1 4 5 6; 7 4 5 3]
+a=[4 -2 4 8;-3 4 5 -1;1 -4 5 6; -7 -4 5 3]
+b=[2 7 1 4; 3 -5 4 8; 2 -6 9 7; 1 -2 3 -4]
 
-disp(a')
-disp(a.')
+disp(max(a,b))
 
-//complexes
+disp(min(a,b))
 
-disp((3+%i)')
-
-disp((3+%i).')
-
-b=2.5*a+a*%i;
-
-disp(b')
-disp(b.')
 
 endfunction
