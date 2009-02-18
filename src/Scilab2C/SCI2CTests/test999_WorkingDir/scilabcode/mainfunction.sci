@@ -2,29 +2,19 @@
 
 function mainfunction()
 
-//test max && min
+disp(real(4));
+disp(imag(4));
 
-//reals
+disp(real(1+2*%i));
+disp(imag(1+2*%i));
 
-disp(norm(3))
-disp(max(3,1))
-disp(max(3,2))
+a=[4 2 7 5;4 8 6 1];
 
+disp(real(a));
+disp(imag(a));
 
-disp(min(7))
-disp(min(7,1))
-disp(min(7,2))
-
-a=[4 -2 4 8;-3 4 5 -1;1 -4 5 6; -7 -4 5 3]
-
-
-disp(max(a))
-disp(max(a,1))
-disp(max(a,2))
-
-disp(min(a))
-disp(min(a,1))
-disp(min(a,2))
-
+b=a+%i*2*a
+disp(real(b));
+disp(imag(b));
 
 endfunction
