@@ -42,23 +42,25 @@ libLogm_la_SOURCES = 	$(HEAD) \
 check_PROGRAMS = 	testDoubleLogm
 
 check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
-			$(top_builddir)/lib/blas/libsciblas.la \
-			$(top_builddir)/elementaryFunctions/log/libLog.la \
-			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-			$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
-			$(top_builddir)/elementaryFunctions/lnp1m1/libLnp1m1.la \
-			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
-			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-			$(top_builddir)/auxiliaryFunctions/sign/libSign.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/matrixOperations/multiplication/libMatrixMultiplication.la \
-			$(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la \
-			$(top_builddir)/matrixOperations/inversion/libMatrixInversion.la \
-			$(top_builddir)/matrixOperations/logm/libLogm.la
+				$(top_builddir)/type/libFloatComplex.la \
+				$(top_builddir)/lib/lapack/libscilapack.la \
+				$(top_builddir)/lib/blas/libsciblas.la \
+				$(top_builddir)/elementaryFunctions/log/libLog.la \
+				$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
+				$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
+				$(top_builddir)/elementaryFunctions/lnp1m1/libLnp1m1.la \
+				$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+				$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
+				$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
+				$(top_builddir)/auxiliaryFunctions/sign/libSign.la \
+				$(top_builddir)/operations/multiplication/libMultiplication.la \
+				$(top_builddir)/operations/addition/libAddition.la \
+				$(top_builddir)/matrixOperations/multiplication/libMatrixMultiplication.la \
+				$(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la \
+				$(top_builddir)/matrixOperations/inversion/libMatrixInversion.la \
+				$(top_builddir)/matrixOperations/spec2/libSpec2.la \
+				$(top_builddir)/matrixOperations/zeros/libMatrixZeros.la \
+				$(top_builddir)/matrixOperations/logm/libLogm.la
 
 			
 check_INCLUDES =	-I ./includes \
@@ -66,8 +68,7 @@ check_INCLUDES =	-I ./includes \
 			-I $(top_builddir)/elementaryFunctions/includes \
 			-I $(top_builddir)/operations/includes \
 			-I $(top_builddir)/auxiliaryFunctions/includes \
-			-I $(top_builddir)/matrixOperations/includes\
-			-I $(top_builddir)/matrixOperations/logm
+			-I $(top_builddir)/matrixOperations/includes
 
 testDoubleLogm_SOURCES = testDoubleLogm.c
 testDoubleLogm_LDADD = $(check_LDADD)
