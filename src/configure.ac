@@ -231,6 +231,8 @@ statisticsFunctions/mean/Makefile
 statisticsFunctions/prod/Makefile
 statisticsFunctions/sum/Makefile
 statisticsFunctions/variance/Makefile
+statisticsFunctions/max/Makefile
+statisticsFunctions/min/Makefile
 string/Makefile
 string/disp/Makefile
 string/string/Makefile
