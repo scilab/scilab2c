@@ -220,8 +220,6 @@
 
 
 
-
-
 /* STATISTICS FUNCTIONS */
 
 /* interfacing max */
@@ -238,4 +236,9 @@
 #include "variance.h"
 #include "int_variance.h"
 
+/* TYPE */
+/* interfacing real */
+#include "int_real.h"
+/* interfacing imag */
+#include "int_imag.h"
 
