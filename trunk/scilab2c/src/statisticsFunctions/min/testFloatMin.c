@@ -55,9 +55,9 @@ static void srowminaTest(void){
 static void scolumnminaTest(void){
 	float in[12]={4,5,7,1,2,6,4,1,2,5,4,3};
 	float out1[1],out2[2],out3[3],out4[4],out6[6],out12[12];
-	float result2[2]={1,1};
+	float result2[2]={2,1};
 	float result3[3]={1,1,2};
-	float result4[4]={4,1,1,3};
+	float result4[4]={2,5,4,1};
 	float result6[6]={4,1,2,1,2,3};
 	int i;
 	
