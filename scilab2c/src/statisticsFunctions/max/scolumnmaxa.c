@@ -16,9 +16,9 @@ void scolumnmaxa(float *in, int rows, int columns, float* out) {
   int i = 0, j = 0;
 
   for (i = 0; i < rows; i++) {
-	  out[i]=in[i*columns];
+	  out[i]=in[i];
 	  for (j=0;j<columns;j++)
-      		if (in[i*columns+j]>out[i]) out[i] = in[i*columns+j];
+      		if (in[i+j*rows]>out[i]) out[i] = in[i+j*rows];
     }
 
 }

@@ -19,9 +19,9 @@
 
 #define d0maxd0(in)			dmaxs(in)
 
-#define s2maxs2(in,size,out)		smaxa(in, size[0]*size[1], out)
+#define s2maxs0(in,size)		smaxa(in, size[0]*size[1])
 
-#define d2maxd2(in,size,out)		dmaxa(in, size[0]*size[1], out)
+#define d2maxd0(in,size)		dmaxa(in, size[0]*size[1])
 
 
 

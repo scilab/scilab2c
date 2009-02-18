@@ -55,10 +55,10 @@ static void srowmaxaTest(void){
 static void scolumnmaxaTest(void){
 	float in[12]={4,5,7,1,2,6,4,1,2,5,4,3};
 	float out1[1],out2[2],out3[3],out4[4],out6[6],out12[12];
-	float result2[2]={7,5};
-	float result3[3]={7,6,5};
-	float result4[4]={7,6,4,5};
-	float result6[6]={5,7,6,4,5,4};
+	float result2[2]={7,6};
+	float result3[3]={5,5,7};
+	float result4[4]={4,6,7,3};
+	float result6[6]={4,5,7,5,4,6};
 	int i;
 	
 	
