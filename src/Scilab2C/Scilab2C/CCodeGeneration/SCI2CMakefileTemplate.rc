@@ -420,7 +420,19 @@ SWSRCS	=	\
 	$(CSRCDIR)/cspec2a.c \
 	$(CSRCDIR)/dspec2a.c \
 	$(CSRCDIR)/sspec2a.c \
-	$(CSRCDIR)/zspec2a.c 
+	$(CSRCDIR)/zspec2a.c \
+	$(CSRCDIR)/smina.c \
+	$(CSRCDIR)/smaxa.c \
+	$(CSRCDIR)/srowmina.c \
+	$(CSRCDIR)/srowmaxa.c \
+	$(CSRCDIR)/scolumnmina.c \
+	$(CSRCDIR)/scolumnmaxa.c  \
+	$(CSRCDIR)/dmina.c \
+	$(CSRCDIR)/dmaxa.c \
+	$(CSRCDIR)/drowmina.c \
+	$(CSRCDIR)/drowmaxa.c \
+	$(CSRCDIR)/dcolumnmina.c \
+	$(CSRCDIR)/dcolumnmaxa.c 
 	
 	
 	
