@@ -121,7 +121,7 @@ questa su e' una macro */
 // --- Class OPAPEX. ---
 // ---------------------
 */
-/* --- OpApex. ---*/
+/* --- OpApex. ---
 #define s0OpApexs0(in) \
 sOpApexs(in);
 
@@ -133,7 +133,7 @@ sOpApexa(inptr, insizeptr[0],insizeptr[1], outptr);
 
 #define d2OpApexd2(inptr,insizeptr,outptr) \
 dOpApexa(inptr, insizeptr[0],insizeptr[1], outptr);
-
+*/
 /*
 // ---------------------
 // --- Class SIN. ---
