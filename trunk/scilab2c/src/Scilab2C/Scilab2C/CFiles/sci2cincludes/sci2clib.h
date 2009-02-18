@@ -160,7 +160,7 @@
 
 
 
-/* MATRIX OPERTAIONS */
+/* MATRIX OPERATIONS */
 /* interfacing cat */
 #include "cat.h"
 #include "int_OpRc.h"
@@ -200,7 +200,8 @@
 #include "int_zeros.h"
 
 
-/* STATISTICS FUNCTIONS */
+
+/* SIGNAL PROCESSING */
 /* interfacing convol */
 #include "conv.h"
 #include "conv2d.h"
@@ -223,6 +224,10 @@
 
 /* STATISTICS FUNCTIONS */
 
+/* interfacing max */
+#include "statMax.h"
+/* interfacing min */
+#include "statMin.h"
 /* interfacing mean */
 #include "mean.h"
 #include "int_mean.h"
