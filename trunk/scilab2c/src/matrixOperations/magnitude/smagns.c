@@ -14,10 +14,10 @@
 
 
 #include "matrixMagnitude.h"
+#include "abs.h"
 
 float smagns(float in){
-	if (in<0) return -in;
-	return in;
+	return sabss(in);
 }
 
 

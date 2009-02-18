@@ -11,8 +11,10 @@
 ##
 
 libMatrixMagnitude_la_CFLAGS =	-I $(top_builddir)/type \
-				-I $(top_builddir)/matrixOperations/includes \
-				-I $(top_builddir)/elementaryFunctions/includes
+						-I $(top_builddir)/matrixOperations/includes \						
+						-I $(top_builddir)/auxiliaryFunctions/includes \
+						-I $(top_builddir)/operations/includes \		
+						-I $(top_builddir)/elementaryFunctions/includes
 
 instdir = $(top_builddir)/lib
 
@@ -37,17 +39,20 @@ libMatrixMagnitude_la_SOURCES = 	$(HEAD) \
 check_PROGRAMS = 	testDoubleMatrixMagnitude   testFloatMatrixMagnitude
 
 check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
-			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
-			libMatrixMagnitude.la
+				$(top_builddir)/type/libFloatComplex.la \
+				$(top_builddir)/operations/addition/libAddition.la \
+				$(top_builddir)/lib/lapack/libscilapack.la \
+				$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
+				$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+				$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
+				$(top_builddir)/operations/multiplication/libMultiplication.la \
+				$(top_builddir)/operations/addition/libAddition.la \
+				libMatrixMagnitude.la
 
 check_INCLUDES =	-I $(top_builddir)/type \
 			-I $(top_builddir)/matrixOperations/includes \
+			-I $(top_builddir)/operations/includes \						
+			-I $(top_builddir)/auxiliaryFunctions/includes \
 			-I $(top_builddir)/elementaryFunctions/includes
 
 testDoubleMatrixMagnitude_SOURCES = 	testDoubleMagnitude.c
