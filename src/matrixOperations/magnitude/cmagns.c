@@ -12,14 +12,12 @@
  */
 
 
-#include "sqrt.h"
+
 #include "matrixMagnitude.h"
+#include "abs.h"
 
 float cmagns(floatComplex in){
-	float out;
-	
-	out = creals(in)*creals(in)+cimags(in)*cimags(in);
-	return ssqrts(out);
+	return cabss(in);
 }
 
 

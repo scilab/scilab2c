@@ -12,14 +12,12 @@
  */
 
 
-#include "sqrt.h"
+
 #include "matrixMagnitude.h"
+#include "abs.h"
 
 double zmagns(doubleComplex in){
-	double out;
-	
-	out = zreals(in)*zreals(in)+zimags(in)*zimags(in);
-	return dsqrts(out);
+	return zabss(in);
 }
 
 

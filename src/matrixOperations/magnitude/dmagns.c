@@ -14,10 +14,10 @@
 
 
 #include "matrixMagnitude.h"
+#include "abs.h"
 
 double dmagns(double in){
-	if (in<0) return -in;
-	return in;
+	return dabss(in);
 }
 
 
