@@ -19,9 +19,9 @@
 
 #define d0mind0(in)			dmins(in)
 
-#define s2mins2(in,size,out)		smina(in, size[0]*size[1], out)
+#define s2mins0(in,size)		smina(in, size[0]*size[1])
 
-#define d2mind2(in,size,out)		dmina(in, size[0]*size[1], out)
+#define d2mind0(in,size)		dmina(in, size[0]*size[1])
 
 
 

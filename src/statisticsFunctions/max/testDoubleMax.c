@@ -56,10 +56,10 @@ static void drowmaxaTest(void){
 static void dcolumnmaxaTest(void){
 	double in[12]={4,5,7,1,2,6,4,1,2,5,4,3};
 	double out1[1],out2[2],out3[3],out4[4],out6[6],out12[12];
-	double result2[2]={7,5};
-	double result3[3]={7,6,5};
-	double result4[4]={7,6,4,5};
-	double result6[6]={5,7,6,4,5,4};
+	double result2[2]={7,6};
+	double result3[3]={5,5,7};
+	double result4[4]={4,6,7,3};
+	double result6[6]={4,5,7,5,4,6};
 	int i;
 	
 	
