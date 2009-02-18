@@ -13,4 +13,6 @@
 SUBDIRS=	mean \
 		sum\
 		variance\
-		prod
+		prod\
+		min\
+		max
