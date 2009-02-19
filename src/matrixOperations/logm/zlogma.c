@@ -25,9 +25,8 @@
 void zlogma (doubleComplex* in, int rows, doubleComplex* out){
 
 	/* Algo : */
-	/* trouver les valeurs propres vp */
-	/* en déduire les vecteurs propres Vp */
-	/* utiliser la formule suivante
+	/* find eigenvalues and eigenvectors */
+	/* use formula
 	*	logm = Vp * diag(log(diag(vp)) * inv(Vp) */
 	
 	
@@ -45,7 +44,7 @@ void zlogma (doubleComplex* in, int rows, doubleComplex* out){
 	
 	
 	
-	/* regarde si in est hermitienne */
+	/* hermitian test */
 	for (i=0;i<rows;i++){
 		for(j=0;j<rows;j++)
 			if ( (zreals(in[i+j*rows])!=zreals(in[j+i*rows])) ||  
@@ -54,36 +53,26 @@ void zlogma (doubleComplex* in, int rows, doubleComplex* out){
 	}
 	if ((i==rows) && (j==rows)) hermitienne=1;
 		
-	/* trouver les valeurs propres vp ainsi que les vecteurs propres*/
+	/* find eigenvalues and eigenvectors */
 	zspec2a(in,rows,eigenvalues,eigenvectors);
 
 
-	/* utiliser la formule suivante
-	*	logm = Vp * diag(log(diag(vp)) * inv(Vp) */
-	
-
-	/* diag(log(diag(vp)) */
-	for (i=0;i<rows*rows;i++){
-		if ((i%(rows+1))==0) /* teste si i est sur la diagonale */
-			eigenvalues[i] = zlogs(eigenvalues[i]);
-		else    eigenvalues[i] = DoubleComplex(0,0);
+	/* make operation on eigenvalues and eigenvectors */
+	for (i=0;i<rows;i++){
+		eigenvalues[i+i*rows] = zlogs(eigenvalues[i+i*rows]);
 	}
 	
 	
-	
-	/* Vp * diag(log(diag(vp)) */
 	zmulma(eigenvectors, rows, rows, eigenvalues, rows, rows, tmp);
 	
-	/* Vp' ou inv(Vp) */
 	if (hermitienne) {
 		/* we use eigenvalues as a temporary matrix cause it's useless now*/
 		ztransposea(eigenvectors,rows,rows,eigenvalues);
-		zconja(eigenvalues,rows*rows,eigenvectors);
+		zconja(eigenvalues,rows*rows,eigenvalues);
 	}
-	else	zinverma(eigenvectors, eigenvectors, rows);
+	else	zinverma(eigenvectors, eigenvalues, rows);
 	
-	/* Vp * diag(log(diag(vp))*inv(Vp) */
-	zmulma(tmp, rows, rows, eigenvectors, rows, rows, out);
+	zmulma(tmp, rows, rows, eigenvalues, rows, rows, out);
 	
 
 	free(eigenvalues);
