@@ -12,9 +12,14 @@
 
 #include "pow.h"
 
-void dpowa(double* x, int size, double power, double *out) {
+void dpowa(double* x, int size, double* power, double *out) {
+	/* 
+	Computes Scilab x.^power
+	Computes power element by element 
+	x and power must have same size 
+	*/
   int i = 0;
   for (i = 0; i < size; ++i) {
-    out[i] = dpows(x[i], power);
+    out[i] = dpows(x[i], power[i]);
   }
 }

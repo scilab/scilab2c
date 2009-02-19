@@ -463,14 +463,20 @@ void zpowsTest(void) {
 
 void dpowaTest(void) {
 	double in1[]=SOURCE;
-	double in2=EXPAND;
+	double in2[200];
+	double ZERO[200]={0};
+	double ONE[200];
 	double res[]=RESULT;
 	double out1[200],out2[200],out3[200];
 	int i;
-
+	
+	for (i=0;i<200;i++) {
+		in2[i]=EXPAND;
+		ONE[i]=1;
+	}
 	dpowa(in1,200,in2,out1);
-	dpowa(in1,200,0,out2);
-	dpowa(in1,200,1,out3);
+	dpowa(in1,200,ZERO,out2);
+	dpowa(in1,200,ONE,out3);
 	for (i=0;i<200;i++){
 		assert(( (fabs(out1[i]-res[i]))/(fabs(out1[i])) )<1e-15);
 		assert(( (fabs(out2[i]-1))/(fabs(out2[i])) )<1e-16);
@@ -481,13 +487,13 @@ void dpowaTest(void) {
 void zpowaTest(void) {
 	double in1R[]=ZSOURCER;
 	double in1I[]=ZSOURCEI;
-	doubleComplex in2=ZEXPAND;
+	doubleComplex in2[200];
 	double resR[]=ZRESULTR;
 	double resI[]=ZRESULTI;
 	doubleComplex *in1,out[200];
 	int i;
 
-
+	for (i=0;i<200;i++) in2[i]=ZEXPAND;
 	in1=DoubleComplexMatrix(in1R,in1I,200);
 	zpowa(in1,200,in2,out);
 
