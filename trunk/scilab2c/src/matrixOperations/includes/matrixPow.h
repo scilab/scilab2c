@@ -21,9 +21,9 @@
    powm is only working on square matrix
    so the size is limited to rows
 */
-void spowma(float* in, int rows, float expand, float* out);
+void spowma(float* in, int rows, float expand, floatComplex* out);
 
-void dpowma(double* in, int rows, double expand, double* out);
+void dpowma(double* in, int rows, double expand, doubleComplex* out);
 
 void cpowma(floatComplex* in, int rows, floatComplex expand, floatComplex* out);
 
