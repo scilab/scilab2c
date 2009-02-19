@@ -23,12 +23,12 @@ floatComplex	cpows(floatComplex value, floatComplex expand);
 
 doubleComplex	zpows(doubleComplex value, doubleComplex expand);
 
-void		spowa(float *value, int size, float expand, float *out);
+void		spowa(float *value, int size, float* expand, float *out);
 
-void		dpowa(double *value, int size, double expand, double *out);
+void		dpowa(double *value, int size, double* expand, double *out);
 
-void		cpowa(floatComplex *value, int size, floatComplex expand, floatComplex *out);
+void		cpowa(floatComplex *value, int size, floatComplex* expand, floatComplex *out);
 
-void		zpowa(doubleComplex *value, int size, doubleComplex expand, doubleComplex *out);
+void		zpowa(doubleComplex *value, int size, doubleComplex* expand, doubleComplex *out);
 
 #endif /* !__POW_H__ */

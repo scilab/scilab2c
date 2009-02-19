@@ -464,14 +464,20 @@ void cpowsTest(void) {
 
 void spowaTest(void) {
 	float in1[]=SOURCE;
-	float in2=EXPAND;
+	float in2[200];
+	float ZERO[200]={0};
+	float ONE[200];
 	float res[]=RESULT;
 	float out1[200],out2[200],out3[200];
 	int i;
 
+	for (i=0;i<200;i++) {
+		in2[i]=EXPAND;
+		ONE[i]=1;
+	}
 	spowa(in1,200,in2,out1);
-	spowa(in1,200,0,out2);
-	spowa(in1,200,1,out3);
+	spowa(in1,200,ZERO,out2);
+	spowa(in1,200,ONE,out3);
 	for (i=0;i<200;i++){
 		assert(( (fabs(out1[i]-res[i]))/(fabs(out1[i])) )<1e-6);
 		assert(( (fabs(out2[i]-1))/(fabs(out2[i])) )<1e-16);
@@ -482,12 +488,13 @@ void spowaTest(void) {
 void cpowaTest(void) {
 	float in1R[]=CSOURCER;
 	float in1I[]=CSOURCEI;
-	floatComplex in2=CEXPAND;
+	floatComplex in2[200];
 	float resR[]=CRESULTR;
 	float resI[]=CRESULTI;
 	floatComplex *in1, out[200];
 	int i;
-
+	
+	for (i=0;i<200;i++) in2[i]=CEXPAND;
 	in1=FloatComplexMatrix(in1R,in1I,200);
 	cpowa(in1,200,in2,out);
 

@@ -12,9 +12,14 @@
 
 #include "pow.h"
 
-void spowa(float* x, int size, float y, float *out) {
+void spowa(float* x, int size, float* y, float *out) {
+	/* 
+	Computes Scilab x.^power
+	Computes power element by element 
+	x and power must have same size 
+	*/
   int i = 0;
   for (i = 0; i < size; ++i) {
-    out[i] = spows(x[i], y);
+    out[i] = spows(x[i], y[i]);
   }
 }

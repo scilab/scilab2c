@@ -12,9 +12,14 @@
 
 #include "pow.h"
 
-void cpowa(floatComplex* x, int size, floatComplex power, floatComplex *out) {
+void cpowa(floatComplex* x, int size, floatComplex* power, floatComplex *out) {
+	/* 
+	Computes Scilab x.^power
+	Computes power element by element 
+	x and power must have same size 
+	*/
   int i = 0;
   for (i = 0; i < size; ++i) {
-    out[i] = cpows(x[i], power);
+    out[i] = cpows(x[i], power[i]);
   }
 }

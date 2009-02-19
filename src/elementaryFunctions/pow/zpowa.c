@@ -12,9 +12,14 @@
 
 #include "pow.h"
 
-void zpowa(doubleComplex* x, int size, doubleComplex y, doubleComplex *out) {
+void zpowa(doubleComplex* x, int size, doubleComplex* y, doubleComplex *out) {
+	/* 
+	Computes Scilab x.^power
+	Computes power element by element 
+	x and power must have same size 
+	*/
   int i = 0;
   for (i = 0; i < size; ++i) {
-    out[i] = zpows(x[i], y);
+    out[i] = zpows(x[i], y[i]);
   }
 }
