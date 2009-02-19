@@ -11,15 +11,53 @@
  */
 
 #include "matrixPow.h"
-#include "logm.h"
-#include "matrixExponential.h"
-#include "multiplication.h"
+#include "spec.h"
+#include "pow.h"
+#include "matrixTranspose.h"
+#include "conj.h"
+#include "matrixInversion.h"
+#include "matrixMultiplication.h"
 
-void zpowma(doubleComplex* in, int rows, doubleComplex expand, doubleComplex* out){
-	int i=0;
-	/* use the formula a^b=exp(b*ln(a)) */
-	zlogma(in,rows,out);
-	for(i=0;i<rows*rows;i++) out[i]= zmuls(expand,out[i]);
-	zexpma(out,out,(int)rows);
-					
+void zpowma(doubleComplex* in, int rows, doubleComplex power, doubleComplex* out){
+	int i=0, j=0;
+	int hermitian=0;
+	doubleComplex *eigenvalues,*eigenvectors,*tmp;
+	
+	/* Data initialization */
+	eigenvalues = malloc((uint)(rows*rows)*sizeof(doubleComplex));
+	eigenvectors = malloc((uint)(rows*rows)*sizeof(doubleComplex));
+	tmp = malloc((uint)(rows*rows)*sizeof(doubleComplex));
+	
+	/* hermitian test*/
+	for(i=0;i<rows;i++) {
+		for (j=0;j<rows;j++)
+			if ((zreals(in[i*rows+j])!=zreals(in[j*rows+i])) || (zimags(in[i*rows+j])!=-zimags(in[j*rows+i]))) break;
+		
+		if (j!=rows) break;
+	}
+	
+	if ((i==rows)&&(j==rows)) hermitian=1;
+	
+	
+	/* find eigenvalues and eigenvectors */
+	zspec2a(in, rows, eigenvalues,eigenvectors);
+	
+	/* make operation on eigenvalues and eigenvectors */
+	for (i=0;i<rows;i++)
+			eigenvalues[i+i*rows]=zpows(eigenvalues[i+i*rows],power);
+			
+	zmulma(eigenvectors, rows, rows, eigenvalues, rows, rows, tmp);
+	
+	if (hermitian){		
+		ztransposea(eigenvectors, rows,rows, eigenvalues);
+		zconja(eigenvalues, rows*rows, eigenvalues);
+	}
+	else zinverma(eigenvectors, eigenvalues, rows);
+	
+	zmulma(tmp, rows, rows, eigenvalues, rows, rows, out);
+	
+	free(eigenvalues);
+	free(eigenvectors);
+	free(tmp);
+	
 }

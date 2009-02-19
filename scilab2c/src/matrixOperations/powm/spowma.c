@@ -11,35 +11,53 @@
  */
 
 #include "matrixPow.h"
-#include "eye.h"
+#include "spec.h"
+#include "pow.h"
+#include "matrixTranspose.h"
+#include "conj.h"
+#include "matrixInversion.h"
 #include "matrixMultiplication.h"
 
-
-void spowma(float* in, int size, float expand, float* out){
-
-
-	switch ((int)expand){
-		case 0 : 
-			seyea(out,size,size);
-			break;
-		case 1 : 
-			{
-				int i;
-				for (i=0;i<size*size;i++) out[i]=in[i];
-			}
-			break;
-		default : 
-			{
-				int i=0,j=0;	
-				float* Pow;
-				Pow=malloc((uint)(size*size)*sizeof(float));
-				for (i=0;i<size*size;i++) out[i]=in[i];
-				for (i=1; i<expand; i++){
-					for (j=0;j<size*size;j++) Pow[j]=out[j];
-					smulma(Pow,size,size,in,size,size,out);
-				}
-			}
-			break;
+void spowma(float* in, int rows, float power, floatComplex* out){
+	int i=0, j=0;
+	int symmetric=0;
+	floatComplex *eigenvalues,*eigenvectors,*tmp;
+	
+	/* Data initialization */
+	eigenvalues = malloc((uint)(rows*rows)*sizeof(floatComplex));
+	eigenvectors = malloc((uint)(rows*rows)*sizeof(floatComplex));
+	tmp = malloc((uint)(rows*rows)*sizeof(floatComplex));
+	
+	/* symmetric test*/
+	for(i=0;i<rows;i++) {
+		for (j=0;j<rows;j++)
+			if (in[i*rows+j]!=in[j*rows+i]) break;
+		
+		if (j!=rows) break;
 	}
+	
+	if ((i==rows)&&(j==rows)) symmetric=1;
+	
+	
+	/* find eigenvalues and eigenvectors */
+	sspec2a(in, rows, eigenvalues,eigenvectors);
+	
+	/* make operation on eigenvalues and eigenvectors */
+	for (i=0;i<rows;i++)
+			eigenvalues[i+i*rows]=cpows(eigenvalues[i+i*rows],FloatComplex(power,0));
 			
+	cmulma(eigenvectors, rows, rows, eigenvalues, rows, rows, tmp);
+	
+	if (symmetric){		
+		ctransposea(eigenvectors, rows,rows, eigenvalues);
+		cconja(eigenvalues, rows*rows, eigenvalues);
+	}
+	else cinverma(eigenvectors, eigenvalues, rows);
+	
+	cmulma(tmp, rows, rows, eigenvalues, rows, rows, out);
+	
+	free(eigenvalues);
+	free(eigenvectors);
+	free(tmp);
+	
 }

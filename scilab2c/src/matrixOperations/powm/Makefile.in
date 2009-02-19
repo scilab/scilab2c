@@ -32,8 +32,9 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testDoubleMatrixPow$(EXEEXT)
-TESTS = testDoubleMatrixPow$(EXEEXT)
+check_PROGRAMS = testDoubleMatrixPow$(EXEEXT) \
+	testFloatMatrixPow$(EXEEXT)
+TESTS = testDoubleMatrixPow$(EXEEXT) testFloatMatrixPow$(EXEEXT)
 subdir = matrixOperations/powm
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -69,6 +70,14 @@ testDoubleMatrixPow_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(testDoubleMatrixPow_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
+am_testFloatMatrixPow_OBJECTS =  \
+	testFloatMatrixPow-testFloatPowm.$(OBJEXT)
+testFloatMatrixPow_OBJECTS = $(am_testFloatMatrixPow_OBJECTS)
+testFloatMatrixPow_DEPENDENCIES = $(check_LDADD)
+testFloatMatrixPow_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
+	$(testFloatMatrixPow_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -81,9 +90,10 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libMatrixPow_la_SOURCES) $(testDoubleMatrixPow_SOURCES)
+SOURCES = $(libMatrixPow_la_SOURCES) $(testDoubleMatrixPow_SOURCES) \
+	$(testFloatMatrixPow_SOURCES)
 DIST_SOURCES = $(libMatrixPow_la_SOURCES) \
-	$(testDoubleMatrixPow_SOURCES)
+	$(testDoubleMatrixPow_SOURCES) $(testFloatMatrixPow_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -231,6 +241,8 @@ check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
 			$(top_builddir)/elementaryFunctions/sin/libSin.la \
 			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
+			$(top_builddir)/matrixOperations/spec2/libSpec2.la \
+			$(top_builddir)/matrixOperations/zeros/libMatrixZeros.la \
 			$(top_builddir)/matrixOperations/inversion/libMatrixInversion.la \
 			$(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la \
 			$(top_builddir)/matrixOperations/cat/libMatrixConcatenation.la \
@@ -257,6 +269,9 @@ check_INCLUDES = -I $(top_builddir)/type \
 testDoubleMatrixPow_SOURCES = testDoublePowm.c
 testDoubleMatrixPow_LDADD = $(check_LDADD)
 testDoubleMatrixPow_CFLAGS = $(check_INCLUDES)
+testFloatMatrixPow_SOURCES = testFloatPowm.c
+testFloatMatrixPow_LDADD = $(check_LDADD)
+testFloatMatrixPow_CFLAGS = $(check_INCLUDES)
 all: all-am
 
 .SUFFIXES:
@@ -329,6 +344,9 @@ clean-checkPROGRAMS:
 testDoubleMatrixPow$(EXEEXT): $(testDoubleMatrixPow_OBJECTS) $(testDoubleMatrixPow_DEPENDENCIES) 
 	@rm -f testDoubleMatrixPow$(EXEEXT)
 	$(testDoubleMatrixPow_LINK) $(testDoubleMatrixPow_OBJECTS) $(testDoubleMatrixPow_LDADD) $(LIBS)
+testFloatMatrixPow$(EXEEXT): $(testFloatMatrixPow_OBJECTS) $(testFloatMatrixPow_DEPENDENCIES) 
+	@rm -f testFloatMatrixPow$(EXEEXT)
+	$(testFloatMatrixPow_LINK) $(testFloatMatrixPow_OBJECTS) $(testFloatMatrixPow_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -341,6 +359,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixPow_la-spowma.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMatrixPow_la-zpowma.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleMatrixPow-testDoublePowm.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatMatrixPow-testFloatPowm.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -404,6 +423,20 @@ testDoubleMatrixPow-testDoublePowm.obj: testDoublePowm.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoublePowm.c' object='testDoubleMatrixPow-testDoublePowm.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleMatrixPow_CFLAGS) $(CFLAGS) -c -o testDoubleMatrixPow-testDoublePowm.obj `if test -f 'testDoublePowm.c'; then $(CYGPATH_W) 'testDoublePowm.c'; else $(CYGPATH_W) '$(srcdir)/testDoublePowm.c'; fi`
+
+testFloatMatrixPow-testFloatPowm.o: testFloatPowm.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatMatrixPow_CFLAGS) $(CFLAGS) -MT testFloatMatrixPow-testFloatPowm.o -MD -MP -MF $(DEPDIR)/testFloatMatrixPow-testFloatPowm.Tpo -c -o testFloatMatrixPow-testFloatPowm.o `test -f 'testFloatPowm.c' || echo '$(srcdir)/'`testFloatPowm.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatMatrixPow-testFloatPowm.Tpo $(DEPDIR)/testFloatMatrixPow-testFloatPowm.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatPowm.c' object='testFloatMatrixPow-testFloatPowm.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatMatrixPow_CFLAGS) $(CFLAGS) -c -o testFloatMatrixPow-testFloatPowm.o `test -f 'testFloatPowm.c' || echo '$(srcdir)/'`testFloatPowm.c
+
+testFloatMatrixPow-testFloatPowm.obj: testFloatPowm.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatMatrixPow_CFLAGS) $(CFLAGS) -MT testFloatMatrixPow-testFloatPowm.obj -MD -MP -MF $(DEPDIR)/testFloatMatrixPow-testFloatPowm.Tpo -c -o testFloatMatrixPow-testFloatPowm.obj `if test -f 'testFloatPowm.c'; then $(CYGPATH_W) 'testFloatPowm.c'; else $(CYGPATH_W) '$(srcdir)/testFloatPowm.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatMatrixPow-testFloatPowm.Tpo $(DEPDIR)/testFloatMatrixPow-testFloatPowm.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatPowm.c' object='testFloatMatrixPow-testFloatPowm.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatMatrixPow_CFLAGS) $(CFLAGS) -c -o testFloatMatrixPow-testFloatPowm.obj `if test -f 'testFloatPowm.c'; then $(CYGPATH_W) 'testFloatPowm.c'; else $(CYGPATH_W) '$(srcdir)/testFloatPowm.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo

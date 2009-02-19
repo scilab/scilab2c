@@ -11,65 +11,54 @@
  */
 
 #include "matrixPow.h"
-#include "lapack.h"
-#include "eye.h"
+#include "spec.h"
+#include "pow.h"
+#include "matrixTranspose.h"
+#include "conj.h"
+#include "matrixInversion.h"
 #include "matrixMultiplication.h"
+#include <stdio.h>
 
-
-void dpowma(double* in, int size, double expand, double* out){
-
-#ifndef WITHOUT_BLAS		
-	switch ((int)expand){
-		case 0 : 
-			deyea(out,size,size);
-			break;
-		case 1 : 
-			{
-				int i;
-				for (i=0;i<size*size;i++) out[i]=in[i];
-			}
-			break;
-		default : 
-			{
-				int i=0,j=0,k=0;
-				int One=1;
-				
-				for (i=1; i<expand; i++){
-					for (j=0;j<size;j++) /*column*/ {
-						for (k=0;k<size;k++)/*row*/{
-							out[k+j*size]=ddot_(&size,in+k,&size,in+j*size,&One);
-						}
-					}
-				}
-			}
-			break;
+void dpowma(double* in, int rows, double power, doubleComplex* out){
+	int i=0, j=0;
+	int symmetric=0;
+	doubleComplex *eigenvalues,*eigenvectors,*tmp;
+	
+	/* Data initialization */
+	eigenvalues = malloc((uint)(rows*rows)*sizeof(doubleComplex));
+	eigenvectors = malloc((uint)(rows*rows)*sizeof(doubleComplex));
+	tmp = malloc((uint)(rows*rows)*sizeof(doubleComplex));
+	
+	/* symmetric test*/
+	for(i=0;i<rows;i++) {
+		for (j=0;j<rows;j++)
+			if (in[i*rows+j]!=in[j*rows+i]) break;
+		
+		if (j!=rows) break;
 	}
-#else
-	switch ((int)expand){
-		case 0 : 
-			deyea(out,size,size);
-			break;
-		case 1 : 
-			{
-				int i;
-				for (i=0;i<size*size;i++) out[i]=in[i];
-			}
-			break;
-		default : 
-			{
-				int i=0,j=0;	
-				double* Pow;
-				Pow=malloc((uint)(size*size)*sizeof(double));
-				for (i=0;i<size*size;i++) out[i]=in[i];
-				for (i=1; i<expand; i++){
-					for (j=0;j<size*size;j++) Pow[j]=out[j];
-					dmulma(Pow,size,size,in,size,size,out);
-				}
-			}
-			break;
+	
+	if ((i==rows)&&(j==rows)) symmetric=1;
+	
+	
+	/* find eigenvalues and eigenvectors */
+	dspec2a(in, rows, eigenvalues,eigenvectors);
+/*	for (i=0;i<rows*rows;i++) printf("%f+%f*i\n",zreals(eigenvalues[i]),zimags(eigenvalues[i])); */
+	/* make operation on eigenvalues and eigenvectors */
+	for (i=0;i<rows;i++)
+			eigenvalues[i+i*rows]=zpows(eigenvalues[i+i*rows],DoubleComplex(power,0));
+			
+	zmulma(eigenvectors, rows, rows, eigenvalues, rows, rows, tmp);
+	
+	if (symmetric){		
+		ztransposea(eigenvectors, rows,rows, eigenvalues);
+		zconja(eigenvalues, rows*rows, eigenvalues);
 	}
-					
-
-#endif
-					
+	else zinverma(eigenvectors, eigenvalues, rows);
+	
+	zmulma(tmp, rows, rows, eigenvalues, rows, rows, out);
+	
+	free(eigenvalues);
+	free(eigenvectors);
+	free(tmp);
+	
 }

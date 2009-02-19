@@ -11,15 +11,53 @@
  */
 
 #include "matrixPow.h"
-#include "logm.h"
-#include "matrixExponential.h"
-#include "multiplication.h"
+#include "spec.h"
+#include "pow.h"
+#include "matrixTranspose.h"
+#include "conj.h"
+#include "matrixInversion.h"
+#include "matrixMultiplication.h"
 
-void cpowma(floatComplex* in, int rows, floatComplex expand, floatComplex* out){
-	int i=0;
-	/* use the formula a^b=exp(b*ln(a)) */
-	clogma(in,rows,out);
-	for(i=0;i<rows*rows;i++) out[i]= cmuls(expand,out[i]);
-	cexpma(out,out,(int)rows);
-					
+void cpowma(floatComplex* in, int rows, floatComplex power, floatComplex* out){
+	int i=0, j=0;
+	int hermitian=0;
+	floatComplex *eigenvalues,*eigenvectors,*tmp;
+	
+	/* Data initialization */
+	eigenvalues = malloc((uint)(rows*rows)*sizeof(floatComplex));
+	eigenvectors = malloc((uint)(rows*rows)*sizeof(floatComplex));
+	tmp = malloc((uint)(rows*rows)*sizeof(floatComplex));
+	
+	/* symmetric test*/
+	for(i=0;i<rows;i++) {
+		for (j=0;j<rows;j++)
+			if ((creals(in[i*rows+j])!=creals(in[j*rows+i])) || (cimags(in[i*rows+j])!=-cimags(in[j*rows+i]))) break;
+		
+		if (j!=rows) break;
+	}
+	
+	if ((i==rows)&&(j==rows)) hermitian=1;
+	
+	
+	/* find eigenvalues and eigenvectors */
+	cspec2a(in, rows, eigenvalues,eigenvectors);
+	
+	/* make operation on eigenvalues and eigenvectors */
+	for (i=0;i<rows;i++)
+			eigenvalues[i+i*rows]=cpows(eigenvalues[i+i*rows],power);
+			
+	cmulma(eigenvectors, rows, rows, eigenvalues, rows, rows, tmp);
+	
+	if (hermitian){		
+		ctransposea(eigenvectors, rows,rows, eigenvalues);
+		cconja(eigenvalues, rows*rows, eigenvalues);
+	}
+	else cinverma(eigenvectors, eigenvalues, rows);
+	
+	cmulma(tmp, rows, rows, eigenvalues, rows, rows, out);
+	
+	free(eigenvalues);
+	free(eigenvectors);
+	free(tmp);
+	
 }

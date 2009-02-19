@@ -30,7 +30,7 @@ libMatrixPow_la_SOURCES = 	$(HEAD) \
 				cpowma.c\
 				zpowma.c
 
-check_PROGRAMS = 	testDoubleMatrixPow
+check_PROGRAMS = 	testDoubleMatrixPow	testFloatMatrixPow
 
 check_LDADD =	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
@@ -50,6 +50,8 @@ check_LDADD =	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
 			$(top_builddir)/elementaryFunctions/sin/libSin.la \
 			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
+			$(top_builddir)/matrixOperations/spec2/libSpec2.la \
+			$(top_builddir)/matrixOperations/zeros/libMatrixZeros.la \
 			$(top_builddir)/matrixOperations/inversion/libMatrixInversion.la \
 			$(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la \
 			$(top_builddir)/matrixOperations/cat/libMatrixConcatenation.la \
@@ -77,4 +79,8 @@ testDoubleMatrixPow_SOURCES = testDoublePowm.c
 testDoubleMatrixPow_LDADD = $(check_LDADD)
 testDoubleMatrixPow_CFLAGS = $(check_INCLUDES)
 
-TESTS =		testDoubleMatrixPow
+testFloatMatrixPow_SOURCES = testFloatPowm.c
+testFloatMatrixPow_LDADD = $(check_LDADD)
+testFloatMatrixPow_CFLAGS = $(check_INCLUDES)
+
+TESTS =	testDoubleMatrixPow	testFloatMatrixPow
