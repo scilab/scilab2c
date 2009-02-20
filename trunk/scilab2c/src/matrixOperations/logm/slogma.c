@@ -14,7 +14,7 @@
 #include "logm.h"
 
 
-void slogma (float* in, int rows, floatComplex* out){
+void slogma (float* in, int rows, float* out){
 	doubleComplex *inCpx, *outCopy;
 	int i;
 	
@@ -26,7 +26,7 @@ void slogma (float* in, int rows, floatComplex* out){
 	zlogma(inCpx, rows, outCopy);
 	
 	for(i=0;i<rows*rows;i++)
-		out[i]=FloatComplex( (float)zreals(outCopy[i]),(float)zimags(outCopy[i]));
+		out[i]=(float)zreals(outCopy[i]);
 		
 	free(inCpx);
 	free(outCopy);	

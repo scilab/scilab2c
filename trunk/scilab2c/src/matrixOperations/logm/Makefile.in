@@ -32,8 +32,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testDoubleLogm$(EXEEXT)
-TESTS = testDoubleLogm$(EXEEXT)
+check_PROGRAMS = testDoubleLogm$(EXEEXT) testFloatLogm$(EXEEXT)
+TESTS = testDoubleLogm$(EXEEXT) testFloatLogm$(EXEEXT)
 subdir = matrixOperations/logm
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -66,6 +66,12 @@ testDoubleLogm_DEPENDENCIES = $(check_LDADD)
 testDoubleLogm_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleLogm_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testFloatLogm_OBJECTS = testFloatLogm-testFloatLogm.$(OBJEXT)
+testFloatLogm_OBJECTS = $(am_testFloatLogm_OBJECTS)
+testFloatLogm_DEPENDENCIES = $(check_LDADD)
+testFloatLogm_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatLogm_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -78,8 +84,10 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libLogm_la_SOURCES) $(testDoubleLogm_SOURCES)
-DIST_SOURCES = $(libLogm_la_SOURCES) $(testDoubleLogm_SOURCES)
+SOURCES = $(libLogm_la_SOURCES) $(testDoubleLogm_SOURCES) \
+	$(testFloatLogm_SOURCES)
+DIST_SOURCES = $(libLogm_la_SOURCES) $(testDoubleLogm_SOURCES) \
+	$(testFloatLogm_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -240,6 +248,9 @@ check_INCLUDES = -I ./includes \
 testDoubleLogm_SOURCES = testDoubleLogm.c
 testDoubleLogm_LDADD = $(check_LDADD)
 testDoubleLogm_CFLAGS = $(check_INCLUDES)
+testFloatLogm_SOURCES = testFloatLogm.c
+testFloatLogm_LDADD = $(check_LDADD)
+testFloatLogm_CFLAGS = $(check_INCLUDES)
 all: all-am
 
 .SUFFIXES:
@@ -312,6 +323,9 @@ clean-checkPROGRAMS:
 testDoubleLogm$(EXEEXT): $(testDoubleLogm_OBJECTS) $(testDoubleLogm_DEPENDENCIES) 
 	@rm -f testDoubleLogm$(EXEEXT)
 	$(testDoubleLogm_LINK) $(testDoubleLogm_OBJECTS) $(testDoubleLogm_LDADD) $(LIBS)
+testFloatLogm$(EXEEXT): $(testFloatLogm_OBJECTS) $(testFloatLogm_DEPENDENCIES) 
+	@rm -f testFloatLogm$(EXEEXT)
+	$(testFloatLogm_LINK) $(testFloatLogm_OBJECTS) $(testFloatLogm_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -324,6 +338,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLogm_la-slogma.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLogm_la-zlogma.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleLogm-testDoubleLogm.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatLogm-testFloatLogm.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -387,6 +402,20 @@ testDoubleLogm-testDoubleLogm.obj: testDoubleLogm.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleLogm.c' object='testDoubleLogm-testDoubleLogm.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleLogm_CFLAGS) $(CFLAGS) -c -o testDoubleLogm-testDoubleLogm.obj `if test -f 'testDoubleLogm.c'; then $(CYGPATH_W) 'testDoubleLogm.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleLogm.c'; fi`
+
+testFloatLogm-testFloatLogm.o: testFloatLogm.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatLogm_CFLAGS) $(CFLAGS) -MT testFloatLogm-testFloatLogm.o -MD -MP -MF $(DEPDIR)/testFloatLogm-testFloatLogm.Tpo -c -o testFloatLogm-testFloatLogm.o `test -f 'testFloatLogm.c' || echo '$(srcdir)/'`testFloatLogm.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatLogm-testFloatLogm.Tpo $(DEPDIR)/testFloatLogm-testFloatLogm.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatLogm.c' object='testFloatLogm-testFloatLogm.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatLogm_CFLAGS) $(CFLAGS) -c -o testFloatLogm-testFloatLogm.o `test -f 'testFloatLogm.c' || echo '$(srcdir)/'`testFloatLogm.c
+
+testFloatLogm-testFloatLogm.obj: testFloatLogm.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatLogm_CFLAGS) $(CFLAGS) -MT testFloatLogm-testFloatLogm.obj -MD -MP -MF $(DEPDIR)/testFloatLogm-testFloatLogm.Tpo -c -o testFloatLogm-testFloatLogm.obj `if test -f 'testFloatLogm.c'; then $(CYGPATH_W) 'testFloatLogm.c'; else $(CYGPATH_W) '$(srcdir)/testFloatLogm.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatLogm-testFloatLogm.Tpo $(DEPDIR)/testFloatLogm-testFloatLogm.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatLogm.c' object='testFloatLogm-testFloatLogm.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatLogm_CFLAGS) $(CFLAGS) -c -o testFloatLogm-testFloatLogm.obj `if test -f 'testFloatLogm.c'; then $(CYGPATH_W) 'testFloatLogm.c'; else $(CYGPATH_W) '$(srcdir)/testFloatLogm.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
