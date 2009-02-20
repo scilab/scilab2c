@@ -14,15 +14,19 @@
 #include "logm.h"
 
 
-void dlogma (double* in, int rows, doubleComplex* out){
-	doubleComplex *inCpx;
+void dlogma (double* in, int rows, double* out){
+	doubleComplex *inCpx,*outCpx;
 	int i;
 	
 	inCpx=malloc((uint)(rows*rows)*sizeof(doubleComplex));
+	outCpx=malloc((uint)(rows*rows)*sizeof(doubleComplex));
 	
 	for (i=0;i<rows*rows;i++) inCpx[i] = DoubleComplex(in[i],0);
 	
-	zlogma(inCpx, rows, out);
+	zlogma(inCpx, rows, outCpx);
+	
+	for (i=0;i<rows*rows;i++) out[i]=zreals(outCpx[i]);
 	
 	free(inCpx);
+	free(outCpx);
 }
