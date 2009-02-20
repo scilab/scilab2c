@@ -22,8 +22,9 @@
 #define cffts(in)					in
 #define zffts(in)					in
 
-#define sfftma(in,rows,columns,out)		cfftma(FloatComplexMatrix(in,0),rows,columns,out)
-#define dfftma(in,rows,columns,out)		zfftma(DoubleComplexMatrix(in,0),rows,columns,out)
+void sfftma(float* in,int rows,int columns,float* out);		
+
+void dfftma(double* in,int rows,int columns,double* out);
 
 /*
 ** compute the fast fourier transform of a vector

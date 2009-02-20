@@ -17,6 +17,13 @@
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+
+/* FIXME : input : real
+	     output : complex
+	     Is this true all time? 
+	     Or must we do input : real, output :real?
+*/
+
 float shilberts(float in);
 
 void shilberta (float* in, int rows, int cols, floatComplex *out);
