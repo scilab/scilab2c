@@ -19,42 +19,37 @@
 static void sspecaTest(void){
 	float in[4]={1.0f,1.0f,1.0f,3.0f};
 	float resultR[2]={0.5857864376269050765700f,3.4142135623730949234300f};
-	float resultI[2]={0.0f,0.0f};
+
+	float in1[4]={0.0f,4.0f,1.0f,0.0f};
+	float result[2]={2.0f,-2.0f};
 	
 	float in2[4]={1.0f,1.0f,-2.0f,3.0f};
-	float result2R[2]={1.9999999999999997779554f,1.9999999999999997779554f};
-	float result2I[2]={0.9999999999999997779554f,-0.9999999999999997779554f};
-
-	floatComplex *out;
+	
+	float *out;
 	
 	int i;
 	
-	out=malloc((uint)2*sizeof(floatComplex));
+	out=malloc((uint)2*sizeof(float));
 		
 	sspeca(in,2,out);
-	for (i=0;i<2;i++)	printf("%f+%f*i\n",creals(out[i]) ,cimags(out[i]));
+	for (i=0;i<2;i++)	printf("%f\n",out[i]);
 	for(i=0;i<2;i++){
-		if (creals(out[i])>1e-16)  assert( fabs(creals(out[i])-resultR[i]) / fabs(creals(out[i])) <1e-16);
+		if (out[i]>1e-16)  assert( fabs(out[i]-resultR[i]) / fabs(out[i]) <1e-16);
 		else assert(1);
-		if (cimags(out[i])>1e-16)  assert( fabs(cimags(out[i])-resultI[i]) / fabs(cimags(out[i])) <1e-16);
+	}	
+	
+			
+	sspeca(in1,2,out);
+	for (i=0;i<2;i++)	printf("%f\n",out[i]);
+	for(i=0;i<2;i++){
+		if (out[i]>1e-16)  assert( fabs(out[i]-result[i]) / fabs(out[i]) <1e-16);
 		else assert(1);
-	}
-	
-	
+	}	
 	
 	sspeca(in2,2,out);
-	
-	for (i=0;i<2;i++)	printf("%f+%f*i\n",creals(out[i]) ,cimags(out[i]));
-	
-	for(i=0;i<2;i++){
-		if (creals(out[i])>1e-16)  assert( fabs(creals(out[i])-result2R[i]) / fabs(creals(out[i])) <1e-16);
-		else assert(1);
-		if (cimags(out[i])>1e-16)  assert( fabs(cimags(out[i])-result2I[i]) / fabs(cimags(out[i])) <1e-16);
-		else assert(1);
-	}
+	for (i=0;i<2;i++)	printf("%f\n",out[i]);
+
 }
-
-
 
 	
 static void cspecaTest(void){
