@@ -721,8 +721,8 @@ PrintStringInfo('d0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('c0c0'+ArgSeparator+'c0',ClassFileName,'file','y');
 PrintStringInfo('z0z0'+ArgSeparator+'z0',ClassFileName,'file','y');
 
-PrintStringInfo('s2s0'+ArgSeparator+'c2',ClassFileName,'file','y');
-PrintStringInfo('d2d0'+ArgSeparator+'z2',ClassFileName,'file','y');
+PrintStringInfo('s2s0'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('d2d0'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('c2c0'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('z2z0'+ArgSeparator+'z2',ClassFileName,'file','y');
 
@@ -731,8 +731,8 @@ PrintStringInfo('d0d2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('c0c2'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('z0z2'+ArgSeparator+'z2',ClassFileName,'file','y');
    
-PrintStringInfo('s2s2'+ArgSeparator+'c2',ClassFileName,'file','y');
-PrintStringInfo('d2d2'+ArgSeparator+'z2',ClassFileName,'file','y');
+PrintStringInfo('s2s2'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('d2d2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('c2c2'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('z2z2'+ArgSeparator+'z2',ClassFileName,'file','y');
 
