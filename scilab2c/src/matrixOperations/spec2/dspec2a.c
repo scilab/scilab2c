@@ -18,7 +18,7 @@
 #include "stdio.h"
 
 
-void dspec2a(double* in, int rows,doubleComplex* eigenvalues,doubleComplex* eigenvectors){
+void dspec2a(double* in, int rows,double* eigenvalues,double* eigenvectors){
 	int i=0, j=0, ij=0, ij1=0;
 	int symmetric=0;
 	int INFO=0;
@@ -30,9 +30,10 @@ void dspec2a(double* in, int rows,doubleComplex* eigenvalues,doubleComplex* eige
 	double* pdblRightvectors;
 	double* inCopy;
 	
+	/* FIXME : malloc here */
 	inCopy = malloc((uint)(rows*rows) * sizeof(double));
 	outReal = malloc((uint)rows * sizeof(double));
-	outImag = malloc((uint)rows * sizeof(double));
+	outImag = NULL;
 	pdblLeftvectors=NULL;
 	pdblRightvectors=NULL;
 	
@@ -59,52 +60,56 @@ void dspec2a(double* in, int rows,doubleComplex* eigenvalues,doubleComplex* eige
 	/* apply lapack function according to symmetry */
 	if(symmetric){	
 		C2F(dsyev)( "V", "U", &rows, inCopy, &rows, outReal, pdblWork, &iWorkSize, &INFO );
-		dzerosa(outImag,1,rows);
+	
+		/* Computation of eigenvectors */
+		for (i=0;i<rows*rows;i++) 	eigenvectors[i] = inCopy[i];
 	}
 	else {	
 		pdblRightvectors=malloc((uint)(rows*rows) * sizeof(double));
+		outImag = malloc((uint)rows * sizeof(double));
 		C2F(dgeev)( "N", "V", &rows, inCopy, &rows, outReal, outImag,
         			pdblLeftvectors, &rows, pdblRightvectors, &rows, pdblWork, &iWorkSize, &INFO );  
+	
+		/* Computation of eigenvectors */        			
+        	j=0;
+		while (j<rows)
+		{
+			if (outImag[j]==0)
+			{	
+				for(i = 0 ; i < rows ; i++)
+				{
+					ij = i + j * rows;
+					eigenvectors[ij] = pdblRightvectors[ij];
+				}
+				j = j + 1;
+			}
+			else
+			{
+				for(i = 0 ; i < rows ; i++)
+				{
+					ij = i + j * rows;
+					ij1 = i + (j + 1) * rows;
+					eigenvectors[ij] = pdblRightvectors[ij];
+					eigenvectors[ij1] = pdblRightvectors[ij];
+				}
+				j = j + 2;
+			}
+		}
 	}
 	
 	/* Computation of eigenvalues */
-	zzerosa(eigenvalues,1,rows*rows);
-	for (i=0;i<rows;i++) eigenvalues[i+i*rows]=DoubleComplex(outReal[i],outImag[i]);
+	dzerosa(eigenvalues,1,rows*rows);
+	for (i=0;i<rows;i++) eigenvalues[i+i*rows]=outReal[i];
 	
+
 	
-	
-	/* Computation of eigenvectors */
-	j=0;
-	while (j<rows)
-	{
-		if (outImag[j]==0)
-		{	
-			for(i = 0 ; i < rows ; i++)
-			{
-				ij = i + j * rows;
-				if (symmetric)	eigenvectors[ij] = DoubleComplex(inCopy[ij],0);
-				else eigenvectors[ij] = DoubleComplex(pdblRightvectors[ij],0);
-			}
-			j = j + 1;
-		}
-		else
-		{
-			for(i = 0 ; i < rows ; i++)
-			{
-				ij = i + j * rows;
-				ij1 = i + (j + 1) * rows;
-				eigenvectors[ij] = DoubleComplex(pdblRightvectors[ij],pdblRightvectors[ij1]);
-				eigenvectors[ij1] = DoubleComplex(pdblRightvectors[ij],-pdblRightvectors[ij1]);
-			}
-			j = j + 2;
-		}
-	}
 
 	free(inCopy);
 	free(outReal);
 	free(outImag);
-	free(pdblWork);
 	free(pdblLeftvectors);
 	free(pdblRightvectors);
+	free(pdblWork);
+
 }
 

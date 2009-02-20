@@ -15,22 +15,22 @@
 
 
 
-void sspec2a(float* in, int rows, floatComplex* eigenvalues,floatComplex* eigenvectors){
+void sspec2a(float* in, int rows, float* eigenvalues,float* eigenvectors){
 	/* As we use Lapack to find the eigenvalues, we must cast the float input into double
 	and the doubleComplex outputs of dspec2a into floatComplex*/
 	
 	int i;
 	double* dblin;
-	doubleComplex *dbleigenvalues,*dbleigenvectors;
+	double *dbleigenvalues,*dbleigenvectors;
 	
 	dblin=malloc((uint)(rows*rows)*sizeof(double));
-	dbleigenvalues=malloc((uint)(rows*rows)*sizeof(doubleComplex));	
-	dbleigenvectors=malloc((uint)(rows*rows)*sizeof(doubleComplex));
+	dbleigenvalues=malloc((uint)(rows*rows)*sizeof(double));	
+	dbleigenvectors=malloc((uint)(rows*rows)*sizeof(double));
 	
 	for (i=0;i<rows*rows;i++) dblin[i]=(double)in[i];
 	
 	dspec2a(dblin,rows,dbleigenvalues,dbleigenvectors);
 	
-	for (i=0;i<rows*rows;i++) eigenvalues[i]=FloatComplex((float)zreals(dbleigenvalues[i]),(float)zimags(dbleigenvalues[i]));
-	for (i=0;i<rows*rows;i++) eigenvectors[i]=FloatComplex((float)zreals(dbleigenvectors[i]),(float)zimags(dbleigenvectors[i]));
+	for (i=0;i<rows*rows;i++) eigenvalues[i]=(float)dbleigenvalues[i];
+	for (i=0;i<rows*rows;i++) eigenvectors[i]=(float)dbleigenvectors[i];
 }

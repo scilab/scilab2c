@@ -19,54 +19,42 @@
 static void dspec2aTest(void){
 	double in[4]={1,1,1,3};
 	double resultValuesR[4]={0.5857864376269050765700,0,0,3.4142135623730949234300};
-	double resultValuesI[4]={0,0,0,0};
-	double resultVectorsR[4]={- 0.9238795325112867384831,0.3826834323650897817792,
+		double resultVectorsR[4]={- 0.9238795325112867384831,0.3826834323650897817792,
 	0.3826834323650897817792,0.9238795325112867384831};
-	double resultVectorsI[4]={0,0,0,0};
-	
+		
 	
 	double in2[4]={1,1,-2,3};
 	double resultValues2R[4]={1.9999999999999997779554,0,0,1.9999999999999997779554};
-	double resultValues2I[4]={0.9999999999999997779554,0,0,-0.9999999999999997779554};
 	double resultVectors2R[4]={0.8164965809277261454824,- 0.4082482904638631282523,
 	0.8164965809277261454824,- 0.4082482904638631282523};
-	double resultVectors2I[4]={0,- 0.4082482904638629062077,0,0.4082482904638629062077};
 	
 	double in3[9]={0,-1,0,1,0,0,0,0,0};
 	double resultValues3R[9]={0};
-	double resultValues3I[9]={1,0,0,0,-1,0,0,0,0};
 	double resultVectors3R[9]={0.7071067811865474617150,0,0,0.7071067811865474617150,0,0,0,0,1};
-	double resultVectors3I[9]={0,0.7071067811865474617150,0,0,-0.7071067811865474617150,0,0,0,0};
+
 	
-	doubleComplex out1[4],out2[4],out3[9],out4[9];
+	double out1[4],out2[4],out3[9],out4[9];
 	
 	int i;
 	dspec2a(in3,3,out3,out4);
 	for(i=0;i<9;i++){
-		if (zreals(out3[i])>1e-16)  assert( fabs(zreals(out3[i])-resultValues3R[i]) / fabs(zreals(out3[i])) <1e-15);
-		else assert(1);
-		if (zimags(out3[i])>1e-16)  assert( fabs(zimags(out3[i])-resultValues3I[i]) / fabs(zimags(out3[i])) <1e-15);
+		if (out3[i]>1e-16)  assert( fabs(out3[i]-resultValues3R[i]) / fabs(out3[i]) <1e-15);
 		else assert(1);
 	}
 	for(i=0;i<9;i++){
-		if (zreals(out4[i])>1e-16)  assert( fabs(zreals(out4[i])-resultVectors3R[i]) / fabs(zreals(out4[i])) <1e-15);
-		else assert(1);
-		if (zimags(out4[i])>1e-16)  assert( fabs(zimags(out4[i])-resultVectors3I[i]) / fabs(zimags(out4[i])) <1e-15);
+		if (out4[i]>1e-16)  assert( fabs(out4[i]-resultVectors3R[i]) / fabs(out4[i]) <1e-15);
 		else assert(1);
 	}
 	
 
 	dspec2a(in,2,out1,out2);
+	for(i=0;i<4;i++) printf("%f\n",out1[i]);
 	for(i=0;i<4;i++){
-		if (zreals(out1[i])>1e-16)  assert( fabs(zreals(out1[i])-resultValuesR[i]) / fabs(zreals(out1[i])) <1e-15);
-		else assert(1);
-		if (zimags(out1[i])>1e-16)  assert( fabs(zimags(out1[i])-resultValuesI[i]) / fabs(zimags(out1[i])) <1e-16);
+		if (out1[i]>1e-16)  assert( fabs(out1[i]-resultValuesR[i]) / fabs(out1[i]) <1e-15);
 		else assert(1);
 	}
 	for(i=0;i<4;i++){
-		if (zreals(out2[i])>1e-16)  assert( fabs(zreals(out2[i])-resultVectorsR[i]) / fabs(zreals(out2[i])) <1e-15);
-		else assert(1);
-		if (zimags(out2[i])>1e-16)  assert( fabs(zimags(out2[i])-resultVectorsI[i]) / fabs(zimags(out2[i])) <1e-16);
+		if (out2[i]>1e-16)  assert( fabs(out2[i]-resultVectorsR[i]) / fabs(out2[i]) <1e-15);
 		else assert(1);
 	}
 	
@@ -74,15 +62,11 @@ static void dspec2aTest(void){
 	dspec2a(in2,2,out1,out2);
 
 	for(i=0;i<4;i++){
-		if (zreals(out1[i])>1e-16)  assert( fabs(zreals(out1[i])-resultValues2R[i]) / fabs(zreals(out1[i])) <1e-16);
-		else assert(1);
-		if (zimags(out1[i])>1e-16)  assert( fabs(zimags(out1[i])-resultValues2I[i]) / fabs(zimags(out1[i])) <1e-15);
+		if (out1[i]>1e-16)  assert( fabs(out1[i]-resultValues2R[i]) / fabs(out1[i]) <1e-16);
 		else assert(1);
 	}
 	for(i=0;i<4;i++){
-		if (zreals(out2[i])>1e-16)  assert( fabs(zreals(out2[i])-resultVectors2R[i]) / fabs(zreals(out2[i])) <1e-15);
-		else assert(1);
-		if (zimags(out2[i])>1e-16)  assert( fabs(zimags(out2[i])-resultVectors2I[i]) / fabs(zimags(out2[i])) <1e-15);
+		if (out2[i]>1e-16)  assert( fabs(out2[i]-resultVectors2R[i]) / fabs(out2[i]) <1e-15);
 		else assert(1);
 	}
 	
