@@ -39,7 +39,7 @@ libLogm_la_SOURCES = 	$(HEAD) \
 ##  CHECK  ##
 #############
 					
-check_PROGRAMS = 	testDoubleLogm
+check_PROGRAMS = 	testDoubleLogm	testFloatLogm
 
 check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 				$(top_builddir)/type/libFloatComplex.la \
@@ -74,4 +74,8 @@ testDoubleLogm_SOURCES = testDoubleLogm.c
 testDoubleLogm_LDADD = $(check_LDADD)
 testDoubleLogm_CFLAGS = $(check_INCLUDES)
 
-TESTS =		testDoubleLogm
+testFloatLogm_SOURCES = testFloatLogm.c
+testFloatLogm_LDADD = $(check_LDADD)
+testFloatLogm_CFLAGS = $(check_INCLUDES)
+
+TESTS =	testDoubleLogm	testFloatLogm
