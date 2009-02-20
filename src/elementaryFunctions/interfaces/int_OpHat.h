@@ -74,49 +74,32 @@
 
 
 /* Matrix - Scalar */
+/* Matrices must be square */
 
-#define s2s0OpHats2(in1,size,in2,out)		{int i=0;\
-								for (i=0,i<size[0]*size[1];i++) out[i]=spows(in1[i],in2);\
+#define s2s0OpHats2(in1,size,in2,out)		spowma(in1,size[0],in2,out);
+
+#define d2d0OpHatd2(in1,size,in2,out)		dpowma(in1,size[0],in2,out);
+
+#define c2c0OpHatc2(in1,size,in2,out)		cpowma(in1,size[0],in2,out);
+
+#define z2z0OpHatz2(in1,size,in2,out)		zpowma(in1,size[0],in2,out);
+
+/* FIXME : malloc here */
+#define s2c0OpHatc2(in1,size,in2,out)		{float* tmp;\
+								szerosa(tmp,size[0],size[1]);\
+								cpowma(FloatComplexMatrix(in1,tmp,size[0]*size[1]),size[0],in2,out);\
 								}
 
-#define d2d0OpHatd2(in1,size,in2,out)		{int i=0;\
-								for (i=0,i<size[0]*size[1];i++) out[i]=dpows(in1[i],in2);\
+#define d2z0OpHatc2(in1,size,in2,out)		{double* tmp;\
+								dzerosa(tmp,size[0],size[1]);\
+								zpowma(DoubleComplexMatrix(in1,tmp,size[0]*size[1]),size[0],in2,out);\
 								}
 
-#define c2c0OpHatc2(in1,size,in2,out)		{int i=0;\
-								for (i=0,i<size[0]*size[1];i++) out[i]=cpows(in1[i],in2);\
-								}
+#define c2s0OpHatc2(in1,size,in2,out)		cpowma(in1,size[0],FloatComplex(in2,0),out);
 
-#define z2z0OpHatz2(in1,size,in2,out)		{int i=0;\
-								for (i=0,i<size[0]*size[1];i++) out[i]=zpows(in1[i],in2);\
-								}
-
-#define s2c0OpHatc2(in1,size,in2,out)		{int i=0;\
-								for (i=0,i<size[0]*size[1];i++) out[i]=cpows(FloatComplex(in1[i],0),in2);\
-								}
-
-#define d2z0OpHatc2(in1,size,in2,out)		{int i=0;\
-								for (i=0,i<size[0]*size[1];i++) out[i]=zpows(DoubleComplex(in1[i],0),in2);\
-								}
-
-#define c2s0OpHatc2(in1,size,in2,out)		{int i=0;\
-								for (i=0,i<size[0]*size[1];i++) out[i]=cpows(in1[i],FloatComplex(in2,0));\
-								}
-
-#define z2d0OpHatz2(in1,size,in2,out)		{int i=0;\
-								for (i=0,i<size[0]*size[1];i++) out[i]=zpows(in1[i],DoubleComplex(in2,0));\
-								}
+#define z2d0OpHatz2(in1,size,in2,out)		zpowma(in1,size[0],DoubleCompelx(in2,0),out);
 
 
-/* FIXME : miss mixed types prototypes */
-/* Matrix - Matrix */
-#define s2s2OpHats2(in1, size, in2, out)	spowma(in1, size[0]*size[1], in2, out)
-
-#define d2d2OpHatd2(in1, size, in2, out)	dpowma(in1, size[0]*size[1], in2, out)
-
-#define c2c2OpHatc2(in1, size, in2, out)	cpowma(in1, size[0]*size[1], in2, out)
-
-#define z2z2OpHatz2(in1, size, in2, out)	zpowma(in1, size[0]*size[1], in2, out)
 
 
 

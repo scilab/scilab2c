@@ -24,7 +24,6 @@ SWSRCS	=	\
 	$(CSRCDIR)/doubleComplex.c \
 	$(CSRCDIR)/floatComplex.c \
 	$(CSRCDIR)/RealToComplex.c \
-	$(CSRCDIR)/OpDotHat.c \
 	$(CSRCDIR)/OpEqual.c \
 	$(CSRCDIR)/OpIns.c \
 	$(CSRCDIR)/OpExt.c \
@@ -432,7 +431,11 @@ SWSRCS	=	\
 	$(CSRCDIR)/drowmina.c \
 	$(CSRCDIR)/drowmaxa.c \
 	$(CSRCDIR)/dcolumnmina.c \
-	$(CSRCDIR)/dcolumnmaxa.c 
+	$(CSRCDIR)/dcolumnmaxa.c \
+	$(CSRCDIR)/cpowma.c \
+	$(CSRCDIR)/dpowma.c \
+	$(CSRCDIR)/spowma.c \
+	$(CSRCDIR)/zpowma.c 
 	
 	
 	

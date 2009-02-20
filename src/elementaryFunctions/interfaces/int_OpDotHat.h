@@ -25,9 +25,9 @@
 
 #define z0z0OpDotHatz0(in1, in2)			zpows(in1, in2)
 
-#define c0s0OpDotHatc0(in1, in2)			cpows(in1, FloatComplex(in2,0))
+#define s0c0OpDotHatc0(in1, in2)			cpows(FloatComplex(in1,0), in2)
 
-#define z0z0OpDotHatz0(in1, in2)			zpows(in1, in2)
+#define c0s0OpDotHatc0(in1, in2)			cpows(in1, FloatComplex(in2,0))
 
 #define d0z0OpDotHatz0(in1, in2)			zpows(DoubleComplex(in1,0), in2)
 
@@ -107,15 +107,32 @@
 								}
 
 
-/* FIXME : miss mixed types prototypes */
 /* Matrix - Matrix */
-#define s2s2OpDotHats2(in1, size, in2, out)	spowa(in1, size[0]*size[1], in2, out)
+#define s2s2OpDotHats2(in1, size1, in2, size2, out)	spowa(in1, size1[0]*size2[1], in2, out)
 
-#define d2d2OpDotHatd2(in1, size, in2, out)	dpowa(in1, size[0]*size[1], in2, out)
+#define d2d2OpDotHatd2(in1, size1, in2, size2, out)	dpowa(in1, size1[0]*size2[1], in2, out)
 
-#define c2c2OpDotHatc2(in1, size, in2, out)	cpowa(in1, size[0]*size[1], in2, out)
+#define c2c2OpDotHatc2(in1, size1, in2, size2, out)	cpowa(in1, size1[0]*size2[1], in2, out)
 
-#define z2z2OpDotHatz2(in1, size, in2, out)	zpowa(in1, size[0]*size[1], in2, out)
+#define z2z2OpDotHatz2(in1, size1, in2, size2, out)	zpowa(in1, size1[0]*size2[1], in2, out)
+
+#define s2c2OpDotHatc2(in1, size1, in2, size2, out)	{int i=0;\
+									for (i=0;i<size1[0]*size2[1],i++) out[i]=cpows(FloatComplex(in1[i],0),in2[i]);\
+									}
+
+#define c2s2OpDotHatc2(in1, size1, in2, size2, out)	{int i=0;\
+									for (i=0;i<size1[0]*size2[1],i++) out[i]=cpows(in1[i],FloatComplex(in2[i],0));\
+									}
+
+#define d2z2OpDotHatz2(in1, size1, in2, size2, out)	{int i=0;\
+									for (i=0;i<size1[0]*size2[1],i++) out[i]=zpows(FloatComplex(in1[i],0),in2[i]);\
+									}
+
+#define z2d2OpDotHatz2(in1, size1, in2, size2, out)	{int i=0;\
+									for (i=0;i<size1[0]*size2[1],i++) out[i]=zpows(in1[i],FloatComplex(in2[i],0));\
+									}
+
+
 
 
 #endif /* !__INT_OPDOTHAT_H__ */
