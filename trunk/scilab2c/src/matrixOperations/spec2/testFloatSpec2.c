@@ -19,33 +19,25 @@
 static void sspec2aTest(void){
 	float in[4]={1.0f,1.0f,1.0f,3.0f};
 	float resultValuesR[4]={0.5857864376269050765700f,0,0,3.4142135623730949234300f};
-	float resultValuesI[4]={0.0f,0.0f,0.0f,0.0f};
 	float resultVectorsR[4]={- 0.9238795325112867384831f,0.3826834323650897817792f,
 	0.3826834323650897817792f,0.9238795325112867384831f};
-	float resultVectorsI[4]={0.0f,0.0f,0.0f,0.0f};
 	
 	float in2[4]={1.0f,1.0f,-2.0f,3.0f};
 	float resultValues2R[4]={1.9999999999999997779554f,0,0,1.9999999999999997779554f};
-	float resultValues2I[4]={0.9999999999999997779554f,0,0,-0.9999999999999997779554f};
 	float resultVectors2R[4]={0.8164965809277261454824f,- 0.4082482904638631282523f,
 	0.8164965809277261454824f,- 0.4082482904638631282523f};
-	float resultVectors2I[4]={0,- 0.4082482904638629062077f,0,0.4082482904638629062077f};
-	floatComplex eigenvalues[4],eigenvectors[4];
+	float eigenvalues[4],eigenvectors[4];
 
 	int i;
 		
 	sspec2a(in,2,eigenvalues,eigenvectors);
 
 	for(i=0;i<4;i++){
-		if (creals(eigenvalues[i])>1e-6)  assert( fabs(creals(eigenvalues[i])-resultValuesR[i]) / fabs(creals(eigenvalues[i])) <1e-16);
-		else assert(1);
-		if (cimags(eigenvalues[i])>1e-6)  assert( fabs(cimags(eigenvalues[i])-resultValuesI[i]) / fabs(cimags(eigenvalues[i])) <1e-16);
+		if (eigenvalues[i]>1e-6)  assert( fabs(eigenvalues[i]-resultValuesR[i]) / fabs(eigenvalues[i]) <1e-16);
 		else assert(1);
 	}
 	for(i=0;i<4;i++){
-		if (creals(eigenvectors[i])>1e-6)  assert( fabs(creals(eigenvectors[i])-resultVectorsR[i]) / fabs(creals(eigenvectors[i])) <1e-16);
-		else assert(1);
-		if (cimags(eigenvectors[i])>1e-6)  assert( fabs(cimags(eigenvectors[i])-resultVectorsI[i]) / fabs(cimags(eigenvectors[i])) <1e-16);
+		if (eigenvectors[i]>1e-6)  assert( fabs(eigenvectors[i]-resultVectorsR[i]) / fabs(eigenvectors[i]) <1e-16);
 		else assert(1);
 	}
 	
@@ -55,15 +47,11 @@ static void sspec2aTest(void){
 
 	
 	for(i=0;i<4;i++){
-		if (creals(eigenvalues[i])>1e-6)  assert( fabs(creals(eigenvalues[i])-resultValues2R[i]) / fabs(creals(eigenvalues[i])) <1e-16);
-		else assert(1);
-		if (cimags(eigenvalues[i])>1e-6)  assert( fabs(cimags(eigenvalues[i])-resultValues2I[i]) / fabs(cimags(eigenvalues[i])) <1e-16);
+		if (eigenvalues[i]>1e-6)  assert( fabs(eigenvalues[i]-resultValues2R[i]) / fabs(eigenvalues[i]) <1e-16);
 		else assert(1);
 	}
 	for(i=0;i<4;i++){
-		if (creals(eigenvectors[i])>1e-6)  assert( fabs(creals(eigenvectors[i])-resultVectors2R[i]) / fabs(creals(eigenvectors[i])) <1e-16);
-		else assert(1);
-		if (cimags(eigenvectors[i])>1e-6)  assert( fabs(cimags(eigenvectors[i])-resultVectors2I[i]) / fabs(cimags(eigenvectors[i])) <1e-16);
+		if (eigenvectors[i]>1e-6)  assert( fabs(eigenvectors[i]-resultVectors2R[i]) / fabs(eigenvectors[i]) <1e-16);
 		else assert(1);
 	}
 }
