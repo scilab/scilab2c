@@ -15,6 +15,7 @@
 libIfft_la_CFLAGS =	-I . \
 			-I $(top_builddir)/type \
 			-I $(top_builddir)/signalProcessing/includes \
+			-I $(top_builddir)/matrixOperations/includes \
 			-I $(top_builddir)/operations/includes \
 			-I $(top_builddir)/auxiliaryFunctions/includes
 
@@ -28,14 +29,16 @@ HEAD =	../includes/ifft.h \
 	fft_internal.h
 
 SRC	=		zifftma.c \
-            		cifftma.c \
-            		difft2.c \
+            	cifftma.c \
+            	difft2.c \
 			difftbi.c \
 			difftmx.c \
 			ifft842.c \
 			ir2tx.c \
 			ir4tx.c \
-			ir8tx.c
+			ir8tx.c\
+			difftma.c \
+            	sifftma.c
 
 
 ####
@@ -45,6 +48,7 @@ SRC	=		zifftma.c \
 check_INCLUDES	=	-I . \
 			-I $(top_builddir)/type \
 			-I $(top_builddir)/signalProcessing/includes \
+			-I $(top_builddir)/matrixOperations/includes \
 			-I $(top_builddir)/operations/includes \
 			-I $(top_builddir)/auxiliaryFunctions/includes
 
@@ -54,6 +58,7 @@ check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/lib/blas/libsciblas.la \
 			$(top_builddir)/signalProcessing/ifft/libIfft.la \
+			$(top_builddir)/matrixOperations/zeros/libMatrixZeros.la \
 			$(top_builddir)/operations/addition/libAddition.la \
 			$(top_builddir)/operations/subtraction/libSubtraction.la \
 			@LIBMATH@

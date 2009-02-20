@@ -16,6 +16,7 @@ libFft_la_CFLAGS =	-I . \
 			-I $(top_builddir)/type \
 			-I $(top_builddir)/signalProcessing/includes \
 			-I $(top_builddir)/operations/includes \
+			-I $(top_builddir)/matrixOperations/includes \
 			-I $(top_builddir)/auxiliaryFunctions/includes
 
 instdir = $(top_builddir)/lib
@@ -35,8 +36,9 @@ SRC	=		zfftma.c \
 			fft842.c \
 			r2tx.c \
 			r4tx.c \
-			r8tx.c
-
+			r8tx.c \
+			dfftma.c \
+			sfftma.c
 
 ####
 # Checking Part
@@ -45,6 +47,7 @@ SRC	=		zfftma.c \
 check_INCLUDES	=	-I . \
 			-I $(top_builddir)/type \
 			-I $(top_builddir)/signalProcessing/includes \
+			-I $(top_builddir)/matrixOperations/includes \
 			-I $(top_builddir)/operations/includes \
 			-I $(top_builddir)/auxiliaryFunctions/includes
 
@@ -56,6 +59,7 @@ check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/signalProcessing/fft/libFft.la \
 			$(top_builddir)/operations/addition/libAddition.la \
 			$(top_builddir)/operations/subtraction/libSubtraction.la \
+			$(top_builddir)/matrixOperations/zeros/libMatrixZeros.la \
 			@LIBMATH@
 
 check_PROGRAMS	= 	testFloatFft testDoubleFft  testMatFft
