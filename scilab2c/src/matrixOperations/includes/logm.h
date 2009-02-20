@@ -18,9 +18,9 @@
 #include "doubleComplex.h"
 
 
-void slogma (float* in, int size, floatComplex* out);
+void slogma (float* in, int size, float* out);
 
-void dlogma (double* in, int size, doubleComplex* out);
+void dlogma (double* in, int size, double* out);
 
 void clogma (floatComplex* in, int size, floatComplex* out);
 
