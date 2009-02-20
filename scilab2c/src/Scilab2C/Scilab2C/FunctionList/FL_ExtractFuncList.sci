@@ -1,6 +1,17 @@
 function [CFuncList,NElements] = FL_ExtractFuncList(FunctionDir,ClassDir,SCI2CClassSpecifier,ExtFLCls,ReportFileName)
 // function [CFuncList,NElements] = FL_ExtractFuncList(FunctionDir,ClassDir,SCI2CClassSpecifier,ExtFLCls,ReportFileName)
 // -----------------------------------------------------------------
+// #RNU_RES_B
+// Extracts the list of the C functions available. To do that
+// this function enters in the directories where the .clst and 
+// .lst files are stored.
+// #RNU_RES_E
+//
+// Input data:
+// //NUT: add description here
+//
+// Output data:
+// //NUT: add description here
 //
 // Status:
 // 05-Jan-2008 -- Nutricato Raffaele: Author.
@@ -10,14 +21,28 @@ function [CFuncList,NElements] = FL_ExtractFuncList(FunctionDir,ClassDir,SCI2CCl
 // -----------------------------------------------------------------
 
 
+// ------------------------------
+// --- Check input arguments. ---
+// ------------------------------
 SCI2CNInArgCheck(argn(2),5,5);
 
+// #RNU_RES_B
+// ---------------------------------------------------------
+// --- Extract the list of files in Functions directory. ---
+// ---------------------------------------------------------
+// #RNU_RES_E
 tmppwd = pwd();
 cd(FunctionDir);
+// funfiles = ls();
 funfiles = listfiles();
 cd(tmppwd);
 NFunFiles = size(funfiles,1);
 
+// #RNU_RES_B
+// -----------------------------------------------------------
+// --- Extract the C function list from Classes directory. ---
+// -----------------------------------------------------------
+// #RNU_RES_E
 CFuncList = '';
 NElements = 0;
 

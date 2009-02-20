@@ -1,6 +1,16 @@
 function opout = FA_MAX(in1,in2)
 // function opout = FA_MAX(in1,in2)
 // -----------------------------------------------------------------
+// Maximum function for Function Annotations.
+// When in1 and in2 are both symbols this function returns
+// in1.
+//
+// Input data:
+// in1: string specifying a number or a symbol.
+// in2: string specifying a number or a symbol.
+//
+// Output data:
+// opout: string containing the computed result.
 //
 // Status:
 // 26-Oct-2007 -- Raffaele Nutricato: Author.
@@ -10,10 +20,16 @@ function opout = FA_MAX(in1,in2)
 // Contact: raffaele.nutricato@tiscali.it
 // -----------------------------------------------------------------
 
+// ------------------------------
+// --- Check input arguments. ---
+// ------------------------------
 SCI2CNInArgCheck(argn(2),2,2);
 
 SCI2Cerror('Not allowed to use FA_MAX in this release.');
 
+// ------------------------
+// --- Generate Output. ---
+// ------------------------
 if (SCI2Cisnum(in1))
    in1num = eval(in1);
    if (SCI2Cisnum(in2))

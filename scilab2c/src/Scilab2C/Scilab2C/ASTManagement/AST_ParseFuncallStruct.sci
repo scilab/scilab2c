@@ -1,6 +1,30 @@
 function [FunctionName,InArg,NInArg,NOutArg] = AST_ParseFuncallStruct(FileInfo,SharedInfo)
 // function [FunctionName,InArg,NInArg,NOutArg] = AST_ParseFuncallStruct(FileInfo,SharedInfo)
 // -----------------------------------------------------------------
+//#RNU_RES_B
+// Extracts Input Arguments, Output Arguments and Function Name 
+// from the AST.
+//
+// Structure of Funcall:
+// overloading function for "funcall" type tlist string function
+// this is a node of the AST
+// fields:     
+//     rhs  : a list
+//     name : string, the name of the function
+//     lhsnb: number, the number of function lhs
+//  txt=['Funcall  : '+F.name
+//       '  #lhs   : '+string(F.lhsnb)
+//       '  Rhs    : '
+//       '      '+objectlist2string(F.rhs)
+//       'EndFuncall'
+//      ]
+//
+//#RNU_RES_E
+// Input data:
+// //NUT: add description here
+//
+// Output data:
+// //NUT: add description here
 //
 // Status:
 // 11-Apr-2007 -- Raffaele Nutricato: Author.
@@ -20,7 +44,9 @@ SCI2CNInArgCheck(argn(2),2,2);
 nxtscifunname   = SharedInfo.NextSCIFunName;
 nxtscifunnumber = SharedInfo.NextSCIFunNumber;
 ReportFileName  = FileInfo.Funct(nxtscifunnumber).ReportFileName;
-
+// #RNU_RES_B
+PrintStringInfo('   Parsing Funcall structure',ReportFileName,'file','y');
+// #RNU_RES_E
 global SCI2CSTACK 
 global StackPosition;
 global STACKDEDUG
@@ -73,5 +99,18 @@ for counterinputargs = 1:NInArg
    InArg(counterinputargs).Scope=InputArgumentScope(counterinputargs);
 end
 
+//#RNU_RES_B
+PrintStringInfo('Function Name: '+FunctionName,ReportFileName,'file','y');
+PrintStringInfo('N Intput Arguments: '+string(NInArg),ReportFileName,'file','y');
+PrintStringInfo('N Output Arguments: '+string(NOutArg),ReportFileName,'file','y');
+//#RNU_RES_E
+for counterinputargs = 1:NInArg
+   //#RNU_RES_B
+   PrintStringInfo('Input Argument Number '+string(counterinputargs)+': '+InArg(counterinputargs).Name,...
+      ReportFileName,'file','y');
+   PrintStringInfo('   Scope: '+InArg(counterinputargs).Scope,...
+      ReportFileName,'file','y');
+   //#RNU_RES_E
+end
 
 endfunction

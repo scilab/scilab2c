@@ -1,6 +1,17 @@
 function C_GenerateLaunchScript(OutDir,ListSCI2CInputPrmFiles)
 // function C_GenerateLaunchScript(OutDir,ListSCI2CInputPrmFiles)
 // -----------------------------------------------------------------
+// #RNU_RES_B
+// Generate the script that can be used to compile all the regression
+// tests and to run them and finally to write results in the report
+// file.
+// #RNU_RES_E
+//
+// Input data:
+// //NUT: add description here
+//
+// Output data:
+// //NUT: add description here
 //
 // Status:
 // 26-Jan-2008 -- Raffaele Nutricato: Author.

@@ -1,6 +1,15 @@
 function AST_GetASTFile(FileInfoDatFile)
 // function AST_GetASTFile(FileInfoDatFile)
 // -----------------------------------------------------------------
+// Generates the AST file starting from the .sci file specified
+// in SharedInfo.NextSCIFileName.
+//
+// Input data:
+// FileInfoDatFile: name of the .dat file containing the FileInfo structure.
+//
+// Output data:
+// ---
+//
 // Status:
 // 11-Apr-2007 -- Raffaele Nutricato: Author.
 //
@@ -34,6 +43,7 @@ funnumber = SharedInfo.NextSCIFunNumber;
 PrintStepInfo('Generate the AST in '+FileInfo.Funct(funnumber).ASTFileName,...
    FileInfo.GeneralReport,'both');
 
+// --- Generation of the AST file. ---
 SciFile2ASTFile(FileInfo.Funct(funnumber).SCIFileName,...
    FileInfo.Funct(funnumber).ASTFileName);
 

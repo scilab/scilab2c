@@ -1,6 +1,15 @@
 function ExistTest = SCI2Cfileexist(InDir,FileName)
 // function ExistTest = SCI2Cfileexist(InDir,FileName)
 // -----------------------------------------------------------------
+// Searches for the file FileName in the directory InDir.
+// Return %F if it doesn't exist.
+//
+// Input data:
+// //NUT: add description here
+//
+// Output data:
+// //NUT: add description here
+//
 // Status:
 // 12-Jun-2007 -- Nutricato Raffaele: Author.
 //
@@ -8,6 +17,9 @@ function ExistTest = SCI2Cfileexist(InDir,FileName)
 // Contact: raffaele.nutricato@tiscali.it
 // -----------------------------------------------------------------
 
+// ------------------------------
+// --- Check input arguments. ---
+// ------------------------------
 SCI2CNInArgCheck(argn(2),2,2);
 
 tmppwd = pwd();

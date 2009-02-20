@@ -1,6 +1,7 @@
 function opoutsize = FA_SZ_OPRC(in1size,in2size)
 // function opoutsize = FA_SZ_OPRC(in1size,in2size)
 // -----------------------------------------------------------------
+// Returns the size of the output computed by OPRC operator.
 // 
 //
 // Status:
@@ -11,11 +12,18 @@ function opoutsize = FA_SZ_OPRC(in1size,in2size)
 // Contact: raffaele.nutricato@tiscali.it
 // -----------------------------------------------------------------
 
+// ------------------------------
+// --- Check input arguments. ---
+// ------------------------------
 SCI2CNInArgCheck(argn(2),2,2);
 
 in1size = string(in1size);
 in2size = string(in2size);
 
+// ------------------------
+// --- Generate Output. ---
+// ------------------------
+// --- Get dimensions of input arguments. ---
 in1dim = GetSymbolDimension(in1size);
 in2dim = GetSymbolDimension(in2size);
 
@@ -26,7 +34,7 @@ if (SCI2Cisnum(in1size(2)) & SCI2Cisnum(in2size(2)))
    in2num = eval(in2size(2));
    opoutsize(2) = string(in1num+in2num);
 else  
-   opoutsize(2) = string(in1size(2))+'+'+string(in2size(2));
+   opoutsize(2) = '('+string(in1size(2))+'+'+string(in2size(2))+')';
 end
 
 endfunction

@@ -1,6 +1,14 @@
 function typeout = FA_TP_Z()
 // function typeout = FA_TP_Z()
 // -----------------------------------------------------------------
+// Returns the "double complex" type specifier 
+// for Function Annotations.
+//
+// Input data:
+// ---
+//
+// Output data:
+// typeout: string containing the type specifier.
 //
 // Status:
 // 26-Oct-2007 -- Raffaele Nutricato: Author.

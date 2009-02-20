@@ -1,5 +1,13 @@
 function [ArgName,ArgScope] = AST_ExtractNameAndScope(ASTField)
 // -----------------------------------------------------------------
+// //NUT: add description here
+//
+// Input data:
+// //NUT: add description here
+//
+// Output data:
+// //NUT: add description here
+//
 // Status:
 // 27-Dec-2007 -- Raffaele Nutricato: Author.
 //
@@ -28,7 +36,7 @@ tagname(cnttag)   = 'String:';
 taglength(cnttag) = length(tagname(cnttag));
 
 cnttag = cnttag + 1; 
-tagname(cnttag)   = 'Var:';
+tagname(cnttag)   = 'Variable:';
 taglength(cnttag) = length(tagname(cnttag));
 
 cnttag = cnttag + 1; 
@@ -49,7 +57,14 @@ taglength(cnttag) = length(tagname(cnttag));
 
 fieldlength  = length(ASTField);
 
+//NUT: il seguente codice e' poco elegante.
 if (SCI2Cstrncmps1size(tagname(1),ASTField))
+   // Here we can have:
+   // Number_x: it means default precision.
+   // Number_s: it means float real type.
+   // Number_d: it means double real type.
+   // Number_c: it means float complex type.
+   // Number_z: it means double complex type.
    ArgName = stripblanks(part(ASTField,taglength(1)+3:fieldlength));
    ArgScope = stripblanks(part(ASTField,1:taglength(1)+1));
 elseif (SCI2Cstrncmps1size(tagname(2),ASTField))
@@ -58,7 +73,7 @@ elseif (SCI2Cstrncmps1size(tagname(2),ASTField))
    ArgScope = 'String';
 elseif (SCI2Cstrncmps1size(tagname(3),ASTField))
    ArgName  = stripblanks(part(ASTField,taglength(3)+1:fieldlength));
-   ArgScope = 'Var';
+   ArgScope = 'Variable';
 elseif (SCI2Cstrncmps1size(tagname(4),ASTField))
    ArgName  = stripblanks(part(ASTField,taglength(4)+1:fieldlength));
    ArgScope = 'Global';

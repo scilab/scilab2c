@@ -1,6 +1,13 @@
 function flagexist = FL_ExistCFunction(CFunName,USER2CAvailableCDat,SCI2CAvailableCDat,ConvertedDat,ToBeConvertedDat,ReportFileName)
 // function flagexist = FL_ExistCFunction(CFunName,USER2CAvailableCDat,SCI2CAvailableCDat,ConvertedDat,ToBeConvertedDat,ReportFileName)
 // -----------------------------------------------------------------
+// //NUT: add description here
+//
+// Input data:
+// //NUT: add description here
+//
+// Output data:
+// //NUT: add description here
 //
 // Status:
 // 30-Oct-2007 -- Raffaele Nutricato: Author.
@@ -10,9 +17,18 @@ function flagexist = FL_ExistCFunction(CFunName,USER2CAvailableCDat,SCI2CAvailab
 // Contact: raffaele.nutricato@tiscali.it
 // -----------------------------------------------------------------
 
+// ------------------------------
+// --- Check input arguments. ---
+// ------------------------------
 SCI2CNInArgCheck(argn(2),6,6);
 
+// -----------------------
+// --- Initialization. ---
+// -----------------------
 flagexist = %F;
+// ---------------------------
+// --- End Initialization. ---
+// ---------------------------
 
 
 AvailableDat = USER2CAvailableCDat;
@@ -23,6 +39,9 @@ tmpcnt = 1;
 while ((tmpcnt <=NAvail) & (flagexist == %F))
    if mtlb_strcmp(Available(tmpcnt),CFunName)
       flagexist = %T;
+      // #RNU_RES_B
+      PrintStringInfo('   Found C Function Name in : '+AvailableDat,ReportFileName,'file','y');
+      // #RNU_RES_E
    end
    tmpcnt = tmpcnt + 1;
 end
@@ -37,6 +56,9 @@ if (flagexist == %F)
    while ((tmpcnt <=NAvail) & (flagexist == %F))
       if mtlb_strcmp(Available(tmpcnt),CFunName)
          flagexist = %T;
+         // #RNU_RES_B
+         PrintStringInfo('   Found C Function Name in : '+AvailableDat,ReportFileName,'file','y');
+         // #RNU_RES_E
       end
       tmpcnt = tmpcnt + 1;
    end
@@ -50,6 +72,9 @@ if (flagexist == %F)
    while ((tmpcnt <=NConv) & (flagexist == %F))
       if mtlb_strcmp(Converted(tmpcnt),CFunName)
          flagexist = %T;
+         // #RNU_RES_B
+         PrintStringInfo('   Found C Function Name in : '+ConvertedDat,ReportFileName,'file','y');
+         // #RNU_RES_E
       end
       tmpcnt = tmpcnt + 1;
    end
@@ -63,11 +88,19 @@ if (flagexist == %F)
    while ((tmpcnt <=NToBeConv) & (flagexist == %F))
       if mtlb_strcmp(ToBeConverted(tmpcnt).CFunctionName,CFunName)
          flagexist = %T;
+         // #RNU_RES_B
+         PrintStringInfo('   Found C Function Name in : '+ToBeConvertedDat,ReportFileName,'file','y');
+         // #RNU_RES_E
       end
       tmpcnt = tmpcnt + 1;
    end
    clear ToBeConverted
 end
 
+if (flagexist == %F)
+   // #RNU_RES_B
+   PrintStringInfo('   C Function Name not found in the ""Available"" , ""Converted"" and ""ToBeConverted"" function lists.',ReportFileName,'file','y');
+   // #RNU_RES_E
+end
 
 endfunction

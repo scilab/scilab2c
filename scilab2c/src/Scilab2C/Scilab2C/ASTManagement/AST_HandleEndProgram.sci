@@ -1,6 +1,14 @@
 function SharedInfo = AST_HandleEndProgram(FileInfo,SharedInfo)
 // function SharedInfo = AST_HandleEndProgram(FileInfo,SharedInfo)
 // -----------------------------------------------------------------
+// Handles the EndProgram tag of the AST.
+//
+//
+// Input data:
+// //NUT: add description here
+//
+// Output data:
+// //NUT: add description here
 //
 // Status:
 // 12-Jun-2007 -- Raffaele Nutricato: Author.
@@ -37,15 +45,18 @@ if (1==2)
       end
    end
    
+   PrintStringInfo('   '+CCall,ReportFileName,'file','y');
    PrintStringInfo(C_IndentBlanks(IndentLevel)+CCall,CPass1FileName,'file','y');
 end
 
 
 SharedInfo.NIndent = SharedInfo.NIndent - 1;
 IndentLevel        = SharedInfo.NIndent;
+PrintStringInfo('   }',ReportFileName,'file','y');
 PrintStringInfo(C_IndentBlanks(IndentLevel)+'}',CPass1FileName,'file','y');
 
 // --- Close the copy of the scilab file. ---
+PrintStringInfo('   Closing: '+FileInfo.Funct(nxtscifunnumber).SCICopyFileName,ReportFileName,'file','y');
 mclose(FileInfo.Funct(nxtscifunnumber).SCICopyFileFid);
 
 endfunction

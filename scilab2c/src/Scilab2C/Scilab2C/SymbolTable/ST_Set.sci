@@ -1,6 +1,13 @@
 function ST_Set(TBName,TBType,TBSize,TBValue,TBFindLike,TBDimension,SymbolTableFileName)
 // function ST_Set(TBName,TBType,TBSize,TBValue,TBFindLike,TBDimension,SymbolTableFileName)
 // -----------------------------------------------------------------
+// Set function for the symbol table.
+//
+// Input data:
+// //NUT: add description here
+//
+// Output data:
+// //NUT: add description here
 //
 // Status:
 // 26-Oct-2007 -- Raffaele Nutricato: Author.
@@ -11,16 +18,22 @@ function ST_Set(TBName,TBType,TBSize,TBValue,TBFindLike,TBDimension,SymbolTableF
 // -----------------------------------------------------------------
 
 
+// ------------------------------
+// --- Check input arguments. ---
+// ------------------------------
 SCI2CNInArgCheck(argn(2),7,7);
 
+// --- Load symbol table. ---
 SCI2CSymbolTable = ST_Load(SymbolTableFileName);
 
+// --- Find symbol position (If exists). ---
 [TBFlagfound,TBPosition] = ST_FindPos(TBName,SymbolTableFileName);
 
 if (TBFlagfound == 0)
    TBPosition = max(size(SCI2CSymbolTable))+1;
 end
 
+// --- Update symbol table. ---
 SCI2CSymbolTable(TBPosition).Name      = TBName;      // string.
 SCI2CSymbolTable(TBPosition).Type      = TBType;      // char.
 SCI2CSymbolTable(TBPosition).Size      = TBSize;      // structure of two strings (Size(1) and Size(2)).
@@ -30,6 +43,7 @@ SCI2CSymbolTable(TBPosition).FindLike  = TBFindLike;  // int number. FindLike = 
                                                       // FindLike = 0 in all other cases.
 SCI2CSymbolTable(TBPosition).Dimension = TBDimension; // int number.
    
+// --- Save symbol table. ---
 ST_Save(SymbolTableFileName,SCI2CSymbolTable);
 
 endfunction

@@ -1,6 +1,14 @@
 function stackelement = AST_PopASTStack()
 // function stackelement = AST_PopASTStack()
 // -----------------------------------------------------------------
+// Pop the AST stack.
+//
+// Input data:
+// ---
+//
+// Output data:
+// //NUT: add description here
+//
 // Status:
 // 11-Aug-2007 -- Raffaele Nutricato: Author.
 //
@@ -8,6 +16,9 @@ function stackelement = AST_PopASTStack()
 // Contact: raffaele.nutricato@tiscali.it
 // -----------------------------------------------------------------
 
+// ------------------------------
+// --- Check input arguments. ---
+// ------------------------------
 SCI2CNInArgCheck(argn(2),0,0);
 
 global SCI2CSTACK; 

@@ -1,6 +1,17 @@
 function opout = FA_TP_MAX(in1,in2)
 // function opout = FA_TP_MAX(in1,in2)
 // -----------------------------------------------------------------
+// Type-Maximum function for Function Annotations.
+// Returns the maximum between the two data types in input according
+// to a predefined priority. For example z(double complex) is 
+// greater that c(single complex).
+//
+// Input data:
+// in1: string specifying the data type number 1.
+// in2: string specifying the data type number 2.
+//
+// Output data:
+// opout: string containing the computed result.
 //
 // Status:
 // 26-Oct-2007 -- Raffaele Nutricato: Author.
@@ -13,19 +24,11 @@ function opout = FA_TP_MAX(in1,in2)
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-SCI2CNInArgCheck(argn(2),1,2);
+SCI2CNInArgCheck(argn(2),2,2);
 
-
-if (argn(2)==1) then
-select (in1),
-	case 's' then opout = 'c'
-	case 'c' then opout = 'c'
-	else opout = 'z',
-end
-end
-
-
-if (argn(2)==2) then 
+// ------------------------
+// --- Generate Output. ---
+// ------------------------
 in1Pin2 = in1+in2;
 opout = in1;
 
@@ -37,7 +40,6 @@ elseif (in1Pin2 == 'sc')
    opout = 'c';
 elseif (in1Pin2 == 'dc')
    opout = 'z';
-end
 end
 
 endfunction

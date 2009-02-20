@@ -1,6 +1,16 @@
 function OutPath = ConvertPathMat2C(InPath,CPathStyle)
 // function OutPath = ConvertPathMat2C(InPath,CPathStyle)
 // -----------------------------------------------------------------
+// #RNU_RES_B
+// Converts the input path InPath into a path by using the path
+// style specified by CPathStyle.
+// #RNU_RES_E
+//
+// Input data:
+// //NUT: add description here
+//
+// Output data:
+// //NUT: add description here
 //
 // Status:
 // 26-Jan-2008 -- Nutricato Raffaele: Author.
@@ -9,6 +19,9 @@ function OutPath = ConvertPathMat2C(InPath,CPathStyle)
 // Contact: raffaele.nutricato@tiscali.it
 // -----------------------------------------------------------------
 
+// ------------------------------
+// --- Check input arguments. ---
+// ------------------------------
 SCI2CNInArgCheck(argn(2),2,2);
 if (CPathStyle == 'windows')
    OutPath=strsubst(InPath,'/','\');
