@@ -148,9 +148,9 @@ function txt=%variable_string(v)
    else
      if (v.name == 'ans')
         anscounter = anscounter + 1;
-        txt=['Var: '+v.name+string(anscounter)];
+        txt=['Variable: '+v.name+string(anscounter)];
      else
-        txt=['Var: '+v.name];
+        txt=['Variable: '+v.name];
      end
   end
 endfunction

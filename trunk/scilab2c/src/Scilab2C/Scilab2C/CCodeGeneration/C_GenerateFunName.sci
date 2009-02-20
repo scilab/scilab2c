@@ -1,6 +1,13 @@
 function CFunName = C_GenerateFunName(FunctionName,InArg,NInArg,OutArg,NOutArg)
 // function CFunName = C_GenerateFunName(FunctionName,InArg,NInArg,OutArg,NOutArg)
 // -----------------------------------------------------------------
+// //NUT: add description here
+//
+// Input data:
+// //NUT: add description here
+//
+// Output data:
+// //NUT: add description here
 //
 // Status:
 // 26-Oct-2007 -- Raffaele Nutricato: Author.

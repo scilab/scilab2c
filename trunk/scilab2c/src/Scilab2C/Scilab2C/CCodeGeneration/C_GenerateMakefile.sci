@@ -1,6 +1,13 @@
 function C_GenerateMakefile(FileInfo,SharedInfo)
 // function C_GenerateMakefile(FileInfo,SharedInfo)
 // -----------------------------------------------------------------
+// Generate the makefile.
+//
+// Input data:
+// //NUT: add description here
+//
+// Output data:
+// //NUT: add description here
 //
 // Status:
 // 26-Jan-2008 -- Raffaele Nutricato: Author.
@@ -31,17 +38,26 @@ PrintStringInfo('# --- USER PARAMETERS ---',FileInfo.MakefileFilename,'file','y'
 PrintStringInfo('# -----------------------',FileInfo.MakefileFilename,'file','y');
 PrintStringInfo('# --- DIRECTORIES AND FILES ---',FileInfo.MakefileFilename,'file','y');
 if (SharedInfo.CCompilerPathStyle == 'windows')
-   makeobjpath  = FileInfo.CStyleSCI2CMainDir+'\CFiles\sci2cobj';
-   makecsrcdir  = FileInfo.CStyleSCI2CMainDir+'\CFiles\sci2ccode';
-   makehsrcdir  = FileInfo.CStyleSCI2CMainDir+'\CFiles\sci2cincludes';
-   makeisrcdir  = FileInfo.CStyleSCI2CMainDir+'\CFiles\sci2cinterfaces';
+   makeobjpath  = '..\..\..\Scilab2C\CFiles\sci2cobj';
+   // makeobjpath  = FileInfo.CStyleSCI2CMainDir+'\CFiles\sci2cobj';
+   makecsrcdir  = '..\..\..\Scilab2C\CFiles\sci2ccode';
+   // makecsrcdir  = FileInfo.CStyleSCI2CMainDir+'\CFiles\sci2ccode';
+   makehsrcdir  = '..\..\..\Scilab2C\CFiles\sci2cincludes';
+   // makehsrcdir  = FileInfo.CStyleSCI2CMainDir+'\CFiles\sci2cincludes';
+   makeisrcdir  = '..\..\..\Scilab2C\CFiles\sci2cinterfaces';
+   // makeisrcdir  = FileInfo.CStyleSCI2CMainDir+'\CFiles\sci2cinterfaces';
    makesci2cdir = FileInfo.CStyleOutCCCodeDir;
+   // makesci2cdir = FileInfo.CStyleOutCCCodeDir;
 elseif (SharedInfo.CCompilerPathStyle == 'unix' | ...
         SharedInfo.CCompilerPathStyle == 'cygwin')
-   makeobjpath  = FileInfo.CStyleSCI2CMainDir+'/CFiles/sci2cobj';
-   makecsrcdir  = FileInfo.CStyleSCI2CMainDir+'/CFiles/sci2ccode';
-   makehsrcdir  = FileInfo.CStyleSCI2CMainDir+'/CFiles/sci2cincludes';
-   makeisrcdir  = FileInfo.CStyleSCI2CMainDir+'/CFiles/sci2cinterfaces';
+   makeobjpath  = '../../../Scilab2C/CFiles/sci2cobj';
+   // makeobjpath  = FileInfo.CStyleSCI2CMainDir+'/CFiles/sci2cobj';
+   makecsrcdir  = '../../../Scilab2C/CFiles/sci2ccode';
+   // makecsrcdir  = FileInfo.CStyleSCI2CMainDir+'/CFiles/sci2ccode';
+   makehsrcdir  = '../../../Scilab2C/CFiles/sci2cincludes';
+   // makehsrcdir  = FileInfo.CStyleSCI2CMainDir+'/CFiles/sci2cincludes';
+   makeisrcdir  = '../../../Scilab2C/CFiles/sci2cinterfaces';
+   // makeisrcdir  = FileInfo.CStyleSCI2CMainDir+'/CFiles/sci2cinterfaces';
    makesci2cdir = FileInfo.CStyleOutCCCodeDir;
 else
    PrintStringInfo(' ',ReportFileName,'stdout','y');

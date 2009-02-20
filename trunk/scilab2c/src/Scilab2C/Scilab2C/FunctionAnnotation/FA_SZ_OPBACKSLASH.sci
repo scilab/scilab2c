@@ -1,6 +1,8 @@
 function opoutsize = FA_SZ_OPBACKSLASH(in1size,in2size)
 // function opoutsize = FA_SZ_OPBACKSLASH(in1size,in2size)
 // -----------------------------------------------------------------
+// Returns the size of the output computed by OPBACKSLASH operator.
+// 
 //
 // Status:
 // 08-Mar-2008 -- Alberto Morea: Author.

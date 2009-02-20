@@ -5,7 +5,7 @@
 
 // --- CLEAN WORKSPACE ---
 exec full_reset.sce;
-//mode(-1);
+mode(-1);
 
 // --- GENERAL SETTINGS (USER PARAMETERS) ---
 RunsDirectory         = pwd(); // Path of the SCI2CRuns directory
@@ -24,10 +24,10 @@ runscicode(SCI2CInputPrmFileName);
 userchoice = input('Start translation [y/n]?','s');
 if (userchoice == 'y')
    // --- LAUNCH SCI2C ---
-   cd(SCI2CDirectory)
+   cd(SCI2CDirectory);
    getf("runsci2c.sci");
    runsci2c(SCI2CInputPrmFileName);
-   cd(SCI2CDirectory)
+   cd(SCI2CDirectory);
 end
 
 // --- GO BACK TO THE ORIGINAL DIRECTORY. ---

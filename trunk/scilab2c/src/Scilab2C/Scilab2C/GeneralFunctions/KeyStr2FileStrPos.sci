@@ -1,6 +1,25 @@
 function [flag_found,requested_line,line_position] = KeyStr2FileStrPos(filename,key_string,method)
 // function [flag_found,requested_line,line_position] = KeyStr2FileStrPos(filename,key_string,method)
 // --------------------------------------------------------------------------------
+// #RNU_RES_B
+// This function returns a line and its position from a specified ASCII file. 
+// The line and the position returned starts with a key string specified in the 
+// input parameters.
+//
+// Input data:
+// filename: path + name of the ASCII file.
+// key_string: string that specifies the initial portion of the line to return. 
+// method: 'cut': in the returned line will be removed the key_string
+//         'no_cut': (default), in the returned line will not be removed the key_string
+//
+// Output data:
+// flag_found: 0 if the line is not found or an error occured.
+//             1 if the search succeed.
+// requested_line: is the line in the file which contains as first characters those
+//                 specified in the key_string.
+// line_position: position of the line in the file; the first line in the file
+//                is the line number 1.
+// #RNU_RES_E
 // 
 //
 // Status:
@@ -14,6 +33,9 @@ function [flag_found,requested_line,line_position] = KeyStr2FileStrPos(filename,
 // Contact: raffaele.nutricato@tiscali.it
 // -----------------------------------------------------------------
 
+// ------------------------------
+// --- Check input arguments. ---
+// ------------------------------
 SCI2CNInArgCheck(argn(2),2,3);
 
 
@@ -22,10 +44,12 @@ if (argn(2) == 2)
 end
 method = convstr(method, 'u');
 
+// Initialize output parameters
 flag_found = 0;
 requested_line = '';
 line_position = 0;
 
+// Open the text file (read only)
 [fid,mess] = mopen(filename,'r');
 if ( fid == -1 )
    disp(['Cannot open: '+filename])
@@ -34,6 +58,7 @@ if ( fid == -1 )
    return;
 end
 
+// loop on the lines of the file
 num_chars = length(key_string);
 while (meof(fid) == 0)
    check_string = fgetl(fid);

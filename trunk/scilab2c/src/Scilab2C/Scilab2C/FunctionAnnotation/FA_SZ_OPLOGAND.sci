@@ -1,6 +1,7 @@
 function opoutsize = FA_SZ_OPLOGAND(in1size,in2size)
 // function opoutsize = FA_SZ_OPLOGAND(in1size,in2size)
 // -----------------------------------------------------------------
+// Alias of FA_SZ_OPDOTSTAR.
 // 
 //
 // Status:

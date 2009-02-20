@@ -1,6 +1,13 @@
 function C_InitHeader(C_Prototype,HeaderFileName,Sci2CLibMainHeaderFName)
 // function C_InitHeader(C_Prototype,HeaderFileName,Sci2CLibMainHeaderFName)
 // -----------------------------------------------------------------
+// //NUT: add description here
+//
+// Input data:
+// //NUT: add description here
+//
+// Output data:
+// //NUT: add description here
 //
 // Status:
 // 27-Oct-2007 -- Raffaele Nutricato: Author.
@@ -9,7 +16,17 @@ function C_InitHeader(C_Prototype,HeaderFileName,Sci2CLibMainHeaderFName)
 // Contact: raffaele.nutricato@tiscali.it
 // -----------------------------------------------------------------
 
+// ------------------------------
+// --- Check input arguments. ---
+// ------------------------------
 SCI2CNInArgCheck(argn(2),3,3);
+
+// -----------------------
+// --- Initialization. ---
+// -----------------------
+// ---------------------------
+// --- End Initialization. ---
+// ---------------------------
 
       
 C_SCI2CHeader(HeaderFileName);
