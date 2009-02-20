@@ -166,7 +166,7 @@ static void zlogmaTest(void){
 				fabs(zimags(out16[i])-result16I[i]) / fabs(zimags(out16[i])));
 		
 		assert( fabs(zreals(out16[i])-result16R[i]) / fabs(zreals(out16[i])) <1e-13);
-
+		assert( fabs(zimags(out16[i])-result16I[i]) / fabs(zimags(out16[i])) <1);
 	}
 	
 	for(i=0;i<16;i++) {

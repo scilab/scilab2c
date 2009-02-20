@@ -21,7 +21,7 @@ double ddista(double* in1,double* in2, int lines, int columns){
 	int i=0;
 	double out=0;
 	double *a, *at, *mul;
-	doubleComplex *eigenvalues;
+	doubleComplex *eigenvalues,*mulCpx;
 	
 	
 	/* FIXME : malloc here*/
@@ -29,11 +29,13 @@ double ddista(double* in1,double* in2, int lines, int columns){
 	at=malloc((uint)(lines*columns)*sizeof(double));
 	mul=malloc((uint)(lines*lines)*sizeof(double));
 	eigenvalues=malloc((uint)(lines)*sizeof(doubleComplex));
+	mulCpx=malloc((uint)(lines*lines)*sizeof(doubleComplex));
 		
 	for (i=0;i<lines*columns;i++) a[i]=in1[i]-in2[i];
 	dtransposea(a,lines, columns,at);
 	dmulma(a,lines,columns,at,columns,lines,mul);
-	dspeca(mul,lines,eigenvalues);
+	for (i=0;i<lines*lines;i++) mulCpx[i]=DoubleComplex(mul[i],0);
+	zspeca(mulCpx,lines,eigenvalues);
 	zsqrta(eigenvalues,lines,eigenvalues);
 	
 	/* Research of the higher value of eigenvalues*/
@@ -45,6 +47,7 @@ double ddista(double* in1,double* in2, int lines, int columns){
 	free(at);
 	free(mul);
 	free(eigenvalues);
+	free(mulCpx);
 	
 	return out;
 }
