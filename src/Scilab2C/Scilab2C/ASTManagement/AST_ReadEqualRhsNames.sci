@@ -1,6 +1,14 @@
 function [RhsNames,RhsScope,NRhs] = AST_ReadEqualRhsNames(FileInfo,SharedInfo)
 // function [RhsNames,RhsScope,NRhs] = AST_ReadEqualRhsNames(FileInfo,SharedInfo)
 // -----------------------------------------------------------------
+// //NUT: add description here
+//
+// Input data:
+// //NUT: add description here
+//
+// Output data:
+// //NUT: add description here
+//
 // Status:
 // 11-Apr-2007 -- Raffaele Nutricato: Author.
 //
@@ -24,6 +32,10 @@ global SCI2CSTACK
 global StackPosition;
 global STACKDEDUG
 
+//#RNU_RES_B
+PrintStringInfo(' ',ReportFileName,'file','y');
+PrintStringInfo('***Reading Equal Rhs Names***',ReportFileName,'file','y');
+//#RNU_RES_E
 
 // -------------------------------
 // --- Read Output parameters. ---
@@ -41,6 +53,7 @@ end
 RhsNames = SCI2Cflipud(RhsNames);
 RhsScope = SCI2Cflipud(RhsScope);
 
+// --- Repush everything into the stack. ---
 for cntpush = cntpop:-1:1
    AST_PushASTStack(RhsField(cntpush));
 end

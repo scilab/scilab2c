@@ -1,6 +1,14 @@
 function AST_CheckLineLength(instring)
 // function AST_CheckLineLength(instring)
 // -----------------------------------------------------------------
+// "Fixes" the AST generator bug. When a line of code is greater
+// than 80 chars the generated AST is wrong.
+//
+// Input data:
+// instring: string read from the AST.
+//
+// Output data:
+// ---
 //
 // Status:
 // 15-May-2008 -- Raffaele Nutricato: Author.

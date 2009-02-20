@@ -3,6 +3,15 @@ function [TBFlagfound,TBType,TBSize,TBValue,TBFindLike,TBDimension] = ...
 // function [TBFlagfound,TBType,TBSize,TBValue,TBFindLike,TBDimension] = ...
 //    ST_Get(Field_Name,SymbolTableFileName)
 // -----------------------------------------------------------------
+// #RNU_RES_B
+// Get function for the symbol table.
+//
+// #RNU_RES_E
+// Input data:
+// //NUT: add description here
+//
+// Output data:
+// //NUT: add description here
 //
 // Status:
 // 26-Oct-2007 -- Raffaele Nutricato: Author.
@@ -12,14 +21,23 @@ function [TBFlagfound,TBType,TBSize,TBValue,TBFindLike,TBDimension] = ...
 // Contact: raffaele.nutricato@tiscali.it
 // -----------------------------------------------------------------
 
+// ------------------------------
+// --- Check input arguments. ---
+// ------------------------------
 SCI2CNInArgCheck(argn(2),2,2);
 
+// --------------------------
+// --- Load Symbol Table. ---
+// --------------------------
 [tmpnams,tmptyps,tmpdims,tmpvols]=listvarinfile(SymbolTableFileName);
 if (max(size(tmpnams)) > 1)
     SCI2Cerror('More than one variable found in ""'+SymbolTableFileName+'"".');
 end
 load(SymbolTableFileName,tmpnams);
 SCI2CSymbolTable = eval(tmpnams);
+// ------------------------------
+// --- End Load Symbol Table. ---
+// ------------------------------
 
 TBFlagfound = 0;
 TBType      = '';

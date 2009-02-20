@@ -1,6 +1,13 @@
 function [LhsArgNames,LhsArgScope,NLhsArg] = AST_CheckLastFunc(fidAST,SearchLevel)
 // function [LhsArgNames,LhsArgScope,NLhsArg] = AST_CheckLastFunc(fidAST,SearchLevel)
 // -----------------------------------------------------------------
+// //NUT: add description here
+//
+// Input data:
+// //NUT: add description here
+//
+// Output data:
+// //NUT: add description here
 //
 // Status:
 // 11-Apr-2007 -- Raffaele Nutricato: Author.
@@ -27,6 +34,9 @@ FlagLastFunc = 0;
 // --- End Initialization. ---
 // ---------------------------
 
+//NUT: non capisco come mai tu non faccia il flipud degli argometi letti.
+//NUT: Level 1 e' quando abbiamo una equal float fun
+//NUT: level 0 quando abbiamo equal fun
 tline = mgetl(fidAST,1);
 AST_CheckLineLength(tline);
 LhsField = stripblanks(tline);
@@ -48,6 +58,8 @@ if ((SearchLevel == 0) & (LhsField == 'Lhs       :'))
          SCI2Cerror('Found EndProgram before EndEqual');
       end
       if (LhsField == 'Operation')
+         // if (LhsField == 'Operator: ins')
+         // It means that we have to store the results of the function in temp vars.
          LhsField = 'EndEqual'; // Force the exit from the while.
          NLhsArg  = 0;
          LhsArgNames = '';

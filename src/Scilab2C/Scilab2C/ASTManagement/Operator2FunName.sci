@@ -1,5 +1,17 @@
 function FunName = Operator2FunName(OperatorName);
 // -----------------------------------------------------------------
+// Returns the function name corresponding to the input operator.
+// From intmacr2tree.c we have:
+//   char *operators[]={"+","-","*",".*","*.",".*.","/","./","/.","./.",
+//	       "\\",".\\","\\.",".\\.","^","==","<",">","<=",">=","~=",
+// 	       ":","rc","ins","ext","'","cc","|","&","~",".^",".'","cceol"};
+// I also added "<>".
+//
+// Input data:
+// //NUT: add description here
+//
+// Output data:
+// //NUT: add description here
 //
 // Status:
 // 29-May-2007 -- Nutricato Raffaele: Changed code into a function.
@@ -8,7 +20,12 @@ function FunName = Operator2FunName(OperatorName);
 // Contact: raffaele.nutricato@tiscali.it
 // -----------------------------------------------------------------
 
+//NUT: non e' inserito il "\" verifica come mai.
+//NUT: il ".\" l'ho inserito io
 
+// ------------------------------
+// --- Check input arguments. ---
+// ------------------------------
 SCI2CNInArgCheck(argn(2),1,1);
 
 FuncPrefix = 'Op';

@@ -1,6 +1,20 @@
 function AST_CheckCommonInOutArgs(InArg,NInArg,OutArg,NOutArg,ReportFileName)
 // function AST_CheckCommonInOutArgs(InArg,NInArg,OutArg,NOutArg,ReportFileName)
 // -----------------------------------------------------------------
+// #RNU_RES_B
+// Compares input and output arguments names and issues and error
+// when at least one output argument is equal to the one of the
+// input arguments. The error is issued only when the common argument
+// is not a scalar value. This is a safe approach that prevents error
+// when the same matrix is used as both input and output argument of
+// a function. 
+// #RNU_RES_E
+//
+// Input data:
+// //NUT: add description here
+//
+// Output data:
+// //NUT: add description here
 //
 // Status:
 // 08-Jan-2008 -- Raffaele Nutricato: Author.
@@ -17,6 +31,10 @@ SCI2CNInArgCheck(argn(2),5,5);
 ncommonstrings = 0;
 commonstrings  = '';
 
+//RNU non mi ricordo per quale motivo avevo commentato il seguente codice 
+//RNU e decommentato l'altro a seguire. Sembra che avessi deciso che anche
+//RNU le variabili scalari non potessero essere usate nella stessa expr
+//RNU contemporaneamente come input e come output
 for cnt1 = 1:NInArg
    for cnt2 = 1:NOutArg
       if ((InArg(cnt1).Name == OutArg(cnt2).Name) & ...
@@ -27,6 +45,14 @@ for cnt1 = 1:NInArg
    end
 end
 
+// for cnt1 = 1:NInArg
+//    for cnt2 = 1:NOutArg
+//       if ((InArg(cnt1).Name == OutArg(cnt2).Name))
+//          ncommonstrings = ncommonstrings + 1;
+//          commonstrings(ncommonstrings) = InArg(cnt1).Name;
+//       end
+//    end
+// end
 
 if (ncommonstrings > 0)
    PrintStringInfo(' ',ReportFileName,'both','y');

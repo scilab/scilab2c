@@ -1,6 +1,25 @@
 function [FunctionName,InArg,NInArg,OutArg,NOutArg] = AST_ParseEqualStruct(FileInfo,SharedInfo)
 // function [FunctionName,InArg,NInArg,OutArg,NOutArg] = AST_ParseEqualStruct(FileInfo,SharedInfo)
 // -----------------------------------------------------------------
+//#RNU_RES_B
+// Parses the Equal structure of the AST.
+// Structure of Equal:
+//  txt=['Equal'
+//       '  Expression: '
+//       '    '+string(e.expression)
+//       '  Lhs       : '
+//       '     '+objectlist2string(e.lhs)
+//       'EndEqual'
+//      ]
+//#RNU_RES_E
+//
+//
+// Input data:
+// //NUT: add description here
+//
+// Output data:
+// //NUT: add description here
+//
 // Status:
 // 11-Apr-2007 -- Raffaele Nutricato: Author.
 //
@@ -24,6 +43,10 @@ global SCI2CSTACK
 global StackPosition;
 global STACKDEDUG
 
+//#RNU_RES_B
+PrintStringInfo(' ',ReportFileName,'file','y');
+PrintStringInfo('***Reading AST***',ReportFileName,'file','y');
+//#RNU_RES_E
 
 // -------------------------------
 // --- Read Output parameters. ---
@@ -62,27 +85,33 @@ end
 InputArgumentNames = SCI2Cflipud(InputArgumentNames);
 InputArgumentScope = SCI2Cflipud(InputArgumentScope);
 
+//#RNU_RES_B
 // ------------------------------
 // --- Extract function name. ---
 // ------------------------------
+//#RNU_RES_E
 FunctionName = AST_PopASTStack();
 if (FunctionName ~= 'Equal') then
    SCI2Cerror('Problems with Equal, Expected Equal tag.');
 end
 FunctionName = 'OpEqual';
 
+//#RNU_RES_B
 // -------------------------------------
 // --- Generate the InArg structure. ---
 // -------------------------------------
+//#RNU_RES_E
 InArg = [];
 for counterinputargs = 1:NInArg
    InArg(counterinputargs).Name=InputArgumentNames(counterinputargs);
    InArg(counterinputargs).Scope=InputArgumentScope(counterinputargs);
 end
 
+//#RNU_RES_B
 // -------------------------------------
 // --- Generate the InArg structure. ---
 // -------------------------------------
+//#RNU_RES_E
 OutArg = [];
 for counteroutputargs = 1:NOutArg
    OutArg(counteroutputargs).Name=OutputArgumentNames(counteroutputargs);
@@ -92,11 +121,45 @@ end
 // ------------------------
 // --- Print Some Info. ---
 // ------------------------
+//#RNU_RES_B
+PrintStringInfo('Function Name: '+FunctionName,ReportFileName,'file','y');
+PrintStringInfo('N Intput Arguments: '+string(NInArg),ReportFileName,'file','y');
+//#RNU_RES_E
 if (SharedInfo.Equal.Nins > 0)
+   //#RNU_RES_B
+   PrintStringInfo('N ins functions: '+string(SharedInfo.Equal.Nins),ReportFileName,'file','y');
+   //#RNU_RES_E
+   for counterinputargs = 1:NInArg
+      //#RNU_RES_B
+      PrintStringInfo('Input Argument Number '+string(counterinputargs)+': '+InArg(counterinputargs).Name,...
+         ReportFileName,'file','y');
+      PrintStringInfo('   Scope: '+InArg(counterinputargs).Scope,...
+         ReportFileName,'file','y');
+      //#RNU_RES_E
+   end
    if (NInArg ~= SharedInfo.Equal.Nins)
      SCI2CerrorFile('Number of input arguments must be equal to number of ins functions.',ReportFileName);
    end
 else
+   //#RNU_RES_B
+   PrintStringInfo('N Output Arguments: '+string(NOutArg),ReportFileName,'file','y');
+   //#RNU_RES_E
+   for counterinputargs = 1:NInArg
+      //#RNU_RES_B
+      PrintStringInfo('Input Argument Number '+string(counterinputargs)+': '+InArg(counterinputargs).Name,...
+         ReportFileName,'file','y');
+      PrintStringInfo('   Scope: '+InArg(counterinputargs).Scope,...
+         ReportFileName,'file','y');
+      //#RNU_RES_E
+   end
+   for counteroutputargs = 1:NOutArg
+      //#RNU_RES_B
+      PrintStringInfo('Output Argument Number '+string(counteroutputargs)+': '+OutArg(counteroutputargs).Name,...
+         ReportFileName,'file','y');
+      PrintStringInfo('   Scope: '+OutArg(counterinputargs).Scope,...
+         ReportFileName,'file','y');
+      //#RNU_RES_E
+   end
    if (NInArg ~= NOutArg)
      SCI2CerrorFile('Number of input arguments must be equal to number of output arguments.',ReportFileName);
    end

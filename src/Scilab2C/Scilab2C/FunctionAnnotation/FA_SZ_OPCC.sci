@@ -1,6 +1,8 @@
 function opoutsize = FA_SZ_OPCC(in1size,in2size)
 // function opoutsize = FA_SZ_OPCC(in1size,in2size)
 // -----------------------------------------------------------------
+// Returns the size of the output computed by OPCC operator.
+// 
 //
 // Status:
 // 08-Mar-2008 -- Raffaele Nutricato: Author.
@@ -30,7 +32,7 @@ if (SCI2Cisnum(in1size(1)) & SCI2Cisnum(in2size(1)))
    in2num = eval(in2size(1));
    opoutsize(1) = string(in1num+in2num);
 else  
-   opoutsize(1) = string(in1size(1))+'+'+string(in2size(1));
+   opoutsize(1) = '('+string(in1size(1))+'+'+string(in2size(1))+')';
 end
 
 opoutsize(2) = in1size(2);

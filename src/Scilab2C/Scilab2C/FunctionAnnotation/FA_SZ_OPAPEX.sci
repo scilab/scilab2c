@@ -1,6 +1,8 @@
 function opoutsize = FA_SZ_OPAPEX(in1size)
 // function opoutsize = FA_SZ_OPAPEX(in1size)
 // -----------------------------------------------------------------
+// Returns the size of the output computed by OPAPEX operator.
+// 
 //
 // Status:
 // 08-Jan-2008 -- Raffaele Nutricato: Author.

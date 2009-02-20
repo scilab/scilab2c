@@ -1,6 +1,15 @@
 function AST_DisplayStack()
 // function AST_DisplayStack()
 // -----------------------------------------------------------------
+// Displays the AST stack content. The AST stack is used to read the
+// AST.
+//
+// Input data:
+// ---
+//
+// Output data:
+// //NUT: add description here
+//
 // Status:
 // 11-Apr-2007 -- Raffaele Nutricato: Author.
 //

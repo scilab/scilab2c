@@ -1,6 +1,13 @@
 function C_SCI2CHeader(FileName)
 // function C_SCI2CHeader(FileName)
 // -----------------------------------------------------------------
+// //NUT: add description here
+//
+// Input data:
+// //NUT: add description here
+//
+// Output data:
+// //NUT: add description here
 //
 // Status:
 // 21-Dec-2007 -- Raffaele Nutricato: Author.
@@ -9,7 +16,17 @@ function C_SCI2CHeader(FileName)
 // Contact: raffaele.nutricato@tiscali.it
 // -----------------------------------------------------------------
 
+// ------------------------------
+// --- Check input arguments. ---
+// ------------------------------
 SCI2CNInArgCheck(argn(2),1,1);
+
+// -----------------------
+// --- Initialization. ---
+// -----------------------
+// ---------------------------
+// --- End Initialization. ---
+// ---------------------------
 
       
 PrintStringInfo('/*',FileName,'file','y');

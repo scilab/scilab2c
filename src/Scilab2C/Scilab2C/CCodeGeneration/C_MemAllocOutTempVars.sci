@@ -1,6 +1,13 @@
-function C_MemAllocOutTempVars(OutArg,NOutArg,CPass1FileName,CPass1FreeFileName,IndentLevel,ReportFileName)
-// function C_MemAllocOutTempVars(OutArg,NOutArg,CPass1FileName,CPass1FreeFileName,IndentLevel,ReportFileName)
+function C_MemAllocOutTempVars(OutArg,NOutArg,CPass1FileName,CPass1FreeFileName,IndentLevel,ReportFileName,ResizeApproach)
+// function C_MemAllocOutTempVars(OutArg,NOutArg,CPass1FileName,CPass1FreeFileName,IndentLevel,ReportFileName,ResizeApproach)
 // -----------------------------------------------------------------
+// //NUT: add description here
+//
+// Input data:
+// //NUT: add description here
+//
+// Output data:
+// //NUT: add description here
 //
 // Status:
 // 27-Oct-2007 -- Raffaele Nutricato: Author.
@@ -13,15 +20,30 @@ function C_MemAllocOutTempVars(OutArg,NOutArg,CPass1FileName,CPass1FreeFileName,
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-SCI2CNInArgCheck(argn(2),6,6);
+SCI2CNInArgCheck(argn(2),7,7);
 
+// #RNU_RES_B
 PrintStringInfo(' ',ReportFileName,'file','y');
 PrintStringInfo('***Allocating memory for temp variables***',ReportFileName,'file','y');
+// #RNU_RES_E
 
+// #RNU_RES_B
 // --- Allocate memory and size array for output arguments. ---
+// #RNU_RES_E
 for counterout = 1:NOutArg
    if (OutArg(counterout).Dimension > 0)
-      if ((OutArg(counterout).FindLike == -1) | (SCI2Cisnum(OutArg(counterout).Size(1))==%F) | (SCI2Cisnum(OutArg(counterout).Size(2))==%F))
+      // #RNU_RES_B
+      // if ((OutArg(counterout).Scope == 'Temp') | (OutArg(counterout).FindLike == -1) | ...
+      //     (SCI2Cisnum(OutArg(counterout).Size(1))==%F) | (SCI2Cisnum(OutArg(counterout).Size(2))==%F))
+      //NUT: qui forse ci vuole un check per verificare se per caso la variabile e' globale e non se ne conosce la size numerica.
+      //NUT infatti. Per ora se la size numerica assumo che la variabile globale e' da reallocare. Secondo me occorre aggiungere
+      //NUT un campo negli argomenti che specifichi la presenza di realloc da fare.
+      //NUT: ho tolto il check sulle temp perche' se una temp ha size numerica non voglio fare malloc.
+      //RNU sulle stringhe ancora non applico realloc
+      // #RNU_RES_E
+      if ((OutArg(counterout).FindLike == -1) | ...
+          (SCI2Cisnum(OutArg(counterout).Size(1))==%F) | (SCI2Cisnum(OutArg(counterout).Size(2))==%F)| ...
+          (ResizeApproach=='REALLOC_ALL_RESIZE_ALL' & OutArg(counterout).Type ~= 'g'))
          OutArgName = OutArg(counterout).Name;
          tmpcode = '__'+OutArgName+'Size[0]='+OutArg(counterout).Size(1)+';';
          PrintStringInfo(C_IndentBlanks(IndentLevel)+tmpcode,CPass1FileName,'file','y');

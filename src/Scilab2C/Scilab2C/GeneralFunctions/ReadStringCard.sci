@@ -1,6 +1,25 @@
 function cardvalue = ReadStringCard(filename,cardname,commentdelim,enableerror)
 // function cardvalue = ReadStringCard(filename,cardname,commentdelim,enableerror)
 // -----------------------------------------------------------------
+// #RNU_RES_B
+// Reads the string associated to the card cardname placed 
+// in filename.
+// The value of cardname is assumed to be a string.
+// If the card is not found an error will occur.
+// 
+// Input data:
+// filename: full path + name of the file where the card
+//           is being searched.
+// cardname: string with the name of the card.
+// commentdelim: specifies a character for an eventual comment
+//               (to be discarded) after the card value.
+// enableerror: 'y' enable error message.
+//              'n' enable warning message.
+//
+// Output data:
+// cardvalue: string associated to the card. Blanks characters 
+//            are discarded.
+// #RNU_RES_E
 //
 // Status:
 // 06-Feb-2004 -- Nutricato Raffaele: Author.
@@ -13,6 +32,9 @@ function cardvalue = ReadStringCard(filename,cardname,commentdelim,enableerror)
 // Contact: raffaele.nutricato@tiscali.it
 // -----------------------------------------------------------------
 
+// ------------------------------
+// --- Check input arguments. ---
+// ------------------------------
 SCI2CNInArgCheck(argn(2),2,3);
 
 if argn(2) == 2 then

@@ -1,6 +1,13 @@
 function AST2Ccode(FileInfoDatFile)
 // function AST2Ccode(FileInfoDatFile)
 // -----------------------------------------------------------------
+// Read the AST and call the corresponding handlers.
+// 
+// Input data:
+// //NUT: add description here
+//
+// Output data:
+// //NUT: add description here
 //
 // Status:
 // 11-May-2007 -- Raffaele Nutricato: Author.
@@ -74,6 +81,9 @@ PrintStepInfo('Generate C code in '+FileInfo.Funct(nxtscifunnumber).FinalCFileNa
 // ------------------------
 ASTHeader  = AST_ReadASTHeader(fidAST,ReportFileName);
 SharedInfo = AST_HandleHeader(ASTHeader,FileInfo,SharedInfo);
+//NUT: le metto per ora perche' quando provo a cercare lo specifier di precisione al termine
+//NUT: del programma non ho piu' nulla da poppare se lo specifier e' assente. Al limite posso mettere la program e i nomi
+//NUT: al posto di dummy.
 AST_PushASTStack('Dummy');
 AST_PushASTStack('Dummy');
 AST_PushASTStack('Dummy');
@@ -82,18 +92,25 @@ AST_PushASTStack('Dummy');
 AST_PushASTStack('Dummy');
 AST_PushASTStack('Dummy');
 AST_PushASTStack('Dummy');
+//NUT: Se ne tolgo qualcuno ottengo errori 
 // ----------------------------
 // --- End Parse AST header. ---
 // ----------------------------
+         //NUT: better to have a function.
 
+         // --- Reset TempVars Structure. ---
          TempVars = [];
+         // Reset info related to temp variables used in the C code.
          SharedInfo.WorkAreaUsedBytes  = OrigWorkAreaUsedBytes;
          SharedInfo.UsedTempScalarVars = OrigUsedTempScalarVars;
+         //NUT: put here a manageeol so that you can have all the save and load you want.
          SharedInfo.ASTReader.UsedTempVars = 0;        
 
 // ----------------------------------
 // --- Main loop to read the AST. ---
 // ----------------------------------
+//NUT: file ottenuto con m2sci se hai tempo prova a vedere se ci sono inesattezze.
+//NUT: inoltre per maggiore eleganza si puo' pensare di introdurre piu' funzioni
 
 while ~meof(fidAST)
    // Read a line from the AST
@@ -111,6 +128,8 @@ while ~meof(fidAST)
       // ------------------
       // --- Functions. ---
       // ------------------
+      //NUT: qui puoi anche aggiunger piu' case per specificare meglio la struttura della funcall
+      //NUT: i case aggiunti ovviamente faranno solo il push della treeline.
       case 'EndOperation' then 
          [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,'Operation');
       case 'EndFuncall' then
@@ -120,6 +139,10 @@ while ~meof(fidAST)
       // --- Equal. ---
       // --------------
       case 'EndEqual' then 
+      //NUT: prima di lanciare l'analisi della equal puoi mettere degli argomenti dummy
+      //NUT: per fare in modo di coprire le ins, anche se ci puo' essere qualche rischio quando
+      //NUT: ho miste ins e variabili, per esempio [c(1,1), a] = twooutfun();
+      //NUT: in questo caso solo una delle due equal va scartata.
          [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,'Equal');
          SharedInfo = INIT_SharedInfoEqual(SharedInfo);
       case 'Equal' then 
@@ -140,7 +163,6 @@ while ~meof(fidAST)
       // ----------------
       //NUT: da verificare la gestione dello stack
       case 'If Statements' then
-         error('IF NOT SUPPORTED YET');
          [FileInfo,SharedInfo] = AST_HandleIfElse(FileInfo,SharedInfo,'if');
       case 'Else If Expression' then
          AST_PushASTStack(treeline);
@@ -168,12 +190,13 @@ while ~meof(fidAST)
       // -----------------
       case 'EndProgram'
          SharedInfo = AST_HandleEndProgram(FileInfo,SharedInfo);
+         //NUT: per essere precisi si puo' pensare di mettere un check 
+         //NUT: alla fine dell'albero per accertarsi che c'e' end program li' dove ce lo aspettiamo
          
       // ------------
       // --- For. ---
       // ------------
       case 'For' then 
-         error('FOR NOT SUPPORTED YET');
          SharedInfo.For.Level = SharedInfo.For.Level + 1;
          FileInfo = AST_HandleFor(FileInfo,SharedInfo);
       case 'ForExpression:'
@@ -189,7 +212,6 @@ while ~meof(fidAST)
       // --- While. ---
       // --------------
       case 'While' then 
-         error('WHILE NOT SUPPORTED YET');
          AST_PushASTStack(treeline);
          SharedInfo.While.Level = SharedInfo.While.Level + 1;
       case 'WhileExpression:'

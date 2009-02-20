@@ -1,6 +1,13 @@
 function OutC_Type = C_Type(ArgType)
 // function OutC_Type = C_Type(ArgType)
 // -----------------------------------------------------------------
+// //NUT: add description here
+//
+// Input data:
+// //NUT: add description here
+//
+// Output data:
+// //NUT: add description here
 //
 // Status:
 // 27-Oct-2007 -- Raffaele Nutricato: Author.
@@ -9,6 +16,9 @@ function OutC_Type = C_Type(ArgType)
 // Contact: raffaele.nutricato@tiscali.it
 // -----------------------------------------------------------------
 
+// ------------------------------
+// --- Check input arguments. ---
+// ------------------------------
 SCI2CNInArgCheck(argn(2),1,1);
 
 if (ArgType == 's')

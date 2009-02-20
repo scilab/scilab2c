@@ -1,6 +1,14 @@
 function opout = FA_DIV(in1,in2)
 // function opout = FA_DIV(in1,in2)
 // -----------------------------------------------------------------
+// Division function for Function Annotations.
+//
+// Input data:
+// in1: string specifying a number or a symbol.
+// in2: string specifying a number or a symbol.
+//
+// Output data:
+// opout: string containing the computed result.
 //
 // Status:
 // 26-Oct-2007 -- Raffaele Nutricato: Author.
@@ -10,8 +18,14 @@ function opout = FA_DIV(in1,in2)
 // Contact: raffaele.nutricato@tiscali.it
 // -----------------------------------------------------------------
 
+// ------------------------------
+// --- Check input arguments. ---
+// ------------------------------
 SCI2CNInArgCheck(argn(2),2,2);
 
+// ------------------------
+// --- Generate Output. ---
+// ------------------------
 if (SCI2Cisnum(in1) & SCI2Cisnum(in2))
    in1num = eval(in1);
    in2num = eval(in2);
@@ -22,6 +36,6 @@ if (SCI2Cisnum(in1) & SCI2Cisnum(in2))
       opout  = string(outnum);
    end
 else
-   opout  = string(in1)+'/'+string(in2);
+   opout  = '('+string(in1)+'/'+string(in2)+')';
 end   
 endfunction
