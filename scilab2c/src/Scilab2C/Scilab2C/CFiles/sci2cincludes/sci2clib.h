@@ -8,7 +8,6 @@
 #include "doubleComplex.h"
 #include "floatComplex.h"
 #include "RealToComplex.h"
-#include "OpDotHat.h"
 #include "OpEqual.h"
 #include "OpIns.h"
 #include "OpExt.h"
@@ -116,6 +115,7 @@
 #include "int_log1p.h"
 /* interfacing pow */
 #include "pow.h"
+#include "matrixPow.h"
 #include "int_OpHat.h"
 #include "int_OpDotHat.h"
 /* interfacing sin */
