@@ -15,18 +15,21 @@
 #include "pow.h"
 #include "matrixTranspose.h"
 #include "conj.h"
+#include "zeros.h"
 #include "matrixInversion.h"
 #include "matrixMultiplication.h"
 
-void spowma(float* in, int rows, float power, floatComplex* out){
+void spowma(float* in, int rows, float power, float* out){
 	int i=0, j=0;
 	int symmetric=0;
 	floatComplex *eigenvalues,*eigenvectors,*tmp;
+	float* ZEROS;
 	
 	/* Data initialization */
 	eigenvalues = malloc((uint)(rows*rows)*sizeof(floatComplex));
 	eigenvectors = malloc((uint)(rows*rows)*sizeof(floatComplex));
 	tmp = malloc((uint)(rows*rows)*sizeof(floatComplex));
+	ZEROS = malloc((uint)(rows*rows)*sizeof(float));
 	
 	/* symmetric test*/
 	for(i=0;i<rows;i++) {
@@ -38,9 +41,11 @@ void spowma(float* in, int rows, float power, floatComplex* out){
 	
 	if ((i==rows)&&(j==rows)) symmetric=1;
 	
+	szerosa(ZEROS,rows,rows);
+	tmp = FloatComplexMatrix(in,ZEROS,rows*rows);
 	
 	/* find eigenvalues and eigenvectors */
-	sspec2a(in, rows, eigenvalues,eigenvectors);
+	cspec2a(tmp, rows, eigenvalues,eigenvectors);
 	
 	/* make operation on eigenvalues and eigenvectors */
 	for (i=0;i<rows;i++)
@@ -54,7 +59,10 @@ void spowma(float* in, int rows, float power, floatComplex* out){
 	}
 	else cinverma(eigenvectors, eigenvalues, rows);
 	
-	cmulma(tmp, rows, rows, eigenvalues, rows, rows, out);
+	cmulma(tmp, rows, rows, eigenvalues, rows, rows, eigenvectors);
+	
+	for (i=0;i<rows*rows;i++) out[i]=creals(eigenvectors[i]);
+	
 	
 	free(eigenvalues);
 	free(eigenvectors);
