@@ -15,19 +15,22 @@
 #include "pow.h"
 #include "matrixTranspose.h"
 #include "conj.h"
+#include "zeros.h"
 #include "matrixInversion.h"
 #include "matrixMultiplication.h"
 #include <stdio.h>
 
-void dpowma(double* in, int rows, double power, doubleComplex* out){
+void dpowma(double* in, int rows, double power, double* out){
 	int i=0, j=0;
 	int symmetric=0;
 	doubleComplex *eigenvalues,*eigenvectors,*tmp;
+	double* ZEROS;
 	
 	/* Data initialization */
 	eigenvalues = malloc((uint)(rows*rows)*sizeof(doubleComplex));
 	eigenvectors = malloc((uint)(rows*rows)*sizeof(doubleComplex));
 	tmp = malloc((uint)(rows*rows)*sizeof(doubleComplex));
+	ZEROS=malloc((uint)(rows*rows)*sizeof(double));
 	
 	/* symmetric test*/
 	for(i=0;i<rows;i++) {
@@ -40,8 +43,11 @@ void dpowma(double* in, int rows, double power, doubleComplex* out){
 	if ((i==rows)&&(j==rows)) symmetric=1;
 	
 	
+	
+	dzerosa(ZEROS,rows,rows);
+	tmp = DoubleComplexMatrix(in,ZEROS,rows*rows);
 	/* find eigenvalues and eigenvectors */
-	dspec2a(in, rows, eigenvalues,eigenvectors);
+	zspec2a(tmp, rows, eigenvalues,eigenvectors);
 /*	for (i=0;i<rows*rows;i++) printf("%f+%f*i\n",zreals(eigenvalues[i]),zimags(eigenvalues[i])); */
 	/* make operation on eigenvalues and eigenvectors */
 	for (i=0;i<rows;i++)
@@ -55,7 +61,9 @@ void dpowma(double* in, int rows, double power, doubleComplex* out){
 	}
 	else zinverma(eigenvectors, eigenvalues, rows);
 	
-	zmulma(tmp, rows, rows, eigenvalues, rows, rows, out);
+	zmulma(tmp, rows, rows, eigenvalues, rows, rows, eigenvectors);
+	
+	for (i=0;i<rows*rows;i++) out[i]=zreals(eigenvectors[i]);
 	
 	free(eigenvalues);
 	free(eigenvectors);
