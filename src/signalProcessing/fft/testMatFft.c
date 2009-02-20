@@ -101,8 +101,74 @@
 #define RRESULT9 {45,-4.5,-4.5,-13.5,0,0,-13.5,0,0}
 
 #define IRESULT9 {0,2.598076211353316011810,- 2.598076211353316011810,7.7942286340599471472501,0,0,- 7.7942286340599471472501,0,0}       
- 
-static int testFft(void){
+
+static void dfftmaTest(void){
+	int i;
+	
+	double in1[]=test1;
+	double in2[]=test2;
+	double in3[]=test3;
+	double in4[]=test4;
+	double in6[]=test6;
+	double in9[]=test9;
+
+	double resR1[]=RRESULT1;
+	double resR2[]=RRESULT2;
+	double resR3[]=RRESULT3;
+	double resR4[]=RRESULT4;
+	double resR6[]=RRESULT6;
+	double resR9[]=RRESULT9;
+	
+	double out1[12], out2[12], out3[12], out4[12], out6[12], out9[9];
+
+
+	printf(" >>> Matrice 1*12 <<< \n");
+	dfftma(in1, 1, 12, out1);
+	for (i=0;i<12;i++){
+	if (out1[i]>1e-14)	assert( (fabs(out1[i]-resR1[i]) / fabs(out1[i])) < 1e-14 );
+	else			assert(1);
+	}
+
+	printf(" >>> Matrice 2*6 <<< \n");
+	dfftma(in2, 2, 6, out2);
+	for (i=0;i<12;i++){
+	if (out2[i]>1e-14)	assert( (fabs(out2[i]-resR2[i]) / fabs(out2[i])) < 1e-14 );
+	else			assert(1);
+	}
+	
+
+	printf(" >>> Matrice 3*4 <<< \n");	
+	dfftma(in3, 3, 4, out3);
+	for (i=0;i<12;i++){	
+	if (out3[i]>1e-14)	assert( (fabs(out3[i]-resR3[i]) / fabs(out3[i])) < 1e-14 );
+	else			assert(1);
+	}
+
+	printf(" >>> Matrice 4*3 <<< \n");	
+	dfftma(in4, 4, 3, out4);
+	for (i=0;i<12;i++){	
+	if (out4[i]>1e-14)	assert( (fabs(out4[i]-resR4[i]) / fabs(out4[i])) < 1e-14 );
+	else			assert(1);
+	}
+
+	printf(" >>> Matrice 6*2 <<< \n");	
+	dfftma(in6, 6, 2, out6);
+	for (i=0;i<12;i++){	
+	if (out6[i]>1e-16)	assert( (fabs(out6[i]-resR6[i]) / fabs(out6[i])) < 1e-14 );
+	else			assert(1);
+	}
+
+	printf(" >>> Matrice 3*3 <<< \n");	
+	dfftma(in9, 3, 3, out9);
+	for (i=0;i<9;i++){
+	if (out9[i]>1e-16)	assert( (fabs(out9[i]-resR9[i]) / fabs(out9[i])) < 1e-16 );
+	else			assert(1);
+	}
+	
+
+}
+
+static void zfftmaTest(void){
 	int i;
 	
 	double inR1[]=test1;
@@ -125,7 +191,7 @@ static int testFft(void){
 	double resR9[]=RRESULT9;
 	double resI9[]=IRESULT9;
 	
-	doubleComplex *in1, *in2, *in3, *in4, *in6, *in9, *out1, *out2, *out3, *out4, *out6, *out9;
+	doubleComplex *in1, *in2, *in3, *in4, *in6, *in9, out1[12], out2[12], out3[12], out4[12], out6[12], out9[12];
 
 	in1=malloc((uint)12*sizeof(doubleComplex));
 	in2=malloc((uint)12*sizeof(doubleComplex));
@@ -133,13 +199,9 @@ static int testFft(void){
 	in4=malloc((uint)12*sizeof(doubleComplex));
 	in6=malloc((uint)12*sizeof(doubleComplex));
 	in9=malloc((uint)9*sizeof(doubleComplex));
-	out1=malloc((uint)12*sizeof(doubleComplex));
-	out2=malloc((uint)12*sizeof(doubleComplex));
-	out3=malloc((uint)12*sizeof(doubleComplex));
-	out4=malloc((uint)12*sizeof(doubleComplex));
-	out6=malloc((uint)12*sizeof(doubleComplex));
-	out9=malloc((uint)9*sizeof(doubleComplex));
-
+	
+	
+	
 	for (i=0;i<12;i++){
 		in1[i]=DoubleComplex(inR1[i],0);
 		in2[i]=DoubleComplex(inR2[i],0);
@@ -212,20 +274,13 @@ static int testFft(void){
 	if (zimags(out9[i])>1e-15)	assert( (fabs(zimags(out9[i])-resI9[i]) / fabs(zimags(out9[i]))) < 1e-15 );
 	else			assert(1);
 	}
-	
-	
-	free(in1);
-	free(in2);
-	free(in3);
-	free(in4);
-	free(in6);
-	free(in9);
-	free(out1);
-	free(out2);
-	free(out3);
-	free(out4);
-	free(out6);
-	free(out9);
+}
+
+
+
+static int testFft(void){
+	dfftmaTest();
+	zfftmaTest();
 	return 0;
 }
 
