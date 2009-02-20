@@ -21,26 +21,26 @@
    If you want the eigenvalues and the eigenvectors, use spec2 */
 
 /* spec */
-#define sspecs(in) 	FloatComplex(in,0)
-#define dspecs(in) 	DoubleComplex(in,0)
+#define sspecs(in) 	in
+#define dspecs(in) 	in
 #define cspecs(in) 	in
 #define zspecs(in) 	in
 
-void sspeca(float* in, int rows, floatComplex* out);
-void dspeca(double* in, int rows, doubleComplex* out);
+void sspeca(float* in, int rows, float* out);
+void dspeca(double* in, int rows, double* out);
 void cspeca(floatComplex* in, int rows, floatComplex* out);
 void zspeca(doubleComplex* in, int rows,doubleComplex* out);
 
 
 
 /* spec2 */
-#define sspec2s(in,out)  	sspecs(1);*out=FloatComplex(in,0); 
-#define dspec2s(in,out)  	dspecs(1);*out=DoubleComplex(in,0); 
+#define sspec2s(in,out)  	sspecs(1);*out=in; 
+#define dspec2s(in,out)  	dspecs(1);*out=in; 
 #define cspec2s(in,out)   	cspecs(FloatComplex(1,0));*out=FloatComplex(creals(in),cimags(in)); 
 #define zspec2s(in,out)  	zspecs(DoubleComplex(1,0));*out=DoubleComplex(zreals(in),zimags(in)); 
 
-void sspec2a(float* in, int rows, floatComplex* eigenvalues,floatComplex* eigenvectors);
-void dspec2a(double* in, int rows, doubleComplex* eigenvalues,doubleComplex* eigenvectors);
+void sspec2a(float* in, int rows, float* eigenvalues,float* eigenvectors);
+void dspec2a(double* in, int rows, double* eigenvalues,double* eigenvectors);
 void cspec2a(floatComplex* in, int rows, floatComplex* eigenvalues,floatComplex* eigenvectors);
 void zspec2a(doubleComplex* in, int rows,doubleComplex* eigenvalues,doubleComplex* eigenvectors);
 
