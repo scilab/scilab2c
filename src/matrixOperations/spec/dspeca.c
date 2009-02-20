@@ -18,7 +18,7 @@
 #include "stdio.h"
 
 
-void dspeca(double* in, int rows,doubleComplex* out){
+void dspeca(double* in, int rows,double* out){
 	int i=0, j=0;
 	int symmetric=0;
 	int INFO=0;
@@ -52,17 +52,15 @@ void dspeca(double* in, int rows,doubleComplex* out){
 	
 	
 	/* apply lapack function according to symmetry */
-	if(symmetric){
-		
+	if(symmetric){		
 		C2F(dsyev)( "N", "U", &rows, in, &rows, outReal, pdblWork, &iWorkSize, &INFO );
-		dzerosa(outImag,1,rows);
 	}
 	else {
 		C2F(dgeev)( "N", "N", &rows, inCopy, &rows, outReal, outImag,
         			pdblLeftvectors, &rows, pdblRightvectors, &rows, pdblWork, &iWorkSize, &INFO );
 	}
 	
-	for (i=0;i<rows;i++) out[i]=DoubleComplex(outReal[i],outImag[i]);
+	for (i=0;i<rows;i++) out[i]=outReal[i];
 
 
 	free(inCopy);

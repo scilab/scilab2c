@@ -19,35 +19,20 @@
 static void dspecaTest(void){
 	double in[4]={1,1,1,3};
 	double resultR[2]={0.5857864376269050765700,3.4142135623730949234300};
-	double resultI[2]={0,0};
-	
-	double in2[4]={1,1,-2,3};
-	double result2R[2]={1.9999999999999997779554,1.9999999999999997779554};
-	double result2I[2]={0.9999999999999997779554,-0.9999999999999997779554};
 
-	doubleComplex *out;
+
+	double *out;
 	
 	int i;
 	
-	out=malloc((uint)2*sizeof(doubleComplex));
+	out=malloc((uint)2*sizeof(double));
 		
 	dspeca(in,2,out);
 	for(i=0;i<2;i++){
-		if (zreals(out[i])>1e-16)  assert( fabs(zreals(out[i])-resultR[i]) / fabs(zreals(out[i])) <1e-15);
-		else assert(1);
-		if (zimags(out[i])>1e-16)  assert( fabs(zimags(out[i])-resultI[i]) / fabs(zimags(out[i])) <1e-16);
+		if (out[i]>1e-16)  assert( fabs(out[i]-resultR[i]) / fabs(out[i]) <1e-15);
 		else assert(1);
 	}
 	
-	
-	
-	dspeca(in2,2,out);
-	for(i=0;i<2;i++){
-		if (zreals(out[i])>1e-16)  assert( fabs(zreals(out[i])-result2R[i]) / fabs(zreals(out[i])) <1e-16);
-		else assert(1);
-		if (zimags(out[i])>1e-16)  assert( fabs(zimags(out[i])-result2I[i]) / fabs(zimags(out[i])) <1e-15);
-		else assert(1);
-	}
 }
 
 
