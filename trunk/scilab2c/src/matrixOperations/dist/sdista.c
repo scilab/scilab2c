@@ -21,7 +21,7 @@ float sdista(float* in1,float* in2, int lines, int columns){
 	int i=0;
 	float out=0;
 	float *a, *at, *mul;
-	floatComplex *eigenvalues;
+	floatComplex *eigenvalues,*mulCpx;
 	
 	
 	/* FIXME : malloc here*/
@@ -29,11 +29,13 @@ float sdista(float* in1,float* in2, int lines, int columns){
 	at=malloc((uint)(lines*columns)*sizeof(float));
 	mul=malloc((uint)(lines*lines)*sizeof(float));
 	eigenvalues=malloc((uint)(lines)*sizeof(floatComplex));
+	mulCpx=malloc((uint)(lines*lines)*sizeof(floatComplex));
 		
 	for (i=0;i<lines*columns;i++) a[i]=in1[i]-in2[i];
 	stransposea(a,lines, columns,at);
 	smulma(a,lines,columns,at,columns,lines,mul);
-	sspeca(mul,lines,eigenvalues);
+	for (i=0;i<lines*lines;i++) mulCpx[i]=FloatComplex(mul[i],0);
+	cspeca(mulCpx,lines,eigenvalues);
 	csqrta(eigenvalues,lines,eigenvalues);
 	
 	/* Research of the higher value of eigenvalues*/
@@ -45,6 +47,7 @@ float sdista(float* in1,float* in2, int lines, int columns){
 	free(at);
 	free(mul);
 	free(eigenvalues);
+	free(mulCpx);
 	
 	return out;
 }
