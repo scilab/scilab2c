@@ -13,7 +13,7 @@
 #include "OpLogEq.h"
 
 
-
+/*
 void s2s0OpLogEqs2(float* in1, int* in1Size, float in2, float* out)
 {
    int rows = 0;
@@ -67,5 +67,5 @@ void z2z0OpLogEqd2(doubleComplex* in1, int* in1Size, doubleComplex in2, double* 
       }
    }
 }
-
+*/
 
