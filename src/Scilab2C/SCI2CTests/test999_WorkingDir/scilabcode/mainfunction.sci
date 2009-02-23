@@ -2,20 +2,31 @@
 
 function mainfunction()
 
-s1 = 2; s2 = 3;
 
-a = 2; b = 4;
+// test OpEqual
+disp(1<>1)
+disp(1<>2)
+disp(1<>2+%i)
+disp(1+%i<>2)
+disp(1+%i<>2+%i)
 
-A = ones(3,4); B = ones(3,4);
+a=[1 2 ; 3 4]
+b=[5 2 ; 6+%i 1-%i]
 
-t1 = 0;
-t2 = 0;
-C = LinComb(s1,a,s2,b,t1,t2); // s1*a+s2*b
+disp(a<>a)
+disp(a<>b)
+disp(b<>a)
+disp(b<>b)
 
-T1 = A;
-T2 = A;
-D = LinComb(s1,A,s2,B,T1,T2); // s1*A+s2*B
 
-disp(C);
-disp(D);
+disp(3<>a)
+disp(5<>b)
+disp(a<>4)
+disp(b<>2)
+
+disp(1+%i<>a)
+disp(1-%i<>b)
+disp(a<>6+%i)
+disp(b<>6+%i)
+
 endfunction
