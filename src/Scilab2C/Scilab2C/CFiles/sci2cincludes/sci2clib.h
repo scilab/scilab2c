@@ -12,6 +12,7 @@
 #include "OpIns.h"
 #include "OpExt.h"
 #include "FileManagement.h"
+#include "OpLogNe.h"
 #include "OpLogGt.h"
 #include "OpLogLt.h"
 #include "OpLogGe.h"
