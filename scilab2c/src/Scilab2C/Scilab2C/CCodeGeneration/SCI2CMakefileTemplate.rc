@@ -24,7 +24,6 @@ SWSRCS	=	\
 	$(CSRCDIR)/doubleComplex.c \
 	$(CSRCDIR)/floatComplex.c \
 	$(CSRCDIR)/RealToComplex.c \
-	$(CSRCDIR)/OpEqual.c \
 	$(CSRCDIR)/OpIns.c \
 	$(CSRCDIR)/OpExt.c \
 	$(CSRCDIR)/FileManagement.c \

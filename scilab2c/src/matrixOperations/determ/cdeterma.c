@@ -10,7 +10,7 @@
  *
  */
 
-#ifdef WITHOUT_LAPACK
+#ifndef WITHOUT_LAPACK
 #include "lapack.h"
 #else
 #include "division.h"
@@ -24,7 +24,7 @@
 
 
 floatComplex cdeterma(floatComplex *in, int size){
-#ifdef WITHOUT_LAPACK
+#ifndef WITHOUT_LAPACK
 	int i=0,info=0;
 	doubleComplex *inCopy,out_tmp;
 	int *vectPivot;

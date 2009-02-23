@@ -827,6 +827,11 @@ PrintStringInfo('z0z0'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('g0g0'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('g0g0'+ArgSeparator+'d0',ClassFileName,'file','y');
 
+PrintStringInfo('s0c0'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('d0z0'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('c0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('z0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
+
 PrintStringInfo('s2s0'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d2d0'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('c2c0'+ArgSeparator+'s2',ClassFileName,'file','y');
@@ -834,12 +839,22 @@ PrintStringInfo('z2z0'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('g2g0'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('g2g0'+ArgSeparator+'d2',ClassFileName,'file','y');
 
+PrintStringInfo('s2c0'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('d2z0'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('c2s0'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('z2d0'+ArgSeparator+'d2',ClassFileName,'file','y');
+
 PrintStringInfo('s0s2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d0d2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('c0c2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('z0z2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('g0g2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('g0g2'+ArgSeparator+'d2',ClassFileName,'file','y');
+
+PrintStringInfo('s0c2'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('d0z2'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('c0s2'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('z0d2'+ArgSeparator+'d2',ClassFileName,'file','y');
    
 PrintStringInfo('s2s2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d2d2'+ArgSeparator+'d2',ClassFileName,'file','y');
@@ -848,12 +863,11 @@ PrintStringInfo('z2z2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('g2g2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('g2g2'+ArgSeparator+'d2',ClassFileName,'file','y');
 
-PrintStringInfo('c2s0'+ArgSeparator+'s2',ClassFileName,'file','y');
-PrintStringInfo('z2d0'+ArgSeparator+'d2',ClassFileName,'file','y');
-PrintStringInfo('z0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
-PrintStringInfo('c0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
-PrintStringInfo('d2z0'+ArgSeparator+'d2',ClassFileName,'file','y');
-PrintStringInfo('s2cF0'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('s2c2'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('d2z2'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('c2s2'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('z2d2'+ArgSeparator+'d2',ClassFileName,'file','y');
+
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'OpLogEq';
@@ -1617,6 +1631,52 @@ PrintStringInfo('z2d2d2z0'+ArgSeparator,ClassFileName,'file','y');
 PrintStringInfo('z2d0d2z2'+ArgSeparator,ClassFileName,'file','y');
 PrintStringInfo('z2d2d0z2'+ArgSeparator,ClassFileName,'file','y');
 PrintStringInfo('z2d2d2z2'+ArgSeparator,ClassFileName,'file','y');
+
+//Mixed input arguments
+PrintStringInfo('s2s0c0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('s2s2c0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('s2s2c2'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('s2s0s0c0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('s2s0s2c0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('s2s2s0c0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('s2s2s2c0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('s2s0s2c2'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('s2s2s0c2'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('s2s2s2c2'+ArgSeparator,ClassFileName,'file','y');
+
+PrintStringInfo('d2d0z0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('d2d2z0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('d2d2z2'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('d2d0d0z0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('d2d0d2z0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('d2d2d0z0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('d2d2d2z0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('d2d0d2z2'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('d2d2d0z2'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('d2d2d2z2'+ArgSeparator,ClassFileName,'file','y');
+
+PrintStringInfo('c2s0s0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('c2s2s0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('c2s2s2'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('c2s0s0s0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('c2s0s2s0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('c2s2s0s0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('c2s2s2s0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('c2s0s2s2'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('c2s2s0s2'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('c2s2s2s2'+ArgSeparator,ClassFileName,'file','y');
+
+PrintStringInfo('z2d0d0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('z2d2d0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('z2d2d2'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('z2d0d0d0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('z2d0d2d0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('z2d2d0d0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('z2d2d2d0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('z2d0d2d2'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('z2d2d0d2'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('z2d2d2d2'+ArgSeparator,ClassFileName,'file','y');
+
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'OpIns';
