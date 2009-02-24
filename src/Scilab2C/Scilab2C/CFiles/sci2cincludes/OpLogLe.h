@@ -13,7 +13,7 @@
 /*
    Update 23/02/09 by Arnaud Torset : Add matrix comparaison, remove include(floatComplex and doubleComplex)
 */
-#ifndef __OPLOGGE_H__
+
 #ifndef __OPLOGLE_H__
 #define __OPLOGLE_H__
 
