@@ -18,4 +18,5 @@ SUBDIRS= 	fft \
 		hilbert \
 		crossCorr \
 		lpc2cep \
-		lev
+		lev\
+		fftshift
