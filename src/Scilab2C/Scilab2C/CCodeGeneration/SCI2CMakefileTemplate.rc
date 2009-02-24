@@ -371,6 +371,8 @@ SWSRCS	=	\
 	$(CSRCDIR)/dconv2da.c \
 	$(CSRCDIR)/sconv2da.c \
 	$(CSRCDIR)/zconv2da.c \
+	$(CSRCDIR)/sfftma.c \
+	$(CSRCDIR)/dfftma.c \
 	$(CSRCDIR)/cfftma.c \
 	$(CSRCDIR)/zfftma.c \
 	$(CSRCDIR)/dfft2.c \
@@ -380,6 +382,8 @@ SWSRCS	=	\
 	$(CSRCDIR)/r2tx.c \
 	$(CSRCDIR)/r4tx.c \
 	$(CSRCDIR)/r8tx.c \
+	$(CSRCDIR)/sifftma.c \
+	$(CSRCDIR)/difftma.c \
 	$(CSRCDIR)/cifftma.c \
 	$(CSRCDIR)/zifftma.c \
 	$(CSRCDIR)/difft2.c \
@@ -434,7 +438,19 @@ SWSRCS	=	\
 	$(CSRCDIR)/cpowma.c \
 	$(CSRCDIR)/dpowma.c \
 	$(CSRCDIR)/spowma.c \
-	$(CSRCDIR)/zpowma.c 
+	$(CSRCDIR)/zpowma.c \
+	$(CSRCDIR)/cfftshifta.c \
+	$(CSRCDIR)/dfftshifta.c \
+	$(CSRCDIR)/sfftshifta.c \
+	$(CSRCDIR)/zfftshifta.c \
+	$(CSRCDIR)/crowfftshifta.c \
+	$(CSRCDIR)/drowfftshifta.c \
+	$(CSRCDIR)/srowfftshifta.c \
+	$(CSRCDIR)/zrowfftshifta.c \
+	$(CSRCDIR)/ccolumnfftshifta.c \
+	$(CSRCDIR)/dcolumnfftshifta.c \
+	$(CSRCDIR)/scolumnfftshifta.c \
+	$(CSRCDIR)/zcolumnfftshifta.c 
 	
 	
 	

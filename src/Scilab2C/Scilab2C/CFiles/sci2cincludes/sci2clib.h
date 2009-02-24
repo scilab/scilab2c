@@ -211,6 +211,9 @@
 #include "fft.h"
 #include "fft_internal.h"
 #include "int_fft.h"
+/* interfacing fftshift */
+#include "fftshift.h"
+#include "int_fftshift.h"
 /* interfacing ifft */
 #include "ifft.h"
 #include "ifft_internal.h"
