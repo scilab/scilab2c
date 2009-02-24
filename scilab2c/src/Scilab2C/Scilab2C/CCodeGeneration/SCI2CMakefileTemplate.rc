@@ -31,7 +31,6 @@ SWSRCS	=	\
 	$(CSRCDIR)/OpLogGt.c \
 	$(CSRCDIR)/OpLogGe.c \
 	$(CSRCDIR)/OpLogLe.c \
-	$(CSRCDIR)/OpLogEq.c \
 	$(CSRCDIR)/OpLogOr.c \
 	$(CSRCDIR)/OpLogAnd.c \
 	$(CSRCDIR)/ConvertPrecision.c \

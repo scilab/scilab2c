@@ -23,29 +23,29 @@
 
 #define z0fftshiftz0(in)			zfftshifts(in)
 
-#define s2fftshifts2(in,size,out)		sfftshifta(in, size[0]*size[1], out)
+#define s2fftshifts2(in,size,out)		sfftshifta(in, size[0], size[1], out)
 
-#define d2fftshiftd2(in,size,out)		dfftshifta(in, size[0]*size[1], out)
+#define d2fftshiftd2(in,size,out)		dfftshifta(in, size[0], size[1], out)
 
-#define c2fftshiftc2(in,size,out)		cfftshifta(in, size[0]*size[1], out)
+#define c2fftshiftc2(in,size,out)		cfftshifta(in, size[0], size[1], out)
 
-#define z2fftshiftz2(in,size,out)		zfftshifta(in, size[0]*size[1], out)
+#define z2fftshiftz2(in,size,out)		zfftshifta(in, size[0], size[1], out)
 
 
-#define s0s0fftshifts0(in1,in2)			sfftshifts(in)
+#define s0s0fftshifts0(in1,in2)			sfftshifts(in1)
 
-#define d0d0fftshiftd0(in,in2)			dfftshifts(in)
+#define d0d0fftshiftd0(in1,in2)			dfftshifts(in1)
 
-#define c0s0fftshiftc0(in,in2)			cfftshifts(in)
+#define c0s0fftshiftc0(in1,in2)			cfftshifts(in1)
 
-#define z0d0fftshiftz0(in,in2)			zfftshifts(in)
+#define z0d0fftshiftz0(in1,in2)			zfftshifts(in1)
 
-#define s2s0fftshifts2(in,size,in2,out)		(in2==1) ? srowfftshifta(in, size[0]*size[1], out) : scolumnfftshifta(in, size[0]*size[1], out)
+#define s2s0fftshifts2(in,size,in2,out)		(in2==1) ? srowfftshifta(in, size[0], size[1], out) : scolumnfftshifta(in, size[0], size[1], out)
 
-#define d2d0fftshiftd2(in,size,in2,out)		(in2==1) ? drowfftshifta(in, size[0]*size[1], out) : dcolumnfftshifta(in, size[0]*size[1], out)
+#define d2d0fftshiftd2(in,size,in2,out)		(in2==1) ? drowfftshifta(in, size[0], size[1], out) : dcolumnfftshifta(in, size[0], size[1], out)
 
-#define c2s0fftshiftc2(in,size,in2,out)		(in2==1) ? crowfftshifta(in, size[0]*size[1], out) : ccolumnfftshifta(in, size[0]*size[1], out)
+#define c2s0fftshiftc2(in,size,in2,out)		(in2==1) ? crowfftshifta(in, size[0], size[1], out) : ccolumnfftshifta(in, size[0], size[1], out)
 
-#define z2d0fftshiftz2(in,size,in2,out)		(in2==1) ? zrowfftshifta(in, size[0]*size[1], out) : zcolumnfftshifta(in, size[0]*size[1], out)
+#define z2d0fftshiftz2(in,size,in2,out)		(in2==1) ? zrowfftshifta(in, size[0], size[1], out) : zcolumnfftshifta(in, size[0], size[1], out)
 
 #endif /* !__INT_FFTSHIFT_H__ */
