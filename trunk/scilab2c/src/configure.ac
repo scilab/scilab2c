@@ -246,6 +246,7 @@ signalProcessing/hilbert/Makefile
 signalProcessing/crossCorr/Makefile
 signalProcessing/lpc2cep/Makefile
 signalProcessing/lev/Makefile
+signalProcessing/fftshift/Makefile
 ])
 
 
