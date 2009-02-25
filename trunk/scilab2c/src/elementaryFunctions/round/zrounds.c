@@ -14,8 +14,16 @@
 #include "round.h"
 
 doubleComplex zrounds(doubleComplex x) {
-	int roundReal = (int)zreals(x);
-	int roundImag = (int)zimags(x);
+	int roundReal;
+	int roundImag;
+	
+	if (zreals(x)>=0)	roundReal = (int)(zreals(x)+0.5);
+	else 			roundReal = (int)(zreals(x)-0.5);
+	
+	
+	
+	if (zimags(x)>=0)	roundImag = (int)(zimags(x)+0.5);
+	else 			roundImag = (int)(zimags(x)-0.5);
 	
 	return DoubleComplex((double)roundReal, (double)roundImag);
 }

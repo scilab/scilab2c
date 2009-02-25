@@ -14,6 +14,10 @@
 #include "round.h"
 
 float srounds(float x) {
-	int result = (int)(x+0.5);
+	int result;
+	
+	if(x>=0) 	result = (int)(x+0.5);
+	else 		result = (int)(x-0.5);
+	
 	return (float)result;
 }
