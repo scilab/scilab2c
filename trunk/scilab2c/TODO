@@ -27,3 +27,15 @@ BJ - Enlarge tests.
 BJ - Released functions :
      + acos   : [done R and C]
      + acosh  : [done R and C]
+     
+AT - Convol with 3 input arguments
+
+AT - FFT and IFFT with 3 input arguments
+     
+AT - Functions max and min might not have all prototypes they could have in the INIT file.
+
+AT - FFT and IFFT : need to change Output type
+
+AT - Scilab2CDeps.sci : data have changed and file hasn't been updated. To Update.
+
+
