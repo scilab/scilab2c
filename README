@@ -104,7 +104,41 @@ precision :
 	Return a Real value	if x E ] 0 ; +inf [
 	Return a Complex value	if x E ] -inf ; 0 [
 
+- spec(A) : Real input.
+	Return a Real value	if A symmetric and for some other cases (to complete)
+	Return a Complex value	otherelse
 
-
+- spec2(A) : Real input.
+	Return Reals value	if A symmetric and for some other cases (to complete)
+	Return Complexes value	otherelse
+	
+- logm(A) : Real input.
+	Return either a Real value or a Complex value : don't know the conditions to have one
+	
+- powm(A) : Real input.
+	Return either a Real value or a Complex value : don't know the conditions to have one
+	
  - chol(A) : Complex input
  	The diagonal must be real;
+ 	
+ 	
+Following fuctions must have their 2 input matrix with the same dimension(row1=row2 and column1=column2)
+-operation element by element : add, diff, rdiv, ldiv, mul
+-comparaison operators : LogEq, LogNe, LogGt, LogGe, LogLt, LogLe
+-pow
+
+
+
+Following fuctions must have a square matrix on input
+-logm
+-powm
+-determ
+-chol
+-trace
+-lpc2cep (because using logm)
+-spec
+-spec2
+-inv
+
+
+
