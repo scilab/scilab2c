@@ -32,4 +32,9 @@ SUBDIRS=	cos \
 		asin \
 		lnp1m1 \
 		pow \
-		atan2
+		atan2\
+		ceil\
+		floor\
+		fix\
+		int\
+		round
