@@ -212,6 +212,11 @@ elementaryFunctions/exp10/Makefile
 elementaryFunctions/sqrt/Makefile
 elementaryFunctions/lnp1m1/Makefile
 elementaryFunctions/pow/Makefile
+elementaryFunctions/ceil/Makefile
+elementaryFunctions/fix/Makefile
+elementaryFunctions/floor/Makefile
+elementaryFunctions/int/Makefile
+elementaryFunctions/round/Makefile
 auxiliaryFunctions/Makefile
 auxiliaryFunctions/abs/Makefile
 auxiliaryFunctions/find/Makefile
