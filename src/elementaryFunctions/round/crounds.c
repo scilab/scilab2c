@@ -14,8 +14,16 @@
 #include "round.h"
 
 floatComplex crounds(floatComplex x) {
-	int roundReal = (int)creals(x);
-	int roundImag = (int)cimags(x);
+	int roundReal;
+	int roundImag;
+	
+	if (creals(x)>=0)	roundReal = (int)(creals(x)+0.5);
+	else 			roundReal = (int)(creals(x)-0.5);
+	
+	
+	
+	if (cimags(x)>=0)	roundImag = (int)(cimags(x)+0.5);
+	else 			roundImag = (int)(cimags(x)-0.5);
 	
 	return FloatComplex((float)roundReal, (float)roundImag);
 }

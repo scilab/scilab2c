@@ -14,6 +14,9 @@
 #include "round.h"
 
 double drounds(double x) {
-	int result = (int)(x+0.5);
+	int result;
+	if(x>=0) 	result = (int)(x+0.5);
+	else 		result = (int)(x-0.5);
+	
 	return (double)result;
 }
