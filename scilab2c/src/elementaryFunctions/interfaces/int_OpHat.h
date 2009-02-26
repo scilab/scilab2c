@@ -61,7 +61,7 @@
 									}
 
 #define d0z2OpHatz2(in1, in2, size, out)			{int i=0;\
-									for (i=0,i<size[0]*size[1];i++) out[i]=zpows(DoubleComplex(in1,0),in2[i]);\
+									for (i=0;i<size[0]*size[1];i++) out[i]=zpows(DoubleComplex(in1,0),in2[i]);\
 									}
 
 #define c0s2OpHatc2(in1, in2, size, out)			{int i=0;\
@@ -86,18 +86,22 @@
 
 /* FIXME : malloc here */
 #define s2c0OpHatc2(in1,size,in2,out)		{float* tmp;\
+								tmp = malloc((uint)(size[0]*size[1])*sizeof(float));\
 								szerosa(tmp,size[0],size[1]);\
 								cpowma(FloatComplexMatrix(in1,tmp,size[0]*size[1]),size[0],in2,out);\
+								free(tmp);\
 								}
 
-#define d2z0OpHatc2(in1,size,in2,out)		{double* tmp;\
+#define d2z0OpHatz2(in1,size,in2,out)		{double* tmp;\
+								tmp = malloc((uint)(size[0]*size[1])*sizeof(double));\
 								dzerosa(tmp,size[0],size[1]);\
 								zpowma(DoubleComplexMatrix(in1,tmp,size[0]*size[1]),size[0],in2,out);\
+								free(tmp);\
 								}
 
 #define c2s0OpHatc2(in1,size,in2,out)		cpowma(in1,size[0],FloatComplex(in2,0),out);
 
-#define z2d0OpHatz2(in1,size,in2,out)		zpowma(in1,size[0],DoubleCompelx(in2,0),out);
+#define z2d0OpHatz2(in1,size,in2,out)		zpowma(in1,size[0],DoubleComplex(in2,0),out);
 
 
 
