@@ -30,6 +30,8 @@ disp (convol(c,f))
 disp (convol(e,c))
 disp (convol(e,f))
 
+//the following lines don't exist in Scilab but are in Sci2C
+
 //g=[1 2; 3 4]
 //h=[4 5; 6 7]
 //i=[2+3*%i 4+4*%i; 7-5*%i 8+%i]
