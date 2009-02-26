@@ -449,7 +449,47 @@ SWSRCS	=	\
 	$(CSRCDIR)/ccolumnfftshifta.c \
 	$(CSRCDIR)/dcolumnfftshifta.c \
 	$(CSRCDIR)/scolumnfftshifta.c \
-	$(CSRCDIR)/zcolumnfftshifta.c 
+	$(CSRCDIR)/zcolumnfftshifta.c \
+	$(CSRCDIR)/cceils.c \
+	$(CSRCDIR)/cceila.c \
+	$(CSRCDIR)/dceils.c \
+	$(CSRCDIR)/dceila.c \
+	$(CSRCDIR)/sceils.c \
+	$(CSRCDIR)/sceila.c \
+	$(CSRCDIR)/zceils.c \
+	$(CSRCDIR)/zceila.c \
+	$(CSRCDIR)/cfixs.c \
+	$(CSRCDIR)/cfixa.c \
+	$(CSRCDIR)/dfixs.c \
+	$(CSRCDIR)/dfixa.c \
+	$(CSRCDIR)/sfixs.c \
+	$(CSRCDIR)/sfixa.c \
+	$(CSRCDIR)/zfixs.c \
+	$(CSRCDIR)/zfixa.c \
+	$(CSRCDIR)/cfloors.c \
+	$(CSRCDIR)/cfloora.c \
+	$(CSRCDIR)/dfloors.c \
+	$(CSRCDIR)/dfloora.c \
+	$(CSRCDIR)/sfloors.c \
+	$(CSRCDIR)/sfloora.c \
+	$(CSRCDIR)/zfloors.c \
+	$(CSRCDIR)/zfloora.c \
+	$(CSRCDIR)/cints.c \
+	$(CSRCDIR)/cinta.c \
+	$(CSRCDIR)/dints.c \
+	$(CSRCDIR)/dinta.c \
+	$(CSRCDIR)/sints.c \
+	$(CSRCDIR)/sinta.c \
+	$(CSRCDIR)/zints.c \
+	$(CSRCDIR)/zinta.c \
+	$(CSRCDIR)/crounds.c \
+	$(CSRCDIR)/crounda.c \
+	$(CSRCDIR)/drounds.c \
+	$(CSRCDIR)/drounda.c \
+	$(CSRCDIR)/srounds.c \
+	$(CSRCDIR)/srounda.c \
+	$(CSRCDIR)/zrounds.c \
+	$(CSRCDIR)/zrounda.c 
 	
 	
 	
