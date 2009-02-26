@@ -13,7 +13,8 @@
 RN - Clearly specify what the "find" function may return
 BJ   Position in array AND/OR Value.
 
-BJ - Bench Cosh Vs . Cosh explicit formula.
+BJ - Bench cosh Vs cosh explicit formula.
+     Bench asinh Vs asinh explicit formula.
 
 BJ - Bench for precision between F77 and C Math lib.
      For example : atan2 / log1p
@@ -27,11 +28,30 @@ BJ - Enlarge tests.
 BJ - Released functions :
      + acos   : [done R and C]
      + acosh  : [done R and C]
-     
+     + asin   : [done R and C]
+     + asinh  : [done R and C]
+     + atan   : [done R and C]
+     + cos    :	[done R and C]
+     + exp10  :	!! FIXME !!
+     + log    : [done R and C] --> Need Testing
+     + log10  : [done R and C] --> Need Testing
+     + log1p  :
+     + sin    : [done R and C]
+     + sinh   : [done R and C]
+     + sqrt   : [done R and C] --> Need Testing
+
+   .
+  / \	!! WARNING !!
+ / ! \	!! WARNING !!
+'-----'
+
+** ATAN has some diff with Scilab.
+** EXP10 Does not exists in Scilab. See HAT
+
 AT - Convol with 3 input arguments
 
 AT - FFT and IFFT with 3 input arguments
-     
+
 AT - Functions max and min might not have all prototypes they could have in the INIT file.
 
 AT - FFT and IFFT : need to change Output type
