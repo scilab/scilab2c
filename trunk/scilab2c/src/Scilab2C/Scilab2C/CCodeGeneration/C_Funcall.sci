@@ -126,13 +126,13 @@ if ((mtlb_strcmp(FunctionName,'size')))
       end
    elseif (NInArg == 2)
       if (NOutArg == 1)
-         if (InArg(1).Value == 1)      
+         if (InArg(2).Value == 1)      
             CCall = CCall+OutArg(1).Name+' = __'+InArg(1).Name+'Size[0];';
             // #RNU_RES_B
             PrintStringInfo('   '+CCall,ReportFileName,'file','y');
             // #RNU_RES_E
             PrintStringInfo(C_IndentBlanks(IndentLevel)+CCall,CPass1FileName,'file','y');
-         elseif (InArg(1).Value == 2)      
+         elseif (InArg(2).Value == 2)      
             CCall = CCall+OutArg(1).Name+' = __'+InArg(1).Name+'Size[1];';
             // #RNU_RES_B
             PrintStringInfo('   '+CCall,ReportFileName,'file','y');
