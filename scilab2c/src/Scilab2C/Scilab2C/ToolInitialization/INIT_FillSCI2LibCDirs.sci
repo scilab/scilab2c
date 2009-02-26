@@ -884,12 +884,27 @@ PrintStringInfo('z2z2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('g2g2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('g2g2'+ArgSeparator+'d2',ClassFileName,'file','y');
 
+//mixed types
 PrintStringInfo('c2s0'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('z2d0'+ArgSeparator+'d2',ClassFileName,'file','y');
-PrintStringInfo('z0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
-PrintStringInfo('c0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('d2z0'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('s2c0'+ArgSeparator+'s2',ClassFileName,'file','y');
+
+PrintStringInfo('z0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('c0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('d0z0'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('s0c0'+ArgSeparator+'s0',ClassFileName,'file','y');
+
+PrintStringInfo('c0s2'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('z0d2'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('d0z2'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('s0c2'+ArgSeparator+'s2',ClassFileName,'file','y');
+
+PrintStringInfo('c2s2'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('z2d2'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('d2z2'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('s2c2'+ArgSeparator+'s2',ClassFileName,'file','y');
+
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'OpLogEq';
@@ -1489,7 +1504,7 @@ PrintStringInfo('OUT(1).SZ(1)= ''1''',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(2)= FA_INT(FA_ADD(FA_SUB(IN(2).VAL,IN(1).VAL),''1''))',ClassFileName,'file','y');
 PrintStringInfo('NIN=          3',ClassFileName,'file','y');
 PrintStringInfo('NOUT=         1',ClassFileName,'file','y');
-PrintStringInfo('OUT(1).TP=    FA_TP_MIN_REAL(IN(1).TP,IN(2).TP,IN(3).TP)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    FA_TP_MIN_REAL(IN(1).TP,FA_TP_MIN_REAL(IN(2).TP,IN(3).TP))',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(1)= ''1''',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(2)= FA_INT(FA_ADD(FA_DIV(FA_SUB(IN(3).VAL,IN(1).VAL),IN(2).VAL),''1''))',ClassFileName,'file','y');
 
@@ -2626,16 +2641,16 @@ PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'both','y');
 ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
 PrintStringInfo('NIN=          1',ClassFileName,'file','y');
 PrintStringInfo('NOUT=         1',ClassFileName,'file','y');
-PrintStringInfo('OUT(1).TP=    FA_TP_MAX(IN(1).TP)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    FA_TP_COMPLEX(IN(1).TP)',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 
 PrintStringInfo('NIN=          1',ClassFileName,'file','y');
 PrintStringInfo('NOUT=         2',ClassFileName,'file','y');
-PrintStringInfo('OUT(1).TP=    FA_TP_MAX(IN(1).TP)',ClassFileName,'file','y'); //FOR INRIA FA_TP_MAX NEEDS 2 Input args
+PrintStringInfo('OUT(1).TP=    FA_TP_COMPLEX(IN(1).TP)',ClassFileName,'file','y'); //FOR INRIA FA_TP_MAX NEEDS 2 Input args
 PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
-PrintStringInfo('OUT(2).TP=    FA_TP_MAX(IN(1).TP)',ClassFileName,'file','y'); //FOR INRIA FA_TP_MAX NEEDS 2 Input args
+PrintStringInfo('OUT(2).TP=    FA_TP_COMPLEX(IN(1).TP)',ClassFileName,'file','y'); //FOR INRIA FA_TP_MAX NEEDS 2 Input args
 PrintStringInfo('OUT(2).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
 PrintStringInfo('OUT(2).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
 
