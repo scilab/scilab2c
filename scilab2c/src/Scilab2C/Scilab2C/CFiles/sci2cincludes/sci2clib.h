@@ -20,6 +20,7 @@
 #include "OpLogEq.h"
 #include "OpLogOr.h"
 #include "OpLogAnd.h"
+#include "OpLogNot.h"
 #include "ConvertPrecision.h"
 
 
@@ -97,12 +98,24 @@
 /* interfacing cos */
 #include "cos.h"
 #include "int_cos.h"
+/* interfacing ceil */
+#include "ceil.h"
+#include "int_ceil.h"
 /* interfacing cosh */
 #include "cosh.h"
 #include "int_cosh.h"
 /* interfacing exp */
 #include "exp.h"
 #include "int_exp.h"
+/* interfacing fix */
+#include "fix.h"
+#include "int_fix.h"
+/* interfacing floor */
+#include "floor.h"
+#include "int_floor.h"
+/* interfacing int */
+#include "int.h"
+#include "int_int.h"
 /* interfacing lnp1m1 */
 #include "lnp1m1.h"
 /* interfacing log */
@@ -119,6 +132,9 @@
 #include "matrixPow.h"
 #include "int_OpHat.h"
 #include "int_OpDotHat.h"
+/* interfacing round */
+#include "round.h"
+#include "int_round.h"
 /* interfacing sin */
 #include "sin.h"
 #include "int_sin.h"
