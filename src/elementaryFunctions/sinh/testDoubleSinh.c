@@ -430,7 +430,7 @@ void dsinhsTest(void) {
 
 	for (i=0;i<200;i++){
 		out=dsinhs(in[i]);
-		assert(( (fabs(out-res[i]))/(fabs(out)) )<1e-15);
+		assert(( (fabs(out-res[i]))/(fabs(out)) )<3e-16);
 	}
 }
 
@@ -445,8 +445,8 @@ void zsinhsTest(void) {
 	for (i=0;i<200;i++){
 		in=DoubleComplex(inR[i],inI[i]);
 		out=zsinhs(in);
-		assert(( (fabs(zreals(out)-resR[i]))/(fabs(zreals(out))) )<1e-15);	
-		assert(( (fabs(zimags(out)-resI[i]))/(fabs(zimags(out))) )<1e-15);			
+		assert(( (fabs(zreals(out)-resR[i]))/(fabs(zreals(out))) )<3e-16);	
+		assert(( (fabs(zimags(out)-resI[i]))/(fabs(zimags(out))) )<3e-16);			
 	}
 }
 
@@ -458,7 +458,7 @@ void dsinhaTest(void) {
 
 	dsinha(in,200,out);
 	for (i=0;i<200;i++){
-		assert(( (fabs(out[i]-res[i]))/(fabs(out[i])) )<1e-15);
+		assert(( (fabs(out[i]-res[i]))/(fabs(out[i])) )<3e-16);
 	}
 }
 
@@ -485,14 +485,14 @@ mon_test=DoubleComplexMatrix(mon_testR,mon_testI,9);
 	zsinha(in,200,out);
 
 	for (i=0;i<200;i++){
-		assert(( (fabs(zreals(out[i])-resR[i]))/(fabs(zreals(out[i]))) )<1e-15);	
-		assert(( (fabs(zimags(out[i])-resI[i]))/(fabs(zimags(out[i]))) )<1e-15);			
+		assert(( (fabs(zreals(out[i])-resR[i]))/(fabs(zreals(out[i]))) )<3e-16);	
+		assert(( (fabs(zimags(out[i])-resI[i]))/(fabs(zimags(out[i]))) )<3e-16);			
 	}
 	zsinha(mon_test,9,mon_out);
 	for (i=0;i<9;i++){
 	printf("%f + %f*i\n",zreals(mon_out[i]),zimags(mon_out[i]));
-		assert(( (fabs(zreals(mon_out[i])-mon_resR[i]))/(fabs(zreals(mon_out[i]))) )<1e-15);	
-		if (zimags(mon_out[i])!=0) assert(( (fabs(zimags(mon_out[i])-mon_resI[i]))/(fabs(zimags(mon_out[i]))) )<1e-15);			
+		assert(( (fabs(zreals(mon_out[i])-mon_resR[i]))/(fabs(zreals(mon_out[i]))) )<3e-16);	
+		if (zimags(mon_out[i])!=0) assert(( (fabs(zimags(mon_out[i])-mon_resI[i]))/(fabs(zimags(mon_out[i]))) )<3e-16);			
 	}
 }
 

@@ -534,7 +534,7 @@ void satanhsTest() {
 	for (i=0;i<200;i++){
 		out=satanhs(in[i]);
 		if (sisnans(out)) assert(1);
-		else assert( ( (fabs(out-res[i])) / (fabs(out)) ) <1e-5);
+		else assert( ( (fabs(out-res[i])) / (fabs(out)) ) <3e-6);
 	}
 }
 
@@ -563,7 +563,7 @@ void satanhaTest(void) {
 	satanha(in,200,out);
 	for (i=0;i<200;i++){
 		if (sisnans(out[i])) assert(1);
-		else assert( ( (fabs(out[i]-res[i])) / (fabs(out[i])) ) <1e-5);
+		else assert( ( (fabs(out[i]-res[i])) / (fabs(out[i])) ) <3e-6);
 	}
 }
 

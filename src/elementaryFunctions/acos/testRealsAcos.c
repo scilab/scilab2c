@@ -576,7 +576,7 @@ void sacossTest(void) {
 
   for(i=0;i<200;i++){
 	assert ( ( fabs(sacoss(tIn1[i]) - tRes1[i]) / fabs(sacoss(tIn1[i])) ) < 1e-6);
-	assert ( ( fabs(sacoss(tIn2[i]) - tRes2[i]) / fabs(sacoss(tIn2[i])) ) < 1e-5);
+	assert ( ( fabs(sacoss(tIn2[i]) - tRes2[i]) / fabs(sacoss(tIn2[i])) ) < 3e-6);
   }
 }
 
@@ -589,8 +589,8 @@ void dacossTest(void) {
   double tRes2[]=ResID;
 
   for(i=0;i<200;i++){
-	assert ( ( (fabs(dacoss(tIn1[i])) - tRes1[i]) / fabs(dacoss(tIn1[i])) ) < 1e-15);
-	assert ( ( (fabs(dacoss(tIn2[i])) - tRes2[i]) / fabs(dacoss(tIn2[i])) ) < 1e-15);
+	assert ( ( (fabs(dacoss(tIn1[i])) - tRes1[i]) / fabs(dacoss(tIn1[i])) ) < 3e-16);
+	assert ( ( (fabs(dacoss(tIn2[i])) - tRes2[i]) / fabs(dacoss(tIn2[i])) ) < 3e-16);
   }
 }
 
@@ -607,7 +607,7 @@ void sacosaTest(void){
   sacosa(tIn2,200,out2);
   for(i=0;i<200;i++){
 	assert( (fabs(out1[i]-tRes1[i])/fabs(out1[i])) <1e-6);
-	assert( (fabs(out2[i]-tRes2[i])/fabs(out2[i])) <1e-5);
+	assert( (fabs(out2[i]-tRes2[i])/fabs(out2[i])) <3e-6);
   }
 }
 
@@ -622,8 +622,8 @@ void dacosaTest(void){
   dacosa(tIn1,200,out1);
   dacosa(tIn2,200,out2);
   for(i=0;i<200;i++){
-	assert( (fabs(out1[i]-tRes1[i])/fabs(out1[i])) <1e-15);
-	assert( (fabs(out2[i]-tRes2[i])/fabs(out2[i])) <1e-15);
+	assert( (fabs(out1[i]-tRes1[i])/fabs(out1[i])) <3e-16);
+	assert( (fabs(out2[i]-tRes2[i])/fabs(out2[i])) <3e-16);
   }
 }
 

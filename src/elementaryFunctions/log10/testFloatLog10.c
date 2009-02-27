@@ -431,7 +431,7 @@ void slog10sTest(void) {
 
 	for (i=0;i<200;i++){
 		out=slog10s(in[i]);
-		assert(( (fabs(out-res[i]))/(fabs(out)) )<1e-5);
+		assert(( (fabs(out-res[i]))/(fabs(out)) )<3e-6);
 	}
 }
 
@@ -446,7 +446,7 @@ void clog10sTest(void) {
 	for (i=0;i<200;i++){
 		in=FloatComplex(inR[i],inI[i]);
 		out=clog10s(in);
-		assert(( (fabs(creals(out)-resR[i]))/(fabs(creals(out))) )<1e-5);	
+		assert(( (fabs(creals(out)-resR[i]))/(fabs(creals(out))) )<3e-6);	
 		assert(( (fabs(cimags(out)-resI[i]))/(fabs(cimags(out))) )<1e-6);			
 	}
 }
@@ -459,7 +459,7 @@ void slog10aTest(void) {
 	j=1;
 	slog10a(in,200,out);
 	for (i=0;i<200;i++){
-		assert(( (fabs(out[i]-res[i]))/(fabs(out[i])) )<1e-5);
+		assert(( (fabs(out[i]-res[i]))/(fabs(out[i])) )<3e-6);
 	}
 }
 
@@ -475,7 +475,7 @@ void clog10aTest(void) {
 	clog10a(in,200,out);
 
 	for (i=0;i<200;i++){
-		assert(( (fabs(creals(out[i])-resR[i]))/(fabs(creals(out[i]))) )<1e-5);	
+		assert(( (fabs(creals(out[i])-resR[i]))/(fabs(creals(out[i]))) )<3e-6);	
 		assert(( (fabs(cimags(out[i])-resI[i]))/(fabs(cimags(out[i]))) )<1e-6);			
 	}
 }
