@@ -43,7 +43,7 @@ static void zmagnsTest(void){
 	for (i=0;i<8;i++) {
 		in = DoubleComplex(inR[i],inI[i]);
 		out=zmagns(in);
-		assert( fabs(out-res[i])/fabs(out)<1e-15);
+		assert( fabs(out-res[i])/fabs(out)<3e-16);
 	}
 }
 

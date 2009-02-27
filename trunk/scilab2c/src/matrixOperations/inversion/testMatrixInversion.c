@@ -409,7 +409,7 @@ static void sinvermaTest (void)
 	{
 
 		printf ( "\t\t %d out : %e\tresult : %e\tassert : %e \n" , i , out[i] , result[i] , fabs ( out[i] - result[i] ) / fabs( out[i]) ) ;
-		assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 1e-4 ) ;
+		assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 3e-6 ) ;
 	} 
     
     
@@ -433,7 +433,7 @@ static void dinvermaTest (void)
 	{
 
 		printf ( "\t\t %d out : %e\tresult : %e\tassert : %e \n" , i , out[i] , result[i] , fabs ( out[i] - result[i] ) / fabs( out[i]) ) ;
-		assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 1e-13 ) ;
+		assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 3e-16 ) ;
 	} 
     
     
@@ -472,13 +472,13 @@ static void cinvermaTest (void)
     if (  creals(out[i])  < 1e-6 && creals (Result[i]) < 1e-6 )
         assert ( 1 ) ;
     else         
-        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 1e-4 );
+        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 3e-6 );
     
         
     if (  cimags(out[i])  < 1e-6 && cimags (Result[i]) < 1e-6 )
         assert ( 1 ) ;
     else         
-	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 1e-4 ) ;
+	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 3e-6 ) ;
     
     }
 }
@@ -516,13 +516,13 @@ static void zinvermaTest (void)
     if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else         
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 1e-12 );
+        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 3e-16 );
     
         
     if (  zimags(out[i])  < 1e-14 && zimags (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else         
-	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-12 ) ;
+	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-16 ) ;
     
     }
 }

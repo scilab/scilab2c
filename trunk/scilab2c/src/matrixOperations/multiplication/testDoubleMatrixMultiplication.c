@@ -325,9 +325,9 @@ static void dmulma2Test(void){
 	
 	
 	assert( (fabs(out1[0]-result1[0]) / fabs(out1[0])) <1e-16);
-	for (i=0;i<4;i++)		assert( (fabs(out2[i]-result2[i]) / fabs(out2[i])) <1e-15);
-	for (i=0;i<16;i++)	assert( (fabs(out4[i]-result4[i]) / fabs(out4[i])) <1e-15);
-	for (i=0;i<64;i++)	assert( (fabs(out8[i]-result8[i]) / fabs(out8[i])) <1e-15);
+	for (i=0;i<4;i++)		assert( (fabs(out2[i]-result2[i]) / fabs(out2[i])) <3e-16);
+	for (i=0;i<16;i++)	assert( (fabs(out4[i]-result4[i]) / fabs(out4[i])) <3e-16);
+	for (i=0;i<64;i++)	assert( (fabs(out8[i]-result8[i]) / fabs(out8[i])) <3e-16);
 	for (i=0;i<256;i++)	assert( (fabs(out16[i]-result16[i]) / fabs(out16[i])) <1e-16);
 }
 

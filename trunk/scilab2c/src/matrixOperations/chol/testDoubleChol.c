@@ -55,7 +55,7 @@ static void dcholaTest(void){
 	for (i=0;i<49;i++)printf("out2[i]= %f\n",out2[i]);
 	dchola(in,size,out);
 	for (i=0;i<9;i++){ 
-		if (out[i]>1e-16)  assert( (fabs(out[i]-res[i]) / fabs(out[i])) <1e-15);
+		if (out[i]>1e-16)  assert( (fabs(out[i]-res[i]) / fabs(out[i])) <3e-16);
 	}
 }
 
@@ -92,9 +92,9 @@ static void zcholaTest(void){
 		for (i=0;i<9;i++) printf("indice : %d   out : %f+%f *i\n",i,zreals(out[i]),zimags(out[i]));
 		for (i=0;i<9;i++){
 		if (zreals(out[i])>1e-16)
-			assert( (fabs(zreals(out[i])-resR[i]) / fabs(zreals(out[i]))) <1e-15);
+			assert( (fabs(zreals(out[i])-resR[i]) / fabs(zreals(out[i]))) <3e-16);
 		if (zimags(out[i])>1e-16)	
-			assert( (fabs(zimags(out[i])-resI[i]) / fabs(zimags(out[i]))) <1e-15);
+			assert( (fabs(zimags(out[i])-resI[i]) / fabs(zimags(out[i]))) <3e-16);
 		}
 		free(in);
 	}
@@ -124,7 +124,7 @@ static void zcholaTest(void){
 
 		for (i=0;i<9;i++){
 		if (zreals(out[i])>1e-16)
-			assert( (fabs(zreals(out[i])-resR[i]) / fabs(zreals(out[i]))) <1e-14);
+			assert( (fabs(zreals(out[i])-resR[i]) / fabs(zreals(out[i]))) <3e-16);
 		if (zimags(out[i])>1e-16)	
 			assert( (fabs(zimags(out[i])-resI[i]) / fabs(zimags(out[i]))) <1e-16);
 		}

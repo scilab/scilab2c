@@ -45,7 +45,7 @@ static void deyeaTest ( void )
          if ( in[i] < 1e-14 && result < 1e-14 )
             assert(1);
          else
-            assert ( fabs ( in[i] - result) / fabs( in[i]) < 1e-14 ) ;
+            assert ( fabs ( in[i] - result) / fabs( in[i]) < 3e-16 ) ;
         }
     
     deyea ( in2, ROWS, COLS );
@@ -65,7 +65,7 @@ static void deyeaTest ( void )
                 if ( in[i * ROWS + j] < 1e-14 && result < 1e-14 )
                     assert(1);
                 else
-                    assert ( fabs ( in[i * ROWS + j] - result) / fabs( in[i * ROWS + j]) < 1e-14 ) ;
+                    assert ( fabs ( in[i * ROWS + j] - result) / fabs( in[i * ROWS + j]) < 3e-16 ) ;
             }
         }
 
@@ -86,7 +86,7 @@ static void deyeaTest ( void )
                 if ( in3[j * ROWS2 + i] < 1e-14 && result < 1e-14 )
                     assert(1);
                 else
-                    assert ( fabs ( in3[j * ROWS2 + i] - result) / fabs( in3[j * ROWS2 + i]) < 1e-14 ) ;
+                    assert ( fabs ( in3[j * ROWS2 + i] - result) / fabs( in3[j * ROWS2 + i]) < 3e-16 ) ;
             }
         }
     
@@ -185,7 +185,7 @@ static void zeyeaTest ( void )
          if ( zreals( in[i]) < 1e-14 && zreals( result) < 1e-14 )
             assert(1);
          else
-		    assert ( fabs ( zreals(in[i]) - zreals(result)) / fabs( zreals(in[i])) < 1e-14 ) ;
+		    assert ( fabs ( zreals(in[i]) - zreals(result)) / fabs( zreals(in[i])) < 3e-16) ;
 
         if ( zimags ( in[i]) < 1e-14 )
             assert (1);

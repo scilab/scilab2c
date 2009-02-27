@@ -39,7 +39,7 @@ static void ddistaTest(void){
 	
 	out=ddista(in3,in4,2,3);
 	printf("%f\n",out);
-	assert(fabs(out-result2) / fabs(out) <1e-15);
+	assert(fabs(out-result2) / fabs(out) <3e-16);
 }
 
 static void zdistsTest(void){
@@ -91,11 +91,11 @@ static void zdistaTest(void){
 	
 	out=zdista(in3Cpx,in4Cpx,2,3);
 	printf("%f\n",out);
-	assert(fabs(out-result2) / fabs(out) <1e-15);
+	assert(fabs(out-result2) / fabs(out) <3e-16);
 	
 	out=zdista(in5Cpx,in6Cpx,5,3);
 	printf("%f\n",out);
-	assert(fabs(out-result3) / fabs(out) <1e-15);
+	assert(fabs(out-result3) / fabs(out) <3e-16);
 	
 }
 

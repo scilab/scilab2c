@@ -1,5 +1,4 @@
 /*
- *  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
  *  Copyright (C) 2008 - INRIA - Arnaud TORSET
  *
  *  This file must be used under the terms of the CeCILL.
@@ -38,11 +37,11 @@ static void dspec2aTest(void){
 	int i;
 	dspec2a(in3,3,out3,out4);
 	for(i=0;i<9;i++){
-		if (out3[i]>1e-16)  assert( fabs(out3[i]-resultValues3R[i]) / fabs(out3[i]) <1e-15);
+		if (out3[i]>1e-16)  assert( fabs(out3[i]-resultValues3R[i]) / fabs(out3[i]) <3e-16);
 		else assert(1);
 	}
 	for(i=0;i<9;i++){
-		if (out4[i]>1e-16)  assert( fabs(out4[i]-resultVectors3R[i]) / fabs(out4[i]) <1e-15);
+		if (out4[i]>1e-16)  assert( fabs(out4[i]-resultVectors3R[i]) / fabs(out4[i]) <3e-16);
 		else assert(1);
 	}
 	
@@ -50,11 +49,11 @@ static void dspec2aTest(void){
 	dspec2a(in,2,out1,out2);
 	for(i=0;i<4;i++) printf("%f\n",out1[i]);
 	for(i=0;i<4;i++){
-		if (out1[i]>1e-16)  assert( fabs(out1[i]-resultValuesR[i]) / fabs(out1[i]) <1e-15);
+		if (out1[i]>1e-16)  assert( fabs(out1[i]-resultValuesR[i]) / fabs(out1[i]) <3e-16);
 		else assert(1);
 	}
 	for(i=0;i<4;i++){
-		if (out2[i]>1e-16)  assert( fabs(out2[i]-resultVectorsR[i]) / fabs(out2[i]) <1e-15);
+		if (out2[i]>1e-16)  assert( fabs(out2[i]-resultVectorsR[i]) / fabs(out2[i]) <3e-16);
 		else assert(1);
 	}
 	
@@ -66,7 +65,7 @@ static void dspec2aTest(void){
 		else assert(1);
 	}
 	for(i=0;i<4;i++){
-		if (out2[i]>1e-16)  assert( fabs(out2[i]-resultVectors2R[i]) / fabs(out2[i]) <1e-15);
+		if (out2[i]>1e-16)  assert( fabs(out2[i]-resultVectors2R[i]) / fabs(out2[i]) <3e-16);
 		else assert(1);
 	}
 	
@@ -178,14 +177,14 @@ static void zspec2aTest(void){
 
 	
 	for(i=0;i<4;i++){
-		if (zreals(out1[i])>1e-16)  assert( fabs(zreals(out1[i])-resultValuesR[i]) / fabs(zreals(out1[i])) <1e-15);
+		if (zreals(out1[i])>1e-16)  assert( fabs(zreals(out1[i])-resultValuesR[i]) / fabs(zreals(out1[i])) <3e-16);
 		else assert(1);
 		if (zimags(out1[i])>1e-16)  assert( fabs(zimags(out1[i])-resultValuesI[i]) / fabs(zimags(out1[i])) <1e-16);
 		else assert(1);
 	}
 	
 	for(i=0;i<4;i++){
-		if (zreals(out2[i])>1e-16)  assert( fabs(zreals(out2[i])-resultVectorsR[i]) / fabs(zreals(out2[i])) <1e-15);
+		if (zreals(out2[i])>1e-16)  assert( fabs(zreals(out2[i])-resultVectorsR[i]) / fabs(zreals(out2[i])) <3e-16);
 		else assert(1);
 		if (zimags(out2[i])>1e-16)  assert( fabs(zimags(out2[i])-resultVectorsI[i]) / fabs(zimags(out2[i])) <1e-16);
 		else assert(1);
@@ -194,16 +193,16 @@ static void zspec2aTest(void){
 	
 	zspec2a(in2,2,out1,out2);	
 	for(i=0;i<4;i++){
-		if (zreals(out1[i])>1e-16)  assert( fabs(zreals(out1[i])-resultValues2R[i]) / fabs(zreals(out1[i])) <1e-15);
+		if (zreals(out1[i])>1e-16)  assert( fabs(zreals(out1[i])-resultValues2R[i]) / fabs(zreals(out1[i])) <3e-16);
 		else assert(1);
-		if (zimags(out1[i])>1e-16)  assert( fabs(zimags(out1[i])-resultValues2I[i]) / fabs(zimags(out1[i])) <1e-15);
+		if (zimags(out1[i])>1e-16)  assert( fabs(zimags(out1[i])-resultValues2I[i]) / fabs(zimags(out1[i])) <3e-16);
 		else assert(1);
 	}
 		
 	for(i=0;i<4;i++){
-		if (zreals(out2[i])>1e-16)  assert( fabs(zreals(out2[i])-resultVectors2R[i]) / fabs(zreals(out2[i])) <1e-15);
+		if (zreals(out2[i])>1e-16)  assert( fabs(zreals(out2[i])-resultVectors2R[i]) / fabs(zreals(out2[i])) <3e-16);
 		else assert(1);
-		if (zimags(out2[i])>1e-16)  assert( fabs(zimags(out2[i])-resultVectors2I[i]) / fabs(zimags(out2[i])) <1e-15);
+		if (zimags(out2[i])>1e-16)  assert( fabs(zimags(out2[i])-resultVectors2I[i]) / fabs(zimags(out2[i])) <3e-16);
 		else assert(1);
 	}
 	
@@ -211,31 +210,31 @@ static void zspec2aTest(void){
 	
 	zspec2a(in3,4,out3,out4);	
 	for(i=0;i<16;i++){
-		if (zreals(out3[i])>1e-16)  assert( fabs(zreals(out3[i])-resultValues3R[i]) / fabs(zreals(out3[i])) <1e-14);
+		if (zreals(out3[i])>1e-16)  assert( fabs(zreals(out3[i])-resultValues3R[i]) / fabs(zreals(out3[i])) <3e-16);
 		else assert(1);
-		if (zimags(out3[i])>1e-16)  assert( fabs(zimags(out3[i])-resultValues3I[i]) / fabs(zimags(out3[i])) <1e-15);
+		if (zimags(out3[i])>1e-16)  assert( fabs(zimags(out3[i])-resultValues3I[i]) / fabs(zimags(out3[i])) <3e-16);
 		else assert(1);
 	}	
 	for(i=0;i<16;i++){
-		if (zreals(out4[i])>1e-16)  assert( fabs(zreals(out4[i])-resultVectors3R[i]) / fabs(zreals(out4[i])) <1e-14);
+		if (zreals(out4[i])>1e-16)  assert( fabs(zreals(out4[i])-resultVectors3R[i]) / fabs(zreals(out4[i])) <3e-16);
 		else assert(1);
-		if (zimags(out4[i])>1e-16)  assert( fabs(zimags(out4[i])-resultVectors3I[i]) / fabs(zimags(out4[i])) <1e-14);
+		if (zimags(out4[i])>1e-16)  assert( fabs(zimags(out4[i])-resultVectors3I[i]) / fabs(zimags(out4[i])) <3e-16);
 		else assert(1);
 	}	
 	
-	/* FIXME : assert : 1e-13 maybe du to little values like  0.001... */
+	/* FIXME : assert : 3e-16 maybe du to little values like  0.001... */
 	zspec2a(in4,7,out5,out6);	
 	
 	for(i=0;i<49;i++){
-		if (zreals(out5[i])>1e-16)  assert( fabs(zreals(out5[i])-resultValues4R[i]) / fabs(zreals(out5[i])) <1e-14);
+		if (zreals(out5[i])>1e-16)  assert( fabs(zreals(out5[i])-resultValues4R[i]) / fabs(zreals(out5[i])) <3e-16);
 		else assert(1);
-		if (zimags(out5[i])>1e-16)  assert( fabs(zimags(out5[i])-resultValues4I[i]) / fabs(zimags(out5[i])) <1e-13);
+		if (zimags(out5[i])>1e-16)  assert( fabs(zimags(out5[i])-resultValues4I[i]) / fabs(zimags(out5[i])) <3e-16);
 		else assert(1);
 	}	
 	for(i=0;i<49;i++){
-		if (zreals(out6[i])>1e-16)  assert( fabs(zreals(out6[i])-resultVectors4R[i]) / fabs(zreals(out6[i])) <1e-13);
+		if (zreals(out6[i])>1e-16)  assert( fabs(zreals(out6[i])-resultVectors4R[i]) / fabs(zreals(out6[i])) <3e-16);
 		else assert(1);
-		if (zimags(out6[i])>1e-16)  assert( fabs(zimags(out6[i])-resultVectors4I[i]) / fabs(zimags(out6[i])) <1e-13);
+		if (zimags(out6[i])>1e-16)  assert( fabs(zimags(out6[i])-resultVectors4I[i]) / fabs(zimags(out6[i])) <3e-16);
 		else assert(1);
 	}
 	
