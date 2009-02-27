@@ -105,7 +105,7 @@ static void dfrexpsTest ( void ) {
          result = out * dpows( 2 , dexp) ;
 
          printf ( "\t\t %d in :%e %e\tresult : %e\tassert : %e \n" , i , dexp, in[i] , result , fabs( in[i] - result) / fabs( in[i]) ) ;
-		 assert ( fabs ( in[i] - result) / fabs( in[i]) < 1e-14 ) ;
+		 assert ( fabs ( in[i] - result) / fabs( in[i]) < 3e-16 ) ;
         }
 
 
