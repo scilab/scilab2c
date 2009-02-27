@@ -247,8 +247,8 @@ static void crowvarianceaTest (void ) {
     for ( i = 0 ; i < COLUMNS ; i++)
     {
         printf ( "%d out : %e  %e \t result %e %e \n" , i , creals(out[i])  , cimags(out[i]), creals(Result[i]) ,cimags( Result[i]));
-        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i])) < 1e-04 );
-        assert(  fabs(  cimags(out[i]) -  cimags (Result[i])) / fabs (cimags (out[i])) < 1e-04);
+        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i])) < 3e-6 );
+        assert(  fabs(  cimags(out[i]) -  cimags (Result[i])) / fabs (cimags (out[i])) < 3e-6);
       
     }
 }
