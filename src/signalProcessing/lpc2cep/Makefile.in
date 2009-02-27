@@ -64,7 +64,31 @@ libLpc2cep_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 am_testDoubleLpc2cep_OBJECTS =  \
 	testDoubleLpc2cep-testDoubleLpc2cep.$(OBJEXT)
 testDoubleLpc2cep_OBJECTS = $(am_testDoubleLpc2cep_OBJECTS)
-testDoubleLpc2cep_DEPENDENCIES = $(check_LDADD)
+am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
+	$(top_builddir)/type/libFloatComplex.la \
+	$(top_builddir)/lib/lapack/libscilapack.la \
+	$(top_builddir)/lib/blas/libsciblas.la \
+	$(top_builddir)/elementaryFunctions/log/libLog.la \
+	$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
+	$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
+	$(top_builddir)/elementaryFunctions/lnp1m1/libLnp1m1.la \
+	$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+	$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
+	$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
+	$(top_builddir)/auxiliaryFunctions/sign/libSign.la \
+	$(top_builddir)/operations/addition/libAddition.la \
+	$(top_builddir)/operations/subtraction/libSubtraction.la \
+	$(top_builddir)/operations/multiplication/libMultiplication.la \
+	$(top_builddir)/matrixOperations/multiplication/libMatrixMultiplication.la \
+	$(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la \
+	$(top_builddir)/matrixOperations/inversion/libMatrixInversion.la \
+	$(top_builddir)/matrixOperations/logm/libLogm.la \
+	$(top_builddir)/matrixOperations/spec2/libSpec2.la \
+	$(top_builddir)/matrixOperations/zeros/libMatrixZeros.la \
+	$(top_builddir)/signalProcessing/fft/libFft.la \
+	$(top_builddir)/signalProcessing/ifft/libIfft.la \
+	$(top_builddir)/signalProcessing/lpc2cep/libLpc2cep.la
+testDoubleLpc2cep_DEPENDENCIES = $(am__DEPENDENCIES_1)
 testDoubleLpc2cep_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(testDoubleLpc2cep_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) \
@@ -72,7 +96,7 @@ testDoubleLpc2cep_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 am_testFloatLpc2cep_OBJECTS =  \
 	testFloatLpc2cep-testFloatLpc2cep.$(OBJEXT)
 testFloatLpc2cep_OBJECTS = $(am_testFloatLpc2cep_OBJECTS)
-testFloatLpc2cep_DEPENDENCIES = $(check_LDADD)
+testFloatLpc2cep_DEPENDENCIES = $(am__DEPENDENCIES_1)
 testFloatLpc2cep_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatLpc2cep_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
@@ -206,6 +230,8 @@ target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 libLpc2cep_la_CFLAGS = -I $(top_builddir)/type \
+			-I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/auxiliaryFunctions/includes \
 			-I $(top_builddir)/matrixOperations/includes \
 			-I $(top_builddir)/operations/includes \
 			-I $(top_builddir)/signalProcessing/includes
@@ -237,10 +263,19 @@ check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/matrixOperations/multiplication/libMatrixMultiplication.la \
 			$(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la \
 			$(top_builddir)/matrixOperations/inversion/libMatrixInversion.la \
-			$(top_builddir)/matrixOperations/logm/libLogm.la
+			$(top_builddir)/matrixOperations/logm/libLogm.la\
+			$(top_builddir)/matrixOperations/spec2/libSpec2.la\
+			$(top_builddir)/matrixOperations/zeros/libMatrixZeros.la\
+			$(top_builddir)/signalProcessing/fft/libFft.la \
+			$(top_builddir)/signalProcessing/ifft/libIfft.la \
+			$(top_builddir)/signalProcessing/lpc2cep/libLpc2cep.la \
+			@LIBMATH@			
 
 check_INCLUDES = -I $(top_builddir)/type \
+			-I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/auxiliaryFunctions/includes \
 			-I $(top_builddir)/matrixOperations/includes \
+			-I $(top_builddir)/operations/includes \
 			-I $(top_builddir)/signalProcessing/includes
 
 testDoubleLpc2cep_SOURCES = testDoubleLpc2cep.c
@@ -676,10 +711,6 @@ uninstall-am: uninstall-pkglibLTLIBRARIES
 	mostlyclean-libtool pdf pdf-am ps ps-am tags uninstall \
 	uninstall-am uninstall-pkglibLTLIBRARIES
 
-			$(top_builddir)/signalProcessing/fft/libFft.la \
-			$(top_builddir)/signalProcessing/ifft/libIfft.la \
-			$(top_builddir)/signalProcessing/lpc2cep/libLpc2cep.la \
-			@LIBMATH@			
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:

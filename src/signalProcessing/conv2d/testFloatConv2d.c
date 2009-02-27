@@ -88,7 +88,7 @@ static void cconv2daTest(void){
 	in2=FloatComplexMatrix(rin2,iin2,16);
 	cconv2da(in1,2,2,in2,4,4,out);
 	for (i=0;i<25;i++){
-		assert( ( fabs(creals(out[i])-rres[i]) / fabs(creals(out[i])) ) <1e-5);
+		assert( ( fabs(creals(out[i])-rres[i]) / fabs(creals(out[i])) ) <3e-6);
 		assert( ( fabs(cimags(out[i])-ires[i]) / fabs(cimags(out[i])) ) <1e-7);
 	}
 }

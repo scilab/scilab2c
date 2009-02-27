@@ -37,22 +37,22 @@ static void dconvaTest(void){
 	
 	dconva(x1,2,h1,1,out1);
 	for (i=0;i<2;i++){
-		assert( ( fabs(out1[i]-conv1[i]) / fabs(out1[i]) ) <1e-15);
+		assert( ( fabs(out1[i]-conv1[i]) / fabs(out1[i]) ) <3e-16);
 	}
 
 	dconva(h1,1,x1,2,out1);
 	for (i=0;i<2;i++){
-		assert( ( fabs(out1[i]-conv1[i]) / fabs(out1[i]) ) <1e-15);
+		assert( ( fabs(out1[i]-conv1[i]) / fabs(out1[i]) ) <3e-16);
 	}
 
 	dconva(x2,8,h2,5,out2);
 	for (i=0;i<12;i++){
-		assert( ( fabs(out2[i]-conv2[i]) / fabs(out2[i]) ) <1e-15);
+		assert( ( fabs(out2[i]-conv2[i]) / fabs(out2[i]) ) <3e-16);
 	}
 
 	dconva(h2,5,x2,8,out2);
 	for (i=0;i<12;i++){
-		assert( ( fabs(out2[i]-conv2[i]) / fabs(out2[i]) ) <1e-15);
+		assert( ( fabs(out2[i]-conv2[i]) / fabs(out2[i]) ) <3e-16);
 	}
 }
 
@@ -94,26 +94,26 @@ static void zconvaTest(void){
 
 	zconva(x1,2,h1,1,out1);
 	for (i=0;i<2;i++){
-		assert( ( fabs(zreals(out1[i])-rconv1[i]) / fabs(zreals(out1[i])) ) <1e-15);
-		assert( ( fabs(zimags(out1[i])-iconv1[i]) / fabs(zimags(out1[i])) ) <1e-15);
+		assert( ( fabs(zreals(out1[i])-rconv1[i]) / fabs(zreals(out1[i])) ) <3e-16);
+		assert( ( fabs(zimags(out1[i])-iconv1[i]) / fabs(zimags(out1[i])) ) <3e-16);
 	}
 
 	zconva(h1,1,x1,2,out1);
 	for (i=0;i<2;i++){
-		assert( ( fabs(zreals(out1[i])-rconv1[i]) / fabs(zreals(out1[i])) ) <1e-15);
-		assert( ( fabs(zimags(out1[i])-iconv1[i]) / fabs(zimags(out1[i])) ) <1e-15);
+		assert( ( fabs(zreals(out1[i])-rconv1[i]) / fabs(zreals(out1[i])) ) <3e-16);
+		assert( ( fabs(zimags(out1[i])-iconv1[i]) / fabs(zimags(out1[i])) ) <3e-16);
 	}
 
 	zconva(x2,4,h2,7,out2);
 	for (i=0;i<7;i++){
-		assert( ( fabs(zreals(out2[i])-rconv2[i]) / fabs(zreals(out2[i])) ) <1e-15);
-		assert( ( fabs(zimags(out2[i])-iconv2[i]) / fabs(zimags(out2[i])) ) <1e-15);
+		assert( ( fabs(zreals(out2[i])-rconv2[i]) / fabs(zreals(out2[i])) ) <3e-16);
+		assert( ( fabs(zimags(out2[i])-iconv2[i]) / fabs(zimags(out2[i])) ) <3e-16);
 	}
 
 	zconva(h2,7,x2,4,out2);
 	for (i=0;i<10;i++){
-		assert( ( fabs(zreals(out2[i])-rconv2[i]) / fabs(zreals(out2[i])) ) <1e-14);
-		assert( ( fabs(zimags(out2[i])-iconv2[i]) / fabs(zimags(out2[i])) ) <1e-15);
+		assert( ( fabs(zreals(out2[i])-rconv2[i]) / fabs(zreals(out2[i])) ) <3e-16);
+		assert( ( fabs(zimags(out2[i])-iconv2[i]) / fabs(zimags(out2[i])) ) <3e-16);
 	}
 }
 

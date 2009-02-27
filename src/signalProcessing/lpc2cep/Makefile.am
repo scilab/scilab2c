@@ -14,6 +14,8 @@
 
 
 libLpc2cep_la_CFLAGS =	-I $(top_builddir)/type \
+			-I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/auxiliaryFunctions/includes \
 			-I $(top_builddir)/matrixOperations/includes \
 			-I $(top_builddir)/operations/includes \
 			-I $(top_builddir)/signalProcessing/includes
@@ -58,7 +60,9 @@ check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/matrixOperations/multiplication/libMatrixMultiplication.la \
 			$(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la \
 			$(top_builddir)/matrixOperations/inversion/libMatrixInversion.la \
-			$(top_builddir)/matrixOperations/logm/libLogm.la
+			$(top_builddir)/matrixOperations/logm/libLogm.la\
+			$(top_builddir)/matrixOperations/spec2/libSpec2.la\
+			$(top_builddir)/matrixOperations/zeros/libMatrixZeros.la\
 			$(top_builddir)/signalProcessing/fft/libFft.la \
 			$(top_builddir)/signalProcessing/ifft/libIfft.la \
 			$(top_builddir)/signalProcessing/lpc2cep/libLpc2cep.la \
@@ -66,7 +70,10 @@ check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
 			
 
 check_INCLUDES =	-I $(top_builddir)/type \
+			-I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/auxiliaryFunctions/includes \
 			-I $(top_builddir)/matrixOperations/includes \
+			-I $(top_builddir)/operations/includes \
 			-I $(top_builddir)/signalProcessing/includes
 
 

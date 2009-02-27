@@ -107,13 +107,13 @@ static void cconvaTest(void){
 
 	cconva(x2,4,h2,7,out2);
 	for (i=0;i<10;i++){
-		assert( ( fabs(creals(out2[i])-rconv2[i]) / fabs(creals(out2[i])) ) <1e-5);
+		assert( ( fabs(creals(out2[i])-rconv2[i]) / fabs(creals(out2[i])) ) <3e-6);
 		assert( ( fabs(cimags(out2[i])-iconv2[i]) / fabs(cimags(out2[i])) ) <1e-6);
 	}
 
 	cconva(h2,7,x2,4,out2);
 	for (i=0;i<10;i++){
-		assert( ( fabs(creals(out2[i])-rconv2[i]) / fabs(creals(out2[i])) ) <1e-5);
+		assert( ( fabs(creals(out2[i])-rconv2[i]) / fabs(creals(out2[i])) ) <3e-6);
 		assert( ( fabs(cimags(out2[i])-iconv2[i]) / fabs(cimags(out2[i])) ) <1e-6);
 	}
 
@@ -122,7 +122,7 @@ static void cconvaTest(void){
 
 
 static int convTest(void){
-	printf("\n>>>> Conv Double Tests\n");
+	printf("\n>>>> Conv Float Tests\n");
 	sconvaTest();
 	cconvaTest();
 	return 0;
