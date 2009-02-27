@@ -29,7 +29,7 @@ static void dspecaTest(void){
 		
 	dspeca(in,2,out);
 	for(i=0;i<2;i++){
-		if (out[i]>1e-16)  assert( fabs(out[i]-resultR[i]) / fabs(out[i]) <1e-15);
+		if (out[i]>1e-16)  assert( fabs(out[i]-resultR[i]) / fabs(out[i]) <3e-16);
 		else assert(1);
 	}
 	
@@ -70,7 +70,7 @@ static void zspecaTest(void){
 	
 	zspeca(in,2,out);
 	for(i=0;i<2;i++){
-		if (zreals(out[i])>1e-16)  assert( fabs(zreals(out[i])-resultR[i]) / fabs(zreals(out[i])) <1e-15);
+		if (zreals(out[i])>1e-16)  assert( fabs(zreals(out[i])-resultR[i]) / fabs(zreals(out[i])) <3e-16);
 		else assert(1);
 		if (zimags(out[i])>1e-16)  assert( fabs(zimags(out[i])-resultI[i]) / fabs(zimags(out[i])) <1e-16);
 		else assert(1);
@@ -79,18 +79,18 @@ static void zspecaTest(void){
 	
 	zspeca(in2,2,out);	
 	for(i=0;i<2;i++){
-		if (zreals(out[i])>1e-16)  assert( fabs(zreals(out[i])-result2R[i]) / fabs(zreals(out[i])) <1e-15);
+		if (zreals(out[i])>1e-16)  assert( fabs(zreals(out[i])-result2R[i]) / fabs(zreals(out[i])) <3e-16);
 		else assert(1);
-		if (zimags(out[i])>1e-16)  assert( fabs(zimags(out[i])-result2I[i]) / fabs(zimags(out[i])) <1e-15);
+		if (zimags(out[i])>1e-16)  assert( fabs(zimags(out[i])-result2I[i]) / fabs(zimags(out[i])) <3e-16);
 		else assert(1);
 	}	
 	
 	
 	zspeca(in3,4,out2);	
 	for(i=0;i<4;i++){
-		if (zreals(out2[i])>1e-16)  assert( fabs(zreals(out2[i])-result3R[i]) / fabs(zreals(out2[i])) <1e-15);
+		if (zreals(out2[i])>1e-16)  assert( fabs(zreals(out2[i])-result3R[i]) / fabs(zreals(out2[i])) <3e-16);
 		else assert(1);
-		if (zimags(out2[i])>1e-16)  assert( fabs(zimags(out2[i])-result3I[i]) / fabs(zimags(out2[i])) <1e-14);
+		if (zimags(out2[i])>1e-16)  assert( fabs(zimags(out2[i])-result3I[i]) / fabs(zimags(out2[i])) <3e-16);
 		else assert(1);
 	}	
 	
