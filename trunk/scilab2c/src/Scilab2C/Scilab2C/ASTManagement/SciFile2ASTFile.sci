@@ -2,7 +2,7 @@ function SciFile2ASTFile(SciFile,ASTFile);
 // function SciFile2ASTFile(SciFile,ASTFile);
 // -----------------------------------------------------------------
 // This function makes use of the macr2tree function to generate
-// the ASTFile containing the AST (Abstract Syntactic Tree) of the 
+// the ASTFile containing the AST (Abstract Syntactic Tree) of the
 // input Scilab function (SciFile).
 //
 // Input data:
@@ -28,6 +28,9 @@ AST=eval('macr2tree('+ScilabFunName+')');
 if ASTierr == 0
    mdelete(ASTFile);
 end
-write(ASTFile,string(AST));
+
+fd = mopen(ASTFile, "wt");
+mputl(string(AST), fd);
+mclose(fd);
 
 endfunction
