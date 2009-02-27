@@ -386,13 +386,13 @@ static void zifftmaTest2 (void )
    if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 1e-12 );
+        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 3e-16 );
 
 
     if (  zimags(out[i])  < 1e-14 && zimags (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-12 ) ;
+	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-16 ) ;
 
     }
 
@@ -441,13 +441,13 @@ static void zifftmaTest3 (void )
    if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 1e-12 );
+        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 3e-16 );
 
 
     if (  zimags(out[i])  < 1e-14 && zimags (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-12 ) ;
+	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-16 ) ;
 
     }
 
@@ -491,13 +491,13 @@ static void zifftmaTest4 (void )
    if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 1e-12 );
+        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 3e-16 );
 
 
     if (  zimags(out[i])  < 1e-14 && zimags (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-12 ) ;
+	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-16 ) ;
 */
     }
 
@@ -548,13 +548,13 @@ static void zifftmaTest5 (void )
    if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 1e-12 );
+        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 3e-16 );
 
 
     if (  zimags(out[i])  < 1e-14 && zimags (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-12 ) ;
+	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-16 ) ;
 
     }
 
@@ -605,13 +605,13 @@ static void zifftmaTest6 (void )
    if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 1e-12 );
+        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 3e-16 );
 
 
     if (  zimags(out[i])  < 1e-14 && zimags (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-12 ) ;
+	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-16 ) ;
 
     }
 
@@ -662,13 +662,13 @@ static void zifftmaTest7 (void )
    if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 1e-12 );
+        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 3e-16 );
 
 
     if (  zimags(out[i])  < 1e-14 && zimags (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-12 ) ;
+	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-16 ) ;
 
     }
 
@@ -711,13 +711,13 @@ static void zifftmaTest8 (void )
    if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 1e-12 );
+        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 3e-16 );
 
 
     if (  zimags(out[i])  < 1e-14 && zimags (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-12 ) ;
+	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-16 ) ;
 */
     }
 
@@ -761,13 +761,13 @@ static void zifftmaTest9 (void )
    if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 1e-12 );
+        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 3e-16 );
 
 
     if (  zimags(out[i])  < 1e-14 && zimags (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-12 ) ;
+	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-16 ) ;
 
     }
 
@@ -820,13 +820,13 @@ static void zifftmaTest10 (void )
    if (  zreals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i]))  < 1e-12 );
+        assert ( fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i]))  < 3e-16 );
 
 
     if (  zimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 1e-12 ) ;
+	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 3e-16 ) ;
 
     }
 
@@ -877,13 +877,13 @@ static void zifftmaTest11 (void )
    if (  zreals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i]))  < 1e-12 );
+        assert ( fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i]))  < 3e-16 );
 
 
     if (  zimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 1e-12 ) ;
+	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 3e-16 ) ;
 
     }
 
@@ -935,13 +935,13 @@ static void zifftmaTest12 (void )
    if (  zreals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i]))  < 1e-12 );
+        assert ( fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i]))  < 3e-16 );
 
 
     if (  zimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 1e-12 ) ;
+	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 3e-16 ) ;
 
     }
 
@@ -993,13 +993,13 @@ static void zifftmaTest13 (void )
    if (  zreals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i]))  < 1e-12 );
+        assert ( fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i]))  < 3e-16 );
 
 
     if (  zimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 1e-12 ) ;
+	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 3e-16 ) ;
 
     }
 
@@ -1051,13 +1051,13 @@ static void zifftmaTest14 (void )
    if (  zreals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i]))  < 1e-12 );
+        assert ( fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i]))  < 3e-16 );
 
 
     if (  zimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 1e-12 ) ;
+	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 3e-16 ) ;
 
     }
 
@@ -1110,13 +1110,13 @@ static void zifftmaTest15 (void )
    if (  zreals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i]))  < 1e-12 );
+        assert ( fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i]))  < 3e-16 );
 
 
     if (  zimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 1e-12 ) ;
+	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 3e-16 ) ;
 
     }
 
@@ -1169,13 +1169,13 @@ static void zifftmaTest16 (void )
    if (  zreals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i]))  < 1e-12 );
+        assert ( fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i]))  < 3e-16 );
 
 
     if (  zimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 1e-12 ) ;
+	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 3e-16 ) ;
 
     }
 
@@ -1228,13 +1228,13 @@ static void zifftmaTest32 (void )
    if (  zreals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i]))  < 1e-12 );
+        assert ( fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i]))  < 3e-16 );
 
 
     if (  zimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 1e-12 ) ;
+	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 3e-16 ) ;
 
     }
 

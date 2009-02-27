@@ -130,14 +130,14 @@ static void difftmaTest(void){
 	printf(" >>> Matrice 1*12 <<< \n");
 	difftma(in1, 1, 12, out1);
 	for (i=0;i<12;i++){
-	if (out1[i]>1e-14)	assert( (fabs(out1[i]-resR1[i]) / fabs(out1[i])) < 1e-14 );
+	if (out1[i]>1e-16)	assert( (fabs(out1[i]-resR1[i]) / fabs(out1[i])) < 3e-16 );
 	else			assert(1);
 	}
 
 	printf(" >>> Matrice 2*6 <<< \n");
 	difftma(in2, 2, 6, out2);
 	for (i=0;i<12;i++){
-	if (out2[i]>1e-14)	assert( (fabs(out2[i]-resR2[i]) / fabs(out2[i])) < 1e-14 );
+	if (out2[i]>1e-16)	assert( (fabs(out2[i]-resR2[i]) / fabs(out2[i])) < 3e-16 );
 	else			assert(1);
 	}
 	
@@ -145,28 +145,28 @@ static void difftmaTest(void){
 	printf(" >>> Matrice 3*4 <<< \n");	
 	difftma(in3, 3, 4, out3);
 	for (i=0;i<12;i++){	
-	if (out3[i]>1e-14)	assert( (fabs(out3[i]-resR3[i]) / fabs(out3[i])) < 1e-14 );
+	if (out3[i]>1e-16)	assert( (fabs(out3[i]-resR3[i]) / fabs(out3[i])) < 3e-16 );
 	else			assert(1);
 	}
 
 	printf(" >>> Matrice 4*3 <<< \n");	
 	difftma(in4, 4, 3, out4);
 	for (i=0;i<12;i++){	
-	if (out4[i]>1e-14)	assert( (fabs(out4[i]-resR4[i]) / fabs(out4[i])) < 1e-14 );
+	if (out4[i]>1e-16)	assert( (fabs(out4[i]-resR4[i]) / fabs(out4[i])) < 3e-16 );
 	else			assert(1);
 	}
 
 	printf(" >>> Matrice 6*2 <<< \n");	
 	difftma(in6, 6, 2, out6);
 	for (i=0;i<12;i++){	
-	if (out6[i]>1e-16)	assert( (fabs(out6[i]-resR6[i]) / fabs(out6[i])) < 1e-14 );
+	if (out6[i]>1e-16)	assert( (fabs(out6[i]-resR6[i]) / fabs(out6[i])) < 3e-16 );
 	else			assert(1);
 	}
 
 	printf(" >>> Matrice 3*3 <<< \n");	
 	difftma(in9, 3, 3, out9);
 	for (i=0;i<9;i++){
-	if (out9[i]>1e-16)	assert( (fabs(out9[i]-resR9[i]) / fabs(out9[i])) < 1e-16 );
+	if (out9[i]>1e-16)	assert( (fabs(out9[i]-resR9[i]) / fabs(out9[i])) < 3e-16 );
 	else			assert(1);
 	}
 	
@@ -227,18 +227,18 @@ static void zifftmaTest(void){
 	printf(" >>> Matrice 1*12 <<< \n");
 	zifftma(in1, 1, 12, out1);
 	for (i=0;i<12;i++){
-	if (zreals(out1[i])>1e-14)	assert( (fabs(zreals(out1[i])-resR1[i]) / fabs(zreals(out1[i]))) < 1e-14 );
+	if (zreals(out1[i])>1e-16)	assert( (fabs(zreals(out1[i])-resR1[i]) / fabs(zreals(out1[i]))) < 3e-16 );
 	else			assert(1);
-	if (zimags(out1[i])>1e-14)	assert( (fabs(zimags(out1[i])+resI1[i]) / fabs(zimags(out1[i]))) < 1e-14 );
+	if (zimags(out1[i])>1e-16)	assert( (fabs(zimags(out1[i])+resI1[i]) / fabs(zimags(out1[i]))) < 3e-16 );
 	else			assert(1);
 	}
 
 	printf(" >>> Matrice 2*6 <<< \n");
 	zifftma(in2, 2, 6, out2);
 	for (i=0;i<12;i++){
-	if (zreals(out2[i])>1e-14)	assert( (fabs(zreals(out2[i])-resR2[i]) / fabs(zreals(out2[i]))) < 1e-14 );
+	if (zreals(out2[i])>1e-16)	assert( (fabs(zreals(out2[i])-resR2[i]) / fabs(zreals(out2[i]))) < 3e-16 );
 	else			assert(1);
-	if (zimags(out2[i])>1e-14)	assert( (fabs(zimags(out2[i])+resI2[i]) / fabs(zimags(out2[i]))) < 1e-13 );
+	if (zimags(out2[i])>1e-16)	assert( (fabs(zimags(out2[i])+resI2[i]) / fabs(zimags(out2[i]))) < 3e-13 );
 	else			assert(1);
 	}
 	
@@ -246,37 +246,37 @@ static void zifftmaTest(void){
 	printf(" >>> Matrice 3*4 <<< \n");	
 	zifftma(in3, 3, 4, out3);
 	for (i=0;i<12;i++){	
-	if (zreals(out3[i])>1e-14)	assert( (fabs(zreals(out3[i])-resR3[i]) / fabs(zreals(out3[i]))) < 1e-14 );
+	if (zreals(out3[i])>1e-16)	assert( (fabs(zreals(out3[i])-resR3[i]) / fabs(zreals(out3[i]))) < 3e-16 );
 	else			assert(1);
-	if (zimags(out3[i])>1e-14)	assert( (fabs(zimags(out3[i])+resI3[i]) / fabs(zimags(out3[i]))) < 1e-14 );
+	if (zimags(out3[i])>1e-16)	assert( (fabs(zimags(out3[i])+resI3[i]) / fabs(zimags(out3[i]))) < 3e-16 );
 	else			assert(1);
 	}
 
 	printf(" >>> Matrice 4*3 <<< \n");	
 	zifftma(in4, 4, 3, out4);
 	for (i=0;i<12;i++){	
-	if (zreals(out4[i])>1e-14)	assert( (fabs(zreals(out4[i])-resR4[i]) / fabs(zreals(out4[i]))) < 1e-14 );
+	if (zreals(out4[i])>1e-16)	assert( (fabs(zreals(out4[i])-resR4[i]) / fabs(zreals(out4[i]))) < 3e-16 );
 	else			assert(1);
-	if (zimags(out4[i])>1e-14)	assert( (fabs(zimags(out4[i])+resI4[i]) / fabs(zimags(out4[i]))) < 1e-14 );
+	if (zimags(out4[i])>1e-16)	assert( (fabs(zimags(out4[i])+resI4[i]) / fabs(zimags(out4[i]))) < 3e-16 );
 	else			assert(1);
 	}
 
 	printf(" >>> Matrice 6*2 <<< \n");	
 	zifftma(in6, 6, 2, out6);
 	for (i=0;i<12;i++){	
-	if (zreals(out6[i])>1e-16)	assert( (fabs(zreals(out6[i])-resR6[i]) / fabs(zreals(out6[i]))) < 1e-14 );
+	if (zreals(out6[i])>1e-16)	assert( (fabs(zreals(out6[i])-resR6[i]) / fabs(zreals(out6[i]))) < 3e-16 );
 	else			assert(1);
-	if (zimags(out6[i])>1e-16)	assert( (fabs(zimags(out6[i])+resI6[i]) / fabs(zimags(out6[i]))) < 1e-14 );
+	if (zimags(out6[i])>1e-16)	assert( (fabs(zimags(out6[i])+resI6[i]) / fabs(zimags(out6[i]))) < 3e-16 );
 	else			assert(1);
 	}
 
 	printf(" >>> Matrice 3*3 <<< \n");	
 	zifftma(in9, 3, 3, out9);
 	for (i=0;i<9;i++){
-	if (zreals(out9[i])>1e-16)	assert( (fabs(zreals(out9[i])-resR9[i]) / fabs(zreals(out9[i]))) < 1e-16 );
+	if (zreals(out9[i])>1e-16)	assert( (fabs(zreals(out9[i])-resR9[i]) / fabs(zreals(out9[i]))) < 3e-16 );
 	else			assert(1);
 	
-	if (zimags(out9[i])>1e-15)	assert( (fabs(zimags(out9[i])-resI9[i]) / fabs(zimags(out9[i]))) < 1e-15 );
+	if (zimags(out9[i])>1e-16)	assert( (fabs(zimags(out9[i])-resI9[i]) / fabs(zimags(out9[i]))) < 3e-16 );
 	else			assert(1);
 	}
 }
