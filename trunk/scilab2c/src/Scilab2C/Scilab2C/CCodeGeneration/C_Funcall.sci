@@ -217,12 +217,12 @@ for counterin = 1:NInArg
       
    if (InArg(counterin).Dimension == 0)
       if (FlagCall == 0)
-         CCall = CCall+' ';
+         CCall = CCall+TmpInArgType+' ';
       end
       CCall = CCall+TmpInArgName+',';
    else
       if (FlagCall == 0)
-         CCall = CCall+TmpInArgName+', SCI2Cint* __'+TmpInArgName+'Size,';
+         CCall = CCall+TmpInArgType+'* '+TmpInArgName+', SCI2Cint* __'+TmpInArgName+'Size,';
       else
          CCall = CCall+TmpInArgName+',  '+TmpInArgSizeVar+',';
       end
@@ -239,7 +239,7 @@ for counterout = 1:NOutArg
          // #RNU_RES_B
          // --- Write in the declaration file the returned output scalar (if any). ---
          // #RNU_RES_E
-         outscalardeclaration = TmpOutArgName+';';
+         outscalardeclaration = TmpOutArgType+' '+TmpOutArgName+';';
          // #RNU_RES_B
          PrintStringInfo(outscalardeclaration,ReportFileName,'file','y');
          // #RNU_RES_E
@@ -260,7 +260,7 @@ for counterout = 1:NOutArg
          end
       else
          if (FlagCall == 0)
-            CCall = CCall+TmpOutArgName+',';
+            CCall = CCall+TmpOutArgType+'* '+TmpOutArgName+',';
             if (OutArg(counterout).FindLike == 1)  
                CCall = CCall+'SCI2Cint* __'+TmpOutArgName+'Size'+',';
             end
