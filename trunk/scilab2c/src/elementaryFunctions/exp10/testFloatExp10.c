@@ -446,7 +446,7 @@ void cexp10sTest(void) {
 	for (i=0;i<200;i++){
 		in=FloatComplex(inR[i],inI[i]);
 		out=cexp10s(in);
-		assert(( (fabs(creals(out)-resR[i]))/(fabs(creals(out))) )<1e-5);	
+		assert(( (fabs(creals(out)-resR[i]))/(fabs(creals(out))) )<3e-6);	
 		assert(( (fabs(cimags(out)-resI[i]))/(fabs(cimags(out))) )<1e-6);			
 	}
 }
@@ -475,7 +475,7 @@ void cexp10aTest(void) {
 	cexp10a(in,200,out);
 
 	for (i=0;i<200;i++){
-		assert(( (fabs(creals(out[i])-resR[i]))/(fabs(creals(out[i]))) )<1e-5);	
+		assert(( (fabs(creals(out[i])-resR[i]))/(fabs(creals(out[i]))) )<3e-6);	
 		assert(( (fabs(cimags(out[i])-resI[i]))/(fabs(cimags(out[i]))) )<1e-6);			
 	}
 }

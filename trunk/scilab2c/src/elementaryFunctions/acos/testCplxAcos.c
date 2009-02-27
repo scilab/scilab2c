@@ -611,14 +611,14 @@ void zacossTest(void){
 
 
   for (i=0;i<200;i++){
-	assert ( ( fabs(zreals(out[i]) - zreals(tRes[i])) / fabs(zreals(out[i])) ) < 1e-15);
-	assert ( ( fabs(zimags(out[i]) - zimags(tRes[i])) / fabs(zimags(out[i])) ) < 1e-15);
+	assert ( ( fabs(zreals(out[i]) - zreals(tRes[i])) / fabs(zreals(out[i])) ) < 3e-16);
+	assert ( ( fabs(zimags(out[i]) - zimags(tRes[i])) / fabs(zimags(out[i])) ) < 3e-16);
   }
   
   out[0]=zacoss(DoubleComplex(0.2,0.1));
   printf ("%1.20f + %1.20f *i\n",zreals(out[0]),zimags(out[0]));
-  assert ( ( fabs(zreals(out[0]) - 1.3704927556955963652285) / fabs(zreals(out[0])) ) < 1e-15);
-  assert ( ( fabs(zimags(out[0]) - (- 0.1018639159801242727310)) / fabs(zimags(out[0])) ) < 1e-15);
+  assert ( ( fabs(zreals(out[0]) - 1.3704927556955963652285) / fabs(zreals(out[0])) ) < 3e-16);
+  assert ( ( fabs(zimags(out[0]) - (- 0.1018639159801242727310)) / fabs(zimags(out[0])) ) < 3e-16);
 }  
 
 
@@ -660,8 +660,8 @@ void zacosaTest(void){
   }
   zacosa(tIn,200,out);
   for (i=0;i<200;i++){
-	assert ( ( fabs(zreals(out[i]) - zreals(tRes[i])) / fabs(zreals(out[i])) ) < 1e-15);
-	assert ( ( fabs(zimags(out[i]) - zimags(tRes[i])) / fabs(zimags(out[i])) ) < 1e-15);
+	assert ( ( fabs(zreals(out[i]) - zreals(tRes[i])) / fabs(zreals(out[i])) ) < 3e-16);
+	assert ( ( fabs(zimags(out[i]) - zimags(tRes[i])) / fabs(zimags(out[i])) ) < 3e-16);
   }
 }
 

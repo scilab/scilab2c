@@ -855,12 +855,12 @@ void slog1psTest(void) {
 
 	for (i=0;i<200;i++){
 		out=slog1ps(in[i]-1);
-		assert(( (fabs(out-res[i]))/(fabs(out)) )<1e-5);
+		assert(( (fabs(out-res[i]))/(fabs(out)) )<3e-6);
 	}
 	
 	for (i=0;i<200;i++){
 		out=slog1ps(in2[i]-1);
-		assert(( (fabs(out-res2[i]))/(fabs(out)) )<1e-4);
+		assert(( (fabs(out-res2[i]))/(fabs(out)) )<3e-6);
 	}
 }
 
@@ -879,7 +879,7 @@ void clog1psTest(void) {
 	for (i=0;i<200;i++){
 		in=FloatComplex(inR[i]-1,inI[i]);
 		out=clog1ps(in);
-		assert(( (fabs(creals(out)-resR[i]))/(fabs(creals(out))) )<1e-5);	
+		assert(( (fabs(creals(out)-resR[i]))/(fabs(creals(out))) )<3e-6);	
 		assert(( (fabs(cimags(out)-resI[i]))/(fabs(cimags(out))) )<1e-6);			
 	}
 
@@ -906,12 +906,12 @@ void slog1paTest(void) {
 	
 	slog1pa(in,200,out);
 	for (i=0;i<200;i++){
-		assert(( (fabs(out[i]-res[i]))/(fabs(out[i])) )<1e-5);
+		assert(( (fabs(out[i]-res[i]))/(fabs(out[i])) )<3e-6);
 	}
 	
 	slog1pa(in2,200,out);
 	for (i=0;i<200;i++){
-		assert(( (fabs(out[i]-res2[i]))/(fabs(out[i])) )<1e-4);
+		assert(( (fabs(out[i]-res2[i]))/(fabs(out[i])) )<3e-6);
 	}
 }
 
@@ -936,7 +936,7 @@ void clog1paTest(void) {
 	clog1pa(in,200,out);
 
 	for (i=0;i<200;i++){
-		assert(( (fabs(creals(out[i])-resR[i]))/(fabs(creals(out[i]))) )<1e-5);	
+		assert(( (fabs(creals(out[i])-resR[i]))/(fabs(creals(out[i]))) )<3e-6);	
 		assert(( (fabs(cimags(out[i])-resI[i]))/(fabs(cimags(out[i]))) )<1e-6);			
 	}
 	

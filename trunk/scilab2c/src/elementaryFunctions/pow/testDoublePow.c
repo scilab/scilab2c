@@ -438,7 +438,7 @@ void dpowsTest(void) {
 		out2=dpows(in1[i],0);
 		out3=dpows(in1[i],1);
 
-		assert(( (fabs(out1-res[i]))/(fabs(out1)) )<1e-15);
+		assert(( (fabs(out1-res[i]))/(fabs(out1)) )<3e-16);
 		assert(( (fabs(out2-1))/(fabs(out2)) )<1e-16);
 		assert(( (fabs(out3-in1[i]))/(fabs(out3)) )<1e-16);
 	}
@@ -456,8 +456,8 @@ void zpowsTest(void) {
 	for (i=0;i<200;i++){
 		in1=DoubleComplex(in1R[i],in1I[i]);
 		out=zpows(in1,in2);
-		assert(( (fabs(zreals(out)-resR[i]))/(fabs(zreals(out))) )<1e-15);	
-		assert(( (fabs(zimags(out)-resI[i]))/(fabs(zimags(out))) )<1e-15);			
+		assert(( (fabs(zreals(out)-resR[i]))/(fabs(zreals(out))) )<3e-16);	
+		assert(( (fabs(zimags(out)-resI[i]))/(fabs(zimags(out))) )<3e-16);			
 	}
 }
 
@@ -478,7 +478,7 @@ void dpowaTest(void) {
 	dpowa(in1,200,ZERO,out2);
 	dpowa(in1,200,ONE,out3);
 	for (i=0;i<200;i++){
-		assert(( (fabs(out1[i]-res[i]))/(fabs(out1[i])) )<1e-15);
+		assert(( (fabs(out1[i]-res[i]))/(fabs(out1[i])) )<3e-16);
 		assert(( (fabs(out2[i]-1))/(fabs(out2[i])) )<1e-16);
 		assert(( (fabs(out3[i]-in1[i]))/(fabs(out3[i])) )<1e-16);
 	}
@@ -498,8 +498,8 @@ void zpowaTest(void) {
 	zpowa(in1,200,in2,out);
 
 	for (i=0;i<200;i++){
-		assert(( (fabs(zreals(out[i])-resR[i]))/(fabs(zreals(out[i]))) )<1e-15);	
-		assert(( (fabs(zimags(out[i])-resI[i]))/(fabs(zimags(out[i]))) )<1e-15);			
+		assert(( (fabs(zreals(out[i])-resR[i]))/(fabs(zreals(out[i]))) )<3e-16);	
+		assert(( (fabs(zimags(out[i])-resI[i]))/(fabs(zimags(out[i]))) )<3e-16);			
 	}
 }
 

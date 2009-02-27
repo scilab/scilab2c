@@ -1135,13 +1135,13 @@ void dlog1psTest(void) {
 
 	for (i=0;i<200;i++){
 	out=dlog1ps(in[i]);
-	assert(( (fabs(out-res[i]))/(fabs(out)) )<1e-15);
+	assert(( (fabs(out-res[i]))/(fabs(out)) )<3e-16);
 	}
 	
 	
 	for (i=0;i<200;i++){
 	out=dlog1ps(in2[i]);
-	assert(( (fabs(out-res2[i]))/(fabs(out)) )<1e-15);
+	assert(( (fabs(out-res2[i]))/(fabs(out)) )<3e-16);
 	}
   
 }
@@ -1162,14 +1162,14 @@ void zlog1psTest(void) {
 	for (i=0;i<200;i++){
 		in=DoubleComplex(inR[i]-1,inI[i]);
 		out=zlog1ps(in);
-		assert(( (fabs(zreals(out)-resR[i]))/(fabs(zreals(out))) )<1e-14);	
-		assert(( (fabs(zimags(out)-resI[i]))/(fabs(zimags(out))) )<1e-15);			
+		assert(( (fabs(zreals(out)-resR[i]))/(fabs(zreals(out))) )<3e-16);	
+		assert(( (fabs(zimags(out)-resI[i]))/(fabs(zimags(out))) )<3e-16);			
 	}
 	
 	for (i=0;i<200;i++){
 		in2=DoubleComplex(in2R[i]-1,in2I[i]);
 		out=zlog1ps(in2);
-		assert(( (fabs(zreals(out)-res2R[i]))/(fabs(zreals(out))) )<1e-15);	
+		assert(( (fabs(zreals(out)-res2R[i]))/(fabs(zreals(out))) )<3e-16);	
 		assert(( (fabs(zimags(out)-res2I[i]))/(fabs(zimags(out))) )<1e-16);			
 	}
 	
@@ -1190,12 +1190,12 @@ void dlog1paTest(void) {
 
 	dlog1pa(in,200,out);
 	for (i=0;i<200;i++){
-		assert(( (fabs(out[i]-res[i]))/(fabs(out[i])) )<1e-15);
+		assert(( (fabs(out[i]-res[i]))/(fabs(out[i])) )<3e-16);
 	}
 	
 	dlog1pa(in2,200,out);
 	for (i=0;i<200;i++){
-		assert(( (fabs(out[i]-res2[i]))/(fabs(out[i])) )<1e-15);
+		assert(( (fabs(out[i]-res2[i]))/(fabs(out[i])) )<3e-16);
 	}
 }
 
@@ -1221,15 +1221,15 @@ void zlog1paTest(void) {
 	zlog1pa(in,200,out);
 
 	for (i=0;i<200;i++){
-		assert(( (fabs(zreals(out[i])-resR[i]))/(fabs(zreals(out[i]))) )<1e-14);	
-		assert(( (fabs(zimags(out[i])-resI[i]))/(fabs(zimags(out[i]))) )<1e-15);			
+		assert(( (fabs(zreals(out[i])-resR[i]))/(fabs(zreals(out[i]))) )<3e-16);	
+		assert(( (fabs(zimags(out[i])-resI[i]))/(fabs(zimags(out[i]))) )<3e-16);			
 	}
 	
 	in2=DoubleComplexMatrix(in2R,in2I,200);
 	zlog1pa(in2,200,out);
 
 	for (i=0;i<200;i++){
-		assert(( (fabs(zreals(out[i])-res2R[i]))/(fabs(zreals(out[i]))) )<1e-15);	
+		assert(( (fabs(zreals(out[i])-res2R[i]))/(fabs(zreals(out[i]))) )<3e-16);	
 		assert(( (fabs(zimags(out[i])-res2I[i]))/(fabs(zimags(out[i]))) )<1e-16);			
 	}
 	
