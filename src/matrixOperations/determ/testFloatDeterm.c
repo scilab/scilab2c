@@ -381,11 +381,11 @@ static void sdetermaTest(void){
 	
 	assert((fabs(out2-res2)/fabs(out2))<1e-6);
 	assert((fabs(out3-res3)/fabs(out3))<1e-7);
-	assert((fabs(out4-res4)/fabs(out4))<1e-5);
+	assert((fabs(out4-res4)/fabs(out4))<3e-6);
 	assert((fabs(out5-res5)/fabs(out5))<1e-6);
 	assert((fabs(out6-res6)/fabs(out6))<1e-6);
 	assert((fabs(out8-res8)/fabs(out8))<1e-6);
-	assert((fabs(out10-res10)/fabs(out10))<1e-5);
+	assert((fabs(out10-res10)/fabs(out10))<3e-6);
 			
 }
 
@@ -426,16 +426,16 @@ static void cdetermaTest(void){
 	assert((fabs(creals(out4)-resR4)/fabs(creals(out4)))<1e-6);
 	assert((fabs(cimags(out4)-resI4)/fabs(cimags(out4)))<1e-6);
 	
-	assert((fabs(creals(out5)-resR5)/fabs(creals(out5)))<1e-5);
+	assert((fabs(creals(out5)-resR5)/fabs(creals(out5)))<3e-6);
 	assert((fabs(cimags(out5)-resI5)/fabs(cimags(out5)))<1e-6);
 	
 	assert((fabs(creals(out6)-resR6)/fabs(creals(out6)))<1e-6);
-	assert((fabs(cimags(out6)-resI6)/fabs(cimags(out6)))<1e-5);
+	assert((fabs(cimags(out6)-resI6)/fabs(cimags(out6)))<3e-6);
 	
 	assert((fabs(creals(out8)-resR8)/fabs(creals(out8)))<1e-6);
 	assert((fabs(cimags(out8)-resI8)/fabs(cimags(out8)))<1e-6);
 	
-	assert((fabs(creals(out10)-resR10)/fabs(creals(out10)))<1e-5);
+	assert((fabs(creals(out10)-resR10)/fabs(creals(out10)))<3e-6);
 	assert((fabs(cimags(out10)-resI10)/fabs(cimags(out10)))<1e-6);
 }
 

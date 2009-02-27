@@ -240,7 +240,7 @@ static void dinfnormaTest(void) {
     out = dinfnorma ( in , LEADDIM , LEADDIM );
     
     printf ( "\t\t  out : %.16f\tresult : %.16f\tassert : %e \n" , out , result , fabs ( out - result ) / fabs( out) ) ;
-   assert ( fabs ( out - result ) / fabs( out) < 1e-14 ) ;
+   assert ( fabs ( out - result ) / fabs( out) < 3e-16 ) ;
     
     
     
@@ -260,7 +260,7 @@ static void zinfnormaTest(void) {
     out = zinfnorma ( in , LEADDIM , LEADDIM );
     
     printf ( "\t\t  out : %.16f\tresult : %.16f\tassert : %e \n" , out , result , fabs ( out - result ) / fabs( out) ) ;
-   assert ( fabs ( out - result ) / fabs( out) < 1e-14 ) ;
+   assert ( fabs ( out - result ) / fabs( out) < 3e-16 ) ;
     
     
     
@@ -280,7 +280,7 @@ static void cinfnormaTest(void) {
     out = cinfnorma ( in , LEADDIM , LEADDIM );
     
     printf ( "\t\t  out : %.16f\tresult : %.16f\tassert : %e \n" , out , result , fabs ( out - result ) / fabs( out) ) ;
-   assert ( fabs ( out - result ) / fabs( out) < 1e-14 ) ;
+   assert ( fabs ( out - result ) / fabs( out) < 3e-6 ) ;
     
     
     

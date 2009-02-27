@@ -257,7 +257,7 @@ static void drdivmaTest ( void )
 		printf ( "\t\t %d out : %e  result : %e   assert : %e \n" ,
                  i , out[i] , result[i] , fabs ( out[i] - result[i] ) / fabs( out[i]) ) ;
 		
-			assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 1e-15 ) ;
+			assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 3e-16 ) ;
 	}
 	
 }
@@ -442,13 +442,13 @@ static void zrdivmaTest ( void ){
     if (  zreals(out[i])  < 1e-16 && zreals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else         
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 1e-15 );
+        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 3e-16 );
     
         
     if (  zimags(out[i])  < 1e-16 && zimags (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else         
-	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-15  ) ;
+	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-16  ) ;
 
 	}
 	

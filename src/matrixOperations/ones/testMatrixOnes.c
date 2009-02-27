@@ -38,7 +38,7 @@ static void donesaTest ( void )
          if ( in[i] < 1e-14 && result < 1e-14 )
             assert(1);
          else
-            assert ( fabs ( in[i] - result) / fabs( in[i]) < 1e-14 ) ;
+            assert ( fabs ( in[i] - result) / fabs( in[i]) < 3e-16 ) ;
         }
 }
 
@@ -86,7 +86,7 @@ static void zonesaTest ( void )
          if ( zreals( in[i]) < 1e-14 && zreals( result) < 1e-14 )
             assert(1);
          else
-		    assert ( fabs ( zreals(in[i]) - zreals(result)) / fabs( zreals(in[i])) < 1e-14 ) ;
+		    assert ( fabs ( zreals(in[i]) - zreals(result)) / fabs( zreals(in[i])) < 1e-16 ) ;
 
         if ( zimags ( in[i]) < 1e-14 )
             assert (1);

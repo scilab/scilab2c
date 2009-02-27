@@ -60,20 +60,20 @@ static void dlogmaTest(void){
 	dlogma(inHer,4,outHer);
 	
 	for(i=0;i<4;i++) {
-		assert( (fabs(out4[i]-result4R[i]) / fabs(out4[i])) <1e-15);
+		assert( (fabs(out4[i]-result4R[i]) / fabs(out4[i])) <3e-16);
 	}
 	
 	for(i=0;i<9;i++) {
-		assert( (fabs(out9[i]-result9R[i]) / fabs(out9[i])) <1e-14);
+		assert( (fabs(out9[i]-result9R[i]) / fabs(out9[i])) <3e-16);
 	}
 	
 	for(i=0;i<16;i++) {
 
-		assert( (fabs(out16[i]-result16R[i]) / fabs(out16[i])) <1e-13);
+		assert( (fabs(out16[i]-result16R[i]) / fabs(out16[i])) <3e-16);
 	}
 	
 	for(i=0;i<16;i++) {
-		assert( (fabs(outHer[i]-resultHerR[i]) / fabs(outHer[i])) <1e-12);
+		assert( (fabs(outHer[i]-resultHerR[i]) / fabs(outHer[i])) <3e-16);
 	}
 } 
 
@@ -140,13 +140,13 @@ static void zlogmaTest(void){
 	
 	
 	for(i=0;i<4;i++) {		
-		assert( fabs(zreals(out4[i])-result4R[i]) / fabs(zreals(out4[i])) <1e-15);
-		assert( fabs(zimags(out4[i])-result4I[i]) / fabs(zimags(out4[i])) <1e-15);
+		assert( fabs(zreals(out4[i])-result4R[i]) / fabs(zreals(out4[i])) <3e-16);
+		assert( fabs(zimags(out4[i])-result4I[i]) / fabs(zimags(out4[i])) <3e-16);
 	}
 	
 	for(i=0;i<9;i++) {
-		assert( fabs(zreals(out9[i])-result9R[i]) / fabs(zreals(out9[i])) <1e-14);
-		if (zimags(out9[i])>1e-15) assert( fabs(zimags(out9[i])-result9I[i]) / fabs(zimags(out9[i])) <1e-16);
+		assert( fabs(zreals(out9[i])-result9R[i]) / fabs(zreals(out9[i])) <3e-16);
+		if (zimags(out9[i])>3e-16) assert( fabs(zimags(out9[i])-result9I[i]) / fabs(zimags(out9[i])) <1e-16);
 		else assert(1);
 	}
 	
@@ -165,13 +165,13 @@ static void zlogmaTest(void){
 				fabs(zreals(out16[i])-result16R[i]) / fabs(zreals(out16[i])),
 				fabs(zimags(out16[i])-result16I[i]) / fabs(zimags(out16[i])));
 		
-		assert( fabs(zreals(out16[i])-result16R[i]) / fabs(zreals(out16[i])) <1e-13);
-		assert( fabs(zimags(out16[i])-result16I[i]) / fabs(zimags(out16[i])) <1);
+		assert( fabs(zreals(out16[i])-result16R[i]) / fabs(zreals(out16[i])) <3e-16);
+		assert( fabs(zimags(out16[i])-result16I[i]) / fabs(zimags(out16[i])) <3e-16);
 	}
 	
 	for(i=0;i<16;i++) {
-		assert( fabs(zreals(outHer[i])-resultHerR[i]) / fabs(zreals(outHer[i])) <1e-12);
-		assert( fabs(zimags(outHer[i])-resultHerI[i]) / fabs(zimags(outHer[i])) <1e-13);
+		assert( fabs(zreals(outHer[i])-resultHerR[i]) / fabs(zreals(outHer[i])) <3e-16);
+		assert( fabs(zimags(outHer[i])-resultHerI[i]) / fabs(zimags(outHer[i])) <3e-16);
 	}
 }
 

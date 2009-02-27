@@ -421,14 +421,14 @@ static void sexpmaTest (void ) {
   	for ( i = 0 ; i < LEADDIM*LEADDIM  ; i++ )
 	{
 		printf ( "\t\t %d out : %e\tresult : %e\tassert : %e \n" , i , out[i] , result[i] , fabs ( out[i] - result[i] ) / fabs( out[i]) ) ;	
-		assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 1e-5 ) ;
+		assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 3e-6 ) ;
 	} 
 	
   sexpma(mon_test,out_mon_test,3);
     	for ( i = 0 ; i < 9  ; i++ )
 	{
 		printf ( "\t\t %d out : %e\tresult : %e\tassert : %e \n" , i , out[i] , result[i] , fabs ( out[i] - result[i] ) / fabs( out[i]) ) ;	
-		assert ( fabs ( out_mon_test[i] - result_mon_test[i] ) / fabs( out_mon_test[i]) < 1e-5 ) ;
+		assert ( fabs ( out_mon_test[i] - result_mon_test[i] ) / fabs( out_mon_test[i]) < 3e-6 ) ;
 	}  
 }
 
@@ -450,7 +450,7 @@ static void dexpmaTest (void ) {
   	for ( i = 0 ; i < LEADDIM*LEADDIM  ; i++ )
 	{
 		printf ( "\t\t %d out : %e\tresult : %e\tassert : %e \n" , i , out[i] , result[i] , fabs ( out[i] - result[i] ) / fabs( out[i]) ) ;	
-		assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 1e-14 ) ;
+		assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 3e-16 ) ;
 	}  
 }
 
@@ -483,16 +483,16 @@ static void cexpmaTest ( void) {
               fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i])) ,
               fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i])));
            
-    if (  creals(out[i])  < 1e-14 && creals (Result[i]) < 1e-18 )
+    if (  creals(out[i])  < 3e-16 && creals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else         
-        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 1e-4 );
+        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 3e-6 );
     
         
-    if (  cimags(out[i])  < 1e-14 && cimags (Result[i]) < 1e-18 )
+    if (  cimags(out[i])  < 3e-16 && cimags (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else         
-	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 1e-4 ) ;
+	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 3e-6 ) ;
     
     }
 }
@@ -527,16 +527,16 @@ static void zexpmaTest ( void) {
               fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) ,
               fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i])));
            
-    if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
+    if (  zreals(out[i])  < 3e-16 && zreals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else         
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 1e-12 );
+        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 3e-16 );
     
         
-    if (  zimags(out[i])  < 1e-14 && zimags (Result[i]) < 1e-18 )
+    if (  zimags(out[i])  < 3e-16 && zimags (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else         
-	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 1e-12 ) ;
+	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-16 ) ;
     
     }
 }

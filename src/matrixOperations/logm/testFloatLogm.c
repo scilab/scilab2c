@@ -161,7 +161,7 @@ static void clogmaTest(void){
 				fabs(cimags(out16[i])-result16I[i]) / fabs(cimags(out16[i])));
 		
 		assert( fabs(creals(out16[i])-result16R[i]) / fabs(creals(out16[i])) <1e-6);
-		assert( fabs(cimags(out16[i])-result16I[i]) / fabs(cimags(out16[i])) <1e-5);
+		assert( fabs(cimags(out16[i])-result16I[i]) / fabs(cimags(out16[i])) <3e-6);
 	}
 	
 	for(i=0;i<16;i++) {
