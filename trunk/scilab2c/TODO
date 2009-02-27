@@ -58,4 +58,24 @@ AT - FFT and IFFT : need to change Output type
 
 AT - Scilab2CDeps.sci : data have changed and file hasn't been updated. To Update.
 
+AT - Interface for rand
+BJ - Test rand
+
+BJ - Interface frexp within INIT file.
+
+AT - Functions zeros(), ones(), rand(), eye() return error during generation code
+	See Available functions : d0zeros is available instead of zerosd0
+	
+AT - Manage implicitList with complex input arguments : see size declaration in C-Code
+
+AT - Tests for squareMagnitude
+
+AT - Tests for LDivision : see test file
+
+AT - Test for Jmat is empty (but function is unused and not asked)
+
+AT - Tests for lpc2cep
+
+AT - Tests for prod : these are calculation of absolute precision and not relative
+
 
