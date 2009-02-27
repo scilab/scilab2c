@@ -40,7 +40,7 @@ static int dsumaTest(void) {
 
   printf("\n>>>> Sum Double Array Test\n");
   assert(dsuma(table1, 3) == 9.0);
-  assert((dsuma(table2, 5) - (9.186784 + 9.186784 + 9.186784 + 9.186784 + 9.186784)) / dsuma(table2, 5) < 1e-6);
+  assert((dsuma(table2, 5) - (9.186784 + 9.186784 + 9.186784 + 9.186784 + 9.186784)) / dsuma(table2, 5) < 3e-16);
   return 0;
 }
 

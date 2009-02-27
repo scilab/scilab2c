@@ -163,8 +163,8 @@ static int doubleComplexVariance(void){
 		printf("Variance \n");
 		printf("%f + %f *i\n",zreals(out),zimags(out));
 		
-		assert(fabs(zreals(out)-varianceR)/fabs(zreals(out)) <1e-15);
-		assert(fabs(zimags(out)-varianceI)/fabs(zimags(out)) <1e-15);
+		assert(fabs(zreals(out)-varianceR)/fabs(zreals(out)) <3e-16);
+		assert(fabs(zimags(out)-varianceI)/fabs(zimags(out)) <3e-16);
 		
 		
 		
@@ -176,8 +176,8 @@ static int doubleComplexVariance(void){
 			
 			
 		for (i=0;i<3;i++){
-			assert(fabs(zreals(outRow[i])-rowVarianceR[i])/fabs(zreals(outRow[i])) <1e-15);
-			assert(fabs(zimags(outRow[i])-rowVarianceI[i])/fabs(zimags(outRow[i])) <1e-14);
+			assert(fabs(zreals(outRow[i])-rowVarianceR[i])/fabs(zreals(outRow[i])) <3e-16);
+			assert(fabs(zimags(outRow[i])-rowVarianceI[i])/fabs(zimags(outRow[i])) <3e-16);
 		}
 		
 		
@@ -188,8 +188,8 @@ static int doubleComplexVariance(void){
 				
 		
 		for (i=0;i<2;i++){
-			assert(fabs(zreals(outCol[i])-colVarianceR[i])/fabs(zreals(outCol[i])) <1e-15);			
-			assert(fabs(zimags(outCol[i])-colVarianceI[i])/fabs(zimags(outCol[i])) <1e-15);			
+			assert(fabs(zreals(outCol[i])-colVarianceR[i])/fabs(zreals(outCol[i])) <3e-16);			
+			assert(fabs(zimags(outCol[i])-colVarianceI[i])/fabs(zimags(outCol[i])) <3e-16);			
 		}
 		
 		free(in);
@@ -304,8 +304,8 @@ static int doubleComplexVariance(void){
 		printf("Variance 2 \n");
 		printf("%f + %f *i\n",zreals(out),zimags(out));
 		
-		assert(fabs(zreals(out)-varianceR)/fabs(zreals(out)) <1e-15);
-		assert(fabs(zimags(out)-varianceI)/fabs(zimags(out)) <1e-15);
+		assert(fabs(zreals(out)-varianceR)/fabs(zreals(out)) <3e-16);
+		assert(fabs(zimags(out)-varianceI)/fabs(zimags(out)) <3e-16);
 		
 		
 		
@@ -317,8 +317,8 @@ static int doubleComplexVariance(void){
 			
 			
 		for (i=0;i<7;i++){
-			assert(fabs(zreals(outRow[i])-rowVarianceR[i])/fabs(zreals(outRow[i])) <1e-15);
-			assert(fabs(zimags(outRow[i])-rowVarianceI[i])/fabs(zimags(outRow[i])) <1e-13);
+			assert(fabs(zreals(outRow[i])-rowVarianceR[i])/fabs(zreals(outRow[i])) <3e-16);
+			assert(fabs(zimags(outRow[i])-rowVarianceI[i])/fabs(zimags(outRow[i])) <3e-16);
 		}
 		
 		
@@ -329,8 +329,8 @@ static int doubleComplexVariance(void){
 				
 		
 		for (i=0;i<10;i++){
-			assert(fabs(zreals(outCol[i])-colVarianceR[i])/fabs(zreals(outCol[i])) <1e-15);			
-			assert(fabs(zimags(outCol[i])-colVarianceI[i])/fabs(zimags(outCol[i])) <1e-14);			
+			assert(fabs(zreals(outCol[i])-colVarianceR[i])/fabs(zreals(outCol[i])) <3e-16);			
+			assert(fabs(zimags(outCol[i])-colVarianceI[i])/fabs(zimags(outCol[i])) <3e-16);			
 		}
 		free(in);
 		free(outCol);

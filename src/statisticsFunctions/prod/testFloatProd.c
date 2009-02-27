@@ -208,7 +208,7 @@ static int cprodsTest(void) {
   return 0;
 }
 
-static int cprodaTest(void) {/*
+static int cprodaTest(void) {
   floatComplex value1 = FloatComplex(3.0f, 3.0f);
   floatComplex table1[3];
   floatComplex value2 = FloatComplex(9.186784563f,9.186784563f);
@@ -237,9 +237,9 @@ static int cprodaTest(void) {/*
 
   assert(creals(cproda(table1, 3)) == -54.0f);
   assert(cimags(cproda(table1, 3)) == 54.0f);
-  assert(fabs(creals(cproda(table2, 5)) + 261744.55211053110542707f) < 1e-06);
-  assert(fabs(cimags(cproda(table2, 5)) + 261744.55211053110542707f) < 1e-06);
-*/
+  assert(fabs(creals(cproda(table2, 5)) + 261744.55211053110542707f)/creals(cproda(table2, 5)) < 1e-06);
+  assert(fabs(cimags(cproda(table2, 5)) + 261744.55211053110542707f)/cimags(cproda(table2, 5)) < 1e-06);
+
   return 0;
 }
 
