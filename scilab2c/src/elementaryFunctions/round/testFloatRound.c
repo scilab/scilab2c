@@ -20,25 +20,25 @@ static void sroundsTest(void) {
 
 	assert ((fabs( srounds(-2) - (-2))/fabs(srounds(-2)))<1e-16);	
 	assert ((fabs( srounds(-1.9f) - (-2))/fabs(srounds(-1.9f)))<1e-16);		
-	assert ((fabs( srounds(-1.8f) - (-2))/fabs(srounds(-1.9f)))<1e-16);	
-	assert ((fabs( srounds(-1.7f) - (-2))/fabs(srounds(-1.9f)))<1e-16);	
-	assert ((fabs( srounds(-1.6f) - (-2))/fabs(srounds(-1.9f)))<1e-16);	
-	assert ((fabs( srounds(-1.5f) - (-2))/fabs(srounds(-1.9f)))<1e-16);	
-	assert ((fabs( srounds(-1.4f) - (-1))/fabs(srounds(-1.9f)))<1e-16);	
-	assert ((fabs( srounds(-1.3f) - (-1))/fabs(srounds(-1.9f)))<1e-16);	
-	assert ((fabs( srounds(-1.2f) - (-1))/fabs(srounds(-1.9f)))<1e-16);	
-	assert ((fabs( srounds(-1.1f) - (-1))/fabs(srounds(-1.9f)))<1e-16);	
-	assert ((fabs( srounds(-1.0f) - (-1))/fabs(srounds(-1.9f)))<1e-16);	
-	assert ((fabs( srounds(-0.9f) - (-1))/fabs(srounds(-1.9f)))<1e-16);
-	assert ((fabs( srounds(1.0f) - (1))/fabs(srounds(1.9f)))<1e-16);	
-	assert ((fabs( srounds(1.1f) - (1))/fabs(srounds(1.9f)))<1e-16);	
-	assert ((fabs( srounds(1.2f) - (1))/fabs(srounds(1.9f)))<1e-16);	
-	assert ((fabs( srounds(1.3f) - (1))/fabs(srounds(1.9f)))<1e-16);	
-	assert ((fabs( srounds(1.4f) - (1))/fabs(srounds(1.9f)))<1e-16);	
-	assert ((fabs( srounds(1.5f) - (2))/fabs(srounds(1.9f)))<1e-16);	
-	assert ((fabs( srounds(1.6f) - (2))/fabs(srounds(1.9f)))<1e-16);	
-	assert ((fabs( srounds(1.7f) - (2))/fabs(srounds(1.9f)))<1e-16);	
-	assert ((fabs( srounds(1.8f) - (2))/fabs(srounds(1.9f)))<1e-16);	
+	assert ((fabs( srounds(-1.8f) - (-2))/fabs(srounds(-1.8f)))<1e-16);	
+	assert ((fabs( srounds(-1.7f) - (-2))/fabs(srounds(-1.7f)))<1e-16);	
+	assert ((fabs( srounds(-1.6f) - (-2))/fabs(srounds(-1.6f)))<1e-16);	
+	assert ((fabs( srounds(-1.5f) - (-2))/fabs(srounds(-1.5f)))<1e-16);	
+	assert ((fabs( srounds(-1.4f) - (-1))/fabs(srounds(-1.4f)))<1e-16);	
+	assert ((fabs( srounds(-1.3f) - (-1))/fabs(srounds(-1.3f)))<1e-16);	
+	assert ((fabs( srounds(-1.2f) - (-1))/fabs(srounds(-1.2f)))<1e-16);	
+	assert ((fabs( srounds(-1.1f) - (-1))/fabs(srounds(-1.1f)))<1e-16);	
+	assert ((fabs( srounds(-1.0f) - (-1))/fabs(srounds(-1.0f)))<1e-16);	
+	assert ((fabs( srounds(-0.9f) - (-1))/fabs(srounds(-0.9f)))<1e-16);
+	assert ((fabs( srounds(1.0f) - (1))/fabs(srounds(1.0f)))<1e-16);	
+	assert ((fabs( srounds(1.1f) - (1))/fabs(srounds(1.1f)))<1e-16);	
+	assert ((fabs( srounds(1.2f) - (1))/fabs(srounds(1.2f)))<1e-16);	
+	assert ((fabs( srounds(1.3f) - (1))/fabs(srounds(1.3f)))<1e-16);	
+	assert ((fabs( srounds(1.4f) - (1))/fabs(srounds(1.4f)))<1e-16);	
+	assert ((fabs( srounds(1.5f) - (2))/fabs(srounds(1.5f)))<1e-16);	
+	assert ((fabs( srounds(1.6f) - (2))/fabs(srounds(1.6f)))<1e-16);	
+	assert ((fabs( srounds(1.7f) - (2))/fabs(srounds(1.7f)))<1e-16);	
+	assert ((fabs( srounds(1.8f) - (2))/fabs(srounds(1.8f)))<1e-16);	
 	assert ((fabs( srounds(1.9f) - (2))/fabs(srounds(1.9f)))<1e-16);	
 	assert ((fabs( srounds(2.0f) - (2))/fabs(srounds(2.0f)))<1e-16);
 }
@@ -108,7 +108,9 @@ static void sroundaTest(void) {
 	
 	srounda(in,10,out);
 	
-	for (i=0;i<10;i++) 	assert(fabs(out[i]-res[i]) <1e-16);
+	for (i=0;i<10;i++) 
+		if (out[i]!=0) assert(fabs(out[i]-res[i])/fabs(out[i]) <1e-16);
+		else assert(fabs(out[i]-res[i]) <1e-16);
 }
 
 static void croundaTest(void) {
@@ -123,8 +125,10 @@ static void croundaTest(void) {
 	crounda(in,10,out);
 	
 	for (i=0;i<10;i++){
-	 	assert(fabs(creals(out[i])-resR[i]) <1e-16);
-	 	assert(fabs(cimags(out[i])-resI[i]) <1e-16);
+		if (creals(out[i])!=0) assert(fabs(creals(out[i])-resR[i])/fabs(creals(out[i])) <1e-16);
+		else assert(fabs(creals(out[i])-resR[i]) <1e-16);
+		if (cimags(out[i])!=0) assert(fabs(cimags(out[i])-resI[i])/fabs(cimags(out[i])) <1e-16);
+	 	else assert(fabs(cimags(out[i])-resI[i]) <1e-16);
 	 }
 }
 

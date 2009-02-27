@@ -431,7 +431,7 @@ void dcoshsTest(void) {
 
 	for (i=0;i<200;i++){
 		out=dcoshs(in[i]);
-		assert(( (fabs(out-res[i]))/(fabs(out)) )<1e-15);
+		assert(( (fabs(out-res[i]))/(fabs(out)) )<3e-16);
 	}
 }
 
@@ -446,8 +446,8 @@ void zcoshsTest(void) {
 	for (i=0;i<200;i++){
 		in=DoubleComplex(inR[i],inI[i]);
 		out=zcoshs(in);
-		assert(( (fabs(zreals(out)-resR[i]))/(fabs(zreals(out))) )<1e-15);	
-		assert(( (fabs(zimags(out)-resI[i]))/(fabs(zimags(out))) )<1e-15);			
+		assert(( (fabs(zreals(out)-resR[i]))/(fabs(zreals(out))) )<3e-16);	
+		assert(( (fabs(zimags(out)-resI[i]))/(fabs(zimags(out))) )<3e-16);			
 	}
 }
 
@@ -466,11 +466,11 @@ void dcoshaTest(void) {
 	dcosha(mon_test,9,mon_out);
 	
 	for (i=0;i<200;i++){
-		assert(( (fabs(out[i]-res[i]))/(fabs(out[i])) )<1e-15);
+		assert(( (fabs(out[i]-res[i]))/(fabs(out[i])) )<3e-16);
 	}
 	
 	for (i=0;i<9;i++){
-		assert(( (fabs(mon_out[i]-mon_res[i]))/(fabs(mon_out[i])) )<1e-15);
+		assert(( (fabs(mon_out[i]-mon_res[i]))/(fabs(mon_out[i])) )<3e-16);
 	}
 }
 
@@ -487,8 +487,8 @@ void zcoshaTest(void) {
 	}
 	zcosha(in,200,out);
 	for (i=0;i<200;i++){
-		assert(( (fabs(zreals(out[i])-resR[i]))/(fabs(zreals(out[i]))) )<1e-15);	
-		assert(( (fabs(zimags(out[i])-resI[i]))/(fabs(zimags(out[i]))) )<1e-15);			
+		assert(( (fabs(zreals(out[i])-resR[i]))/(fabs(zreals(out[i]))) )<3e-16);	
+		assert(( (fabs(zimags(out[i])-resI[i]))/(fabs(zimags(out[i]))) )<3e-16);			
 	}
 }
 

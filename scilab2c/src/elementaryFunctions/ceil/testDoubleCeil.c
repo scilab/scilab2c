@@ -21,21 +21,21 @@
 static void dceilsTest(void) {
 	assert ((fabs( dceils(-2) - (-2))/fabs(dceils(-2)))<1e-16);	
 	assert ((fabs( dceils(-1.9) - (-1))/fabs(dceils(-1.9)))<1e-16);		
-	assert ((fabs( dceils(-1.8) - (-1))/fabs(dceils(-1.9)))<1e-16);	
-	assert ((fabs( dceils(-1.7) - (-1))/fabs(dceils(-1.9)))<1e-16);	
-	assert ((fabs( dceils(-1.6) - (-1))/fabs(dceils(-1.9)))<1e-16);	
-	assert ((fabs( dceils(-1.5) - (-1))/fabs(dceils(-1.9)))<1e-16);	
-	assert ((fabs( dceils(-1.4) - (-1))/fabs(dceils(-1.9)))<1e-16);	
-	assert ((fabs( dceils(-1.3) - (-1))/fabs(dceils(-1.9)))<1e-16);	
-	assert ((fabs( dceils(-1.2) - (-1))/fabs(dceils(-1.9)))<1e-16);	
-	assert ((fabs( dceils(-1.1) - (-1))/fabs(dceils(-1.9)))<1e-16);	
-	assert ((fabs( dceils(-1.0) - (-1))/fabs(dceils(-1.9)))<1e-16);		
+	assert ((fabs( dceils(-1.8) - (-1))/fabs(dceils(-1.8)))<1e-16);	
+	assert ((fabs( dceils(-1.7) - (-1))/fabs(dceils(-1.7)))<1e-16);	
+	assert ((fabs( dceils(-1.6) - (-1))/fabs(dceils(-1.6)))<1e-16);	
+	assert ((fabs( dceils(-1.5) - (-1))/fabs(dceils(-1.5)))<1e-16);	
+	assert ((fabs( dceils(-1.4) - (-1))/fabs(dceils(-1.4)))<1e-16);	
+	assert ((fabs( dceils(-1.3) - (-1))/fabs(dceils(-1.3)))<1e-16);	
+	assert ((fabs( dceils(-1.2) - (-1))/fabs(dceils(-1.2)))<1e-16);	
+	assert ((fabs( dceils(-1.1) - (-1))/fabs(dceils(-1.1)))<1e-16);	
+	assert ((fabs( dceils(-1.0) - (-1))/fabs(dceils(-1.0)))<1e-16);		
 	assert (fabs( dceils(-.9))<1e-16);	
-	assert ((fabs( dceils(1.0) - (1))/fabs(dceils(1.9)))<1e-16);	
-	assert ((fabs( dceils(1.1) - (2))/fabs(dceils(1.9)))<1e-16);	
-	assert ((fabs( dceils(1.2) - (2))/fabs(dceils(1.9)))<1e-16);	
-	assert ((fabs( dceils(1.3) - (2))/fabs(dceils(1.9)))<1e-16);	
-	assert ((fabs( dceils(1.4) - (2))/fabs(dceils(1.9)))<1e-16);	
+	assert ((fabs( dceils(1.0) - (1))/fabs(dceils(1.0)))<1e-16);	
+	assert ((fabs( dceils(1.1) - (2))/fabs(dceils(1.1)))<1e-16);	
+	assert ((fabs( dceils(1.2) - (2))/fabs(dceils(1.2)))<1e-16);	
+	assert ((fabs( dceils(1.3) - (2))/fabs(dceils(1.3)))<1e-16);	
+	assert ((fabs( dceils(1.4) - (2))/fabs(dceils(1.4)))<1e-16);	
 	assert ((fabs( dceils(1.5) - (2))/fabs(dceils(1.9)))<1e-16);	
 	assert ((fabs( dceils(1.6) - (2))/fabs(dceils(1.9)))<1e-16);	
 	assert ((fabs( dceils(1.7) - (2))/fabs(dceils(1.9)))<1e-16);	
@@ -111,10 +111,9 @@ static void dceilaTest(void) {
 	
 	dceila(in,10,out);
 	
-	for (i=0;i<10;i++) 	assert(fabs(out[i]-res[i]) <1e-16);
-	
-
-
+	for (i=0;i<10;i++) 
+		if (out[i]!=0)	assert(fabs(out[i]-res[i])/fabs(out[i]) <1e-16);
+		else assert (fabs(out[i]-res[i])==0);
 }
 
 static void zceilaTest(void) {
@@ -129,8 +128,10 @@ static void zceilaTest(void) {
 	zceila(in,10,out);
 	
 	for (i=0;i<10;i++){
-	 	assert(fabs(zreals(out[i])-resR[i]) <1e-16);
-	 	assert(fabs(zimags(out[i])-resI[i]) <1e-16);
+		if (zreals(out[i])!=0) assert(fabs(zreals(out[i])-resR[i])/fabs(zreals(out[i]))<1e-16);
+		else assert(fabs(zreals(out[i])-resR[i]) <1e-16);
+		if (zimags(out[i])!=0) assert(fabs(zimags(out[i])-resI[i])/fabs(zimags(out[i]))<1e-16);
+		else assert(fabs(zimags(out[i])-resI[i]) <1e-16);
 	 }
 
 }

@@ -429,7 +429,7 @@ void scossTest(void) {
 
 	for (i=0;i<200;i++){
 		out=scoss(in[i]);
-		assert(( (fabs(out-res[i]))/(fabs(out)) )<1e-5);
+		assert(( (fabs(out-res[i]))/(fabs(out)) )<3e-6);
 	}
 }
 
@@ -444,7 +444,7 @@ void ccossTest(void) {
 	for (i=0;i<200;i++){
 		in=FloatComplex(inR[i],inI[i]);
 		out=ccoss(in);
-		assert(( (fabs(creals(out)-resR[i]))/(fabs(creals(out))) )<1e-5);	
+		assert(( (fabs(creals(out)-resR[i]))/(fabs(creals(out))) )<3e-6);	
 		assert(( (fabs(cimags(out)-resI[i]))/(fabs(cimags(out))) )<1e-6);			
 	}
 }
@@ -457,7 +457,7 @@ void scosaTest(void) {
 	
 	scosa(in,200,out);
 	for (i=0;i<200;i++){
-		assert(( (fabs(out[i]-res[i]))/(fabs(out[i])) )<1e-5);
+		assert(( (fabs(out[i]-res[i]))/(fabs(out[i])) )<3e-6);
 	}
 }
 
@@ -474,7 +474,7 @@ void ccosaTest(void) {
 	}
 	ccosa(in,200,out);
 	for (i=0;i<200;i++){
-		assert(( (fabs(creals(out[i])-resR[i]))/(fabs(creals(out[i]))) )<1e-5);	
+		assert(( (fabs(creals(out[i])-resR[i]))/(fabs(creals(out[i]))) )<3e-6);	
 		assert(( (fabs(cimags(out[i])-resI[i]))/(fabs(cimags(out[i]))) )<1e-6);			
 	}
 }
