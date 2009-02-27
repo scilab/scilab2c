@@ -1275,7 +1275,7 @@ static void drdivsTest()
   for(i=0;i<200;i++){
 	out=drdivs(tIn1[i],tIn2[i]);
 	printf("%d : %f ; num = %f;erreur = %1.25f\n",i,out,tIn1[i],fabs(out-tRes[i]) / fabs(out));
-	assert( (fabs(out-tRes[i]) / fabs(out) ) <1e-15);
+	assert( (fabs(out-tRes[i]) / fabs(out) ) <3e-16);
   }
 }
 
@@ -1296,7 +1296,7 @@ static void crdivsTest()
   	in2 = FloatComplex(DR[i],DI[i]);
   	out = crdivs(in1,in2);
   	assert( ( fabs(creals(out)-RR[i]) / fabs(creals(out)) ) <1e-6);
-  	assert( ( fabs(cimags(out)-RI[i]) / fabs(cimags(out)) ) <1e-5);
+  	assert( ( fabs(cimags(out)-RI[i]) / fabs(cimags(out)) ) <3e-6);
   }
 }
 
@@ -1316,8 +1316,8 @@ static void zrdivsTest()
   	in1 = DoubleComplex(NR[i],NI[i]);
   	in2 = DoubleComplex(DR[i],DI[i]);
   	out = zrdivs(in1,in2);
-  	assert( ( fabs(zreals(out)-RR[i]) / fabs(zreals(out)) ) <1e-15);
-  	assert( ( fabs(zimags(out)-RI[i]) / fabs(zimags(out)) ) <1e-13);
+  	assert( ( fabs(zreals(out)-RR[i]) / fabs(zreals(out)) ) <3e-16);
+  	assert( ( fabs(zimags(out)-RI[i]) / fabs(zimags(out)) ) <3e-16);
   }
 }
 
@@ -1374,7 +1374,7 @@ static void crdivaTest()
 
   for (i=0;i<200;i++){
   	assert( ( fabs(creals(out[i])-RR[i]) / fabs(creals(out[i])) ) <1e-6);
-  	assert( ( fabs(cimags(out[i])-RI[i]) / fabs(cimags(out[i])) ) <1e-5);
+  	assert( ( fabs(cimags(out[i])-RI[i]) / fabs(cimags(out[i])) ) <3e-6);
   }
 }
 
@@ -1398,8 +1398,8 @@ static void zrdivaTest()
   zrdiva(in1,in2,200,out);
 
   for (i=0;i<200;i++){
-  	assert( ( fabs(zreals(out[i])-RR[i]) / fabs(zreals(out[i])) ) <1e-15);
-  	assert( ( fabs(zimags(out[i])-RI[i]) / fabs(zimags(out[i])) ) <1e-13);
+  	assert( ( fabs(zreals(out[i])-RR[i]) / fabs(zreals(out[i])) ) <3e-16);
+  	assert( ( fabs(zimags(out[i])-RI[i]) / fabs(zimags(out[i])) ) <3e-16);
   }
 }
 

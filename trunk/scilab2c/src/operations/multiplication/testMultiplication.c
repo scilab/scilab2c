@@ -1258,8 +1258,8 @@ static void ztimessTest(void) {
 	in1=DoubleComplex(P1_R[i],P1_I[i]);
 	in2=DoubleComplex(P2_R[i],P2_I[i]);
 	out=ztimess(in1,in2);
-	assert( ( fabs(zreals(out)-Res_R[i]) / fabs(zreals(out)) ) <1e-14);
-	assert( ( fabs(zimags(out)-Res_I[i]) / fabs(zimags(out)) ) <1e-15);
+	assert( ( fabs(zreals(out)-Res_R[i]) / fabs(zreals(out)) ) <3e-16);
+	assert( ( fabs(zimags(out)-Res_I[i]) / fabs(zimags(out)) ) <3e-16);
   }
 }
 
@@ -1277,7 +1277,7 @@ static void ctimessTest(void) {
 	in1=FloatComplex(P1_R[i],P1_I[i]);
 	in2=FloatComplex(P2_R[i],P2_I[i]);
 	out=ctimess(in1,in2);
-	assert( ( fabs(creals(out)-Res_R[i]) / fabs(creals(out)) ) <1e-5);
+	assert( ( fabs(creals(out)-Res_R[i]) / fabs(creals(out)) ) <3e-6);
 	assert( ( fabs(cimags(out)-Res_I[i]) / fabs(cimags(out)) ) <1e-6);
   }	
 }
@@ -1306,7 +1306,7 @@ static void dmulsTest(void){
 
   for (i=0;i<200;i++){
 	out = dmuls(P1[i],P2[i]);
-	assert( ( fabs(out-Res[i]) / fabs(out) ) <1e-15);
+	assert( ( fabs(out-Res[i]) / fabs(out) ) <3e-16);
   }	
 }
 
@@ -1325,7 +1325,7 @@ static void cmulsTest(void){
 	in1=FloatComplex(P1_R[i],P1_I[i]);
 	in2=FloatComplex(P2_R[i],P2_I[i]);
 	out=cmuls(in1,in2);
-	assert( ( fabs(creals(out)-Res_R[i]) / fabs(creals(out)) ) <1e-5);
+	assert( ( fabs(creals(out)-Res_R[i]) / fabs(creals(out)) ) <3e-6);
 	assert( ( fabs(cimags(out)-Res_I[i]) / fabs(cimags(out)) ) <1e-6);
   }	
 }
@@ -1345,8 +1345,8 @@ static void zmulsTest(void){
 	in1=DoubleComplex(P1_R[i],P1_I[i]);
 	in2=DoubleComplex(P2_R[i],P2_I[i]);
 	out=zmuls(in1,in2);
-	assert( ( fabs(zreals(out)-Res_R[i]) / fabs(zreals(out)) ) <1e-14);
-	assert( ( fabs(zimags(out)-Res_I[i]) / fabs(zimags(out)) ) <1e-15);
+	assert( ( fabs(zreals(out)-Res_R[i]) / fabs(zreals(out)) ) <3e-16);
+	assert( ( fabs(zimags(out)-Res_I[i]) / fabs(zimags(out)) ) <3e-16);
   }
 }
 
@@ -1396,7 +1396,7 @@ static void cmulaTest(void){
   
   cmula(in1,in2,200,out);
   for (i=0;i<200;i++){
-  	assert( ( fabs(creals(out[i])-Res_R[i]) / fabs(creals(out[i])) ) <1e-5);
+  	assert( ( fabs(creals(out[i])-Res_R[i]) / fabs(creals(out[i])) ) <3e-6);
   	assert( ( fabs(cimags(out[i])-Res_I[i]) / fabs(cimags(out[i])) ) <1e-6);
   }
 }
@@ -1419,8 +1419,8 @@ static void zmulaTest(void){
   
   zmula(in1,in2,200,out);
   for (i=0;i<200;i++){
-  	assert( ( fabs(zreals(out[i])-Res_R[i]) / fabs(zreals(out[i])) ) <1e-14);
-  	assert( ( fabs(zimags(out[i])-Res_I[i]) / fabs(zimags(out[i])) ) <1e-15);
+  	assert( ( fabs(zreals(out[i])-Res_R[i]) / fabs(zreals(out[i])) ) <3e-16);
+  	assert( ( fabs(zimags(out[i])-Res_I[i]) / fabs(zimags(out[i])) ) <3e-16);
   }
 }
 
