@@ -383,13 +383,13 @@ static void cifftmaTest2 (void )
    if (  creals(out[i])  < 1e-14 && creals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 1e-4 );
+        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 3e-6 );
 
 
     if (  cimags(out[i])  < 1e-14 && cimags (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 1e-4 ) ;
+	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 3e-6 ) ;
 
     }
 
@@ -434,18 +434,16 @@ static void cifftmaTest3 (void )
                 cimags (Result[i]),
                 fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i])) ,
                 fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i])));
-/*
    if (  creals(out[i])  < 1e-14 && creals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 1e-4 );
+        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 3e-6 );
 
 
     if (  cimags(out[i])  < 1e-14 && cimags (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 1e-4 ) ;
-*/
+	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 3e-6 ) ;
     }
     free(out);
     free(in);
@@ -482,18 +480,16 @@ static void cifftmaTest4 (void )
               i ,creals(out[i]) , cimags(out[i]), creals (Result[i])  , cimags (Result[i]),
               fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i])) ,
               fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i])));
-/*
    if (  creals(out[i])  < 1e-14 && creals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 1e-4 );
+        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 3e-6 );
 
 
     if (  cimags(out[i])  < 1e-14 && cimags (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 1e-4 ) ;
-*/
+	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 3e-6 ) ;
     }
     free(out);
     free(in);
@@ -541,13 +537,13 @@ static void cifftmaTest5 (void )
    if (  creals(out[i])  < 1e-14 && creals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 1e-4 );
+        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 3e-6 );
 
 
     if (  cimags(out[i])  < 1e-14 && cimags (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 1e-4 ) ;
+	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 3e-6 ) ;
 
     }
     free(out);
@@ -596,13 +592,13 @@ static void cifftmaTest6 (void )
    if (  creals(out[i])  < 1e-14 && creals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 1e-4 );
+        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 3e-6 );
 
 
     if (  cimags(out[i])  < 1e-14 && cimags (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 1e-4 ) ;
+	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 3e-6 ) ;
 
     }
     free(out);
@@ -651,13 +647,13 @@ static void cifftmaTest7 (void )
    if (  creals(out[i])  < 1e-14 && creals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 1e-4 );
+        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 3e-6 );
 
 
     if (  cimags(out[i])  < 1e-14 && cimags (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 1e-4 ) ;
+	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 3e-6 ) ;
 
     }
     free(out);
@@ -698,13 +694,13 @@ static void cifftmaTest8 (void )
    if (  creals(out[i])  < 1e-14 && creals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 1e-4 );
+        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 3e-6 );
 
 
     if (  cimags(out[i])  < 1e-14 && cimags (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 1e-4 ) ;
+	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 3e-6 ) ;
 
     }
     free(out);
@@ -746,13 +742,13 @@ static void cifftmaTest9 (void )
    if (  creals(out[i])  < 1e-14 && creals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 1e-4 );
+        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 3e-6 );
 
 
     if (  cimags(out[i])  < 1e-14 && cimags (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 1e-4 ) ;
+	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 3e-6 ) ;
 
     }
     free(out);
@@ -803,13 +799,13 @@ static void cifftmaTest10 (void )
    if (  creals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  creals(out[i]) -  tRealResult[i] ) / fabs (creals (out[i]))  < 1e-4 );
+        assert ( fabs(  creals(out[i]) -  tRealResult[i] ) / fabs (creals (out[i]))  < 3e-6 );
 
 
     if (  cimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 1e-4 ) ;
+	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 3e-6 ) ;
 
     }
     free(out);
@@ -858,13 +854,13 @@ static void cifftmaTest11 (void )
    if (  creals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  creals(out[i]) -  tRealResult[i] ) / fabs (creals (out[i]))  < 1e-4 );
+        assert ( fabs(  creals(out[i]) -  tRealResult[i] ) / fabs (creals (out[i]))  < 3e-6 );
 
 
     if (  cimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 1e-4 ) ;
+	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 3e-6 ) ;
 
     }
     free(out);
@@ -915,13 +911,13 @@ static void cifftmaTest12 (void )
    if (  creals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  creals(out[i]) -  tRealResult[i] ) / fabs (creals (out[i]))  < 1e-4 );
+        assert ( fabs(  creals(out[i]) -  tRealResult[i] ) / fabs (creals (out[i]))  < 3e-6 );
 
 
     if (  cimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 1e-4 ) ;
+	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 3e-6 ) ;
 
     }
     free(out);
@@ -972,13 +968,13 @@ static void cifftmaTest13 (void )
    if (  creals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  creals(out[i]) -  tRealResult[i] ) / fabs (creals (out[i]))  < 1e-4 );
+        assert ( fabs(  creals(out[i]) -  tRealResult[i] ) / fabs (creals (out[i]))  < 3e-6 );
 
 
     if (  cimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 1e-4 ) ;
+	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 3e-6 ) ;
 
     }
     free(out);
@@ -1029,13 +1025,13 @@ static void cifftmaTest14 (void )
    if (  creals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  creals(out[i]) -  tRealResult[i] ) / fabs (creals (out[i]))  < 1e-4 );
+        assert ( fabs(  creals(out[i]) -  tRealResult[i] ) / fabs (creals (out[i]))  < 3e-6 );
 
 
     if (  cimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 1e-4 ) ;
+	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 3e-6 ) ;
 
     }
     free(out);
@@ -1087,13 +1083,13 @@ static void cifftmaTest15 (void )
    if (  creals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  creals(out[i]) -  tRealResult[i] ) / fabs (creals (out[i]))  < 1e-4 );
+        assert ( fabs(  creals(out[i]) -  tRealResult[i] ) / fabs (creals (out[i]))  < 3e-6 );
 
 
     if (  cimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 1e-4 ) ;
+	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 3e-6 ) ;
 
     }
     free(out);
@@ -1145,13 +1141,13 @@ static void cifftmaTest16 (void )
    if (  creals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  creals(out[i]) -  tRealResult[i] ) / fabs (creals (out[i]))  < 1e-4 );
+        assert ( fabs(  creals(out[i]) -  tRealResult[i] ) / fabs (creals (out[i]))  < 3e-6 );
 
 
     if (  cimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 1e-4 ) ;
+	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 3e-6 ) ;
 
     }
     free(out);
@@ -1203,13 +1199,13 @@ static void cifftmaTest32 (void )
    if (  creals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  creals(out[i]) -  tRealResult[i] ) / fabs (creals (out[i]))  < 1e-4 );
+        assert ( fabs(  creals(out[i]) -  tRealResult[i] ) / fabs (creals (out[i]))  < 3e-6 );
 
 
     if (  cimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 1e-4 ) ;
+	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 3e-6 ) ;
 
     }
     free(out);

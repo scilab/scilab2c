@@ -70,12 +70,12 @@ static void dconv2daTest(void){
 	double inTest2[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16}; 
 	dconv2da(in1,3,3,in2,4,4,out);
 	for (i=0;i<36;i++){
-		assert( ( fabs(out[i]-res[i]) / fabs(out[i]) ) <1e-15);
+		assert( ( fabs(out[i]-res[i]) / fabs(out[i]) ) <3e-16);
 	}
 	
 	dconv2da(test1,1,3,test1,3,1,outTest);
 	for (i=0;i<9;i++){
-		assert( ( fabs(outTest[i]-resTest[i]) / fabs(outTest[i]) ) <1e-15);
+		assert( ( fabs(outTest[i]-resTest[i]) / fabs(outTest[i]) ) <3e-16);
 	}
 	
 	dconv2da(inTest1,12,1,inTest2,1,16,outTest2);
@@ -100,8 +100,8 @@ static void zconv2daTest(void){
 	in2=DoubleComplexMatrix(rin2,iin2,16);
 	zconv2da(in1,2,2,in2,4,4,out);
 	for (i=0;i<25;i++){
-		assert( ( fabs(zreals(out[i])-rres[i]) / fabs(zreals(out[i])) ) <1e-14);
-		assert( ( fabs(zimags(out[i])-ires[i]) / fabs(zimags(out[i])) ) <1e-15);
+		assert( ( fabs(zreals(out[i])-rres[i]) / fabs(zreals(out[i])) ) <3e-16);
+		assert( ( fabs(zimags(out[i])-ires[i]) / fabs(zimags(out[i])) ) <3e-16);
 	}
 }
 
