@@ -21,6 +21,7 @@
 #  endif
 #endif
 
+#include <stdlib.h>
 #include "doubleComplex.h"
 
 #ifndef STDC99
