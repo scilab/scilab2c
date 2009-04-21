@@ -105,7 +105,7 @@ floatComplex FloatComplex(float a, float b) {
 ** \brief construct a Float Complex Matrix.
 */
 floatComplex *FloatComplexMatrix(float* real, float* imag, int size) {
-  floatComplex *z = malloc((uint) size * sizeof(floatComplex));
+  floatComplex *z = malloc((unsigned int) size * sizeof(floatComplex));
   int i = 0;
 
   for(i = 0; i < size; ++i)

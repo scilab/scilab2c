@@ -103,7 +103,7 @@ doubleComplex DoubleComplex(double real, double imag) {
 ** \brief construct a Double Complex Matrix.
 */
 doubleComplex *DoubleComplexMatrix(double* real, double* imag, int size) {
-  doubleComplex *z = malloc((uint) size * sizeof(doubleComplex));
+  doubleComplex *z = malloc((unsigned int) size * sizeof(doubleComplex));
   int i = 0;
 
   for(i = 0; i < size; ++i)
