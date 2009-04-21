@@ -25,7 +25,9 @@
 #endif
 
 #include <stdlib.h>
+#ifndef _MSC_VER
 #include <stdbool.h>
+#endif
 
 #ifndef STDC99
 /*
