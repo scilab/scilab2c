@@ -13,7 +13,6 @@
 #include <stdio.h>
 #include <assert.h>
 #include <float.h>
-#include <complex.h>
 #include "floatComplex.h"
 
 #define size 10000
