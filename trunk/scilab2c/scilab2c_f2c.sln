@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{6989167D-11E4-40FE-8C1A-2192A86A7E90}") = "blasplus_DLL", "src\lib\blas\blas_f\blasplus_DLL.vfproj", "{78BD64CE-181D-4D3F-9254-5C4F55C1EDC9}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "blasplus_f2c_DLL", "src\lib\blas\blas_f\blasplus_DLL_f2c.vcproj", "{78BD64CE-181D-4D3F-9254-5C4F55C1EDC9}"
 EndProject
-Project("{6989167D-11E4-40FE-8C1A-2192A86A7E90}") = "lapack_DLL", "src\lib\lapack\lapack_f\lapack_DLL.vfproj", "{69296D00-0DE1-4F4B-B0CE-FE4F3CB43923}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lapack_f2c_DLL", "src\lib\lapack\lapack_f\lapack_DLL_f2c.vcproj", "{69296D00-0DE1-4F4B-B0CE-FE4F3CB43923}"
 	ProjectSection(ProjectDependencies) = postProject
 		{78BD64CE-181D-4D3F-9254-5C4F55C1EDC9} = {78BD64CE-181D-4D3F-9254-5C4F55C1EDC9}
 	EndProjectSection

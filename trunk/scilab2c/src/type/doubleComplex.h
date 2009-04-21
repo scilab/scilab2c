@@ -13,6 +13,8 @@
 #ifndef __DOUBLECOMPLEX_H__
 #define __DOUBLECOMPLEX_H__
 
+#include "dynlib_type.h"
+
 #ifdef __STDC_VERSION__
 #  ifndef STDC
 #    define STDC
@@ -56,17 +58,17 @@ typedef double complex doubleComplex;
 */
 #endif
 
-double		zreals(doubleComplex);
-double		zimags(doubleComplex);
-void		zreala(doubleComplex *in, int size, double *out);
-void		zimaga(doubleComplex *in, int size, double *out);
-doubleComplex	DoubleComplex(double, double);
-doubleComplex*	DoubleComplexMatrix(double*, double*, int);
-bool		zisreals(doubleComplex);
-bool		zisimags(doubleComplex);
-doubleComplex	zadds(doubleComplex, doubleComplex);
-doubleComplex	zdiffs(doubleComplex, doubleComplex);
-doubleComplex	ztimess(doubleComplex, doubleComplex);
-doubleComplex	zdevides(doubleComplex, doubleComplex);
+EXTERN_TYPE double		zreals(doubleComplex);
+EXTERN_TYPE double		zimags(doubleComplex);
+EXTERN_TYPE void		zreala(doubleComplex *in, int size, double *out);
+EXTERN_TYPE void		zimaga(doubleComplex *in, int size, double *out);
+EXTERN_TYPE doubleComplex	DoubleComplex(double, double);
+EXTERN_TYPE doubleComplex*	DoubleComplexMatrix(double*, double*, int);
+EXTERN_TYPE bool		zisreals(doubleComplex);
+EXTERN_TYPE bool		zisimags(doubleComplex);
+EXTERN_TYPE doubleComplex	zadds(doubleComplex, doubleComplex);
+EXTERN_TYPE doubleComplex	zdiffs(doubleComplex, doubleComplex);
+EXTERN_TYPE doubleComplex	ztimess(doubleComplex, doubleComplex);
+EXTERN_TYPE doubleComplex	zdevides(doubleComplex, doubleComplex);
 
 #endif /* !__DOUBLECOMPLEX_H__ */
