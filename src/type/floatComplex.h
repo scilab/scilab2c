@@ -13,6 +13,8 @@
 #ifndef __FLOATCOMPLEX_H__
 #define __FLOATCOMPLEX_H__
 
+#include "dynlib_type.h"
+
 #ifdef __STDC_VERSION__
 #  ifndef STDC
 #    define STDC
@@ -57,14 +59,14 @@ typedef float complex floatComplex;
 #endif
 
 
-float		creals(floatComplex);
-float		cimags(floatComplex);
-void		creala(floatComplex *in, int size, float *out);
-void		cimaga(floatComplex *in, int size, float *out);
-floatComplex	FloatComplex(float, float);
-floatComplex*	FloatComplexMatrix(float*, float*, int);
-bool		cisreals(floatComplex);
-bool		cisimags(floatComplex);
+EXTERN_TYPE float		creals(floatComplex);
+EXTERN_TYPE float		cimags(floatComplex);
+EXTERN_TYPE void		creala(floatComplex *in, int size, float *out);
+EXTERN_TYPE void		cimaga(floatComplex *in, int size, float *out);
+EXTERN_TYPE floatComplex	FloatComplex(float, float);
+EXTERN_TYPE floatComplex*	FloatComplexMatrix(float*, float*, int);
+EXTERN_TYPE bool		cisreals(floatComplex);
+EXTERN_TYPE bool		cisimags(floatComplex);
 
 
 #endif /* !__FLOATCOMPLEX_H__ */

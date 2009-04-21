@@ -2,605 +2,606 @@ LIBRARY    lapack.dll
 
 
 EXPORTS
- dbdsqr
- dgebak
- dgebal
- dgebd2
- dgebrd
- dgecon
- dgeequ
- dgees 
- dgeesx
- dgeev 
- dgegs 
- dgehd2
- dgehrd
- dgelq2
- dgelqf
- dgels 
- dgelss
- dgelsx
- dgelsy
- dgeql2
- dgeqlf
- dgeqp3
- dgeqpf
- dgeqr2
- dgeqrf
- dgerfs
- dgerq2
- dgerqf
- dgesc2
- dgesv 
- dgesvd
- dgesvx
- dgetc2
- dgetf2
- dgetrf
- dgetri
- dgetrs
- dggbak
- dggbal
- dgges 
- dggev 
- dgghrd
- dhgeqz
- dhseqr
- disnan
- dlabad
- dlabrd
- dlacn2
- dlacon
- dlacpy
- dladiv
- dlae2 
- dlaev2
- dlaexc
- dlag2 
- dlagv2
- dlahqr
- dlahr2
- dlahrd
- dlaic1
- dlaisnan
- dlaln2
- dlamch
- dlamc2
- dlamc1
- dlamc3
- dlamc4
- dlamc5
- dlange
- dlanhs
- dlansp
- dlanst
- dlansy
- dlantr
- dlanv2
- dlapmt
- dlapy2
- dlapy3
- dlaqge
- dlaqp2
- dlaqps
- dlaqr0
- dlaqr1
- dlaqr2
- dlaqr3
- dlaqr4
- dlaqr5
- dlarf 
- dlarfb
- dlarfg
- dlarft
- dlarfx
- dlartg
- dlarz 
- dlarzb
- dlarzt
- dlas2 
- dlascl
- dlaset
- dlasq1
- dlasq2
- dlasq3
- dlasq4
- dlasq5
- dlasq6
- dlasr 
- dlasrt
- dlassq
- dlasv2
- dlaswp
- dlasy2
- dlasyf
- dlatdf
- dlatrd
- dlatrs
- dlatrz
- dlatzm
- dlazq3
- dlazq4
- dopgtr
- dorg2l
- dorg2r
- dorgbr
- dorghr
- dorgl2
- dorglq
- dorgql
- dorgqr
- dorgr2
- dorgrq
- dorgtr
- dorm2l
- dorm2r
- dormbr
- dormhr
- dorml2
- dormlq
- dormql
- dormqr
- dormr2
- dormr3
- dormrq
- dormrz
- dpocon
- dpotf2
- dpotrf
- dpotrs
- dpptrf
- drscl 
- dspev 
- dspgst
- dspgv 
- dsptrd
- dsptrf
- dsteqr
- dsterf
- dsycon
- dsyev 
- dsysv 
- dsytd2
- dsytf2
- dsytrd
- dsytrf
- dsytri
- dsytrs
- dtgevc
- dtgex2
- dtgexc
- dtgsen
- dtgsy2
- dtgsyl
- dtrcon
- dtrevc
- dtrexc
- dtrsen
- dtrsyl
- dtrti2
- dtrtri
- dtrtrs
- dtzrqf
- dtzrzf
- dzsum1
- ieeeck
- ilaenv
- iparmq
- izmax1
- lsame 
- slamch
- slamc2
- slamc1
- slamc3
- slamc4
- slamc5
- zbdsqr
- zdrot 
- zdrscl
- zgebak
- zgebal
- zgebd2
- zgebrd
- zgecon
- zgees 
- zgeev 
- zgehd2
- zgehrd
- zgelq2
- zgelqf
- zgelsy
- zgeqp3
- zgeqpf
- zgeqr2
- zgeqrf
- zgesc2
- zgesvd
- zgetc2
- zgetf2
- zgetrf
- zgetri
- zgetrs
- zggbak
- zggbal
- zgges 
- zggev 
- zgghrd
- zheev 
- zhetd2
- zhetrd
- zhgeqz
- zhseqr
- zlabrd
- zlacgv
- zlacn2
- zlacon
- zlacpy
- zladiv
- zlahqr
- zlahr2
- zlahrd
- zlaic1
- zlange
- zlanhe
- zlanhs
- zlaqp2
- zlaqps
- zlaqr0
- zlaqr1
- zlaqr2
- zlaqr3
- zlaqr4
- zlaqr5
- zlarf 
- zlarfb
- zlarfg
- zlarft
- zlarfx
- zlartg
- zlarz 
- zlarzb
- zlarzt
- zlascl
- zlaset
- zlasr 
- zlassq
- zlaswp
- zlatdf
- zlatrd
- zlatrs
- zlatrz
- zpotf2
- zpotrf
- zrot  
- zsteqr
- ztgevc
- ztgex2
- ztgexc
- ztgsen
- ztgsy2
- ztgsyl
- ztrevc
- ztrexc
- ztrsen
- ztrsyl
- ztrti2
- ztrtri
- ztzrzf
- zung2l
- zung2r
- zungbr
- zunghr
- zungl2
- zunglq
- zungql
- zungqr
- zungtr
- zunm2r
- zunmbr
- zunml2
- zunmlq
- zunmqr
- zunmr3
- zunmrz
-dbdsqr_ = dbdsqr
-dgebak_ = 	dgebak
-dgebal_ = 	dgebal
-dgebd2_ = 	dgebd2
-dgebrd_ = 	dgebrd
-dgecon_ = 	dgecon
-dgeequ_ = 	dgeequ
-dgees_ =  	dgees
-dgeesx_ = 	dgeesx
-dgeev_ =  	dgeev
-dgegs_ =  	dgegs
-dgehd2_ = 	dgehd2
-dgehrd_ = 	dgehrd
-dgelq2_ = 	dgelq2
-dgelqf_ = 	dgelqf
-dgels_ =  	dgels
-dgelss_ = 	dgelss
-dgelsx_ = 	dgelsx
-dgelsy_ = 	dgelsy
-dgeql2_ = 	dgeql2
-dgeqlf_ = 	dgeqlf
-dgeqp3_ = 	dgeqp3
-dgeqpf_ = 	dgeqpf
-dgeqr2_ = 	dgeqr2
-dgeqrf_ = 	dgeqrf
-dgerfs_ = 	dgerfs
-dgerq2_ = 	dgerq2
-dgerqf_ = 	dgerqf
-dgesc2_ = 	dgesc2
-dgesv_ =  	dgesv
-dgesvd_ = 	dgesvd
-dgesvx_ = 	dgesvx
-dgetc2_ = 	dgetc2
-dgetf2_ = 	dgetf2
-dgetrf_ = 	dgetrf
-dgetri_ = 	dgetri
-dgetrs_ = 	dgetrs
-dggbak_ = 	dggbak
-dggbal_ = 	dggbal
-dgges_ =  	dgges
-dggev_ =  	dggev
-dgghrd_ = 	dgghrd
-dhgeqz_ = 	dhgeqz
-dhseqr_ = 	dhseqr
-disnan_ = 	disnan
-dlabad_ = 	dlabad
-dlabrd_ = 	dlabrd
-dlacn2_ = 	dlacn2
-dlacon_ = 	dlacon
-dlacpy_ = 	dlacpy
-dladiv_ = 	dladiv
-dlae2_ =  	dlae2
-dlaev2_ = 	dlaev2
-dlaexc_ = 	dlaexc
-dlag2_  = 	dlag2
-dlagv2_ = 	dlagv2
-dlahqr_ = 	dlahqr
-dlahr2_ = 	dlahr2
-dlahrd_ = 	dlahrd
-dlaic1_ = 	dlaic1
-dlaisnan_=	dlaisnan
-dlaln2_ = 	dlaln2
-dlamch_ = 	dlamch
-dlamc2_ = 	dlamc2
-dlamc1_ = 	dlamc1
-dlamc3_ = 	dlamc3
-dlamc4_ = 	dlamc4
-dlamc5_ = 	dlamc5
-dlange_ = 	dlange
-dlanhs_ = 	dlanhs
-dlansp_ = 	dlansp
-dlanst_ = 	dlanst
-dlansy_ = 	dlansy
-dlantr_ = 	dlantr
-dlanv2_ =	dlanv2
-dlapmt_ =	dlapmt
-dlapy2_ =	dlapy2
-dlapy3_ =	dlapy3
-dlaqge_ =	dlaqge
-dlaqp2_ =	dlaqp2
-dlaqps_ =	dlaqps
-dlaqr0_ =	dlaqr0
-dlaqr1_ =	dlaqr1
-dlaqr2_ =	dlaqr2
-dlaqr3_ =	dlaqr3
-dlaqr4_ =	dlaqr4
-dlaqr5_ =	dlaqr5
-dlarf_  =	dlarf
-dlarfb_ =	dlarfb
-dlarfg_ =	dlarfg
-dlarft_ =	dlarft
-dlarfx_ =	dlarfx
-dlartg_ =	dlartg
-dlarz_  =	dlarz
-dlarzb_ =	dlarzb
-dlarzt_ =	dlarzt
-dlas2_  =	dlas2
-dlascl_ =	dlascl
-dlaset_ =	dlaset
-dlasq1_ =	dlasq1
-dlasq2_ =	dlasq2
-dlasq3_ =	dlasq3
-dlasq4_ =	dlasq4
-dlasq5_ =	dlasq5
-dlasq6_ =	dlasq6
-dlasr_  =	dlasr
-dlasrt_ =	dlasrt
-dlassq_ =	dlassq
-dlasv2_ =	dlasv2
-dlaswp_ =	dlaswp
-dlasy2_ =	dlasy2
-dlasyf_ =	dlasyf
-dlatdf_ =	dlatdf
-dlatrd_ =	dlatrd
-dlatrs_ =	dlatrs
-dlatrz_ =	dlatrz
-dlatzm_ =	dlatzm
-dlazq3_ =	dlazq3
-dlazq4_ =	dlazq4
-dopgtr_ =	dopgtr
-dorg2l_ =	dorg2l
-dorg2r_ =	dorg2r
-dorgbr_ =	dorgbr
-dorghr_ =	dorghr
-dorgl2_ =	dorgl2
-dorglq_ =	dorglq
-dorgql_ =	dorgql
-dorgqr_ =	dorgqr
-dorgr2_ =	dorgr2
-dorgrq_ =	dorgrq
-dorgtr_ =	dorgtr
-dorm2l_ =	dorm2l
-dorm2r_ =	dorm2r
-dormbr_ =	dormbr
-dormhr_ =	dormhr
-dorml2_ =	dorml2
-dormlq_ =	dormlq
-dormql_ =	dormql
-dormqr_ =	dormqr
-dormr2_ =	dormr2
-dormr3_ =	dormr3
-dormrq_ =	dormrq
-dormrz_ =	dormrz
-dpocon_ =	dpocon
-dpotf2_ =	dpotf2
-dpotrf_ =	dpotrf
-dpotrs_ =	dpotrs
-dpptrf_ =	dpptrf
-drscl_  =	drscl
-dspev_  =	dspev
-dspgst_ =	dspgst
-dspgv_  =	dspgv
-dsptrd_ =	dsptrd
-dsptrf_ =	dsptrf
-dsteqr_ =	dsteqr
-dsterf_ =	dsterf
-dsycon_ =	dsycon
-dsyev_  =	dsyev
-dsysv_  =	dsysv
-dsytd2_ =	dsytd2
-dsytf2_ =	dsytf2
-dsytrd_ =	dsytrd
-dsytrf_ =	dsytrf
-dsytri_ =	dsytri
-dsytrs_ =	dsytrs
-dtgevc_ =	dtgevc
-dtgex2_ =	dtgex2
-dtgexc_ =	dtgexc
-dtgsen_ =	dtgsen
-dtgsy2_ =	dtgsy2
-dtgsyl_ =	dtgsyl
-dtrcon_ =	dtrcon
-dtrevc_ =	dtrevc
-dtrexc_ =	dtrexc
-dtrsen_ =	dtrsen
-dtrsyl_ =	dtrsyl
-dtrti2_ =	dtrti2
-dtrtri_ =	dtrtri
-dtrtrs_ =	dtrtrs
-dtzrqf_ =	dtzrqf
-dtzrzf_ =	dtzrzf
-dzsum1_ =	dzsum1
-ieeeck_ =	ieeeck
-ilaenv_ =	ilaenv
-iparmq_ =	iparmq
-izmax1_ =	izmax1
-lsame_  =	lsame
-slamch_ =	slamch
-slamc2_ =	slamc2
-slamc1_ =	slamc1
-slamc3_ =	slamc3
-slamc4_ =	slamc4
-slamc5_ =	slamc5
-zbdsqr_ =	zbdsqr
-zdrot_  =	zdrot
-zdrscl_ =	zdrscl
-zgebak_ =	zgebak
-zgebal_ =	zgebal
-zgebd2_ =	zgebd2
-zgebrd_ =	zgebrd
-zgecon_ =	zgecon
-zgees_  =	zgees
-zgeev_  =	zgeev
-zgehd2_ =	zgehd2
-zgehrd_ =	zgehrd
-zgelq2_ =	zgelq2
-zgelqf_ =	zgelqf
-zgelsy_ =	zgelsy
-zgeqp3_ =	zgeqp3
-zgeqpf_ =	zgeqpf
-zgeqr2_ =	zgeqr2
-zgeqrf_ =	zgeqrf
-zgesc2_ =	zgesc2
-zgesvd_ =	zgesvd
-zgetc2_ =	zgetc2
-zgetf2_ =	zgetf2
-zgetrf_ =	zgetrf
-zgetri_ =	zgetri
-zgetrs_ =	zgetrs
-zggbak_ =	zggbak
-zggbal_ =	zggbal
-zgges_  =	zgges
-zggev_  =	zggev
-zgghrd_ =	zgghrd
-zheev_  =	zheev
-zhetd2_ =	zhetd2
-zhetrd_ =	zhetrd
-zhgeqz_ =	zhgeqz
-zhseqr_ =	zhseqr
-zlabrd_ =	zlabrd
-zlacgv_ =	zlacgv
-zlacn2_ =	zlacn2
-zlacon_ =	zlacon
-zlacpy_ =	zlacpy
-zladiv_ =	zladiv
-zlahqr_ =	zlahqr
-zlahr2_ =	zlahr2
-zlahrd_ =	zlahrd
-zlaic1_ =	zlaic1
-zlange_ =	zlange
-zlanhe_ =	zlanhe
-zlanhs_ =	zlanhs
-zlaqp2_ =	zlaqp2
-zlaqps_ =	zlaqps
-zlaqr0_ =	zlaqr0
-zlaqr1_ =	zlaqr1
-zlaqr2_ =	zlaqr2
-zlaqr3_ =	zlaqr3
-zlaqr4_ =	zlaqr4
-zlaqr5_ =	zlaqr5
-zlarf_  =	zlarf
-zlarfb_ =	zlarfb
-zlarfg_ =	zlarfg
-zlarft_ =	zlarft
-zlarfx_ =	zlarfx
-zlartg_ =	zlartg
-zlarz_  =	zlarz
-zlarzb_ =	zlarzb
-zlarzt_ =	zlarzt
-zlascl_ =	zlascl
-zlaset_ =	zlaset
-zlasr_  =	zlasr
-zlassq_ =	zlassq
-zlaswp_ =	zlaswp
-zlatdf_ =	zlatdf
-zlatrd_ =	zlatrd
-zlatrs_ =	zlatrs
-zlatrz_ =	zlatrz
-zpotf2_ =	zpotf2
-zpotrf_ =	zpotrf
-zrot_   =	zrot
-zsteqr_ =	zsteqr
-ztgevc_ =	ztgevc
-ztgex2_ =	ztgex2
-ztgexc_ =	ztgexc
-ztgsen_ =	ztgsen
-ztgsy2_ =	ztgsy2
-ztgsyl_ =	ztgsyl
-ztrevc_ =	ztrevc
-ztrexc_ =	ztrexc
-ztrsen_ =	ztrsen
-ztrsyl_ =	ztrsyl
-ztrti2_ =	ztrti2
-ztrtri_ =	ztrtri
-ztzrzf_ =	ztzrzf
-zung2l_ =	zung2l
-zung2r_ =	zung2r
-zungbr_ =	zungbr
-zunghr_ =	zunghr
-zungl2_ =	zungl2
-zunglq_ =	zunglq
-zungql_ =	zungql
-zungqr_ =	zungqr
-zungtr_ =	zungtr
-zunm2r_ =	zunm2r
-zunmbr_ =	zunmbr
-zunml2_ =	zunml2
-zunmlq_ =	zunmlq
-zunmqr_ =	zunmqr
-zunmr3_ =	zunmr3
-zunmrz_ =	zunmrz
+ dbdsqr_
+ dgebak_
+ dgebal_
+ dgebd2_
+ dgebrd_
+ dgecon_
+ dgeequ_
+ dgees_ 
+ dgeesx_
+ dgeev_ 
+ dgegs_ 
+ dgehd2_
+ dgehrd_
+ dgelq2_
+ dgelqf_
+ dgels_ 
+ dgelss_
+ dgelsx_
+ dgelsy_
+ dgeql2_
+ dgeqlf_
+ dgeqp3_
+ dgeqpf_
+ dgeqr2_
+ dgeqrf_
+ dgerfs_
+ dgerq2_
+ dgerqf_
+ dgesc2_
+ dgesv_ 
+ dgesvd_
+ dgesvx_
+ dgetc2_
+ dgetf2_
+ dgetrf_
+ dgetri_
+ dgetrs_
+ dggbak_
+ dggbal_
+ dgges_ 
+ dggev_ 
+ dgghrd_
+ dhgeqz_
+ dhseqr_
+ disnan_
+ dlabad_
+ dlabrd_
+ dlacn2_
+ dlacon_
+ dlacpy_
+ dladiv_
+ dlae2_
+ dlaev2_
+ dlaexc_
+ dlag2_ 
+ dlagv2_
+ dlahqr_
+ dlahr2_
+ dlahrd_
+ dlaic1_
+ dlaisnan_
+ dlaln2_
+ dlamch_
+ dlamc2_
+ dlamc1_
+ dlamc3_
+ dlamc4_
+ dlamc5_
+ dlange_
+ dlanhs_
+ dlansp_
+ dlanst_
+ dlansy_
+ dlantr_
+ dlanv2_
+ dlapmt_
+ dlapy2_
+ dlapy3_
+ dlaqge_
+ dlaqp2_
+ dlaqps_
+ dlaqr0_
+ dlaqr1_
+ dlaqr2_
+ dlaqr3_
+ dlaqr4_
+ dlaqr5_
+ dlarf_ 
+ dlarfb_
+ dlarfg_
+ dlarft_
+ dlarfx_
+ dlartg_
+ dlarz_ 
+ dlarzb_
+ dlarzt_
+ dlas2_ 
+ dlascl_
+ dlaset_
+ dlasq1_
+ dlasq2_
+ dlasq3_
+ dlasq4_
+ dlasq5_
+ dlasq6_
+ dlasr_ 
+ dlasrt_
+ dlassq_
+ dlasv2_
+ dlaswp_
+ dlasy2_
+ dlasyf_
+ dlatdf_
+ dlatrd_
+ dlatrs_
+ dlatrz_
+ dlatzm_
+ dlazq3_
+ dlazq4_
+ dopgtr_
+ dorg2l_
+ dorg2r_
+ dorgbr_
+ dorghr_
+ dorgl2_
+ dorglq_
+ dorgql_
+ dorgqr_
+ dorgr2_
+ dorgrq_
+ dorgtr_
+ dorm2l_
+ dorm2r_
+ dormbr_
+ dormhr_
+ dorml2_
+ dormlq_
+ dormql_
+ dormqr_
+ dormr2_
+ dormr3_
+ dormrq_
+ dormrz_
+ dpocon_
+ dpotf2_
+ dpotrf_
+ dpotrs_
+ dpptrf_
+ drscl_ 
+ dspev_ 
+ dspgst_
+ dspgv_ 
+ dsptrd_
+ dsptrf_
+ dsteqr_
+ dsterf_
+ dsycon_
+ dsyev_ 
+ dsysv_ 
+ dsytd2_
+ dsytf2_
+ dsytrd_
+ dsytrf_
+ dsytri_
+ dsytrs_
+ dtgevc_
+ dtgex2_
+ dtgexc_
+ dtgsen_
+ dtgsy2_
+ dtgsyl_
+ dtrcon_
+ dtrevc_
+ dtrexc_
+ dtrsen_
+ dtrsyl_
+ dtrti2_
+ dtrtri_
+ dtrtrs_
+ dtzrqf_
+ dtzrzf_
+ dzsum1_
+ ieeeck_
+ ilaenv_
+ iparmq_
+ izmax1_
+ lsame_ 
+ slamch_
+ slamc2_
+ slamc1_
+ slamc3_
+ slamc4_
+ slamc5_
+ zbdsqr_
+ zdrot_ 
+ zdrscl_
+ zgebak_
+ zgebal_
+ zgebd2_
+ zgebrd_
+ zgecon_
+ zgees_ 
+ zgeev_ 
+ zgehd2_
+ zgehrd_
+ zgelq2_
+ zgelqf_
+ zgelsy_
+ zgeqp3_
+ zgeqpf_
+ zgeqr2_
+ zgeqrf_
+ zgesc2_
+ zgesvd_
+ zgetc2_
+ zgetf2_
+ zgetrf_
+ zgetri_
+ zgetrs_
+ zggbak_
+ zggbal_
+ zgges_
+ zggev_ 
+ zgghrd_
+ zheev_ 
+ zhetd2_
+ zhetrd_
+ zhgeqz_
+ zhseqr_
+ zlabrd_
+ zlacgv_
+ zlacn2_
+ zlacon_
+ zlacpy_
+ zladiv_
+ zlahqr_
+ zlahr2_
+ zlahrd_
+ zlaic1_
+ zlange_
+ zlanhe_
+ zlanhs_
+ zlaqp2_
+ zlaqps_
+ zlaqr0_
+ zlaqr1_
+ zlaqr2_
+ zlaqr3_
+ zlaqr4_
+ zlaqr5_
+ zlarf_ 
+ zlarfb_
+ zlarfg_
+ zlarft_
+ zlarfx_
+ zlartg_
+ zlarz_
+ zlarzb_
+ zlarzt_
+ zlascl_
+ zlaset_
+ zlasr_
+ zlassq_
+ zlaswp_
+ zlatdf_
+ zlatrd_
+ zlatrs_
+ zlatrz_
+ zpotf2_
+ zpotrf_
+ zrot_  
+ zsteqr_
+ ztgevc_
+ ztgex2_
+ ztgexc_
+ ztgsen_
+ ztgsy2_
+ ztgsyl_
+ ztrevc_
+ ztrexc_
+ ztrsen_
+ ztrsyl_
+ ztrti2_
+ ztrtri_
+ ztzrzf_
+ zung2l_
+ zung2r_
+ zungbr_
+ zunghr_
+ zungl2_
+ zunglq_
+ zungql_
+ zungqr_
+ zungtr_
+ zunm2r_
+ zunmbr_
+ zunml2_
+ zunmlq_
+ zunmqr_
+ zunmr3_
+ zunmrz_
+ 
+    dbdsqr = dbdsqr_ 
+ 	dgebak = dgebak_ 
+ 	dgebal = dgebal_ 
+ 	dgebd2 = dgebd2_ 
+ 	dgebrd = dgebrd_ 
+ 	dgecon = dgecon_ 
+ 	dgeequ = dgeequ_ 
+ 	dgees  = dgees_  
+ 	dgeesx = dgeesx_ 
+ 	dgeev  = dgeev_  
+ 	dgegs  = dgegs_  
+ 	dgehd2 = dgehd2_ 
+ 	dgehrd = dgehrd_ 
+ 	dgelq2 = dgelq2_ 
+ 	dgelqf = dgelqf_ 
+ 	dgels  = dgels_  
+ 	dgelss = dgelss_ 
+ 	dgelsx = dgelsx_ 
+ 	dgelsy = dgelsy_ 
+ 	dgeql2 = dgeql2_ 
+ 	dgeqlf = dgeqlf_ 
+ 	dgeqp3 = dgeqp3_ 
+ 	dgeqpf = dgeqpf_ 
+ 	dgeqr2 = dgeqr2_ 
+ 	dgeqrf = dgeqrf_ 
+ 	dgerfs = dgerfs_ 
+ 	dgerq2 = dgerq2_ 
+ 	dgerqf = dgerqf_ 
+ 	dgesc2 = dgesc2_ 
+ 	dgesv  = dgesv_  
+ 	dgesvd = dgesvd_ 
+ 	dgesvx = dgesvx_ 
+ 	dgetc2 = dgetc2_ 
+ 	dgetf2 = dgetf2_ 
+ 	dgetrf = dgetrf_ 
+ 	dgetri = dgetri_ 
+ 	dgetrs = dgetrs_ 
+ 	dggbak = dggbak_ 
+ 	dggbal = dggbal_ 
+  dgges  = dgges_  
+  dggev  = dggev_  
+ 	dgghrd = dgghrd_ 
+ 	dhgeqz = dhgeqz_ 
+ 	dhseqr = dhseqr_ 
+ 	disnan = disnan_ 
+ 	dlabad = dlabad_ 
+ 	dlabrd = dlabrd_ 
+ 	dlacn2 = dlacn2_ 
+ 	dlacon = dlacon_ 
+ 	dlacpy = dlacpy_ 
+ 	dladiv = dladiv_ 
+  dlae2  = dlae2_  
+ 	dlaev2 = dlaev2_ 
+ 	dlaexc = dlaexc_ 
+ 	dlag2  = dlag2_  
+ 	dlagv2 = dlagv2_ 
+ 	dlahqr = dlahqr_ 
+ 	dlahr2 = dlahr2_ 
+ 	dlahrd = dlahrd_ 
+ 	dlaic1 = dlaic1_ 
+  dlaisnan = dlaisnan_
+ 	dlaln2 = dlaln2_ 
+ 	dlamch = dlamch_ 
+ 	dlamc2 = dlamc2_ 
+ 	dlamc1 = dlamc1_ 
+ 	dlamc3 = dlamc3_ 
+ 	dlamc4 = dlamc4_ 
+ 	dlamc5 = dlamc5_ 
+ 	dlange = dlange_ 
+ 	dlanhs = dlanhs_ 
+ 	dlansp = dlansp_ 
+ 	dlanst = dlanst_ 
+ 	dlansy = dlansy_ 
+ 	dlantr = dlantr_ 
+	dlanv2 = dlanv2_ 
+	dlapmt = dlapmt_ 
+	dlapy2 = dlapy2_ 
+	dlapy3 = dlapy3_ 
+	dlaqge = dlaqge_ 
+	dlaqp2 = dlaqp2_ 
+	dlaqps = dlaqps_ 
+	dlaqr0 = dlaqr0_ 
+	dlaqr1 = dlaqr1_ 
+	dlaqr2 = dlaqr2_ 
+	dlaqr3 = dlaqr3_ 
+	dlaqr4 = dlaqr4_ 
+	dlaqr5 = dlaqr5_ 
+	dlarf  = dlarf_  
+	dlarfb = dlarfb_ 
+	dlarfg = dlarfg_ 
+	dlarft = dlarft_ 
+	dlarfx = dlarfx_ 
+	dlartg = dlartg_ 
+	dlarz  = dlarz_  
+	dlarzb = dlarzb_ 
+	dlarzt = dlarzt_ 
+	dlas2  = dlas2_  
+	dlascl = dlascl_ 
+	dlaset = dlaset_ 
+	dlasq1 = dlasq1_ 
+	dlasq2 = dlasq2_ 
+	dlasq3 = dlasq3_ 
+	dlasq4 = dlasq4_ 
+	dlasq5 = dlasq5_ 
+	dlasq6 = dlasq6_ 
+	dlasr  = dlasr_  
+	dlasrt = dlasrt_ 
+	dlassq = dlassq_ 
+	dlasv2 = dlasv2_ 
+	dlaswp = dlaswp_ 
+	dlasy2 = dlasy2_ 
+	dlasyf = dlasyf_ 
+	dlatdf = dlatdf_ 
+	dlatrd = dlatrd_ 
+	dlatrs = dlatrs_ 
+	dlatrz = dlatrz_ 
+	dlatzm = dlatzm_ 
+	dlazq3 = dlazq3_ 
+	dlazq4 = dlazq4_ 
+	dopgtr = dopgtr_ 
+	dorg2l = dorg2l_ 
+	dorg2r = dorg2r_ 
+	dorgbr = dorgbr_ 
+	dorghr = dorghr_ 
+	dorgl2 = dorgl2_ 
+	dorglq = dorglq_ 
+	dorgql = dorgql_ 
+	dorgqr = dorgqr_ 
+	dorgr2 = dorgr2_ 
+	dorgrq = dorgrq_ 
+	dorgtr = dorgtr_ 
+	dorm2l = dorm2l_ 
+	dorm2r = dorm2r_ 
+	dormbr = dormbr_ 
+	dormhr = dormhr_ 
+	dorml2 = dorml2_ 
+	dormlq = dormlq_ 
+	dormql = dormql_ 
+	dormqr = dormqr_ 
+	dormr2 = dormr2_ 
+	dormr3 = dormr3_ 
+	dormrq = dormrq_ 
+	dormrz = dormrz_ 
+	dpocon = dpocon_ 
+	dpotf2 = dpotf2_ 
+	dpotrf = dpotrf_ 
+	dpotrs = dpotrs_ 
+	dpptrf = dpptrf_ 
+	drscl  = drscl_  
+	dspev  = dspev_  
+	dspgst = dspgst_ 
+	dspgv  = dspgv_  
+	dsptrd = dsptrd_ 
+	dsptrf = dsptrf_ 
+	dsteqr = dsteqr_ 
+	dsterf = dsterf_ 
+	dsycon = dsycon_ 
+	dsyev  = dsyev_  
+	dsysv  = dsysv_  
+	dsytd2 = dsytd2_ 
+	dsytf2 = dsytf2_ 
+	dsytrd = dsytrd_ 
+	dsytrf = dsytrf_ 
+	dsytri = dsytri_ 
+	dsytrs = dsytrs_ 
+	dtgevc = dtgevc_ 
+	dtgex2 = dtgex2_ 
+	dtgexc = dtgexc_ 
+	dtgsen = dtgsen_ 
+	dtgsy2 = dtgsy2_ 
+	dtgsyl = dtgsyl_ 
+	dtrcon = dtrcon_ 
+	dtrevc = dtrevc_ 
+	dtrexc = dtrexc_ 
+	dtrsen = dtrsen_ 
+	dtrsyl = dtrsyl_ 
+	dtrti2 = dtrti2_ 
+	dtrtri = dtrtri_ 
+	dtrtrs = dtrtrs_ 
+	dtzrqf = dtzrqf_ 
+	dtzrzf = dtzrzf_ 
+	dzsum1 = dzsum1_ 
+	ieeeck = ieeeck_ 
+	ilaenv = ilaenv_ 
+	iparmq = iparmq_ 
+	izmax1 = izmax1_ 
+	lsame  = lsame_  
+	slamch = slamch_ 
+	slamc2 = slamc2_ 
+	slamc1 = slamc1_ 
+	slamc3 = slamc3_ 
+	slamc4 = slamc4_ 
+	slamc5 = slamc5_ 
+	zbdsqr = zbdsqr_ 
+	zdrot  = zdrot_  
+	zdrscl = zdrscl_ 
+	zgebak = zgebak_ 
+	zgebal = zgebal_ 
+	zgebd2 = zgebd2_ 
+	zgebrd = zgebrd_ 
+	zgecon = zgecon_ 
+	zgees  = zgees_  
+	zgeev  = zgeev_  
+	zgehd2 = zgehd2_ 
+	zgehrd = zgehrd_ 
+	zgelq2 = zgelq2_ 
+	zgelqf = zgelqf_ 
+	zgelsy = zgelsy_ 
+	zgeqp3 = zgeqp3_ 
+	zgeqpf = zgeqpf_ 
+	zgeqr2 = zgeqr2_ 
+	zgeqrf = zgeqrf_ 
+	zgesc2 = zgesc2_ 
+	zgesvd = zgesvd_ 
+	zgetc2 = zgetc2_ 
+	zgetf2 = zgetf2_ 
+	zgetrf = zgetrf_ 
+	zgetri = zgetri_ 
+	zgetrs = zgetrs_ 
+	zggbak = zggbak_ 
+	zggbal = zggbal_ 
+	zgges  = zgges_  
+	zggev  = zggev_  
+	zgghrd = zgghrd_ 
+	zheev  = zheev_  
+	zhetd2 = zhetd2_ 
+	zhetrd = zhetrd_ 
+	zhgeqz = zhgeqz_ 
+	zhseqr = zhseqr_ 
+	zlabrd = zlabrd_ 
+	zlacgv = zlacgv_ 
+	zlacn2 = zlacn2_ 
+	zlacon = zlacon_ 
+	zlacpy = zlacpy_ 
+	zladiv = zladiv_ 
+	zlahqr = zlahqr_ 
+	zlahr2 = zlahr2_ 
+	zlahrd = zlahrd_ 
+	zlaic1 = zlaic1_ 
+	zlange = zlange_ 
+	zlanhe = zlanhe_ 
+	zlanhs = zlanhs_ 
+	zlaqp2 = zlaqp2_ 
+	zlaqps = zlaqps_ 
+	zlaqr0 = zlaqr0_ 
+	zlaqr1 = zlaqr1_ 
+	zlaqr2 = zlaqr2_ 
+	zlaqr3 = zlaqr3_ 
+	zlaqr4 = zlaqr4_ 
+	zlaqr5 = zlaqr5_ 
+	zlarf  = zlarf_  
+	zlarfb = zlarfb_ 
+	zlarfg = zlarfg_ 
+	zlarft = zlarft_ 
+	zlarfx = zlarfx_ 
+	zlartg = zlartg_ 
+	zlarz  = zlarz_  
+	zlarzb = zlarzb_ 
+	zlarzt = zlarzt_ 
+	zlascl = zlascl_ 
+	zlaset = zlaset_ 
+	zlasr  = zlasr_  
+	zlassq = zlassq_ 
+	zlaswp = zlaswp_ 
+	zlatdf = zlatdf_ 
+	zlatrd = zlatrd_ 
+	zlatrs = zlatrs_ 
+	zlatrz = zlatrz_ 
+	zpotf2 = zpotf2_ 
+	zpotrf = zpotrf_ 
+	zrot   = zrot_   
+	zsteqr = zsteqr_ 
+	ztgevc = ztgevc_ 
+	ztgex2 = ztgex2_ 
+	ztgexc = ztgexc_ 
+	ztgsen = ztgsen_ 
+	ztgsy2 = ztgsy2_ 
+	ztgsyl = ztgsyl_ 
+	ztrevc = ztrevc_ 
+	ztrexc = ztrexc_ 
+	ztrsen = ztrsen_ 
+	ztrsyl = ztrsyl_ 
+	ztrti2 = ztrti2_ 
+	ztrtri = ztrtri_ 
+	ztzrzf = ztzrzf_ 
+	zung2l = zung2l_ 
+	zung2r = zung2r_ 
+	zungbr = zungbr_ 
+	zunghr = zunghr_ 
+	zungl2 = zungl2_ 
+	zunglq = zunglq_ 
+	zungql = zungql_ 
+	zungqr = zungqr_ 
+	zungtr = zungtr_ 
+	zunm2r = zunm2r_ 
+	zunmbr = zunmbr_ 
+	zunml2 = zunml2_ 
+	zunmlq = zunmlq_ 
+	zunmqr = zunmqr_ 
+	zunmr3 = zunmr3_ 
+	zunmrz = zunmrz_ 
