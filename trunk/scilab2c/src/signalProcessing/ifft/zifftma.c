@@ -12,6 +12,7 @@
 #define IFFT842 1
 #define DFFT2  0
 
+#include <malloc.h>
 #include <math.h>
 #include "ifft.h"
 #include "lapack.h"
@@ -32,13 +33,13 @@ void zifftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 	int ierr = 0 ;
 	int isn = 1;
 	int i = 0;
-	
+
 	int increment=1;
 
 	double* realIn = (double*) malloc ( sizeof (double) * (unsigned int) size );
 	double* imagIn = (double*) malloc ( sizeof (double) * (unsigned int) size );
 	doubleComplex* inCopy = (doubleComplex*) malloc ( sizeof (doubleComplex) * (unsigned int) size );
-	
+
 	doubleComplex* inTemp = (doubleComplex*) malloc ( sizeof (doubleComplex) * (unsigned int) size );
 
 
@@ -46,7 +47,7 @@ void zifftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 	zimaga ( in , size , imagIn) ;
 	zreala ( in , size , realIn) ;
 	for (i=0;i<size;i++) inCopy[i]=in[i];
-	
+
 	if ( rows  ==  1 || cols == 1 )
 	{
 
@@ -147,7 +148,7 @@ void zifftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 		}
 
 	}
-    
+
   free(realIn);
   free(imagIn);
   free(inCopy);
