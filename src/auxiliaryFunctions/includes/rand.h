@@ -14,57 +14,65 @@
 #define __RAND_H__
 
 #include <math.h>
-
+#include "dynlib_auxiliaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
+
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
 /**
  ** \brief Float Rand function
  ** \return A random float.
  **/
-float		srands(void);
+EXTERN_AUXFUNCT float		srands(void);
 
 /**
  ** \brief Double Rand function
  ** \return A random double.
  **/
-double		drands(void);
+EXTERN_AUXFUNCT double		drands(void);
 
 /**
  ** \brief Float Complex Rand function
  ** \return A random float complex.
  **/
-floatComplex	crands(void);
+EXTERN_AUXFUNCT floatComplex	crands(void);
 
 /**
  ** \brief Double Complex Rand function
  ** \return A random double complex.
  **/
-doubleComplex	zrands(void);
+EXTERN_AUXFUNCT doubleComplex	zrands(void);
 
 /**
  ** \brief Float Array Rand function
  ** \return A random float array.
  **/
-void		sranda(float *out, int size);
+EXTERN_AUXFUNCT void		sranda(float *out, int size);
 
 /**
  ** \brief Double Array Rand function
  ** \return A random double array.
  **/
-void		dranda(double *out, int size);
+EXTERN_AUXFUNCT void		dranda(double *out, int size);
 
 /**
  ** \brief Float Complex Array Rand function
  ** \return A random float complex array.
  **/
-void		cranda(floatComplex *out, int size);
+EXTERN_AUXFUNCT void		cranda(floatComplex *out, int size);
 
 /**
  ** \brief Double Complex Array Rand function
  ** \return A random double complex array.
  **/
-void		zranda(doubleComplex *out, int size);
+EXTERN_AUXFUNCT void		zranda(doubleComplex *out, int size);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 
 

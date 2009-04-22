@@ -13,7 +13,17 @@
 #ifndef __JMAT_H__
 #define __JMAT_H__
 
-void sjmata(float in1, float in2, float* out);
-void djmata(double in1, double in2, double* out);
+#include "dynlib_matrixoperations.h"
+
+#ifdef  __cplusplus
+extern "C" {
+#endif
+
+EXTERN_MATOPS void sjmata(float in1, float in2, float* out);
+EXTERN_MATOPS void djmata(double in1, double in2, double* out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* !__JMAT_H__ */

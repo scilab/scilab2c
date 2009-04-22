@@ -13,8 +13,13 @@
 #ifndef __MATRIXMULTIPLICATION_H__
 #define __MATRIXMULTIPLICATION_H__
 
+#include "dynlib_matrixoperations.h"
 #include "multiplication.h"
 #include "addition.h"
+
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
 /*
 **
@@ -33,7 +38,7 @@
 ** \param columns2 : columns of in2 matrix.
 ** \param out : Matrix that contains the multiplication in1 * in2.
 */
-void	smulma(float *in1, int lines1, int columns1,
+EXTERN_MATOPS void	smulma(float *in1, int lines1, int columns1,
 	       float *in2, int lines2, int columns2,
 	       float *out);
 
@@ -47,7 +52,7 @@ void	smulma(float *in1, int lines1, int columns1,
 ** \param columns2 : columns of in2 matrix.
 ** \param out : Matrix that contains the multiplication in1 * in2.
 */
-void	dmulma(double *in1, int lines1, int columns1,
+EXTERN_MATOPS void	dmulma(double *in1, int lines1, int columns1,
 	       double *in2, int lines2, int columns2,
 	       double *out);
 
@@ -61,7 +66,7 @@ void	dmulma(double *in1, int lines1, int columns1,
 ** \param columns2 : columns of in2 matrix.
 ** \param out : Matrix that contains the multiplication in1 * in2.
 */
-void	cmulma(floatComplex *in1, int lines1, int columns1,
+EXTERN_MATOPS void	cmulma(floatComplex *in1, int lines1, int columns1,
 	       floatComplex *in2, int lines2, int columns2,
 	       floatComplex *out);
 
@@ -75,8 +80,12 @@ void	cmulma(floatComplex *in1, int lines1, int columns1,
 ** \param columns2 : columns of in2 matrix.
 ** \param out : Matrix that contains the multiplication in1 * in2.
 */
-void	zmulma(doubleComplex *in1, int lines1, int columns1,
+EXTERN_MATOPS void	zmulma(doubleComplex *in1, int lines1, int columns1,
 	       doubleComplex *in2, int lines2, int columns2,
 	       doubleComplex *out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* !__MATRIXMULTIPLICATION_H__ */

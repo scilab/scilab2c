@@ -11,9 +11,10 @@
  *
  */
 
-
+#include <malloc.h>
 #include "matrixDivision.h"
 #include "string.h"
+#include "lapack.h"
 
 void zldivma(	doubleComplex* in1, int lines1, int columns1 ,
 				doubleComplex* in2, int lines2, int columns2 ,
@@ -71,6 +72,7 @@ void zldivma(	doubleComplex* in1, int lines1, int columns1 ,
 	{
 		cNorm		= 'F';
 		C2F(zlacpy)(&cNorm, &columns1, &columns1,	in1, &columns1, pAf, &columns1);
+
 		C2F(zlacpy)(&cNorm, &columns1, &columns2,	in2, &columns1, pXb, &columns1);
 		C2F(zgetrf)(&columns1, &columns1, pAf, &columns1, pIpiv, &iInfo);
 		if(iInfo == 0)
@@ -99,6 +101,7 @@ void zldivma(	doubleComplex* in1, int lines1, int columns1 ,
 		memset(pJpvt, 0x00,(unsigned int) sizeof(int) * (unsigned int)columns1);
 		C2F(zgelsy)(	&lines1, &columns1, &columns2, in1, &lines1, pXb, &iMax,
 			pJpvt, &dblRcond, &iRank, pDwork, &iWork, pRwork, &iInfo);
+		
 
 		if(iInfo == 0)
 		{

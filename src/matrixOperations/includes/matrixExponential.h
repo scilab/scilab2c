@@ -15,6 +15,7 @@
 
 #include <math.h>
 #include <stdlib.h>
+#include "dynlib_matrixoperations.h"
 #include "lapack.h"
 #include "blas.h"
 #include "abs.h"
@@ -30,14 +31,21 @@
 #include "frexp.h"
 #include "division.h"
 
-void sexpma (float* in, float* out, int _iLeadDim);
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
-void dexpma (double* in, double* out, int _iLeadDim);
+EXTERN_MATOPS void sexpma (float* in, float* out, int _iLeadDim);
 
-void cexpma(floatComplex * in, floatComplex * out, int _iLeadDim);
+EXTERN_MATOPS void dexpma (double* in, double* out, int _iLeadDim);
 
-void zexpma (doubleComplex * in, doubleComplex * out, int _iLeadDim);
+EXTERN_MATOPS void cexpma(floatComplex * in, floatComplex * out, int _iLeadDim);
 
+EXTERN_MATOPS void zexpma (doubleComplex * in, doubleComplex * out, int _iLeadDim);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* !__MATRIXEXPONENTIAL_H__ */
 

@@ -13,6 +13,7 @@
 #ifndef __ROUND_H__
 #define __ROUND_H__
 
+#include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
@@ -20,21 +21,21 @@
 	round(x) rounds the elements of x to the nearest integers.
 */
 
-float	srounds(float in);
+EXTERN_ELEMFUNCT float	srounds(float in);
 
-double drounds(double in);
+EXTERN_ELEMFUNCT double drounds(double in);
 
-floatComplex crounds(floatComplex in);
+EXTERN_ELEMFUNCT floatComplex crounds(floatComplex in);
 
-doubleComplex zrounds(doubleComplex in);
+EXTERN_ELEMFUNCT doubleComplex zrounds(doubleComplex in);
 
-void	srounda(float* in, int size, float* out);
+EXTERN_ELEMFUNCT void	srounda(float* in, int size, float* out);
 
-void	drounda(double* in, int size, double* out);
+EXTERN_ELEMFUNCT void	drounda(double* in, int size, double* out);
 
-void	crounda(floatComplex* in, int size, floatComplex* out);
+EXTERN_ELEMFUNCT void	crounda(floatComplex* in, int size, floatComplex* out);
 
-void	zrounda(doubleComplex* in, int size, doubleComplex* out);
+EXTERN_ELEMFUNCT void	zrounda(doubleComplex* in, int size, doubleComplex* out);
 
 #endif /* !__ROUND_H__ */
 

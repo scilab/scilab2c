@@ -18,6 +18,11 @@
 #define C2F(name) name##_ 
 #endif 
 
+#include "doubleComplex.h"
+
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
 #define getRelativeMachinePrecision()		dlamch_("e", 1L)
 #define getOverflowThreshold()			dlamch_("o", 1L)
@@ -96,22 +101,22 @@ extern      double dgetri_ (int* N , double* A , int* LDA , int* IPIV , double* 
 
 
 /****** doubleComplex fortran function ************/
-extern 		double zgelsy_ () ;
+extern 		double zgelsy_ (int*,int*,int*,doubleComplex*,int*,doubleComplex*,int*,int*,double*,int*,doubleComplex*,int*,double*,int*) ;
 
 
 extern	    double zlamch_  ();
 
-extern		double zlange_  ();
+extern		double zlange_  (char*,int*,int*,doubleComplex*,int*,doubleComplex*);
 
-extern 		double zgetrf_ ();
+extern 		double zgetrf_ (int *, int *, doubleComplex *, int *, int *, int *);
 
-extern		double zgecon_	( ) ;
+extern		double zgecon_	( char*,int*,doubleComplex*,int*,double*,double*,doubleComplex*,double*,int*) ;
 
-extern		double zgetrs_  ( ) ;
+extern		double zgetrs_  ( char *,int*,int*,doubleComplex*,int*,int*,doubleComplex*,int*,int*) ;
 
-extern		double zlacpy_ ();
+extern		double zlacpy_ (char*,int*,int*,doubleComplex*,int*,doubleComplex*,int*);
 
-extern      double zgetri_ () ;
+extern      double zgetri_ (int*,doubleComplex*,int*,int*,doubleComplex*,int*,int*) ;
 /*extern      int zgelsy_ ();*/
 
 /*certainly have some blas functions in */
@@ -137,19 +142,27 @@ extern int C2F(intexpm) ();
 
 extern int C2F(zcopy)();
 
-extern  int     C2F(dgemm)();
-extern  int     C2F(idamax)() ;/* could be transcribe easaly in c */
-extern  int     C2F(daxpy) () ;/* could be transcribe easaly in c */
-extern  int     C2F(dscal) () ;/* could be transcribe easaly in c */
-extern  int     C2F(dasum) () ;/* could be transcribe easaly in c */
+extern  int C2F(dgemm)(char *,char*,int*,int*,int*,double*,double*,int*,double*,int*,double*,double*,int*);
+extern  int     C2F(idamax)() ;/* could be transcribe easily in c */
+extern  int     C2F(daxpy) () ;/* could be transcribe easily in c */
+extern  int     C2F(dscal) () ;/* could be transcribe easily in c */
+extern  int     C2F(dasum) () ;/* could be transcribe easily in c */
 
 /* used in chol */
-extern int C2F(dpotrf)();
-extern int C2F(zpotrf)();
+extern int C2F(dpotrf)(char*,int*,double*,int*,int*);
+extern int C2F(zpotrf)(char*,int*,doubleComplex*,int*,int*);
+
 /* used in logm */
-extern int C2F(zgeev)();
-extern int C2F(zheev)();
+extern int C2F(zgeev)(char*,char*,int*,doubleComplex*,int*,doubleComplex*,
+					  doubleComplex*,int*,doubleComplex*,int*,doubleComplex*,int *,doubleComplex*,int*);	
+
+extern int C2F(zheev)(char*,char*,int*,doubleComplex*,int*,double*,doubleComplex*,int*,double*,int*);
+
 /* used in spec */
-extern int C2F(dgeev)();
-extern int C2F(dsyev)();
+extern int C2F(dgeev)(char*,char*,int*,double*,int*,double*,double*,double*,int*,double*,int*,double*,int*,int*);
+extern int C2F(dsyev)(char*,char*,int*,double*,int*,double*,double*,int*,int*);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 #endif /* !__LAPACK_H__ */

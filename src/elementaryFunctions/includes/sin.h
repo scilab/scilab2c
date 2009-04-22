@@ -13,6 +13,7 @@
 #ifndef __SIN_H__
 #define __SIN_H__
 
+#include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
@@ -24,25 +25,25 @@
 ** \brief Float Sine function
 ** \param in : input value.
 */
-float		ssins(float in);
+EXTERN_ELEMFUNCT float		ssins(float in);
 
 /*
 ** \brief Double Sine function
 ** \param in : input value.
 */
-double		dsins(double in);
+EXTERN_ELEMFUNCT double		dsins(double in);
 
 /*
 ** \brief Float Complex Sine function
 ** \param in : input value.
 */
-floatComplex	csins(floatComplex in);
+EXTERN_ELEMFUNCT floatComplex	csins(floatComplex in);
 
 /*
 ** \brief Double Complex Sine function
 ** \param in : input value.
 */
-doubleComplex	zsins(doubleComplex in);
+EXTERN_ELEMFUNCT doubleComplex	zsins(doubleComplex in);
 
 /*
 ** \brief Float Matrix Sine function
@@ -50,7 +51,7 @@ doubleComplex	zsins(doubleComplex in);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		ssina(float* in, int size, float* out);
+EXTERN_ELEMFUNCT void		ssina(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix Sine function
@@ -58,7 +59,7 @@ void		ssina(float* in, int size, float* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		dsina(double* in, int size, double* out);
+EXTERN_ELEMFUNCT void		dsina(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix Sine function
@@ -66,7 +67,7 @@ void		dsina(double* in, int size, double* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		csina(floatComplex* in, int size, floatComplex* out);
+EXTERN_ELEMFUNCT void		csina(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix Sine function
@@ -74,7 +75,7 @@ void		csina(floatComplex* in, int size, floatComplex* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		zsina(doubleComplex* in, int size, doubleComplex* out);
+EXTERN_ELEMFUNCT void		zsina(doubleComplex* in, int size, doubleComplex* out);
 
 #endif /* !__SIN_H__ */
 

@@ -22,7 +22,7 @@ void dhilba ( double* out, int size ){
 	for(iIndex1 = 0 ; iIndex1 < size ; iIndex1++)
 	{
 		if(iIndex1 != 0)
-			dblVal = ((size - iIndex1) * dblVal * (size + iIndex1)) / pow(iIndex1,2);
+			dblVal = ((size - iIndex1) * dblVal * (size + iIndex1)) / pow((double)iIndex1,2);
         
 		dblTemp = dblVal * dblVal;
 
@@ -33,7 +33,7 @@ void dhilba ( double* out, int size ){
         
 		for(iIndex2 = iIndex1 + 1 ; iIndex2 < size ; iIndex2++)
 		{
-			dblTemp = -((size - iIndex2) * dblTemp * (size + iIndex2)) / pow(iIndex2,2);
+			dblTemp = -((size - iIndex2) * dblTemp * (size + iIndex2)) / pow((double)iIndex2,2);
 			out[iIndex1 * size + iIndex2] = dblTemp / (iIndex1 + iIndex2 + 1);
 			out[iIndex2 * size + iIndex1] = out[iIndex1 * size + iIndex2];
 		}

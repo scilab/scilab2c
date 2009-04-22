@@ -14,6 +14,8 @@
 #ifndef __LENGTH_H__
 #define __LENGTH_H__
 
+#include "dynlib_auxiliaryfunctions.h"
+
 /**
  ** WARNING :
  ** We assume size of arrays are known, so we

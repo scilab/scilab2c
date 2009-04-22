@@ -13,6 +13,7 @@
 #ifndef __ACOSH_H__
 #define __ACOSH_H__
 
+#include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
@@ -24,25 +25,25 @@
 ** \brief Float Hyperbolic ArcCosine function
 ** \param in : input array value.
 */
-float		sacoshs(float in);
+EXTERN_ELEMFUNCT float		sacoshs(float in);
 
 /*
 ** \brief Double Hyperbolic ArcCosine function
 ** \param in : input array value.
 */
-double		dacoshs(double in);
+EXTERN_ELEMFUNCT double		dacoshs(double in);
 
 /*
 ** \brief Float Complex Hyperbolic ArcCosine function
 ** \param in : input array value.
 */
-floatComplex	cacoshs(floatComplex in);
+EXTERN_ELEMFUNCT floatComplex	cacoshs(floatComplex in);
 
 /*
 ** \brief Double Complex Hyperbolic ArcCosine function
 ** \param in : input array value.
 */
-doubleComplex	zacoshs(doubleComplex in);
+EXTERN_ELEMFUNCT doubleComplex	zacoshs(doubleComplex in);
 
 /*
 ** \brief Float Matrix Hyperbolic ArcCosine function
@@ -50,7 +51,7 @@ doubleComplex	zacoshs(doubleComplex in);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		sacosha(float* in, int size, float* out);
+EXTERN_ELEMFUNCT void		sacosha(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix Hyperbolic ArcCosine function
@@ -58,7 +59,7 @@ void		sacosha(float* in, int size, float* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		dacosha(double* in, int size, double* out);
+EXTERN_ELEMFUNCT void		dacosha(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix Hyperbolic ArcCosine function
@@ -66,7 +67,7 @@ void		dacosha(double* in, int size, double* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		cacosha(floatComplex* in, int size, floatComplex* out);
+EXTERN_ELEMFUNCT void		cacosha(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix Hyperbolic ArcCosine function
@@ -74,6 +75,6 @@ void		cacosha(floatComplex* in, int size, floatComplex* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		zacosha(doubleComplex* in, int size, doubleComplex* out);
+EXTERN_ELEMFUNCT void		zacosha(doubleComplex* in, int size, doubleComplex* out);
 
 #endif /* !__ACOSH_H__ */

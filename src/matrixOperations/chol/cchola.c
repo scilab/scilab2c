@@ -10,6 +10,9 @@
  *
  */
 
+#include <malloc.h>
+#include <stdio.h>
+
 #ifndef WITHOUT_LAPACK
 #include "lapack.h"
 #else
@@ -18,10 +21,8 @@
 #include "subtraction.h"
 #include "sqrt.h"
 #endif
-
 #include "chol.h"
-#include <malloc.h>
-#include <stdio.h>
+
 
 void cchola(floatComplex * in, int size, floatComplex *out){
 	/* param in : input matrix (square matrix)
@@ -41,10 +42,10 @@ void cchola(floatComplex * in, int size, floatComplex *out){
 	doubleComplex* tmp;
 	int i=0, j=0, info=0;
 	
-	tmp=malloc((unsigned int)(size*size)*sizeof(doubleComplex));
+	tmp=(doubleComplex*)malloc((unsigned int)(size*size)*sizeof(doubleComplex));
 	for(i=0;i<size*size;i++) tmp[i]=DoubleComplex((double)creals(in[i]),(double)cimags(in[i]));
 	
-	C2F(zpotrf)("U", &size, tmp, &size, &info,1L);
+	zpotrf_("U", &size, tmp, &size, &info);
 
 	for(i=0;i<size*size;i++) out[i]=FloatComplex((float)zreals(tmp[i]),(float)zimags(tmp[i]));
 	

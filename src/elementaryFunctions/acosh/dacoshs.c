@@ -13,6 +13,13 @@
 #include <math.h>
 #include "acosh.h"
 
+#ifdef _MSC_VER
+double acosh(double x)
+{
+	return log(x + sqrt(x * x - 1));
+}
+#endif
+
 double	       dacoshs(double x) {
   return (acosh(x));
 }

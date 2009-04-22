@@ -16,8 +16,6 @@
 #include <stdio.h>
 #include <assert.h>
 #include "acos.h"
-#include "constant.h"
-
 
 void sacossTest(void);
 

@@ -13,6 +13,7 @@
 #ifndef __LOG_H__
 #define __LOG_H__
 
+#include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
@@ -24,25 +25,25 @@
 ** \brief Float Logarithm function
 ** \param in : input value.
 */
-float		slogs(float in);
+EXTERN_ELEMFUNCT float		slogs(float in);
 
 /*
 ** \brief Double Logarithm function
 ** \param in : input value.
 */
-double		dlogs(double in);
+EXTERN_ELEMFUNCT double		dlogs(double in);
 
 /*
 ** \brief Float Complex Logarithm function
 ** \param in : input value.
 */
-floatComplex	clogs(floatComplex in);
+EXTERN_ELEMFUNCT floatComplex	clogs(floatComplex in);
 
 /*
 ** \brief Double Complex Logarithm function
 ** \param in : input value.
 */
-doubleComplex	zlogs(doubleComplex in);
+EXTERN_ELEMFUNCT doubleComplex	zlogs(doubleComplex in);
 
 /*
 ** \brief Float Matrix Logarithm function
@@ -50,7 +51,7 @@ doubleComplex	zlogs(doubleComplex in);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		sloga(float* in, int size, float* out);
+EXTERN_ELEMFUNCT void		sloga(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix Logarithm function
@@ -58,7 +59,7 @@ void		sloga(float* in, int size, float* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		dloga(double* in, int size, double* out);
+EXTERN_ELEMFUNCT void		dloga(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix Logarithm function
@@ -66,7 +67,7 @@ void		dloga(double* in, int size, double* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		cloga(floatComplex* in, int size, floatComplex* out);
+EXTERN_ELEMFUNCT void		cloga(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix Logarithm function
@@ -74,7 +75,7 @@ void		cloga(floatComplex* in, int size, floatComplex* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		zloga(doubleComplex* in, int size, doubleComplex* out);
+EXTERN_ELEMFUNCT void		zloga(doubleComplex* in, int size, doubleComplex* out);
 
 #endif /* !__LOG_H__ */
 

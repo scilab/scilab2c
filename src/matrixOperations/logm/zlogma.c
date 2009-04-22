@@ -36,9 +36,9 @@ void zlogma (doubleComplex* in, int rows, doubleComplex* out){
 		
 	
 	/* Data initialization */
-	eigenvalues = malloc((uint)(rows*rows)*sizeof(doubleComplex));
-	eigenvectors = malloc((uint)(rows*rows)*sizeof(doubleComplex));
-	tmp = malloc((uint)(rows*rows)*sizeof(doubleComplex));
+	eigenvalues = (doubleComplex*)malloc((unsigned int)(rows*rows)*sizeof(doubleComplex));
+	eigenvectors = (doubleComplex*)malloc((unsigned int)(rows*rows)*sizeof(doubleComplex));
+	tmp = (doubleComplex*)malloc((unsigned int)(rows*rows)*sizeof(doubleComplex));
 	
 	
 	

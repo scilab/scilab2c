@@ -13,6 +13,7 @@
 #ifndef __CEIL_H__
 #define __CEIL_H__
 
+#include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
@@ -20,21 +21,21 @@
 	ceil(x) returns an integer matrix made of rounded up elements 
 */
 
-float	sceils(float in);
+EXTERN_ELEMFUNCT float	sceils(float in);
 
-double dceils(double in);
+EXTERN_ELEMFUNCT double dceils(double in);
 
-floatComplex cceils(floatComplex in);
+EXTERN_ELEMFUNCT floatComplex cceils(floatComplex in);
 
-doubleComplex zceils(doubleComplex in);
+EXTERN_ELEMFUNCT doubleComplex zceils(doubleComplex in);
 
-void	sceila(float* in, int size, float* out);
+EXTERN_ELEMFUNCT void	sceila(float* in, int size, float* out);
 
-void	dceila(double* in, int size, double* out);
+EXTERN_ELEMFUNCT void	dceila(double* in, int size, double* out);
 
-void	cceila(floatComplex* in, int size, floatComplex* out);
+EXTERN_ELEMFUNCT void	cceila(floatComplex* in, int size, floatComplex* out);
 
-void	zceila(doubleComplex* in, int size, doubleComplex* out);
+EXTERN_ELEMFUNCT void	zceila(doubleComplex* in, int size, doubleComplex* out);
 
 #endif /* !__CEIL_H__ */
 

@@ -66,16 +66,16 @@ floatComplex cdeterma(floatComplex *in, int size){
 			    zgetrf accept only double parameters*/
 			    	
 			  /*Copy the input matrix*/
-			  inCopy=malloc((uint)(size*size)*sizeof(doubleComplex));
+			  inCopy=(doubleComplex*)malloc((unsigned int)(size*size)*sizeof(doubleComplex));
 			  for (i=0;i<size*size;i++){
 			  	inCopy[i]=DoubleComplex((double)creals(in[i]),(double)cimags(in[i]));
 			  }
 
 
 
-			  vectPivot=malloc((uint)size*sizeof(int));
+			  vectPivot=(int*)malloc((unsigned int)size*sizeof(int));
 			  zgetrf_  ( &size, &size, inCopy, &size, vectPivot, &info);
-
+						
 			  out_tmp=DoubleComplex(1,0);
 			  for (i=0;i<size;i++){
 			  	if (vectPivot[i]!=i+1) out_tmp=DoubleComplex(-zreals(out_tmp),-zimags(out_tmp));
@@ -123,7 +123,7 @@ floatComplex cdeterma(floatComplex *in, int size){
 			 
 		default : 
 				  /*Copy the input matrix*/
-			  inCopy=malloc((uint)(size*size)*sizeof(floatComplex));
+			  inCopy=malloc((unsigned int)(size*size)*sizeof(floatComplex));
 			  for (i=0;i<size*size;i++) inCopy[i]=in[i];
 			  
     			  for (i=0;i<size;i++){

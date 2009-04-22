@@ -9,7 +9,7 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
- 
+#include <malloc.h>
 #include "dist.h"
 #include "matrixTranspose.h"
 #include "matrixMultiplication.h"
@@ -27,10 +27,10 @@ double zdista(doubleComplex* in1,doubleComplex* in2, int lines, int columns){
 	
 	
 	/* FIXME : malloc here*/
-	a=malloc((uint)(lines*columns)*sizeof(doubleComplex));
-	at=malloc((uint)(lines*columns)*sizeof(doubleComplex));
-	mul=malloc((uint)(lines*lines)*sizeof(doubleComplex));
-	eigenvalues=malloc((uint)(lines)*sizeof(doubleComplex));
+	a=(doubleComplex*)malloc((unsigned int)(lines*columns)*sizeof(doubleComplex));
+	at=(doubleComplex*)malloc((unsigned int)(lines*columns)*sizeof(doubleComplex));
+	mul=(doubleComplex*)malloc((unsigned int)(lines*lines)*sizeof(doubleComplex));
+	eigenvalues=(doubleComplex*)malloc((unsigned int)(lines)*sizeof(doubleComplex));
 		
 	for (i=0;i<lines*columns;i++) a[i]=zdiffs(in1[i],in2[i]);
 	ztransposea(a,lines, columns,at);

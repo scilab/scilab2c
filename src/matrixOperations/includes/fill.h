@@ -14,19 +14,26 @@
 #ifndef __FILL_H__
 #define __FILL_H__
 
+#include "dynlib_matrixoperations.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
-
+#ifdef  __cplusplus
+extern "C" {
+#endif
 /*filling of a array with constant*/
 
-void dfilla (double* in, int rows, int cols, double constant);
+EXTERN_MATOPS void dfilla (double* in, int rows, int cols, double constant);
 
-void sfilla (float* in, int rows, int cols, float constant);
+EXTERN_MATOPS void sfilla (float* in, int rows, int cols, float constant);
 
-void cfilla (floatComplex* in, int rows, int cols, floatComplex constant);
+EXTERN_MATOPS void cfilla (floatComplex* in, int rows, int cols, floatComplex constant);
 
-void zfilla (doubleComplex* in, int rows, int cols, doubleComplex constant);
+EXTERN_MATOPS void zfilla (doubleComplex* in, int rows, int cols, doubleComplex constant);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* __FILL_H__ */
 

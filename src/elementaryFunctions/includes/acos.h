@@ -13,6 +13,7 @@
 #ifndef __ACOS_H__
 #define __ACOS_H__
 
+#include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
@@ -24,25 +25,25 @@
 ** \brief Float ArcCosine function
 ** \param in : input array value.
 */
-float		sacoss(float in);
+EXTERN_ELEMFUNCT float		sacoss(float in);
 
 /*
 ** \brief Double ArcCosine function
 ** \param in : input array value.
 */
-double		dacoss(double in);
+EXTERN_ELEMFUNCT double		dacoss(double in);
 
 /*
 ** \brief Float Complex ArcCosine function
 ** \param in : input array value.
 */
-floatComplex	cacoss(floatComplex in);
+EXTERN_ELEMFUNCT floatComplex	cacoss(floatComplex in);
 
 /*
 ** \brief Double Complex ArcCosine function
 ** \param in : input array value.
 */
-doubleComplex	zacoss(doubleComplex in);
+EXTERN_ELEMFUNCT doubleComplex	zacoss(doubleComplex in);
 
 /*
 ** \brief Float Matrix ArcCosine function
@@ -50,7 +51,7 @@ doubleComplex	zacoss(doubleComplex in);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		sacosa(float* in, int size, float* out);
+EXTERN_ELEMFUNCT void		sacosa(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix ArcCosine function
@@ -58,7 +59,7 @@ void		sacosa(float* in, int size, float* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		dacosa(double* in, int size, double* out);
+EXTERN_ELEMFUNCT void		dacosa(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix ArcCosine function
@@ -66,7 +67,7 @@ void		dacosa(double* in, int size, double* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		cacosa(floatComplex* in, int size, floatComplex* out);
+EXTERN_ELEMFUNCT void		cacosa(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix ArcCosine function
@@ -74,6 +75,6 @@ void		cacosa(floatComplex* in, int size, floatComplex* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		zacosa(doubleComplex* in, int size, doubleComplex* out);
+EXTERN_ELEMFUNCT void		zacosa(doubleComplex* in, int size, doubleComplex* out);
 
 #endif /* !__ACOS_H__ */

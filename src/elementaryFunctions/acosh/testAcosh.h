@@ -16,7 +16,6 @@
 #include <stdio.h>
 #include <assert.h>
 #include "acosh.h"
-#include "constant.h"
 
 
 void sacoshsTest(void);

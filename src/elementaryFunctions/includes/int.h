@@ -13,6 +13,7 @@
 #ifndef __INT_H__
 #define __INT_H__
 
+#include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
@@ -20,21 +21,21 @@
 	int(X) returns the integer part of the real matrix X. Same as fix.
 */
 
-float	sints(float in);
+EXTERN_ELEMFUNCT float	sints(float in);
 
-double dints(double in);
+EXTERN_ELEMFUNCT double dints(double in);
 
-floatComplex cints(floatComplex in);
+EXTERN_ELEMFUNCT floatComplex cints(floatComplex in);
 
-doubleComplex zints(doubleComplex in);
+EXTERN_ELEMFUNCT doubleComplex zints(doubleComplex in);
 
-void	sinta(float* in, int size, float* out);
+EXTERN_ELEMFUNCT void	sinta(float* in, int size, float* out);
 
-void	dinta(double* in, int size, double* out);
+EXTERN_ELEMFUNCT void	dinta(double* in, int size, double* out);
 
-void	cinta(floatComplex* in, int size, floatComplex* out);
+EXTERN_ELEMFUNCT void	cinta(floatComplex* in, int size, floatComplex* out);
 
-void	zinta(doubleComplex* in, int size, doubleComplex* out);
+EXTERN_ELEMFUNCT void	zinta(doubleComplex* in, int size, doubleComplex* out);
 
 #endif /* !__INT_H__ */
 

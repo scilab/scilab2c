@@ -14,8 +14,14 @@
 #ifndef __ONES_H__
 #define __ONES_H__
 
+#include "dynlib_matrixoperations.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
+
+
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
 /*
 ** \brief create a float one value
@@ -42,18 +48,22 @@
 /*
 ** \brief create a float matrix full of one
 */
-void sonesa ( float* in , int rows , int cols );
+EXTERN_MATOPS void sonesa ( float* in , int rows , int cols );
 /*
 ** \brief create a float complex matrix full of one
 */
-void conesa ( floatComplex* in , int rows ,int cols );
+EXTERN_MATOPS void conesa ( floatComplex* in , int rows ,int cols );
 /*
 ** \brief create a double  matrix full of one
 */
-void donesa ( double* in , int rows ,int cols );
+EXTERN_MATOPS void donesa ( double* in , int rows ,int cols );
 /*
 ** \brief create a double complex  matrix full of one
 */
-void zonesa ( doubleComplex* in , int rows ,int cols );
+EXTERN_MATOPS void zonesa ( doubleComplex* in , int rows ,int cols );
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* !__ONES_H__ */

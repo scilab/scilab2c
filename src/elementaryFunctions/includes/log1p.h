@@ -13,6 +13,7 @@
 #ifndef __LOG1P_H__
 #define __LOG1P_H__
 
+#include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
@@ -24,25 +25,25 @@
 ** \brief Float Logarithm function
 ** \param in : input value.
 */
-float		slog1ps(float in);
+EXTERN_ELEMFUNCT float		slog1ps(float in);
 
 /*
 ** \brief Double Logarithm function
 ** \param in : input value.
 */
-double		dlog1ps(double in);
+EXTERN_ELEMFUNCT double		dlog1ps(double in);
 
 /*
 ** \brief Float Complex Logarithm function
 ** \param in : input value.
 */
-floatComplex	clog1ps(floatComplex in);
+EXTERN_ELEMFUNCT floatComplex	clog1ps(floatComplex in);
 
 /*
 ** \brief Double Complex Logarithm function
 ** \param in : input value.
 */
-doubleComplex	zlog1ps(doubleComplex in);
+EXTERN_ELEMFUNCT doubleComplex	zlog1ps(doubleComplex in);
 
 /*
 ** \brief Float Matrix Logarithm function
@@ -50,7 +51,7 @@ doubleComplex	zlog1ps(doubleComplex in);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		slog1pa(float* in, int size, float* out);
+EXTERN_ELEMFUNCT void		slog1pa(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix Logarithm function
@@ -58,7 +59,7 @@ void		slog1pa(float* in, int size, float* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		dlog1pa(double* in, int size, double* out);
+EXTERN_ELEMFUNCT void		dlog1pa(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix Logarithm function
@@ -66,7 +67,7 @@ void		dlog1pa(double* in, int size, double* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		clog1pa(floatComplex* in, int size, floatComplex* out);
+EXTERN_ELEMFUNCT void		clog1pa(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix Logarithm function
@@ -74,7 +75,7 @@ void		clog1pa(floatComplex* in, int size, floatComplex* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		zlog1pa(doubleComplex* in, int size, doubleComplex* out);
+EXTERN_ELEMFUNCT void		zlog1pa(doubleComplex* in, int size, doubleComplex* out);
 
 #endif /* !__LOG1P_H__ */
 

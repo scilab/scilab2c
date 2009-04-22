@@ -13,6 +13,7 @@
 #ifndef __ASIN_H__
 #define __ASIN_H__
 
+#include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
@@ -24,25 +25,25 @@
 ** \brief Float ArcSine function
 ** \param in : input value.
 */
-float		sasins(float in);
+EXTERN_ELEMFUNCT float		sasins(float in);
 
 /*
 ** \brief Double ArcSine function
 ** \param in : input value.
 */
-double		dasins(double in);
+EXTERN_ELEMFUNCT double		dasins(double in);
 
 /*
 ** \brief Float Complex ArcSine function
 ** \param in : input value.
 */
-floatComplex	casins(floatComplex in);
+EXTERN_ELEMFUNCT floatComplex	casins(floatComplex in);
 
 /*
 ** \brief Double Complex ArcSine function
 ** \param in : input value.
 */
-doubleComplex	zasins(doubleComplex in);
+EXTERN_ELEMFUNCT doubleComplex	zasins(doubleComplex in);
 
 /*
 ** \brief Float Matrix ArcSine function
@@ -50,7 +51,7 @@ doubleComplex	zasins(doubleComplex in);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		sasina(float* in, int size, float* out);
+EXTERN_ELEMFUNCT void		sasina(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix ArcSine function
@@ -58,7 +59,7 @@ void		sasina(float* in, int size, float* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		dasina(double* in, int size, double* out);
+EXTERN_ELEMFUNCT void		dasina(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix ArcSine function
@@ -66,7 +67,7 @@ void		dasina(double* in, int size, double* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		casina(floatComplex* in, int size, floatComplex* out);
+EXTERN_ELEMFUNCT void		casina(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix ArcSine function
@@ -74,6 +75,6 @@ void		casina(floatComplex* in, int size, floatComplex* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		zasina(doubleComplex* in, int size, doubleComplex* out);
+EXTERN_ELEMFUNCT void		zasina(doubleComplex* in, int size, doubleComplex* out);
 
 #endif /* !__ASIN_H__ */

@@ -10,7 +10,15 @@
  *
  */
 
+
+
+#ifdef _MSC_VER
+#include <float.h>
+#define isnan(x) _isnan((double)x)
+#endif
+
 #include "isnan.h"
+
 
 float	cisnans(floatComplex in) {
   if ((int)(isnan(creals(in))) && (int)(isnan(cimags(in)))) return 1;
