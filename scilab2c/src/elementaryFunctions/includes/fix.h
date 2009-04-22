@@ -17,6 +17,9 @@
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
 /*
 	fix(x) returns an integer matrix made of nearest rounded integers toward zero,i.e, y=sign(x).*floor(abs(x)). Same as int.
 	In these functions, I take the formula : 
@@ -39,6 +42,11 @@ EXTERN_ELEMFUNCT void	dfixa(double* in, int size, double* out);
 EXTERN_ELEMFUNCT void	cfixa(floatComplex* in, int size, floatComplex* out);
 
 EXTERN_ELEMFUNCT void	zfixa(doubleComplex* in, int size, doubleComplex* out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
+
 
 #endif /* !__FIX_H__ */
 
