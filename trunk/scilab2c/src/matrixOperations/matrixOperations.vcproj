@@ -190,12 +190,28 @@
 							CompileAs="2"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath=".\cat\ccats.c"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
 						>
 						<Tool
 							Name="VCCLCompilerTool"
@@ -214,12 +230,28 @@
 							CompileAs="2"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath=".\cat\dcats.c"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
 						>
 						<Tool
 							Name="VCCLCompilerTool"
@@ -242,12 +274,28 @@
 							CompileAs="2"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath=".\cat\scats.c"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
 						>
 						<Tool
 							Name="VCCLCompilerTool"
@@ -266,12 +314,28 @@
 							CompileAs="2"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath=".\cat\zcats.c"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
 						>
 						<Tool
 							Name="VCCLCompilerTool"
@@ -294,6 +358,14 @@
 							CompileAs="2"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath=".\chol\dchola.c"
@@ -306,12 +378,28 @@
 							CompileAs="2"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath=".\chol\dchols.c"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
 						>
 						<Tool
 							Name="VCCLCompilerTool"
@@ -334,6 +422,14 @@
 							CompileAs="2"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath=".\chol\schols.c"
@@ -346,12 +442,28 @@
 							CompileAs="2"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath=".\chol\zchola.c"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
 						>
 						<Tool
 							Name="VCCLCompilerTool"
@@ -374,12 +486,28 @@
 							CompileAs="2"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath=".\determ\ddeterma.c"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
 						>
 						<Tool
 							Name="VCCLCompilerTool"
@@ -402,12 +530,28 @@
 							CompileAs="2"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath=".\determ\zdeterma.c"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
 						>
 						<Tool
 							Name="VCCLCompilerTool"
@@ -2158,12 +2302,28 @@
 							CompileAs="2"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath=".\zeros\dzerosa.c"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
 						>
 						<Tool
 							Name="VCCLCompilerTool"
@@ -2186,12 +2346,28 @@
 							CompileAs="2"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath=".\zeros\zzerosa.c"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
 						>
 						<Tool
 							Name="VCCLCompilerTool"
