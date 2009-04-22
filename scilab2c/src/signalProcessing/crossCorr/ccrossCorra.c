@@ -11,7 +11,7 @@
  *
  */
 
-
+#include <malloc.h>
 #include "crossCorr.h"
 #include "conv2d.h"
 #include "conj.h"
@@ -19,15 +19,15 @@
 void ccrossCorra(floatComplex* in1, int rows1, int cols1, floatComplex* in2, int rows2, int cols2, floatComplex* out){
 	floatComplex *in2Copy;
 	int i;
-	
-	in2Copy=malloc((uint)rows2*sizeof(floatComplex));
-		
+
+	in2Copy=malloc((unsigned int)rows2*sizeof(floatComplex));
+
 	/* We change in2 to be in appropriate form in in2Copy*/
 	for (i=0;i<(rows2*cols2);i++) in2Copy[i]=cconjs(in2[rows2*cols2-1-i]);
-	
+
 	cconv2da(in1, rows1, cols1, in2Copy, rows2, cols2, out);
 
-	free(in2Copy);			
+	free(in2Copy);
 }
 
 
