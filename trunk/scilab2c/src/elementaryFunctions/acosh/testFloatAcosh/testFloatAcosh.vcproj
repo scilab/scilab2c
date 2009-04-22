@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9,00"
-	Name="testCplxAcos"
-	ProjectGUID="{20AFE4D5-CE52-4CCE-ADAB-87442079BC0B}"
-	RootNamespace="test_cplxacos"
+	Name="testFloatAcosh"
+	ProjectGUID="{24015124-A47C-406F-850B-09E95DBBF573}"
+	RootNamespace="testFloatAcosh"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="../../includes;../../../type"
+				AdditionalIncludeDirectories="../../includes;../../../type;../../../auxiliaryFunctions/includes"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -116,7 +116,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="../../includes;../../../type"
+				AdditionalIncludeDirectories="../../includes;../../../type;../../../auxiliaryFunctions/includes"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -175,7 +175,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\testCplxAcos.c"
+				RelativePath="..\testFloatAcosh.c"
 				>
 				<FileConfiguration
 					Name="Debug|Win32"
@@ -200,10 +200,6 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
-			<File
-				RelativePath="..\testAcos.h"
-				>
-			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
