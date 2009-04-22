@@ -18,7 +18,7 @@
 	</Platforms>
 	<ToolFiles>
 		<ToolFile
-			RelativePath="..\..\..\Visual-Studio-settings\f2c.rules"
+			RelativePath="..\..\..\..\Visual-Studio-settings\f2c.rules"
 		/>
 	</ToolFiles>
 	<Configurations>
