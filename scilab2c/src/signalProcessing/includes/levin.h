@@ -13,13 +13,19 @@
 #ifndef __LEVIN_H__
 #define __LEVIN_H__
 
+#include "dynlib_signalprocessing.h"
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
-void dlevina (int n, double* cov, int lCov, int cCov, double* la, double* sig, double* lb);
+EXTERN_SIGPROC void dlevina (int n, double* cov, int lCov, int cCov, double* la, double* sig, double* lb);
 
-void slevina (int n, float* cov, int lCov, int cCov, float* la, float* sig, float* lb);
+EXTERN_SIGPROC void slevina (int n, float* cov, int lCov, int cCov, float* la, float* sig, float* lb);
 
-
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /*__LEVIN_H__*/
 

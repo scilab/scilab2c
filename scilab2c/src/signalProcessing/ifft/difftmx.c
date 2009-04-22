@@ -142,7 +142,7 @@ int difftmx ( double* _pdblA , double* _pdblB , int _iNtot, int _iN, int _iNspan
    inc = abs ( isn ) ;
    nt = inc*ntot ;
    ks = inc*nspan;
-   rad = atan ( 1 );
+   rad = atan ( double(1) );
 
    c72 = cos (rad/0.6250);
    s72 = sin (rad/0.6250);

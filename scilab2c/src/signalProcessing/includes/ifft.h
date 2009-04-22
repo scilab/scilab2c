@@ -13,6 +13,7 @@
 #ifndef __IFFT_H__
 #define __IFFT_H__
 
+#include "dynlib_signalprocessing.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
@@ -22,9 +23,13 @@
 #define ziffts(in)					in
 
 
-void sifftma ( float* in , int rows, int cols, float* out);
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
-void difftma ( double* in , int rows, int cols, double* out);
+EXTERN_SIGPROC void sifftma ( float* in , int rows, int cols, float* out);
+
+EXTERN_SIGPROC void difftma ( double* in , int rows, int cols, double* out);
 
 /*
 ** compute the inverse fast fourier transform of a vector
@@ -35,7 +40,7 @@ void difftma ( double* in , int rows, int cols, double* out);
 */
 
 
-void zifftma ( doubleComplex* in , int rows, int cols, doubleComplex* out);
+EXTERN_SIGPROC void zifftma ( doubleComplex* in , int rows, int cols, doubleComplex* out);
 /*
 ** compute the inverse fast fourier transform of a vector
 ** param in  : the input matrix in complex float precision
@@ -44,8 +49,11 @@ void zifftma ( doubleComplex* in , int rows, int cols, doubleComplex* out);
 ** param out : the transformed matrix in complex float precision
 */
 
-void cifftma ( floatComplex* in , int rows, int cols, floatComplex* out);
+EXTERN_SIGPROC void cifftma ( floatComplex* in , int rows, int cols, floatComplex* out);
 
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* !__IFFT_H__ */
 

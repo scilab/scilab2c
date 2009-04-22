@@ -85,14 +85,14 @@ void slevina (int n, float* cov, int lCov, int cCov, float* la, float* sig, floa
 
 	/* FIXME : malloc here */
 
-	tmp1=malloc((unsigned int)((n+1)*cCov*cCov)*sizeof(float));
-	tmp2=malloc((unsigned int)((n+1)*cCov*cCov)*sizeof(float));
-	sig1=malloc((unsigned int)(cCov*cCov)*sizeof(float));
-	gam=malloc((unsigned int)(cCov*cCov)*sizeof(float));
-	R1=malloc((unsigned int)(n*cCov*cCov)*sizeof(float));
-	R2=malloc((unsigned int)(n*cCov*cCov)*sizeof(float));
-	R3=malloc((unsigned int)(n*cCov*cCov)*sizeof(float));
-	R4=malloc((unsigned int)(n*cCov*cCov)*sizeof(float));
+	tmp1=(float*)malloc((unsigned int)((n+1)*cCov*cCov)*sizeof(float));
+	tmp2=(float*)malloc((unsigned int)((n+1)*cCov*cCov)*sizeof(float));
+	sig1=(float*)malloc((unsigned int)(cCov*cCov)*sizeof(float));
+	gam=(float*)malloc((unsigned int)(cCov*cCov)*sizeof(float));
+	R1=(float*)malloc((unsigned int)(n*cCov*cCov)*sizeof(float));
+	R2=(float*)malloc((unsigned int)(n*cCov*cCov)*sizeof(float));
+	R3=(float*)malloc((unsigned int)(n*cCov*cCov)*sizeof(float));
+	R4=(float*)malloc((unsigned int)(n*cCov*cCov)*sizeof(float));
 	
 
 

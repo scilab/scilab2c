@@ -51,12 +51,12 @@ void zifftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 	if ( rows  ==  1 || cols == 1 )
 	{
 
-		sizeTemp = (int) pow ( 2 , (int ) (log( size + 0.5 ) /log ( 2 ))) ;
+		sizeTemp = (int) pow ( double(2) , (int ) (log(double( size + 0.5) ) /log ( double(2) ))) ;
 
 
 		if ( size == sizeTemp )
 		{
-			if ( size <=  pow ( 2 , 15 ))
+			if ( size <=  pow ( double(2) , double(15) ))
 			{
 				ifft842 ( inCopy , size  , 1 );
 				choosenAlgo = IFFT842 ;
@@ -77,12 +77,12 @@ void zifftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 
 	else
 	{
-		rowsTemp = (int) pow ( 2 ,(int) (log( rows + 0.5) /log ( 2 ))) ;
-		colsTemp = (int) pow ( 2 ,(int) (log( cols + 0.5) /log ( 2 ))) ;
+		rowsTemp = (int) pow ( double(2) ,(int) (log( double(rows + 0.5)) /log ( double(2) ))) ;
+		colsTemp = (int) pow ( double(2) ,(int) (log( double(cols + 0.5)) /log ( double(2) ))) ;
 
 		if ( rows == rowsTemp)
 		{
-			if ( rows <=  pow ( 2 , 15 ))
+			if ( rows <=  pow (double(2) , 15 ))
 			{
 				for ( i = 0 ; i < cols ; i++ )
 				{
@@ -106,7 +106,7 @@ void zifftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 		/*second call*/
 		if ( colsTemp == cols )
 		{
-			if ( cols <= pow ( 2 ,15) )
+			if ( cols <= pow ( double(2) ,15) )
 			{
 				/*compute the fft on each line of the matrix */
 				for (i = 0 ; i < rows ; i++ )

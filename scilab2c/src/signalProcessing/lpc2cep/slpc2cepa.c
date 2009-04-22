@@ -21,7 +21,7 @@ void slpc2cepa(float *in, int size, float*out){
 	floatComplex* inCpx;
 
 	/* Copy in in a FloatComplex*/
-	inCpx=malloc((unsigned int)(size*size)*sizeof(floatComplex));
+	inCpx=(floatComplex*)malloc((unsigned int)(size*size)*sizeof(floatComplex));
 	for (i=0;i<size*size;i++)
 		inCpx[i]=FloatComplex(in[i],0);
 

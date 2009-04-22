@@ -13,6 +13,7 @@
 #ifndef __LPC2CEP_H__
 #define __LPC2CEP_H__
 
+#include "dynlib_signalprocessing.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
@@ -23,13 +24,21 @@
    rows(or columns)
 */
 
-void slpc2cepa(float* in, int size, float* out);
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
-void dlpc2cepa(double* in, int size, double* out);
+EXTERN_SIGPROC void slpc2cepa(float* in, int size, float* out);
 
-void clpc2cepa(floatComplex* in, int size, floatComplex* out);
+EXTERN_SIGPROC void dlpc2cepa(double* in, int size, double* out);
 
-void zlpc2cepa(doubleComplex* in, int size, doubleComplex* out);
+EXTERN_SIGPROC void clpc2cepa(floatComplex* in, int size, floatComplex* out);
+
+EXTERN_SIGPROC void zlpc2cepa(doubleComplex* in, int size, doubleComplex* out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /*__LPC2CEP_H__*/
 

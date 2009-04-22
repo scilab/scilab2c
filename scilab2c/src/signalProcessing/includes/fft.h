@@ -13,6 +13,7 @@
 #ifndef __FFT_H__
 #define __FFT_H__
 
+#include "dynlib_signalprocessing.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
@@ -22,9 +23,13 @@
 #define cffts(in)					in
 #define zffts(in)					in
 
-void sfftma(float* in,int rows,int columns,float* out);		
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
-void dfftma(double* in,int rows,int columns,double* out);
+EXTERN_SIGPROC void sfftma(float* in,int rows,int columns,float* out);		
+
+EXTERN_SIGPROC void dfftma(double* in,int rows,int columns,double* out);
 
 /*
 ** compute the fast fourier transform of a vector
@@ -34,7 +39,7 @@ void dfftma(double* in,int rows,int columns,double* out);
 ** param out : the transformed matrix in complex float precision
 */
 
-void cfftma ( floatComplex* in , int rows, int cols, floatComplex* out);
+EXTERN_SIGPROC void cfftma ( floatComplex* in , int rows, int cols, floatComplex* out);
 /*
 ** compute the fast fourier transform of a vector
 ** param in  : the input matrix in complex double precision
@@ -42,7 +47,11 @@ void cfftma ( floatComplex* in , int rows, int cols, floatComplex* out);
 ** param cols: number of cols of the input matrix
 ** param out : the transformed matrix in complex double precision
 */
-void zfftma ( doubleComplex* in , int rows, int cols, doubleComplex* out);
+EXTERN_SIGPROC void zfftma ( doubleComplex* in , int rows, int cols, doubleComplex* out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* !__FFT_H__ */
 
