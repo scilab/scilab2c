@@ -13,20 +13,23 @@
 #ifndef __LEV_H__
 #define __LEV_H__
 
+#include "dynlib_signalprocessing.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
-
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
 /* 
    function Scilab : 
    [out1,y,out3]=lev(in)
    y : result of the function
 */
-float sleva (float* in,int size, float* out1, float* out3);
-double dleva (double* in, int size, double* out1, double* out3);
-floatComplex cleva (floatComplex* in,int size, floatComplex* out1, floatComplex* out3);
-doubleComplex zleva (doubleComplex* in,int size, doubleComplex* out1, doubleComplex* out3);
+EXTERN_SIGPROC float sleva (float* in,int size, float* out1, float* out3);
+EXTERN_SIGPROC double dleva (double* in, int size, double* out1, double* out3);
+EXTERN_SIGPROC floatComplex cleva (floatComplex* in,int size, floatComplex* out1, floatComplex* out3);
+EXTERN_SIGPROC doubleComplex zleva (doubleComplex* in,int size, doubleComplex* out1, doubleComplex* out3);
 
 
 /* 
@@ -34,12 +37,14 @@ doubleComplex zleva (doubleComplex* in,int size, doubleComplex* out1, doubleComp
    [out1,y]=lev(in)
    y : result of the function
 */
-float sleva2 (float* in,int size, float* out1);
-double dleva2 (double* in, int size, double* out1);
-floatComplex cleva2 (floatComplex* in,int size, floatComplex* out1);
-doubleComplex zleva2 (doubleComplex* in,int size, doubleComplex* out1);
+EXTERN_SIGPROC float sleva2 (float* in,int size, float* out1);
+EXTERN_SIGPROC double dleva2 (double* in, int size, double* out1);
+EXTERN_SIGPROC floatComplex cleva2 (floatComplex* in,int size, floatComplex* out1);
+EXTERN_SIGPROC doubleComplex zleva2 (doubleComplex* in,int size, doubleComplex* out1);
 
-
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /*__LEV_H__*/
 

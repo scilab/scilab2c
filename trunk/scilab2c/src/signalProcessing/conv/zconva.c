@@ -18,16 +18,16 @@ void zconva(doubleComplex *in1, int size1, doubleComplex *in2,int size2, doubleC
 	doubleComplex *in1b, *in2b, *result;	
 
 
-	m1=(int)floor(log(size1+size2-1)/log(2)+1);
-	m1=(int)pow(2,m1);
+	m1=(int)floor(log((double)(size1+size2-1))/log(double(2))+1);
+	m1=(int)pow((double)(2),double(m1));
 
-	in1b=malloc(2*(unsigned int)m1*sizeof(double));
+	in1b=(doubleComplex *)malloc(2*(unsigned int)m1*sizeof(double));
 	for(i=0;i<m1;i++){
 		if (i<size1) in1b[i]=in1[i];
 		else in1b[i]=DoubleComplex(0,0);
 	}
 	
-	in2b=malloc(2*(unsigned int)m1*sizeof(double));
+	in2b=(doubleComplex *)malloc(2*(unsigned int)m1*sizeof(double));
 	for(i=0;i<m1;i++){
 		if (i<size2) in2b[i]=in2[i];
 		else in2b[i]=DoubleComplex(0,0);
@@ -37,7 +37,7 @@ void zconva(doubleComplex *in1, int size1, doubleComplex *in2,int size2, doubleC
 	zfftma(in1b,m1,1,in1b);
 	zfftma(in2b,m1,1,in2b);
 
-	result=malloc(2*(unsigned int)m1*sizeof(double));
+	result=(doubleComplex *)malloc(2*(unsigned int)m1*sizeof(double));
 	zmula(in1b,in2b,m1,result);
 	zifftma(result,m1,1,result);	
 	

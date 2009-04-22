@@ -20,8 +20,8 @@ void sifftma ( float* in , int rows, int cols, float* out){
 	floatComplex* inCpx;
 	floatComplex* outCpx;
 
-	ZEROS = malloc((unsigned int)(rows*cols)*sizeof(float));
-	outCpx = malloc((unsigned int)(rows*cols)*sizeof(floatComplex));
+	ZEROS = (float*)malloc((unsigned int)(rows*cols)*sizeof(float));
+	outCpx = (floatComplex*)malloc((unsigned int)(rows*cols)*sizeof(floatComplex));
 
 	szerosa(ZEROS,rows,cols);
 	inCpx=FloatComplexMatrix(in,ZEROS,rows*cols);

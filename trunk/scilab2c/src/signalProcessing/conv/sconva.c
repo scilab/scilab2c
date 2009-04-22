@@ -18,8 +18,8 @@ void sconva(float *in1, int size1, float *in2,int size2, float *out){
 	int i;
 	floatComplex *in1Cpx, *in2Cpx, *result;
 	
-	in1Cpx=malloc(2*(unsigned int)size1*sizeof(float));	
-	in2Cpx=malloc(2*(unsigned int)size2*sizeof(float));
+	in1Cpx=(floatComplex *)malloc(2*(unsigned int)size1*sizeof(float));	
+	in2Cpx=(floatComplex *)malloc(2*(unsigned int)size2*sizeof(float));
 	
 	for (i=0;i<size1;i++){
 	in1Cpx[i]=FloatComplex(in1[i],0);
@@ -29,7 +29,7 @@ void sconva(float *in1, int size1, float *in2,int size2, float *out){
 	in2Cpx[i]=FloatComplex(in2[i],0);
 	}
 
-	result=malloc(2*(unsigned int)(size1+size2-1)*sizeof(float));	
+	result=(floatComplex *)malloc(2*(unsigned int)(size1+size2-1)*sizeof(float));	
 
 	cconva(in1Cpx,size1,in2Cpx,size2,result);
 

@@ -20,8 +20,8 @@ void difftma ( double* in , int rows, int cols, double* out){
 	doubleComplex* inCpx;
 	doubleComplex* outCpx;
 
-	ZEROS = malloc((unsigned int)(rows*cols)*sizeof(double));
-	outCpx = malloc((unsigned int)(rows*cols)*sizeof(doubleComplex));
+	ZEROS = (double*)malloc((unsigned int)(rows*cols)*sizeof(double));
+	outCpx = (doubleComplex*)malloc((unsigned int)(rows*cols)*sizeof(doubleComplex));
 
 	dzerosa(ZEROS,rows,cols);
 	inCpx=DoubleComplexMatrix(in,ZEROS,rows*cols);

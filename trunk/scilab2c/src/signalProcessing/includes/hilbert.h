@@ -14,9 +14,13 @@
 #ifndef __HILBERT_H__
 #define __HILBERT_H__
 
+#include "dynlib_signalprocessing.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
 /* FIXME : input : real
 	     output : complex
@@ -24,12 +28,16 @@
 	     Or must we do input : real, output :real?
 */
 
-float shilberts(float in);
+EXTERN_SIGPROC float shilberts(float in);
 
-void shilberta (float* in, int rows, int cols, floatComplex *out);
+EXTERN_SIGPROC void shilberta (float* in, int rows, int cols, floatComplex *out);
 
-double dhilberts(double in);
+EXTERN_SIGPROC double dhilberts(double in);
 
-void dhilberta (double* in, int rows, int cols, doubleComplex *out);
+EXTERN_SIGPROC void dhilberta (double* in, int rows, int cols, doubleComplex *out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* __HILBERT_H__ */

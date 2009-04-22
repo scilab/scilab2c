@@ -13,18 +13,26 @@
 #ifndef __CONV2D_H__
 #define __CONV2D_H__
 
+#include "dynlib_signalprocessing.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
 /*  Computes the convolution between MATRICES */
 
-void sconv2da(float *in1, int lines1, int columns1, float *in2, int lines2, int columns2, float *out);
+EXTERN_SIGPROC void sconv2da(float *in1, int lines1, int columns1, float *in2, int lines2, int columns2, float *out);
 
-void dconv2da(double *in1, int lines1, int columns1, double *in2, int lines2, int columns2, double *out);
+EXTERN_SIGPROC void dconv2da(double *in1, int lines1, int columns1, double *in2, int lines2, int columns2, double *out);
 
-void cconv2da(floatComplex *in1, int lines1, int columns1, floatComplex *in2, int lines2, int columns2, floatComplex *out);
+EXTERN_SIGPROC void cconv2da(floatComplex *in1, int lines1, int columns1, floatComplex *in2, int lines2, int columns2, floatComplex *out);
 
-void zconv2da(doubleComplex *in1, int lines1, int columns1, doubleComplex *in2, int lines2, int columns2, doubleComplex *out);
+EXTERN_SIGPROC void zconv2da(doubleComplex *in1, int lines1, int columns1, doubleComplex *in2, int lines2, int columns2, doubleComplex *out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* !__CONV2D_H__ */

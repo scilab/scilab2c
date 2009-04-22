@@ -39,7 +39,7 @@ double dleva(double* in,int size, double* ar, double* rc){
 	double sigma2;
 	
 	/* FIXME : malloc here */ 
-	ak1=malloc((uint)size*sizeof(double));
+	ak1=(double*)malloc((unsigned int)size*sizeof(double));
 	
 	/* initialize levinson's algorithm */
 	ar[0]=-in[1]/in[0];

@@ -140,7 +140,7 @@ extern int C2F(drot)();
 
 extern int C2F(intexpm) ();
 
-extern int C2F(zcopy)();
+extern int C2F(zcopy)(int*,doubleComplex *,int*,doubleComplex*,int*);
 
 extern  int C2F(dgemm)(char *,char*,int*,int*,int*,double*,double*,int*,double*,int*,double*,double*,int*);
 extern  int     C2F(idamax)() ;/* could be transcribe easily in c */

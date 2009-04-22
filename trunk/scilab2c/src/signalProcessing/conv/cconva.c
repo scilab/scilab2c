@@ -17,16 +17,16 @@ void cconva(floatComplex *in1, int size1, floatComplex *in2,int size2, floatComp
 	floatComplex *in1b, *in2b, *result;	
 
 
-	m1=(int)floor(log(size1+size2-1)/log(2)+1);
-	m1=(int)pow(2,m1);
+	m1=(int)floor( log(float(size1+size2-1)) / log((float)2) + 1 );
+	m1=(int)pow((float)2,(float)m1);
 
-	in1b=malloc((unsigned int)(2*m1)*sizeof(float));
+	in1b=(floatComplex *)malloc((unsigned int)(2*m1)*sizeof(float));
 	for(i=0;i<m1;i++){
 		if (i<size1) in1b[i]=in1[i];
 		else in1b[i]=FloatComplex(0,0);
 	}
 	
-	in2b=malloc((unsigned int)(2*m1)*sizeof(float));
+	in2b=(floatComplex *)malloc((unsigned int)(2*m1)*sizeof(float));
 	for(i=0;i<m1;i++){
 		if (i<size2) in2b[i]=in2[i];
 		else in2b[i]=FloatComplex(0,0);
@@ -37,7 +37,7 @@ void cconva(floatComplex *in1, int size1, floatComplex *in2,int size2, floatComp
 	cfftma(in1b,m1,1,in1b);	
 
 	cfftma(in2b,m1,1,in2b);
-	result=malloc((unsigned int)(2*m1)*sizeof(float));
+	result=(floatComplex *)malloc((unsigned int)(2*m1)*sizeof(float));
 	cmula(in1b,in2b,m1,result);
 	cifftma(result,m1,1,result);
 
