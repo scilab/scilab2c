@@ -10,6 +10,7 @@
  *
  */
 
+#include <stdlib.h>
 #include "testRand.h"
 
 /*
@@ -52,9 +53,10 @@ int zrandsTest() {
 
 int drandaTest() {
   int i;
-  double nan = 0.0 / 0.0;
+  double dA = 0.0;
+  double nan = dA / dA;
   double *result;
-  result=malloc((uint)12*sizeof(double));
+  result=(double*)malloc((unsigned int)12*sizeof(double));
   printf(">> Double Array\n");
   dranda(result,12);
   for (i=0;i<12;i++){

@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9,00"
-	Name="testDoubleComplex"
-	ProjectGUID="{DBB1B4E8-E9D0-44E5-8AA6-4ECF1AAA1D0F}"
-	RootNamespace="test_doubleComplex"
+	Name="testPythag"
+	ProjectGUID="{10F6C306-FD81-45F3-936B-CDF8213A88E6}"
+	RootNamespace="testPythag"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
@@ -41,6 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="../../../auxiliaryFunctions/includes;../../../elementaryFunctions/includes;../../../type;../../../operations/includes;../../../includes"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -115,6 +116,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
+				AdditionalIncludeDirectories="../../../auxiliaryFunctions/includes;../../../elementaryFunctions/includes;../../../type;../../../operations/includes;../../../includes"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -173,7 +175,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\testDoubleComplex.c"
+				RelativePath="..\testPythag.c"
 				>
 				<FileConfiguration
 					Name="Debug|Win32"
@@ -198,6 +200,10 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath="..\testPythag.h"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
