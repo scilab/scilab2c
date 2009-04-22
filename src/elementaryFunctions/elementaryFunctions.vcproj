@@ -568,7 +568,7 @@
 						>
 						<Tool
 							Name="VCCLCompilerTool"
-							CallingConvention="2"
+							CallingConvention="0"
 							CompileAs="2"
 						/>
 					</FileConfiguration>
@@ -590,7 +590,7 @@
 						>
 						<Tool
 							Name="VCCLCompilerTool"
-							CallingConvention="2"
+							CallingConvention="0"
 							CompileAs="2"
 						/>
 					</FileConfiguration>
@@ -612,7 +612,7 @@
 						>
 						<Tool
 							Name="VCCLCompilerTool"
-							CallingConvention="2"
+							CallingConvention="0"
 							CompileAs="2"
 						/>
 					</FileConfiguration>
@@ -634,7 +634,7 @@
 						>
 						<Tool
 							Name="VCCLCompilerTool"
-							CallingConvention="2"
+							CallingConvention="0"
 							CompileAs="2"
 						/>
 					</FileConfiguration>
@@ -660,7 +660,7 @@
 						>
 						<Tool
 							Name="VCCLCompilerTool"
-							CallingConvention="2"
+							CallingConvention="0"
 							CompileAs="2"
 						/>
 					</FileConfiguration>
@@ -682,7 +682,7 @@
 						>
 						<Tool
 							Name="VCCLCompilerTool"
-							CallingConvention="2"
+							CallingConvention="0"
 							CompileAs="2"
 						/>
 					</FileConfiguration>
@@ -704,7 +704,7 @@
 						>
 						<Tool
 							Name="VCCLCompilerTool"
-							CallingConvention="2"
+							CallingConvention="0"
 							CompileAs="2"
 						/>
 					</FileConfiguration>
@@ -726,7 +726,7 @@
 						>
 						<Tool
 							Name="VCCLCompilerTool"
-							CallingConvention="2"
+							CallingConvention="0"
 							CompileAs="2"
 						/>
 					</FileConfiguration>
@@ -1674,12 +1674,28 @@
 							CompileAs="2"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath=".\cosh\ccoshs.c"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
 						>
 						<Tool
 							Name="VCCLCompilerTool"
@@ -1698,12 +1714,28 @@
 							CompileAs="2"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath=".\cosh\dcoshs.c"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
 						>
 						<Tool
 							Name="VCCLCompilerTool"
@@ -1726,12 +1758,28 @@
 							CompileAs="2"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath=".\cosh\scoshs.c"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
 						>
 						<Tool
 							Name="VCCLCompilerTool"
@@ -1750,12 +1798,28 @@
 							CompileAs="2"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath=".\cosh\zcoshs.c"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
 						>
 						<Tool
 							Name="VCCLCompilerTool"

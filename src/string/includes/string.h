@@ -16,37 +16,41 @@
 #define __STRING_H__
 
 #include <stdio.h>
+#include "dynlib_string.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
 /*
 ** \brief convert of a float scalar into a char array
 ** \param in the float scalar to convert
 ** \param out the output char array
 */
-void sstrings (float in, char* out);
+EXTERN_STRING void sstrings (float in, char* out);
 
 /*
 ** \brief convert of a double scalar into a char array
 ** \param in the double scalar to convert
 ** \param out the output char array
 */
-void dstrings (double in, char* out);
+EXTERN_STRING void dstrings (double in, char* out);
 
 /*
 ** \brief convert of a float complex into a char array
 ** \param in the float complex to convert
 ** \param out the output char array
 */
-void cstrings (floatComplex in, char* out);
+EXTERN_STRING void cstrings (floatComplex in, char* out);
 
 /*
 ** \brief convert of a double complex into a char array
 ** \param in the double complex to convert
 ** \param out the output char array
 */
-void zstrings (doubleComplex in, char* out);
+EXTERN_STRING void zstrings (doubleComplex in, char* out);
 
 
 /*
@@ -54,27 +58,31 @@ void zstrings (doubleComplex in, char* out);
 ** \param in the float scalar array to convert
 ** \param out the output array of char arrays
 */
-void sstringa (float* in, int size, char** out);
+EXTERN_STRING void sstringa (float* in, int size, char** out);
 
 /*
 ** \brief convert of a double scalar array into an array of char arrays
 ** \param in the double scalar array to convert
 ** \param out the output array of char arrays
 */
-void dstringa (double* in, int size, char** out);
+EXTERN_STRING void dstringa (double* in, int size, char** out);
 
 /*
 ** \brief convert of a float complex array into an array of char arrays
 ** \param in the float complex array to convert
 ** \param out the output array of char arrays
 */
-void cstringa (floatComplex* in, int size, char** out );
+EXTERN_STRING void cstringa (floatComplex* in, int size, char** out );
 
 /*
 ** \brief convert of a double complex array into an array of char arrays
 ** \param in the double complex array to convert
 ** \param out the output array of char arrays
 */
-void zstringa (doubleComplex* in, int size, char** out);
+EXTERN_STRING void zstringa (doubleComplex* in, int size, char** out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* !__STRING_H__ */
