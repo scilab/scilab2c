@@ -10,16 +10,16 @@
  *
  */
 
-
+#include <malloc.h>
 #include "fftshift.h"
 
-void zfftshifta(doubleComplex* in,int rows,int columns,doubleComplex* out){	
+void zfftshifta(doubleComplex* in,int rows,int columns,doubleComplex* out){
 	doubleComplex* temp;
-	
+
 	/*FIXME : malloc here*/
-	temp=malloc((uint)(rows*columns)*sizeof(doubleComplex));
-	
-	zrowfftshifta(in,rows,columns,temp);		
+	temp=(doubleComplex *) malloc((unsigned int)(rows*columns)*sizeof(doubleComplex));
+
+	zrowfftshifta(in,rows,columns,temp);
 	zcolumnfftshifta(temp,rows,columns,out);
 }
 
