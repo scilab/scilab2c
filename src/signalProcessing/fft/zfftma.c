@@ -1,7 +1,7 @@
 /*
  * Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
  * Copyright (C) 2008 - INRIA - Allan SIMON
- * 
+ *
  * This file must be used under the terms of the CeCILL.
  * This source file is licensed as described in the file COPYING, which
  * you should have received as part of this distribution.  The terms
@@ -12,6 +12,7 @@
 #define FFT842 1
 #define DFFT2  0
 
+#include <malloc.h>
 #include <math.h>
 #include "fft.h"
 #include "lapack.h"
@@ -31,7 +32,7 @@ void zfftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
   int ierr = 0 ;
   int isn = -1;
   int i = 0;
-  
+
   int increment=1;
 
 
@@ -81,7 +82,7 @@ void zfftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
                      if the second call don't call fft842
                      ex : matrix 2*3 */
                   zimaga ( inCopy , size , imagIn) ;
-		  zreala ( inCopy , size , realIn) ;	
+		  zreala ( inCopy , size , realIn) ;
 		}
 	    }
 	  else
@@ -108,7 +109,7 @@ void zfftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 		{
 		  /*compute the fft on each line of the matrix */
 		  for (i = 0 ; i < rows ; i++ )
-		    { 
+		    {
                       C2F(zcopy) ( &cols, inCopy + i, &rows, inTemp , &increment );
 
                       fft842( inTemp , cols , 0);
@@ -126,7 +127,7 @@ void zfftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
             {
 	      dfft2 ( realIn, imagIn, 1, cols, rows, isn, ierr);
             }
-	
+
     }
 
 
@@ -146,7 +147,7 @@ void zfftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
         }
 
     }
-    
+
   free(realIn);
   free(imagIn);
   free(inCopy);
