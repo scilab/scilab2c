@@ -11,7 +11,7 @@
  *
  */
 
-
+#include <malloc.h>
 #include "crossCorr.h"
 #include "conv2d.h"
 #include "conj.h"
@@ -19,16 +19,16 @@
 void zcrossCorra(doubleComplex* in1, int rows1, int cols1, doubleComplex* in2, int rows2, int cols2, doubleComplex* out){
 	doubleComplex *in2Copy;
 	int i;
-	
-	in2Copy=malloc((uint)(rows2*cols2)*sizeof(doubleComplex));
-	
+
+	in2Copy=malloc((unsigned int)(rows2*cols2)*sizeof(doubleComplex));
+
 	/* We change in2 to be in appropriate form in in2Copy*/
 	for (i=0;i<(rows2*cols2);i++) in2Copy[i]=zconjs(in2[rows2*cols2-1-i]);
-	
+
 	zconv2da(in1, rows1, cols1, in2Copy, rows2, cols2, out);
 
-	free(in2Copy);	
-				
+	free(in2Copy);
+
 }
 
 
