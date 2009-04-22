@@ -13,9 +13,14 @@
 #ifndef __SUM_H__
 #define __SUM_H__
 
+#include "dynlib_statisticsfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 #include "addition.h"
+
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
 /*
 ** \brief Sum of a scalar element, just returns it
@@ -55,9 +60,9 @@
 ** \param size, the size of the array
 ** \returns the sum.
 */
-float		ssuma(float *in, int size);
-void		srowsuma(float *in, int lines, int columns, float* out);
-void		scolumnsuma(float *in, int lines, int columns, float* out);
+EXTERN_STATFUNC float		ssuma(float *in, int size);
+EXTERN_STATFUNC void		srowsuma(float *in, int lines, int columns, float* out);
+EXTERN_STATFUNC void		scolumnsuma(float *in, int lines, int columns, float* out);
 
 /*
 ** \brief Sum of a double array
@@ -65,9 +70,9 @@ void		scolumnsuma(float *in, int lines, int columns, float* out);
 ** \param size, the size of the array
 ** \returns the sum.
 */
-double		dsuma(double *in, int size);
-void		drowsuma(double *in, int lines, int columns, double* out);
-void		dcolumnsuma(double *in, int lines, int columns, double* out);
+EXTERN_STATFUNC double		dsuma(double *in, int size);
+EXTERN_STATFUNC void		drowsuma(double *in, int lines, int columns, double* out);
+EXTERN_STATFUNC void		dcolumnsuma(double *in, int lines, int columns, double* out);
 
 /*
 ** \brief Sum of a float complex array
@@ -75,9 +80,9 @@ void		dcolumnsuma(double *in, int lines, int columns, double* out);
 ** \param size, the size of the array
 ** \returns the sum.
 */
-floatComplex	csuma(floatComplex *in, int size);
-void		crowsuma(floatComplex *in, int lines, int columns, floatComplex* out);
-void		ccolumnsuma(floatComplex *in, int lines, int columns, floatComplex* out);
+EXTERN_STATFUNC floatComplex	csuma(floatComplex *in, int size);
+EXTERN_STATFUNC void		crowsuma(floatComplex *in, int lines, int columns, floatComplex* out);
+EXTERN_STATFUNC void		ccolumnsuma(floatComplex *in, int lines, int columns, floatComplex* out);
 
 /*
 ** \brief Sum of a double complex array
@@ -85,8 +90,13 @@ void		ccolumnsuma(floatComplex *in, int lines, int columns, floatComplex* out);
 ** \param size, the size of the array
 ** \returns the sum.
 */
-doubleComplex	zsuma(doubleComplex *in, int size);
-void		zrowsuma(doubleComplex *in, int lines, int columns, doubleComplex* out);
-void		zcolumnsuma(doubleComplex *in, int lines, int columns, doubleComplex* out);
+EXTERN_STATFUNC doubleComplex	zsuma(doubleComplex *in, int size);
+EXTERN_STATFUNC void		zrowsuma(doubleComplex *in, int lines, int columns, doubleComplex* out);
+EXTERN_STATFUNC void		zcolumnsuma(doubleComplex *in, int lines, int columns, doubleComplex* out);
+
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* !__SUM_H__ */

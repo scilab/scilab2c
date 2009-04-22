@@ -13,9 +13,13 @@
 #ifndef __MEAN_H__
 #define __MEAN_H__
 
+#include "dynlib_statisticsfunctions.h"
 #include "division.h"
 #include "addition.h"
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
 /*
 ** \brief Mean of a scalar element, just returns it
 */
@@ -54,9 +58,9 @@
 ** \param size, the size of the array
 ** \returns the mean.
 */
-float		smeana(float *in, int size);
-void		srowmeana(float *in, int lines, int columns, float* out);
-void		scolumnmeana(float *in, int lines, int columns, float* out);
+EXTERN_STATFUNC float		smeana(float *in, int size);
+EXTERN_STATFUNC void		srowmeana(float *in, int lines, int columns, float* out);
+EXTERN_STATFUNC void		scolumnmeana(float *in, int lines, int columns, float* out);
 
 /*
 ** \brief Mean of a double array
@@ -64,9 +68,9 @@ void		scolumnmeana(float *in, int lines, int columns, float* out);
 ** \param size, the size of the array
 ** \returns the mean.
 */
-double		dmeana(double *in, int size);
-void		drowmeana(double *in, int lines, int columns, double* out);
-void		dcolumnmeana(double *in, int lines, int columns, double* out);
+EXTERN_STATFUNC double		dmeana(double *in, int size);
+EXTERN_STATFUNC void		drowmeana(double *in, int lines, int columns, double* out);
+EXTERN_STATFUNC void		dcolumnmeana(double *in, int lines, int columns, double* out);
 
 /*
 ** \brief Mean of a float complex array
@@ -74,9 +78,9 @@ void		dcolumnmeana(double *in, int lines, int columns, double* out);
 ** \param size, the size of the array
 ** \returns the mean.
 */
-floatComplex	cmeana(floatComplex *in, int size);
-void		crowmeana(floatComplex *in, int lines, int columns, floatComplex* out);
-void		ccolumnmeana(floatComplex *in, int lines, int columns, floatComplex* out);
+EXTERN_STATFUNC floatComplex	cmeana(floatComplex *in, int size);
+EXTERN_STATFUNC void		crowmeana(floatComplex *in, int lines, int columns, floatComplex* out);
+EXTERN_STATFUNC void		ccolumnmeana(floatComplex *in, int lines, int columns, floatComplex* out);
 
 /*
 ** \brief Mean of a double complex array
@@ -84,7 +88,12 @@ void		ccolumnmeana(floatComplex *in, int lines, int columns, floatComplex* out);
 ** \param size, the size of the array
 ** \returns the mean.
 */
-doubleComplex	zmeana(doubleComplex *in, int size);
-void		zrowmeana(doubleComplex *in, int lines, int columns, doubleComplex* out);
-void		zcolumnmeana(doubleComplex *in, int lines, int columns, doubleComplex* out);
+EXTERN_STATFUNC doubleComplex	zmeana(doubleComplex *in, int size);
+EXTERN_STATFUNC void		zrowmeana(doubleComplex *in, int lines, int columns, doubleComplex* out);
+EXTERN_STATFUNC void		zcolumnmeana(doubleComplex *in, int lines, int columns, doubleComplex* out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
+
 #endif /* !__MEAN_H__ */

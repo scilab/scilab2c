@@ -13,9 +13,13 @@
 #ifndef __PROD_H__
 #define __PROD_H__
 
+#include "dynlib_statisticsfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
 /*
 ** \brief Sum of a scalar element, just returns it
 */
@@ -54,9 +58,9 @@
 ** \param size, the size of the array
 ** \returns the prod.
 */
-float		sproda(float *in, int size);
-void		srowproda(float *in, int lines, int columns, float* out);
-void		scolumnproda(float *in, int lines, int columns, float* out);
+EXTERN_STATFUNC float		sproda(float *in, int size);
+EXTERN_STATFUNC void		srowproda(float *in, int lines, int columns, float* out);
+EXTERN_STATFUNC void		scolumnproda(float *in, int lines, int columns, float* out);
 
 /*
 ** \brief Sum of a double array
@@ -64,9 +68,9 @@ void		scolumnproda(float *in, int lines, int columns, float* out);
 ** \param size, the size of the array
 ** \returns the prod.
 */
-double		dproda(double *in, int size);
-void		drowproda(double *in, int lines, int columns, double* out);
-void		dcolumnproda(double *in, int lines, int columns, double* out);
+EXTERN_STATFUNC double		dproda(double *in, int size);
+EXTERN_STATFUNC void		drowproda(double *in, int lines, int columns, double* out);
+EXTERN_STATFUNC void		dcolumnproda(double *in, int lines, int columns, double* out);
 
 /*
 ** \brief Sum of a float complex array
@@ -74,9 +78,9 @@ void		dcolumnproda(double *in, int lines, int columns, double* out);
 ** \param size, the size of the array
 ** \returns the prod.
 */
-floatComplex	cproda(floatComplex *in, int size);
-void		crowproda(floatComplex *in, int lines, int columns, floatComplex* out);
-void		ccolumnproda(floatComplex *in, int lines, int columns, floatComplex* out);
+EXTERN_STATFUNC floatComplex	cproda(floatComplex *in, int size);
+EXTERN_STATFUNC void		crowproda(floatComplex *in, int lines, int columns, floatComplex* out);
+EXTERN_STATFUNC void		ccolumnproda(floatComplex *in, int lines, int columns, floatComplex* out);
 
 /*
 ** \brief Sum of a double complex array
@@ -84,8 +88,13 @@ void		ccolumnproda(floatComplex *in, int lines, int columns, floatComplex* out);
 ** \param size, the size of the array
 ** \returns the prod.
 */
-doubleComplex	zproda(doubleComplex *in, int size);
-void		zrowproda(doubleComplex *in, int lines, int columns, doubleComplex* out);
-void		zcolumnproda(doubleComplex *in, int lines, int columns, doubleComplex* out);
+EXTERN_STATFUNC doubleComplex	zproda(doubleComplex *in, int size);
+EXTERN_STATFUNC void		zrowproda(doubleComplex *in, int lines, int columns, doubleComplex* out);
+EXTERN_STATFUNC void		zcolumnproda(doubleComplex *in, int lines, int columns, doubleComplex* out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
+
 
 #endif /* !__PROD_H__ */
