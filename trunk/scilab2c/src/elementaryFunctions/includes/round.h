@@ -17,6 +17,9 @@
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
 /*
 	round(x) rounds the elements of x to the nearest integers.
 */
@@ -36,6 +39,10 @@ EXTERN_ELEMFUNCT void	drounda(double* in, int size, double* out);
 EXTERN_ELEMFUNCT void	crounda(floatComplex* in, int size, floatComplex* out);
 
 EXTERN_ELEMFUNCT void	zrounda(doubleComplex* in, int size, doubleComplex* out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* !__ROUND_H__ */
 

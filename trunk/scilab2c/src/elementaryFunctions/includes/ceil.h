@@ -17,6 +17,10 @@
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+
+#ifdef  __cplusplus
+extern "C" {
+#endif
 /*
 	ceil(x) returns an integer matrix made of rounded up elements 
 */
@@ -36,6 +40,11 @@ EXTERN_ELEMFUNCT void	dceila(double* in, int size, double* out);
 EXTERN_ELEMFUNCT void	cceila(floatComplex* in, int size, floatComplex* out);
 
 EXTERN_ELEMFUNCT void	zceila(doubleComplex* in, int size, doubleComplex* out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
+
 
 #endif /* !__CEIL_H__ */
 

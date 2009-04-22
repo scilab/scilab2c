@@ -16,6 +16,9 @@
 #include "dynlib_elementaryfunctions.h"
 #include "multiplication.h"
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
 EXTERN_ELEMFUNCT float		spows(float value, float expand);
 
 EXTERN_ELEMFUNCT double		dpows(double value, double expand);
@@ -31,5 +34,10 @@ EXTERN_ELEMFUNCT void		dpowa(double *value, int size, double* expand, double *ou
 EXTERN_ELEMFUNCT void		cpowa(floatComplex *value, int size, floatComplex* expand, floatComplex *out);
 
 EXTERN_ELEMFUNCT void		zpowa(doubleComplex *value, int size, doubleComplex* expand, doubleComplex *out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
+
 
 #endif /* !__POW_H__ */

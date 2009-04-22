@@ -17,6 +17,9 @@
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
 /*
 ** Compute v = log ( (1 + s)/(1 - s) ) for different types .
 */
@@ -32,6 +35,12 @@ EXTERN_ELEMFUNCT float		slnp1m1s(float in);
 ** \param in : input value.
 */
 EXTERN_ELEMFUNCT double		dlnp1m1s(double in);
+
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
+
 
 #endif /* !__LNP1M1_H__ */
 

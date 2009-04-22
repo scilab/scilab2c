@@ -17,6 +17,9 @@
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
 /*
 	floor(x) returns an integer matrix made of nearest rounded down integers.
 */
@@ -36,6 +39,11 @@ EXTERN_ELEMFUNCT void	dfloora(double* in, int size, double* out);
 EXTERN_ELEMFUNCT void	cfloora(floatComplex* in, int size, floatComplex* out);
 
 EXTERN_ELEMFUNCT void	zfloora(doubleComplex* in, int size, doubleComplex* out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
+
 
 #endif /* !__FLOOR_H__ */
 

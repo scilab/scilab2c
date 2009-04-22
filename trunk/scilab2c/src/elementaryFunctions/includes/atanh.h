@@ -17,6 +17,11 @@
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+
+#ifdef  __cplusplus
+extern "C" {
+#endif
+
 /*
 ** Compute Hyperbolic ArcTangeant for different types .
 */
@@ -76,6 +81,11 @@ EXTERN_ELEMFUNCT void		catanha(floatComplex* in, int size, floatComplex* out);
 ** \param size : the size of in and out arrays.
 */
 EXTERN_ELEMFUNCT void		zatanha(doubleComplex* in, int size, doubleComplex* out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
+
 
 #endif /* !__ATANH_H__ */
 

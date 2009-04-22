@@ -17,6 +17,10 @@
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+
+#ifdef  __cplusplus
+extern "C" {
+#endif
 /*
 ** Compute Exponential for different types .
 */
@@ -76,6 +80,11 @@ EXTERN_ELEMFUNCT void		cexpa(floatComplex* in, int size, floatComplex* out);
 ** \param size : the size of in and out arrays.
 */
 EXTERN_ELEMFUNCT void		zexpa(doubleComplex* in, int size, doubleComplex* out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
+
 
 #endif /* !__EXP_H__ */
 
