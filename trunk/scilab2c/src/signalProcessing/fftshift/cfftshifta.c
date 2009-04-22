@@ -10,16 +10,16 @@
  *
  */
 
-
+#include <malloc.h>
 #include "fftshift.h"
 
 void cfftshifta(floatComplex* in,int rows,int columns,floatComplex* out){
 	floatComplex* temp;
-	
+
 	/*FIXME : malloc here*/
-	temp=malloc((uint)(rows*columns)*sizeof(floatComplex));
-	
-	crowfftshifta(in,rows,columns,temp);		
+	temp= (floatComplex *) malloc((unsigned int)(rows*columns)*sizeof(floatComplex));
+
+	crowfftshifta(in,rows,columns,temp);
 	ccolumnfftshifta(temp,rows,columns,out);
 }
 
