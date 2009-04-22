@@ -13,6 +13,11 @@
 #ifndef __STAT_MAX_H__
 #define __STAT_MAX_H__
 
+#include "dynlib_statisticsfunctions.h"
+
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
 /*
 ** \brief Sum of a scalar element, just returns it
@@ -36,9 +41,9 @@
 ** \param size, the size of the array
 ** \returns the max.
 */
-float		smaxa(float *in, int size);
-void		srowmaxa(float *in, int lines, int columns, float* out);
-void		scolumnmaxa(float *in, int lines, int columns, float* out);
+EXTERN_STATFUNC float		smaxa(float *in, int size);
+EXTERN_STATFUNC void		srowmaxa(float *in, int lines, int columns, float* out);
+EXTERN_STATFUNC void		scolumnmaxa(float *in, int lines, int columns, float* out);
 
 /*
 ** \brief Sum of a double array
@@ -46,9 +51,13 @@ void		scolumnmaxa(float *in, int lines, int columns, float* out);
 ** \param size, the size of the array
 ** \returns the max.
 */
-double		dmaxa(double *in, int size);
-void		drowmaxa(double *in, int lines, int columns, double* out);
-void		dcolumnmaxa(double *in, int lines, int columns, double* out);
+EXTERN_STATFUNC double		dmaxa(double *in, int size);
+EXTERN_STATFUNC void		drowmaxa(double *in, int lines, int columns, double* out);
+EXTERN_STATFUNC void		dcolumnmaxa(double *in, int lines, int columns, double* out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 
 #endif /* !__STAT_MAX_H__ */

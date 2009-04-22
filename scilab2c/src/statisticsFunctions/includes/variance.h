@@ -13,6 +13,12 @@
 #ifndef __VARIANCE_H__
 #define __VARIANCE_H__
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+
+#include "dynlib_statisticsfunctions.h"
 #include "subtraction.h"
 #include "division.h"
 
@@ -22,11 +28,10 @@
 #include "mean.h"
 #include "matrixTranspose.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
 
-
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
 
 
@@ -70,9 +75,9 @@
 ** \param size, the size of the array
 ** \returns the variance.
 */
-float		svariancea(float *in, int size);
-void		srowvariancea(float *in, int lines, int columns, float* out);
-void		scolumnvariancea(float *in, int lines, int columns, float* out);
+EXTERN_STATFUNC float		svariancea(float *in, int size);
+EXTERN_STATFUNC void		srowvariancea(float *in, int lines, int columns, float* out);
+EXTERN_STATFUNC void		scolumnvariancea(float *in, int lines, int columns, float* out);
 
 /*
 ** \brief Variance of a double array
@@ -80,9 +85,9 @@ void		scolumnvariancea(float *in, int lines, int columns, float* out);
 ** \param size, the size of the array
 ** \returns the variance.
 */
-double		dvariancea(double *in, int size);
-void		drowvariancea(double *in, int lines, int columns, double* out);
-void		dcolumnvariancea(double *in, int lines, int columns, double* out);
+EXTERN_STATFUNC double		dvariancea(double *in, int size);
+EXTERN_STATFUNC void		drowvariancea(double *in, int lines, int columns, double* out);
+EXTERN_STATFUNC void		dcolumnvariancea(double *in, int lines, int columns, double* out);
 
 /*
 ** \brief Variance of a float complex array
@@ -90,9 +95,9 @@ void		dcolumnvariancea(double *in, int lines, int columns, double* out);
 ** \param size, the size of the array
 ** \returns the variance.
 */
-floatComplex	cvariancea(floatComplex *in, int size);
-void		crowvariancea(floatComplex *in, int lines, int columns, floatComplex* out);
-void		ccolumnvariancea(floatComplex *in, int lines, int columns, floatComplex* out);
+EXTERN_STATFUNC floatComplex	cvariancea(floatComplex *in, int size);
+EXTERN_STATFUNC void		crowvariancea(floatComplex *in, int lines, int columns, floatComplex* out);
+EXTERN_STATFUNC void		ccolumnvariancea(floatComplex *in, int lines, int columns, floatComplex* out);
 
 /*
 ** \brief Variance of a double complex array
@@ -100,10 +105,13 @@ void		ccolumnvariancea(floatComplex *in, int lines, int columns, floatComplex* o
 ** \param size, the size of the array
 ** \returns the variance.
 */
-doubleComplex	zvariancea(doubleComplex *in, int size);
-void		zrowvariancea(doubleComplex *in, int lines, int columns, doubleComplex* out);
-void		zcolumnvariancea(doubleComplex *in, int lines, int columns, doubleComplex* out);
+EXTERN_STATFUNC doubleComplex	zvariancea(doubleComplex *in, int size);
+EXTERN_STATFUNC void		zrowvariancea(doubleComplex *in, int lines, int columns, doubleComplex* out);
+EXTERN_STATFUNC void		zcolumnvariancea(doubleComplex *in, int lines, int columns, doubleComplex* out);
 
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 
 #endif /* !__VARIANCE_H__ */
