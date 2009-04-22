@@ -13,6 +13,11 @@
 #ifndef __STAT_MIN_H__
 #define __STAT_MIN_H__
 
+#include "dynlib_statisticsfunctions.h"
+
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
 /*
 ** \brief Sum of a scalar element, just returns it
@@ -36,9 +41,9 @@
 ** \param size, the size of the array
 ** \returns the min.
 */
-float		smina(float *in, int size);
-void		srowmina(float *in, int lines, int columns, float* out);
-void		scolumnmina(float *in, int lines, int columns, float* out);
+EXTERN_STATFUNC float		smina(float *in, int size);
+EXTERN_STATFUNC void		srowmina(float *in, int lines, int columns, float* out);
+EXTERN_STATFUNC void		scolumnmina(float *in, int lines, int columns, float* out);
 
 /*
 ** \brief Sum of a double array
@@ -46,8 +51,13 @@ void		scolumnmina(float *in, int lines, int columns, float* out);
 ** \param size, the size of the array
 ** \returns the min.
 */
-double		dmina(double *in, int size);
-void		drowmina(double *in, int lines, int columns, double* out);
-void		dcolumnmina(double *in, int lines, int columns, double* out);
+EXTERN_STATFUNC double		dmina(double *in, int size);
+EXTERN_STATFUNC void		drowmina(double *in, int lines, int columns, double* out);
+EXTERN_STATFUNC void		dcolumnmina(double *in, int lines, int columns, double* out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
+
 
 #endif /* !__STAT_MIN_H__ */

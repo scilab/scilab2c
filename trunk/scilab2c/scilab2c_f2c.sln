@@ -82,6 +82,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "signalProcessing", "src\sig
 		{AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9} = {AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "statisticsFunctions", "src\statisticsFunctions\statisticsFunctions.vcproj", "{E11ED064-3BF2-4F70-B66E-3223C737EC60}"
+	ProjectSection(ProjectDependencies) = postProject
+		{72B46833-B150-432D-B231-3E0ECD91E190} = {72B46833-B150-432D-B231-3E0ECD91E190}
+		{FD335544-52BF-4736-A34E-77F591D158D5} = {FD335544-52BF-4736-A34E-77F591D158D5}
+		{9B1BD750-1FEF-4D6B-9422-782D16181CEE} = {9B1BD750-1FEF-4D6B-9422-782D16181CEE}
+		{9B622A66-546A-4B33-B947-0A189D259D37} = {9B622A66-546A-4B33-B947-0A189D259D37}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -178,6 +186,12 @@ Global
 		{F7E8DF1B-CC81-4B2A-B5F0-1A247BE59CC4}.Release|Win32.ActiveCfg = Release|Win32
 		{F7E8DF1B-CC81-4B2A-B5F0-1A247BE59CC4}.Release|Win32.Build.0 = Release|Win32
 		{F7E8DF1B-CC81-4B2A-B5F0-1A247BE59CC4}.Release|x64.ActiveCfg = Release|Win32
+		{E11ED064-3BF2-4F70-B66E-3223C737EC60}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E11ED064-3BF2-4F70-B66E-3223C737EC60}.Debug|Win32.Build.0 = Debug|Win32
+		{E11ED064-3BF2-4F70-B66E-3223C737EC60}.Debug|x64.ActiveCfg = Debug|Win32
+		{E11ED064-3BF2-4F70-B66E-3223C737EC60}.Release|Win32.ActiveCfg = Release|Win32
+		{E11ED064-3BF2-4F70-B66E-3223C737EC60}.Release|Win32.Build.0 = Release|Win32
+		{E11ED064-3BF2-4F70-B66E-3223C737EC60}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
