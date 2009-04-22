@@ -31,8 +31,8 @@ PrintStepInfo('Generating Makefile '+FileInfo.MakefileFilename,...
 // ---------------------------
 
 PrintStringInfo('# SCI2C Makefile',FileInfo.MakefileFilename,'file','y');
-PrintStringInfo('# Copyright 2007 Raffaele Nutricato ',FileInfo.MakefileFilename,'file','y');
-PrintStringInfo('# raffaele.nutricato@tiscali.it',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('# hArtes EU Project.',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('# Authors: PoliBa & Inria',FileInfo.MakefileFilename,'file','y');
 PrintStringInfo('# -----------------------',FileInfo.MakefileFilename,'file','y');
 PrintStringInfo('# --- USER PARAMETERS ---',FileInfo.MakefileFilename,'file','y');
 PrintStringInfo('# -----------------------',FileInfo.MakefileFilename,'file','y');
