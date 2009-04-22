@@ -12,7 +12,7 @@
 
 #include "disp.h"
 
-double cdispa (floatComplex* (in), int rows, int columns) {
+double cdispa (floatComplex* in, int rows, int columns) {
 	int i = 0,j = 0;
 
 	for (i = 0; i < rows; ++i) {
