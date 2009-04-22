@@ -15,23 +15,23 @@
 #include "fft.h"
 #include "logm.h"
 #include "ifft.h"
- 
+
 void dlpc2cepa(double* in, int size, double* out){
 	int i;
 	doubleComplex *inCpx;
-	
-	inCpx = malloc ((uint)(size*size)*sizeof(doubleComplex));
-	
+
+	inCpx = (doubleComplex *) malloc ((unsigned int)(size*size)*sizeof(doubleComplex));
+
 	for (i=0;i<size*size;i++)
 		inCpx[i]=DoubleComplex(in[i],0);
-	
+
 
 	zfftma(inCpx,size, size, inCpx);
 	zlogma(inCpx,size,inCpx);
 	zifftma(inCpx,size, size, inCpx);
-	
+
  	zreala(inCpx,size*size,out);
- 	
+
  	free(inCpx);
 }
- 
+
