@@ -9,7 +9,7 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
-
+#include <stdlib.h>
 #include "testFind.h"
 
 int sfindaTest() {
@@ -20,8 +20,8 @@ int sfindaTest() {
   float *outGood = NULL, *outBad = NULL;
   int indiceOut; 
   
-  outGood=malloc((uint)5*sizeof(float));
-  outBad=malloc((uint)5*sizeof(float));  
+  outGood=(float*)malloc((unsigned int)5*sizeof(float));
+  outBad=(float*)malloc((unsigned int)5*sizeof(float));  
  
   printf(">> Floats \n");
   sfinda(goodArray, 5, outGood, &indiceOut);
@@ -59,8 +59,8 @@ int dfindaTest() {
   double *outGood = NULL, *outBad = NULL;
   int indiceOut; 
   
-  outGood=malloc((uint)5*sizeof(double));
-  outBad=malloc((uint)5*sizeof(double));  
+  outGood=(double*)malloc((unsigned int)5*sizeof(double));
+  outBad=(double*)malloc((unsigned int)5*sizeof(double));  
   
   
   printf(">> Double \n");
@@ -99,8 +99,8 @@ int cfindaTest() {
   float *outGood = NULL, *outBad = NULL;
   int indiceOut; 
   
-  outGood=malloc((uint)5*sizeof(float));
-  outBad=malloc((uint)5*sizeof(float));  
+  outGood=(float*)malloc((unsigned int)5*sizeof(float));
+  outBad=(float*)malloc((unsigned int)5*sizeof(float));  
  
   /* Good values in goodArray */ 
   goodArray[0] = FloatComplex(0., 0.); 
@@ -151,8 +151,8 @@ int zfindaTest() {
   double *outGood = NULL, *outBad = NULL;
   int indiceOut; 
   
-  outGood=malloc((uint)5*sizeof(double));
-  outBad=malloc((uint)5*sizeof(double));  
+  outGood=(double*)malloc((unsigned int)5*sizeof(double));
+  outBad=(double*)malloc((unsigned int)5*sizeof(double));  
   
   
   /* Good values in goodArray */ 
