@@ -17,6 +17,9 @@
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
 /*
 	int(X) returns the integer part of the real matrix X. Same as fix.
 */
@@ -36,6 +39,11 @@ EXTERN_ELEMFUNCT void	dinta(double* in, int size, double* out);
 EXTERN_ELEMFUNCT void	cinta(floatComplex* in, int size, floatComplex* out);
 
 EXTERN_ELEMFUNCT void	zinta(doubleComplex* in, int size, doubleComplex* out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
+
 
 #endif /* !__INT_H__ */
 

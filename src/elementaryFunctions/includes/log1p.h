@@ -17,6 +17,9 @@
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
 /*
 ** Compute Logarithm for different types .
 */
@@ -76,6 +79,10 @@ EXTERN_ELEMFUNCT void		clog1pa(floatComplex* in, int size, floatComplex* out);
 ** \param size : the size of in and out arrays.
 */
 EXTERN_ELEMFUNCT void		zlog1pa(doubleComplex* in, int size, doubleComplex* out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* !__LOG1P_H__ */
 

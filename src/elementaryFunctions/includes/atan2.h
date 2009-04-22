@@ -17,6 +17,11 @@
 #include "floatComplex.h"
 #include "doubleComplex.h"
 #include <math.h>
+
+#ifdef  __cplusplus
+extern "C" {
+#endif
+
 /*
 ** Compute arctan with two parameters  .
 */
@@ -43,6 +48,9 @@ EXTERN_ELEMFUNCT void satan2a (float* in1, int size1, float* in2, int size2, flo
 */
 EXTERN_ELEMFUNCT void datan2a (double* in1, int size1, double* in2, int size2, double* out) ;
 
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 
 

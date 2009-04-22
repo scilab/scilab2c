@@ -17,6 +17,9 @@
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
 /*
 ** Compute Square Root for different types .
 */
@@ -76,5 +79,10 @@ EXTERN_ELEMFUNCT void		csqrta(floatComplex* in, int size, floatComplex* out);
 ** \param size : the size of in and out arrays.
 */
 EXTERN_ELEMFUNCT void		zsqrta(doubleComplex* in, int size, doubleComplex* out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
+
 
 #endif /* !__SQRT_H__ */

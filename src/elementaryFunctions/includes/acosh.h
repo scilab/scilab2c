@@ -17,6 +17,12 @@
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+
+#ifdef  __cplusplus
+extern "C" {
+#endif
+
+
 /*
 ** Compute Hyperbolic Hyperbolic ArcCosine for different types .
 */
@@ -76,5 +82,10 @@ EXTERN_ELEMFUNCT void		cacosha(floatComplex* in, int size, floatComplex* out);
 ** \param size : the size of in and out arrays.
 */
 EXTERN_ELEMFUNCT void		zacosha(doubleComplex* in, int size, doubleComplex* out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
+
 
 #endif /* !__ACOSH_H__ */
