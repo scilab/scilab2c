@@ -2,7 +2,7 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9,00"
-	Name="test_realsacos"
+	Name="testRealsAcos"
 	ProjectGUID="{0556427D-6D88-4A12-9EB3-7F551D6F1FA4}"
 	RootNamespace="testrealsacos"
 	Keyword="Win32Proj"
