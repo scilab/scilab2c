@@ -38,10 +38,10 @@ double ddeterma(double * in, int size){
 		default : 
 		
 			  /*Copy the input matrix*/
-			  inCopy=malloc((uint)(size*size)*sizeof(double));
+			  inCopy=(double*)malloc((unsigned int)(size*size)*sizeof(double));
 			  for (i=0;i<size*size;i++) inCopy[i]=in[i];
 
-			  tmp=malloc((uint)size*sizeof(int));			  
+			  tmp=(int*)malloc((unsigned int)size*sizeof(int));			  
 			  dgetrf_(&size, &size, inCopy, &size, tmp, &info);
 			  out=1;
 			  for (i=0;i<size;i++){
@@ -69,7 +69,7 @@ double ddeterma(double * in, int size){
 		default : 
 				
 				  /*Copy the input matrix*/
-			  inCopy=malloc((uint)(size*size)*sizeof(double));
+			  inCopy=malloc((unsigned int)(size*size)*sizeof(double));
 			  for (i=0;i<size*size;i++) inCopy[i]=in[i];
 			  
     			  for (i=0;i<size;i++){

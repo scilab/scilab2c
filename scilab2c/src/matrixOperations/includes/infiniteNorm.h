@@ -13,10 +13,15 @@
 #ifndef __INFINITENORM_H__
 #define __INFINITENORM_H__
 
+#include "dynlib_matrixoperations.h"
 #include "sign.h" 
 #include "pythag.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
+
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
 /*
 ** \brief Compute the infinite norm of a given floats matrix.
@@ -25,7 +30,7 @@
 ** \param _iCols : number of columns of the matrix .
 */
 
-float  sinfnorma(float* in, int _iRows, int _iCols);
+EXTERN_MATOPS float  sinfnorma(float* in, int _iRows, int _iCols);
 
 /*
 ** \brief Compute the infinite norm of a given doubles matrix.
@@ -34,7 +39,7 @@ float  sinfnorma(float* in, int _iRows, int _iCols);
 ** \param out : the matrix inverse of the input .
 */
 
-double dinfnorma(double* in, int _iRows, int _iCols);
+EXTERN_MATOPS double dinfnorma(double* in, int _iRows, int _iCols);
 
 /*
 ** \brief Compute the infinite norm of a given complex floats  matrix.
@@ -43,7 +48,7 @@ double dinfnorma(double* in, int _iRows, int _iCols);
 ** \param _iCols : number of columns of the matrix .
 */
 
-float  cinfnorma(floatComplex* in, int _iRows, int _iCols);
+EXTERN_MATOPS float  cinfnorma(floatComplex* in, int _iRows, int _iCols);
 
 /*
 ** \brief Compute the infinite norm of a given complex doubles matrix.
@@ -52,9 +57,11 @@ float  cinfnorma(floatComplex* in, int _iRows, int _iCols);
 ** \param _iCols : number of columns of the matrix .
 */
 
-double zinfnorma(doubleComplex* in, int _iRows, int _iCols);
+EXTERN_MATOPS double zinfnorma(doubleComplex* in, int _iRows, int _iCols);
 
-
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* !__INFINITENORM_H__ */
 

@@ -13,6 +13,7 @@
 #ifndef __SQRT_H__
 #define __SQRT_H__
 
+#include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
@@ -24,25 +25,25 @@
 ** \brief Float Square Root function
 ** \param in : input value.
 */
-float		ssqrts(float in);
+EXTERN_ELEMFUNCT float		ssqrts(float in);
 
 /*
 ** \brief Double Square Root function
 ** \param in : input value.
 */
-double		dsqrts(double in);
+EXTERN_ELEMFUNCT double		dsqrts(double in);
 
 /*
 ** \brief Float Complex Square Root function
 ** \param in : input value.
 */
-floatComplex	csqrts(floatComplex in);
+EXTERN_ELEMFUNCT floatComplex	csqrts(floatComplex in);
 
 /*
 ** \brief Double Complex Square Root function
 ** \param in : input value.
 */
-doubleComplex	zsqrts(doubleComplex in);
+EXTERN_ELEMFUNCT doubleComplex	zsqrts(doubleComplex in);
 
 /*
 ** \brief Float Matrix Square Root function
@@ -50,7 +51,7 @@ doubleComplex	zsqrts(doubleComplex in);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		ssqrta(float* in, int size, float* out);
+EXTERN_ELEMFUNCT void		ssqrta(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix Square Root function
@@ -58,7 +59,7 @@ void		ssqrta(float* in, int size, float* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		dsqrta(double* in, int size, double* out);
+EXTERN_ELEMFUNCT void		dsqrta(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix Square Root function
@@ -66,7 +67,7 @@ void		dsqrta(double* in, int size, double* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		csqrta(floatComplex* in, int size, floatComplex* out);
+EXTERN_ELEMFUNCT void		csqrta(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix Square Root function
@@ -74,6 +75,6 @@ void		csqrta(floatComplex* in, int size, floatComplex* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		zsqrta(doubleComplex* in, int size, doubleComplex* out);
+EXTERN_ELEMFUNCT void		zsqrta(doubleComplex* in, int size, doubleComplex* out);
 
 #endif /* !__SQRT_H__ */

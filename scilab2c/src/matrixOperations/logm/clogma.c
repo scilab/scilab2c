@@ -19,8 +19,8 @@ void clogma (floatComplex* in, int rows, floatComplex* out){
 	doubleComplex *inCopy, *outCopy;
 	int i=0;
 	
-	inCopy = malloc((uint)(rows*rows)*sizeof(doubleComplex));
-	outCopy = malloc((uint)(rows*rows)*sizeof(doubleComplex));
+	inCopy = (doubleComplex *)malloc((unsigned int)(rows*rows)*sizeof(doubleComplex));
+	outCopy = (doubleComplex *)malloc((unsigned int)(rows*rows)*sizeof(doubleComplex));
 	
 	for(i=0;i<rows*rows;i++)
 		inCopy[i]=DoubleComplex ((double)creals(in[i]), (double)cimags(in[i]));

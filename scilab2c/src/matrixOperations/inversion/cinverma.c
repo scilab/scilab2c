@@ -11,7 +11,7 @@
  */
 
 
-
+#include <malloc.h>
 #include "matrixInversion.h" 
 #include "lapack.h" 
 #include <stdio.h>

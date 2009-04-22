@@ -13,12 +13,13 @@
 #ifndef __IS_EMPTY_H__
 #define __IS_EMPTY_H__
 
-#include <stdbool.h>
+
 
 #include "floatComplex.h"
 #include "doubleComplex.h"
 #include "notFound.h"
 #include "find.h"
+
 
 /*
 ** \brief Float Is Empty function

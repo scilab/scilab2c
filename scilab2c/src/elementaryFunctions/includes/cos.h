@@ -13,6 +13,7 @@
 #ifndef __COS_H__
 #define __COS_H__
 
+#include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
@@ -24,25 +25,25 @@
 ** \brief Float Cosine function
 ** \param in : input value.
 */
-float		scoss(float in);
+EXTERN_ELEMFUNCT float		scoss(float in);
 
 /*
 ** \brief Double Cosine function
 ** \param in : input value.
 */
-double		dcoss(double in);
+EXTERN_ELEMFUNCT double		dcoss(double in);
 
 /*
 ** \brief Float Complex Cosine function
 ** \param in : input value.
 */
-floatComplex	ccoss(floatComplex in);
+EXTERN_ELEMFUNCT floatComplex	ccoss(floatComplex in);
 
 /*
 ** \brief Double Complex Cosine function
 ** \param in : input value.
 */
-doubleComplex	zcoss(doubleComplex in);
+EXTERN_ELEMFUNCT doubleComplex	zcoss(doubleComplex in);
 
 /*
 ** \brief Float Matrix Cosine function
@@ -50,7 +51,7 @@ doubleComplex	zcoss(doubleComplex in);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		scosa(float* in, int size, float* out);
+EXTERN_ELEMFUNCT void		scosa(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix Cosine function
@@ -58,7 +59,7 @@ void		scosa(float* in, int size, float* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		dcosa(double* in, int size, double* out);
+EXTERN_ELEMFUNCT void		dcosa(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix Cosine function
@@ -66,7 +67,7 @@ void		dcosa(double* in, int size, double* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		ccosa(floatComplex* in, int size, floatComplex* out);
+EXTERN_ELEMFUNCT void		ccosa(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix Cosine function
@@ -74,6 +75,6 @@ void		ccosa(floatComplex* in, int size, floatComplex* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		zcosa(doubleComplex* in, int size, doubleComplex* out);
+EXTERN_ELEMFUNCT void		zcosa(doubleComplex* in, int size, doubleComplex* out);
 
 #endif /* !__COS_H__ */

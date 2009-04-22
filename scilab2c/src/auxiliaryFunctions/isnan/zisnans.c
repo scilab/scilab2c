@@ -10,6 +10,11 @@
  *
  */
 
+#ifdef _MSC_VER
+#include <float.h>
+#define isnan(x) _isnan((double)x)
+#endif
+
 #include "isnan.h"
 
 double	zisnans(doubleComplex in) {

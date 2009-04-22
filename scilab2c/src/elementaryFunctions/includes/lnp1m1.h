@@ -13,6 +13,7 @@
 #ifndef __LNP1M1_H__
 #define __LNP1M1_H__
 
+#include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
@@ -24,13 +25,13 @@
 ** \brief Float Lnp1m1 function
 ** \param in : input value.
 */
-float		slnp1m1s(float in);
+EXTERN_ELEMFUNCT float		slnp1m1s(float in);
 
 /*
 ** \brief Double Lnp1m1 function
 ** \param in : input value.
 */
-double		dlnp1m1s(double in);
+EXTERN_ELEMFUNCT double		dlnp1m1s(double in);
 
 #endif /* !__LNP1M1_H__ */
 

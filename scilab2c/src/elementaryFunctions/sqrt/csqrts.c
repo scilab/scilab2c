@@ -17,6 +17,11 @@
 #include "sign.h"
 #include "pythag.h"
 
+#ifdef _MSC_VER
+#include <float.h>
+#define isnan(x) _isnan((double)x)
+#endif
+
 #define _sign(a, b) b >=0 ? a : -a
 
 floatComplex	csqrts(floatComplex in) {

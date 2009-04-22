@@ -115,5 +115,6 @@
 		<File RelativePath="..\ztrmm.f"/>
 		<File RelativePath="..\ztrmv.f"/>
 		<File RelativePath="..\ztrsm.f"/>
-		<File RelativePath="..\ztrsv.f"/></Filter></Files>
+		<File RelativePath="..\ztrsv.f"/></Filter>
+		<File RelativePath=".\blasplusAtlas.def"/></Files>
 	<Globals/></VisualStudioProject>

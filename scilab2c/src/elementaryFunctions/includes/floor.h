@@ -13,6 +13,7 @@
 #ifndef __FLOOR_H__
 #define __FLOOR_H__
 
+#include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
@@ -20,21 +21,21 @@
 	floor(x) returns an integer matrix made of nearest rounded down integers.
 */
 
-float	sfloors(float in);
+EXTERN_ELEMFUNCT float	sfloors(float in);
 
-double dfloors(double in);
+EXTERN_ELEMFUNCT double dfloors(double in);
 
-floatComplex cfloors(floatComplex in);
+EXTERN_ELEMFUNCT floatComplex cfloors(floatComplex in);
 
-doubleComplex zfloors(doubleComplex in);
+EXTERN_ELEMFUNCT doubleComplex zfloors(doubleComplex in);
 
-void	sfloora(float* in, int size, float* out);
+EXTERN_ELEMFUNCT void	sfloora(float* in, int size, float* out);
 
-void	dfloora(double* in, int size, double* out);
+EXTERN_ELEMFUNCT void	dfloora(double* in, int size, double* out);
 
-void	cfloora(floatComplex* in, int size, floatComplex* out);
+EXTERN_ELEMFUNCT void	cfloora(floatComplex* in, int size, floatComplex* out);
 
-void	zfloora(doubleComplex* in, int size, doubleComplex* out);
+EXTERN_ELEMFUNCT void	zfloora(doubleComplex* in, int size, doubleComplex* out);
 
 #endif /* !__FLOOR_H__ */
 

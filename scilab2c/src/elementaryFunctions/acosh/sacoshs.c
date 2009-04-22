@@ -13,6 +13,13 @@
 #include <math.h>
 #include "acosh.h"
 
+#ifdef _MSC_VER
+float acoshf (float x)
+{
+	return (float) log(x + sqrt(x * x - 1));
+}
+#endif
+
 float		sacoshs(float x) {
   return (acoshf(x));
 }

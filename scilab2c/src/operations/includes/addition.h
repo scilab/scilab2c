@@ -13,8 +13,13 @@
 #ifndef __ADDITION_H__
 #define __ADDITION_H__
 
+#include "dynlib_operations.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
+
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
 /*
 **
@@ -29,7 +34,7 @@
 ** \param in2 : input float.
 ** \return : in1 + in2
 */
-float	sadds(float in1, float in2);
+EXTERN_OPERATIONS float	sadds(float in1, float in2);
 
 /*
 ** \brief Compute an addition element ways for floats.
@@ -39,7 +44,7 @@ float	sadds(float in1, float in2);
 ** \param size2 : size of in2 array.
 ** \param out : array that contains the addition in1 + in2.
 */
-void	sadda(float *in1, int size1,
+EXTERN_OPERATIONS void	sadda(float *in1, int size1,
 	       float *in2, int size2,
 	       float *out);
 
@@ -49,7 +54,7 @@ void	sadda(float *in1, int size1,
 ** \param in2 : input double.
 ** \return : in1 + in2
 */
-double	dadds(double in1, double in2);
+EXTERN_OPERATIONS double	dadds(double in1, double in2);
 
 /*
 ** \brief Compute an addition element ways for double.
@@ -59,7 +64,7 @@ double	dadds(double in1, double in2);
 ** \param size2 : size of in2 array.
 ** \param out : array that contains the addition in1 + in2.
 */
-void	dadda(double *in1, int size1,
+EXTERN_OPERATIONS void	dadda(double *in1, int size1,
 	       double *in2, int size2,
 	       double * out);
 
@@ -69,7 +74,7 @@ void	dadda(double *in1, int size1,
 ** \param in2 : input float complex.
 ** \return : in1 + in2
 */
-floatComplex	cadds(floatComplex in1, floatComplex in2);
+EXTERN_OPERATIONS floatComplex	cadds(floatComplex in1, floatComplex in2);
 
 /*
 ** \brief Compute an addition element ways for complex single precision.
@@ -79,7 +84,7 @@ floatComplex	cadds(floatComplex in1, floatComplex in2);
 ** \param size2 : size of in2 array.
 ** \param out : array that contains the addition in1 + in2.
 */
-void	cadda(floatComplex *in1, int size1,
+EXTERN_OPERATIONS void	cadda(floatComplex *in1, int size1,
 	       floatComplex *in2, int size2,
 	       floatComplex *out);
 
@@ -89,7 +94,7 @@ void	cadda(floatComplex *in1, int size1,
 ** \param in2 : input double conplex.
 ** \return : in1 + in2
 */
-doubleComplex	zadds(doubleComplex in1, doubleComplex in2);
+EXTERN_OPERATIONS doubleComplex	zadds(doubleComplex in1, doubleComplex in2);
 
 /*
 ** \brief Compute an addition element ways for complex double precision.
@@ -99,8 +104,12 @@ doubleComplex	zadds(doubleComplex in1, doubleComplex in2);
 ** \param size2 : size of in2 array.
 ** \param out : array that contains the addition in1 + in2.
 */
-void	zadda(doubleComplex *in1, int size1,
+EXTERN_OPERATIONS void	zadda(doubleComplex *in1, int size1,
 	       doubleComplex *in2, int size2,
 	       doubleComplex *out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* !__ADDITION_H__ */

@@ -58,6 +58,9 @@ typedef float complex floatComplex;
 */
 #endif
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
 EXTERN_TYPE float		creals(floatComplex);
 EXTERN_TYPE float		cimags(floatComplex);
@@ -67,6 +70,10 @@ EXTERN_TYPE floatComplex	FloatComplex(float, float);
 EXTERN_TYPE floatComplex*	FloatComplexMatrix(float*, float*, int);
 EXTERN_TYPE bool		cisreals(floatComplex);
 EXTERN_TYPE bool		cisimags(floatComplex);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 
 #endif /* !__FLOATCOMPLEX_H__ */

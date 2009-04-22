@@ -10,7 +10,7 @@
  *
  */
  
-
+#include <stdlib.h>
 #include "spec.h"
 
 
@@ -23,8 +23,8 @@ void cspeca(floatComplex* in, int rows, floatComplex* out){
 	doubleComplex* dblin;
 	doubleComplex* dblout;
 	
-	dblin=malloc((uint)(rows*rows)*sizeof(doubleComplex));
-	dblout=malloc((uint)rows*sizeof(doubleComplex));
+	dblin=(doubleComplex*)malloc((unsigned int)(rows*rows)*sizeof(doubleComplex));
+	dblout=(doubleComplex*)malloc((unsigned int)rows*sizeof(doubleComplex));
 	
 	for (i=0;i<rows*rows;i++) dblin[i]=DoubleComplex((double)creals(in[i]),(double)cimags(in[i]));
 	

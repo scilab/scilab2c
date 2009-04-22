@@ -15,7 +15,11 @@
 #define __MATRIXINVERSION_H__
 
 #include "abs.h"
+#include "dynlib_matrixoperations.h"
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
 /*
 ** \brief Compute the matrix inverse for floats.
 ** \param in : input matrix.
@@ -23,7 +27,7 @@
 ** \param out : the matrix inverse of the input .
 */
 
-void sinverma ( float* in,  float* out, int leadDimIn );
+EXTERN_MATOPS void sinverma ( float* in,  float* out, int leadDimIn );
 
 /*
 ** \brief Compute the matrix inverse for doubles.
@@ -33,7 +37,7 @@ void sinverma ( float* in,  float* out, int leadDimIn );
 */
 
 
-void dinverma ( double* in, double* out, int leadDimIn );
+EXTERN_MATOPS void dinverma ( double* in, double* out, int leadDimIn );
 
 /*
 ** \brief Compute the matrix inverse for complex floats .
@@ -43,7 +47,7 @@ void dinverma ( double* in, double* out, int leadDimIn );
 */
 
 
-void cinverma ( floatComplex* in, floatComplex* out, int leadDimIn );
+EXTERN_MATOPS void cinverma ( floatComplex* in, floatComplex* out, int leadDimIn );
 
 /*
 ** \brief Compute the matrix inverse for complex doubles.
@@ -53,7 +57,10 @@ void cinverma ( floatComplex* in, floatComplex* out, int leadDimIn );
 */
 
 
-void zinverma ( doubleComplex* in, doubleComplex* out, int leadDimIn );
+EXTERN_MATOPS void zinverma ( doubleComplex* in, doubleComplex* out, int leadDimIn );
 
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* !__MATRIXINVERSION_H__ */

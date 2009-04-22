@@ -13,6 +13,7 @@
 #ifndef __SINH_H__
 #define __SINH_H__
 
+#include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
@@ -24,25 +25,25 @@
 ** \brief Float Sine function
 ** \param in : input value.
 */
-float		ssinhs(float in);
+EXTERN_ELEMFUNCT float		ssinhs(float in);
 
 /*
 ** \brief Double Sine function
 ** \param in : input value.
 */
-double		dsinhs(double in);
+EXTERN_ELEMFUNCT double		dsinhs(double in);
 
 /*
 ** \brief Float Complex Sine function
 ** \param in : input value.
 */
-floatComplex	csinhs(floatComplex in);
+EXTERN_ELEMFUNCT floatComplex	csinhs(floatComplex in);
 
 /*
 ** \brief Double Complex Sine function
 ** \param in : input value.
 */
-doubleComplex	zsinhs(doubleComplex in);
+EXTERN_ELEMFUNCT doubleComplex	zsinhs(doubleComplex in);
 
 /*
 ** \brief Float Matrix Sine function
@@ -50,7 +51,7 @@ doubleComplex	zsinhs(doubleComplex in);
 ** \param out : input array value.
 ** \param size : the size of in and out arrays.
 */
-void		ssinha(float* in, int size, float* out);
+EXTERN_ELEMFUNCT void		ssinha(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix Sine function
@@ -58,7 +59,7 @@ void		ssinha(float* in, int size, float* out);
 ** \param out : input array value.
 ** \param size : the size of in and out arrays.
 */
-void		dsinha(double* in, int size, double* out);
+EXTERN_ELEMFUNCT void		dsinha(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix Sine function
@@ -66,7 +67,7 @@ void		dsinha(double* in, int size, double* out);
 ** \param out : input array value.
 ** \param size : the size of in and out arrays.
 */
-void		csinha(floatComplex* in, int size, floatComplex* out);
+EXTERN_ELEMFUNCT void		csinha(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix Sine function
@@ -74,6 +75,6 @@ void		csinha(floatComplex* in, int size, floatComplex* out);
 ** \param out : input array value.
 ** \param size : the size of in and out arrays.
 */
-void		zsinha(doubleComplex* in, int size, doubleComplex* out);
+EXTERN_ELEMFUNCT void		zsinha(doubleComplex* in, int size, doubleComplex* out);
 
 #endif /* !__SINH_H__ */

@@ -13,6 +13,7 @@
 #ifndef __COSH_H__
 #define __COSH_H__
 
+#include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
@@ -24,25 +25,25 @@
 ** \brief Float Cosine function
 ** \param in : input value.
 */
-float		scoshs(float in);
+EXTERN_ELEMFUNCT float		scoshs(float in);
 
 /*
 ** \brief Double Cosine function
 ** \param in : input value.
 */
-double		dcoshs(double in);
+EXTERN_ELEMFUNCT double		dcoshs(double in);
 
 /*
 ** \brief Float Complex Cosine function
 ** \param in : input value.
 */
-floatComplex	ccoshs(floatComplex in);
+EXTERN_ELEMFUNCT floatComplex	ccoshs(floatComplex in);
 
 /*
 ** \brief Double Complex Cosine function
 ** \param in : input value.
 */
-doubleComplex	zcoshs(doubleComplex in);
+EXTERN_ELEMFUNCT doubleComplex	zcoshs(doubleComplex in);
 
 /*
 ** \brief Float Matrix Cosine function
@@ -50,7 +51,7 @@ doubleComplex	zcoshs(doubleComplex in);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		scosha(float* in, int size, float* out);
+EXTERN_ELEMFUNCT void		scosha(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix Cosine function
@@ -58,7 +59,7 @@ void		scosha(float* in, int size, float* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		dcosha(double* in, int size, double* out);
+EXTERN_ELEMFUNCT void		dcosha(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix Cosine function
@@ -66,7 +67,7 @@ void		dcosha(double* in, int size, double* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		ccosha(floatComplex* in, int size, floatComplex* out);
+EXTERN_ELEMFUNCT void		ccosha(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix Cosine function
@@ -74,7 +75,7 @@ void		ccosha(floatComplex* in, int size, floatComplex* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		zcosha(doubleComplex* in, int size, doubleComplex* out);
+EXTERN_ELEMFUNCT void		zcosha(doubleComplex* in, int size, doubleComplex* out);
 
 #endif /* !__COSH_H__ */
 

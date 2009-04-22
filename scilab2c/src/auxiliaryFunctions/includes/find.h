@@ -13,26 +13,36 @@
 #ifndef __FIND_H__
 #define __FIND_H__
 
+#include "dynlib_auxiliaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
 /*
 ** \brief Float Find function
 */
-void sfinda(float* x, int size, float *out, int *sizeOut);
+EXTERN_AUXFUNCT void sfinda(float* x, int size, float *out, int *sizeOut);
 
 /*
 ** \brief Double Find function
 */
-void dfinda(double*x, int size, double *out, int *sizeOut);
+EXTERN_AUXFUNCT void dfinda(double*x, int size, double *out, int *sizeOut);
 
 /*
 ** \brief Float Complex Find function
 */
-void cfinda(floatComplex* z, int size, float *out, int *sizeOut);
+EXTERN_AUXFUNCT void cfinda(floatComplex* z, int size, float *out, int *sizeOut);
 
 /*
 ** \brief Double Complex Find function
 */
-void zfinda(doubleComplex* z, int size, double *out, int *sizeOut);
+EXTERN_AUXFUNCT void zfinda(doubleComplex* z, int size, double *out, int *sizeOut);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
+
+
 #endif /* !__FIND_H__ */

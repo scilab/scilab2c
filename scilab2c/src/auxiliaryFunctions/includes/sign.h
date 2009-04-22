@@ -15,8 +15,13 @@
 
 #include <math.h>
 
+#include "dynlib_auxiliaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
+
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
 /**
  ** \brief Float Signe function
@@ -24,7 +29,7 @@
  ** \param in : the float we must determine sign.
  ** \return -1 or +1 depending on the sign of in.
  **/
-float		ssigns(float in);
+EXTERN_AUXFUNCT float		ssigns(float in);
 
 /**
  ** \brief Double Signe function
@@ -32,7 +37,7 @@ float		ssigns(float in);
  ** \param in : the double we must determine sign.
  ** \return -1 or +1 depending on the sign of in.
  **/
-double		dsigns(double in);
+EXTERN_AUXFUNCT double		dsigns(double in);
 
 /**
  ** \brief Float Complex Signe function
@@ -40,7 +45,7 @@ double		dsigns(double in);
  ** \param in : the float we must determine sign.
  ** \return -1 or +1 depending on the sign of in.
  **/
-floatComplex	csigns(floatComplex in);
+EXTERN_AUXFUNCT floatComplex	csigns(floatComplex in);
 
 /**
  ** \brief Double Complex Signe function
@@ -48,7 +53,7 @@ floatComplex	csigns(floatComplex in);
  ** \param in : the double we must determine sign.
  ** \return -1 or +1 depending on the sign of in.
  **/
-doubleComplex	zsigns(doubleComplex in);
+EXTERN_AUXFUNCT doubleComplex	zsigns(doubleComplex in);
 
 /**
  ** \brief Float Signe Array function
@@ -57,7 +62,7 @@ doubleComplex	zsigns(doubleComplex in);
  ** \param size : the number of elements.
  ** \return -1 or +1 depending on the sign of in elements.
  **/
-void	ssigna(float *in, int size, float *out);
+EXTERN_AUXFUNCT void	ssigna(float *in, int size, float *out);
 
 /**
  ** \brief Double Signe Array function
@@ -66,7 +71,7 @@ void	ssigna(float *in, int size, float *out);
  ** \param size : the number of elements.
  ** \return -1 or +1 depending on the sign of in elements.
  **/
-void	dsigna(double *in, int size, double *out);
+EXTERN_AUXFUNCT void	dsigna(double *in, int size, double *out);
 
 /**
  ** \brief Float Signe Complex Array function
@@ -75,7 +80,7 @@ void	dsigna(double *in, int size, double *out);
  ** \param size : the number of elements.
  ** \return -1 or +1 depending on the sign of in elements.
  **/
-void	csigna(floatComplex *in, int size, floatComplex *out);
+EXTERN_AUXFUNCT void	csigna(floatComplex *in, int size, floatComplex *out);
 
 /**
  ** \brief Double Signe Complex Array function
@@ -84,6 +89,11 @@ void	csigna(floatComplex *in, int size, floatComplex *out);
  ** \param size : the number of elements.
  ** \return -1 or +1 depending on the sign of in elements.
  **/
-void	zsigna(doubleComplex *in, int size, doubleComplex *out);
+EXTERN_AUXFUNCT void	zsigna(doubleComplex *in, int size, doubleComplex *out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
+
 
 #endif /* !__SIGN_H__ */

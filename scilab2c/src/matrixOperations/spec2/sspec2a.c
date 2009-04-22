@@ -10,7 +10,7 @@
  *
  */
  
-
+#include <stdlib.h>
 #include "spec.h"
 
 
@@ -23,9 +23,9 @@ void sspec2a(float* in, int rows, float* eigenvalues,float* eigenvectors){
 	double* dblin;
 	double *dbleigenvalues,*dbleigenvectors;
 	
-	dblin=malloc((uint)(rows*rows)*sizeof(double));
-	dbleigenvalues=malloc((uint)(rows*rows)*sizeof(double));	
-	dbleigenvectors=malloc((uint)(rows*rows)*sizeof(double));
+	dblin=(double*)malloc((unsigned int)(rows*rows)*sizeof(double));
+	dbleigenvalues = (double*)malloc((unsigned int)(rows*rows)*sizeof(double));	
+	dbleigenvectors = (double*)malloc((unsigned int)(rows*rows)*sizeof(double));
 	
 	for (i=0;i<rows*rows;i++) dblin[i]=(double)in[i];
 	

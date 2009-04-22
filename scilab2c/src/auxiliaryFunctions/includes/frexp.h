@@ -14,10 +14,19 @@
 #define __FREXP_H__
 
 #include <math.h>
+#include "dynlib_auxiliaryfunctions.h"
 
-float  sfrexps(float _fltVal, float *_pfltExp);
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
-double dfrexps(double _dblVal, double *_pdblExp);
+EXTERN_AUXFUNCT float  sfrexps(float _fltVal, float *_pfltExp);
+
+EXTERN_AUXFUNCT double dfrexps(double _dblVal, double *_pdblExp);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 
 

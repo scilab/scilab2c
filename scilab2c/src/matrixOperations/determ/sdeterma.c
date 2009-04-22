@@ -39,8 +39,8 @@ float sdeterma(float * in, int size){
 		default : 
 		
 			  /*Copy the input matrix*/
-			  inCopy=malloc((uint)(size*size)*sizeof(double));
-			  tmp=malloc((uint)size*sizeof(int));
+			  inCopy=(double*)malloc((unsigned int)(size*size)*sizeof(double));
+			  tmp=(int*)malloc((unsigned int)size*sizeof(int));
 			  for (i=0;i<size*size;i++) inCopy[i]=(double)in[i];
 			  
 			  dgetrf_(&size, &size, inCopy, &size, tmp, &info);
@@ -69,7 +69,7 @@ float sdeterma(float * in, int size){
 		default : 
 				
 				  /*Copy the input matrix*/
-			  inCopy=malloc((uint)(size*size)*sizeof(float));
+			  inCopy=malloc((unsigned int)(size*size)*sizeof(float));
 			  for (i=0;i<size*size;i++) inCopy[i]=in[i];
 			  
     			  for (i=0;i<size;i++){

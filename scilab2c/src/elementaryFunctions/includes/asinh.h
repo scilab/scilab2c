@@ -13,6 +13,7 @@
 #ifndef __ASINH_H__
 #define __ASINH_H__
 
+#include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
@@ -24,25 +25,25 @@
 ** \brief Float Hyperbolic ArcSine function
 ** \param in : input value.
 */
-float		sasinhs(float in);
+EXTERN_ELEMFUNCT float		sasinhs(float in);
 
 /*
 ** \brief Double Hyperbolic ArcSine function
 ** \param in : input value.
 */
-double		dasinhs(double in);
+EXTERN_ELEMFUNCT double		dasinhs(double in);
 
 /*
 ** \brief Float Complex Hyperbolic ArcSine function
 ** \param in : input value.
 */
-floatComplex	casinhs(floatComplex in);
+EXTERN_ELEMFUNCT floatComplex	casinhs(floatComplex in);
 
 /*
 ** \brief Double Complex Hyperbolic ArcSine function
 ** \param in : input value.
 */
-doubleComplex	zasinhs(doubleComplex in);
+EXTERN_ELEMFUNCT doubleComplex	zasinhs(doubleComplex in);
 
 /*
 ** \brief Float Matrix Hyperbolic ArcSine function
@@ -50,7 +51,7 @@ doubleComplex	zasinhs(doubleComplex in);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		sasinha(float* in, int size, float* out);
+EXTERN_ELEMFUNCT void		sasinha(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix Hyperbolic ArcSine function
@@ -58,7 +59,7 @@ void		sasinha(float* in, int size, float* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		dasinha(double* in, int size, double* out);
+EXTERN_ELEMFUNCT void		dasinha(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix Hyperbolic ArcSine function
@@ -66,7 +67,7 @@ void		dasinha(double* in, int size, double* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		casinha(floatComplex* in, int size, floatComplex* out);
+EXTERN_ELEMFUNCT void		casinha(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix Hyperbolic ArcSine function
@@ -74,6 +75,6 @@ void		casinha(floatComplex* in, int size, floatComplex* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		zasinha(doubleComplex* in, int size, doubleComplex* out);
+EXTERN_ELEMFUNCT void		zasinha(doubleComplex* in, int size, doubleComplex* out);
 
 #endif /* !__ASINH_H__ */

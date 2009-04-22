@@ -14,19 +14,28 @@
 #ifndef __MAGNITUDE_H__
 #define __MAGNITUDE_H__
 
+#include "dynlib_matrixoperations.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
-float smagns(float in);
-float smagna(float* in, int rows, int cols);
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
-double dmagns(double in);
-double dmagna(double* in, int rows, int cols);
+EXTERN_MATOPS float smagns(float in);
+EXTERN_MATOPS float smagna(float* in, int rows, int cols);
 
-float cmagns(floatComplex in);
-float cmagna(floatComplex* in, int rows, int cols);
+EXTERN_MATOPS double dmagns(double in);
+EXTERN_MATOPS double dmagna(double* in, int rows, int cols);
 
-double zmagns(doubleComplex in);
-double zmagna(doubleComplex* in, int rows, int cols);
+EXTERN_MATOPS float cmagns(floatComplex in);
+EXTERN_MATOPS float cmagna(floatComplex* in, int rows, int cols);
+
+EXTERN_MATOPS double zmagns(doubleComplex in);
+EXTERN_MATOPS double zmagna(doubleComplex* in, int rows, int cols);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* __MAGNITUDE_H__*/

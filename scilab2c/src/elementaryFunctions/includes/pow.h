@@ -13,22 +13,23 @@
 #ifndef __POW_H__
 #define __POW_H__
 
+#include "dynlib_elementaryfunctions.h"
 #include "multiplication.h"
 
-float		spows(float value, float expand);
+EXTERN_ELEMFUNCT float		spows(float value, float expand);
 
-double		dpows(double value, double expand);
+EXTERN_ELEMFUNCT double		dpows(double value, double expand);
 
-floatComplex	cpows(floatComplex value, floatComplex expand);
+EXTERN_ELEMFUNCT floatComplex	cpows(floatComplex value, floatComplex expand);
 
-doubleComplex	zpows(doubleComplex value, doubleComplex expand);
+EXTERN_ELEMFUNCT doubleComplex	zpows(doubleComplex value, doubleComplex expand);
 
-void		spowa(float *value, int size, float* expand, float *out);
+EXTERN_ELEMFUNCT void		spowa(float *value, int size, float* expand, float *out);
 
-void		dpowa(double *value, int size, double* expand, double *out);
+EXTERN_ELEMFUNCT void		dpowa(double *value, int size, double* expand, double *out);
 
-void		cpowa(floatComplex *value, int size, floatComplex* expand, floatComplex *out);
+EXTERN_ELEMFUNCT void		cpowa(floatComplex *value, int size, floatComplex* expand, floatComplex *out);
 
-void		zpowa(doubleComplex *value, int size, doubleComplex* expand, doubleComplex *out);
+EXTERN_ELEMFUNCT void		zpowa(doubleComplex *value, int size, doubleComplex* expand, doubleComplex *out);
 
 #endif /* !__POW_H__ */

@@ -14,22 +14,29 @@
 #ifndef __MATRIXPOW_H__
 #define __MATRIXPOW_H__
 
+#include "dynlib_matrixoperations.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
+
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
 /* 
    powm is only working on square matrix
    so the size is limited to rows
 */
-void spowma(float* in, int rows, float expand, float* out);
+EXTERN_MATOPS void spowma(float* in, int rows, float expand, float* out);
 
-void dpowma(double* in, int rows, double expand, double* out);
+EXTERN_MATOPS void dpowma(double* in, int rows, double expand, double* out);
 
-void cpowma(floatComplex* in, int rows, floatComplex expand, floatComplex* out);
+EXTERN_MATOPS void cpowma(floatComplex* in, int rows, floatComplex expand, floatComplex* out);
 
-void zpowma(doubleComplex* in, int rows, doubleComplex expand, doubleComplex* out);
+EXTERN_MATOPS void zpowma(doubleComplex* in, int rows, doubleComplex expand, doubleComplex* out);
 
-
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 
 

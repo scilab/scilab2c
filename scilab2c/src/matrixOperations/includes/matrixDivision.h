@@ -13,6 +13,7 @@
 #ifndef __MATRIXDIVISION_H__
 #define __MATRIXDIVISION_H__
 
+#include "dynlib_matrixoperations.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 #include "lapack.h" 
@@ -23,40 +24,46 @@
 #include "max.h" 
 
 
-void srdivma (	float* in1, int lines1, int columns1 ,
+#ifdef  __cplusplus
+extern "C" {
+#endif
+
+EXTERN_MATOPS void srdivma (	float* in1, int lines1, int columns1 ,
 			    float* in2, int lines2, int columns2 ,
 			 	float* out );		
 
-void sldivma (	float* in1, int lines1, int columns1 ,
+EXTERN_MATOPS void sldivma (	float* in1, int lines1, int columns1 ,
 			    float* in2, int lines2, int columns2 ,
 			 	float* out );	
 
 				
-void drdivma (	double* in1, int lines1, int columns1 ,
+EXTERN_MATOPS void drdivma (	double* in1, int lines1, int columns1 ,
 			    double* in2, int lines2, int columns2 ,
 			 	double* out );		
 
 
-void dldivma (	double* in1, int lines1, int columns1 ,
+EXTERN_MATOPS void dldivma (	double* in1, int lines1, int columns1 ,
 				double* in2, int lines2, int columns2 ,
 				double* out );
 
-void zrdivma(	doubleComplex* in1, int lines1, int columns1 ,
+EXTERN_MATOPS void zrdivma(	doubleComplex* in1, int lines1, int columns1 ,
 				doubleComplex* in2, int lines2, int columns2 ,
 				doubleComplex* out );
 
-void zldivma(    doubleComplex* in1, int lines1, int columns1 ,
+EXTERN_MATOPS void zldivma(    doubleComplex* in1, int lines1, int columns1 ,
 				doubleComplex* in2, int lines2, int columns2 ,
 				doubleComplex* out );
 
-void crdivma(    floatComplex* in1, int lines1, int columns1 ,
+EXTERN_MATOPS void crdivma(    floatComplex* in1, int lines1, int columns1 ,
 				floatComplex* in2, int lines2, int columns2 ,
 				floatComplex* out );
 
-void cldivma(	floatComplex* in1, int lines1, int columns1 ,
+EXTERN_MATOPS void cldivma(	floatComplex* in1, int lines1, int columns1 ,
 				floatComplex* in2, int lines2, int columns2 ,
 				floatComplex* out );
 
-
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* !__MATRIXDIVISION_H__ */

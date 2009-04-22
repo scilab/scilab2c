@@ -13,6 +13,7 @@
 #ifndef __ATAN_H__
 #define __ATAN_H__
 
+#include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
@@ -24,25 +25,25 @@
 ** \brief Float ArcTangeant function
 ** \param in : input value.
 */
-float		satans(float in);
+EXTERN_ELEMFUNCT float		satans(float in);
 
 /*
 ** \brief Double ArcTangeant function
 ** \param in : input value.
 */
-double		datans(double in);
+EXTERN_ELEMFUNCT double		datans(double in);
 
 /*
 ** \brief Float Complex ArcTangeant function
 ** \param in : input value.
 */
-floatComplex	catans(floatComplex in);
+EXTERN_ELEMFUNCT floatComplex	catans(floatComplex in);
 
 /*
 ** \brief Double Complex ArcTangeant function
 ** \param in : input value.
 */
-doubleComplex	zatans(doubleComplex in);
+EXTERN_ELEMFUNCT doubleComplex	zatans(doubleComplex in);
 
 /*
 ** \brief Float Matrix ArcTangeant function
@@ -50,7 +51,7 @@ doubleComplex	zatans(doubleComplex in);
 ** \param out : input array value.
 ** \param size : the size of in and out arrays.
 */
-void		satana(float* in, int size, float* out);
+EXTERN_ELEMFUNCT void		satana(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix ArcTangeant function
@@ -58,7 +59,7 @@ void		satana(float* in, int size, float* out);
 ** \param out : input array value.
 ** \param size : the size of in and out arrays.
 */
-void		datana(double* in, int size, double* out);
+EXTERN_ELEMFUNCT void		datana(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix ArcTangeant function
@@ -66,7 +67,7 @@ void		datana(double* in, int size, double* out);
 ** \param out : input array value.
 ** \param size : the size of in and out arrays.
 */
-void		catana(floatComplex* in, int size, floatComplex* out);
+EXTERN_ELEMFUNCT void		catana(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix ArcTangeant function
@@ -74,6 +75,6 @@ void		catana(floatComplex* in, int size, floatComplex* out);
 ** \param out : input array value.
 ** \param size : the size of in and out arrays.
 */
-void		zatana(doubleComplex* in, int size, doubleComplex* out);
+EXTERN_ELEMFUNCT void		zatana(doubleComplex* in, int size, doubleComplex* out);
 
 #endif /* !__ATAN_H__ */

@@ -10,11 +10,11 @@
  *
  */
  
-
+#include <malloc.h>
+#include <stdio.h>
 #include "spec.h"
 #include "lapack.h"
 #include "zeros.h"
-#include "stdio.h"
 #include "conj.h"
 
 
@@ -31,15 +31,15 @@ void zspeca(doubleComplex* in, int rows,doubleComplex* out){
 	double* outImag;
 	doubleComplex* inCopy;
 	
-	inCopy = malloc((uint)(rows*rows) * sizeof(doubleComplex));
-	outReal = malloc((uint)rows * sizeof(double));
-	outImag = malloc((uint)rows * sizeof(double));
+	inCopy = (doubleComplex*)malloc((unsigned int)(rows*rows) * sizeof(doubleComplex));
+	outReal = (double*)malloc((unsigned int)rows * sizeof(double));
+	outImag = (double*)malloc((unsigned int)rows * sizeof(double));
 	pdblLeftvectors=NULL;
 	pdblRightvectors=NULL;
 	
 	iWorkSize = 2*rows;
-	pdblWork = malloc((uint)iWorkSize * sizeof(doubleComplex));
-	pdblRWork = malloc((uint)(3*rows) * sizeof(doubleComplex));	
+	pdblWork = (doubleComplex*)malloc((unsigned int)iWorkSize * sizeof(doubleComplex));
+	pdblRWork = (doubleComplex*)malloc((unsigned int)(3*rows) * sizeof(doubleComplex));	
 	
 	for(i=0;i<rows*rows;i++) inCopy[i]=DoubleComplex(zreals(in[i]),zimags(in[i]));
 	
@@ -56,7 +56,7 @@ void zspeca(doubleComplex* in, int rows,doubleComplex* out){
 	/* the matrix is symmetric if the 2 loops goes to end i.e
 		i==rows and j==rows */
 	if ((i==rows)&&(j==rows)) hermitian=1;
-	
+
 	
 	/* apply lapack function according to symmetry */
 	if(hermitian){
@@ -69,7 +69,6 @@ void zspeca(doubleComplex* in, int rows,doubleComplex* out){
 		pdblLeftvectors, &rows, pdblRightvectors, &rows, pdblWork, &iWorkSize,
 		pdblRWork, &INFO );
 	}
-	
 	
 
 
