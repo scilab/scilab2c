@@ -29,7 +29,7 @@ static void sstringaTest (void) {
 
 	printf("\n>>>> sstringaTest Tests\n");
 
-   tabC = malloc( SIZE *sizeof(char*));
+   tabC = (char**)malloc( SIZE *sizeof(char*));
 
    for ( i=0;i< SIZE ; ++i )
       {
@@ -78,7 +78,7 @@ static void dstringaTest (void) {
 
 	printf("\n>>>> dstringaTest Tests\n");
 
-   tabC = malloc( SIZE *sizeof(char*));
+   tabC = (char**)malloc( SIZE *sizeof(char*));
 
    for ( i=0;i< SIZE ; ++i )
       {
@@ -130,7 +130,7 @@ static void cstringaTest (void) {
    srand( 1 ) ;
 
 	printf("\n>>>> cstringaTest Tests\n");
-   tabC = malloc( SIZE *sizeof(char*));
+   tabC = (char**)malloc( SIZE *sizeof(char*));
 
    for ( i=0;i< SIZE ; ++i )
       {
@@ -187,7 +187,7 @@ static void zstringaTest (void) {
 
 	printf("\n>>>> zstringaTest Tests\n");
 
-   tabC = malloc( SIZE *sizeof(char*));
+   tabC = (char**)malloc( SIZE *sizeof(char*));
 
    for ( i=0;i< SIZE ; ++i )
       {

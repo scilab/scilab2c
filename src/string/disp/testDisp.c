@@ -10,9 +10,10 @@
  *
  */
 
-
-#include "disp.h"
 #include <assert.h>
+#include <stdlib.h>
+#include "disp.h"
+
 
 #define SIZE 10000
 
