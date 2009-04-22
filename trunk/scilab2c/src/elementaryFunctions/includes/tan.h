@@ -13,6 +13,7 @@
 #ifndef __TAN_H__
 #define __TAN_H__
 
+#include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
@@ -24,25 +25,25 @@
 ** \brief Float Tangeant function
 ** \param in : input value.
 */
-float		stans(float in);
+EXTERN_ELEMFUNCT float		stans(float in);
 
 /*
 ** \brief Double Tangeant function
 ** \param in : input value.
 */
-double		dtans(double in);
+EXTERN_ELEMFUNCT double		dtans(double in);
 
 /*
 ** \brief Float Complex Tangeant function
 ** \param in : input value.
 */
-floatComplex	ctans(floatComplex in);
+EXTERN_ELEMFUNCT floatComplex	ctans(floatComplex in);
 
 /*
 ** \brief Double Complex Tangeant function
 ** \param in : input value.
 */
-doubleComplex	ztans(doubleComplex in);
+EXTERN_ELEMFUNCT doubleComplex	ztans(doubleComplex in);
 
 /*
 ** \brief Float Matrix Tangeant function
@@ -50,7 +51,7 @@ doubleComplex	ztans(doubleComplex in);
 ** \param out : input array value.
 ** \param size : the size of in and out arrays.
 */
-void		stana(float* in, int size, float* out);
+EXTERN_ELEMFUNCT void		stana(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix Tangeant function
@@ -58,7 +59,7 @@ void		stana(float* in, int size, float* out);
 ** \param out : input array value.
 ** \param size : the size of in and out arrays.
 */
-void		dtana(double* in, int size, double* out);
+EXTERN_ELEMFUNCT void		dtana(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix Tangeant function
@@ -66,7 +67,7 @@ void		dtana(double* in, int size, double* out);
 ** \param out : input array value.
 ** \param size : the size of in and out arrays.
 */
-void		ctana(floatComplex* in, int size, floatComplex* out);
+EXTERN_ELEMFUNCT void		ctana(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix Tangeant function
@@ -74,7 +75,7 @@ void		ctana(floatComplex* in, int size, floatComplex* out);
 ** \param out : input array value.
 ** \param size : the size of in and out arrays.
 */
-void		ztana(doubleComplex* in, int size, doubleComplex* out);
+EXTERN_ELEMFUNCT void		ztana(doubleComplex* in, int size, doubleComplex* out);
 
 #endif /* !__TAN_H__ */
 

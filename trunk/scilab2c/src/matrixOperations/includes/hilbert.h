@@ -13,16 +13,21 @@
 #ifndef __HILBERT_H__
 #define __HILBERT_H__
 
+#include "dynlib_matrixoperations.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 #include <math.h>
+
+#ifdef  __cplusplus
+extern "C" {
+#endif
 /*
 ** generate an Hilbert's matrix 
 ** param out : the hilbert's matrix in float precision
 ** param size: matrix's size 
 */
 
-void shilba ( float*  out, int size) ;
+EXTERN_MATOPS void shilba ( float*  out, int size) ;
 
 /*
 ** generate an Hilbert's matrix 
@@ -31,7 +36,11 @@ void shilba ( float*  out, int size) ;
 */
 
 
-void dhilba ( double* out, int size ) ;
+EXTERN_MATOPS void dhilba ( double* out, int size ) ;
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* !__HILBERT_H__ */
 

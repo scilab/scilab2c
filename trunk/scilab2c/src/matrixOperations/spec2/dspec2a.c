@@ -10,7 +10,7 @@
  *
  */
  
-
+#include <malloc.h>
 #include "spec.h"
 #include "lapack.h"
 #include "zeros.h"
@@ -31,15 +31,15 @@ void dspec2a(double* in, int rows,double* eigenvalues,double* eigenvectors){
 	double* inCopy;
 	
 	/* FIXME : malloc here */
-	inCopy = malloc((uint)(rows*rows) * sizeof(double));
-	outReal = malloc((uint)rows * sizeof(double));
+	inCopy = (double*)malloc((unsigned int)(rows*rows) * sizeof(double));
+	outReal = (double*)malloc((unsigned int)rows * sizeof(double));
 	outImag = NULL;
 	pdblLeftvectors=NULL;
 	pdblRightvectors=NULL;
 	
 	
 	iWorkSize = 4*rows;
-	pdblWork = malloc((uint)iWorkSize * sizeof(double));
+	pdblWork = (double*)malloc((unsigned int)iWorkSize * sizeof(double));
 	
 	for(i=0;i<rows*rows;i++)	inCopy[i]=in[i];
 	
@@ -65,8 +65,8 @@ void dspec2a(double* in, int rows,double* eigenvalues,double* eigenvectors){
 		for (i=0;i<rows*rows;i++) 	eigenvectors[i] = inCopy[i];
 	}
 	else {	
-		pdblRightvectors=malloc((uint)(rows*rows) * sizeof(double));
-		outImag = malloc((uint)rows * sizeof(double));
+		pdblRightvectors=(double*)malloc((unsigned int)(rows*rows) * sizeof(double));
+		outImag = (double*)malloc((unsigned int)rows * sizeof(double));
 		C2F(dgeev)( "N", "V", &rows, inCopy, &rows, outReal, outImag,
         			pdblLeftvectors, &rows, pdblRightvectors, &rows, pdblWork, &iWorkSize, &INFO );  
 	

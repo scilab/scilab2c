@@ -13,9 +13,13 @@
 #ifndef __MATRICXTRACE_H__
 #define __MATRICXTRACE_H__
 
+#include "dynlib_matrixoperations.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
 /*
 **
@@ -31,7 +35,7 @@
 ** \param out : float scalar containing the trace.
 */
 
-float stracea ( float* in ,int lines ) ;
+EXTERN_MATOPS float stracea ( float* in ,int lines ) ;
 
 
 /*
@@ -40,7 +44,7 @@ float stracea ( float* in ,int lines ) ;
 ** \param lines : number of lines  
 ** \param out : double scalar containing the trace.
 */
-double dtracea ( double* in ,int lines ) ;
+EXTERN_MATOPS double dtracea ( double* in ,int lines ) ;
 
 /*
 ** \brief Compute the trace of a float complex  matrix.
@@ -48,7 +52,7 @@ double dtracea ( double* in ,int lines ) ;
 ** \param lines : number of lines  
 ** \param out : float complex containing the trace.
 */
-floatComplex ctracea ( floatComplex* in ,int lines ) ;
+EXTERN_MATOPS floatComplex ctracea ( floatComplex* in ,int lines ) ;
 
 
 /*
@@ -57,6 +61,10 @@ floatComplex ctracea ( floatComplex* in ,int lines ) ;
 ** \param lines : number of lines  
 ** \param out : double complex containing the trace.
 */
-doubleComplex ztracea ( doubleComplex* in ,int lines ) ;
+EXTERN_MATOPS doubleComplex ztracea ( doubleComplex* in ,int lines ) ;
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* !__MATRICXTRACE_H__ */

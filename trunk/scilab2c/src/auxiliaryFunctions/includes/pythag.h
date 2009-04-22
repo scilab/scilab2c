@@ -13,28 +13,38 @@
 #ifndef __PYTHAG_H__
 #define __PYTHAG_H__
 
+#include "dynlib_auxiliaryfunctions.h"
 #include "multiplication.h"
 #include "addition.h"
 #include "sqrt.h"
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
+
 /*
 ** \brief Float Pythag function
 */
-float		spythags(float x, float y);
+EXTERN_AUXFUNCT float		spythags(float x, float y);
 
 /*
 ** \brief Double Pythag function
 */
-double		dpythags(double x, double y);
+EXTERN_AUXFUNCT double		dpythags(double x, double y);
 
 /*
 ** \brief Float Complex Pythag function
 */
-floatComplex	cpythags(floatComplex x, floatComplex y);
+EXTERN_AUXFUNCT floatComplex	cpythags(floatComplex x, floatComplex y);
 
 /*
 ** \brief Double Complex Pythag function
 */
-doubleComplex	zpythags(doubleComplex x, doubleComplex y);
+EXTERN_AUXFUNCT doubleComplex	zpythags(doubleComplex x, doubleComplex y);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
+
 
 #endif /* !__PYTHAG_H__ */

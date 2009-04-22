@@ -13,6 +13,7 @@
 #ifndef __EXP10_H__
 #define __EXP10_H__
 
+#include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
@@ -24,25 +25,25 @@
 ** \brief Float 10 based Exponential function
 ** \param in : input value.
 */
-float		sexp10s(float in);
+EXTERN_ELEMFUNCT float		sexp10s(float in);
 
 /*
 ** \brief Double Exp10onential function
 ** \param in : input value.
 */
-double		dexp10s(double in);
+EXTERN_ELEMFUNCT double		dexp10s(double in);
 
 /*
 ** \brief Float Complex 10 based Exponential function
 ** \param in : input value.
 */
-floatComplex	cexp10s(floatComplex in);
+EXTERN_ELEMFUNCT floatComplex	cexp10s(floatComplex in);
 
 /*
 ** \brief Double Complex 10 based Exponential function
 ** \param in : input value.
 */
-doubleComplex	zexp10s(doubleComplex in);
+EXTERN_ELEMFUNCT doubleComplex	zexp10s(doubleComplex in);
 
 /*
 ** \brief Float Matrix 10 based Exponential function
@@ -50,7 +51,7 @@ doubleComplex	zexp10s(doubleComplex in);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		sexp10a(float* in, int size, float* out);
+EXTERN_ELEMFUNCT void		sexp10a(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix 10 based Exponential function
@@ -58,7 +59,7 @@ void		sexp10a(float* in, int size, float* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		dexp10a(double* in, int size, double* out);
+EXTERN_ELEMFUNCT void		dexp10a(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix 10 based Exponential function
@@ -66,7 +67,7 @@ void		dexp10a(double* in, int size, double* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		cexp10a(floatComplex* in, int size, floatComplex* out);
+EXTERN_ELEMFUNCT void		cexp10a(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix 10 based Exponential function
@@ -74,7 +75,7 @@ void		cexp10a(floatComplex* in, int size, floatComplex* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		zexp10a(doubleComplex* in, int size, doubleComplex* out);
+EXTERN_ELEMFUNCT void		zexp10a(doubleComplex* in, int size, doubleComplex* out);
 
 #endif /* !__EXP10_H__ */
 

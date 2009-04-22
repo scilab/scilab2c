@@ -14,6 +14,11 @@
 #include "isnan.h"
 #include "testAcosh.h"
 
+#ifdef _MSC_VER
+#include <float.h>
+#define isnan(x) _isnan((double)x)
+#endif
+
 
 #define IN {38.746443623676896095276,39.8779044859111309052,99.6399083640426397324,\
 93.207842670381069183350,6.8147667217999696731567,71.874653641134500503540,\

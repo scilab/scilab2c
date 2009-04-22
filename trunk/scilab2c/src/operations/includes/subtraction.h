@@ -13,9 +13,13 @@
 #ifndef __SUBTRACTION_H__
 #define __SUBTRACTION_H__
 
+#include "dynlib_operations.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
 /*
 **
 ** WARNING WE ASSUME MATRIXES TO BE CONSCISTENT
@@ -29,7 +33,7 @@
 ** \param in2 : input float.
 ** \return : in1 + in2
 */
-float	sdiffs(float in1, float in2);
+EXTERN_OPERATIONS float	sdiffs(float in1, float in2);
 
 /*
 ** \brief Compute a subtraction element ways for floats.
@@ -39,7 +43,7 @@ float	sdiffs(float in1, float in2);
 ** \param size2 : size of in2 array.
 ** \param out : array that contains the subtraction in1 + in2.
 */
-void	sdiffa(float *in1, int size1,
+EXTERN_OPERATIONS void	sdiffa(float *in1, int size1,
 	       float *in2, int size2,
 	       float *out);
 
@@ -49,7 +53,7 @@ void	sdiffa(float *in1, int size1,
 ** \param in2 : input double.
 ** \return : in1 + in2
 */
-double	ddiffs(double in1, double in2);
+EXTERN_OPERATIONS double	ddiffs(double in1, double in2);
 
 /*
 ** \brief Compute a subtraction element ways for double.
@@ -59,7 +63,7 @@ double	ddiffs(double in1, double in2);
 ** \param size2 : size of in2 array.
 ** \param out : array that contains the subtraction in1 + in2.
 */
-void	ddiffa(double *in1, int size1,
+EXTERN_OPERATIONS void	ddiffa(double *in1, int size1,
 	       double *in2, int size2,
 	       double * out);
 
@@ -69,7 +73,7 @@ void	ddiffa(double *in1, int size1,
 ** \param in2 : input float complex.
 ** \return : in1 + in2
 */
-floatComplex	cdiffs(floatComplex in1, floatComplex in2);
+EXTERN_OPERATIONS floatComplex	cdiffs(floatComplex in1, floatComplex in2);
 
 /*
 ** \brief Compute a subtraction element ways for complex single precision.
@@ -79,7 +83,7 @@ floatComplex	cdiffs(floatComplex in1, floatComplex in2);
 ** \param size2 : size of in2 array.
 ** \param out : array that contains the subtraction in1 + in2.
 */
-void	cdiffa(floatComplex *in1, int size1,
+EXTERN_OPERATIONS void	cdiffa(floatComplex *in1, int size1,
 	       floatComplex *in2, int size2,
 	       floatComplex *out);
 
@@ -89,7 +93,7 @@ void	cdiffa(floatComplex *in1, int size1,
 ** \param in2 : input double conplex.
 ** \return : in1 + in2
 */
-doubleComplex	zdiffs(doubleComplex in1, doubleComplex in2);
+EXTERN_OPERATIONS doubleComplex	zdiffs(doubleComplex in1, doubleComplex in2);
 
 /*
 ** \brief Compute a subtraction element ways for complex double precision.
@@ -99,8 +103,12 @@ doubleComplex	zdiffs(doubleComplex in1, doubleComplex in2);
 ** \param size2 : size of in2 array.
 ** \param out : array that contains the subtraction in1 + in2.
 */
-void	zdiffa(doubleComplex *in1, int size1,
+EXTERN_OPERATIONS void	zdiffa(doubleComplex *in1, int size1,
 	       doubleComplex *in2, int size2,
 	       doubleComplex *out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* !__SUBTRACTION_H__ */

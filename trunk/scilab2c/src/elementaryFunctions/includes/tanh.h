@@ -13,6 +13,7 @@
 #ifndef __TANH_H__
 #define __TANH_H__
 
+#include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
@@ -24,25 +25,25 @@
 ** \brief Float Hyperbolic Tangeant function
 ** \param in : input value.
 */
-float		stanhs(float in);
+EXTERN_ELEMFUNCT float		stanhs(float in);
 
 /*
 ** \brief Double Hyperbolic Tangeant function
 ** \param in : input value.
 */
-double		dtanhs(double in);
+EXTERN_ELEMFUNCT double		dtanhs(double in);
 
 /*
 ** \brief Float Complex Hyperbolic Tangeant function
 ** \param in : input value.
 */
-floatComplex	ctanhs(floatComplex in);
+EXTERN_ELEMFUNCT floatComplex	ctanhs(floatComplex in);
 
 /*
 ** \brief Double Complex Hyperbolic Tangeant function
 ** \param in : input value.
 */
-doubleComplex	ztanhs(doubleComplex in);
+EXTERN_ELEMFUNCT doubleComplex	ztanhs(doubleComplex in);
 
 /*
 ** \brief Float Matrix Hyperbolic Tangeant function
@@ -50,7 +51,7 @@ doubleComplex	ztanhs(doubleComplex in);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		stanha(float* in, int size, float* out);
+EXTERN_ELEMFUNCT void		stanha(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix Hyperbolic Tangeant function
@@ -58,7 +59,7 @@ void		stanha(float* in, int size, float* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		dtanha(double* in, int size, double* out);
+EXTERN_ELEMFUNCT void		dtanha(double* in, int size, double* out);
 
 /*
 ** \brief Float Complex Matrix Hyperbolic Tangeant function
@@ -66,7 +67,7 @@ void		dtanha(double* in, int size, double* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		ctanha(floatComplex* in, int size, floatComplex* out);
+EXTERN_ELEMFUNCT void		ctanha(floatComplex* in, int size, floatComplex* out);
 
 /*
 ** \brief Double Complex Matrix Hyperbolic Tangeant function
@@ -74,6 +75,6 @@ void		ctanha(floatComplex* in, int size, floatComplex* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-void		ztanha(doubleComplex* in, int size, doubleComplex* out);
+EXTERN_ELEMFUNCT void		ztanha(doubleComplex* in, int size, doubleComplex* out);
 
 #endif /* !__TANH_H__ */

@@ -10,7 +10,7 @@
  *
  */
  
-
+#include <stdlib.h>
 #include "spec.h"
 
 
@@ -23,9 +23,9 @@ void cspec2a(floatComplex* in, int rows, floatComplex* eigenvalues,floatComplex*
 	doubleComplex* dblin;
 	doubleComplex* dbleigenvalues,*dbleigenvectors;
 	
-	dblin=malloc((uint)(rows*rows)*sizeof(doubleComplex));
-	dbleigenvalues=malloc((uint)(rows*rows)*sizeof(doubleComplex));	
-	dbleigenvectors=malloc((uint)(rows*rows)*sizeof(doubleComplex));
+	dblin=(doubleComplex*)malloc((unsigned int)(rows*rows)*sizeof(doubleComplex));
+	dbleigenvalues=(doubleComplex*)malloc((unsigned int)(rows*rows)*sizeof(doubleComplex));	
+	dbleigenvectors=(doubleComplex*)malloc((unsigned int)(rows*rows)*sizeof(doubleComplex));
 	
 	for (i=0;i<rows*rows;i++) dblin[i]=DoubleComplex((double)creals(in[i]),(double)cimags(in[i]));
 	

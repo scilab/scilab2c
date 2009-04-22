@@ -13,6 +13,7 @@
 #ifndef __FIX_H__
 #define __FIX_H__
 
+#include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
@@ -23,21 +24,21 @@
 		else y=ceil(x)
 */
 
-float	sfixs(float in);
+EXTERN_ELEMFUNCT float	sfixs(float in);
 
-double dfixs(double in);
+EXTERN_ELEMFUNCT double dfixs(double in);
 
-floatComplex cfixs(floatComplex in);
+EXTERN_ELEMFUNCT floatComplex cfixs(floatComplex in);
 
-doubleComplex zfixs(doubleComplex in);
+EXTERN_ELEMFUNCT doubleComplex zfixs(doubleComplex in);
 
-void	sfixa(float* in, int size, float* out);
+EXTERN_ELEMFUNCT void	sfixa(float* in, int size, float* out);
 
-void	dfixa(double* in, int size, double* out);
+EXTERN_ELEMFUNCT void	dfixa(double* in, int size, double* out);
 
-void	cfixa(floatComplex* in, int size, floatComplex* out);
+EXTERN_ELEMFUNCT void	cfixa(floatComplex* in, int size, floatComplex* out);
 
-void	zfixa(doubleComplex* in, int size, doubleComplex* out);
+EXTERN_ELEMFUNCT void	zfixa(doubleComplex* in, int size, doubleComplex* out);
 
 #endif /* !__FIX_H__ */
 

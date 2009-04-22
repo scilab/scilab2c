@@ -14,8 +14,13 @@
 #ifndef __ZEROS_H__
 #define __ZEROS_H__
 
+#include "dynlib_matrixoperations.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
+
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
 /*
 ** \brief create a float one value
@@ -42,18 +47,22 @@
 /*
 ** \brief create a float matrix full of one
 */
-void szerosa ( float* in , int rows , int cols );
+EXTERN_MATOPS void szerosa ( float* in , int rows , int cols );
 /*
 ** \brief create a float complex matrix full of one
 */
-void czerosa ( floatComplex* in , int rows ,int cols );
+EXTERN_MATOPS void czerosa ( floatComplex* in , int rows ,int cols );
 /*
 ** \brief create a double  matrix full of one
 */
-void dzerosa ( double* in , int rows ,int cols );
+EXTERN_MATOPS void dzerosa ( double* in , int rows ,int cols );
 /*
 ** \brief create a double complex  matrix full of one
 */
-void zzerosa ( doubleComplex* in , int rows ,int cols );
+EXTERN_MATOPS void zzerosa ( doubleComplex* in , int rows ,int cols );
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* !__ZEROS_H__ */

@@ -33,7 +33,7 @@ void schola(float * in, int size, float *out){
 	double* tmp;
 	int i=0,j=0,info=0;
 	
-	tmp=malloc((unsigned int)(size*size)*sizeof(double));
+	tmp=(double*)malloc((unsigned int)(size*size)*sizeof(double));
 	for (i=0;i<size*size;i++) tmp[i]=(double)in[i];
 	
 	C2F(dpotrf)("U", &size, tmp, &size, &info);

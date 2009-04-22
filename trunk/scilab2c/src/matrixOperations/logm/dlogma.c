@@ -18,8 +18,8 @@ void dlogma (double* in, int rows, double* out){
 	doubleComplex *inCpx,*outCpx;
 	int i;
 	
-	inCpx=malloc((uint)(rows*rows)*sizeof(doubleComplex));
-	outCpx=malloc((uint)(rows*rows)*sizeof(doubleComplex));
+	inCpx=(doubleComplex *)malloc((unsigned int)(rows*rows)*sizeof(doubleComplex));
+	outCpx=(doubleComplex *)malloc((unsigned int)(rows*rows)*sizeof(doubleComplex));
 	
 	for (i=0;i<rows*rows;i++) inCpx[i] = DoubleComplex(in[i],0);
 	

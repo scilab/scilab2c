@@ -13,8 +13,13 @@
 #ifndef __EYE_H__
 #define __EYE_H__
 
+#include "dynlib_matrixoperations.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
+
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
 /*
 ** \brief create a float Eye value
@@ -39,22 +44,26 @@
 /*
 ** \brief create a float Eye matrix
 */
-void seyea(float* in, int _iRows, int _iCols);
+EXTERN_MATOPS void seyea(float* in, int _iRows, int _iCols);
 
 /*
 ** \brief create a Double Eye matrix
 */
-void deyea(double* in, int _iRows, int _iCols);
+EXTERN_MATOPS void deyea(double* in, int _iRows, int _iCols);
 
 /*
 ** \brief create a float complex Eye matrix
 */
-void ceyea(floatComplex* in, int _iRows, int _iCols);
+EXTERN_MATOPS void ceyea(floatComplex* in, int _iRows, int _iCols);
 
 /*
 ** \brief create a Double complex Eye matrix
 */
-void zeyea(doubleComplex* in, int _iRows, int _iCols);
+EXTERN_MATOPS void zeyea(doubleComplex* in, int _iRows, int _iCols);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* !__EYE_H__ */
 

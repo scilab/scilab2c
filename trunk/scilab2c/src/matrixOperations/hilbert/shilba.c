@@ -23,7 +23,7 @@ void shilba ( float* out, int size ){
 	for(iIndex1 = 0 ; iIndex1 < size ; iIndex1++)
 	{
 		if(iIndex1 != 0)
-			dblVal = ((float)(size - iIndex1) * dblVal * (float)(size + iIndex1)) /(float) pow(iIndex1,2);
+			dblVal = ((float)(size - iIndex1) * dblVal * (float)(size + iIndex1)) /(float) pow((double)iIndex1,2);
         
 		dblTemp = dblVal * dblVal;
 
@@ -34,7 +34,7 @@ void shilba ( float* out, int size ){
         
 		for(iIndex2 = iIndex1 + 1 ; iIndex2 < size ; iIndex2++)
 		{
-			dblTemp = -((float)(size - iIndex2) * dblTemp *(float) (size + iIndex2)) /(float) pow(iIndex2,2);
+			dblTemp = -((float)(size - iIndex2) * dblTemp *(float) (size + iIndex2)) /(float) pow((double)iIndex2,2);
 			out[iIndex1 * size + iIndex2] = dblTemp /(float) (iIndex1 + iIndex2 + 1);
 			out[iIndex2 * size + iIndex1] = out[iIndex1 * size + iIndex2];
 		}

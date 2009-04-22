@@ -13,21 +13,27 @@
  
 #ifndef __DETERM_H__
 #define __DETERM_H__
- 
+
+#include "dynlib_matrixoperations.h"
 #include "doubleComplex.h"
 #include "floatComplex.h"
 
  
-
+#ifdef  __cplusplus
+extern "C" {
+#endif
 	
-double ddeterma (double *in, int rows);
+EXTERN_MATOPS double ddeterma (double *in, int rows);
  
-float sdeterma (float *in, int rows);
+EXTERN_MATOPS float sdeterma (float *in, int rows);
  
-doubleComplex zdeterma (doubleComplex *in, int rows); 
+EXTERN_MATOPS doubleComplex zdeterma (doubleComplex *in, int rows); 
  
-floatComplex cdeterma (floatComplex *in, int rows); 
+EXTERN_MATOPS floatComplex cdeterma (floatComplex *in, int rows); 
 
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* __DETERM_H__ */
  

@@ -10,7 +10,7 @@
  *
  */
  
-
+#include <stdlib.h>
 #include "spec.h"
 
 
@@ -23,8 +23,8 @@ void sspeca(float* in, int rows, float* out){
 	double* dblin;
 	double* dblout;
 	
-	dblin=malloc((uint)(rows*rows)*sizeof(double));
-	dblout=malloc((uint)rows*sizeof(double));
+	dblin=(double*)malloc((unsigned int)(rows*rows)*sizeof(double));
+	dblout=(double*)malloc((unsigned int)rows*sizeof(double));
 	
 	for (i=0;i<rows*rows;i++) dblin[i]=(double)in[i];
 	

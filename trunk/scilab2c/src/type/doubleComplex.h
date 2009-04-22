@@ -58,6 +58,9 @@ typedef double complex doubleComplex;
 */
 #endif
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
 EXTERN_TYPE double		zreals(doubleComplex);
 EXTERN_TYPE double		zimags(doubleComplex);
 EXTERN_TYPE void		zreala(doubleComplex *in, int size, double *out);
@@ -66,9 +69,10 @@ EXTERN_TYPE doubleComplex	DoubleComplex(double, double);
 EXTERN_TYPE doubleComplex*	DoubleComplexMatrix(double*, double*, int);
 EXTERN_TYPE bool		zisreals(doubleComplex);
 EXTERN_TYPE bool		zisimags(doubleComplex);
-EXTERN_TYPE doubleComplex	zadds(doubleComplex, doubleComplex);
-EXTERN_TYPE doubleComplex	zdiffs(doubleComplex, doubleComplex);
-EXTERN_TYPE doubleComplex	ztimess(doubleComplex, doubleComplex);
 EXTERN_TYPE doubleComplex	zdevides(doubleComplex, doubleComplex);
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
+
 
 #endif /* !__DOUBLECOMPLEX_H__ */

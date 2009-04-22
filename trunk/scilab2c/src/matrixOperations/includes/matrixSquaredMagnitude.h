@@ -14,19 +14,28 @@
 #ifndef __SQUAREDMAGNITUDE_H__
 #define __SQUAREDMAGNITUDE_H__
 
+#include "dynlib_matrixoperations.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
-float ssquMagns(float in);
-float ssquMagna(float* in, int rows, int cols);
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
-double dsquMagns(double in);
-double dsquMagna(double* in, int rows, int cols);
+EXTERN_MATOPS float ssquMagns(float in);
+EXTERN_MATOPS float ssquMagna(float* in, int rows, int cols);
 
-float csquMagns(floatComplex in);
-float csquMagna(floatComplex* in, int rows, int cols);
+EXTERN_MATOPS double dsquMagns(double in);
+EXTERN_MATOPS double dsquMagna(double* in, int rows, int cols);
 
-double zsquMagns(doubleComplex in);
-double zsquMagna(doubleComplex* in, int rows, int cols);
+EXTERN_MATOPS float csquMagns(floatComplex in);
+EXTERN_MATOPS float csquMagna(floatComplex* in, int rows, int cols);
+
+EXTERN_MATOPS double zsquMagns(doubleComplex in);
+EXTERN_MATOPS double zsquMagna(doubleComplex* in, int rows, int cols);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* __SQUAREDMAGNITUDE_H__*/

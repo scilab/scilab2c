@@ -10,7 +10,7 @@
  *
  */
 
-
+#include <stdlib.h>
 #ifndef WITHOUT_LAPACK
 #include "lapack.h"
 #else
@@ -58,11 +58,11 @@ doubleComplex zdeterma(doubleComplex * in, int size){
 			 
 		default : 
 			  /*Allocate inCopy and Copy in in inCopy*/
-			  inCopy=malloc((uint)(size*size)*sizeof(doubleComplex));
+			  inCopy=(doubleComplex*)malloc((unsigned int)(size*size)*sizeof(doubleComplex));
 			  for (i=0;i<size*size;i++) inCopy[i]=in[i];
 			  
 			  /*Calculation of determinant*/
-			  vectPivot = malloc((uint)size*sizeof(int));
+			  vectPivot = (int*)malloc((unsigned int)size*sizeof(int));
 			  zgetrf_ ( &size, &size, inCopy, &size, vectPivot, &info);
 			  
 			  out=DoubleComplex(1,0);
@@ -112,7 +112,7 @@ doubleComplex zdeterma(doubleComplex * in, int size){
 			 
 		default : 
 				  /*Copy the input matrix*/
-			  inCopy=malloc((uint)(size*size)*sizeof(doubleComplex));
+			  inCopy=malloc((unsigned int)(size*size)*sizeof(doubleComplex));
 			  for (i=0;i<size*size;i++) inCopy[i]=in[i];
 			  
     			  for (i=0;i<size;i++){

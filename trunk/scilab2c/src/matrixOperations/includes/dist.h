@@ -16,25 +16,33 @@
 #ifndef __DIST_H__
 #define __DIST_H__
 
+#include "dynlib_matrixoperations.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
 	/* Computes the euclidian distance 
 	   between 2 scalars/arrays.
 	   We assume both arrays have the same
 	   numbers of lines and columns.*/
 
-float sdists( float in1, float in2);
-float sdista( float* in1, float* in2, int lines, int columns);
+EXTERN_MATOPS float sdists( float in1, float in2);
+EXTERN_MATOPS float sdista( float* in1, float* in2, int lines, int columns);
 
-double ddists( double in1, double in2);
-double ddista( double* in1, double* in2, int lines, int columns);
+EXTERN_MATOPS double ddists( double in1, double in2);
+EXTERN_MATOPS double ddista( double* in1, double* in2, int lines, int columns);
 
-float cdists( floatComplex in1, floatComplex in2);
-float cdista( floatComplex* in1, floatComplex* in2, int lines, int columns);
+EXTERN_MATOPS float cdists( floatComplex in1, floatComplex in2);
+EXTERN_MATOPS float cdista( floatComplex* in1, floatComplex* in2, int lines, int columns);
 
-double zdists( doubleComplex in1, doubleComplex in2);
-double zdista( doubleComplex* in1, doubleComplex* in2, int lines, int columns);
+EXTERN_MATOPS double zdists( doubleComplex in1, doubleComplex in2);
+EXTERN_MATOPS double zdista( doubleComplex* in1, doubleComplex* in2, int lines, int columns);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /*__DIST_H__*/
 

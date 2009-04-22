@@ -13,6 +13,7 @@
 #ifndef __ATAN2_H__
 #define __ATAN2_H__
 
+#include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 #include <math.h>
@@ -24,23 +25,23 @@
 /*
 ** \brief Float arc tangent function
 */
-float satan2s  ( float x , float y );
+EXTERN_ELEMFUNCT float satan2s  ( float x , float y );
 
 /*
 ** \brief Double arc tangent function
 */
-double datan2s ( double x , double y);
+EXTERN_ELEMFUNCT double datan2s ( double x , double y);
 
 
 /*
 ** \brief array's Float arc tangent function 
 */
-void satan2a (float* in1, int size1, float* in2, int size2, float* out) ; 
+EXTERN_ELEMFUNCT void satan2a (float* in1, int size1, float* in2, int size2, float* out) ; 
 
 /*
 ** \brief array's Double arc tangent function 
 */
-void datan2a (double* in1, int size1, double* in2, int size2, double* out) ;
+EXTERN_ELEMFUNCT void datan2a (double* in1, int size1, double* in2, int size2, double* out) ;
 
 
 

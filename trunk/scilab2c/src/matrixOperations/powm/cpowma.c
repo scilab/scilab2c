@@ -9,7 +9,7 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
-
+#include <malloc.h>
 #include "matrixPow.h"
 #include "spec.h"
 #include "pow.h"
@@ -24,9 +24,9 @@ void cpowma(floatComplex* in, int rows, floatComplex power, floatComplex* out){
 	floatComplex *eigenvalues,*eigenvectors,*tmp;
 	
 	/* Data initialization */
-	eigenvalues = malloc((uint)(rows*rows)*sizeof(floatComplex));
-	eigenvectors = malloc((uint)(rows*rows)*sizeof(floatComplex));
-	tmp = malloc((uint)(rows*rows)*sizeof(floatComplex));
+	eigenvalues = (floatComplex*)malloc((unsigned int)(rows*rows)*sizeof(floatComplex));
+	eigenvectors = (floatComplex*)malloc((unsigned int)(rows*rows)*sizeof(floatComplex));
+	tmp = (floatComplex*)malloc((unsigned int)(rows*rows)*sizeof(floatComplex));
 	
 	/* symmetric test*/
 	for(i=0;i<rows;i++) {

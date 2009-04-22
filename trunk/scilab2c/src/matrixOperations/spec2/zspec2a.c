@@ -10,7 +10,7 @@
  *
  */
  
-
+#include <malloc.h>
 #include "spec.h"
 #include "lapack.h"
 #include "zeros.h"
@@ -32,14 +32,14 @@ void zspec2a(doubleComplex* in, int rows,doubleComplex* eigenvalues, doubleCompl
 	double* outImag;
 	doubleComplex* inCopy;
 	
-	inCopy = malloc((uint)(rows*rows) * sizeof(doubleComplex));
-	outReal = malloc((uint)rows * sizeof(double));
-	outImag = malloc((uint)rows * sizeof(double));
+	inCopy = (doubleComplex*)malloc((unsigned int)(rows*rows) * sizeof(doubleComplex));
+	outReal = (double*)malloc((unsigned int)rows * sizeof(double));
+	outImag = (double*)malloc((unsigned int)rows * sizeof(double));
 	pdblLeftvectors=NULL;
 	pdblRightvectors=NULL;
 	
 	iWorkSize = 2*rows;
-	pdblWork = malloc((uint)iWorkSize * sizeof(doubleComplex));
+	pdblWork = (doubleComplex*)malloc((unsigned int)iWorkSize * sizeof(doubleComplex));
 	pdblRWork = NULL;	
 	pdblRWork2 = NULL;
 	
@@ -67,13 +67,13 @@ void zspec2a(doubleComplex* in, int rows,doubleComplex* eigenvalues, doubleCompl
 	
 	/* apply lapack function according to symmetry */
 	if(hermitian){
-		pdblRWork2 = malloc((uint)(3*rows) * sizeof(double));
+		pdblRWork2 = (double*)malloc((unsigned int)(3*rows) * sizeof(double));
 		C2F(zheev)( "V", "U", &rows, eigenvectors, &rows, outReal, pdblWork, &iWorkSize, pdblRWork2, &INFO );
 		dzerosa(outImag,1,rows);
 		for (i=0;i<rows;i++) eigenvalues[i+i*rows]=DoubleComplex(outReal[i],outImag[i]);
 	}
 	else {
-		pdblRWork = malloc((uint)(3*rows) * sizeof(doubleComplex));	
+		pdblRWork = (doubleComplex*)malloc((unsigned int)(3*rows) * sizeof(doubleComplex));	
 		C2F(zgeev)( "N", "V", &rows, inCopy, &rows, eigenvalues, 
 		pdblLeftvectors, &rows, eigenvectors, &rows, pdblWork, &iWorkSize,
 		pdblRWork, &INFO );

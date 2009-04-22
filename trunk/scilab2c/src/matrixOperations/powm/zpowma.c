@@ -9,7 +9,7 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
-
+#include <malloc.h>
 #include "matrixPow.h"
 #include "spec.h"
 #include "pow.h"
@@ -24,9 +24,9 @@ void zpowma(doubleComplex* in, int rows, doubleComplex power, doubleComplex* out
 	doubleComplex *eigenvalues,*eigenvectors,*tmp;
 	
 	/* Data initialization */
-	eigenvalues = malloc((uint)(rows*rows)*sizeof(doubleComplex));
-	eigenvectors = malloc((uint)(rows*rows)*sizeof(doubleComplex));
-	tmp = malloc((uint)(rows*rows)*sizeof(doubleComplex));
+	eigenvalues = (doubleComplex*)malloc((unsigned int)(rows*rows)*sizeof(doubleComplex));
+	eigenvectors = (doubleComplex*)malloc((unsigned int)(rows*rows)*sizeof(doubleComplex));
+	tmp = (doubleComplex*)malloc((unsigned int)(rows*rows)*sizeof(doubleComplex));
 	
 	/* hermitian test*/
 	for(i=0;i<rows;i++) {

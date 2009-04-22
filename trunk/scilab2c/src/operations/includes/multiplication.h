@@ -13,9 +13,13 @@
 #ifndef __MULTIPLICATION_H__
 #define __MULTIPLICATION_H__
 
+#include "dynlib_operations.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
 /*
 **
 ** WARNING WE ASSUME MATRIXES TO BE CONSCISTENT
@@ -29,7 +33,7 @@
 ** \param in2 : input float.
 ** \return : in1 * in 2 = in1 .* in2.
 */
-float	smuls(float in1, float in2);
+EXTERN_OPERATIONS float	smuls(float in1, float in2);
 
 /*
 ** \brief Compute a multiplication element ways for floats.
@@ -38,7 +42,7 @@ float	smuls(float in1, float in2);
 ** \param size : size of in2 array.
 ** \param out : array that contains the multiplication  = in1 .* in2.
 */
-void	smula(float *in1,  float *in2, int size2, float *out);
+EXTERN_OPERATIONS void	smula(float *in1,  float *in2, int size2, float *out);
 
 /*
 ** \brief Compute a multiplication with double.
@@ -46,7 +50,7 @@ void	smula(float *in1,  float *in2, int size2, float *out);
 ** \param in2 : input double.
 ** \return : in1 * in 2 = in1 .* in2.
 */
-double	dmuls(double in1, double in2);
+EXTERN_OPERATIONS double	dmuls(double in1, double in2);
 
 /*
 ** \brief Compute a multiplication element ways for double.
@@ -55,7 +59,7 @@ double	dmuls(double in1, double in2);
 ** \param size : size of in2 array.
 ** \param out : array that contains the multiplication  = in1 .* in2.
 */
-void	dmula(double *in1, double *in2, int size,double * out);
+EXTERN_OPERATIONS void	dmula(double *in1, double *in2, int size,double * out);
 
 /*
 ** \brief Compute a multiplication with floats Complex.
@@ -63,7 +67,7 @@ void	dmula(double *in1, double *in2, int size,double * out);
 ** \param in2 : input float complex.
 ** \return : in1 * in 2 = in1 .* in2.
 */
-floatComplex	cmuls(floatComplex in1, floatComplex in2);
+EXTERN_OPERATIONS floatComplex	cmuls(floatComplex in1, floatComplex in2);
 
 /*
 ** \brief Compute a multiplication element ways for complex single precision.
@@ -72,7 +76,7 @@ floatComplex	cmuls(floatComplex in1, floatComplex in2);
 ** \param size : size of in2 array.
 ** \param out : array that contains the multiplication  = in1 .* in2.
 */
-void	cmula(floatComplex *in1, floatComplex *in2, int size, floatComplex *out);
+EXTERN_OPERATIONS void	cmula(floatComplex *in1, floatComplex *in2, int size, floatComplex *out);
 
 /*
 ** \brief Compute a multiplication with double complex.
@@ -80,7 +84,7 @@ void	cmula(floatComplex *in1, floatComplex *in2, int size, floatComplex *out);
 ** \param in2 : input double conplex.
 ** \return : in1 * in 2 = in1 .* in2.
 */
-doubleComplex	zmuls(doubleComplex in1, doubleComplex in2);
+EXTERN_OPERATIONS doubleComplex	zmuls(doubleComplex in1, doubleComplex in2);
 
 /*
 ** \brief Compute a multiplication element ways for complex double precision.
@@ -89,19 +93,23 @@ doubleComplex	zmuls(doubleComplex in1, doubleComplex in2);
 ** \param size: size of in2 array.
 ** \param out : array that contains the multiplication  = in1 .* in2.
 */
-void	zmula(doubleComplex *in1, doubleComplex *in2, int size, doubleComplex *out);
+EXTERN_OPERATIONS void	zmula(doubleComplex *in1, doubleComplex *in2, int size, doubleComplex *out);
 
 
 /*
 ** \function ctimess
 ** \brief Multiply 2 Complex numbers.
 */
-floatComplex ctimess(floatComplex z1, floatComplex z2);
+EXTERN_OPERATIONS floatComplex ctimess(floatComplex z1, floatComplex z2);
 
 /*
 ** \function ztimess
 ** \brief Multiply 2 Complex numbers.
 */
-doubleComplex ztimess(doubleComplex z1, doubleComplex z2);
+EXTERN_OPERATIONS doubleComplex ztimess(doubleComplex z1, doubleComplex z2);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* !__MULTIPLICATION_H__ */

@@ -30,7 +30,7 @@ void dchola(double * in, int size, double *out){
 	
 	for (i=0;i<size*size;i++) out[i]=in[i];
 	
-	C2F(dpotrf)("U", &size, out, &size, &info,1L);
+	C2F(dpotrf)("U", &size, out, &size, &info);
 
 	/*Zeros in the lower triangular part*/
 	for (i=0;i<size;i++){

@@ -9,7 +9,7 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
-
+#include <malloc.h>
 /****FIXME****/
 /**** WARNING NOT WORK AT ALL FOR THE MOMENT  ***/
 /**** Because of problem of conversion float-> double ****/

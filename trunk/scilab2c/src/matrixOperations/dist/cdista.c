@@ -9,7 +9,7 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
- 
+#include <malloc.h>
 #include "dist.h"
 #include "matrixTranspose.h"
 #include "matrixMultiplication.h"
@@ -27,10 +27,10 @@ float cdista(floatComplex* in1,floatComplex* in2, int lines, int columns){
 	
 	
 	/* FIXME : malloc here*/
-	a=malloc((uint)(lines*columns)*sizeof(floatComplex));
-	at=malloc((uint)(lines*columns)*sizeof(floatComplex));
-	mul=malloc((uint)(lines*lines)*sizeof(floatComplex));
-	eigenvalues=malloc((uint)(lines)*sizeof(floatComplex));
+	a=(floatComplex*)malloc((unsigned int)(lines*columns)*sizeof(floatComplex));
+	at=(floatComplex*)malloc((unsigned int)(lines*columns)*sizeof(floatComplex));
+	mul=(floatComplex*)malloc((unsigned int)(lines*lines)*sizeof(floatComplex));
+	eigenvalues=(floatComplex*)malloc((unsigned int)(lines)*sizeof(floatComplex));
 		
 	for (i=0;i<lines*columns;i++) a[i]=cdiffs(in1[i],in2[i]);
 	ctransposea(a,lines, columns,at);

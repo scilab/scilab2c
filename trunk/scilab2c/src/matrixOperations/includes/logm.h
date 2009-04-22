@@ -14,15 +14,24 @@
 #ifndef __LOGM_H__
 #define __LOGM_H__
 
+#include "dynlib_matrixoperations.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
-void slogma (float* in, int size, float* out);
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
-void dlogma (double* in, int size, double* out);
+EXTERN_MATOPS void slogma (float* in, int size, float* out);
 
-void clogma (floatComplex* in, int size, floatComplex* out);
+EXTERN_MATOPS void dlogma (double* in, int size, double* out);
 
-void zlogma (doubleComplex* in, int size, doubleComplex* out);
+EXTERN_MATOPS void clogma (floatComplex* in, int size, floatComplex* out);
+
+EXTERN_MATOPS void zlogma (doubleComplex* in, int size, doubleComplex* out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* __LOGM_H__ */

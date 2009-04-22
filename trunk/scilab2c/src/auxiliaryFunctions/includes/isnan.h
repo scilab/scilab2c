@@ -13,51 +13,59 @@
 #ifndef __IS_NAN_H__
 #define __IS_NAN_H__
 
-#include <stdbool.h>
 #include <math.h>
-
+#include "dynlib_auxiliaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
-/*
-** \brief Float Is Nan function
-*/
-float	sisnans(float x);
-
-/*
-** \brief Double Is Nan function
-*/
-double disnans(double x);
-
-/*
-** \brief Float Complex Is Nan function
-*/
-float	cisnans(floatComplex z);
-
-/*
-** \brief Double Complex Is Nan function
-*/
-double zisnans(doubleComplex z);
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
 /*
 ** \brief Float Is Nan function
 */
-void	sisnana(float* x, int size, float* out);
+EXTERN_AUXFUNCT float	sisnans(float x);
 
 /*
 ** \brief Double Is Nan function
 */
-void disnana(double* x, int size, double* out);
+EXTERN_AUXFUNCT double disnans(double x);
 
 /*
 ** \brief Float Complex Is Nan function
 */
-void	cisnana(floatComplex* z, int size, float* out);
+EXTERN_AUXFUNCT float	cisnans(floatComplex z);
 
 /*
 ** \brief Double Complex Is Nan function
 */
-void zisnana(doubleComplex* z, int size, double* out);
+EXTERN_AUXFUNCT double zisnans(doubleComplex z);
+
+/*
+** \brief Float Is Nan function
+*/
+EXTERN_AUXFUNCT void	sisnana(float* x, int size, float* out);
+
+/*
+** \brief Double Is Nan function
+*/
+EXTERN_AUXFUNCT void disnana(double* x, int size, double* out);
+
+/*
+** \brief Float Complex Is Nan function
+*/
+EXTERN_AUXFUNCT void	cisnana(floatComplex* z, int size, float* out);
+
+/*
+** \brief Double Complex Is Nan function
+*/
+EXTERN_AUXFUNCT void zisnana(doubleComplex* z, int size, double* out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
+
 
 
 #endif /* !__IS_NAN_H__ */

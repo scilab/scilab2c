@@ -14,24 +14,30 @@
 #ifndef __CHOL_H__
 #define __CHOL_H__
  
+#include "dynlib_matrixoperations.h"
 #include "doubleComplex.h"
 #include "floatComplex.h"
  
-
+#ifdef  __cplusplus
+extern "C" {
+#endif
 	
-double dchols(double in);
-void dchola(double *in, int size, double *out);
+EXTERN_MATOPS double dchols(double in);
+EXTERN_MATOPS void dchola(double *in, int size, double *out);
  
-float schols(float in);
-void schola(float *in, int size, float *out);
+EXTERN_MATOPS float schols(float in);
+EXTERN_MATOPS void schola(float *in, int size, float *out);
  
 #define zchols(in) 		DoubleComplex(dchols(zreals(in)),0)
 
-void zchola (doubleComplex *in, int size, doubleComplex *out); 
+EXTERN_MATOPS void zchola (doubleComplex *in, int size, doubleComplex *out); 
  
 #define cchols(in) 		FloatComplex(schols(creals(in)),0)
-void cchola(floatComplex *in, int size, floatComplex *out); 
+EXTERN_MATOPS void cchola(floatComplex *in, int size, floatComplex *out); 
 
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* __CHOL_H__ */
  

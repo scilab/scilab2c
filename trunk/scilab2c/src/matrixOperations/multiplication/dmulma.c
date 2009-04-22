@@ -11,7 +11,7 @@
  */
 
 #ifndef WITHOUT_BLAS
-#include "blas.h"
+#include "lapack.h"
 #endif
 #include "matrixMultiplication.h"
 

@@ -13,14 +13,25 @@
 #ifndef __CONJ_H__
 #define __CONJ_H__
 
+#include "dynlib_auxiliaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
-floatComplex cconjs( floatComplex in ) ;
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
-void cconja  ( floatComplex* in , int size, floatComplex* out );
+EXTERN_AUXFUNCT floatComplex cconjs( floatComplex in ) ;
 
-doubleComplex zconjs ( doubleComplex in) ;
+EXTERN_AUXFUNCT void cconja  ( floatComplex* in , int size, floatComplex* out );
 
-void zconja ( doubleComplex* in , int size, doubleComplex* out ) ;
+EXTERN_AUXFUNCT doubleComplex zconjs ( doubleComplex in) ;
+
+EXTERN_AUXFUNCT void zconja ( doubleComplex* in , int size, doubleComplex* out ) ;
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
+
+
 #endif /* !__CONJ_H__ */

@@ -9,7 +9,7 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
-
+#include <malloc.h>
 #include "matrixInversion.h" 
 #include "lapack.h"
 #include <stdio.h>

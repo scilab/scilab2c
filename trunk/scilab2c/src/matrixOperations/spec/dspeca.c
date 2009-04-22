@@ -10,7 +10,7 @@
  *
  */
  
-
+#include <malloc.h>
 #include "spec.h"
 #include "lapack.h"
 #include "zeros.h"
@@ -30,15 +30,15 @@ void dspeca(double* in, int rows,double* out){
 	double* pdblRightvectors;
 	double* inCopy;
 	
-	inCopy = malloc((uint)(rows*rows) * sizeof(double));
-	outReal = malloc((uint)rows * sizeof(double));
-	outImag = malloc((uint)rows * sizeof(double));
+	inCopy = (double*)malloc((unsigned int)(rows*rows) * sizeof(double));
+	outReal = (double*)malloc((unsigned int)rows * sizeof(double));
+	outImag = (double*)malloc((unsigned int)rows * sizeof(double));
 	pdblLeftvectors=NULL;
 	pdblRightvectors=NULL;
 	
 	
 	iWorkSize = 3*rows;
-	pdblWork = malloc((uint)iWorkSize * sizeof(double));
+	pdblWork = (double*)malloc((unsigned int)iWorkSize * sizeof(double));
 	
 	for(i=0;i<rows*rows;i++) inCopy[i]=in[i];
 	/* look if the matrix is symmetric */

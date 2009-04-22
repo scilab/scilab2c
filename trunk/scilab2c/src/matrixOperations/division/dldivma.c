@@ -12,7 +12,7 @@
 
 
 
-
+#include <malloc.h>
 #include "matrixDivision.h" 
 #include "lapack.h" 
 #include <stdio.h>

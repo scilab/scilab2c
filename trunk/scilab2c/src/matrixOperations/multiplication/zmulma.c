@@ -9,9 +9,9 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
-
+#include <stdlib.h>
 #ifndef WITHOUT_BLAS
-#include "blas.h"
+#include "lapack.h"
 #endif
 #include "matrixMultiplication.h"
 
@@ -38,13 +38,13 @@ void	zmulma(doubleComplex *in1, int lines1, int columns1,
   double MinusOne	= -1;
   double Zero		= 0;
 
-  double *in1Real = malloc((uint) lines1 * (uint) columns1 * sizeof(double));
-  double *in1Imag = malloc((uint) lines1 * (uint) columns1 * sizeof(double));
-  double *in2Real = malloc((uint) lines2 * (uint) columns2 * sizeof(double));
-  double *in2Imag = malloc((uint) lines2 * (uint) columns2 * sizeof(double));
+  double *in1Real = (double*)malloc((unsigned int) lines1 * (unsigned int) columns1 * sizeof(double));
+  double *in1Imag = (double*)malloc((unsigned int) lines1 * (unsigned int) columns1 * sizeof(double));
+  double *in2Real = (double*)malloc((unsigned int) lines2 * (unsigned int) columns2 * sizeof(double));
+  double *in2Imag = (double*)malloc((unsigned int) lines2 * (unsigned int) columns2 * sizeof(double));
 
-  double *RealOut = malloc((uint) lines1 * (uint) columns2 * sizeof(double));
-  double *ImagOut = malloc((uint) lines1 * (uint) columns2 * sizeof(double));
+  double *RealOut = (double*)malloc((unsigned int) lines1 * (unsigned int) columns2 * sizeof(double));
+  double *ImagOut = (double*)malloc((unsigned int) lines1 * (unsigned int) columns2 * sizeof(double));
 
   zreala(in1, lines1 * columns1, in1Real);
   zreala(in2, lines2 * columns2, in2Real);
@@ -54,6 +54,7 @@ void	zmulma(doubleComplex *in1, int lines1, int columns1,
   /* Cr <-  1*Ar*Br + 0*Cr */
   dgemm_("N","N", &lines1, &columns2, &columns1, &One,
 	 in1Real, &lines1, in2Real, &lines2, &Zero, RealOut, &lines1);
+  
 
   /* Cr <- -1*Ai*Bi + 1*Cr */
   dgemm_("N","N", &lines1, &columns2, &columns1, &MinusOne,
