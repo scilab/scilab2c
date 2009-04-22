@@ -9,7 +9,7 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
- 
+
 #include <malloc.h>
 #include "lpc2cep.h"
 #include "fft.h"
@@ -19,18 +19,18 @@
 void slpc2cepa(float *in, int size, float*out){
 	int i;
 	floatComplex* inCpx;
-	
+
 	/* Copy in in a FloatComplex*/
-	inCpx=malloc((uint)(size*size)*sizeof(floatComplex));
-	for (i=0;i<size*size;i++) 
+	inCpx=malloc((unsigned int)(size*size)*sizeof(floatComplex));
+	for (i=0;i<size*size;i++)
 		inCpx[i]=FloatComplex(in[i],0);
-	
+
 	cfftma(inCpx,size,size,inCpx);
 	clogma(inCpx,size,inCpx);
 	cifftma(inCpx,size,size,inCpx);
-	
+
 	creala(inCpx,size*size,out);
- 	
+
  	free(inCpx);
 }
 
