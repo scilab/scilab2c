@@ -10,6 +10,7 @@
  *
  */
 
+#include <stdlib.h>
 #include <math.h>
 #include "max.h"
 #include "min.h"
@@ -110,7 +111,7 @@ static    int  mulByRotationFactor (void );
 static    int  post_sqFactor2NormlOrder (void);
 static    void  single_sqFactor2NormlOrder (void);
 static    int  multi_sqFactor2NormlOrder (void);
-   
+
 /* End Prototypes */
 
 /*note on this code all numbers alone in comment is
@@ -155,7 +156,7 @@ int dfftmx ( double* _pdblA , double* _pdblB , int _iNtot, int _iN, int _iNspan,
    np[0] = ks ;
 
    if ( kt != 0) permute_stage1 ( ) ;
-    
+
 
    if ( 2*kt + 1 < m ) permute_stage2 ( ) ;
 
@@ -173,7 +174,7 @@ Sous-Fonctions
 
 /* this function only set the value of variable */
 static void preliminaryWork (void)
-{  
+{
    s72 = -s72 ;
    s120= -s120;
    rad = -rad ;
@@ -238,7 +239,7 @@ switch ( nfac[i-1] )
          k = nfac[i-1] ;
          kspnn = kspan ;
          kspan = kspan / k ;
-         
+
          factorOf3Transform ( ) ;
          break ;
 
@@ -258,7 +259,7 @@ switch ( nfac[i-1] )
          kspan = kspan / k ;
 
          if ( nfac[i-1] != jf) preFOtherTransform ( ) ;
-         
+
          factorOfOtherTransform ( ) ;
          break ;
     }
@@ -303,7 +304,7 @@ static void permute_stage2 (void)
 
 	/*permutation for square-free facotrs of n */
 	nonSqFactor2NormOrder () ;
-	
+
 	/*determine the permutation cycles of length greater than 1*/
 	detPermutCycles ();
 
@@ -383,7 +384,7 @@ static int factorOf2Transform (void)
 
 					kk = k2 + kspan;
 				}while (  kk < nt );
-				 
+
 				k2 = kk - nt;
 				c1 = -c1;
 				kk = k1 - k2;
@@ -603,11 +604,11 @@ static void factorOf3Transform (void)
 			a[k1-1] = ak - bj ;
 			b[k1-1] = bk + aj ;
 			a[k2-1] = ak + bj ;
-			b[k2-1] = bk - aj ;	
+			b[k2-1] = bk - aj ;
 
 			kk = k2 + kspan ;
 		} while (kk < nn);
-		
+
 		kk -= nn ;
 	}while (kk <= kspan);
 
