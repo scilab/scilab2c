@@ -14,15 +14,24 @@
 #ifndef __CROSSCORR_H__
 #define __CROSSCORR_H__
 
+#include "dynlib_signalprocessing.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 
-void scrossCorra(float* in1, int rows1, int cols1, float* in2, int rows2, int cols2, float* out);
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
-void dcrossCorra(double* in1, int rows1, int cols1, double* in2, int rows2, int cols2, double* out);
+EXTERN_SIGPROC void scrossCorra(float* in1, int rows1, int cols1, float* in2, int rows2, int cols2, float* out);
 
-void ccrossCorra(floatComplex* in1, int rows1, int cols1, floatComplex* in2, int rows2, int cols2, floatComplex* out);
+EXTERN_SIGPROC void dcrossCorra(double* in1, int rows1, int cols1, double* in2, int rows2, int cols2, double* out);
 
-void zcrossCorra(doubleComplex* in1, int rows1, int cols1, doubleComplex* in2, int rows2, int cols2, doubleComplex* out);
+EXTERN_SIGPROC void ccrossCorra(floatComplex* in1, int rows1, int cols1, floatComplex* in2, int rows2, int cols2, floatComplex* out);
+
+EXTERN_SIGPROC void zcrossCorra(doubleComplex* in1, int rows1, int cols1, doubleComplex* in2, int rows2, int cols2, doubleComplex* out);
+
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* __CROSSCORR_H__ */

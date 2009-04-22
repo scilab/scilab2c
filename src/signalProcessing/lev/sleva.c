@@ -39,7 +39,7 @@ float sleva(float* in,int size, float* ar, float* rc){
 	float sigma2;
 	
 	/* FIXME : malloc here */ 
-	ak1=malloc((uint)size*sizeof(float));
+	ak1=(float*)malloc((unsigned int)size*sizeof(float));
 	
 	/* initialize levinson's algorithm */
 	ar[0]=-in[1]/in[0];

@@ -14,6 +14,8 @@
 #define __FFTSHIFT_H__
 
 
+#include "dynlib_signalprocessing.h"
+
 /* 
    fftshift rearrange the result of fft(x) 
    it's call like that : fftshift(y), y=ff(x)
@@ -27,13 +29,17 @@
 #define cfftshifts(in)					in
 #define zfftshifts(in)					in
 
-void sfftshifta(float* in,int rows,int columns,float* out);		
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
-void dfftshifta(double* in,int rows,int columns,double* out);
+EXTERN_SIGPROC void sfftshifta(float* in,int rows,int columns,float* out);		
 
-void cfftshifta ( floatComplex* in , int rows, int cols, floatComplex* out);
+EXTERN_SIGPROC void dfftshifta(double* in,int rows,int columns,double* out);
 
-void zfftshifta ( doubleComplex* in , int rows, int cols, doubleComplex* out);
+EXTERN_SIGPROC void cfftshifta ( floatComplex* in , int rows, int cols, floatComplex* out);
+
+EXTERN_SIGPROC void zfftshifta ( doubleComplex* in , int rows, int cols, doubleComplex* out);
 
 
 #define srowfftshifts(in)					in
@@ -41,28 +47,30 @@ void zfftshifta ( doubleComplex* in , int rows, int cols, doubleComplex* out);
 #define crowfftshifts(in)					in
 #define zrowfftshifts(in)					in
 
-void srowfftshifta(float* in,int rows,int columns,float* out);		
+EXTERN_SIGPROC void srowfftshifta(float* in,int rows,int columns,float* out);		
 
-void drowfftshifta(double* in,int rows,int columns,double* out);
+EXTERN_SIGPROC void drowfftshifta(double* in,int rows,int columns,double* out);
 
-void crowfftshifta ( floatComplex* in , int rows, int cols, floatComplex* out);
+EXTERN_SIGPROC void crowfftshifta ( floatComplex* in , int rows, int cols, floatComplex* out);
 
-void zrowfftshifta ( doubleComplex* in , int rows, int cols, doubleComplex* out);
+EXTERN_SIGPROC void zrowfftshifta ( doubleComplex* in , int rows, int cols, doubleComplex* out);
 
 #define scolumnfftshifts(in)					in
 #define dcolumnfftshifts(in)					in
 #define ccolumnfftshifts(in)					in
 #define zcolumnfftshifts(in)					in
 
-void scolumnfftshifta(float* in,int rows,int columns,float* out);		
+EXTERN_SIGPROC void scolumnfftshifta(float* in,int rows,int columns,float* out);		
 
-void dcolumnfftshifta(double* in,int rows,int columns,double* out);
+EXTERN_SIGPROC void dcolumnfftshifta(double* in,int rows,int columns,double* out);
 
-void ccolumnfftshifta ( floatComplex* in , int rows, int cols, floatComplex* out);
+EXTERN_SIGPROC void ccolumnfftshifta ( floatComplex* in , int rows, int cols, floatComplex* out);
 
-void zcolumnfftshifta ( doubleComplex* in , int rows, int cols, doubleComplex* out);
+EXTERN_SIGPROC void zcolumnfftshifta ( doubleComplex* in , int rows, int cols, doubleComplex* out);
 
-
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* !__FFTSHIFT_H__ */
 

@@ -44,7 +44,7 @@ doubleComplex zleva(doubleComplex* in,int size, doubleComplex* ar, doubleComplex
 	doubleComplex sigma2;
 	
 	/* FIXME : malloc here */ 
-	ak1=malloc((uint)size*sizeof(doubleComplex));
+	ak1=(doubleComplex*)malloc((unsigned int)size*sizeof(doubleComplex));
 	
 	/* initialize levinson's algorithm */
 	temp=zrdivs(in[1],in[0]);

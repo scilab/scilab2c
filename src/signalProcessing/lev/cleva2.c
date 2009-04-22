@@ -45,7 +45,7 @@ floatComplex cleva2(floatComplex* in,int size, floatComplex* ar){
 	floatComplex sigma2;
 	
 	/* FIXME : malloc here */ 
-	ak1=malloc((uint)size*sizeof(floatComplex));
+	ak1=(floatComplex*)malloc((unsigned int)size*sizeof(floatComplex));
 	
 	/* initialize levinson's algorithm */
 	temp=crdivs(in[1],in[0]);
