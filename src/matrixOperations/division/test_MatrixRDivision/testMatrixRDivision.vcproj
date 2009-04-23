@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9,00"
-	Name="testDoubleDist"
-	ProjectGUID="{3F1C1C41-424E-4E23-8990-AEB55196376D}"
-	RootNamespace="testDoubleDist"
+	Name="testMatrixRDivision"
+	ProjectGUID="{33833932-6973-483B-B0D1-B3CC800BDFF5}"
+	RootNamespace="testMatrixRDivision"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
@@ -60,6 +60,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				OutputFile="$(SolutionDir)bin\$(ProjectName).exe"
 				LinkIncremental="2"
 				GenerateDebugInformation="true"
 				SubSystem="1"
@@ -132,6 +133,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				OutputFile="$(SolutionDir)bin\$(ProjectName).exe"
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				SubSystem="1"
