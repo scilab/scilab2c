@@ -17,8 +17,8 @@ void cconva(floatComplex *in1, int size1, floatComplex *in2,int size2, floatComp
 	floatComplex *in1b, *in2b, *result;	
 
 
-	m1=(int)floor( log(float(size1+size2-1)) / log((float)2) + 1 );
-	m1=(int)pow((float)2,(float)m1);
+	m1=(int)floor( log(size1+size2-1.0) / log(2.0) + 1 );
+	m1=(int)pow(2.0, m1);
 
 	in1b=(floatComplex *)malloc((unsigned int)(2*m1)*sizeof(float));
 	for(i=0;i<m1;i++){
