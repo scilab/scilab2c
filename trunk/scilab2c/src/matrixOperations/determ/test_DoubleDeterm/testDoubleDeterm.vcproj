@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9,00"
-	Name="testDoubleChol"
-	ProjectGUID="{2B2D70A6-F2DB-4160-972C-9ECFA0B0699A}"
-	RootNamespace="testDoubleChol"
+	Name="testDoubleDeterm"
+	ProjectGUID="{7F13C8AE-27AC-43B4-8C1E-263C5A4C9942}"
+	RootNamespace="testDoubleDeterm"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
@@ -60,6 +60,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				OutputFile="$(SolutionDir)bin\$(ProjectName).exe"
 				LinkIncremental="2"
 				GenerateDebugInformation="true"
 				SubSystem="1"
@@ -132,6 +133,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				OutputFile="$(SolutionDir)bin\$(ProjectName).exe"
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				SubSystem="1"

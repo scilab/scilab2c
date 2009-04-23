@@ -34,7 +34,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testCplxAcos", "src\element
 		{9B1BD750-1FEF-4D6B-9422-782D16181CEE} = {9B1BD750-1FEF-4D6B-9422-782D16181CEE}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testRealsAcos", "src\elementaryFunctions\acos\testrealsacos\testrealsacos.vcproj", "{0556427D-6D88-4A12-9EB3-7F551D6F1FA4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testRealsAcos", "src\elementaryFunctions\acos\test_realsacos\testrealsacos.vcproj", "{0556427D-6D88-4A12-9EB3-7F551D6F1FA4}"
 	ProjectSection(ProjectDependencies) = postProject
 		{72B46833-B150-432D-B231-3E0ECD91E190} = {72B46833-B150-432D-B231-3E0ECD91E190}
 	EndProjectSection
@@ -113,37 +113,37 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "string", "string", "{E6F54B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "type", "type", "{53D4C03D-7FBF-46C8-A07A-C44644420132}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatAbs", "src\auxiliaryFunctions\abs\testFloatAbs\testFloatAbs.vcproj", "{4B5A02A3-C3EF-4A5C-B5A8-7264697D42B6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatAbs", "src\auxiliaryFunctions\abs\test_FloatAbs\testFloatAbs.vcproj", "{4B5A02A3-C3EF-4A5C-B5A8-7264697D42B6}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9B1BD750-1FEF-4D6B-9422-782D16181CEE} = {9B1BD750-1FEF-4D6B-9422-782D16181CEE}
 		{AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9} = {AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleAbs", "src\auxiliaryFunctions\abs\testDoubleAbs\testDoubleAbs.vcproj", "{5A8D4B59-AC5D-4BA0-A26F-17E740F35042}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleAbs", "src\auxiliaryFunctions\abs\test_DoubleAbs\testDoubleAbs.vcproj", "{5A8D4B59-AC5D-4BA0-A26F-17E740F35042}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9B1BD750-1FEF-4D6B-9422-782D16181CEE} = {9B1BD750-1FEF-4D6B-9422-782D16181CEE}
 		{AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9} = {AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testConj", "src\auxiliaryFunctions\conj\testConj\testConj.vcproj", "{CD5DB834-234F-40A3-B551-DC895885E7B1}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testConj", "src\auxiliaryFunctions\conj\test_Conj\testConj.vcproj", "{CD5DB834-234F-40A3-B551-DC895885E7B1}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9B1BD750-1FEF-4D6B-9422-782D16181CEE} = {9B1BD750-1FEF-4D6B-9422-782D16181CEE}
 		{AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9} = {AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFind", "src\auxiliaryFunctions\find\testFind\testFind.vcproj", "{D5110077-CA24-494B-87D0-451BD124CF70}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFind", "src\auxiliaryFunctions\find\test_Find\testFind.vcproj", "{D5110077-CA24-494B-87D0-451BD124CF70}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9B1BD750-1FEF-4D6B-9422-782D16181CEE} = {9B1BD750-1FEF-4D6B-9422-782D16181CEE}
 		{AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9} = {AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFind2d", "src\auxiliaryFunctions\find2d\testFind2d\testFind2d.vcproj", "{7361B40C-BCF5-442B-9116-7DB5AD7456B0}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFind2d", "src\auxiliaryFunctions\find2d\test_Find2d\testFind2d.vcproj", "{7361B40C-BCF5-442B-9116-7DB5AD7456B0}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9B1BD750-1FEF-4D6B-9422-782D16181CEE} = {9B1BD750-1FEF-4D6B-9422-782D16181CEE}
 		{AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9} = {AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFrexp", "src\auxiliaryFunctions\frexp\frexp\frexp.vcproj", "{FDBBFB07-9E66-481E-AA45-3F3BD87CCE77}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFrexp", "src\auxiliaryFunctions\frexp\test_frexp\frexp.vcproj", "{FDBBFB07-9E66-481E-AA45-3F3BD87CCE77}"
 	ProjectSection(ProjectDependencies) = postProject
 		{72B46833-B150-432D-B231-3E0ECD91E190} = {72B46833-B150-432D-B231-3E0ECD91E190}
 		{9B1BD750-1FEF-4D6B-9422-782D16181CEE} = {9B1BD750-1FEF-4D6B-9422-782D16181CEE}
@@ -151,182 +151,192 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFrexp", "src\auxiliaryF
 		{AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9} = {AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testIsEmpty", "src\auxiliaryFunctions\isempty\testIsEmpty\testIsEmpty.vcproj", "{CF43766B-FEBE-4E52-A7CA-7D0A9F5DB982}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testIsEmpty", "src\auxiliaryFunctions\isempty\test_IsEmpty\testIsEmpty.vcproj", "{CF43766B-FEBE-4E52-A7CA-7D0A9F5DB982}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9B1BD750-1FEF-4D6B-9422-782D16181CEE} = {9B1BD750-1FEF-4D6B-9422-782D16181CEE}
 		{AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9} = {AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testIsNan", "src\auxiliaryFunctions\isnan\testIsNan\testIsNan.vcproj", "{18763BD3-2916-4D97-9633-5DAC1A635EDD}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testIsNan", "src\auxiliaryFunctions\isnan\test_IsNan\testIsNan.vcproj", "{18763BD3-2916-4D97-9633-5DAC1A635EDD}"
 	ProjectSection(ProjectDependencies) = postProject
 		{72B46833-B150-432D-B231-3E0ECD91E190} = {72B46833-B150-432D-B231-3E0ECD91E190}
 		{9B1BD750-1FEF-4D6B-9422-782D16181CEE} = {9B1BD750-1FEF-4D6B-9422-782D16181CEE}
 		{AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9} = {AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testLength", "src\auxiliaryFunctions\length\testLength\testLength.vcproj", "{A4626E50-DDD7-44E1-83FC-05BF396AF250}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testLength", "src\auxiliaryFunctions\length\test_Length\testLength.vcproj", "{A4626E50-DDD7-44E1-83FC-05BF396AF250}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9B1BD750-1FEF-4D6B-9422-782D16181CEE} = {9B1BD750-1FEF-4D6B-9422-782D16181CEE}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testPythag", "src\auxiliaryFunctions\pythag\testPythag\testPythag.vcproj", "{10F6C306-FD81-45F3-936B-CDF8213A88E6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testPythag", "src\auxiliaryFunctions\pythag\test_Pythag\testPythag.vcproj", "{10F6C306-FD81-45F3-936B-CDF8213A88E6}"
 	ProjectSection(ProjectDependencies) = postProject
 		{AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9} = {AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testRand", "src\auxiliaryFunctions\rand\testRand\testRand.vcproj", "{31BBBDB6-9E46-4227-A8E3-9A1942DBD05E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testRand", "src\auxiliaryFunctions\rand\test_Rand\testRand.vcproj", "{31BBBDB6-9E46-4227-A8E3-9A1942DBD05E}"
 	ProjectSection(ProjectDependencies) = postProject
 		{AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9} = {AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testSign", "src\auxiliaryFunctions\sign\testSign\testSign.vcproj", "{EEBFAC09-8BD7-4254-9316-57C1907D827E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testSign", "src\auxiliaryFunctions\sign\test_Sign\testSign.vcproj", "{EEBFAC09-8BD7-4254-9316-57C1907D827E}"
 	ProjectSection(ProjectDependencies) = postProject
 		{72B46833-B150-432D-B231-3E0ECD91E190} = {72B46833-B150-432D-B231-3E0ECD91E190}
 		{9B1BD750-1FEF-4D6B-9422-782D16181CEE} = {9B1BD750-1FEF-4D6B-9422-782D16181CEE}
 		{AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9} = {AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testSize", "src\auxiliaryFunctions\size\testSize\testSize.vcproj", "{5D4B1991-549D-48ED-A5F6-CB17F15B72C8}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testSize", "src\auxiliaryFunctions\size\test_Size\testSize.vcproj", "{5D4B1991-549D-48ED-A5F6-CB17F15B72C8}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9B1BD750-1FEF-4D6B-9422-782D16181CEE} = {9B1BD750-1FEF-4D6B-9422-782D16181CEE}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testType", "src\auxiliaryFunctions\type\testType\testType.vcproj", "{8EB05C91-9405-4AF4-88B4-A6B227409BFB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testType", "src\auxiliaryFunctions\type\test_Type\testType.vcproj", "{8EB05C91-9405-4AF4-88B4-A6B227409BFB}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9B1BD750-1FEF-4D6B-9422-782D16181CEE} = {9B1BD750-1FEF-4D6B-9422-782D16181CEE}
 		{AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9} = {AF4A8AF2-CC9F-4991-BE6E-8AAF9CB5BFC9}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDisp", "src\string\disp\testDisp\testDisp.vcproj", "{432917E4-F042-47B2-BF43-0C376883A7E6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDisp", "src\string\disp\test_Disp\testDisp.vcproj", "{432917E4-F042-47B2-BF43-0C376883A7E6}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9B1BD750-1FEF-4D6B-9422-782D16181CEE} = {9B1BD750-1FEF-4D6B-9422-782D16181CEE}
 		{38A141F2-DF77-4032-A17C-0901EA1A7AF1} = {38A141F2-DF77-4032-A17C-0901EA1A7AF1}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testString", "src\string\string\testString\testString.vcproj", "{DF010F03-718D-4CEF-BD03-5E2C9C47613D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testString", "src\string\string\test_String\testString.vcproj", "{DF010F03-718D-4CEF-BD03-5E2C9C47613D}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9B1BD750-1FEF-4D6B-9422-782D16181CEE} = {9B1BD750-1FEF-4D6B-9422-782D16181CEE}
 		{38A141F2-DF77-4032-A17C-0901EA1A7AF1} = {38A141F2-DF77-4032-A17C-0901EA1A7AF1}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatAcosh", "src\elementaryFunctions\acosh\testFloatAcosh\testFloatAcosh.vcproj", "{24015124-A47C-406F-850B-09E95DBBF573}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatAcosh", "src\elementaryFunctions\acosh\test_FloatAcosh\testFloatAcosh.vcproj", "{24015124-A47C-406F-850B-09E95DBBF573}"
 	ProjectSection(ProjectDependencies) = postProject
 		{72B46833-B150-432D-B231-3E0ECD91E190} = {72B46833-B150-432D-B231-3E0ECD91E190}
 		{9B1BD750-1FEF-4D6B-9422-782D16181CEE} = {9B1BD750-1FEF-4D6B-9422-782D16181CEE}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatImplicitList", "src\implicitList\testFloatImplicitList\testFloatImplicitList.vcproj", "{93CF027E-C286-4F61-A9D6-DE3C899C5E77}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatImplicitList", "src\implicitList\test_FloatImplicitList\testFloatImplicitList.vcproj", "{93CF027E-C286-4F61-A9D6-DE3C899C5E77}"
 	ProjectSection(ProjectDependencies) = postProject
 		{4C99D2F9-1AA2-460D-B9B8-7D44A5F9E7CD} = {4C99D2F9-1AA2-460D-B9B8-7D44A5F9E7CD}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleImplicitList", "src\implicitList\testDoubleImplicitList\testDoubleImplicitList.vcproj", "{15D96388-C17C-4085-991F-9003E0CE9C6A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleImplicitList", "src\implicitList\test_DoubleImplicitList\testDoubleImplicitList.vcproj", "{15D96388-C17C-4085-991F-9003E0CE9C6A}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9B1BD750-1FEF-4D6B-9422-782D16181CEE} = {9B1BD750-1FEF-4D6B-9422-782D16181CEE}
 		{4C99D2F9-1AA2-460D-B9B8-7D44A5F9E7CD} = {4C99D2F9-1AA2-460D-B9B8-7D44A5F9E7CD}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testMultiplication", "src\operations\multiplication\testMultiplication\testMultiplication.vcproj", "{769E26C1-E337-4878-B604-8BE33323F5FF}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testMultiplication", "src\operations\multiplication\test_Multiplication\testMultiplication.vcproj", "{769E26C1-E337-4878-B604-8BE33323F5FF}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9B1BD750-1FEF-4D6B-9422-782D16181CEE} = {9B1BD750-1FEF-4D6B-9422-782D16181CEE}
 		{9B622A66-546A-4B33-B947-0A189D259D37} = {9B622A66-546A-4B33-B947-0A189D259D37}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testSubtraction", "src\operations\subtraction\testSubtraction\testSubtraction.vcproj", "{F0DA7501-84CB-4641-9DDA-DA084736B7D4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testSubtraction", "src\operations\subtraction\test_Subtraction\testSubtraction.vcproj", "{F0DA7501-84CB-4641-9DDA-DA084736B7D4}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9B1BD750-1FEF-4D6B-9422-782D16181CEE} = {9B1BD750-1FEF-4D6B-9422-782D16181CEE}
 		{9B622A66-546A-4B33-B947-0A189D259D37} = {9B622A66-546A-4B33-B947-0A189D259D37}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testAddition", "src\operations\addition\testAddition\testAddition.vcproj", "{59F5B75C-7FCC-4B07-A5D0-C39D5757204B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testAddition", "src\operations\addition\test_Addition\testAddition.vcproj", "{59F5B75C-7FCC-4B07-A5D0-C39D5757204B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9B1BD750-1FEF-4D6B-9422-782D16181CEE} = {9B1BD750-1FEF-4D6B-9422-782D16181CEE}
 		{9B622A66-546A-4B33-B947-0A189D259D37} = {9B622A66-546A-4B33-B947-0A189D259D37}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testLDivision", "src\operations\division\testLDivision\testLDivision.vcproj", "{7A424759-5962-4AE5-ABB6-0B94DDD21F61}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testLDivision", "src\operations\division\test_LDivision\testLDivision.vcproj", "{7A424759-5962-4AE5-ABB6-0B94DDD21F61}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9B1BD750-1FEF-4D6B-9422-782D16181CEE} = {9B1BD750-1FEF-4D6B-9422-782D16181CEE}
 		{9B622A66-546A-4B33-B947-0A189D259D37} = {9B622A66-546A-4B33-B947-0A189D259D37}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testRDivision", "src\operations\division\testRDivision\testRDivision.vcproj", "{BF995E6F-88C9-4175-9EE3-ECB3D270AEA6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testRDivision", "src\operations\division\test_RDivision\testRDivision.vcproj", "{BF995E6F-88C9-4175-9EE3-ECB3D270AEA6}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9B1BD750-1FEF-4D6B-9422-782D16181CEE} = {9B1BD750-1FEF-4D6B-9422-782D16181CEE}
 		{9B622A66-546A-4B33-B947-0A189D259D37} = {9B622A66-546A-4B33-B947-0A189D259D37}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleMatrixConcatenation", "src\matrixOperations\cat\testDoubleMatrixConcatenation\testDoubleMatrixConcatenation.vcproj", "{7F36A592-B667-43A4-B3C3-66636F2DECB8}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleMatrixConcatenation", "src\matrixOperations\cat\test_DoubleMatrixConcatenation\testDoubleMatrixConcatenation.vcproj", "{7F36A592-B667-43A4-B3C3-66636F2DECB8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FD335544-52BF-4736-A34E-77F591D158D5} = {FD335544-52BF-4736-A34E-77F591D158D5}
+		{9B1BD750-1FEF-4D6B-9422-782D16181CEE} = {9B1BD750-1FEF-4D6B-9422-782D16181CEE}
+	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatMatrixConcatenation", "src\matrixOperations\cat\testFloatMatrixConcatenation\testFloatMatrixConcatenation.vcproj", "{B9413124-1841-4373-BFE2-AE6C78F24731}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatMatrixConcatenation", "src\matrixOperations\cat\test_FloatMatrixConcatenation\testFloatMatrixConcatenation.vcproj", "{B9413124-1841-4373-BFE2-AE6C78F24731}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FD335544-52BF-4736-A34E-77F591D158D5} = {FD335544-52BF-4736-A34E-77F591D158D5}
+		{9B1BD750-1FEF-4D6B-9422-782D16181CEE} = {9B1BD750-1FEF-4D6B-9422-782D16181CEE}
+	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatChol", "src\matrixOperations\chol\testFloatChol\testFloatChol.vcproj", "{C5BA0B86-B432-4EF6-95DE-75C026994F4F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatChol", "src\matrixOperations\chol\test_FloatChol\testFloatChol.vcproj", "{C5BA0B86-B432-4EF6-95DE-75C026994F4F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleChol", "src\matrixOperations\chol\testDoubleChol\testDoubleChol.vcproj", "{2B2D70A6-F2DB-4160-972C-9ECFA0B0699A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleChol", "src\matrixOperations\chol\test_DoubleChol\testDoubleChol.vcproj", "{2B2D70A6-F2DB-4160-972C-9ECFA0B0699A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatDeterm", "src\matrixOperations\determ\testFloatDeterm\testFloatDeterm.vcproj", "{204A5126-03B1-4E9D-8CC1-CCA9F64BD081}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatDeterm", "src\matrixOperations\determ\test_FloatDeterm\testFloatDeterm.vcproj", "{204A5126-03B1-4E9D-8CC1-CCA9F64BD081}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleDeterm", "src\matrixOperations\determ\testDoubleDeterm\testDoubleDeterm.vcproj", "{7F13C8AE-27AC-43B4-8C1E-263C5A4C9942}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleDeterm", "src\matrixOperations\determ\test_DoubleDeterm\testDoubleDeterm.vcproj", "{7F13C8AE-27AC-43B4-8C1E-263C5A4C9942}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatDist", "src\matrixOperations\dist\testFloatDist\testFloatDist.vcproj", "{3902CF74-70D4-4FA4-AA53-71643B94BAB9}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatDist", "src\matrixOperations\dist\test_FloatDist\testFloatDist.vcproj", "{3902CF74-70D4-4FA4-AA53-71643B94BAB9}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleDist", "src\matrixOperations\determ\testDoubleDist\testDoubleDist.vcproj", "{3F1C1C41-424E-4E23-8990-AEB55196376D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleDist", "src\matrixOperations\determ\test_DoubleDist\testDoubleDist.vcproj", "{3F1C1C41-424E-4E23-8990-AEB55196376D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testMatrixRDivision", "src\matrixOperations\division\testMatrixRDivision\testMatrixRDivision.vcproj", "{33833932-6973-483B-B0D1-B3CC800BDFF5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testMatrixRDivision", "src\matrixOperations\division\test_MatrixRDivision\testMatrixRDivision.vcproj", "{33833932-6973-483B-B0D1-B3CC800BDFF5}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testMatrixLDivision", "src\matrixOperations\division\testMatrixLDivision\testMatrixLDivision.vcproj", "{B1F2A8CE-764A-4D51-AABD-998D48783894}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testMatrixLDivision", "src\matrixOperations\division\test_MatrixLDivision\testMatrixLDivision.vcproj", "{B1F2A8CE-764A-4D51-AABD-998D48783894}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testMatrixExponential", "src\matrixOperations\expm\testMatrixExponential\testMatrixExponential.vcproj", "{1A4DDF0E-CF14-43FF-BBA3-6928EF6D1072}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testMatrixExponential", "src\matrixOperations\expm\test_MatrixExponential\testMatrixExponential.vcproj", "{1A4DDF0E-CF14-43FF-BBA3-6928EF6D1072}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testMatrixEye", "src\matrixOperations\eye\testMatrixEye\testMatrixEye.vcproj", "{4F99E000-AC7D-4C3B-80C5-5A5A64D5757F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testMatrixEye", "src\matrixOperations\eye\test_MatrixEye\testMatrixEye.vcproj", "{4F99E000-AC7D-4C3B-80C5-5A5A64D5757F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatFill", "src\matrixOperations\fill\testFloatFill\testFloatFill.vcproj", "{054C79A1-A607-496B-96CE-6F0BB404F754}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatFill", "src\matrixOperations\fill\test_FloatFill\testFloatFill.vcproj", "{054C79A1-A607-496B-96CE-6F0BB404F754}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleFill", "src\matrixOperations\fill\testDoubleFill\testDoubleFill.vcproj", "{903B0194-F1A9-4302-AC3D-7E88E0406E26}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleFill", "src\matrixOperations\fill\test_DoubleFill\testDoubleFill.vcproj", "{903B0194-F1A9-4302-AC3D-7E88E0406E26}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testHilbert", "src\matrixOperations\hilbert\testHilbert\testHilbert.vcproj", "{F7747E9B-A57F-43D2-8C1F-1F77C670B406}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testHilbert", "src\matrixOperations\hilbert\test_Hilbert\testHilbert.vcproj", "{F7747E9B-A57F-43D2-8C1F-1F77C670B406}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testMatrixInfiniteNorm", "src\matrixOperations\infiniteNorm\testMatrixInfiniteNorm\testMatrixInfiniteNorm.vcproj", "{43BF5E9A-3456-45FE-9DEF-9E962B4D4E3D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testMatrixInfiniteNorm", "src\matrixOperations\infiniteNorm\test_MatrixInfiniteNorm\testMatrixInfiniteNorm.vcproj", "{43BF5E9A-3456-45FE-9DEF-9E962B4D4E3D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testMatrixInversion", "src\matrixOperations\inversion\testMatrixInversion\testMatrixInversion.vcproj", "{44D3EFB8-A861-41C4-BBCD-18470FA0D5AC}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testMatrixInversion", "src\matrixOperations\inversion\test_MatrixInversion\testMatrixInversion.vcproj", "{44D3EFB8-A861-41C4-BBCD-18470FA0D5AC}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testJmat", "src\matrixOperations\jmat\testJmat\testJmat.vcproj", "{04980E4A-FD92-4D44-8EB6-6F643A4ED9B3}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testJmat", "src\matrixOperations\jmat\test_Jmat\testJmat.vcproj", "{04980E4A-FD92-4D44-8EB6-6F643A4ED9B3}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatLogm", "src\matrixOperations\logm\testFloatLogm\testFloatLogm.vcproj", "{BAFD5FA4-3D99-48FF-BBFD-5017207870E7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatLogm", "src\matrixOperations\logm\test_FloatLogm\testFloatLogm.vcproj", "{BAFD5FA4-3D99-48FF-BBFD-5017207870E7}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleLogm", "src\matrixOperations\logm\testDoubleLogm\testDoubleLogm.vcproj", "{DF3336E6-F783-4577-B014-75D0E0377B3E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleLogm", "src\matrixOperations\logm\test_DoubleLogm\testDoubleLogm.vcproj", "{DF3336E6-F783-4577-B014-75D0E0377B3E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatMagnitude", "src\matrixOperations\magnitude\testFloatMagnitude\testFloatMagnitude.vcproj", "{1E12C5A2-EDF1-47BB-A2EF-60A288DC278D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatMagnitude", "src\matrixOperations\magnitude\test_FloatMagnitude\testFloatMagnitude.vcproj", "{1E12C5A2-EDF1-47BB-A2EF-60A288DC278D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleMagnitude", "src\matrixOperations\magnitude\testDoubleMagnitude\testDoubleMagnitude.vcproj", "{818553D4-0DEF-4BBE-A43A-45611DD84580}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleMagnitude", "src\matrixOperations\magnitude\test_DoubleMagnitude\testDoubleMagnitude.vcproj", "{818553D4-0DEF-4BBE-A43A-45611DD84580}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatMatrixMultiplication", "src\matrixOperations\multiplication\testFloatMatrixMultiplication\testFloatMatrixMultiplication.vcproj", "{4CE33021-55F3-46CC-A548-A151D07B24CF}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatMatrixMultiplication", "src\matrixOperations\multiplication\test_FloatMatrixMultiplication\testFloatMatrixMultiplication.vcproj", "{4CE33021-55F3-46CC-A548-A151D07B24CF}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleMatrixMultiplication", "src\matrixOperations\multiplication\testDoubleMatrixMultiplication\testDoubleMatrixMultiplication.vcproj", "{C4FBEB3F-D766-4C74-9377-7D4434A2FC6C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleMatrixMultiplication", "src\matrixOperations\multiplication\test_DoubleMatrixMultiplication\testDoubleMatrixMultiplication.vcproj", "{C4FBEB3F-D766-4C74-9377-7D4434A2FC6C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testMatrixOnes", "src\matrixOperations\ones\testMatrixOnes\testMatrixOnes.vcproj", "{D21BD764-EEC6-4474-9D4B-808EF2217CC4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testMatrixOnes", "src\matrixOperations\ones\test_MatrixOnes\testMatrixOnes.vcproj", "{D21BD764-EEC6-4474-9D4B-808EF2217CC4}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoublePowm", "src\matrixOperations\powm\testDoublePowm\testDoublePowm.vcproj", "{D83A0994-57A0-4C17-89DF-EDE84450C202}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoublePowm", "src\matrixOperations\powm\test_DoublePowm\testDoublePowm.vcproj", "{D83A0994-57A0-4C17-89DF-EDE84450C202}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatPowm", "src\matrixOperations\powm\testFloatPowm\testFloatPowm.vcproj", "{8594ACB2-D3C8-4D3A-B905-794354A8A0CC}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatPowm", "src\matrixOperations\powm\test_FloatPowm\testFloatPowm.vcproj", "{8594ACB2-D3C8-4D3A-B905-794354A8A0CC}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatSpec", "src\matrixOperations\spec\testFloatSpec\testFloatSpec.vcproj", "{B7BEF8A2-3E42-4FA3-94A7-22618594057D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatSpec", "src\matrixOperations\spec\test_FloatSpec\testFloatSpec.vcproj", "{B7BEF8A2-3E42-4FA3-94A7-22618594057D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleSpec", "src\matrixOperations\spec\testDoubleSpec\testDoubleSpec.vcproj", "{651B0E61-1047-4575-BE31-D9CB28062CBA}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleSpec", "src\matrixOperations\spec\test_DoubleSpec\testDoubleSpec.vcproj", "{651B0E61-1047-4575-BE31-D9CB28062CBA}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatSpec2", "src\matrixOperations\spec2\testFloatSpec2\testFloatSpec2.vcproj", "{E20D0BC2-B28A-412C-9715-5B93B319A4A3}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatSpec2", "src\matrixOperations\spec2\test_FloatSpec2\testFloatSpec2.vcproj", "{E20D0BC2-B28A-412C-9715-5B93B319A4A3}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleSpec2", "src\matrixOperations\spec2\testDoubleSpec2\testDoubleSpec2.vcproj", "{FD0A4495-C372-41EF-B8EF-0A0939DA6C1E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleSpec2", "src\matrixOperations\spec2\test_DoubleSpec2\testDoubleSpec2.vcproj", "{FD0A4495-C372-41EF-B8EF-0A0939DA6C1E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatSquaredMagnitude", "src\matrixOperations\squaredMagnitude\testFloatSquaredMagnitude\testFloatSquaredMagnitude.vcproj", "{6DBADD0B-C4C1-48CF-95EA-6CF7272A0391}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testFloatSquaredMagnitude", "src\matrixOperations\squaredMagnitude\test_FloatSquaredMagnitude\testFloatSquaredMagnitude.vcproj", "{6DBADD0B-C4C1-48CF-95EA-6CF7272A0391}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleSquaredMagnitude", "src\matrixOperations\squaredMagnitude\testDoubleSquaredMagnitude\testDoubleSquaredMagnitude.vcproj", "{16744340-9DDC-4CC6-AC7D-A25DE89A3F5D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testDoubleSquaredMagnitude", "src\matrixOperations\squaredMagnitude\test_DoubleSquaredMagnitude\testDoubleSquaredMagnitude.vcproj", "{16744340-9DDC-4CC6-AC7D-A25DE89A3F5D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testMatrixTrace", "src\matrixOperations\trace\testMatrixTrace\testMatrixTrace.vcproj", "{21E5E59A-7E4E-4F65-9042-9C67C713D51C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testMatrixTrace", "src\matrixOperations\trace\test_MatrixTrace\testMatrixTrace.vcproj", "{21E5E59A-7E4E-4F65-9042-9C67C713D51C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testMatrixTranspose", "src\matrixOperations\transpose\testMatrixTranspose\testMatrixTranspose.vcproj", "{8D483B26-A264-4BA6-BB6A-36306BCFA8E3}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testMatrixTranspose", "src\matrixOperations\transpose\test_MatrixTranspose\testMatrixTranspose.vcproj", "{8D483B26-A264-4BA6-BB6A-36306BCFA8E3}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testMatrixZeros", "src\matrixOperations\zeros\testMatrixZeros\testMatrixZeros.vcproj", "{D55BC043-1853-4E4C-A8A8-2756682E4B23}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testMatrixZeros", "src\matrixOperations\zeros\test_MatrixZeros\testMatrixZeros.vcproj", "{D55BC043-1853-4E4C-A8A8-2756682E4B23}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RUN_TESTS", "RUN_TESTS\RUN_TESTS.vcproj", "{39BC0138-6B50-492C-8570-06458772282B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -796,6 +806,10 @@ Global
 		{D55BC043-1853-4E4C-A8A8-2756682E4B23}.Release|Win32.ActiveCfg = Release|Win32
 		{D55BC043-1853-4E4C-A8A8-2756682E4B23}.Release|Win32.Build.0 = Release|Win32
 		{D55BC043-1853-4E4C-A8A8-2756682E4B23}.Release|x64.ActiveCfg = Release|Win32
+		{39BC0138-6B50-492C-8570-06458772282B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{39BC0138-6B50-492C-8570-06458772282B}.Debug|x64.ActiveCfg = Debug|Win32
+		{39BC0138-6B50-492C-8570-06458772282B}.Release|Win32.ActiveCfg = Release|Win32
+		{39BC0138-6B50-492C-8570-06458772282B}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -810,6 +824,7 @@ Global
 		{0A43F290-F34B-4448-9A70-8EDAFC29893F} = {4BB7C9F2-969F-4C5C-97F1-89350DCC09B6}
 		{AF72E544-553A-4D1D-831B-8D7987BDF82C} = {4BB7C9F2-969F-4C5C-97F1-89350DCC09B6}
 		{E6F54BE7-6E5F-4D2D-89FE-4A57DDFB41FB} = {4BB7C9F2-969F-4C5C-97F1-89350DCC09B6}
+		{39BC0138-6B50-492C-8570-06458772282B} = {4BB7C9F2-969F-4C5C-97F1-89350DCC09B6}
 		{DBB1B4E8-E9D0-44E5-8AA6-4ECF1AAA1D0F} = {53D4C03D-7FBF-46C8-A07A-C44644420132}
 		{A6EBF2F9-C100-453F-A0D1-1649DCF557EC} = {53D4C03D-7FBF-46C8-A07A-C44644420132}
 		{0556427D-6D88-4A12-9EB3-7F551D6F1FA4} = {35BA54D4-CF76-478A-A85C-DD4B3941CA09}
