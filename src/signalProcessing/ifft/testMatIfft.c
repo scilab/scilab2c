@@ -198,12 +198,12 @@ static void zifftmaTest(void){
 	
 	doubleComplex *in1, *in2, *in3, *in4, *in6, *in9, out1[12], out2[12], out3[12], out4[12], out6[12], out9[12];
 
-	in1=malloc((uint)12*sizeof(doubleComplex));
-	in2=malloc((uint)12*sizeof(doubleComplex));
-	in3=malloc((uint)12*sizeof(doubleComplex));
-	in4=malloc((uint)12*sizeof(doubleComplex));
-	in6=malloc((uint)12*sizeof(doubleComplex));
-	in9=malloc((uint)9*sizeof(doubleComplex));
+	in1=(doubleComplex *)malloc((unsigned int)12*sizeof(doubleComplex));
+	in2=(doubleComplex *)malloc((unsigned int)12*sizeof(doubleComplex));
+	in3=(doubleComplex *)malloc((unsigned int)12*sizeof(doubleComplex));
+	in4=(doubleComplex *)malloc((unsigned int)12*sizeof(doubleComplex));
+	in6=(doubleComplex *)malloc((unsigned int)12*sizeof(doubleComplex));
+	in9=(doubleComplex *)malloc((unsigned int)9*sizeof(doubleComplex));
 	
 	
 	
