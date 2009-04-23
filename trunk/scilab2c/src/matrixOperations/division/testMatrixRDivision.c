@@ -10,7 +10,7 @@
  *
  */
 
-
+#include <stdlib.h>
 #include <assert.h>
 #include <stdio.h>
 #include "matrixDivision.h"
@@ -423,8 +423,8 @@ static void zrdivmaTest ( void ){
 
 	in1 = DoubleComplexMatrix ( bR,bI,6 );
 	in2 = DoubleComplexMatrix ( dR,dI,9 );
-	out = malloc((uint)6*sizeof(doubleComplex));
-	Result = malloc((uint)6*sizeof(doubleComplex));
+	out = (doubleComplex*)malloc((unsigned int)6*sizeof(doubleComplex));
+	Result = (doubleComplex*)malloc((unsigned int)6*sizeof(doubleComplex));
 	
     Result = DoubleComplexMatrix ( rR   , rI , 6 );
     

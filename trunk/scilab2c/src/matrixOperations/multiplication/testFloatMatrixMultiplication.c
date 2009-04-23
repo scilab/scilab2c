@@ -206,3 +206,8 @@ int testFloatMultiplication(void) {
 
   return 0;
 }
+
+int main(void) {
+	assert(testFloatMultiplication() == 0);
+	return 0;
+}

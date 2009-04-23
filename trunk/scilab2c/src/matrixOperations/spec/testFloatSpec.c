@@ -10,7 +10,7 @@
  *
  */
  
- 
+#include <stdlib.h>
 #include "spec.h" 
 #include "stdio.h"
 #include "assert.h"
@@ -29,7 +29,7 @@ static void sspecaTest(void){
 	
 	int i;
 	
-	out=malloc((uint)2*sizeof(float));
+	out=(float *)malloc((unsigned int)2*sizeof(float));
 		
 	sspeca(in,2,out);
 	for (i=0;i<2;i++)	printf("%f\n",out[i]);
