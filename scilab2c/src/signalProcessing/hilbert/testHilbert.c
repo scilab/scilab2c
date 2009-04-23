@@ -11,7 +11,7 @@
  */
 
 
-
+#include <stdlib.h>
 #include <stdio.h>
 #include <assert.h>
 #include <math.h>
@@ -341,23 +341,23 @@ static void dhilbertaTest(void){
 	doubleComplex *out12,*out13,*out14,*out15,*out17;
 	doubleComplex *out31,*out32,*out34,*out35,*out37;
 	
-	out2=malloc((uint)4*sizeof(doubleComplex));
-	out3=malloc((uint)9*sizeof(doubleComplex));
-	out4=malloc((uint)16*sizeof(doubleComplex));
-	out5=malloc((uint)25*sizeof(doubleComplex));
-	out7=malloc((uint)49*sizeof(doubleComplex));
+	out2=(doubleComplex*)malloc((unsigned int)4*sizeof(doubleComplex));
+	out3=(doubleComplex*)malloc((unsigned int)9*sizeof(doubleComplex));
+	out4=(doubleComplex*)malloc((unsigned int)16*sizeof(doubleComplex));
+	out5=(doubleComplex*)malloc((unsigned int)25*sizeof(doubleComplex));
+	out7=(doubleComplex*)malloc((unsigned int)49*sizeof(doubleComplex));
 	
-	out12=malloc((uint)2*sizeof(doubleComplex));
-	out13=malloc((uint)3*sizeof(doubleComplex));
-	out14=malloc((uint)4*sizeof(doubleComplex));
-	out15=malloc((uint)5*sizeof(doubleComplex));
-	out17=malloc((uint)7*sizeof(doubleComplex));	
+	out12=(doubleComplex*)malloc((unsigned int)2*sizeof(doubleComplex));
+	out13=(doubleComplex*)malloc((unsigned int)3*sizeof(doubleComplex));
+	out14=(doubleComplex*)malloc((unsigned int)4*sizeof(doubleComplex));
+	out15=(doubleComplex*)malloc((unsigned int)5*sizeof(doubleComplex));
+	out17=(doubleComplex*)malloc((unsigned int)7*sizeof(doubleComplex));	
 	
-	out31=malloc((uint)3*sizeof(doubleComplex));
-	out32=malloc((uint)6*sizeof(doubleComplex));
-	out34=malloc((uint)12*sizeof(doubleComplex));
-	out35=malloc((uint)15*sizeof(doubleComplex));
-	out37=malloc((uint)21*sizeof(doubleComplex));
+	out31=(doubleComplex*)malloc((unsigned int)3*sizeof(doubleComplex));
+	out32=(doubleComplex*)malloc((unsigned int)6*sizeof(doubleComplex));
+	out34=(doubleComplex*)malloc((unsigned int)12*sizeof(doubleComplex));
+	out35=(doubleComplex*)malloc((unsigned int)15*sizeof(doubleComplex));
+	out37=(doubleComplex*)malloc((unsigned int)21*sizeof(doubleComplex));
 	
 	dhilberta(in2, 2, 2, out2);
 	dhilberta(in3, 3, 3, out3);
@@ -589,23 +589,23 @@ static void shilbertaTest(void){
 	floatComplex *out12,*out13,*out14,*out15,*out17;
 	floatComplex *out31,*out32,*out34,*out35,*out37;
 	
-	out2=malloc((uint)4*sizeof(floatComplex));
-	out3=malloc((uint)9*sizeof(floatComplex));
-	out4=malloc((uint)16*sizeof(floatComplex));
-	out5=malloc((uint)25*sizeof(floatComplex));
-	out7=malloc((uint)49*sizeof(floatComplex));
+	out2=(floatComplex*)malloc((unsigned int)4*sizeof(floatComplex));
+	out3=(floatComplex*)malloc((unsigned int)9*sizeof(floatComplex));
+	out4=(floatComplex*)malloc((unsigned int)16*sizeof(floatComplex));
+	out5=(floatComplex*)malloc((unsigned int)25*sizeof(floatComplex));
+	out7=(floatComplex*)malloc((unsigned int)49*sizeof(floatComplex));
 	
-	out12=malloc((uint)2*sizeof(floatComplex));
-	out13=malloc((uint)3*sizeof(floatComplex));
-	out14=malloc((uint)4*sizeof(floatComplex));
-	out15=malloc((uint)5*sizeof(floatComplex));
-	out17=malloc((uint)7*sizeof(floatComplex));	
+	out12=(floatComplex*)malloc((unsigned int)2*sizeof(floatComplex));
+	out13=(floatComplex*)malloc((unsigned int)3*sizeof(floatComplex));
+	out14=(floatComplex*)malloc((unsigned int)4*sizeof(floatComplex));
+	out15=(floatComplex*)malloc((unsigned int)5*sizeof(floatComplex));
+	out17=(floatComplex*)malloc((unsigned int)7*sizeof(floatComplex));	
 	
-	out31=malloc((uint)3*sizeof(floatComplex));
-	out32=malloc((uint)6*sizeof(floatComplex));
-	out34=malloc((uint)12*sizeof(floatComplex));
-	out35=malloc((uint)15*sizeof(floatComplex));
-	out37=malloc((uint)21*sizeof(floatComplex));
+	out31=(floatComplex*)malloc((unsigned int)3*sizeof(floatComplex));
+	out32=(floatComplex*)malloc((unsigned int)6*sizeof(floatComplex));
+	out34=(floatComplex*)malloc((unsigned int)12*sizeof(floatComplex));
+	out35=(floatComplex*)malloc((unsigned int)15*sizeof(floatComplex));
+	out37=(floatComplex*)malloc((unsigned int)21*sizeof(floatComplex));
 	
 	/* Mise en float */
 	double2float(ind2,in2,4);
