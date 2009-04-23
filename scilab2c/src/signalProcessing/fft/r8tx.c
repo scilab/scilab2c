@@ -30,8 +30,8 @@ void r8tx ( int nxtlt,int nthpo,int lengt,
 
 
   int j , kk;
-  double dblP7  = 1 / sqrt (double(2)) ;
-  double dblPi2 = 8 * atan (double(1));
+  double dblP7  = 1 / sqrt(2.0) ;
+  double dblPi2 = 8 * atan(1.0);
 
   double scale, arg;
   double c1,c2,c3,c4,c5,c6,c7;
