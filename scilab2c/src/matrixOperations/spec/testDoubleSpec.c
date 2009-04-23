@@ -10,7 +10,7 @@
  *
  */
  
- 
+#include <stdlib.h>
 #include "spec.h" 
 #include "stdio.h"
 #include "assert.h"
@@ -25,7 +25,7 @@ static void dspecaTest(void){
 	
 	int i;
 	
-	out=malloc((uint)2*sizeof(double));
+	out=(double*)malloc((unsigned int)2*sizeof(double));
 		
 	dspeca(in,2,out);
 	for(i=0;i<2;i++){
