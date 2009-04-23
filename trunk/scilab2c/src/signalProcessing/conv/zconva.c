@@ -18,8 +18,8 @@ void zconva(doubleComplex *in1, int size1, doubleComplex *in2,int size2, doubleC
 	doubleComplex *in1b, *in2b, *result;	
 
 
-	m1=(int)floor(log((double)(size1+size2-1))/log(double(2))+1);
-	m1=(int)pow((double)(2),double(m1));
+	m1=(int) floor(log(size1+size2-1.0) / log(2.0) + 1.0);
+	m1=(int) pow(2.0, m1);
 
 	in1b=(doubleComplex *)malloc(2*(unsigned int)m1*sizeof(double));
 	for(i=0;i<m1;i++){
