@@ -28,8 +28,8 @@ static int doubleVariance(void){
 	
 	
 	
-		outColumns= malloc((uint)5*sizeof(double));
-		outRows= malloc((uint)4*sizeof(double));
+		outColumns= (double*)malloc((unsigned int)5*sizeof(double));
+		outRows= (double*)malloc((unsigned int)4*sizeof(double));
 	
 		out = dvariancea(matrice,20);
 		drowvariancea(matrice,5,4,outRows);
@@ -101,8 +101,8 @@ static int doubleVariance(void){
 		double resultRows2[10]={0.0988544518240001696130  ,  0.0874673050908554156058  ,  0.0678199050579095519264,    0.0591380787668954188696   , 0.0175386373980947855855 ,0.0831815708684833926556  ,  0.1035239817400336881370 ,   0.0657802543744439444096  ,  0.0667446022405332184402  ,  0.0287884625084994134891};
 	
 	
-		outColumns2= malloc((uint)7*sizeof(double));
-		outRows2= malloc((uint)10*sizeof(double));
+		outColumns2= (double*)malloc((unsigned int)7*sizeof(double));
+		outRows2= (double*)malloc((unsigned int)10*sizeof(double));
 	
 	
 	
@@ -150,9 +150,9 @@ static int doubleComplexVariance(void){
 		doubleComplex *in, *rowVariance, *colVariance;
 		doubleComplex out, *outRow, *outCol;
 		
-		in= malloc ((uint)6*sizeof(doubleComplex));
-		outRow= malloc ((uint)3*sizeof(doubleComplex));
-		outCol= malloc ((uint)2*sizeof(doubleComplex));
+		in= (doubleComplex*)malloc ((unsigned int)6*sizeof(doubleComplex));
+		outRow= (doubleComplex*)malloc ((unsigned int)3*sizeof(doubleComplex));
+		outCol= (doubleComplex*)malloc ((unsigned int)2*sizeof(doubleComplex));
 		
 		in=DoubleComplexMatrix(inR,inI,6);
 		rowVariance=DoubleComplexMatrix(rowVarianceR,rowVarianceI,3);
@@ -291,9 +291,9 @@ static int doubleComplexVariance(void){
 		doubleComplex *in, *rowVariance, *colVariance;
 		doubleComplex out, *outRow, *outCol;
 		
-		in= malloc ((uint)70*sizeof(doubleComplex));
-		outRow= malloc ((uint)7*sizeof(doubleComplex));
-		outCol= malloc ((uint)10*sizeof(doubleComplex));
+		in= (doubleComplex*)malloc ((unsigned int)70*sizeof(doubleComplex));
+		outRow= (doubleComplex*)malloc ((unsigned int)7*sizeof(doubleComplex));
+		outCol= (doubleComplex*)malloc ((unsigned int)10*sizeof(doubleComplex));
 		
 		in=DoubleComplexMatrix(inR,inI,70);
 		rowVariance=DoubleComplexMatrix(rowVarianceR,rowVarianceI,7);

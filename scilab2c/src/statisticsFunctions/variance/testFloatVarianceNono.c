@@ -28,8 +28,8 @@ static int floatVariance(void){
 	
 	
 	
-		outColumns= malloc((uint)5*sizeof(float));
-		outRows= malloc((uint)4*sizeof(float));
+		outColumns= (float*)malloc((unsigned int)5*sizeof(float));
+		outRows= (float*)malloc((unsigned int)4*sizeof(float));
 	
 		out = svariancea(matrice,20);
 		srowvariancea(matrice,5,4,outRows);
@@ -100,8 +100,8 @@ static int floatVariance(void){
 		float resultRows2[10]={0.0988544518240001696130f  ,  0.0874673050908554156058f  ,  0.0678199050579095519264f,    0.0591380787668954188696f   , 0.0175386373980947855855f ,0.0831815708684833926556f  ,  0.1035239817400336881370f,   0.0657802543744439444096f  ,  0.0667446022405332184402f  ,  0.0287884625084994134891f};
 	
 	
-		outColumns2= malloc((uint)7*sizeof(float));
-		outRows2= malloc((uint)10*sizeof(float));
+		outColumns2= (float*)malloc((unsigned int)7*sizeof(float));
+		outRows2= (float*)malloc((unsigned int)10*sizeof(float));
 	
 	
 	
@@ -150,9 +150,9 @@ static int floatComplexVariance(void){
 		floatComplex *in, *rowVariance, *colVariance;
 		floatComplex out, *outRow, *outCol;
 		
-		in= malloc ((uint)6*sizeof(floatComplex));
-		outRow= malloc ((uint)3*sizeof(floatComplex));
-		outCol= malloc ((uint)2*sizeof(floatComplex));
+		in= (floatComplex*)malloc ((unsigned int)6*sizeof(floatComplex));
+		outRow= (floatComplex*)malloc ((unsigned int)3*sizeof(floatComplex));
+		outCol= (floatComplex*)malloc ((unsigned int)2*sizeof(floatComplex));
 		
 		in=FloatComplexMatrix(inR,inI,6);
 		rowVariance=FloatComplexMatrix(rowVarianceR,rowVarianceI,3);
@@ -292,9 +292,9 @@ static int floatComplexVariance(void){
 		floatComplex *in, *rowVariance, *colVariance;
 		floatComplex out, *outRow, *outCol;
 		
-		in= malloc ((uint)70*sizeof(floatComplex));
-		outRow= malloc ((uint)7*sizeof(floatComplex));
-		outCol= malloc ((uint)10*sizeof(floatComplex));
+		in= (floatComplex*)malloc ((unsigned int)70*sizeof(floatComplex));
+		outRow= (floatComplex*)malloc ((unsigned int)7*sizeof(floatComplex));
+		outCol= (floatComplex*)malloc ((unsigned int)10*sizeof(floatComplex));
 		
 		in=FloatComplexMatrix(inR,inI,70);
 		rowVariance=FloatComplexMatrix(rowVarianceR,rowVarianceI,7);
