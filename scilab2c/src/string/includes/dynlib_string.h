@@ -20,7 +20,7 @@
 		#define EXTERN_STRING __declspec (dllimport)
 	#endif
 #else
-	#define EXTERN_MATOPS 
+	#define EXTERN_STRING
 #endif
 
 #endif /* __DYNLIB_STRING_H__ */
