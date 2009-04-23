@@ -319,12 +319,12 @@ static int zrowmeanaTest(void) {
   }
   assert(zreals(rowMeanmedIn_2_6[0]) == 0.1 / 2.0 && zimags(rowMeanmedIn_2_6[0]) == 2.1 / 2.0);
   assert( ( fabs(zreals(rowMeanmedIn_2_6[1]) ) - (  0.5 / 2.0 ) ) / fabs ( zreals(rowMeanmedIn_2_6[1])  ) <  3e-16 );
-  assert(fabs(zimags(rowMeanmedIn_2_6[1]) == 1.7 / 2.0) < 1e-16);
+  assert(fabs(double(zimags(rowMeanmedIn_2_6[1]) == 1.7 / 2.0)) < 1e-16);
   assert( ( fabs(zreals(rowMeanmedIn_2_6[2]) ) - (  0.9 / 2.0 ) ) / fabs ( zreals(rowMeanmedIn_2_6[2])  ) <  3e-16 );
-  assert(fabs(zimags(rowMeanmedIn_2_6[2]) == 1.3 / 2.0) < 1e-16);
-  assert(fabs(zreals(rowMeanmedIn_2_6[3]) == 1.3 / 2.0) < 1e-16);
+  assert(fabs(double(zimags(rowMeanmedIn_2_6[2]) == 1.3 / 2.0)) < 1e-16);
+  assert(fabs(double(zreals(rowMeanmedIn_2_6[3]) == 1.3 / 2.0)) < 1e-16);
   assert( ( fabs(zimags(rowMeanmedIn_2_6[3]) ) - (  0.9 / 2.0 ) ) / fabs ( zimags(rowMeanmedIn_2_6[3])  ) <  3e-16 );
-  assert(fabs(zreals(rowMeanmedIn_2_6[4]) == 1.7 / 2.0) < 1e-16);
+  assert(fabs(double(zreals(rowMeanmedIn_2_6[4]) == 1.7 / 2.0)) < 1e-16);
   assert( ( fabs(zimags(rowMeanmedIn_2_6[4]) ) - (  0.5 / 2.0 ) ) / fabs ( zimags(rowMeanmedIn_2_6[4])  ) <  3e-16 );
   assert(zreals(rowMeanmedIn_2_6[5]) == 2.1 / 2.0 && zimags(rowMeanmedIn_2_6[5]) == 0.1 / 2.0);
 
