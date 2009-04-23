@@ -348,7 +348,7 @@ static int testDoubleMultiplication(void) {
 
 
 int main(void) {
-  assert(testFloatMultiplication() == 0);
+  
   assert(testDoubleMultiplication() == 0);
   return 0;
 }
