@@ -10,7 +10,7 @@
 ##
 ##
 
-libImplicitlist_la_CFLAGS =	-I  $(top_builddir)/type \
+libImplicitlist_la_CFLAGS =	-I  $(top_builddir)/src/c/type \
 				-I .
 
 instdir = $(top_builddir)/lib
@@ -28,8 +28,8 @@ libImplicitlist_la_SOURCES = 	$(HEAD) \
 check_PROGRAMS = 	testFloatImplicitList \
 			testDoubleImplicitList
 
-check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
+check_LDADD =		$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
 			libImplicitlist.la
 
 check_INCLUDES =	-I  $(top_builddir)/type \
