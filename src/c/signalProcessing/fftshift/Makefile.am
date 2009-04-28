@@ -13,8 +13,8 @@
 
 
 
-libFftShift_la_CFLAGS =	-I $(top_builddir)/type \
-				-I $(top_builddir)/signalProcessing/includes
+libFftShift_la_CFLAGS =		-I $(top_builddir)/src/c/type \
+				-I $(top_builddir)/src/c/signalProcessing/includes
 
 
 instdir = $(top_builddir)/lib
@@ -22,9 +22,9 @@ instdir = $(top_builddir)/lib
 
 pkglib_LTLIBRARIES = libFftShift.la
 
-HEAD = ../includes/fftshift.h 
+HEAD = ../includes/fftshift.h
 
-libFftShift_la_SOURCES = 	$(HEAD) \
+libFftShift_la_SOURCES = 		$(HEAD) \
 					sfftshifta.c \
 					dfftshifta.c \
 					cfftshifta.c \
@@ -43,14 +43,14 @@ libFftShift_la_SOURCES = 	$(HEAD) \
 #### Check ####
 ###############
 
-check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
-				$(top_builddir)/type/libFloatComplex.la \
-				libFftShift.la
-			
+check_LDADD =		$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			libFftShift.la
 
 
-check_INCLUDES =	-I $(top_builddir)/type \
-			-I $(top_builddir)/signalProcessing/includes
+
+check_INCLUDES =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/signalProcessing/includes
 
 check_PROGRAMS = 	testFloatFftShift  testDoubleFftShift
 

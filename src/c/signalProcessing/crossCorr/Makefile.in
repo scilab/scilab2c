@@ -35,7 +35,7 @@ host_triplet = @host@
 check_PROGRAMS = testFloatCrossCorr$(EXEEXT) \
 	testDoubleCrossCorr$(EXEEXT)
 TESTS = testFloatCrossCorr$(EXEEXT) testDoubleCrossCorr$(EXEEXT)
-subdir = signalProcessing/crossCorr
+subdir = src/c/signalProcessing/crossCorr
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -215,34 +215,34 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libCrossCorr_la_CFLAGS = -I $(top_builddir)/type \
-				-I $(top_builddir)/auxiliaryFunctions/includes \
-				-I $(top_builddir)/signalProcessing/includes
+libCrossCorr_la_CFLAGS = -I $(top_builddir)/src/c/type \
+				-I $(top_builddir)/src/c/auxiliaryFunctions/includes \
+				-I $(top_builddir)/src/c/signalProcessing/includes
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libCrossCorr.la
-HEAD = ../includes/crossCorr.h 
+HEAD = ../includes/crossCorr.h
 libCrossCorr_la_SOURCES = $(HEAD) \
-					scrossCorra.c \
-					dcrossCorra.c \
-					ccrossCorra.c \
-					zcrossCorra.c
+				scrossCorra.c \
+				dcrossCorra.c \
+				ccrossCorra.c \
+				zcrossCorra.c
 
 
 ###############
 #### Check ####
 ###############
-check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/signalProcessing/conv2d/libConv2d.la \
+check_LDADD = $(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/conj/libConj.la \
+			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			$(top_builddir)/src/c/signalProcessing/conv2d/libConv2d.la \
 			libCrossCorr.la
 
-check_INCLUDES = -I $(top_builddir)/type \
-			-I $(top_builddir)/auxiliaryFunctions/includes \
-			-I $(top_builddir)/signalProcessing/includes
+check_INCLUDES = -I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/auxiliaryFunctions/includes \
+			-I $(top_builddir)/src/c/signalProcessing/includes
 
 testDoubleCrossCorr_SOURCES = testDoubleCrossCorr.c
 testDoubleCrossCorr_LDADD = $(check_LDADD)
@@ -263,9 +263,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  signalProcessing/crossCorr/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  src/c/signalProcessing/crossCorr/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  signalProcessing/crossCorr/Makefile
+	  $(AUTOMAKE) --foreign  src/c/signalProcessing/crossCorr/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \

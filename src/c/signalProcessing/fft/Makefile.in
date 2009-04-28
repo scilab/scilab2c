@@ -36,7 +36,7 @@ check_PROGRAMS = testFloatFft$(EXEEXT) testDoubleFft$(EXEEXT) \
 	testMatFft$(EXEEXT)
 TESTS = testFloatFft$(EXEEXT) testDoubleFft$(EXEEXT) \
 	testMatFft$(EXEEXT)
-subdir = signalProcessing/fft
+subdir = src/c/signalProcessing/fft
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -67,14 +67,14 @@ libFft_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_testDoubleFft_OBJECTS = testDoubleFft-testDoubleFft.$(OBJEXT)
 testDoubleFft_OBJECTS = $(am_testDoubleFft_OBJECTS)
-am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
-	$(top_builddir)/type/libFloatComplex.la \
-	$(top_builddir)/lib/lapack/libscilapack.la \
-	$(top_builddir)/lib/blas/libsciblas.la \
-	$(top_builddir)/signalProcessing/fft/libFft.la \
-	$(top_builddir)/operations/addition/libAddition.la \
-	$(top_builddir)/operations/subtraction/libSubtraction.la \
-	$(top_builddir)/matrixOperations/zeros/libMatrixZeros.la
+am__DEPENDENCIES_1 = $(top_builddir)/src/c/type/libDoubleComplex.la \
+	$(top_builddir)/src/c/type/libFloatComplex.la \
+	$(top_builddir)/src/fortran/lapack/libscilapack.la \
+	$(top_builddir)/src/fortran/blas/libsciblas.la \
+	$(top_builddir)/src/c/signalProcessing/fft/libFft.la \
+	$(top_builddir)/src/c/operations/addition/libAddition.la \
+	$(top_builddir)/src/c/operations/subtraction/libSubtraction.la \
+	$(top_builddir)/src/c/matrixOperations/zeros/libMatrixZeros.la
 testDoubleFft_DEPENDENCIES = $(am__DEPENDENCIES_1)
 testDoubleFft_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleFft_CFLAGS) \
@@ -229,11 +229,11 @@ target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 libFft_la_CFLAGS = -I . \
-			-I $(top_builddir)/type \
-			-I $(top_builddir)/signalProcessing/includes \
-			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/matrixOperations/includes \
-			-I $(top_builddir)/auxiliaryFunctions/includes
+			-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/signalProcessing/includes \
+			-I $(top_builddir)/src/c/operations/includes \
+			-I $(top_builddir)/src/c/matrixOperations/includes \
+			-I $(top_builddir)/src/c/auxiliaryFunctions/includes
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libFft.la
@@ -258,20 +258,20 @@ SRC = zfftma.c \
 # Checking Part
 ####
 check_INCLUDES = -I . \
-			-I $(top_builddir)/type \
-			-I $(top_builddir)/signalProcessing/includes \
-			-I $(top_builddir)/matrixOperations/includes \
-			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/auxiliaryFunctions/includes
+			-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/signalProcessing/includes \
+			-I $(top_builddir)/src/c/matrixOperations/includes \
+			-I $(top_builddir)/src/c/operations/includes \
+			-I $(top_builddir)/src/c/auxiliaryFunctions/includes
 
-check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
-			$(top_builddir)/lib/blas/libsciblas.la \
-			$(top_builddir)/signalProcessing/fft/libFft.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/operations/subtraction/libSubtraction.la \
-			$(top_builddir)/matrixOperations/zeros/libMatrixZeros.la \
+check_LDADD = $(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/fortran/lapack/libscilapack.la \
+			$(top_builddir)/src/fortran/blas/libsciblas.la \
+			$(top_builddir)/src/c/signalProcessing/fft/libFft.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			$(top_builddir)/src/c/operations/subtraction/libSubtraction.la \
+			$(top_builddir)/src/c/matrixOperations/zeros/libMatrixZeros.la \
 			@LIBMATH@
 
 
@@ -300,9 +300,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  signalProcessing/fft/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  src/c/signalProcessing/fft/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  signalProcessing/fft/Makefile
+	  $(AUTOMAKE) --foreign  src/c/signalProcessing/fft/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \

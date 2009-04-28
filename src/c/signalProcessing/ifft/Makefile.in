@@ -36,7 +36,7 @@ check_PROGRAMS = testFloatIfft$(EXEEXT) testDoubleIfft$(EXEEXT) \
 	testMatIfft$(EXEEXT)
 TESTS = testFloatIfft$(EXEEXT) testDoubleIfft$(EXEEXT) \
 	testMatIfft$(EXEEXT)
-subdir = signalProcessing/ifft
+subdir = src/c/signalProcessing/ifft
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -68,14 +68,14 @@ libIfft_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_testDoubleIfft_OBJECTS = testDoubleIfft-testDoubleIfft.$(OBJEXT)
 testDoubleIfft_OBJECTS = $(am_testDoubleIfft_OBJECTS)
-am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
-	$(top_builddir)/type/libFloatComplex.la \
-	$(top_builddir)/lib/lapack/libscilapack.la \
-	$(top_builddir)/lib/blas/libsciblas.la \
-	$(top_builddir)/signalProcessing/ifft/libIfft.la \
-	$(top_builddir)/matrixOperations/zeros/libMatrixZeros.la \
-	$(top_builddir)/operations/addition/libAddition.la \
-	$(top_builddir)/operations/subtraction/libSubtraction.la
+am__DEPENDENCIES_1 = $(top_builddir)/src/c/type/libDoubleComplex.la \
+	$(top_builddir)/src/c/type/libFloatComplex.la \
+	$(top_builddir)/src/fortran/lapack/libscilapack.la \
+	$(top_builddir)/src/fortran/blas/libsciblas.la \
+	$(top_builddir)/src/c/signalProcessing/ifft/libIfft.la \
+	$(top_builddir)/src/c/matrixOperations/zeros/libMatrixZeros.la \
+	$(top_builddir)/src/c/operations/addition/libAddition.la \
+	$(top_builddir)/src/c/operations/subtraction/libSubtraction.la
 testDoubleIfft_DEPENDENCIES = $(am__DEPENDENCIES_1)
 testDoubleIfft_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleIfft_CFLAGS) \
@@ -230,11 +230,11 @@ target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 libIfft_la_CFLAGS = -I . \
-			-I $(top_builddir)/type \
-			-I $(top_builddir)/signalProcessing/includes \
-			-I $(top_builddir)/matrixOperations/includes \
-			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/auxiliaryFunctions/includes
+			-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/signalProcessing/includes \
+			-I $(top_builddir)/src/c/matrixOperations/includes \
+			-I $(top_builddir)/src/c/operations/includes \
+			-I $(top_builddir)/src/c/auxiliaryFunctions/includes
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libIfft.la
@@ -243,8 +243,8 @@ HEAD = ../includes/ifft.h \
 	fft_internal.h
 
 SRC = zifftma.c \
-            	cifftma.c \
-            	difft2.c \
+			cifftma.c \
+			difft2.c \
 			difftbi.c \
 			difftmx.c \
 			ifft842.c \
@@ -252,27 +252,27 @@ SRC = zifftma.c \
 			ir4tx.c \
 			ir8tx.c\
 			difftma.c \
-            	sifftma.c
+			sifftma.c
 
 
 ####
 # Checking Part
 ####
 check_INCLUDES = -I . \
-			-I $(top_builddir)/type \
-			-I $(top_builddir)/signalProcessing/includes \
-			-I $(top_builddir)/matrixOperations/includes \
-			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/auxiliaryFunctions/includes
+			-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/signalProcessing/includes \
+			-I $(top_builddir)/src/c/matrixOperations/includes \
+			-I $(top_builddir)/src/c/operations/includes \
+			-I $(top_builddir)/src/c/auxiliaryFunctions/includes
 
-check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
-			$(top_builddir)/lib/blas/libsciblas.la \
-			$(top_builddir)/signalProcessing/ifft/libIfft.la \
-			$(top_builddir)/matrixOperations/zeros/libMatrixZeros.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/operations/subtraction/libSubtraction.la \
+check_LDADD = $(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/fortran/lapack/libscilapack.la \
+			$(top_builddir)/src/fortran/blas/libsciblas.la \
+			$(top_builddir)/src/c/signalProcessing/ifft/libIfft.la \
+			$(top_builddir)/src/c/matrixOperations/zeros/libMatrixZeros.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			$(top_builddir)/src/c/operations/subtraction/libSubtraction.la \
 			@LIBMATH@
 
 
@@ -301,9 +301,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  signalProcessing/ifft/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  src/c/signalProcessing/ifft/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  signalProcessing/ifft/Makefile
+	  $(AUTOMAKE) --foreign  src/c/signalProcessing/ifft/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \

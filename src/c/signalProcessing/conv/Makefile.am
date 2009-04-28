@@ -13,9 +13,9 @@
 
 
 
-libConv_la_CFLAGS =	-I $(top_builddir)/type \
-			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/signalProcessing/includes
+libConv_la_CFLAGS =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/operations/includes \
+			-I $(top_builddir)/src/c/signalProcessing/includes
 
 
 instdir = $(top_builddir)/lib
@@ -24,38 +24,38 @@ instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libConv.la
 
 HEAD = ../includes/conv.h
-	
+
 
 
 libConv_la_SOURCES = 	$(HEAD) \
-					sconva.c \
-					dconva.c \
-					cconva.c \
-					zconva.c
+			sconva.c \
+			dconva.c \
+			cconva.c \
+			zconva.c
 
 
 ###############
 #### Check ####
 ###############
 
-check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
-			$(top_builddir)/signalProcessing/ifft/libIfft.la \
-			$(top_builddir)/signalProcessing/fft/libFft.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
-			$(top_builddir)/lib/blas/libsciblas.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/operations/subtraction/libSubtraction.la \
-			$(top_builddir)/matrixOperations/zeros/libMatrixZeros.la \
-			libConv.la 
+check_LDADD =		$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/src/c/signalProcessing/ifft/libIfft.la \
+			$(top_builddir)/src/c/signalProcessing/fft/libFft.la \
+			$(top_builddir)/src/fortran/lapack/libscilapack.la \
+			$(top_builddir)/src/fortran/blas/libsciblas.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			$(top_builddir)/src/c/operations/subtraction/libSubtraction.la \
+			$(top_builddir)/src/c/matrixOperations/zeros/libMatrixZeros.la \
+			libConv.la
 
 
-check_INCLUDES =	-I $(top_builddir)/type \
-			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/signalProcessing/fft \
-			-I $(top_builddir)/signalProcessing/ifft \
-			-I $(top_builddir)/signalProcessing/includes
+check_INCLUDES =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/operations/includes \
+			-I $(top_builddir)/src/c/signalProcessing/fft \
+			-I $(top_builddir)/src/c/signalProcessing/ifft \
+			-I $(top_builddir)/src/c/signalProcessing/includes
 
 check_PROGRAMS = 	testFloatConv       testDoubleConv
 

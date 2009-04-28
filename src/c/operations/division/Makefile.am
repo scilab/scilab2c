@@ -10,9 +10,9 @@
 ##
 ##
 
-libDivision_la_CFLAGS =	-I $(top_builddir)/type \
-			-I $(top_builddir)/auxiliaryFunctions/includes \
-			-I $(top_builddir)/operations/includes
+libDivision_la_CFLAGS =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/auxiliaryFunctions/includes \
+			-I $(top_builddir)/src/c/operations/includes
 
 instdir = $(top_builddir)/lib
 
@@ -41,24 +41,24 @@ libDivision_la_SOURCES = 	$(HEAD) \
 check_PROGRAMS = 	testLDivision \
 			testRDivision
 
-check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
-			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
+check_LDADD =		$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/conj/libConj.la \
 			libDivision.la
 
-check_INCLUDES =	-I $(top_builddir)/type \
-			-I $(top_builddir)/operations/includes
+check_INCLUDES =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/operations/includes
 
 
-testLDivision_SOURCES = testLDivision.c 
+testLDivision_SOURCES = testLDivision.c
 testLDivision_LDADD = $(check_LDADD)
 testLDivision_CFLAGS = $(check_INCLUDES)
 
 
-testRDivision_SOURCES = testRDivision.c 
+testRDivision_SOURCES = testRDivision.c
 testRDivision_LDADD = $(check_LDADD)
 testRDivision_CFLAGS = $(check_INCLUDES)
 
 TESTS =		testLDivision \
-		testRDivision 
+		testRDivision

@@ -13,11 +13,11 @@
 
 
 libFft_la_CFLAGS =	-I . \
-			-I $(top_builddir)/type \
-			-I $(top_builddir)/signalProcessing/includes \
-			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/matrixOperations/includes \
-			-I $(top_builddir)/auxiliaryFunctions/includes
+			-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/signalProcessing/includes \
+			-I $(top_builddir)/src/c/operations/includes \
+			-I $(top_builddir)/src/c/matrixOperations/includes \
+			-I $(top_builddir)/src/c/auxiliaryFunctions/includes
 
 instdir = $(top_builddir)/lib
 
@@ -45,21 +45,21 @@ SRC	=		zfftma.c \
 ####
 
 check_INCLUDES	=	-I . \
-			-I $(top_builddir)/type \
-			-I $(top_builddir)/signalProcessing/includes \
-			-I $(top_builddir)/matrixOperations/includes \
-			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/auxiliaryFunctions/includes
+			-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/signalProcessing/includes \
+			-I $(top_builddir)/src/c/matrixOperations/includes \
+			-I $(top_builddir)/src/c/operations/includes \
+			-I $(top_builddir)/src/c/auxiliaryFunctions/includes
 
 
-check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
-			$(top_builddir)/lib/blas/libsciblas.la \
-			$(top_builddir)/signalProcessing/fft/libFft.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/operations/subtraction/libSubtraction.la \
-			$(top_builddir)/matrixOperations/zeros/libMatrixZeros.la \
+check_LDADD	=	$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/fortran/lapack/libscilapack.la \
+			$(top_builddir)/src/fortran/blas/libsciblas.la \
+			$(top_builddir)/src/c/signalProcessing/fft/libFft.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			$(top_builddir)/src/c/operations/subtraction/libSubtraction.la \
+			$(top_builddir)/src/c/matrixOperations/zeros/libMatrixZeros.la \
 			@LIBMATH@
 
 check_PROGRAMS	= 	testFloatFft testDoubleFft  testMatFft
