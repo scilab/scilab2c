@@ -1,1 +1,0 @@
-../../../../elementaryFunctions/atan/satans.c

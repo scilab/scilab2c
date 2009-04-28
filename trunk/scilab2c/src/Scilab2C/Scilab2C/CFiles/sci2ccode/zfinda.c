@@ -1,1 +1,0 @@
-../../../../auxiliaryFunctions/find/zfinda.c

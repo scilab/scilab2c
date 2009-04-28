@@ -1,1 +1,0 @@
-../../../../matrixOperations/determ/sdeterma.c

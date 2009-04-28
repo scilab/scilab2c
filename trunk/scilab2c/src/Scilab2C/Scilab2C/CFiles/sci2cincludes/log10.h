@@ -1,1 +1,0 @@
-../../../../elementaryFunctions/includes/log10.h

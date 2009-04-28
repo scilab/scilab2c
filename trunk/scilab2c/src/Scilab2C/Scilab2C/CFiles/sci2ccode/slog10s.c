@@ -1,1 +1,0 @@
-../../../../elementaryFunctions/log10/slog10s.c

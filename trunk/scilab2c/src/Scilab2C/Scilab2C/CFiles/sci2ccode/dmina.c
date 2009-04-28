@@ -1,1 +1,0 @@
-../../../../statisticsFunctions/min/dmina.c

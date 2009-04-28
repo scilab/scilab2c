@@ -1,1 +1,0 @@
-../../../../elementaryFunctions/acosh/zacosha.c

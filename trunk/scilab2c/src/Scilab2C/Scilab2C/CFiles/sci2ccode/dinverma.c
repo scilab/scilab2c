@@ -1,1 +1,0 @@
-../../../../matrixOperations/inversion/dinverma.c

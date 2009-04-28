@@ -1,1 +1,0 @@
-../../../../matrixOperations/chol/schols.c

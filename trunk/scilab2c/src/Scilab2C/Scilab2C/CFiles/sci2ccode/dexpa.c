@@ -1,1 +1,0 @@
-../../../../elementaryFunctions/exp/dexpa.c
