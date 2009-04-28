@@ -34,7 +34,7 @@ build_triplet = @build@
 host_triplet = @host@
 check_PROGRAMS = testFloatRound$(EXEEXT) testDoubleRound$(EXEEXT)
 TESTS = testFloatRound$(EXEEXT) testDoubleRound$(EXEEXT)
-subdir = elementaryFunctions/round
+subdir = src/c/elementaryFunctions/round
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -213,8 +213,8 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libRound_la_CFLAGS = -I $(top_builddir)/type \
-				-I $(top_builddir)/elementaryFunctions/includes
+libRound_la_CFLAGS = -I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/elementaryFunctions/includes
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libRound.la
@@ -233,12 +233,12 @@ SRC = srounds.c \
 ####
 # Checking Part
 ####
-check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
-				-I $(top_builddir)/type
+check_INCLUDES = -I $(top_builddir)/src/c/elementaryFunctions/includes \
+			-I $(top_builddir)/src/c/type
 
-check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/elementaryFunctions/round/libRound.la
+check_LDADD = $(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/elementaryFunctions/round/libRound.la
 
 
 #
@@ -263,9 +263,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  elementaryFunctions/round/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  src/c/elementaryFunctions/round/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  elementaryFunctions/round/Makefile
+	  $(AUTOMAKE) --foreign  src/c/elementaryFunctions/round/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \

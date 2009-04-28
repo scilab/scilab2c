@@ -34,27 +34,27 @@ HEAD	=	../includes/tanh.h
 # Checking Part
 ####
 
-check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
-			-I $(top_builddir)/type
+check_INCLUDES	=	-I $(top_builddir)/src/c/elementaryFunctions/includes \
+			-I $(top_builddir)/src/c/type
 
-check_LDADD	=	$(top_builddir)/lib/lapack/libscilapack.la \
-			$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/elementaryFunctions/tan/libTan.la \
-			$(top_builddir)/elementaryFunctions/sin/libSin.la \
-			$(top_builddir)/elementaryFunctions/cos/libCos.la \
-			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
-			$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
-			$(top_builddir)/elementaryFunctions/exp/libExp.la \
-			$(top_builddir)/elementaryFunctions/log/libLog.la \
-			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-			$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
-			$(top_builddir)/elementaryFunctions/lnp1m1/libLnp1m1.la \
-			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-			$(top_builddir)/elementaryFunctions/tanh/libTanh.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
+check_LDADD	=	$(top_builddir)/src/fortran/lapack/libscilapack.la \
+			$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			$(top_builddir)/src/c/elementaryFunctions/tan/libTan.la \
+			$(top_builddir)/src/c/elementaryFunctions/sin/libSin.la \
+			$(top_builddir)/src/c/elementaryFunctions/cos/libCos.la \
+			$(top_builddir)/src/c/elementaryFunctions/sinh/libSinh.la \
+			$(top_builddir)/src/c/elementaryFunctions/cosh/libCosh.la \
+			$(top_builddir)/src/c/elementaryFunctions/exp/libExp.la \
+			$(top_builddir)/src/c/elementaryFunctions/log/libLog.la \
+			$(top_builddir)/src/c/elementaryFunctions/sqrt/libSqrt.la \
+			$(top_builddir)/src/c/elementaryFunctions/log1p/libLog1p.la \
+			$(top_builddir)/src/c/elementaryFunctions/lnp1m1/libLnp1m1.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/pythag/libPythag.la \
+			$(top_builddir)/src/c/elementaryFunctions/tanh/libTanh.la \
+			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
 			@LIBMATH@
 
 check_PROGRAMS	= 	testFloatTanh testDoubleTanh
@@ -65,9 +65,9 @@ TESTS		=	testFloatTanh testDoubleTanh
 # -*- Hyperbolic Tangeant Tests -*-
 #
 testFloatTanh_SOURCES = 	testTanh.h testFloatTanh.c
-testFloatTanh_CFLAGS	=	$(check_INCLUDES)
-testFloatTanh_LDADD	=	$(check_LDADD)
+testFloatTanh_CFLAGS =		$(check_INCLUDES)
+testFloatTanh_LDADD =		$(check_LDADD)
 
 testDoubleTanh_SOURCES = 	testTanh.h testDoubleTanh.c
-testDoubleTanh_CFLAGS	=	$(check_INCLUDES)
-testDoubleTanh_LDADD	=	$(check_LDADD)
+testDoubleTanh_CFLAGS =		$(check_INCLUDES)
+testDoubleTanh_LDADD =		$(check_LDADD)
