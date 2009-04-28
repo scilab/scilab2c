@@ -1,1 +1,0 @@
-../../../../elementaryFunctions/includes/tanh.h

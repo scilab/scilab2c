@@ -1,1 +1,0 @@
-../../../../auxiliaryFunctions/sign/dsigna.c

@@ -1,1 +1,0 @@
-../../../../matrixOperations/infiniteNorm/zinfnorma.c

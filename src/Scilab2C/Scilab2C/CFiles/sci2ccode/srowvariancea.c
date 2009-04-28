@@ -1,1 +1,0 @@
-../../../../statisticsFunctions/variance/srowvariancea.c

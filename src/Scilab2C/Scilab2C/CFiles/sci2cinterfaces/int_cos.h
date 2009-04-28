@@ -1,1 +1,0 @@
-../../../../elementaryFunctions/interfaces/int_cos.h

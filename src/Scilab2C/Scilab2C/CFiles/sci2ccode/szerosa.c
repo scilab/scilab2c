@@ -1,1 +1,0 @@
-../../../../matrixOperations/zeros/szerosa.c

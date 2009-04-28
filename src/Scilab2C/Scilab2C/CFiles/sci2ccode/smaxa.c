@@ -1,1 +1,0 @@
-../../../../statisticsFunctions/max/smaxa.c

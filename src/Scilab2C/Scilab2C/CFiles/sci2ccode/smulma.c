@@ -1,1 +1,0 @@
-../../../../matrixOperations/multiplication/smulma.c

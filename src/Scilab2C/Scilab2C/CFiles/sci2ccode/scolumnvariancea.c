@@ -1,1 +1,0 @@
-../../../../statisticsFunctions/variance/scolumnvariancea.c
