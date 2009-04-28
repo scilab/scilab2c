@@ -34,7 +34,7 @@ build_triplet = @build@
 host_triplet = @host@
 check_PROGRAMS = testMultiplication$(EXEEXT)
 TESTS = testMultiplication$(EXEEXT)
-subdir = operations/multiplication
+subdir = src/c/operations/multiplication
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -211,8 +211,8 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libMultiplication_la_CFLAGS = -I $(top_builddir)/type \
-			-I $(top_builddir)/operations/includes
+libMultiplication_la_CFLAGS = -I $(top_builddir)/src/c/type \
+				-I $(top_builddir)/src/c/operations/includes
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libMultiplication.la
@@ -227,14 +227,14 @@ libMultiplication_la_SOURCES = $(HEAD) \
 				cmula.c \
 				zmula.c \
 				ctimess.c \
-				ztimess.c 
+				ztimess.c
 
-check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
+check_LDADD = $(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
 			libMultiplication.la
 
-check_INCLUDES = -I $(top_builddir)/type \
-			-I $(top_builddir)/operations/includes
+check_INCLUDES = -I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/operations/includes
 
 testMultiplication_SOURCES = testMultiplication.c
 testMultiplication_LDADD = $(check_LDADD)
@@ -252,9 +252,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  operations/multiplication/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  src/c/operations/multiplication/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  operations/multiplication/Makefile
+	  $(AUTOMAKE) --foreign  src/c/operations/multiplication/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \

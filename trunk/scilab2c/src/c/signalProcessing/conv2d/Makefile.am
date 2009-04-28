@@ -13,9 +13,9 @@
 
 
 
-libConv2d_la_CFLAGS =	-I $(top_builddir)/type \
-			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/signalProcessing/includes
+libConv2d_la_CFLAGS =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/operations/includes \
+			-I $(top_builddir)/src/c/signalProcessing/includes
 
 
 instdir = $(top_builddir)/lib
@@ -23,30 +23,30 @@ instdir = $(top_builddir)/lib
 
 pkglib_LTLIBRARIES = libConv2d.la
 
-HEAD = ../includes/conv2d.h 
+HEAD = ../includes/conv2d.h
 
 libConv2d_la_SOURCES = 	$(HEAD) \
-					sconv2da.c \
-					dconv2da.c \
-					cconv2da.c \
-					zconv2da.c
+			sconv2da.c \
+			dconv2da.c \
+			cconv2da.c \
+			zconv2da.c
 
 
 ###############
 #### Check ####
 ###############
 
-check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			libConv2d.la 
-			
+check_LDADD =		$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			libConv2d.la
 
 
-check_INCLUDES =	-I $(top_builddir)/type \
-			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/signalProcessing/includes
+
+check_INCLUDES =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/operations/includes \
+			-I $(top_builddir)/src/c/signalProcessing/includes
 
 check_PROGRAMS = 	testFloatConv2d       testDoubleConv2d
 

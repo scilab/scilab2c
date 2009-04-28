@@ -35,7 +35,7 @@ host_triplet = @host@
 check_PROGRAMS = testFloatFftShift$(EXEEXT) \
 	testDoubleFftShift$(EXEEXT)
 TESTS = testFloatFftShift$(EXEEXT) testDoubleFftShift$(EXEEXT)
-subdir = signalProcessing/fftshift
+subdir = src/c/signalProcessing/fftshift
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -223,12 +223,12 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libFftShift_la_CFLAGS = -I $(top_builddir)/type \
-				-I $(top_builddir)/signalProcessing/includes
+libFftShift_la_CFLAGS = -I $(top_builddir)/src/c/type \
+				-I $(top_builddir)/src/c/signalProcessing/includes
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libFftShift.la
-HEAD = ../includes/fftshift.h 
+HEAD = ../includes/fftshift.h
 libFftShift_la_SOURCES = $(HEAD) \
 					sfftshifta.c \
 					dfftshifta.c \
@@ -247,12 +247,12 @@ libFftShift_la_SOURCES = $(HEAD) \
 ###############
 #### Check ####
 ###############
-check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
-				$(top_builddir)/type/libFloatComplex.la \
-				libFftShift.la
+check_LDADD = $(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			libFftShift.la
 
-check_INCLUDES = -I $(top_builddir)/type \
-			-I $(top_builddir)/signalProcessing/includes
+check_INCLUDES = -I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/signalProcessing/includes
 
 testDoubleFftShift_SOURCES = testDoubleFftShift.c
 testDoubleFftShift_LDADD = $(check_LDADD)
@@ -273,9 +273,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  signalProcessing/fftshift/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  src/c/signalProcessing/fftshift/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  signalProcessing/fftshift/Makefile
+	  $(AUTOMAKE) --foreign  src/c/signalProcessing/fftshift/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \

@@ -13,9 +13,9 @@
 
 
 
-libCrossCorr_la_CFLAGS =	-I $(top_builddir)/type \
-				-I $(top_builddir)/auxiliaryFunctions/includes \
-				-I $(top_builddir)/signalProcessing/includes
+libCrossCorr_la_CFLAGS =	-I $(top_builddir)/src/c/type \
+				-I $(top_builddir)/src/c/auxiliaryFunctions/includes \
+				-I $(top_builddir)/src/c/signalProcessing/includes
 
 
 instdir = $(top_builddir)/lib
@@ -23,32 +23,32 @@ instdir = $(top_builddir)/lib
 
 pkglib_LTLIBRARIES = libCrossCorr.la
 
-HEAD = ../includes/crossCorr.h 
+HEAD = ../includes/crossCorr.h
 
 libCrossCorr_la_SOURCES = 	$(HEAD) \
-					scrossCorra.c \
-					dcrossCorra.c \
-					ccrossCorra.c \
-					zcrossCorra.c
+				scrossCorra.c \
+				dcrossCorra.c \
+				ccrossCorra.c \
+				zcrossCorra.c
 
 
 ###############
 #### Check ####
 ###############
 
-check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/signalProcessing/conv2d/libConv2d.la \
+check_LDADD =		$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/conj/libConj.la \
+			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			$(top_builddir)/src/c/signalProcessing/conv2d/libConv2d.la \
 			libCrossCorr.la
-			
 
 
-check_INCLUDES =	-I $(top_builddir)/type \
-			-I $(top_builddir)/auxiliaryFunctions/includes \
-			-I $(top_builddir)/signalProcessing/includes
+
+check_INCLUDES =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/auxiliaryFunctions/includes \
+			-I $(top_builddir)/src/c/signalProcessing/includes
 
 check_PROGRAMS = 	testFloatCrossCorr  testDoubleCrossCorr
 
