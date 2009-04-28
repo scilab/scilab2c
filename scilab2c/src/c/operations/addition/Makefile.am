@@ -10,8 +10,8 @@
 ##
 ##
 
-libAddition_la_CFLAGS =	-I $(top_builddir)/type \
-			-I $(top_builddir)/operations/includes
+libAddition_la_CFLAGS =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/operations/includes
 
 instdir = $(top_builddir)/lib
 

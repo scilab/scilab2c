@@ -13,11 +13,11 @@
 
 
 libIfft_la_CFLAGS =	-I . \
-			-I $(top_builddir)/type \
-			-I $(top_builddir)/signalProcessing/includes \
-			-I $(top_builddir)/matrixOperations/includes \
-			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/auxiliaryFunctions/includes
+			-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/signalProcessing/includes \
+			-I $(top_builddir)/src/c/matrixOperations/includes \
+			-I $(top_builddir)/src/c/operations/includes \
+			-I $(top_builddir)/src/c/auxiliaryFunctions/includes
 
 instdir = $(top_builddir)/lib
 
@@ -29,8 +29,8 @@ HEAD =	../includes/ifft.h \
 	fft_internal.h
 
 SRC	=		zifftma.c \
-            	cifftma.c \
-            	difft2.c \
+			cifftma.c \
+			difft2.c \
 			difftbi.c \
 			difftmx.c \
 			ifft842.c \
@@ -38,7 +38,7 @@ SRC	=		zifftma.c \
 			ir4tx.c \
 			ir8tx.c\
 			difftma.c \
-            	sifftma.c
+			sifftma.c
 
 
 ####
@@ -46,21 +46,21 @@ SRC	=		zifftma.c \
 ####
 
 check_INCLUDES	=	-I . \
-			-I $(top_builddir)/type \
-			-I $(top_builddir)/signalProcessing/includes \
-			-I $(top_builddir)/matrixOperations/includes \
-			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/auxiliaryFunctions/includes
+			-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/signalProcessing/includes \
+			-I $(top_builddir)/src/c/matrixOperations/includes \
+			-I $(top_builddir)/src/c/operations/includes \
+			-I $(top_builddir)/src/c/auxiliaryFunctions/includes
 
 
-check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
-			$(top_builddir)/lib/blas/libsciblas.la \
-			$(top_builddir)/signalProcessing/ifft/libIfft.la \
-			$(top_builddir)/matrixOperations/zeros/libMatrixZeros.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/operations/subtraction/libSubtraction.la \
+check_LDADD	=	$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/fortran/lapack/libscilapack.la \
+			$(top_builddir)/src/fortran/blas/libsciblas.la \
+			$(top_builddir)/src/c/signalProcessing/ifft/libIfft.la \
+			$(top_builddir)/src/c/matrixOperations/zeros/libMatrixZeros.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			$(top_builddir)/src/c/operations/subtraction/libSubtraction.la \
 			@LIBMATH@
 
 check_PROGRAMS	= 	testFloatIfft testDoubleIfft   testMatIfft

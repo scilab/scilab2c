@@ -13,12 +13,12 @@
 
 
 
-libLpc2cep_la_CFLAGS =	-I $(top_builddir)/type \
-			-I $(top_builddir)/elementaryFunctions/includes \
-			-I $(top_builddir)/auxiliaryFunctions/includes \
-			-I $(top_builddir)/matrixOperations/includes \
-			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/signalProcessing/includes
+libLpc2cep_la_CFLAGS =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/elementaryFunctions/includes \
+			-I $(top_builddir)/src/c/auxiliaryFunctions/includes \
+			-I $(top_builddir)/src/c/matrixOperations/includes \
+			-I $(top_builddir)/src/c/operations/includes \
+			-I $(top_builddir)/src/c/signalProcessing/includes
 
 
 instdir = $(top_builddir)/lib
@@ -30,10 +30,10 @@ HEAD = ../includes/lpc2cep.h
 
 
 libLpc2cep_la_SOURCES = 	$(HEAD) \
-					slpc2cepa.c \
-					dlpc2cepa.c \
-					clpc2cepa.c \
-					zlpc2cepa.c 
+				slpc2cepa.c \
+				dlpc2cepa.c \
+				clpc2cepa.c \
+				zlpc2cepa.c
 
 
 ###############
@@ -42,39 +42,39 @@ libLpc2cep_la_SOURCES = 	$(HEAD) \
 check_PROGRAMS = 	testDoubleLpc2cep	testFloatLpc2cep
 
 
-check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
-			$(top_builddir)/lib/blas/libsciblas.la \
-			$(top_builddir)/elementaryFunctions/log/libLog.la \
-			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-			$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
-			$(top_builddir)/elementaryFunctions/lnp1m1/libLnp1m1.la \
-			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
-			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-			$(top_builddir)/auxiliaryFunctions/sign/libSign.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/operations/subtraction/libSubtraction.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
-			$(top_builddir)/matrixOperations/multiplication/libMatrixMultiplication.la \
-			$(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la \
-			$(top_builddir)/matrixOperations/inversion/libMatrixInversion.la \
-			$(top_builddir)/matrixOperations/logm/libLogm.la\
-			$(top_builddir)/matrixOperations/spec2/libSpec2.la\
-			$(top_builddir)/matrixOperations/zeros/libMatrixZeros.la\
-			$(top_builddir)/signalProcessing/fft/libFft.la \
-			$(top_builddir)/signalProcessing/ifft/libIfft.la \
-			$(top_builddir)/signalProcessing/lpc2cep/libLpc2cep.la \
-			@LIBMATH@			
-			
+check_LDADD =		$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/fortran/lapack/libscilapack.la \
+			$(top_builddir)/src/fortran/blas/libsciblas.la \
+			$(top_builddir)/src/c/elementaryFunctions/log/libLog.la \
+			$(top_builddir)/src/c/elementaryFunctions/sqrt/libSqrt.la \
+			$(top_builddir)/src/c/elementaryFunctions/log1p/libLog1p.la \
+			$(top_builddir)/src/c/elementaryFunctions/lnp1m1/libLnp1m1.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/conj/libConj.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/pythag/libPythag.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/sign/libSign.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			$(top_builddir)/src/c/operations/subtraction/libSubtraction.la \
+			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/src/c/matrixOperations/multiplication/libMatrixMultiplication.la \
+			$(top_builddir)/src/c/matrixOperations/transpose/libMatrixTranspose.la \
+			$(top_builddir)/src/c/matrixOperations/inversion/libMatrixInversion.la \
+			$(top_builddir)/src/c/matrixOperations/logm/libLogm.la\
+			$(top_builddir)/src/c/matrixOperations/spec2/libSpec2.la\
+			$(top_builddir)/src/c/matrixOperations/zeros/libMatrixZeros.la\
+			$(top_builddir)/src/c/signalProcessing/fft/libFft.la \
+			$(top_builddir)/src/c/signalProcessing/ifft/libIfft.la \
+			$(top_builddir)/src/c/signalProcessing/lpc2cep/libLpc2cep.la \
+			@LIBMATH@
 
-check_INCLUDES =	-I $(top_builddir)/type \
-			-I $(top_builddir)/elementaryFunctions/includes \
-			-I $(top_builddir)/auxiliaryFunctions/includes \
-			-I $(top_builddir)/matrixOperations/includes \
-			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/signalProcessing/includes
+
+check_INCLUDES =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/elementaryFunctions/includes \
+			-I $(top_builddir)/src/c/auxiliaryFunctions/includes \
+			-I $(top_builddir)/src/c/matrixOperations/includes \
+			-I $(top_builddir)/src/c/operations/includes \
+			-I $(top_builddir)/src/c/signalProcessing/includes
 
 
 testDoubleLpc2cep_SOURCES = testDoubleLpc2cep.c
