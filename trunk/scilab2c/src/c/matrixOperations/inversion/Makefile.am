@@ -10,11 +10,11 @@
 ##
 ##
 
-libMatrixInversion_la_CFLAGS =	-I $(top_builddir)/type \
-						-I $(top_builddir)/matrixOperations/includes \
-						-I $(top_builddir)/auxiliaryFunctions/includes \
-						-I $(top_builddir)/includes \
-						-I $(top_builddir)/elementaryFunctions/includes
+libMatrixInversion_la_CFLAGS =	-I $(top_builddir)/src/c/type \
+				-I $(top_builddir)/src/c/matrixOperations/includes \
+				-I $(top_builddir)/src/c/auxiliaryFunctions/includes \
+				-I $(top_builddir)/includes \
+				-I $(top_builddir)/src/c/elementaryFunctions/includes
 
 
 instdir = $(top_builddir)/lib
@@ -31,23 +31,23 @@ libMatrixInversion_la_SOURCES =	$(HEAD) \
 
 check_PROGRAMS = 	testMatrixInversion
 
-check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
-			$(top_builddir)/lib/blas/libsciblas.la \
-			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-			$(top_builddir)/auxiliaryFunctions/sign/libSign.la \
-			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
+check_LDADD =		$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/elementaryFunctions/sqrt/libSqrt.la \
+			$(top_builddir)/src/fortran/lapack/libscilapack.la \
+			$(top_builddir)/src/fortran/blas/libsciblas.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/sign/libSign.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/pythag/libPythag.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
 			libMatrixInversion.la
 
-check_INCLUDES =	-I $(top_builddir)/type \
-					-I $(top_builddir)/matrixOperations/includes \
-                    -I $(top_builddir)/auxiliaryFunctions/includes \
-                    -I $(top_builddir)/includes \
-                    -I $(top_builddir)/elementaryFunctions/includes
+check_INCLUDES =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/matrixOperations/includes \
+                    	-I $(top_builddir)/src/c/auxiliaryFunctions/includes \
+                    	-I $(top_builddir)/includes \
+                    	-I $(top_builddir)/src/c/elementaryFunctions/includes
 
 testMatrixInversion_SOURCES = testMatrixInversion.c
 testMatrixInversion_LDADD = $(check_LDADD)

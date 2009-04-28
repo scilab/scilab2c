@@ -34,7 +34,7 @@ build_triplet = @build@
 host_triplet = @host@
 check_PROGRAMS = testMatrixTrace$(EXEEXT)
 TESTS = testMatrixTrace$(EXEEXT)
-subdir = matrixOperations/trace
+subdir = src/c/matrixOperations/trace
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -204,24 +204,24 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libMatrixTrace_la_CFLAGS = -I $(top_builddir)/type \
-					-I $(top_builddir)/matrixOperations/includes
+libMatrixTrace_la_CFLAGS = -I $(top_builddir)/src/c/type \
+				-I $(top_builddir)/src/c/matrixOperations/includes
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libMatrixTrace.la
 HEAD = ../includes/matrixTrace.h
 libMatrixTrace_la_SOURCES = $(HEAD) \
-					stracea.c \
-					dtracea.c \
-					ctracea.c \
-					ztracea.c
+				stracea.c \
+				dtracea.c \
+				ctracea.c \
+				ztracea.c
 
-check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
+check_LDADD = $(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
 			libMatrixTrace.la
 
-check_INCLUDES = -I $(top_builddir)/type \
-			-I $(top_builddir)/matrixOperations/includes
+check_INCLUDES = -I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/matrixOperations/includes
 
 testMatrixTrace_SOURCES = testMatrixTrace.c
 testMatrixTrace_LDADD = $(check_LDADD)
@@ -239,9 +239,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  matrixOperations/trace/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  src/c/matrixOperations/trace/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  matrixOperations/trace/Makefile
+	  $(AUTOMAKE) --foreign  src/c/matrixOperations/trace/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \

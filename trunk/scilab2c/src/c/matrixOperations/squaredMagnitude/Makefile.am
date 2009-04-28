@@ -10,8 +10,8 @@
 ##
 ##
 
-libMatrixSquaredMagnitude_la_CFLAGS =	-I $(top_builddir)/type \
-					-I $(top_builddir)/matrixOperations/includes
+libMatrixSquaredMagnitude_la_CFLAGS =	-I $(top_builddir)/src/c/type \
+					-I $(top_builddir)/src/c/matrixOperations/includes
 
 instdir = $(top_builddir)/lib
 
@@ -28,27 +28,27 @@ libMatrixSquaredMagnitude_la_SOURCES = 	$(HEAD) \
 					csquMagna.c \
 					zsquMagns.c \
 					zsquMagna.c
-					
+
 #############
 ##  CHECK  ##
 #############
 
 check_PROGRAMS = 	testDoubleMatrixSquaredMagnitude   testFloatMatrixSquaredMagnitude
 
-check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
-			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
-			$(top_builddir)/matrixOperations/magnitude/libMatrixMagnitude.la \
+check_LDADD =		$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			$(top_builddir)/src/fortran/lapack/libscilapack.la \
+			$(top_builddir)/src/c/elementaryFunctions/sqrt/libSqrt.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/pythag/libPythag.la \
+			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/src/c/matrixOperations/magnitude/libMatrixMagnitude.la \
 			libMatrixSquaredMagnitude.la
 
-check_INCLUDES =	-I $(top_builddir)/type \
-			-I $(top_builddir)/matrixOperations/includes \
-			-I $(top_builddir)/elementaryFunctions/includes
+check_INCLUDES =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/matrixOperations/includes \
+			-I $(top_builddir)/src/c/elementaryFunctions/includes
 
 testDoubleMatrixSquaredMagnitude_SOURCES = 	testDoubleSquaredMagnitude.c
 testDoubleMatrixSquaredMagnitude_LDADD   = 	$(check_LDADD)

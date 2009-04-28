@@ -10,11 +10,11 @@
 ##
 ##
 
-libMatrixDivision_la_CFLAGS =	-I $(top_builddir)/type \
-				-I $(top_builddir)/matrixOperations/includes \
-				-I $(top_builddir)/auxiliaryFunctions/includes \
-				-I $(top_builddir)/operations/includes \
-				-I $(top_builddir)/elementaryFunctions/includes
+libMatrixDivision_la_CFLAGS =	-I $(top_builddir)/src/c/type \
+				-I $(top_builddir)/src/c/matrixOperations/includes \
+				-I $(top_builddir)/src/c/auxiliaryFunctions/includes \
+				-I $(top_builddir)/src/c/operations/includes \
+				-I $(top_builddir)/src/c/elementaryFunctions/includes
 
 instdir = $(top_builddir)/lib
 
@@ -35,23 +35,23 @@ libMatrixDivision_la_SOURCES = 	$(HEAD) \
 check_PROGRAMS = 	testMatrixRDivision \
 			testMatrixLDivision
 
-check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
-			$(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la \
-			$(top_builddir)/matrixOperations/inversion/libMatrixInversion.la \
-			$(top_builddir)/matrixOperations/multiplication/libMatrixMultiplication.la \
-			$(top_builddir)/matrixOperations/cat/libMatrixConcatenation.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
-			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
+check_LDADD =		$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/fortran/lapack/libscilapack.la \
+			$(top_builddir)/src/c/matrixOperations/transpose/libMatrixTranspose.la \
+			$(top_builddir)/src/c/matrixOperations/inversion/libMatrixInversion.la \
+			$(top_builddir)/src/c/matrixOperations/multiplication/libMatrixMultiplication.la \
+			$(top_builddir)/src/c/matrixOperations/cat/libMatrixConcatenation.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/conj/libConj.la \
 			libMatrixDivision.la
 
-check_INCLUDES =	-I $(top_builddir)/type \
-			-I $(top_builddir)/matrixOperations/includes \
-			-I $(top_builddir)/auxiliaryFunctions/includes \
-			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/elementaryFunctions/includes
+check_INCLUDES =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/matrixOperations/includes \
+			-I $(top_builddir)/src/c/auxiliaryFunctions/includes \
+			-I $(top_builddir)/src/c/operations/includes \
+			-I $(top_builddir)/src/c/elementaryFunctions/includes
 
 ztestMatrixLDivision_SOURCES =    testMatrixLDivision.c
 testMatrixLDivision_LDADD = $(check_LDADD)

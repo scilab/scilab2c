@@ -34,7 +34,7 @@ build_triplet = @build@
 host_triplet = @host@
 check_PROGRAMS = testMatrixEye$(EXEEXT)
 TESTS = testMatrixEye$(EXEEXT)
-subdir = matrixOperations/eye
+subdir = src/c/matrixOperations/eye
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -202,8 +202,8 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libMatrixEye_la_CFLAGS = -I $(top_builddir)/type \
-				-I $(top_builddir)/matrixOperations/includes \
+libMatrixEye_la_CFLAGS = -I $(top_builddir)/src/c/type \
+				-I $(top_builddir)/src/c/matrixOperations/includes \
 				-I $(top_builddir)/includes
 
 instdir = $(top_builddir)/lib
@@ -213,15 +213,15 @@ libMatrixEye_la_SOURCES = $(HEAD) \
 				seyea.c \
 				deyea.c \
 				ceyea.c \
-				zeyea.c 
+				zeyea.c
 
-check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
+check_LDADD = $(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
 			libMatrixEye.la
 
-check_INCLUDES = -I $(top_builddir)/type \
-			-I $(top_builddir)/matrixOperations/includes \
-			-I $(top_builddir)/includes
+check_INCLUDES = -I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/matrixOperations/includes \
+			-I $(top_builddir)/src/c/includes
 
 testMatrixEye_SOURCES = testMatrixEye.c
 testMatrixEye_LDADD = $(check_LDADD)
@@ -239,9 +239,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  matrixOperations/eye/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  src/c/matrixOperations/eye/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  matrixOperations/eye/Makefile
+	  $(AUTOMAKE) --foreign  src/c/matrixOperations/eye/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
