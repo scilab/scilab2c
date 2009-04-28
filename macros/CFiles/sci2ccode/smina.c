@@ -1,0 +1,1 @@
+../../../../statisticsFunctions/min/smina.c
