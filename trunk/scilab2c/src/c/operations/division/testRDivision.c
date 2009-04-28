@@ -354,7 +354,7 @@
 0.7951062084175646305084f,0.8432204117998480796814f,0.5806765086017549037933f,\
 0.3487791065126657485962f,0.9397577759809792041779f,0.4363934816792607307434f,\
 0.5549766751937568187714f,0.9105900451540946960449f}
- 
+
 #define resF {2.7752117685005690539413f,7.3598039969520661074398f,1.8430013620755494319070f,\
 1.0119769763285682007137f,1.6993385961606277678726f,0.2200608028029340801357f,\
 0.9252131842476511991435f,36.817431287256695782162f,0.4899553827958132434794f,\
@@ -1256,7 +1256,7 @@ static void srdivsTest()
   float tRes[]=resF;
   int i =0;
   float out=0;
-  
+
   for(i=0;i<200;i++){
 	out=srdivs(tIn1[i],tIn2[i]);
 	assert( (fabs(out-tRes[i]) / fabs(out) ) <1e-6);
@@ -1265,16 +1265,18 @@ static void srdivsTest()
 
 
 static void drdivsTest()
-{  
+{
   double tIn1[]=numD;
   double tIn2[]=denD;
   double tRes[]=resD;
   int i =0;
   double out=0;
-  
+
   for(i=0;i<200;i++){
 	out=drdivs(tIn1[i],tIn2[i]);
-	printf("%d : %f ; num = %f;erreur = %1.25f\n",i,out,tIn1[i],fabs(out-tRes[i]) / fabs(out));
+	/*
+printf("%d : %f ; num = %f;erreur = %1.25f\n",i,out,tIn1[i],fabs(out-tRes[i]) / fabs(out));
+	*/
 	assert( (fabs(out-tRes[i]) / fabs(out) ) <3e-16);
   }
 }
@@ -1297,6 +1299,10 @@ static void crdivsTest()
   	out = crdivs(in1,in2);
   	assert( ( fabs(creals(out)-RR[i]) / fabs(creals(out)) ) <1e-6);
   	assert( ( fabs(cimags(out)-RI[i]) / fabs(cimags(out)) ) <3e-6);
+	if (! ( fabs(cimags(out)-RI[i]) / fabs(cimags(out)) ) <3e-6 )
+	  {
+	    printf("%d : %f ; num = %f;erreur = %1.25f\n",i,cimags(out),RI[i], fabs(cimags(out)-RI[i]) / fabs(cimags(out)));
+	  }
   }
 }
 
@@ -1324,13 +1330,13 @@ static void zrdivsTest()
 
 
 static void srdivaTest()
-{  
+{
   float tIn1[]=numF;
   float tIn2[]=denF;
   float tRes[]=resF;
   int i =0;
   float out[200];
-  
+
   srdiva(tIn1,tIn2,200,out);
   for(i=0;i<200;i++){
 	assert( (fabs(out[i]-tRes[i]) / fabs(out[i]) ) <1e-6);
@@ -1345,7 +1351,7 @@ static void drdivaTest()
   double tRes[]=resD;
   int i =0;
   double out[200];
-  
+
   drdiva(tIn1,tIn2,200,out);
   for(i=0;i<200;i++){
 	printf("%d : %f ; num = %f;erreur = %1.25f\n",i,out[i],tIn1[i],fabs(out[i]-tRes[i]) / fabs(out[i]));
@@ -1355,7 +1361,7 @@ static void drdivaTest()
 
 
 static void crdivaTest()
-{	
+{
   float NR[]=CnumR;
   float NI[]=CnumI;
   float DR[]=CdenR;
@@ -1407,12 +1413,12 @@ static void zrdivaTest()
 static int testRDivision(void) {
 	printf(">>>SCALAIRES<<<\n");printf("\n");printf("\n");
   srdivsTest();
-  drdivsTest();	
+  drdivsTest();
   crdivsTest();
   zrdivsTest();
 	printf(">>>ARRAYS<<<\n");printf("\n");printf("\n");
   srdivaTest();
-  drdivaTest();	
+  drdivaTest();
   crdivaTest();
   zrdivaTest();
   return 0;

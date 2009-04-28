@@ -32,9 +32,9 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testAddition$(EXEEXT)
-TESTS = testAddition$(EXEEXT)
-subdir = operations/addition
+check_PROGRAMS = testSubtraction$(EXEEXT)
+TESTS = testSubtraction$(EXEEXT)
+subdir = operations/subtraction
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -52,22 +52,24 @@ am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
 am__installdirs = "$(DESTDIR)$(pkglibdir)"
 pkglibLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkglib_LTLIBRARIES)
-libAddition_la_LIBADD =
+libSubtraction_la_LIBADD =
 am__objects_1 =
-am_libAddition_la_OBJECTS = $(am__objects_1) libAddition_la-sadds.lo \
-	libAddition_la-dadds.lo libAddition_la-cadds.lo \
-	libAddition_la-zadds.lo libAddition_la-sadda.lo \
-	libAddition_la-dadda.lo libAddition_la-cadda.lo \
-	libAddition_la-zadda.lo
-libAddition_la_OBJECTS = $(am_libAddition_la_OBJECTS)
-libAddition_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libAddition_la_CFLAGS) \
-	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testAddition_OBJECTS = testAddition-testAddition.$(OBJEXT)
-testAddition_OBJECTS = $(am_testAddition_OBJECTS)
-testAddition_DEPENDENCIES = $(check_LDADD)
-testAddition_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testAddition_CFLAGS) \
+am_libSubtraction_la_OBJECTS = $(am__objects_1) \
+	libSubtraction_la-sdiffs.lo libSubtraction_la-ddiffs.lo \
+	libSubtraction_la-cdiffs.lo libSubtraction_la-zdiffs.lo \
+	libSubtraction_la-sdiffa.lo libSubtraction_la-ddiffa.lo \
+	libSubtraction_la-cdiffa.lo libSubtraction_la-zdiffa.lo
+libSubtraction_la_OBJECTS = $(am_libSubtraction_la_OBJECTS)
+libSubtraction_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
+	$(libSubtraction_la_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) \
+	-o $@
+am_testSubtraction_OBJECTS =  \
+	testSubtraction-testSubtraction.$(OBJEXT)
+testSubtraction_OBJECTS = $(am_testSubtraction_OBJECTS)
+testSubtraction_DEPENDENCIES = $(check_LDADD)
+testSubtraction_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testSubtraction_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
@@ -81,8 +83,8 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libAddition_la_SOURCES) $(testAddition_SOURCES)
-DIST_SOURCES = $(libAddition_la_SOURCES) $(testAddition_SOURCES)
+SOURCES = $(libSubtraction_la_SOURCES) $(testSubtraction_SOURCES)
+DIST_SOURCES = $(libSubtraction_la_SOURCES) $(testSubtraction_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -106,7 +108,7 @@ CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
 DSYMUTIL = @DSYMUTIL@
-ECHO = @ECHO@
+DUMPBIN = @DUMPBIN@
 ECHO_C = @ECHO_C@
 ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
@@ -114,24 +116,30 @@ EGREP = @EGREP@
 EXEEXT = @EXEEXT@
 F77 = @F77@
 FFLAGS = @FFLAGS@
+FGREP = @FGREP@
 GREP = @GREP@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
+LD = @LD@
 LDFLAGS = @LDFLAGS@
 LIBMATH = @LIBMATH@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
+LIPO = @LIPO@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
 MAKEINFO = @MAKEINFO@
 MKDIR_P = @MKDIR_P@
+NM = @NM@
 NMEDIT = @NMEDIT@
 OBJEXT = @OBJEXT@
+OTOOL = @OTOOL@
+OTOOL64 = @OTOOL64@
 PACKAGE = @PACKAGE@
 PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
 PACKAGE_NAME = @PACKAGE_NAME@
@@ -151,6 +159,7 @@ abs_top_builddir = @abs_top_builddir@
 abs_top_srcdir = @abs_top_srcdir@
 ac_ct_CC = @ac_ct_CC@
 ac_ct_CXX = @ac_ct_CXX@
+ac_ct_DUMPBIN = @ac_ct_DUMPBIN@
 ac_ct_F77 = @ac_ct_F77@
 am__include = @am__include@
 am__leading_dot = @am__leading_dot@
@@ -182,6 +191,7 @@ libdir = @libdir@
 libexecdir = @libexecdir@
 localedir = @localedir@
 localstatedir = @localstatedir@
+lt_ECHO = @lt_ECHO@
 mandir = @mandir@
 mkdir_p = @mkdir_p@
 oldincludedir = @oldincludedir@
@@ -196,32 +206,32 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libAddition_la_CFLAGS = -I $(top_builddir)/type \
-			-I $(top_builddir)/operations/includes
+libSubtraction_la_CFLAGS = -I $(top_builddir)/type \
+				-I $(top_builddir)/operations/includes
 
 instdir = $(top_builddir)/lib
-pkglib_LTLIBRARIES = libAddition.la
-HEAD = ../includes/addition.h
-libAddition_la_SOURCES = $(HEAD) \
-				sadds.c \
-				dadds.c \
-				cadds.c \
-				zadds.c \
-				sadda.c \
-				dadda.c \
-				cadda.c \
-				zadda.c
+pkglib_LTLIBRARIES = libSubtraction.la
+HEAD = ../includes/subtraction.h
+libSubtraction_la_SOURCES = $(HEAD) \
+				sdiffs.c \
+				ddiffs.c \
+				cdiffs.c \
+				zdiffs.c \
+				sdiffa.c \
+				ddiffa.c \
+				cdiffa.c \
+				zdiffa.c
 
 check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
-			libAddition.la
+			libSubtraction.la
 
 check_INCLUDES = -I $(top_builddir)/type \
 			-I $(top_builddir)/operations/includes
 
-testAddition_SOURCES = testAddition.c
-testAddition_LDADD = $(check_LDADD)
-testAddition_CFLAGS = $(check_INCLUDES)
+testSubtraction_SOURCES = testSubtraction.c
+testSubtraction_LDADD = $(check_LDADD)
+testSubtraction_CFLAGS = $(check_INCLUDES)
 all: all-am
 
 .SUFFIXES:
@@ -235,9 +245,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  operations/addition/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  operations/subtraction/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  operations/addition/Makefile
+	  $(AUTOMAKE) --foreign  operations/subtraction/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
@@ -282,8 +292,8 @@ clean-pkglibLTLIBRARIES:
 	  echo "rm -f \"$${dir}/so_locations\""; \
 	  rm -f "$${dir}/so_locations"; \
 	done
-libAddition.la: $(libAddition_la_OBJECTS) $(libAddition_la_DEPENDENCIES) 
-	$(libAddition_la_LINK) -rpath $(pkglibdir) $(libAddition_la_OBJECTS) $(libAddition_la_LIBADD) $(LIBS)
+libSubtraction.la: $(libSubtraction_la_OBJECTS) $(libSubtraction_la_DEPENDENCIES) 
+	$(libSubtraction_la_LINK) -rpath $(pkglibdir) $(libSubtraction_la_OBJECTS) $(libSubtraction_la_LIBADD) $(LIBS)
 
 clean-checkPROGRAMS:
 	@list='$(check_PROGRAMS)'; for p in $$list; do \
@@ -291,9 +301,9 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testAddition$(EXEEXT): $(testAddition_OBJECTS) $(testAddition_DEPENDENCIES) 
-	@rm -f testAddition$(EXEEXT)
-	$(testAddition_LINK) $(testAddition_OBJECTS) $(testAddition_LDADD) $(LIBS)
+testSubtraction$(EXEEXT): $(testSubtraction_OBJECTS) $(testSubtraction_DEPENDENCIES) 
+	@rm -f testSubtraction$(EXEEXT)
+	$(testSubtraction_LINK) $(testSubtraction_OBJECTS) $(testSubtraction_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -301,15 +311,15 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAddition_la-cadda.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAddition_la-cadds.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAddition_la-dadda.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAddition_la-dadds.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAddition_la-sadda.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAddition_la-sadds.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAddition_la-zadda.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAddition_la-zadds.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testAddition-testAddition.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSubtraction_la-cdiffa.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSubtraction_la-cdiffs.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSubtraction_la-ddiffa.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSubtraction_la-ddiffs.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSubtraction_la-sdiffa.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSubtraction_la-sdiffs.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSubtraction_la-zdiffa.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSubtraction_la-zdiffs.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testSubtraction-testSubtraction.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -332,75 +342,75 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
-libAddition_la-sadds.lo: sadds.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -MT libAddition_la-sadds.lo -MD -MP -MF $(DEPDIR)/libAddition_la-sadds.Tpo -c -o libAddition_la-sadds.lo `test -f 'sadds.c' || echo '$(srcdir)/'`sadds.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAddition_la-sadds.Tpo $(DEPDIR)/libAddition_la-sadds.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sadds.c' object='libAddition_la-sadds.lo' libtool=yes @AMDEPBACKSLASH@
+libSubtraction_la-sdiffs.lo: sdiffs.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSubtraction_la_CFLAGS) $(CFLAGS) -MT libSubtraction_la-sdiffs.lo -MD -MP -MF $(DEPDIR)/libSubtraction_la-sdiffs.Tpo -c -o libSubtraction_la-sdiffs.lo `test -f 'sdiffs.c' || echo '$(srcdir)/'`sdiffs.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSubtraction_la-sdiffs.Tpo $(DEPDIR)/libSubtraction_la-sdiffs.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sdiffs.c' object='libSubtraction_la-sdiffs.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -c -o libAddition_la-sadds.lo `test -f 'sadds.c' || echo '$(srcdir)/'`sadds.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSubtraction_la_CFLAGS) $(CFLAGS) -c -o libSubtraction_la-sdiffs.lo `test -f 'sdiffs.c' || echo '$(srcdir)/'`sdiffs.c
 
-libAddition_la-dadds.lo: dadds.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -MT libAddition_la-dadds.lo -MD -MP -MF $(DEPDIR)/libAddition_la-dadds.Tpo -c -o libAddition_la-dadds.lo `test -f 'dadds.c' || echo '$(srcdir)/'`dadds.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAddition_la-dadds.Tpo $(DEPDIR)/libAddition_la-dadds.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dadds.c' object='libAddition_la-dadds.lo' libtool=yes @AMDEPBACKSLASH@
+libSubtraction_la-ddiffs.lo: ddiffs.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSubtraction_la_CFLAGS) $(CFLAGS) -MT libSubtraction_la-ddiffs.lo -MD -MP -MF $(DEPDIR)/libSubtraction_la-ddiffs.Tpo -c -o libSubtraction_la-ddiffs.lo `test -f 'ddiffs.c' || echo '$(srcdir)/'`ddiffs.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSubtraction_la-ddiffs.Tpo $(DEPDIR)/libSubtraction_la-ddiffs.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ddiffs.c' object='libSubtraction_la-ddiffs.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -c -o libAddition_la-dadds.lo `test -f 'dadds.c' || echo '$(srcdir)/'`dadds.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSubtraction_la_CFLAGS) $(CFLAGS) -c -o libSubtraction_la-ddiffs.lo `test -f 'ddiffs.c' || echo '$(srcdir)/'`ddiffs.c
 
-libAddition_la-cadds.lo: cadds.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -MT libAddition_la-cadds.lo -MD -MP -MF $(DEPDIR)/libAddition_la-cadds.Tpo -c -o libAddition_la-cadds.lo `test -f 'cadds.c' || echo '$(srcdir)/'`cadds.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAddition_la-cadds.Tpo $(DEPDIR)/libAddition_la-cadds.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cadds.c' object='libAddition_la-cadds.lo' libtool=yes @AMDEPBACKSLASH@
+libSubtraction_la-cdiffs.lo: cdiffs.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSubtraction_la_CFLAGS) $(CFLAGS) -MT libSubtraction_la-cdiffs.lo -MD -MP -MF $(DEPDIR)/libSubtraction_la-cdiffs.Tpo -c -o libSubtraction_la-cdiffs.lo `test -f 'cdiffs.c' || echo '$(srcdir)/'`cdiffs.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSubtraction_la-cdiffs.Tpo $(DEPDIR)/libSubtraction_la-cdiffs.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cdiffs.c' object='libSubtraction_la-cdiffs.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -c -o libAddition_la-cadds.lo `test -f 'cadds.c' || echo '$(srcdir)/'`cadds.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSubtraction_la_CFLAGS) $(CFLAGS) -c -o libSubtraction_la-cdiffs.lo `test -f 'cdiffs.c' || echo '$(srcdir)/'`cdiffs.c
 
-libAddition_la-zadds.lo: zadds.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -MT libAddition_la-zadds.lo -MD -MP -MF $(DEPDIR)/libAddition_la-zadds.Tpo -c -o libAddition_la-zadds.lo `test -f 'zadds.c' || echo '$(srcdir)/'`zadds.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAddition_la-zadds.Tpo $(DEPDIR)/libAddition_la-zadds.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zadds.c' object='libAddition_la-zadds.lo' libtool=yes @AMDEPBACKSLASH@
+libSubtraction_la-zdiffs.lo: zdiffs.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSubtraction_la_CFLAGS) $(CFLAGS) -MT libSubtraction_la-zdiffs.lo -MD -MP -MF $(DEPDIR)/libSubtraction_la-zdiffs.Tpo -c -o libSubtraction_la-zdiffs.lo `test -f 'zdiffs.c' || echo '$(srcdir)/'`zdiffs.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSubtraction_la-zdiffs.Tpo $(DEPDIR)/libSubtraction_la-zdiffs.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zdiffs.c' object='libSubtraction_la-zdiffs.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -c -o libAddition_la-zadds.lo `test -f 'zadds.c' || echo '$(srcdir)/'`zadds.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSubtraction_la_CFLAGS) $(CFLAGS) -c -o libSubtraction_la-zdiffs.lo `test -f 'zdiffs.c' || echo '$(srcdir)/'`zdiffs.c
 
-libAddition_la-sadda.lo: sadda.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -MT libAddition_la-sadda.lo -MD -MP -MF $(DEPDIR)/libAddition_la-sadda.Tpo -c -o libAddition_la-sadda.lo `test -f 'sadda.c' || echo '$(srcdir)/'`sadda.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAddition_la-sadda.Tpo $(DEPDIR)/libAddition_la-sadda.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sadda.c' object='libAddition_la-sadda.lo' libtool=yes @AMDEPBACKSLASH@
+libSubtraction_la-sdiffa.lo: sdiffa.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSubtraction_la_CFLAGS) $(CFLAGS) -MT libSubtraction_la-sdiffa.lo -MD -MP -MF $(DEPDIR)/libSubtraction_la-sdiffa.Tpo -c -o libSubtraction_la-sdiffa.lo `test -f 'sdiffa.c' || echo '$(srcdir)/'`sdiffa.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSubtraction_la-sdiffa.Tpo $(DEPDIR)/libSubtraction_la-sdiffa.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sdiffa.c' object='libSubtraction_la-sdiffa.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -c -o libAddition_la-sadda.lo `test -f 'sadda.c' || echo '$(srcdir)/'`sadda.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSubtraction_la_CFLAGS) $(CFLAGS) -c -o libSubtraction_la-sdiffa.lo `test -f 'sdiffa.c' || echo '$(srcdir)/'`sdiffa.c
 
-libAddition_la-dadda.lo: dadda.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -MT libAddition_la-dadda.lo -MD -MP -MF $(DEPDIR)/libAddition_la-dadda.Tpo -c -o libAddition_la-dadda.lo `test -f 'dadda.c' || echo '$(srcdir)/'`dadda.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAddition_la-dadda.Tpo $(DEPDIR)/libAddition_la-dadda.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dadda.c' object='libAddition_la-dadda.lo' libtool=yes @AMDEPBACKSLASH@
+libSubtraction_la-ddiffa.lo: ddiffa.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSubtraction_la_CFLAGS) $(CFLAGS) -MT libSubtraction_la-ddiffa.lo -MD -MP -MF $(DEPDIR)/libSubtraction_la-ddiffa.Tpo -c -o libSubtraction_la-ddiffa.lo `test -f 'ddiffa.c' || echo '$(srcdir)/'`ddiffa.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSubtraction_la-ddiffa.Tpo $(DEPDIR)/libSubtraction_la-ddiffa.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ddiffa.c' object='libSubtraction_la-ddiffa.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -c -o libAddition_la-dadda.lo `test -f 'dadda.c' || echo '$(srcdir)/'`dadda.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSubtraction_la_CFLAGS) $(CFLAGS) -c -o libSubtraction_la-ddiffa.lo `test -f 'ddiffa.c' || echo '$(srcdir)/'`ddiffa.c
 
-libAddition_la-cadda.lo: cadda.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -MT libAddition_la-cadda.lo -MD -MP -MF $(DEPDIR)/libAddition_la-cadda.Tpo -c -o libAddition_la-cadda.lo `test -f 'cadda.c' || echo '$(srcdir)/'`cadda.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAddition_la-cadda.Tpo $(DEPDIR)/libAddition_la-cadda.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cadda.c' object='libAddition_la-cadda.lo' libtool=yes @AMDEPBACKSLASH@
+libSubtraction_la-cdiffa.lo: cdiffa.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSubtraction_la_CFLAGS) $(CFLAGS) -MT libSubtraction_la-cdiffa.lo -MD -MP -MF $(DEPDIR)/libSubtraction_la-cdiffa.Tpo -c -o libSubtraction_la-cdiffa.lo `test -f 'cdiffa.c' || echo '$(srcdir)/'`cdiffa.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSubtraction_la-cdiffa.Tpo $(DEPDIR)/libSubtraction_la-cdiffa.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cdiffa.c' object='libSubtraction_la-cdiffa.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -c -o libAddition_la-cadda.lo `test -f 'cadda.c' || echo '$(srcdir)/'`cadda.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSubtraction_la_CFLAGS) $(CFLAGS) -c -o libSubtraction_la-cdiffa.lo `test -f 'cdiffa.c' || echo '$(srcdir)/'`cdiffa.c
 
-libAddition_la-zadda.lo: zadda.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -MT libAddition_la-zadda.lo -MD -MP -MF $(DEPDIR)/libAddition_la-zadda.Tpo -c -o libAddition_la-zadda.lo `test -f 'zadda.c' || echo '$(srcdir)/'`zadda.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAddition_la-zadda.Tpo $(DEPDIR)/libAddition_la-zadda.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zadda.c' object='libAddition_la-zadda.lo' libtool=yes @AMDEPBACKSLASH@
+libSubtraction_la-zdiffa.lo: zdiffa.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSubtraction_la_CFLAGS) $(CFLAGS) -MT libSubtraction_la-zdiffa.lo -MD -MP -MF $(DEPDIR)/libSubtraction_la-zdiffa.Tpo -c -o libSubtraction_la-zdiffa.lo `test -f 'zdiffa.c' || echo '$(srcdir)/'`zdiffa.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSubtraction_la-zdiffa.Tpo $(DEPDIR)/libSubtraction_la-zdiffa.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zdiffa.c' object='libSubtraction_la-zdiffa.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -c -o libAddition_la-zadda.lo `test -f 'zadda.c' || echo '$(srcdir)/'`zadda.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSubtraction_la_CFLAGS) $(CFLAGS) -c -o libSubtraction_la-zdiffa.lo `test -f 'zdiffa.c' || echo '$(srcdir)/'`zdiffa.c
 
-testAddition-testAddition.o: testAddition.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAddition_CFLAGS) $(CFLAGS) -MT testAddition-testAddition.o -MD -MP -MF $(DEPDIR)/testAddition-testAddition.Tpo -c -o testAddition-testAddition.o `test -f 'testAddition.c' || echo '$(srcdir)/'`testAddition.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testAddition-testAddition.Tpo $(DEPDIR)/testAddition-testAddition.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testAddition.c' object='testAddition-testAddition.o' libtool=no @AMDEPBACKSLASH@
+testSubtraction-testSubtraction.o: testSubtraction.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSubtraction_CFLAGS) $(CFLAGS) -MT testSubtraction-testSubtraction.o -MD -MP -MF $(DEPDIR)/testSubtraction-testSubtraction.Tpo -c -o testSubtraction-testSubtraction.o `test -f 'testSubtraction.c' || echo '$(srcdir)/'`testSubtraction.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testSubtraction-testSubtraction.Tpo $(DEPDIR)/testSubtraction-testSubtraction.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testSubtraction.c' object='testSubtraction-testSubtraction.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAddition_CFLAGS) $(CFLAGS) -c -o testAddition-testAddition.o `test -f 'testAddition.c' || echo '$(srcdir)/'`testAddition.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSubtraction_CFLAGS) $(CFLAGS) -c -o testSubtraction-testSubtraction.o `test -f 'testSubtraction.c' || echo '$(srcdir)/'`testSubtraction.c
 
-testAddition-testAddition.obj: testAddition.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAddition_CFLAGS) $(CFLAGS) -MT testAddition-testAddition.obj -MD -MP -MF $(DEPDIR)/testAddition-testAddition.Tpo -c -o testAddition-testAddition.obj `if test -f 'testAddition.c'; then $(CYGPATH_W) 'testAddition.c'; else $(CYGPATH_W) '$(srcdir)/testAddition.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testAddition-testAddition.Tpo $(DEPDIR)/testAddition-testAddition.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testAddition.c' object='testAddition-testAddition.obj' libtool=no @AMDEPBACKSLASH@
+testSubtraction-testSubtraction.obj: testSubtraction.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSubtraction_CFLAGS) $(CFLAGS) -MT testSubtraction-testSubtraction.obj -MD -MP -MF $(DEPDIR)/testSubtraction-testSubtraction.Tpo -c -o testSubtraction-testSubtraction.obj `if test -f 'testSubtraction.c'; then $(CYGPATH_W) 'testSubtraction.c'; else $(CYGPATH_W) '$(srcdir)/testSubtraction.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testSubtraction-testSubtraction.Tpo $(DEPDIR)/testSubtraction-testSubtraction.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testSubtraction.c' object='testSubtraction-testSubtraction.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAddition_CFLAGS) $(CFLAGS) -c -o testAddition-testAddition.obj `if test -f 'testAddition.c'; then $(CYGPATH_W) 'testAddition.c'; else $(CYGPATH_W) '$(srcdir)/testAddition.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSubtraction_CFLAGS) $(CFLAGS) -c -o testSubtraction-testSubtraction.obj `if test -f 'testSubtraction.c'; then $(CYGPATH_W) 'testSubtraction.c'; else $(CYGPATH_W) '$(srcdir)/testSubtraction.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
