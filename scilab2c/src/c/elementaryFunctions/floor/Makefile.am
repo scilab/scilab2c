@@ -12,8 +12,8 @@
 
 
 
-libFloor_la_CFLAGS =	-I $(top_builddir)/type \
-				-I $(top_builddir)/elementaryFunctions/includes
+libFloor_la_CFLAGS =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/elementaryFunctions/includes
 
 instdir = $(top_builddir)/lib
 
@@ -36,17 +36,17 @@ SRC	=	sfloors.c \
 # Checking Part
 ####
 
-check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
-				-I $(top_builddir)/type
+check_INCLUDES	=	-I $(top_builddir)/src/c/elementaryFunctions/includes \
+			-I $(top_builddir)/src/c/type
 
-check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/elementaryFunctions/floor/libFloor.la \
+check_LDADD	=	$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/elementaryFunctions/floor/libFloor.la \
 			@LIBMATH@
 
 check_PROGRAMS	= 	testFloatFloor testDoubleFloor
 
-TESTS		=		testFloatFloor testDoubleFloor
+TESTS		=	testFloatFloor testDoubleFloor
 
 #
 # -*- Floor Tests -*-

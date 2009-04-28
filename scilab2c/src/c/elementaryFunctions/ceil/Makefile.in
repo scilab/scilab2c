@@ -34,7 +34,7 @@ build_triplet = @build@
 host_triplet = @host@
 check_PROGRAMS = testFloatCeil$(EXEEXT) testDoubleCeil$(EXEEXT)
 TESTS = testFloatCeil$(EXEEXT) testDoubleCeil$(EXEEXT)
-subdir = elementaryFunctions/ceil
+subdir = src/c/elementaryFunctions/ceil
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -64,9 +64,9 @@ libCeil_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_testDoubleCeil_OBJECTS = testDoubleCeil-testDoubleCeil.$(OBJEXT)
 testDoubleCeil_OBJECTS = $(am_testDoubleCeil_OBJECTS)
-am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
-	$(top_builddir)/type/libFloatComplex.la \
-	$(top_builddir)/elementaryFunctions/ceil/libCeil.la
+am__DEPENDENCIES_1 = $(top_builddir)/src/c/type/libDoubleComplex.la \
+	$(top_builddir)/src/c/type/libFloatComplex.la \
+	$(top_builddir)/src/c/elementaryFunctions/ceil/libCeil.la
 testDoubleCeil_DEPENDENCIES = $(am__DEPENDENCIES_1)
 testDoubleCeil_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleCeil_CFLAGS) \
@@ -214,8 +214,8 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libCeil_la_CFLAGS = -I $(top_builddir)/type \
-				-I $(top_builddir)/elementaryFunctions/includes
+libCeil_la_CFLAGS = -I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/elementaryFunctions/includes
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libCeil.la
@@ -234,12 +234,12 @@ SRC = sceils.c \
 ####
 # Checking Part
 ####
-check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
-				-I $(top_builddir)/type
+check_INCLUDES = -I $(top_builddir)/src/c/elementaryFunctions/includes \
+			-I $(top_builddir)/src/c/type
 
-check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/elementaryFunctions/ceil/libCeil.la \
+check_LDADD = $(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/elementaryFunctions/ceil/libCeil.la \
 			@LIBMATH@
 
 
@@ -265,9 +265,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  elementaryFunctions/ceil/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  src/c/elementaryFunctions/ceil/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  elementaryFunctions/ceil/Makefile
+	  $(AUTOMAKE) --foreign  src/c/elementaryFunctions/ceil/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \

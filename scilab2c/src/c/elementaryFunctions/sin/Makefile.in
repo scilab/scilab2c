@@ -34,7 +34,7 @@ build_triplet = @build@
 host_triplet = @host@
 check_PROGRAMS = testFloatSin$(EXEEXT) testDoubleSin$(EXEEXT)
 TESTS = testFloatSin$(EXEEXT) testDoubleSin$(EXEEXT)
-subdir = elementaryFunctions/sin
+subdir = src/c/elementaryFunctions/sin
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -64,19 +64,19 @@ libSin_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_testDoubleSin_OBJECTS = testDoubleSin-testDoubleSin.$(OBJEXT)
 testDoubleSin_OBJECTS = $(am_testDoubleSin_OBJECTS)
-am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
-	$(top_builddir)/type/libFloatComplex.la \
-	$(top_builddir)/operations/addition/libAddition.la \
-	$(top_builddir)/lib/lapack/libscilapack.la \
-	$(top_builddir)/elementaryFunctions/sin/libSin.la \
-	$(top_builddir)/elementaryFunctions/cos/libCos.la \
-	$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
-	$(top_builddir)/elementaryFunctions/exp/libExp.la \
-	$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
-	$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-	$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-	$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-	$(top_builddir)/operations/multiplication/libMultiplication.la
+am__DEPENDENCIES_1 = $(top_builddir)/src/c/type/libDoubleComplex.la \
+	$(top_builddir)/src/c/type/libFloatComplex.la \
+	$(top_builddir)/src/c/operations/addition/libAddition.la \
+	$(top_builddir)/src/fortran/lapack/libscilapack.la \
+	$(top_builddir)/src/c/elementaryFunctions/sin/libSin.la \
+	$(top_builddir)/src/c/elementaryFunctions/cos/libCos.la \
+	$(top_builddir)/src/c/elementaryFunctions/sinh/libSinh.la \
+	$(top_builddir)/src/c/elementaryFunctions/exp/libExp.la \
+	$(top_builddir)/src/c/elementaryFunctions/cosh/libCosh.la \
+	$(top_builddir)/src/c/elementaryFunctions/sqrt/libSqrt.la \
+	$(top_builddir)/src/c/auxiliaryFunctions/abs/libAbs.la \
+	$(top_builddir)/src/c/auxiliaryFunctions/pythag/libPythag.la \
+	$(top_builddir)/src/c/operations/multiplication/libMultiplication.la
 testDoubleSin_DEPENDENCIES = $(am__DEPENDENCIES_1)
 testDoubleSin_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleSin_CFLAGS) \
@@ -244,22 +244,22 @@ HEAD = ../includes/sin.h
 ####
 # Checking Part
 ####
-check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
-			-I $(top_builddir)/type
+check_INCLUDES = -I $(top_builddir)/src/c/elementaryFunctions/includes \
+			-I $(top_builddir)/src/c/type
 
-check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
-			$(top_builddir)/elementaryFunctions/sin/libSin.la \
-			$(top_builddir)/elementaryFunctions/cos/libCos.la \
-			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
-			$(top_builddir)/elementaryFunctions/exp/libExp.la \
-			$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
-			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
+check_LDADD = $(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			$(top_builddir)/src/fortran/lapack/libscilapack.la \
+			$(top_builddir)/src/c/elementaryFunctions/sin/libSin.la \
+			$(top_builddir)/src/c/elementaryFunctions/cos/libCos.la \
+			$(top_builddir)/src/c/elementaryFunctions/sinh/libSinh.la \
+			$(top_builddir)/src/c/elementaryFunctions/exp/libExp.la \
+			$(top_builddir)/src/c/elementaryFunctions/cosh/libCosh.la \
+			$(top_builddir)/src/c/elementaryFunctions/sqrt/libSqrt.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/pythag/libPythag.la \
+			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
 			@LIBMATH@
 
 
@@ -285,9 +285,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  elementaryFunctions/sin/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  src/c/elementaryFunctions/sin/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  elementaryFunctions/sin/Makefile
+	  $(AUTOMAKE) --foreign  src/c/elementaryFunctions/sin/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
