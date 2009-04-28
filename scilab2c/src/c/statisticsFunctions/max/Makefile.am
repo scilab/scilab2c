@@ -10,7 +10,7 @@
 ##
 ##
 
-libMax_la_CFLAGS =	-I $(top_builddir)/statisticsFunctions/includes
+libMax_la_CFLAGS =	-I $(top_builddir)/src/c/statisticsFunctions/includes
 
 instdir = $(top_builddir)/lib
 
@@ -23,7 +23,7 @@ SRC	=	smaxa.c \
 		scolumnmaxa.c \
 		dmaxa.c \
 		drowmaxa.c \
-		dcolumnmaxa.c 
+		dcolumnmaxa.c
 
 HEAD	=	../includes/statMax.h
 
@@ -31,9 +31,9 @@ HEAD	=	../includes/statMax.h
 # Checking Part
 ####
 
-check_INCLUDES	=	-I $(top_builddir)/statisticsFunctions/includes 
+check_INCLUDES	=	-I $(top_builddir)/src/c/statisticsFunctions/includes
 
-check_LDADD	=	$(top_builddir)/statisticsFunctions/max/libMax.la 
+check_LDADD	=	$(top_builddir)/src/c/statisticsFunctions/max/libMax.la
 
 check_PROGRAMS	= 	testFloatMax testDoubleMax
 
