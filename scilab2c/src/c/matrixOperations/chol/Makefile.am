@@ -10,11 +10,11 @@
 ##
 ##
 
-libMatrixChol_la_CFLAGS =	-I $(top_builddir)/type \
+libMatrixChol_la_CFLAGS =	-I $(top_builddir)/src/c/type \
 				-I .\
-				-I $(top_builddir)/matrixOperations/includes \
-				-I $(top_builddir)/operations/includes \
-				-I $(top_builddir)/elementaryFunctions/includes
+				-I $(top_builddir)/src/c/matrixOperations/includes \
+				-I $(top_builddir)/src/c/operations/includes \
+				-I $(top_builddir)/src/c/elementaryFunctions/includes
 
 instdir = $(top_builddir)/lib
 
@@ -22,39 +22,39 @@ pkglib_LTLIBRARIES = libMatrixChol.la
 
 HEAD = ../includes/chol.h
 
-libMatrixChol_la_SOURCES = 	$(HEAD) \
+libMatrixChol_la_SOURCES = 		$(HEAD) \
 					schols.c \
 					schola.c \
 					dchols.c \
 					dchola.c \
 					cchola.c \
 					zchola.c
-					
-					
-############					
-##  CHECK			
+
+
+############
+##  CHECK
 ############
 
 
 check_PROGRAMS = 	testDoubleChol   testFloatChol
 
-check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
-			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
-			$(top_builddir)/operations/division/libDivision.la \
-			$(top_builddir)/operations/subtraction/libSubtraction.la \
-			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
+check_LDADD =		$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/fortran/lapack/libscilapack.la \
+			$(top_builddir)/src/c/elementaryFunctions/sqrt/libSqrt.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/pythag/libPythag.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/src/c/operations/division/libDivision.la \
+			$(top_builddir)/src/c/operations/subtraction/libSubtraction.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/conj/libConj.la \
 			libMatrixChol.la
 
-check_INCLUDES =	-I $(top_builddir)/type \
+check_INCLUDES =	-I $(top_builddir)/src/c/type \
 			-I .\
-			-I $(top_builddir)/matrixOperations/includes \
-			-I $(top_builddir)/elementaryFunctions/includes
+			-I $(top_builddir)/src/c/matrixOperations/includes \
+			-I $(top_builddir)/src/c/elementaryFunctions/includes
 
 testDoubleChol_SOURCES = testDoubleChol.c
 testDoubleChol_LDADD = $(check_LDADD)
@@ -66,6 +66,6 @@ testFloatChol_CFLAGS = $(check_INCLUDES)
 
 TESTS =		testDoubleChol   testFloatChol
 
-		
-		
-		
+
+
+

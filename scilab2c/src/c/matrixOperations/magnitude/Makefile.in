@@ -36,7 +36,7 @@ check_PROGRAMS = testDoubleMatrixMagnitude$(EXEEXT) \
 	testFloatMatrixMagnitude$(EXEEXT)
 TESTS = testDoubleMatrixMagnitude$(EXEEXT) \
 	testFloatMatrixMagnitude$(EXEEXT)
-subdir = matrixOperations/magnitude
+subdir = src/c/matrixOperations/magnitude
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -227,11 +227,11 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libMatrixMagnitude_la_CFLAGS = -I $(top_builddir)/type \
-						-I $(top_builddir)/matrixOperations/includes \
-						-I $(top_builddir)/auxiliaryFunctions/includes \
-						-I $(top_builddir)/operations/includes \
-						-I $(top_builddir)/elementaryFunctions/includes
+libMatrixMagnitude_la_CFLAGS = -I $(top_builddir)/src/c/type \
+				-I $(top_builddir)/src/c/matrixOperations/includes \
+				-I $(top_builddir)/src/c/auxiliaryFunctions/includes \
+				-I $(top_builddir)/src/c/operations/includes \
+				-I $(top_builddir)/src/c/elementaryFunctions/includes
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libMatrixMagnitude.la
@@ -246,22 +246,22 @@ libMatrixMagnitude_la_SOURCES = $(HEAD) \
 					zmagns.c \
 					zmagna.c
 
-check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
-				$(top_builddir)/type/libFloatComplex.la \
-				$(top_builddir)/operations/addition/libAddition.la \
-				$(top_builddir)/lib/lapack/libscilapack.la \
-				$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-				$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-				$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-				$(top_builddir)/operations/multiplication/libMultiplication.la \
-				$(top_builddir)/operations/addition/libAddition.la \
-				libMatrixMagnitude.la
+check_LDADD = $(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			$(top_builddir)/src/fortran/lapack/libscilapack.la \
+			$(top_builddir)/src/c/elementaryFunctions/sqrt/libSqrt.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/pythag/libPythag.la \
+			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			libMatrixMagnitude.la
 
-check_INCLUDES = -I $(top_builddir)/type \
-			-I $(top_builddir)/matrixOperations/includes \
-			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/auxiliaryFunctions/includes \
-			-I $(top_builddir)/elementaryFunctions/includes
+check_INCLUDES = -I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/matrixOperations/includes \
+			-I $(top_builddir)/src/c/operations/includes \
+			-I $(top_builddir)/src/c/auxiliaryFunctions/includes \
+			-I $(top_builddir)/src/c/elementaryFunctions/includes
 
 testDoubleMatrixMagnitude_SOURCES = testDoubleMagnitude.c
 testDoubleMatrixMagnitude_LDADD = $(check_LDADD)
@@ -282,9 +282,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  matrixOperations/magnitude/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  src/c/matrixOperations/magnitude/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  matrixOperations/magnitude/Makefile
+	  $(AUTOMAKE) --foreign  src/c/matrixOperations/magnitude/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \

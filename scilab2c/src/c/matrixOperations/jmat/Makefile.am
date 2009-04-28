@@ -10,7 +10,7 @@
 ##
 ##
 
-libJmat_la_CFLAGS=	-I $(top_builddir)/matrixOperations/includes
+libJmat_la_CFLAGS=	-I $(top_builddir)/src/c/matrixOperations/includes
 
 instdir = $(top_builddir)/lib
 
@@ -22,14 +22,14 @@ libJmat_la_SOURCES = 	$(HEAD) \
 			sjmata.c \
 			djmata.c
 
-check_PROGRAMS = 	testJmat 
+check_PROGRAMS = 	testJmat
 
 check_LDADD =		libJmat.la
 
-check_INCLUDES =	-I $(top_builddir)/matrixOperations/includes
+check_INCLUDES =	-I $(top_builddir)/src/c/matrixOperations/includes
 
 testJmat_SOURCES = testJmat.c
 testJmat_LDADD = $(check_LDADD)
 testJmat_CFLAGS = $(check_INCLUDES)
 
-TESTS =		testJmat 
+TESTS =		testJmat

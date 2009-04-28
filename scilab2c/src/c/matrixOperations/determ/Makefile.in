@@ -34,7 +34,7 @@ build_triplet = @build@
 host_triplet = @host@
 check_PROGRAMS = testDoubleDeterm$(EXEEXT) testFloatDeterm$(EXEEXT)
 TESTS = testDoubleDeterm$(EXEEXT) testFloatDeterm$(EXEEXT)
-subdir = matrixOperations/determ
+subdir = src/c/matrixOperations/determ
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -213,9 +213,9 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libMatrixDeterm_la_CFLAGS = -I $(top_builddir)/type \
-				-I $(top_builddir)/matrixOperations/includes \
-				-I $(top_builddir)/operations/includes
+libMatrixDeterm_la_CFLAGS = -I $(top_builddir)/src/c/type \
+				-I $(top_builddir)/src/c/matrixOperations/includes \
+				-I $(top_builddir)/src/c/operations/includes
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libMatrixDeterm.la
@@ -226,19 +226,19 @@ libMatrixDeterm_la_SOURCES = $(HEAD) \
 					cdeterma.c \
 					zdeterma.c
 
-check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/operations/subtraction/libSubtraction.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
-			$(top_builddir)/operations/division/libDivision.la \
-			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
+check_LDADD = $(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/operations/subtraction/libSubtraction.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/src/c/operations/division/libDivision.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/conj/libConj.la \
+			$(top_builddir)/src/fortran/lapack/libscilapack.la \
 			libMatrixDeterm.la
 
-check_INCLUDES = -I $(top_builddir)/type \
-			-I $(top_builddir)/matrixOperations/includes \
-			-I $(top_builddir)/elementaryFunctions/includes
+check_INCLUDES = -I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/matrixOperations/includes \
+			-I $(top_builddir)/src/c/elementaryFunctions/includes
 
 testDoubleDeterm_SOURCES = testDoubleDeterm.c
 testDoubleDeterm_LDADD = $(check_LDADD)
@@ -259,9 +259,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  matrixOperations/determ/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  src/c/matrixOperations/determ/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  matrixOperations/determ/Makefile
+	  $(AUTOMAKE) --foreign  src/c/matrixOperations/determ/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \

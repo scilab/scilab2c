@@ -10,11 +10,11 @@
 ##
 ##
 
-libSpec2_la_CFLAGS =	-I $(top_builddir)/type \
-				-I $(top_builddir)/matrixOperations/includes \
-				-I $(top_builddir)/operations/includes \
-				-I $(top_builddir)/elementaryFunctions/includes\
-				-I $(top_builddir)/auxiliaryFunctions/includes
+libSpec2_la_CFLAGS =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/matrixOperations/includes \
+			-I $(top_builddir)/src/c/operations/includes \
+			-I $(top_builddir)/src/c/elementaryFunctions/includes\
+			-I $(top_builddir)/src/c/auxiliaryFunctions/includes
 
 
 instdir = $(top_builddir)/lib
@@ -24,39 +24,39 @@ pkglib_LTLIBRARIES = libSpec2.la
 HEAD = ../includes/spec.h
 
 libSpec2_la_SOURCES = 	$(HEAD) \
-					sspec2a.c \
-					dspec2a.c \
-					cspec2a.c \
-					zspec2a.c
-					
-					
-############					
-##  CHECK			
+				sspec2a.c \
+				dspec2a.c \
+				cspec2a.c \
+				zspec2a.c
+
+
+############
+##  CHECK
 ############
 
 
 check_PROGRAMS = 	testDoubleSpec2    testFloatSpec2
 
-check_LDADD =	$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
-			$(top_builddir)/lib/blas/libsciblas.la \
-			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
-			$(top_builddir)/auxiliaryFunctions/sign/libSign.la \
-			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
-			$(top_builddir)/matrixOperations/inversion/libMatrixInversion.la\
-			$(top_builddir)/matrixOperations/zeros/libMatrixZeros.la\
+check_LDADD =		$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/elementaryFunctions/sqrt/libSqrt.la \
+			$(top_builddir)/src/fortran/lapack/libscilapack.la \
+			$(top_builddir)/src/fortran/blas/libsciblas.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/conj/libConj.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/sign/libSign.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/pythag/libPythag.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/src/c/matrixOperations/inversion/libMatrixInversion.la\
+			$(top_builddir)/src/c/matrixOperations/zeros/libMatrixZeros.la\
 			libSpec2.la
 
-check_INCLUDES =	-I $(top_builddir)/type \
-			-I $(top_builddir)/matrixOperations/includes \
-			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/elementaryFunctions/includes\
-			-I $(top_builddir)/auxiliaryFunctions/includes 
+check_INCLUDES =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/matrixOperations/includes \
+			-I $(top_builddir)/src/c/operations/includes \
+			-I $(top_builddir)/src/c/elementaryFunctions/includes\
+			-I $(top_builddir)/src/c/auxiliaryFunctions/includes
 
 testDoubleSpec2_SOURCES = testDoubleSpec2.c
 testDoubleSpec2_LDADD = $(check_LDADD)

@@ -34,7 +34,7 @@ build_triplet = @build@
 host_triplet = @host@
 check_PROGRAMS = testMatrixInfiniteNorm$(EXEEXT)
 TESTS = testMatrixInfiniteNorm$(EXEEXT)
-subdir = matrixOperations/infiniteNorm
+subdir = src/c/matrixOperations/infiniteNorm
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -210,12 +210,12 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libMatrixInfiniteNorm_la_CFLAGS = -I $(top_builddir)/type \
-					-I $(top_builddir)/matrixOperations/includes \
-					-I $(top_builddir)/auxiliaryFunctions/includes \
+libMatrixInfiniteNorm_la_CFLAGS = -I $(top_builddir)/src/c/type \
+					-I $(top_builddir)/src/c/matrixOperations/includes \
+					-I $(top_builddir)/src/c/auxiliaryFunctions/includes \
 					-I $(top_builddir)/includes \
-					-I $(top_builddir)/elementaryFunctions/includes \
-					-I $(top_builddir)/operations/includes
+					-I $(top_builddir)/src/c/elementaryFunctions/includes \
+					-I $(top_builddir)/src/c/operations/includes
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libMatrixInfiniteNorm.la
@@ -226,24 +226,24 @@ libMatrixInfiniteNorm_la_SOURCES = $(HEAD) \
 				cinfnorma.c \
 				zinfnorma.c
 
-check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
-			$(top_builddir)/lib/blas/libsciblas.la \
-			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-			$(top_builddir)/auxiliaryFunctions/sign/libSign.la \
-			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
+check_LDADD = $(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			$(top_builddir)/src/c/elementaryFunctions/sqrt/libSqrt.la \
+			$(top_builddir)/src/fortran/lapack/libscilapack.la \
+			$(top_builddir)/src/fortran/blas/libsciblas.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/sign/libSign.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/pythag/libPythag.la \
+			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
 			libMatrixInfiniteNorm.la
 
-check_INCLUDES = -I $(top_builddir)/type \
-			-I $(top_builddir)/matrixOperations/includes \
-			-I $(top_builddir)/auxiliaryFunctions/includes \
+check_INCLUDES = -I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/matrixOperations/includes \
+			-I $(top_builddir)/src/c/auxiliaryFunctions/includes \
 			-I $(top_builddir)/includes \
-			-I $(top_builddir)/elementaryFunctions/includes \
-			-I $(top_builddir)/operations/includes
+			-I $(top_builddir)/src/c/elementaryFunctions/includes \
+			-I $(top_builddir)/src/c/operations/includes
 
 testMatrixInfiniteNorm_SOURCES = testMatrixInfiniteNorm.c
 testMatrixInfiniteNorm_LDADD = $(check_LDADD)
@@ -261,9 +261,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  matrixOperations/infiniteNorm/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  src/c/matrixOperations/infiniteNorm/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  matrixOperations/infiniteNorm/Makefile
+	  $(AUTOMAKE) --foreign  src/c/matrixOperations/infiniteNorm/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
