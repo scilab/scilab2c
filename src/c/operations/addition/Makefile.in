@@ -32,9 +32,9 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testMultiplication$(EXEEXT)
-TESTS = testMultiplication$(EXEEXT)
-subdir = operations/multiplication
+check_PROGRAMS = testAddition$(EXEEXT)
+TESTS = testAddition$(EXEEXT)
+subdir = operations/addition
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -52,28 +52,23 @@ am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
 am__installdirs = "$(DESTDIR)$(pkglibdir)"
 pkglibLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkglib_LTLIBRARIES)
-libMultiplication_la_LIBADD =
+libAddition_la_LIBADD =
 am__objects_1 =
-am_libMultiplication_la_OBJECTS = $(am__objects_1) \
-	libMultiplication_la-smuls.lo libMultiplication_la-dmuls.lo \
-	libMultiplication_la-cmuls.lo libMultiplication_la-zmuls.lo \
-	libMultiplication_la-smula.lo libMultiplication_la-dmula.lo \
-	libMultiplication_la-cmula.lo libMultiplication_la-zmula.lo \
-	libMultiplication_la-ctimess.lo \
-	libMultiplication_la-ztimess.lo
-libMultiplication_la_OBJECTS = $(am_libMultiplication_la_OBJECTS)
-libMultiplication_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
-	$(libMultiplication_la_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
-	$(LDFLAGS) -o $@
-am_testMultiplication_OBJECTS =  \
-	testMultiplication-testMultiplication.$(OBJEXT)
-testMultiplication_OBJECTS = $(am_testMultiplication_OBJECTS)
-testMultiplication_DEPENDENCIES = $(check_LDADD)
-testMultiplication_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
-	$(testMultiplication_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
-	$(LDFLAGS) -o $@
+am_libAddition_la_OBJECTS = $(am__objects_1) libAddition_la-sadds.lo \
+	libAddition_la-dadds.lo libAddition_la-cadds.lo \
+	libAddition_la-zadds.lo libAddition_la-sadda.lo \
+	libAddition_la-dadda.lo libAddition_la-cadda.lo \
+	libAddition_la-zadda.lo
+libAddition_la_OBJECTS = $(am_libAddition_la_OBJECTS)
+libAddition_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libAddition_la_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testAddition_OBJECTS = testAddition-testAddition.$(OBJEXT)
+testAddition_OBJECTS = $(am_testAddition_OBJECTS)
+testAddition_DEPENDENCIES = $(check_LDADD)
+testAddition_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testAddition_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -86,10 +81,8 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libMultiplication_la_SOURCES) \
-	$(testMultiplication_SOURCES)
-DIST_SOURCES = $(libMultiplication_la_SOURCES) \
-	$(testMultiplication_SOURCES)
+SOURCES = $(libAddition_la_SOURCES) $(testAddition_SOURCES)
+DIST_SOURCES = $(libAddition_la_SOURCES) $(testAddition_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -113,7 +106,7 @@ CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
 DSYMUTIL = @DSYMUTIL@
-ECHO = @ECHO@
+DUMPBIN = @DUMPBIN@
 ECHO_C = @ECHO_C@
 ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
@@ -121,24 +114,30 @@ EGREP = @EGREP@
 EXEEXT = @EXEEXT@
 F77 = @F77@
 FFLAGS = @FFLAGS@
+FGREP = @FGREP@
 GREP = @GREP@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
+LD = @LD@
 LDFLAGS = @LDFLAGS@
 LIBMATH = @LIBMATH@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
+LIPO = @LIPO@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
 MAKEINFO = @MAKEINFO@
 MKDIR_P = @MKDIR_P@
+NM = @NM@
 NMEDIT = @NMEDIT@
 OBJEXT = @OBJEXT@
+OTOOL = @OTOOL@
+OTOOL64 = @OTOOL64@
 PACKAGE = @PACKAGE@
 PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
 PACKAGE_NAME = @PACKAGE_NAME@
@@ -158,6 +157,7 @@ abs_top_builddir = @abs_top_builddir@
 abs_top_srcdir = @abs_top_srcdir@
 ac_ct_CC = @ac_ct_CC@
 ac_ct_CXX = @ac_ct_CXX@
+ac_ct_DUMPBIN = @ac_ct_DUMPBIN@
 ac_ct_F77 = @ac_ct_F77@
 am__include = @am__include@
 am__leading_dot = @am__leading_dot@
@@ -189,6 +189,7 @@ libdir = @libdir@
 libexecdir = @libexecdir@
 localedir = @localedir@
 localstatedir = @localstatedir@
+lt_ECHO = @lt_ECHO@
 mandir = @mandir@
 mkdir_p = @mkdir_p@
 oldincludedir = @oldincludedir@
@@ -203,34 +204,32 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libMultiplication_la_CFLAGS = -I $(top_builddir)/type \
+libAddition_la_CFLAGS = -I $(top_builddir)/type \
 			-I $(top_builddir)/operations/includes
 
 instdir = $(top_builddir)/lib
-pkglib_LTLIBRARIES = libMultiplication.la
-HEAD = ../includes/multiplication.h
-libMultiplication_la_SOURCES = $(HEAD) \
-				smuls.c \
-				dmuls.c \
-				cmuls.c \
-				zmuls.c \
-				smula.c \
-				dmula.c \
-				cmula.c \
-				zmula.c \
-				ctimess.c \
-				ztimess.c 
+pkglib_LTLIBRARIES = libAddition.la
+HEAD = ../includes/addition.h
+libAddition_la_SOURCES = $(HEAD) \
+				sadds.c \
+				dadds.c \
+				cadds.c \
+				zadds.c \
+				sadda.c \
+				dadda.c \
+				cadda.c \
+				zadda.c
 
 check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
-			libMultiplication.la
+			libAddition.la
 
 check_INCLUDES = -I $(top_builddir)/type \
 			-I $(top_builddir)/operations/includes
 
-testMultiplication_SOURCES = testMultiplication.c
-testMultiplication_LDADD = $(check_LDADD)
-testMultiplication_CFLAGS = $(check_INCLUDES)
+testAddition_SOURCES = testAddition.c
+testAddition_LDADD = $(check_LDADD)
+testAddition_CFLAGS = $(check_INCLUDES)
 all: all-am
 
 .SUFFIXES:
@@ -244,9 +243,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  operations/multiplication/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  operations/addition/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  operations/multiplication/Makefile
+	  $(AUTOMAKE) --foreign  operations/addition/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
@@ -291,8 +290,8 @@ clean-pkglibLTLIBRARIES:
 	  echo "rm -f \"$${dir}/so_locations\""; \
 	  rm -f "$${dir}/so_locations"; \
 	done
-libMultiplication.la: $(libMultiplication_la_OBJECTS) $(libMultiplication_la_DEPENDENCIES) 
-	$(libMultiplication_la_LINK) -rpath $(pkglibdir) $(libMultiplication_la_OBJECTS) $(libMultiplication_la_LIBADD) $(LIBS)
+libAddition.la: $(libAddition_la_OBJECTS) $(libAddition_la_DEPENDENCIES) 
+	$(libAddition_la_LINK) -rpath $(pkglibdir) $(libAddition_la_OBJECTS) $(libAddition_la_LIBADD) $(LIBS)
 
 clean-checkPROGRAMS:
 	@list='$(check_PROGRAMS)'; for p in $$list; do \
@@ -300,9 +299,9 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testMultiplication$(EXEEXT): $(testMultiplication_OBJECTS) $(testMultiplication_DEPENDENCIES) 
-	@rm -f testMultiplication$(EXEEXT)
-	$(testMultiplication_LINK) $(testMultiplication_OBJECTS) $(testMultiplication_LDADD) $(LIBS)
+testAddition$(EXEEXT): $(testAddition_OBJECTS) $(testAddition_DEPENDENCIES) 
+	@rm -f testAddition$(EXEEXT)
+	$(testAddition_LINK) $(testAddition_OBJECTS) $(testAddition_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -310,17 +309,15 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMultiplication_la-cmula.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMultiplication_la-cmuls.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMultiplication_la-ctimess.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMultiplication_la-dmula.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMultiplication_la-dmuls.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMultiplication_la-smula.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMultiplication_la-smuls.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMultiplication_la-zmula.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMultiplication_la-zmuls.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMultiplication_la-ztimess.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testMultiplication-testMultiplication.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAddition_la-cadda.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAddition_la-cadds.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAddition_la-dadda.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAddition_la-dadds.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAddition_la-sadda.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAddition_la-sadds.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAddition_la-zadda.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libAddition_la-zadds.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testAddition-testAddition.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -343,89 +340,75 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
-libMultiplication_la-smuls.lo: smuls.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -MT libMultiplication_la-smuls.lo -MD -MP -MF $(DEPDIR)/libMultiplication_la-smuls.Tpo -c -o libMultiplication_la-smuls.lo `test -f 'smuls.c' || echo '$(srcdir)/'`smuls.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMultiplication_la-smuls.Tpo $(DEPDIR)/libMultiplication_la-smuls.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='smuls.c' object='libMultiplication_la-smuls.lo' libtool=yes @AMDEPBACKSLASH@
+libAddition_la-sadds.lo: sadds.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -MT libAddition_la-sadds.lo -MD -MP -MF $(DEPDIR)/libAddition_la-sadds.Tpo -c -o libAddition_la-sadds.lo `test -f 'sadds.c' || echo '$(srcdir)/'`sadds.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAddition_la-sadds.Tpo $(DEPDIR)/libAddition_la-sadds.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sadds.c' object='libAddition_la-sadds.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -c -o libMultiplication_la-smuls.lo `test -f 'smuls.c' || echo '$(srcdir)/'`smuls.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -c -o libAddition_la-sadds.lo `test -f 'sadds.c' || echo '$(srcdir)/'`sadds.c
 
-libMultiplication_la-dmuls.lo: dmuls.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -MT libMultiplication_la-dmuls.lo -MD -MP -MF $(DEPDIR)/libMultiplication_la-dmuls.Tpo -c -o libMultiplication_la-dmuls.lo `test -f 'dmuls.c' || echo '$(srcdir)/'`dmuls.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMultiplication_la-dmuls.Tpo $(DEPDIR)/libMultiplication_la-dmuls.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dmuls.c' object='libMultiplication_la-dmuls.lo' libtool=yes @AMDEPBACKSLASH@
+libAddition_la-dadds.lo: dadds.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -MT libAddition_la-dadds.lo -MD -MP -MF $(DEPDIR)/libAddition_la-dadds.Tpo -c -o libAddition_la-dadds.lo `test -f 'dadds.c' || echo '$(srcdir)/'`dadds.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAddition_la-dadds.Tpo $(DEPDIR)/libAddition_la-dadds.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dadds.c' object='libAddition_la-dadds.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -c -o libMultiplication_la-dmuls.lo `test -f 'dmuls.c' || echo '$(srcdir)/'`dmuls.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -c -o libAddition_la-dadds.lo `test -f 'dadds.c' || echo '$(srcdir)/'`dadds.c
 
-libMultiplication_la-cmuls.lo: cmuls.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -MT libMultiplication_la-cmuls.lo -MD -MP -MF $(DEPDIR)/libMultiplication_la-cmuls.Tpo -c -o libMultiplication_la-cmuls.lo `test -f 'cmuls.c' || echo '$(srcdir)/'`cmuls.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMultiplication_la-cmuls.Tpo $(DEPDIR)/libMultiplication_la-cmuls.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cmuls.c' object='libMultiplication_la-cmuls.lo' libtool=yes @AMDEPBACKSLASH@
+libAddition_la-cadds.lo: cadds.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -MT libAddition_la-cadds.lo -MD -MP -MF $(DEPDIR)/libAddition_la-cadds.Tpo -c -o libAddition_la-cadds.lo `test -f 'cadds.c' || echo '$(srcdir)/'`cadds.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAddition_la-cadds.Tpo $(DEPDIR)/libAddition_la-cadds.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cadds.c' object='libAddition_la-cadds.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -c -o libMultiplication_la-cmuls.lo `test -f 'cmuls.c' || echo '$(srcdir)/'`cmuls.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -c -o libAddition_la-cadds.lo `test -f 'cadds.c' || echo '$(srcdir)/'`cadds.c
 
-libMultiplication_la-zmuls.lo: zmuls.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -MT libMultiplication_la-zmuls.lo -MD -MP -MF $(DEPDIR)/libMultiplication_la-zmuls.Tpo -c -o libMultiplication_la-zmuls.lo `test -f 'zmuls.c' || echo '$(srcdir)/'`zmuls.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMultiplication_la-zmuls.Tpo $(DEPDIR)/libMultiplication_la-zmuls.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zmuls.c' object='libMultiplication_la-zmuls.lo' libtool=yes @AMDEPBACKSLASH@
+libAddition_la-zadds.lo: zadds.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -MT libAddition_la-zadds.lo -MD -MP -MF $(DEPDIR)/libAddition_la-zadds.Tpo -c -o libAddition_la-zadds.lo `test -f 'zadds.c' || echo '$(srcdir)/'`zadds.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAddition_la-zadds.Tpo $(DEPDIR)/libAddition_la-zadds.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zadds.c' object='libAddition_la-zadds.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -c -o libMultiplication_la-zmuls.lo `test -f 'zmuls.c' || echo '$(srcdir)/'`zmuls.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -c -o libAddition_la-zadds.lo `test -f 'zadds.c' || echo '$(srcdir)/'`zadds.c
 
-libMultiplication_la-smula.lo: smula.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -MT libMultiplication_la-smula.lo -MD -MP -MF $(DEPDIR)/libMultiplication_la-smula.Tpo -c -o libMultiplication_la-smula.lo `test -f 'smula.c' || echo '$(srcdir)/'`smula.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMultiplication_la-smula.Tpo $(DEPDIR)/libMultiplication_la-smula.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='smula.c' object='libMultiplication_la-smula.lo' libtool=yes @AMDEPBACKSLASH@
+libAddition_la-sadda.lo: sadda.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -MT libAddition_la-sadda.lo -MD -MP -MF $(DEPDIR)/libAddition_la-sadda.Tpo -c -o libAddition_la-sadda.lo `test -f 'sadda.c' || echo '$(srcdir)/'`sadda.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAddition_la-sadda.Tpo $(DEPDIR)/libAddition_la-sadda.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sadda.c' object='libAddition_la-sadda.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -c -o libMultiplication_la-smula.lo `test -f 'smula.c' || echo '$(srcdir)/'`smula.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -c -o libAddition_la-sadda.lo `test -f 'sadda.c' || echo '$(srcdir)/'`sadda.c
 
-libMultiplication_la-dmula.lo: dmula.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -MT libMultiplication_la-dmula.lo -MD -MP -MF $(DEPDIR)/libMultiplication_la-dmula.Tpo -c -o libMultiplication_la-dmula.lo `test -f 'dmula.c' || echo '$(srcdir)/'`dmula.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMultiplication_la-dmula.Tpo $(DEPDIR)/libMultiplication_la-dmula.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dmula.c' object='libMultiplication_la-dmula.lo' libtool=yes @AMDEPBACKSLASH@
+libAddition_la-dadda.lo: dadda.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -MT libAddition_la-dadda.lo -MD -MP -MF $(DEPDIR)/libAddition_la-dadda.Tpo -c -o libAddition_la-dadda.lo `test -f 'dadda.c' || echo '$(srcdir)/'`dadda.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAddition_la-dadda.Tpo $(DEPDIR)/libAddition_la-dadda.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dadda.c' object='libAddition_la-dadda.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -c -o libMultiplication_la-dmula.lo `test -f 'dmula.c' || echo '$(srcdir)/'`dmula.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -c -o libAddition_la-dadda.lo `test -f 'dadda.c' || echo '$(srcdir)/'`dadda.c
 
-libMultiplication_la-cmula.lo: cmula.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -MT libMultiplication_la-cmula.lo -MD -MP -MF $(DEPDIR)/libMultiplication_la-cmula.Tpo -c -o libMultiplication_la-cmula.lo `test -f 'cmula.c' || echo '$(srcdir)/'`cmula.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMultiplication_la-cmula.Tpo $(DEPDIR)/libMultiplication_la-cmula.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cmula.c' object='libMultiplication_la-cmula.lo' libtool=yes @AMDEPBACKSLASH@
+libAddition_la-cadda.lo: cadda.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -MT libAddition_la-cadda.lo -MD -MP -MF $(DEPDIR)/libAddition_la-cadda.Tpo -c -o libAddition_la-cadda.lo `test -f 'cadda.c' || echo '$(srcdir)/'`cadda.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAddition_la-cadda.Tpo $(DEPDIR)/libAddition_la-cadda.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cadda.c' object='libAddition_la-cadda.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -c -o libMultiplication_la-cmula.lo `test -f 'cmula.c' || echo '$(srcdir)/'`cmula.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -c -o libAddition_la-cadda.lo `test -f 'cadda.c' || echo '$(srcdir)/'`cadda.c
 
-libMultiplication_la-zmula.lo: zmula.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -MT libMultiplication_la-zmula.lo -MD -MP -MF $(DEPDIR)/libMultiplication_la-zmula.Tpo -c -o libMultiplication_la-zmula.lo `test -f 'zmula.c' || echo '$(srcdir)/'`zmula.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMultiplication_la-zmula.Tpo $(DEPDIR)/libMultiplication_la-zmula.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zmula.c' object='libMultiplication_la-zmula.lo' libtool=yes @AMDEPBACKSLASH@
+libAddition_la-zadda.lo: zadda.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -MT libAddition_la-zadda.lo -MD -MP -MF $(DEPDIR)/libAddition_la-zadda.Tpo -c -o libAddition_la-zadda.lo `test -f 'zadda.c' || echo '$(srcdir)/'`zadda.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libAddition_la-zadda.Tpo $(DEPDIR)/libAddition_la-zadda.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zadda.c' object='libAddition_la-zadda.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -c -o libMultiplication_la-zmula.lo `test -f 'zmula.c' || echo '$(srcdir)/'`zmula.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libAddition_la_CFLAGS) $(CFLAGS) -c -o libAddition_la-zadda.lo `test -f 'zadda.c' || echo '$(srcdir)/'`zadda.c
 
-libMultiplication_la-ctimess.lo: ctimess.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -MT libMultiplication_la-ctimess.lo -MD -MP -MF $(DEPDIR)/libMultiplication_la-ctimess.Tpo -c -o libMultiplication_la-ctimess.lo `test -f 'ctimess.c' || echo '$(srcdir)/'`ctimess.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMultiplication_la-ctimess.Tpo $(DEPDIR)/libMultiplication_la-ctimess.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ctimess.c' object='libMultiplication_la-ctimess.lo' libtool=yes @AMDEPBACKSLASH@
+testAddition-testAddition.o: testAddition.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAddition_CFLAGS) $(CFLAGS) -MT testAddition-testAddition.o -MD -MP -MF $(DEPDIR)/testAddition-testAddition.Tpo -c -o testAddition-testAddition.o `test -f 'testAddition.c' || echo '$(srcdir)/'`testAddition.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testAddition-testAddition.Tpo $(DEPDIR)/testAddition-testAddition.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testAddition.c' object='testAddition-testAddition.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -c -o libMultiplication_la-ctimess.lo `test -f 'ctimess.c' || echo '$(srcdir)/'`ctimess.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAddition_CFLAGS) $(CFLAGS) -c -o testAddition-testAddition.o `test -f 'testAddition.c' || echo '$(srcdir)/'`testAddition.c
 
-libMultiplication_la-ztimess.lo: ztimess.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -MT libMultiplication_la-ztimess.lo -MD -MP -MF $(DEPDIR)/libMultiplication_la-ztimess.Tpo -c -o libMultiplication_la-ztimess.lo `test -f 'ztimess.c' || echo '$(srcdir)/'`ztimess.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libMultiplication_la-ztimess.Tpo $(DEPDIR)/libMultiplication_la-ztimess.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ztimess.c' object='libMultiplication_la-ztimess.lo' libtool=yes @AMDEPBACKSLASH@
+testAddition-testAddition.obj: testAddition.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAddition_CFLAGS) $(CFLAGS) -MT testAddition-testAddition.obj -MD -MP -MF $(DEPDIR)/testAddition-testAddition.Tpo -c -o testAddition-testAddition.obj `if test -f 'testAddition.c'; then $(CYGPATH_W) 'testAddition.c'; else $(CYGPATH_W) '$(srcdir)/testAddition.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testAddition-testAddition.Tpo $(DEPDIR)/testAddition-testAddition.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testAddition.c' object='testAddition-testAddition.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMultiplication_la_CFLAGS) $(CFLAGS) -c -o libMultiplication_la-ztimess.lo `test -f 'ztimess.c' || echo '$(srcdir)/'`ztimess.c
-
-testMultiplication-testMultiplication.o: testMultiplication.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMultiplication_CFLAGS) $(CFLAGS) -MT testMultiplication-testMultiplication.o -MD -MP -MF $(DEPDIR)/testMultiplication-testMultiplication.Tpo -c -o testMultiplication-testMultiplication.o `test -f 'testMultiplication.c' || echo '$(srcdir)/'`testMultiplication.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMultiplication-testMultiplication.Tpo $(DEPDIR)/testMultiplication-testMultiplication.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMultiplication.c' object='testMultiplication-testMultiplication.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMultiplication_CFLAGS) $(CFLAGS) -c -o testMultiplication-testMultiplication.o `test -f 'testMultiplication.c' || echo '$(srcdir)/'`testMultiplication.c
-
-testMultiplication-testMultiplication.obj: testMultiplication.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMultiplication_CFLAGS) $(CFLAGS) -MT testMultiplication-testMultiplication.obj -MD -MP -MF $(DEPDIR)/testMultiplication-testMultiplication.Tpo -c -o testMultiplication-testMultiplication.obj `if test -f 'testMultiplication.c'; then $(CYGPATH_W) 'testMultiplication.c'; else $(CYGPATH_W) '$(srcdir)/testMultiplication.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testMultiplication-testMultiplication.Tpo $(DEPDIR)/testMultiplication-testMultiplication.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testMultiplication.c' object='testMultiplication-testMultiplication.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testMultiplication_CFLAGS) $(CFLAGS) -c -o testMultiplication-testMultiplication.obj `if test -f 'testMultiplication.c'; then $(CYGPATH_W) 'testMultiplication.c'; else $(CYGPATH_W) '$(srcdir)/testMultiplication.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testAddition_CFLAGS) $(CFLAGS) -c -o testAddition-testAddition.obj `if test -f 'testAddition.c'; then $(CYGPATH_W) 'testAddition.c'; else $(CYGPATH_W) '$(srcdir)/testAddition.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
