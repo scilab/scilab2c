@@ -32,9 +32,9 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testConj$(EXEEXT)
-TESTS = testConj$(EXEEXT)
-subdir = auxiliaryFunctions/conj
+check_PROGRAMS = testFind2d$(EXEEXT)
+TESTS = testFind2d$(EXEEXT)
+subdir = auxiliaryFunctions/find2d
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -52,20 +52,19 @@ am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
 am__installdirs = "$(DESTDIR)$(pkglibdir)"
 pkglibLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkglib_LTLIBRARIES)
-libConj_la_LIBADD =
+libFind2d_la_LIBADD =
 am__objects_1 =
-am_libConj_la_OBJECTS = $(am__objects_1) libConj_la-cconja.lo \
-	libConj_la-zconja.lo libConj_la-zconjs.lo libConj_la-cconjs.lo
-libConj_la_OBJECTS = $(am_libConj_la_OBJECTS)
-libConj_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libConj_la_CFLAGS) \
+am__objects_2 = sfind2da.lo dfind2da.lo cfind2da.lo zfind2da.lo
+am_libFind2d_la_OBJECTS = $(am__objects_1) $(am__objects_2)
+libFind2d_la_OBJECTS = $(am_libFind2d_la_OBJECTS)
+am_testFind2d_OBJECTS = testFind2d-testFind2d.$(OBJEXT)
+testFind2d_OBJECTS = $(am_testFind2d_OBJECTS)
+testFind2d_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
+	$(top_builddir)/type/libFloatComplex.la \
+	$(top_builddir)/auxiliaryFunctions/find2d/libFind2d.la
+testFind2d_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFind2d_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testConj_OBJECTS = testConj-testConj.$(OBJEXT)
-testConj_OBJECTS = $(am_testConj_OBJECTS)
-testConj_DEPENDENCIES = $(check_LDADD)
-testConj_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
-	--mode=link $(CCLD) $(testConj_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
-	$(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -78,8 +77,8 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libConj_la_SOURCES) $(testConj_SOURCES)
-DIST_SOURCES = $(libConj_la_SOURCES) $(testConj_SOURCES)
+SOURCES = $(libFind2d_la_SOURCES) $(testFind2d_SOURCES)
+DIST_SOURCES = $(libFind2d_la_SOURCES) $(testFind2d_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -103,7 +102,7 @@ CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
 DSYMUTIL = @DSYMUTIL@
-ECHO = @ECHO@
+DUMPBIN = @DUMPBIN@
 ECHO_C = @ECHO_C@
 ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
@@ -111,24 +110,30 @@ EGREP = @EGREP@
 EXEEXT = @EXEEXT@
 F77 = @F77@
 FFLAGS = @FFLAGS@
+FGREP = @FGREP@
 GREP = @GREP@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
+LD = @LD@
 LDFLAGS = @LDFLAGS@
 LIBMATH = @LIBMATH@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
+LIPO = @LIPO@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
 MAKEINFO = @MAKEINFO@
 MKDIR_P = @MKDIR_P@
+NM = @NM@
 NMEDIT = @NMEDIT@
 OBJEXT = @OBJEXT@
+OTOOL = @OTOOL@
+OTOOL64 = @OTOOL64@
 PACKAGE = @PACKAGE@
 PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
 PACKAGE_NAME = @PACKAGE_NAME@
@@ -148,6 +153,7 @@ abs_top_builddir = @abs_top_builddir@
 abs_top_srcdir = @abs_top_srcdir@
 ac_ct_CC = @ac_ct_CC@
 ac_ct_CXX = @ac_ct_CXX@
+ac_ct_DUMPBIN = @ac_ct_DUMPBIN@
 ac_ct_F77 = @ac_ct_F77@
 am__include = @am__include@
 am__leading_dot = @am__leading_dot@
@@ -179,6 +185,7 @@ libdir = @libdir@
 libexecdir = @libexecdir@
 localedir = @localedir@
 localstatedir = @localstatedir@
+lt_ECHO = @lt_ECHO@
 mandir = @mandir@
 mkdir_p = @mkdir_p@
 oldincludedir = @oldincludedir@
@@ -193,29 +200,36 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libConj_la_CFLAGS = -I $(top_builddir)/type \
-			-I ../includes
+AM_CFLAGS = -I ../../type \
+		-I $(top_builddir)/auxiliaryFunctions/includes
 
 instdir = $(top_builddir)/lib
-pkglib_LTLIBRARIES = libConj.la
-HEAD = ../includes/conj.h
-libConj_la_SOURCES = $(HEAD) \
-			cconja.c \
-			zconja.c \
-			zconjs.c \
-	                cconjs.c
+pkglib_LTLIBRARIES = libFind2d.la
+libFind2d_la_SOURCES = $(HEAD) $(SRC)
+SRC = sfind2da.c \
+		dfind2da.c \
+		cfind2da.c \
+		zfind2da.c
 
-check_LDADD = libConj.la \
-			$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/operations/addition/libAddition.la
+HEAD = ../includes/find2d.h
 
-check_INCLUDES = -I $(top_builddir)/type \
-			-I ../includes
+####
+# Checking Part
+####
+check_INCLUDES = -I $(top_builddir)/auxiliaryFunctions/includes \
+				-I $(top_builddir)/type
 
-testConj_SOURCES = testConj.c
-testConj_LDADD = $(check_LDADD)
-testConj_CFLAGS = $(check_INCLUDES)
+
+#
+# -*- Find2d Tests -*-
+#
+testFind2d_SOURCES = testFind2d.h testFind2d.c
+testFind2d_CFLAGS = $(check_INCLUDES)
+testFind2d_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+				$(top_builddir)/type/libFloatComplex.la \
+				$(top_builddir)/auxiliaryFunctions/find2d/libFind2d.la \
+				@LIBMATH@
+
 all: all-am
 
 .SUFFIXES:
@@ -229,9 +243,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  auxiliaryFunctions/conj/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  auxiliaryFunctions/find2d/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  auxiliaryFunctions/conj/Makefile
+	  $(AUTOMAKE) --foreign  auxiliaryFunctions/find2d/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
@@ -276,8 +290,8 @@ clean-pkglibLTLIBRARIES:
 	  echo "rm -f \"$${dir}/so_locations\""; \
 	  rm -f "$${dir}/so_locations"; \
 	done
-libConj.la: $(libConj_la_OBJECTS) $(libConj_la_DEPENDENCIES) 
-	$(libConj_la_LINK) -rpath $(pkglibdir) $(libConj_la_OBJECTS) $(libConj_la_LIBADD) $(LIBS)
+libFind2d.la: $(libFind2d_la_OBJECTS) $(libFind2d_la_DEPENDENCIES) 
+	$(LINK) -rpath $(pkglibdir) $(libFind2d_la_OBJECTS) $(libFind2d_la_LIBADD) $(LIBS)
 
 clean-checkPROGRAMS:
 	@list='$(check_PROGRAMS)'; for p in $$list; do \
@@ -285,9 +299,9 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testConj$(EXEEXT): $(testConj_OBJECTS) $(testConj_DEPENDENCIES) 
-	@rm -f testConj$(EXEEXT)
-	$(testConj_LINK) $(testConj_OBJECTS) $(testConj_LDADD) $(LIBS)
+testFind2d$(EXEEXT): $(testFind2d_OBJECTS) $(testFind2d_DEPENDENCIES) 
+	@rm -f testFind2d$(EXEEXT)
+	$(testFind2d_LINK) $(testFind2d_OBJECTS) $(testFind2d_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -295,11 +309,11 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libConj_la-cconja.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libConj_la-cconjs.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libConj_la-zconja.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libConj_la-zconjs.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testConj-testConj.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cfind2da.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dfind2da.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sfind2da.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFind2d-testFind2d.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zfind2da.Plo@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -322,47 +336,19 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
-libConj_la-cconja.lo: cconja.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libConj_la_CFLAGS) $(CFLAGS) -MT libConj_la-cconja.lo -MD -MP -MF $(DEPDIR)/libConj_la-cconja.Tpo -c -o libConj_la-cconja.lo `test -f 'cconja.c' || echo '$(srcdir)/'`cconja.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libConj_la-cconja.Tpo $(DEPDIR)/libConj_la-cconja.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cconja.c' object='libConj_la-cconja.lo' libtool=yes @AMDEPBACKSLASH@
+testFind2d-testFind2d.o: testFind2d.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFind2d_CFLAGS) $(CFLAGS) -MT testFind2d-testFind2d.o -MD -MP -MF $(DEPDIR)/testFind2d-testFind2d.Tpo -c -o testFind2d-testFind2d.o `test -f 'testFind2d.c' || echo '$(srcdir)/'`testFind2d.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFind2d-testFind2d.Tpo $(DEPDIR)/testFind2d-testFind2d.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFind2d.c' object='testFind2d-testFind2d.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libConj_la_CFLAGS) $(CFLAGS) -c -o libConj_la-cconja.lo `test -f 'cconja.c' || echo '$(srcdir)/'`cconja.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFind2d_CFLAGS) $(CFLAGS) -c -o testFind2d-testFind2d.o `test -f 'testFind2d.c' || echo '$(srcdir)/'`testFind2d.c
 
-libConj_la-zconja.lo: zconja.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libConj_la_CFLAGS) $(CFLAGS) -MT libConj_la-zconja.lo -MD -MP -MF $(DEPDIR)/libConj_la-zconja.Tpo -c -o libConj_la-zconja.lo `test -f 'zconja.c' || echo '$(srcdir)/'`zconja.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libConj_la-zconja.Tpo $(DEPDIR)/libConj_la-zconja.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zconja.c' object='libConj_la-zconja.lo' libtool=yes @AMDEPBACKSLASH@
+testFind2d-testFind2d.obj: testFind2d.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFind2d_CFLAGS) $(CFLAGS) -MT testFind2d-testFind2d.obj -MD -MP -MF $(DEPDIR)/testFind2d-testFind2d.Tpo -c -o testFind2d-testFind2d.obj `if test -f 'testFind2d.c'; then $(CYGPATH_W) 'testFind2d.c'; else $(CYGPATH_W) '$(srcdir)/testFind2d.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFind2d-testFind2d.Tpo $(DEPDIR)/testFind2d-testFind2d.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFind2d.c' object='testFind2d-testFind2d.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libConj_la_CFLAGS) $(CFLAGS) -c -o libConj_la-zconja.lo `test -f 'zconja.c' || echo '$(srcdir)/'`zconja.c
-
-libConj_la-zconjs.lo: zconjs.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libConj_la_CFLAGS) $(CFLAGS) -MT libConj_la-zconjs.lo -MD -MP -MF $(DEPDIR)/libConj_la-zconjs.Tpo -c -o libConj_la-zconjs.lo `test -f 'zconjs.c' || echo '$(srcdir)/'`zconjs.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libConj_la-zconjs.Tpo $(DEPDIR)/libConj_la-zconjs.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zconjs.c' object='libConj_la-zconjs.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libConj_la_CFLAGS) $(CFLAGS) -c -o libConj_la-zconjs.lo `test -f 'zconjs.c' || echo '$(srcdir)/'`zconjs.c
-
-libConj_la-cconjs.lo: cconjs.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libConj_la_CFLAGS) $(CFLAGS) -MT libConj_la-cconjs.lo -MD -MP -MF $(DEPDIR)/libConj_la-cconjs.Tpo -c -o libConj_la-cconjs.lo `test -f 'cconjs.c' || echo '$(srcdir)/'`cconjs.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libConj_la-cconjs.Tpo $(DEPDIR)/libConj_la-cconjs.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cconjs.c' object='libConj_la-cconjs.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libConj_la_CFLAGS) $(CFLAGS) -c -o libConj_la-cconjs.lo `test -f 'cconjs.c' || echo '$(srcdir)/'`cconjs.c
-
-testConj-testConj.o: testConj.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testConj_CFLAGS) $(CFLAGS) -MT testConj-testConj.o -MD -MP -MF $(DEPDIR)/testConj-testConj.Tpo -c -o testConj-testConj.o `test -f 'testConj.c' || echo '$(srcdir)/'`testConj.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testConj-testConj.Tpo $(DEPDIR)/testConj-testConj.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testConj.c' object='testConj-testConj.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testConj_CFLAGS) $(CFLAGS) -c -o testConj-testConj.o `test -f 'testConj.c' || echo '$(srcdir)/'`testConj.c
-
-testConj-testConj.obj: testConj.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testConj_CFLAGS) $(CFLAGS) -MT testConj-testConj.obj -MD -MP -MF $(DEPDIR)/testConj-testConj.Tpo -c -o testConj-testConj.obj `if test -f 'testConj.c'; then $(CYGPATH_W) 'testConj.c'; else $(CYGPATH_W) '$(srcdir)/testConj.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testConj-testConj.Tpo $(DEPDIR)/testConj-testConj.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testConj.c' object='testConj-testConj.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testConj_CFLAGS) $(CFLAGS) -c -o testConj-testConj.obj `if test -f 'testConj.c'; then $(CYGPATH_W) 'testConj.c'; else $(CYGPATH_W) '$(srcdir)/testConj.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFind2d_CFLAGS) $(CFLAGS) -c -o testFind2d-testFind2d.obj `if test -f 'testFind2d.c'; then $(CYGPATH_W) 'testFind2d.c'; else $(CYGPATH_W) '$(srcdir)/testFind2d.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo

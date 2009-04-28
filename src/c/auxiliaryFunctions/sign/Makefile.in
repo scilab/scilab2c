@@ -32,9 +32,9 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testLength$(EXEEXT)
-TESTS = testLength$(EXEEXT)
-subdir = auxiliaryFunctions/length
+check_PROGRAMS = testSign$(EXEEXT)
+TESTS = testSign$(EXEEXT)
+subdir = auxiliaryFunctions/sign
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -52,21 +52,30 @@ am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
 am__installdirs = "$(DESTDIR)$(pkglibdir)"
 pkglibLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkglib_LTLIBRARIES)
-libLength_la_LIBADD =
+libSign_la_LIBADD =
 am__objects_1 =
-am_libLength_la_OBJECTS = $(am__objects_1)
-libLength_la_OBJECTS = $(am_libLength_la_OBJECTS)
-libLength_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libLength_la_CFLAGS) \
+am__objects_2 = libSign_la-ssigns.lo libSign_la-dsigns.lo \
+	libSign_la-csigns.lo libSign_la-zsigns.lo libSign_la-ssigna.lo \
+	libSign_la-dsigna.lo libSign_la-csigna.lo libSign_la-zsigna.lo
+am_libSign_la_OBJECTS = $(am__objects_1) $(am__objects_2)
+libSign_la_OBJECTS = $(am_libSign_la_OBJECTS)
+libSign_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libSign_la_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testLength_OBJECTS = testLength-testLength.$(OBJEXT)
-testLength_OBJECTS = $(am_testLength_OBJECTS)
-testLength_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
+am_testSign_OBJECTS = testSign-testSign.$(OBJEXT)
+testSign_OBJECTS = $(am_testSign_OBJECTS)
+testSign_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/type/libFloatComplex.la \
-	$(top_builddir)/auxiliaryFunctions/length/libLength.la
-testLength_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testLength_CFLAGS) \
-	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+	$(top_builddir)/operations/addition/libAddition.la \
+	$(top_builddir)/lib/lapack/libscilapack.la \
+	$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
+	$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+	$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
+	$(top_builddir)/auxiliaryFunctions/sign/libSign.la \
+	$(top_builddir)/operations/multiplication/libMultiplication.la
+testSign_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=link $(CCLD) $(testSign_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -79,8 +88,8 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libLength_la_SOURCES) $(testLength_SOURCES)
-DIST_SOURCES = $(libLength_la_SOURCES) $(testLength_SOURCES)
+SOURCES = $(libSign_la_SOURCES) $(testSign_SOURCES)
+DIST_SOURCES = $(libSign_la_SOURCES) $(testSign_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -104,7 +113,7 @@ CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
 DSYMUTIL = @DSYMUTIL@
-ECHO = @ECHO@
+DUMPBIN = @DUMPBIN@
 ECHO_C = @ECHO_C@
 ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
@@ -112,24 +121,30 @@ EGREP = @EGREP@
 EXEEXT = @EXEEXT@
 F77 = @F77@
 FFLAGS = @FFLAGS@
+FGREP = @FGREP@
 GREP = @GREP@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
+LD = @LD@
 LDFLAGS = @LDFLAGS@
 LIBMATH = @LIBMATH@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
+LIPO = @LIPO@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
 MAKEINFO = @MAKEINFO@
 MKDIR_P = @MKDIR_P@
+NM = @NM@
 NMEDIT = @NMEDIT@
 OBJEXT = @OBJEXT@
+OTOOL = @OTOOL@
+OTOOL64 = @OTOOL64@
 PACKAGE = @PACKAGE@
 PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
 PACKAGE_NAME = @PACKAGE_NAME@
@@ -149,6 +164,7 @@ abs_top_builddir = @abs_top_builddir@
 abs_top_srcdir = @abs_top_srcdir@
 ac_ct_CC = @ac_ct_CC@
 ac_ct_CXX = @ac_ct_CXX@
+ac_ct_DUMPBIN = @ac_ct_DUMPBIN@
 ac_ct_F77 = @ac_ct_F77@
 am__include = @am__include@
 am__leading_dot = @am__leading_dot@
@@ -180,6 +196,7 @@ libdir = @libdir@
 libexecdir = @libexecdir@
 localedir = @localedir@
 localstatedir = @localstatedir@
+lt_ECHO = @lt_ECHO@
 mandir = @mandir@
 mkdir_p = @mkdir_p@
 oldincludedir = @oldincludedir@
@@ -194,30 +211,47 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libLength_la_CFLAGS = -I ../../type \
-			-I ../includes
+libSign_la_CFLAGS = -I $(top_builddir)/type \
+			-I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/auxiliaryFunctions/includes
 
 instdir = $(top_builddir)/lib
-pkglib_LTLIBRARIES = libLength.la
-libLength_la_SOURCES = $(HEAD)
-HEAD = ../includes/length.h
+pkglib_LTLIBRARIES = libSign.la
+libSign_la_SOURCES = $(HEAD) $(SRC)
+SRC = ssigns.c \
+		dsigns.c \
+		csigns.c \
+		zsigns.c \
+		ssigna.c \
+		dsigna.c \
+		csigna.c \
+		zsigna.c
+
+HEAD = ../includes/sign.h
 
 ####
 # Checking Part
 ####
-check_INCLUDES = -I $(top_builddir)/auxiliaryFunctions/includes \
-			-I $(top_builddir)/type
+check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
+			-I $(top_builddir)/type \
+			-I $(top_builddir)/auxiliaryFunctions/includes
 
 
 #
-# -*- Length Tests -*-
+# -*- Sign Tests -*-
 #
-testLength_SOURCES = testLength.h testLength.c
-testLength_CFLAGS = $(check_INCLUDES)
-testLength_LDADD = $(top_builddir)/type/libDoubleComplex.la \
-				$(top_builddir)/type/libFloatComplex.la \
-				$(top_builddir)/auxiliaryFunctions/length/libLength.la \
-				@LIBMATH@
+testSign_SOURCES = testSign.h testSign.c
+testSign_CFLAGS = $(check_INCLUDES)
+testSign_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+			$(top_builddir)/type/libFloatComplex.la \
+			$(top_builddir)/operations/addition/libAddition.la \
+			$(top_builddir)/lib/lapack/libscilapack.la \
+			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
+			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
+			$(top_builddir)/auxiliaryFunctions/sign/libSign.la \
+			$(top_builddir)/operations/multiplication/libMultiplication.la \
+			@LIBMATH@
 
 all: all-am
 
@@ -232,9 +266,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  auxiliaryFunctions/length/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  auxiliaryFunctions/sign/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  auxiliaryFunctions/length/Makefile
+	  $(AUTOMAKE) --foreign  auxiliaryFunctions/sign/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
@@ -279,8 +313,8 @@ clean-pkglibLTLIBRARIES:
 	  echo "rm -f \"$${dir}/so_locations\""; \
 	  rm -f "$${dir}/so_locations"; \
 	done
-libLength.la: $(libLength_la_OBJECTS) $(libLength_la_DEPENDENCIES) 
-	$(libLength_la_LINK) -rpath $(pkglibdir) $(libLength_la_OBJECTS) $(libLength_la_LIBADD) $(LIBS)
+libSign.la: $(libSign_la_OBJECTS) $(libSign_la_DEPENDENCIES) 
+	$(libSign_la_LINK) -rpath $(pkglibdir) $(libSign_la_OBJECTS) $(libSign_la_LIBADD) $(LIBS)
 
 clean-checkPROGRAMS:
 	@list='$(check_PROGRAMS)'; for p in $$list; do \
@@ -288,9 +322,9 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testLength$(EXEEXT): $(testLength_OBJECTS) $(testLength_DEPENDENCIES) 
-	@rm -f testLength$(EXEEXT)
-	$(testLength_LINK) $(testLength_OBJECTS) $(testLength_LDADD) $(LIBS)
+testSign$(EXEEXT): $(testSign_OBJECTS) $(testSign_DEPENDENCIES) 
+	@rm -f testSign$(EXEEXT)
+	$(testSign_LINK) $(testSign_OBJECTS) $(testSign_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -298,7 +332,15 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testLength-testLength.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSign_la-csigna.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSign_la-csigns.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSign_la-dsigna.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSign_la-dsigns.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSign_la-ssigna.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSign_la-ssigns.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSign_la-zsigna.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libSign_la-zsigns.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testSign-testSign.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -321,19 +363,75 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
-testLength-testLength.o: testLength.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testLength_CFLAGS) $(CFLAGS) -MT testLength-testLength.o -MD -MP -MF $(DEPDIR)/testLength-testLength.Tpo -c -o testLength-testLength.o `test -f 'testLength.c' || echo '$(srcdir)/'`testLength.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testLength-testLength.Tpo $(DEPDIR)/testLength-testLength.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testLength.c' object='testLength-testLength.o' libtool=no @AMDEPBACKSLASH@
+libSign_la-ssigns.lo: ssigns.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSign_la_CFLAGS) $(CFLAGS) -MT libSign_la-ssigns.lo -MD -MP -MF $(DEPDIR)/libSign_la-ssigns.Tpo -c -o libSign_la-ssigns.lo `test -f 'ssigns.c' || echo '$(srcdir)/'`ssigns.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSign_la-ssigns.Tpo $(DEPDIR)/libSign_la-ssigns.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ssigns.c' object='libSign_la-ssigns.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testLength_CFLAGS) $(CFLAGS) -c -o testLength-testLength.o `test -f 'testLength.c' || echo '$(srcdir)/'`testLength.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSign_la_CFLAGS) $(CFLAGS) -c -o libSign_la-ssigns.lo `test -f 'ssigns.c' || echo '$(srcdir)/'`ssigns.c
 
-testLength-testLength.obj: testLength.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testLength_CFLAGS) $(CFLAGS) -MT testLength-testLength.obj -MD -MP -MF $(DEPDIR)/testLength-testLength.Tpo -c -o testLength-testLength.obj `if test -f 'testLength.c'; then $(CYGPATH_W) 'testLength.c'; else $(CYGPATH_W) '$(srcdir)/testLength.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testLength-testLength.Tpo $(DEPDIR)/testLength-testLength.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testLength.c' object='testLength-testLength.obj' libtool=no @AMDEPBACKSLASH@
+libSign_la-dsigns.lo: dsigns.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSign_la_CFLAGS) $(CFLAGS) -MT libSign_la-dsigns.lo -MD -MP -MF $(DEPDIR)/libSign_la-dsigns.Tpo -c -o libSign_la-dsigns.lo `test -f 'dsigns.c' || echo '$(srcdir)/'`dsigns.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSign_la-dsigns.Tpo $(DEPDIR)/libSign_la-dsigns.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dsigns.c' object='libSign_la-dsigns.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testLength_CFLAGS) $(CFLAGS) -c -o testLength-testLength.obj `if test -f 'testLength.c'; then $(CYGPATH_W) 'testLength.c'; else $(CYGPATH_W) '$(srcdir)/testLength.c'; fi`
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSign_la_CFLAGS) $(CFLAGS) -c -o libSign_la-dsigns.lo `test -f 'dsigns.c' || echo '$(srcdir)/'`dsigns.c
+
+libSign_la-csigns.lo: csigns.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSign_la_CFLAGS) $(CFLAGS) -MT libSign_la-csigns.lo -MD -MP -MF $(DEPDIR)/libSign_la-csigns.Tpo -c -o libSign_la-csigns.lo `test -f 'csigns.c' || echo '$(srcdir)/'`csigns.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSign_la-csigns.Tpo $(DEPDIR)/libSign_la-csigns.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='csigns.c' object='libSign_la-csigns.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSign_la_CFLAGS) $(CFLAGS) -c -o libSign_la-csigns.lo `test -f 'csigns.c' || echo '$(srcdir)/'`csigns.c
+
+libSign_la-zsigns.lo: zsigns.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSign_la_CFLAGS) $(CFLAGS) -MT libSign_la-zsigns.lo -MD -MP -MF $(DEPDIR)/libSign_la-zsigns.Tpo -c -o libSign_la-zsigns.lo `test -f 'zsigns.c' || echo '$(srcdir)/'`zsigns.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSign_la-zsigns.Tpo $(DEPDIR)/libSign_la-zsigns.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zsigns.c' object='libSign_la-zsigns.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSign_la_CFLAGS) $(CFLAGS) -c -o libSign_la-zsigns.lo `test -f 'zsigns.c' || echo '$(srcdir)/'`zsigns.c
+
+libSign_la-ssigna.lo: ssigna.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSign_la_CFLAGS) $(CFLAGS) -MT libSign_la-ssigna.lo -MD -MP -MF $(DEPDIR)/libSign_la-ssigna.Tpo -c -o libSign_la-ssigna.lo `test -f 'ssigna.c' || echo '$(srcdir)/'`ssigna.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSign_la-ssigna.Tpo $(DEPDIR)/libSign_la-ssigna.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ssigna.c' object='libSign_la-ssigna.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSign_la_CFLAGS) $(CFLAGS) -c -o libSign_la-ssigna.lo `test -f 'ssigna.c' || echo '$(srcdir)/'`ssigna.c
+
+libSign_la-dsigna.lo: dsigna.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSign_la_CFLAGS) $(CFLAGS) -MT libSign_la-dsigna.lo -MD -MP -MF $(DEPDIR)/libSign_la-dsigna.Tpo -c -o libSign_la-dsigna.lo `test -f 'dsigna.c' || echo '$(srcdir)/'`dsigna.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSign_la-dsigna.Tpo $(DEPDIR)/libSign_la-dsigna.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dsigna.c' object='libSign_la-dsigna.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSign_la_CFLAGS) $(CFLAGS) -c -o libSign_la-dsigna.lo `test -f 'dsigna.c' || echo '$(srcdir)/'`dsigna.c
+
+libSign_la-csigna.lo: csigna.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSign_la_CFLAGS) $(CFLAGS) -MT libSign_la-csigna.lo -MD -MP -MF $(DEPDIR)/libSign_la-csigna.Tpo -c -o libSign_la-csigna.lo `test -f 'csigna.c' || echo '$(srcdir)/'`csigna.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSign_la-csigna.Tpo $(DEPDIR)/libSign_la-csigna.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='csigna.c' object='libSign_la-csigna.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSign_la_CFLAGS) $(CFLAGS) -c -o libSign_la-csigna.lo `test -f 'csigna.c' || echo '$(srcdir)/'`csigna.c
+
+libSign_la-zsigna.lo: zsigna.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSign_la_CFLAGS) $(CFLAGS) -MT libSign_la-zsigna.lo -MD -MP -MF $(DEPDIR)/libSign_la-zsigna.Tpo -c -o libSign_la-zsigna.lo `test -f 'zsigna.c' || echo '$(srcdir)/'`zsigna.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libSign_la-zsigna.Tpo $(DEPDIR)/libSign_la-zsigna.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zsigna.c' object='libSign_la-zsigna.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libSign_la_CFLAGS) $(CFLAGS) -c -o libSign_la-zsigna.lo `test -f 'zsigna.c' || echo '$(srcdir)/'`zsigna.c
+
+testSign-testSign.o: testSign.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSign_CFLAGS) $(CFLAGS) -MT testSign-testSign.o -MD -MP -MF $(DEPDIR)/testSign-testSign.Tpo -c -o testSign-testSign.o `test -f 'testSign.c' || echo '$(srcdir)/'`testSign.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testSign-testSign.Tpo $(DEPDIR)/testSign-testSign.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testSign.c' object='testSign-testSign.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSign_CFLAGS) $(CFLAGS) -c -o testSign-testSign.o `test -f 'testSign.c' || echo '$(srcdir)/'`testSign.c
+
+testSign-testSign.obj: testSign.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSign_CFLAGS) $(CFLAGS) -MT testSign-testSign.obj -MD -MP -MF $(DEPDIR)/testSign-testSign.Tpo -c -o testSign-testSign.obj `if test -f 'testSign.c'; then $(CYGPATH_W) 'testSign.c'; else $(CYGPATH_W) '$(srcdir)/testSign.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testSign-testSign.Tpo $(DEPDIR)/testSign-testSign.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testSign.c' object='testSign-testSign.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testSign_CFLAGS) $(CFLAGS) -c -o testSign-testSign.obj `if test -f 'testSign.c'; then $(CYGPATH_W) 'testSign.c'; else $(CYGPATH_W) '$(srcdir)/testSign.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
