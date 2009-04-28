@@ -10,8 +10,8 @@
 ##
 ##
 
-libString_la_CFLAGS =	-I $(top_builddir)/type \
-			-I $(top_builddir)/string/includes
+libString_la_CFLAGS =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/string/includes
 
 pkglib_LTLIBRARIES =	libString.la
 
@@ -32,12 +32,12 @@ HEAD	=	../includes/string.h
 # Checking Part
 ####
 
-check_INCLUDES	=	-I $(top_builddir)/string/includes \
-			-I $(top_builddir)/type
+check_INCLUDES	=	-I $(top_builddir)/src/c/string/includes \
+			-I $(top_builddir)/src/c/type
 
-check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/string/string/libString.la
+check_LDADD	=	$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			libString.la
 
 check_PROGRAMS	= 	testString
 
