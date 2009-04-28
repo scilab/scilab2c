@@ -10,10 +10,10 @@
 ##
 ##
 
-libVariance_la_CFLAGS =	-I $(top_builddir)/type \
-			-I $(top_builddir)/elementaryFunctions/includes \
-			-I $(top_builddir)/matrixOperations/includes \
-			-I $(top_builddir)/operations/includes \
+libVariance_la_CFLAGS =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/elementaryFunctions/includes \
+			-I $(top_builddir)/src/c/matrixOperations/includes \
+			-I $(top_builddir)/src/c/operations/includes \
 			-I ../includes
 
 instdir = $(top_builddir)/lib
@@ -41,36 +41,36 @@ HEAD	=	../includes/variance.h
 # Checking Part
 ####
 
-check_INCLUDES	=	-I $(top_builddir)/statisticsFunctions/includes \
-			-I $(top_builddir)/elementaryFunctions/includes \
-			-I $(top_builddir)/matrixOperations/includes \
-			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/type
+check_INCLUDES	=	-I $(top_builddir)/src/c/statisticsFunctions/includes \
+			-I $(top_builddir)/src/c/elementaryFunctions/includes \
+			-I $(top_builddir)/src/c/matrixOperations/includes \
+			-I $(top_builddir)/src/c/operations/includes \
+			-I $(top_builddir)/src/c/type
 
-check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/operations/subtraction/libSubtraction.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
-			$(top_builddir)/statisticsFunctions/variance/libVariance.la \
-			$(top_builddir)/statisticsFunctions/sum/libSum.la \
-			$(top_builddir)/statisticsFunctions/mean/libMean.la \
-			$(top_builddir)/elementaryFunctions/pow/libPow.la \
-			$(top_builddir)/elementaryFunctions/log/libLog.la \
-			$(top_builddir)/elementaryFunctions/exp/libExp.la \
-			$(top_builddir)/elementaryFunctions/cos/libCos.la \
-			$(top_builddir)/elementaryFunctions/sin/libSin.la \
-			$(top_builddir)/elementaryFunctions/cosh/libCosh.la \
-			$(top_builddir)/elementaryFunctions/sinh/libSinh.la \
-			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-			$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
-			$(top_builddir)/elementaryFunctions/lnp1m1/libLnp1m1.la \
-			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-			$(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
-			$(top_builddir)/operations/division/libDivision.la \
-			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
+check_LDADD	=	$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			$(top_builddir)/src/c/operations/subtraction/libSubtraction.la \
+			$(top_builddir)/src/fortran/lapack/libscilapack.la \
+			$(top_builddir)/src/c/statisticsFunctions/variance/libVariance.la \
+			$(top_builddir)/src/c/statisticsFunctions/sum/libSum.la \
+			$(top_builddir)/src/c/statisticsFunctions/mean/libMean.la \
+			$(top_builddir)/src/c/elementaryFunctions/pow/libPow.la \
+			$(top_builddir)/src/c/elementaryFunctions/log/libLog.la \
+			$(top_builddir)/src/c/elementaryFunctions/exp/libExp.la \
+			$(top_builddir)/src/c/elementaryFunctions/cos/libCos.la \
+			$(top_builddir)/src/c/elementaryFunctions/sin/libSin.la \
+			$(top_builddir)/src/c/elementaryFunctions/cosh/libCosh.la \
+			$(top_builddir)/src/c/elementaryFunctions/sinh/libSinh.la \
+			$(top_builddir)/src/c/elementaryFunctions/sqrt/libSqrt.la \
+			$(top_builddir)/src/c/elementaryFunctions/log1p/libLog1p.la \
+			$(top_builddir)/src/c/elementaryFunctions/lnp1m1/libLnp1m1.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/pythag/libPythag.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/src/c/matrixOperations/transpose/libMatrixTranspose.la \
+			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/src/c/operations/division/libDivision.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/conj/libConj.la \
 			@LIBMATH@
 
 check_PROGRAMS	= 	testFloatVarianceNono testDoubleVarianceNono

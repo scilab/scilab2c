@@ -34,7 +34,7 @@ build_triplet = @build@
 host_triplet = @host@
 check_PROGRAMS = testFloatMax$(EXEEXT) testDoubleMax$(EXEEXT)
 TESTS = testFloatMax$(EXEEXT) testDoubleMax$(EXEEXT)
-subdir = statisticsFunctions/max
+subdir = src/c/statisticsFunctions/max
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -211,7 +211,7 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libMax_la_CFLAGS = -I $(top_builddir)/statisticsFunctions/includes
+libMax_la_CFLAGS = -I $(top_builddir)/src/c/statisticsFunctions/includes
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libMax.la
 libMax_la_SOURCES = $(HEAD) $(SRC)
@@ -220,15 +220,15 @@ SRC = smaxa.c \
 		scolumnmaxa.c \
 		dmaxa.c \
 		drowmaxa.c \
-		dcolumnmaxa.c 
+		dcolumnmaxa.c
 
 HEAD = ../includes/statMax.h
 
 ####
 # Checking Part
 ####
-check_INCLUDES = -I $(top_builddir)/statisticsFunctions/includes 
-check_LDADD = $(top_builddir)/statisticsFunctions/max/libMax.la 
+check_INCLUDES = -I $(top_builddir)/src/c/statisticsFunctions/includes
+check_LDADD = $(top_builddir)/src/c/statisticsFunctions/max/libMax.la
 
 #
 # -*- Max Tests -*-
@@ -252,9 +252,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  statisticsFunctions/max/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  src/c/statisticsFunctions/max/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  statisticsFunctions/max/Makefile
+	  $(AUTOMAKE) --foreign  src/c/statisticsFunctions/max/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
