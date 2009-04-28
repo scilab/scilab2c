@@ -1,0 +1,1 @@
+../../../../elementaryFunctions/log/dlogs.c

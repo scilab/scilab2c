@@ -1,0 +1,1 @@
+../../../../statisticsFunctions/variance/zcolumnvariancea.c

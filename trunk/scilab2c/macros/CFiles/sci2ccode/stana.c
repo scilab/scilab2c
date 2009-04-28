@@ -1,0 +1,1 @@
+../../../../elementaryFunctions/tan/stana.c
