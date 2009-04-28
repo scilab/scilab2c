@@ -10,7 +10,7 @@
 ##
 ##
 
-libConj_la_CFLAGS =	-I $(top_builddir)/type \
+libConj_la_CFLAGS =	-I $(top_builddir)/src/c/type \
 			-I ../includes
 
 instdir = $(top_builddir)/lib
@@ -28,10 +28,10 @@ libConj_la_SOURCES = 	$(HEAD) \
 check_PROGRAMS = 	testConj
 
 check_LDADD =   	libConj.la \
-			$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/operations/addition/libAddition.la
-			
+			$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la
+
 
 
 check_INCLUDES =	-I $(top_builddir)/type \

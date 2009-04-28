@@ -11,7 +11,7 @@
 ##
 
 AM_CFLAGS =	-I ../../type \
-		-I $(top_builddir)/auxiliaryFunctions/includes
+		-I $(top_builddir)/src/c/auxiliaryFunctions/includes
 
 instdir = $(top_builddir)/lib
 
@@ -30,8 +30,8 @@ HEAD	=	../includes/find2d.h
 # Checking Part
 ####
 
-check_INCLUDES	=	-I $(top_builddir)/auxiliaryFunctions/includes \
-				-I $(top_builddir)/type
+check_INCLUDES	=	-I $(top_builddir)/src/c/auxiliaryFunctions/includes \
+			-I $(top_builddir)/src/c/type
 
 check_PROGRAMS	= 	testFind2d
 
@@ -42,7 +42,7 @@ TESTS		=	testFind2d
 #
 testFind2d_SOURCES = 	testFind2d.h testFind2d.c
 testFind2d_CFLAGS	=	$(check_INCLUDES)
-testFind2d_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
-				$(top_builddir)/type/libFloatComplex.la \
-				$(top_builddir)/auxiliaryFunctions/find2d/libFind2d.la \
+testFind2d_LDADD	=	$(top_builddir)/src/c/type/libDoubleComplex.la \
+				$(top_builddir)/src/c/type/libFloatComplex.la \
+				$(top_builddir)/src/c/auxiliaryFunctions/find2d/libFind2d.la \
 				@LIBMATH@

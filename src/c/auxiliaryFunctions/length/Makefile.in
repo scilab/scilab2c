@@ -34,7 +34,7 @@ build_triplet = @build@
 host_triplet = @host@
 check_PROGRAMS = testLength$(EXEEXT)
 TESTS = testLength$(EXEEXT)
-subdir = auxiliaryFunctions/length
+subdir = src/c/auxiliaryFunctions/length
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -61,9 +61,10 @@ libLength_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_testLength_OBJECTS = testLength-testLength.$(OBJEXT)
 testLength_OBJECTS = $(am_testLength_OBJECTS)
-testLength_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
-	$(top_builddir)/type/libFloatComplex.la \
-	$(top_builddir)/auxiliaryFunctions/length/libLength.la
+testLength_DEPENDENCIES =  \
+	$(top_builddir)/src/c/type/libDoubleComplex.la \
+	$(top_builddir)/src/c/type/libFloatComplex.la \
+	$(top_builddir)/src/c/auxiliaryFunctions/length/libLength.la
 testLength_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testLength_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
@@ -213,8 +214,8 @@ HEAD = ../includes/length.h
 ####
 # Checking Part
 ####
-check_INCLUDES = -I $(top_builddir)/auxiliaryFunctions/includes \
-			-I $(top_builddir)/type
+check_INCLUDES = -I $(top_builddir)/src/c/auxiliaryFunctions/includes \
+			-I $(top_builddir)/src/c/type
 
 
 #
@@ -222,9 +223,9 @@ check_INCLUDES = -I $(top_builddir)/auxiliaryFunctions/includes \
 #
 testLength_SOURCES = testLength.h testLength.c
 testLength_CFLAGS = $(check_INCLUDES)
-testLength_LDADD = $(top_builddir)/type/libDoubleComplex.la \
-				$(top_builddir)/type/libFloatComplex.la \
-				$(top_builddir)/auxiliaryFunctions/length/libLength.la \
+testLength_LDADD = $(top_builddir)/src/c/type/libDoubleComplex.la \
+				$(top_builddir)/src/c/type/libFloatComplex.la \
+				$(top_builddir)/src/c/auxiliaryFunctions/length/libLength.la \
 				@LIBMATH@
 
 all: all-am
@@ -240,9 +241,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  auxiliaryFunctions/length/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  src/c/auxiliaryFunctions/length/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  auxiliaryFunctions/length/Makefile
+	  $(AUTOMAKE) --foreign  src/c/auxiliaryFunctions/length/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \

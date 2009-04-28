@@ -30,8 +30,8 @@ HEAD	=	../includes/isnan.h
 # Checking Part
 ####
 
-check_INCLUDES	=	-I $(top_builddir)/auxiliaryFunctions/includes \
-			-I $(top_builddir)/type
+check_INCLUDES	=	-I $(top_builddir)/src/c/auxiliaryFunctions/includes \
+			-I $(top_builddir)/src/c/type
 
 check_PROGRAMS	= 	testIsnan
 
@@ -42,7 +42,7 @@ TESTS		=	testIsnan
 #
 testIsnan_SOURCES = 	testIsNan.h testIsNan.c
 testIsnan_CFLAGS  =	$(check_INCLUDES)
-testIsnan_LDADD	  =	$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/auxiliaryFunctions/isnan/libIsnan.la \
+testIsnan_LDADD	  =	$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/isnan/libIsnan.la \
 			@LIBMATH@

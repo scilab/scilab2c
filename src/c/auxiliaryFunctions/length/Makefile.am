@@ -25,8 +25,8 @@ HEAD	=	../includes/length.h
 # Checking Part
 ####
 
-check_INCLUDES	=	-I $(top_builddir)/auxiliaryFunctions/includes \
-			-I $(top_builddir)/type
+check_INCLUDES	=	-I $(top_builddir)/src/c/auxiliaryFunctions/includes \
+			-I $(top_builddir)/src/c/type
 
 check_PROGRAMS	= 	testLength
 
@@ -37,7 +37,7 @@ TESTS		=	testLength
 #
 testLength_SOURCES = 	testLength.h testLength.c
 testLength_CFLAGS	=	$(check_INCLUDES)
-testLength_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
-				$(top_builddir)/type/libFloatComplex.la \
-				$(top_builddir)/auxiliaryFunctions/length/libLength.la \
+testLength_LDADD	=	$(top_builddir)/src/c/type/libDoubleComplex.la \
+				$(top_builddir)/src/c/type/libFloatComplex.la \
+				$(top_builddir)/src/c/auxiliaryFunctions/length/libLength.la \
 				@LIBMATH@

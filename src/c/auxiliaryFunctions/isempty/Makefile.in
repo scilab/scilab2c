@@ -34,7 +34,7 @@ build_triplet = @build@
 host_triplet = @host@
 check_PROGRAMS = testIsEmpty$(EXEEXT)
 TESTS = testIsEmpty$(EXEEXT)
-subdir = auxiliaryFunctions/isempty
+subdir = src/c/auxiliaryFunctions/isempty
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -61,10 +61,11 @@ libIsempty_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_testIsEmpty_OBJECTS = testIsEmpty-testIsEmpty.$(OBJEXT)
 testIsEmpty_OBJECTS = $(am_testIsEmpty_OBJECTS)
-testIsEmpty_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
-	$(top_builddir)/type/libFloatComplex.la \
-	$(top_builddir)/auxiliaryFunctions/isempty/libIsempty.la \
-	$(top_builddir)/auxiliaryFunctions/find/libFind.la
+testIsEmpty_DEPENDENCIES =  \
+	$(top_builddir)/src/c/type/libDoubleComplex.la \
+	$(top_builddir)/src/c/type/libFloatComplex.la \
+	$(top_builddir)/src/c/auxiliaryFunctions/isempty/libIsempty.la \
+	$(top_builddir)/src/c/auxiliaryFunctions/find/libFind.la
 testIsEmpty_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testIsEmpty_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
@@ -214,8 +215,8 @@ HEAD = ../includes/isempty.h
 ####
 # Checking Part
 ####
-check_INCLUDES = -I $(top_builddir)/auxiliaryFunctions/includes \
-			-I $(top_builddir)/type
+check_INCLUDES = -I $(top_builddir)/src/c/auxiliaryFunctions/includes \
+			-I $(top_builddir)/src/c/type
 
 
 #
@@ -223,10 +224,10 @@ check_INCLUDES = -I $(top_builddir)/auxiliaryFunctions/includes \
 #
 testIsEmpty_SOURCES = testIsEmpty.h testIsEmpty.c
 testIsEmpty_CFLAGS = $(check_INCLUDES)
-testIsEmpty_LDADD = $(top_builddir)/type/libDoubleComplex.la \
-				$(top_builddir)/type/libFloatComplex.la \
-				$(top_builddir)/auxiliaryFunctions/isempty/libIsempty.la \
-				$(top_builddir)/auxiliaryFunctions/find/libFind.la \
+testIsEmpty_LDADD = $(top_builddir)/src/c/type/libDoubleComplex.la \
+				$(top_builddir)/src/c/type/libFloatComplex.la \
+				$(top_builddir)/src/c/auxiliaryFunctions/isempty/libIsempty.la \
+				$(top_builddir)/src/c/auxiliaryFunctions/find/libFind.la \
 				@LIBMATH@
 
 all: all-am
@@ -242,9 +243,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  auxiliaryFunctions/isempty/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  src/c/auxiliaryFunctions/isempty/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  auxiliaryFunctions/isempty/Makefile
+	  $(AUTOMAKE) --foreign  src/c/auxiliaryFunctions/isempty/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
