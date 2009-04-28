@@ -32,9 +32,9 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testIsnan$(EXEEXT)
-TESTS = testIsnan$(EXEEXT)
-subdir = auxiliaryFunctions/isnan
+check_PROGRAMS = testLength$(EXEEXT)
+TESTS = testLength$(EXEEXT)
+subdir = auxiliaryFunctions/length
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -52,22 +52,20 @@ am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
 am__installdirs = "$(DESTDIR)$(pkglibdir)"
 pkglibLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkglib_LTLIBRARIES)
-libIsnan_la_LIBADD =
+libLength_la_LIBADD =
 am__objects_1 =
-am__objects_2 = libIsnan_la-sisnans.lo libIsnan_la-disnans.lo \
-	libIsnan_la-cisnans.lo libIsnan_la-zisnans.lo
-am_libIsnan_la_OBJECTS = $(am__objects_1) $(am__objects_2)
-libIsnan_la_OBJECTS = $(am_libIsnan_la_OBJECTS)
-libIsnan_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libIsnan_la_CFLAGS) \
+am_libLength_la_OBJECTS = $(am__objects_1)
+libLength_la_OBJECTS = $(am_libLength_la_OBJECTS)
+libLength_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libLength_la_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testIsnan_OBJECTS = testIsnan-testIsNan.$(OBJEXT)
-testIsnan_OBJECTS = $(am_testIsnan_OBJECTS)
-testIsnan_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
+am_testLength_OBJECTS = testLength-testLength.$(OBJEXT)
+testLength_OBJECTS = $(am_testLength_OBJECTS)
+testLength_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/type/libFloatComplex.la \
-	$(top_builddir)/auxiliaryFunctions/isnan/libIsnan.la
-testIsnan_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testIsnan_CFLAGS) \
+	$(top_builddir)/auxiliaryFunctions/length/libLength.la
+testLength_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testLength_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
@@ -81,8 +79,8 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libIsnan_la_SOURCES) $(testIsnan_SOURCES)
-DIST_SOURCES = $(libIsnan_la_SOURCES) $(testIsnan_SOURCES)
+SOURCES = $(libLength_la_SOURCES) $(testLength_SOURCES)
+DIST_SOURCES = $(libLength_la_SOURCES) $(testLength_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -106,7 +104,7 @@ CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
 DSYMUTIL = @DSYMUTIL@
-ECHO = @ECHO@
+DUMPBIN = @DUMPBIN@
 ECHO_C = @ECHO_C@
 ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
@@ -114,24 +112,30 @@ EGREP = @EGREP@
 EXEEXT = @EXEEXT@
 F77 = @F77@
 FFLAGS = @FFLAGS@
+FGREP = @FGREP@
 GREP = @GREP@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
+LD = @LD@
 LDFLAGS = @LDFLAGS@
 LIBMATH = @LIBMATH@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
+LIPO = @LIPO@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
 MAKEINFO = @MAKEINFO@
 MKDIR_P = @MKDIR_P@
+NM = @NM@
 NMEDIT = @NMEDIT@
 OBJEXT = @OBJEXT@
+OTOOL = @OTOOL@
+OTOOL64 = @OTOOL64@
 PACKAGE = @PACKAGE@
 PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
 PACKAGE_NAME = @PACKAGE_NAME@
@@ -151,6 +155,7 @@ abs_top_builddir = @abs_top_builddir@
 abs_top_srcdir = @abs_top_srcdir@
 ac_ct_CC = @ac_ct_CC@
 ac_ct_CXX = @ac_ct_CXX@
+ac_ct_DUMPBIN = @ac_ct_DUMPBIN@
 ac_ct_F77 = @ac_ct_F77@
 am__include = @am__include@
 am__leading_dot = @am__leading_dot@
@@ -182,6 +187,7 @@ libdir = @libdir@
 libexecdir = @libexecdir@
 localedir = @localedir@
 localstatedir = @localstatedir@
+lt_ECHO = @lt_ECHO@
 mandir = @mandir@
 mkdir_p = @mkdir_p@
 oldincludedir = @oldincludedir@
@@ -196,18 +202,13 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libIsnan_la_CFLAGS = -I ../../type \
+libLength_la_CFLAGS = -I ../../type \
 			-I ../includes
 
 instdir = $(top_builddir)/lib
-pkglib_LTLIBRARIES = libIsnan.la
-libIsnan_la_SOURCES = $(HEAD) $(SRC)
-SRC = sisnans.c \
-		disnans.c \
-		cisnans.c \
-		zisnans.c
-
-HEAD = ../includes/isnan.h
+pkglib_LTLIBRARIES = libLength.la
+libLength_la_SOURCES = $(HEAD)
+HEAD = ../includes/length.h
 
 ####
 # Checking Part
@@ -217,14 +218,14 @@ check_INCLUDES = -I $(top_builddir)/auxiliaryFunctions/includes \
 
 
 #
-# -*- Isnan Tests -*-
+# -*- Length Tests -*-
 #
-testIsnan_SOURCES = testIsNan.h testIsNan.c
-testIsnan_CFLAGS = $(check_INCLUDES)
-testIsnan_LDADD = $(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/auxiliaryFunctions/isnan/libIsnan.la \
-			@LIBMATH@
+testLength_SOURCES = testLength.h testLength.c
+testLength_CFLAGS = $(check_INCLUDES)
+testLength_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+				$(top_builddir)/type/libFloatComplex.la \
+				$(top_builddir)/auxiliaryFunctions/length/libLength.la \
+				@LIBMATH@
 
 all: all-am
 
@@ -239,9 +240,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  auxiliaryFunctions/isnan/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  auxiliaryFunctions/length/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  auxiliaryFunctions/isnan/Makefile
+	  $(AUTOMAKE) --foreign  auxiliaryFunctions/length/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
@@ -286,8 +287,8 @@ clean-pkglibLTLIBRARIES:
 	  echo "rm -f \"$${dir}/so_locations\""; \
 	  rm -f "$${dir}/so_locations"; \
 	done
-libIsnan.la: $(libIsnan_la_OBJECTS) $(libIsnan_la_DEPENDENCIES) 
-	$(libIsnan_la_LINK) -rpath $(pkglibdir) $(libIsnan_la_OBJECTS) $(libIsnan_la_LIBADD) $(LIBS)
+libLength.la: $(libLength_la_OBJECTS) $(libLength_la_DEPENDENCIES) 
+	$(libLength_la_LINK) -rpath $(pkglibdir) $(libLength_la_OBJECTS) $(libLength_la_LIBADD) $(LIBS)
 
 clean-checkPROGRAMS:
 	@list='$(check_PROGRAMS)'; for p in $$list; do \
@@ -295,9 +296,9 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testIsnan$(EXEEXT): $(testIsnan_OBJECTS) $(testIsnan_DEPENDENCIES) 
-	@rm -f testIsnan$(EXEEXT)
-	$(testIsnan_LINK) $(testIsnan_OBJECTS) $(testIsnan_LDADD) $(LIBS)
+testLength$(EXEEXT): $(testLength_OBJECTS) $(testLength_DEPENDENCIES) 
+	@rm -f testLength$(EXEEXT)
+	$(testLength_LINK) $(testLength_OBJECTS) $(testLength_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -305,11 +306,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libIsnan_la-cisnans.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libIsnan_la-disnans.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libIsnan_la-sisnans.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libIsnan_la-zisnans.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testIsnan-testIsNan.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testLength-testLength.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -332,47 +329,19 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
-libIsnan_la-sisnans.lo: sisnans.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIsnan_la_CFLAGS) $(CFLAGS) -MT libIsnan_la-sisnans.lo -MD -MP -MF $(DEPDIR)/libIsnan_la-sisnans.Tpo -c -o libIsnan_la-sisnans.lo `test -f 'sisnans.c' || echo '$(srcdir)/'`sisnans.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libIsnan_la-sisnans.Tpo $(DEPDIR)/libIsnan_la-sisnans.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sisnans.c' object='libIsnan_la-sisnans.lo' libtool=yes @AMDEPBACKSLASH@
+testLength-testLength.o: testLength.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testLength_CFLAGS) $(CFLAGS) -MT testLength-testLength.o -MD -MP -MF $(DEPDIR)/testLength-testLength.Tpo -c -o testLength-testLength.o `test -f 'testLength.c' || echo '$(srcdir)/'`testLength.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testLength-testLength.Tpo $(DEPDIR)/testLength-testLength.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testLength.c' object='testLength-testLength.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIsnan_la_CFLAGS) $(CFLAGS) -c -o libIsnan_la-sisnans.lo `test -f 'sisnans.c' || echo '$(srcdir)/'`sisnans.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testLength_CFLAGS) $(CFLAGS) -c -o testLength-testLength.o `test -f 'testLength.c' || echo '$(srcdir)/'`testLength.c
 
-libIsnan_la-disnans.lo: disnans.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIsnan_la_CFLAGS) $(CFLAGS) -MT libIsnan_la-disnans.lo -MD -MP -MF $(DEPDIR)/libIsnan_la-disnans.Tpo -c -o libIsnan_la-disnans.lo `test -f 'disnans.c' || echo '$(srcdir)/'`disnans.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libIsnan_la-disnans.Tpo $(DEPDIR)/libIsnan_la-disnans.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='disnans.c' object='libIsnan_la-disnans.lo' libtool=yes @AMDEPBACKSLASH@
+testLength-testLength.obj: testLength.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testLength_CFLAGS) $(CFLAGS) -MT testLength-testLength.obj -MD -MP -MF $(DEPDIR)/testLength-testLength.Tpo -c -o testLength-testLength.obj `if test -f 'testLength.c'; then $(CYGPATH_W) 'testLength.c'; else $(CYGPATH_W) '$(srcdir)/testLength.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testLength-testLength.Tpo $(DEPDIR)/testLength-testLength.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testLength.c' object='testLength-testLength.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIsnan_la_CFLAGS) $(CFLAGS) -c -o libIsnan_la-disnans.lo `test -f 'disnans.c' || echo '$(srcdir)/'`disnans.c
-
-libIsnan_la-cisnans.lo: cisnans.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIsnan_la_CFLAGS) $(CFLAGS) -MT libIsnan_la-cisnans.lo -MD -MP -MF $(DEPDIR)/libIsnan_la-cisnans.Tpo -c -o libIsnan_la-cisnans.lo `test -f 'cisnans.c' || echo '$(srcdir)/'`cisnans.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libIsnan_la-cisnans.Tpo $(DEPDIR)/libIsnan_la-cisnans.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cisnans.c' object='libIsnan_la-cisnans.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIsnan_la_CFLAGS) $(CFLAGS) -c -o libIsnan_la-cisnans.lo `test -f 'cisnans.c' || echo '$(srcdir)/'`cisnans.c
-
-libIsnan_la-zisnans.lo: zisnans.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIsnan_la_CFLAGS) $(CFLAGS) -MT libIsnan_la-zisnans.lo -MD -MP -MF $(DEPDIR)/libIsnan_la-zisnans.Tpo -c -o libIsnan_la-zisnans.lo `test -f 'zisnans.c' || echo '$(srcdir)/'`zisnans.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libIsnan_la-zisnans.Tpo $(DEPDIR)/libIsnan_la-zisnans.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zisnans.c' object='libIsnan_la-zisnans.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIsnan_la_CFLAGS) $(CFLAGS) -c -o libIsnan_la-zisnans.lo `test -f 'zisnans.c' || echo '$(srcdir)/'`zisnans.c
-
-testIsnan-testIsNan.o: testIsNan.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testIsnan_CFLAGS) $(CFLAGS) -MT testIsnan-testIsNan.o -MD -MP -MF $(DEPDIR)/testIsnan-testIsNan.Tpo -c -o testIsnan-testIsNan.o `test -f 'testIsNan.c' || echo '$(srcdir)/'`testIsNan.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testIsnan-testIsNan.Tpo $(DEPDIR)/testIsnan-testIsNan.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testIsNan.c' object='testIsnan-testIsNan.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testIsnan_CFLAGS) $(CFLAGS) -c -o testIsnan-testIsNan.o `test -f 'testIsNan.c' || echo '$(srcdir)/'`testIsNan.c
-
-testIsnan-testIsNan.obj: testIsNan.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testIsnan_CFLAGS) $(CFLAGS) -MT testIsnan-testIsNan.obj -MD -MP -MF $(DEPDIR)/testIsnan-testIsNan.Tpo -c -o testIsnan-testIsNan.obj `if test -f 'testIsNan.c'; then $(CYGPATH_W) 'testIsNan.c'; else $(CYGPATH_W) '$(srcdir)/testIsNan.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testIsnan-testIsNan.Tpo $(DEPDIR)/testIsnan-testIsNan.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testIsNan.c' object='testIsnan-testIsNan.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testIsnan_CFLAGS) $(CFLAGS) -c -o testIsnan-testIsNan.obj `if test -f 'testIsNan.c'; then $(CYGPATH_W) 'testIsNan.c'; else $(CYGPATH_W) '$(srcdir)/testIsNan.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testLength_CFLAGS) $(CFLAGS) -c -o testLength-testLength.obj `if test -f 'testLength.c'; then $(CYGPATH_W) 'testLength.c'; else $(CYGPATH_W) '$(srcdir)/testLength.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo

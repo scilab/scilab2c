@@ -32,9 +32,9 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testFind2d$(EXEEXT)
-TESTS = testFind2d$(EXEEXT)
-subdir = auxiliaryFunctions/find2d
+check_PROGRAMS = testIsEmpty$(EXEEXT)
+TESTS = testIsEmpty$(EXEEXT)
+subdir = auxiliaryFunctions/isempty
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -52,18 +52,21 @@ am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
 am__installdirs = "$(DESTDIR)$(pkglibdir)"
 pkglibLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkglib_LTLIBRARIES)
-libFind2d_la_LIBADD =
+libIsempty_la_LIBADD =
 am__objects_1 =
-am__objects_2 = sfind2da.lo dfind2da.lo cfind2da.lo zfind2da.lo
-am_libFind2d_la_OBJECTS = $(am__objects_1) $(am__objects_2)
-libFind2d_la_OBJECTS = $(am_libFind2d_la_OBJECTS)
-am_testFind2d_OBJECTS = testFind2d-testFind2d.$(OBJEXT)
-testFind2d_OBJECTS = $(am_testFind2d_OBJECTS)
-testFind2d_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
+am_libIsempty_la_OBJECTS = $(am__objects_1)
+libIsempty_la_OBJECTS = $(am_libIsempty_la_OBJECTS)
+libIsempty_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libIsempty_la_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testIsEmpty_OBJECTS = testIsEmpty-testIsEmpty.$(OBJEXT)
+testIsEmpty_OBJECTS = $(am_testIsEmpty_OBJECTS)
+testIsEmpty_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/type/libFloatComplex.la \
-	$(top_builddir)/auxiliaryFunctions/find2d/libFind2d.la
-testFind2d_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFind2d_CFLAGS) \
+	$(top_builddir)/auxiliaryFunctions/isempty/libIsempty.la \
+	$(top_builddir)/auxiliaryFunctions/find/libFind.la
+testIsEmpty_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testIsEmpty_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
@@ -77,8 +80,8 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libFind2d_la_SOURCES) $(testFind2d_SOURCES)
-DIST_SOURCES = $(libFind2d_la_SOURCES) $(testFind2d_SOURCES)
+SOURCES = $(libIsempty_la_SOURCES) $(testIsEmpty_SOURCES)
+DIST_SOURCES = $(libIsempty_la_SOURCES) $(testIsEmpty_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -102,7 +105,7 @@ CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
 DSYMUTIL = @DSYMUTIL@
-ECHO = @ECHO@
+DUMPBIN = @DUMPBIN@
 ECHO_C = @ECHO_C@
 ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
@@ -110,24 +113,30 @@ EGREP = @EGREP@
 EXEEXT = @EXEEXT@
 F77 = @F77@
 FFLAGS = @FFLAGS@
+FGREP = @FGREP@
 GREP = @GREP@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
+LD = @LD@
 LDFLAGS = @LDFLAGS@
 LIBMATH = @LIBMATH@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
+LIPO = @LIPO@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
 MAKEINFO = @MAKEINFO@
 MKDIR_P = @MKDIR_P@
+NM = @NM@
 NMEDIT = @NMEDIT@
 OBJEXT = @OBJEXT@
+OTOOL = @OTOOL@
+OTOOL64 = @OTOOL64@
 PACKAGE = @PACKAGE@
 PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
 PACKAGE_NAME = @PACKAGE_NAME@
@@ -147,6 +156,7 @@ abs_top_builddir = @abs_top_builddir@
 abs_top_srcdir = @abs_top_srcdir@
 ac_ct_CC = @ac_ct_CC@
 ac_ct_CXX = @ac_ct_CXX@
+ac_ct_DUMPBIN = @ac_ct_DUMPBIN@
 ac_ct_F77 = @ac_ct_F77@
 am__include = @am__include@
 am__leading_dot = @am__leading_dot@
@@ -178,6 +188,7 @@ libdir = @libdir@
 libexecdir = @libexecdir@
 localedir = @localedir@
 localstatedir = @localstatedir@
+lt_ECHO = @lt_ECHO@
 mandir = @mandir@
 mkdir_p = @mkdir_p@
 oldincludedir = @oldincludedir@
@@ -192,34 +203,30 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-AM_CFLAGS = -I ../../type \
-		-I $(top_builddir)/auxiliaryFunctions/includes
+libIsempty_la_CFLAGS = -I ../../type \
+			-I ../includes
 
 instdir = $(top_builddir)/lib
-pkglib_LTLIBRARIES = libFind2d.la
-libFind2d_la_SOURCES = $(HEAD) $(SRC)
-SRC = sfind2da.c \
-		dfind2da.c \
-		cfind2da.c \
-		zfind2da.c
-
-HEAD = ../includes/find2d.h
+pkglib_LTLIBRARIES = libIsempty.la
+libIsempty_la_SOURCES = $(HEAD) $(SRC)
+HEAD = ../includes/isempty.h
 
 ####
 # Checking Part
 ####
 check_INCLUDES = -I $(top_builddir)/auxiliaryFunctions/includes \
-				-I $(top_builddir)/type
+			-I $(top_builddir)/type
 
 
 #
-# -*- Find2d Tests -*-
+# -*- Isempty Tests -*-
 #
-testFind2d_SOURCES = testFind2d.h testFind2d.c
-testFind2d_CFLAGS = $(check_INCLUDES)
-testFind2d_LDADD = $(top_builddir)/type/libDoubleComplex.la \
+testIsEmpty_SOURCES = testIsEmpty.h testIsEmpty.c
+testIsEmpty_CFLAGS = $(check_INCLUDES)
+testIsEmpty_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 				$(top_builddir)/type/libFloatComplex.la \
-				$(top_builddir)/auxiliaryFunctions/find2d/libFind2d.la \
+				$(top_builddir)/auxiliaryFunctions/isempty/libIsempty.la \
+				$(top_builddir)/auxiliaryFunctions/find/libFind.la \
 				@LIBMATH@
 
 all: all-am
@@ -235,9 +242,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  auxiliaryFunctions/find2d/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  auxiliaryFunctions/isempty/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  auxiliaryFunctions/find2d/Makefile
+	  $(AUTOMAKE) --foreign  auxiliaryFunctions/isempty/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
@@ -282,8 +289,8 @@ clean-pkglibLTLIBRARIES:
 	  echo "rm -f \"$${dir}/so_locations\""; \
 	  rm -f "$${dir}/so_locations"; \
 	done
-libFind2d.la: $(libFind2d_la_OBJECTS) $(libFind2d_la_DEPENDENCIES) 
-	$(LINK) -rpath $(pkglibdir) $(libFind2d_la_OBJECTS) $(libFind2d_la_LIBADD) $(LIBS)
+libIsempty.la: $(libIsempty_la_OBJECTS) $(libIsempty_la_DEPENDENCIES) 
+	$(libIsempty_la_LINK) -rpath $(pkglibdir) $(libIsempty_la_OBJECTS) $(libIsempty_la_LIBADD) $(LIBS)
 
 clean-checkPROGRAMS:
 	@list='$(check_PROGRAMS)'; for p in $$list; do \
@@ -291,9 +298,9 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testFind2d$(EXEEXT): $(testFind2d_OBJECTS) $(testFind2d_DEPENDENCIES) 
-	@rm -f testFind2d$(EXEEXT)
-	$(testFind2d_LINK) $(testFind2d_OBJECTS) $(testFind2d_LDADD) $(LIBS)
+testIsEmpty$(EXEEXT): $(testIsEmpty_OBJECTS) $(testIsEmpty_DEPENDENCIES) 
+	@rm -f testIsEmpty$(EXEEXT)
+	$(testIsEmpty_LINK) $(testIsEmpty_OBJECTS) $(testIsEmpty_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -301,11 +308,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cfind2da.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dfind2da.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sfind2da.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFind2d-testFind2d.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/zfind2da.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testIsEmpty-testIsEmpty.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -328,19 +331,19 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
-testFind2d-testFind2d.o: testFind2d.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFind2d_CFLAGS) $(CFLAGS) -MT testFind2d-testFind2d.o -MD -MP -MF $(DEPDIR)/testFind2d-testFind2d.Tpo -c -o testFind2d-testFind2d.o `test -f 'testFind2d.c' || echo '$(srcdir)/'`testFind2d.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFind2d-testFind2d.Tpo $(DEPDIR)/testFind2d-testFind2d.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFind2d.c' object='testFind2d-testFind2d.o' libtool=no @AMDEPBACKSLASH@
+testIsEmpty-testIsEmpty.o: testIsEmpty.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testIsEmpty_CFLAGS) $(CFLAGS) -MT testIsEmpty-testIsEmpty.o -MD -MP -MF $(DEPDIR)/testIsEmpty-testIsEmpty.Tpo -c -o testIsEmpty-testIsEmpty.o `test -f 'testIsEmpty.c' || echo '$(srcdir)/'`testIsEmpty.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testIsEmpty-testIsEmpty.Tpo $(DEPDIR)/testIsEmpty-testIsEmpty.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testIsEmpty.c' object='testIsEmpty-testIsEmpty.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFind2d_CFLAGS) $(CFLAGS) -c -o testFind2d-testFind2d.o `test -f 'testFind2d.c' || echo '$(srcdir)/'`testFind2d.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testIsEmpty_CFLAGS) $(CFLAGS) -c -o testIsEmpty-testIsEmpty.o `test -f 'testIsEmpty.c' || echo '$(srcdir)/'`testIsEmpty.c
 
-testFind2d-testFind2d.obj: testFind2d.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFind2d_CFLAGS) $(CFLAGS) -MT testFind2d-testFind2d.obj -MD -MP -MF $(DEPDIR)/testFind2d-testFind2d.Tpo -c -o testFind2d-testFind2d.obj `if test -f 'testFind2d.c'; then $(CYGPATH_W) 'testFind2d.c'; else $(CYGPATH_W) '$(srcdir)/testFind2d.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFind2d-testFind2d.Tpo $(DEPDIR)/testFind2d-testFind2d.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFind2d.c' object='testFind2d-testFind2d.obj' libtool=no @AMDEPBACKSLASH@
+testIsEmpty-testIsEmpty.obj: testIsEmpty.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testIsEmpty_CFLAGS) $(CFLAGS) -MT testIsEmpty-testIsEmpty.obj -MD -MP -MF $(DEPDIR)/testIsEmpty-testIsEmpty.Tpo -c -o testIsEmpty-testIsEmpty.obj `if test -f 'testIsEmpty.c'; then $(CYGPATH_W) 'testIsEmpty.c'; else $(CYGPATH_W) '$(srcdir)/testIsEmpty.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testIsEmpty-testIsEmpty.Tpo $(DEPDIR)/testIsEmpty-testIsEmpty.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testIsEmpty.c' object='testIsEmpty-testIsEmpty.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFind2d_CFLAGS) $(CFLAGS) -c -o testFind2d-testFind2d.obj `if test -f 'testFind2d.c'; then $(CYGPATH_W) 'testFind2d.c'; else $(CYGPATH_W) '$(srcdir)/testFind2d.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testIsEmpty_CFLAGS) $(CFLAGS) -c -o testIsEmpty-testIsEmpty.obj `if test -f 'testIsEmpty.c'; then $(CYGPATH_W) 'testIsEmpty.c'; else $(CYGPATH_W) '$(srcdir)/testIsEmpty.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
