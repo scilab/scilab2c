@@ -32,9 +32,9 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testHilbert$(EXEEXT)
-TESTS = testHilbert$(EXEEXT)
-subdir = signalProcessing/hilbert
+check_PROGRAMS = testDoubleLevin$(EXEEXT) testFloatLevin$(EXEEXT)
+TESTS = testDoubleLevin$(EXEEXT) testFloatLevin$(EXEEXT)
+subdir = signalProcessing/levin
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -52,20 +52,37 @@ am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
 am__installdirs = "$(DESTDIR)$(pkglibdir)"
 pkglibLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkglib_LTLIBRARIES)
-libHilbert_la_LIBADD =
+libLevin_la_LIBADD =
 am__objects_1 =
-am_libHilbert_la_OBJECTS = $(am__objects_1) libHilbert_la-shilberta.lo \
-	libHilbert_la-dhilberta.lo libHilbert_la-shilberts.lo \
-	libHilbert_la-dhilberts.lo
-libHilbert_la_OBJECTS = $(am_libHilbert_la_OBJECTS)
-libHilbert_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libHilbert_la_CFLAGS) \
+am_libLevin_la_OBJECTS = $(am__objects_1) libLevin_la-levinUtils.lo \
+	libLevin_la-slevina.lo libLevin_la-dlevina.lo
+libLevin_la_OBJECTS = $(am_libLevin_la_OBJECTS)
+libLevin_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libLevin_la_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testHilbert_OBJECTS = testHilbert-testHilbert.$(OBJEXT)
-testHilbert_OBJECTS = $(am_testHilbert_OBJECTS)
-testHilbert_DEPENDENCIES = $(check_LDADD)
-testHilbert_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testHilbert_CFLAGS) \
+am_testDoubleLevin_OBJECTS =  \
+	testDoubleLevin-testDoubleLevin.$(OBJEXT)
+testDoubleLevin_OBJECTS = $(am_testDoubleLevin_OBJECTS)
+am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
+	$(top_builddir)/type/libFloatComplex.la \
+	$(top_builddir)/lib/blas/libsciblas.la \
+	$(top_builddir)/lib/lapack/libscilapack.la \
+	$(top_builddir)/matrixOperations/inversion/libMatrixInversion.la \
+	$(top_builddir)/matrixOperations/multiplication/libMatrixMultiplication.la \
+	$(top_builddir)/matrixOperations/zeros/libMatrixZeros.la \
+	$(top_builddir)/signalProcessing/levin/libLevin.la \
+	$(top_builddir)/operations/addition/libAddition.la \
+	$(top_builddir)/operations/multiplication/libMultiplication.la \
+	$(top_builddir)/operations/subtraction/libSubtraction.la
+testDoubleLevin_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testDoubleLevin_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleLevin_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testFloatLevin_OBJECTS = testFloatLevin-testFloatLevin.$(OBJEXT)
+testFloatLevin_OBJECTS = $(am_testFloatLevin_OBJECTS)
+testFloatLevin_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testFloatLevin_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatLevin_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
@@ -79,8 +96,10 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libHilbert_la_SOURCES) $(testHilbert_SOURCES)
-DIST_SOURCES = $(libHilbert_la_SOURCES) $(testHilbert_SOURCES)
+SOURCES = $(libLevin_la_SOURCES) $(testDoubleLevin_SOURCES) \
+	$(testFloatLevin_SOURCES)
+DIST_SOURCES = $(libLevin_la_SOURCES) $(testDoubleLevin_SOURCES) \
+	$(testFloatLevin_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -104,7 +123,7 @@ CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
 DSYMUTIL = @DSYMUTIL@
-ECHO = @ECHO@
+DUMPBIN = @DUMPBIN@
 ECHO_C = @ECHO_C@
 ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
@@ -112,24 +131,30 @@ EGREP = @EGREP@
 EXEEXT = @EXEEXT@
 F77 = @F77@
 FFLAGS = @FFLAGS@
+FGREP = @FGREP@
 GREP = @GREP@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
+LD = @LD@
 LDFLAGS = @LDFLAGS@
 LIBMATH = @LIBMATH@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
+LIPO = @LIPO@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
 MAKEINFO = @MAKEINFO@
 MKDIR_P = @MKDIR_P@
+NM = @NM@
 NMEDIT = @NMEDIT@
 OBJEXT = @OBJEXT@
+OTOOL = @OTOOL@
+OTOOL64 = @OTOOL64@
 PACKAGE = @PACKAGE@
 PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
 PACKAGE_NAME = @PACKAGE_NAME@
@@ -149,6 +174,7 @@ abs_top_builddir = @abs_top_builddir@
 abs_top_srcdir = @abs_top_srcdir@
 ac_ct_CC = @ac_ct_CC@
 ac_ct_CXX = @ac_ct_CXX@
+ac_ct_DUMPBIN = @ac_ct_DUMPBIN@
 ac_ct_F77 = @ac_ct_F77@
 am__include = @am__include@
 am__leading_dot = @am__leading_dot@
@@ -180,6 +206,7 @@ libdir = @libdir@
 libexecdir = @libexecdir@
 localedir = @localedir@
 localstatedir = @localstatedir@
+lt_ECHO = @lt_ECHO@
 mandir = @mandir@
 mkdir_p = @mkdir_p@
 oldincludedir = @oldincludedir@
@@ -194,44 +221,48 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libHilbert_la_CFLAGS = -I $(top_builddir)/type \
-			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/signalProcessing/includes
+libLevin_la_CFLAGS = -I $(top_builddir)/type \
+				-I $(top_builddir)/matrixOperations/includes \
+				-I $(top_builddir)/operations/includes \
+				-I $(top_builddir)/auxiliaryFunctions/includes \
+				-I $(top_builddir)/elementaryFunctions/includes \
+				-I $(top_builddir)/signalProcessing/includes \
+				-I $(top_builddir)/signalProcessing/levin
 
 instdir = $(top_builddir)/lib
-pkglib_LTLIBRARIES = libHilbert.la
-HEAD = ../includes/hilbert.h
-libHilbert_la_SOURCES = $(HEAD) \
-					shilberta.c \
-					dhilberta.c \
-					shilberts.c \
-					dhilberts.c
+pkglib_LTLIBRARIES = libLevin.la
+HEAD = ../includes/levin.h
+libLevin_la_SOURCES = $(HEAD) \
+					levinUtils.c \
+					slevina.c \
+					dlevina.c
 
-
-###############
-#### Check ####
-###############
 check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
-			$(top_builddir)/signalProcessing/ifft/libIfft.la \
-			$(top_builddir)/signalProcessing/fft/libFft.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
 			$(top_builddir)/lib/blas/libsciblas.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/operations/subtraction/libSubtraction.la \
+			$(top_builddir)/lib/lapack/libscilapack.la \
+			$(top_builddir)/matrixOperations/inversion/libMatrixInversion.la \
+			$(top_builddir)/matrixOperations/multiplication/libMatrixMultiplication.la \
 			$(top_builddir)/matrixOperations/zeros/libMatrixZeros.la \
-			$(top_builddir)/signalProcessing/hilbert/libHilbert.la 
+			$(top_builddir)/signalProcessing/levin/libLevin.la \
+			$(top_builddir)/operations/addition/libAddition.la \
+			$(top_builddir)/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/operations/subtraction/libSubtraction.la \
+			@LIBMATH@
 
 check_INCLUDES = -I $(top_builddir)/type \
+			-I $(top_builddir)/matrixOperations/includes \
 			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/signalProcessing/fft \
-			-I $(top_builddir)/signalProcessing/ifft \
-			-I $(top_builddir)/signalProcessing/includes
+			-I $(top_builddir)/auxiliaryFunctions/includes \
+			-I $(top_builddir)/signalProcessing/includes \
+			-I $(top_builddir)/signalProcessing/levin
 
-testHilbert_SOURCES = testHilbert.c
-testHilbert_LDADD = $(check_LDADD)
-testHilbert_CFLAGS = $(check_INCLUDES)
+testDoubleLevin_SOURCES = testDoubleLevin.c
+testDoubleLevin_LDADD = $(check_LDADD)
+testDoubleLevin_CFLAGS = $(check_INCLUDES)
+testFloatLevin_SOURCES = testFloatLevin.c
+testFloatLevin_LDADD = $(check_LDADD)
+testFloatLevin_CFLAGS = $(check_INCLUDES)
 all: all-am
 
 .SUFFIXES:
@@ -245,9 +276,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  signalProcessing/hilbert/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  signalProcessing/levin/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  signalProcessing/hilbert/Makefile
+	  $(AUTOMAKE) --foreign  signalProcessing/levin/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
@@ -292,8 +323,8 @@ clean-pkglibLTLIBRARIES:
 	  echo "rm -f \"$${dir}/so_locations\""; \
 	  rm -f "$${dir}/so_locations"; \
 	done
-libHilbert.la: $(libHilbert_la_OBJECTS) $(libHilbert_la_DEPENDENCIES) 
-	$(libHilbert_la_LINK) -rpath $(pkglibdir) $(libHilbert_la_OBJECTS) $(libHilbert_la_LIBADD) $(LIBS)
+libLevin.la: $(libLevin_la_OBJECTS) $(libLevin_la_DEPENDENCIES) 
+	$(libLevin_la_LINK) -rpath $(pkglibdir) $(libLevin_la_OBJECTS) $(libLevin_la_LIBADD) $(LIBS)
 
 clean-checkPROGRAMS:
 	@list='$(check_PROGRAMS)'; for p in $$list; do \
@@ -301,9 +332,12 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testHilbert$(EXEEXT): $(testHilbert_OBJECTS) $(testHilbert_DEPENDENCIES) 
-	@rm -f testHilbert$(EXEEXT)
-	$(testHilbert_LINK) $(testHilbert_OBJECTS) $(testHilbert_LDADD) $(LIBS)
+testDoubleLevin$(EXEEXT): $(testDoubleLevin_OBJECTS) $(testDoubleLevin_DEPENDENCIES) 
+	@rm -f testDoubleLevin$(EXEEXT)
+	$(testDoubleLevin_LINK) $(testDoubleLevin_OBJECTS) $(testDoubleLevin_LDADD) $(LIBS)
+testFloatLevin$(EXEEXT): $(testFloatLevin_OBJECTS) $(testFloatLevin_DEPENDENCIES) 
+	@rm -f testFloatLevin$(EXEEXT)
+	$(testFloatLevin_LINK) $(testFloatLevin_OBJECTS) $(testFloatLevin_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -311,11 +345,11 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libHilbert_la-dhilberta.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libHilbert_la-dhilberts.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libHilbert_la-shilberta.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libHilbert_la-shilberts.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testHilbert-testHilbert.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLevin_la-dlevina.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLevin_la-levinUtils.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLevin_la-slevina.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleLevin-testDoubleLevin.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatLevin-testFloatLevin.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -338,47 +372,54 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
-libHilbert_la-shilberta.lo: shilberta.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libHilbert_la_CFLAGS) $(CFLAGS) -MT libHilbert_la-shilberta.lo -MD -MP -MF $(DEPDIR)/libHilbert_la-shilberta.Tpo -c -o libHilbert_la-shilberta.lo `test -f 'shilberta.c' || echo '$(srcdir)/'`shilberta.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libHilbert_la-shilberta.Tpo $(DEPDIR)/libHilbert_la-shilberta.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='shilberta.c' object='libHilbert_la-shilberta.lo' libtool=yes @AMDEPBACKSLASH@
+libLevin_la-levinUtils.lo: levinUtils.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLevin_la_CFLAGS) $(CFLAGS) -MT libLevin_la-levinUtils.lo -MD -MP -MF $(DEPDIR)/libLevin_la-levinUtils.Tpo -c -o libLevin_la-levinUtils.lo `test -f 'levinUtils.c' || echo '$(srcdir)/'`levinUtils.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLevin_la-levinUtils.Tpo $(DEPDIR)/libLevin_la-levinUtils.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='levinUtils.c' object='libLevin_la-levinUtils.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libHilbert_la_CFLAGS) $(CFLAGS) -c -o libHilbert_la-shilberta.lo `test -f 'shilberta.c' || echo '$(srcdir)/'`shilberta.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLevin_la_CFLAGS) $(CFLAGS) -c -o libLevin_la-levinUtils.lo `test -f 'levinUtils.c' || echo '$(srcdir)/'`levinUtils.c
 
-libHilbert_la-dhilberta.lo: dhilberta.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libHilbert_la_CFLAGS) $(CFLAGS) -MT libHilbert_la-dhilberta.lo -MD -MP -MF $(DEPDIR)/libHilbert_la-dhilberta.Tpo -c -o libHilbert_la-dhilberta.lo `test -f 'dhilberta.c' || echo '$(srcdir)/'`dhilberta.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libHilbert_la-dhilberta.Tpo $(DEPDIR)/libHilbert_la-dhilberta.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dhilberta.c' object='libHilbert_la-dhilberta.lo' libtool=yes @AMDEPBACKSLASH@
+libLevin_la-slevina.lo: slevina.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLevin_la_CFLAGS) $(CFLAGS) -MT libLevin_la-slevina.lo -MD -MP -MF $(DEPDIR)/libLevin_la-slevina.Tpo -c -o libLevin_la-slevina.lo `test -f 'slevina.c' || echo '$(srcdir)/'`slevina.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLevin_la-slevina.Tpo $(DEPDIR)/libLevin_la-slevina.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='slevina.c' object='libLevin_la-slevina.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libHilbert_la_CFLAGS) $(CFLAGS) -c -o libHilbert_la-dhilberta.lo `test -f 'dhilberta.c' || echo '$(srcdir)/'`dhilberta.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLevin_la_CFLAGS) $(CFLAGS) -c -o libLevin_la-slevina.lo `test -f 'slevina.c' || echo '$(srcdir)/'`slevina.c
 
-libHilbert_la-shilberts.lo: shilberts.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libHilbert_la_CFLAGS) $(CFLAGS) -MT libHilbert_la-shilberts.lo -MD -MP -MF $(DEPDIR)/libHilbert_la-shilberts.Tpo -c -o libHilbert_la-shilberts.lo `test -f 'shilberts.c' || echo '$(srcdir)/'`shilberts.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libHilbert_la-shilberts.Tpo $(DEPDIR)/libHilbert_la-shilberts.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='shilberts.c' object='libHilbert_la-shilberts.lo' libtool=yes @AMDEPBACKSLASH@
+libLevin_la-dlevina.lo: dlevina.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLevin_la_CFLAGS) $(CFLAGS) -MT libLevin_la-dlevina.lo -MD -MP -MF $(DEPDIR)/libLevin_la-dlevina.Tpo -c -o libLevin_la-dlevina.lo `test -f 'dlevina.c' || echo '$(srcdir)/'`dlevina.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLevin_la-dlevina.Tpo $(DEPDIR)/libLevin_la-dlevina.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dlevina.c' object='libLevin_la-dlevina.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libHilbert_la_CFLAGS) $(CFLAGS) -c -o libHilbert_la-shilberts.lo `test -f 'shilberts.c' || echo '$(srcdir)/'`shilberts.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLevin_la_CFLAGS) $(CFLAGS) -c -o libLevin_la-dlevina.lo `test -f 'dlevina.c' || echo '$(srcdir)/'`dlevina.c
 
-libHilbert_la-dhilberts.lo: dhilberts.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libHilbert_la_CFLAGS) $(CFLAGS) -MT libHilbert_la-dhilberts.lo -MD -MP -MF $(DEPDIR)/libHilbert_la-dhilberts.Tpo -c -o libHilbert_la-dhilberts.lo `test -f 'dhilberts.c' || echo '$(srcdir)/'`dhilberts.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libHilbert_la-dhilberts.Tpo $(DEPDIR)/libHilbert_la-dhilberts.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dhilberts.c' object='libHilbert_la-dhilberts.lo' libtool=yes @AMDEPBACKSLASH@
+testDoubleLevin-testDoubleLevin.o: testDoubleLevin.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleLevin_CFLAGS) $(CFLAGS) -MT testDoubleLevin-testDoubleLevin.o -MD -MP -MF $(DEPDIR)/testDoubleLevin-testDoubleLevin.Tpo -c -o testDoubleLevin-testDoubleLevin.o `test -f 'testDoubleLevin.c' || echo '$(srcdir)/'`testDoubleLevin.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleLevin-testDoubleLevin.Tpo $(DEPDIR)/testDoubleLevin-testDoubleLevin.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleLevin.c' object='testDoubleLevin-testDoubleLevin.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libHilbert_la_CFLAGS) $(CFLAGS) -c -o libHilbert_la-dhilberts.lo `test -f 'dhilberts.c' || echo '$(srcdir)/'`dhilberts.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleLevin_CFLAGS) $(CFLAGS) -c -o testDoubleLevin-testDoubleLevin.o `test -f 'testDoubleLevin.c' || echo '$(srcdir)/'`testDoubleLevin.c
 
-testHilbert-testHilbert.o: testHilbert.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testHilbert_CFLAGS) $(CFLAGS) -MT testHilbert-testHilbert.o -MD -MP -MF $(DEPDIR)/testHilbert-testHilbert.Tpo -c -o testHilbert-testHilbert.o `test -f 'testHilbert.c' || echo '$(srcdir)/'`testHilbert.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testHilbert-testHilbert.Tpo $(DEPDIR)/testHilbert-testHilbert.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testHilbert.c' object='testHilbert-testHilbert.o' libtool=no @AMDEPBACKSLASH@
+testDoubleLevin-testDoubleLevin.obj: testDoubleLevin.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleLevin_CFLAGS) $(CFLAGS) -MT testDoubleLevin-testDoubleLevin.obj -MD -MP -MF $(DEPDIR)/testDoubleLevin-testDoubleLevin.Tpo -c -o testDoubleLevin-testDoubleLevin.obj `if test -f 'testDoubleLevin.c'; then $(CYGPATH_W) 'testDoubleLevin.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleLevin.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleLevin-testDoubleLevin.Tpo $(DEPDIR)/testDoubleLevin-testDoubleLevin.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleLevin.c' object='testDoubleLevin-testDoubleLevin.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testHilbert_CFLAGS) $(CFLAGS) -c -o testHilbert-testHilbert.o `test -f 'testHilbert.c' || echo '$(srcdir)/'`testHilbert.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleLevin_CFLAGS) $(CFLAGS) -c -o testDoubleLevin-testDoubleLevin.obj `if test -f 'testDoubleLevin.c'; then $(CYGPATH_W) 'testDoubleLevin.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleLevin.c'; fi`
 
-testHilbert-testHilbert.obj: testHilbert.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testHilbert_CFLAGS) $(CFLAGS) -MT testHilbert-testHilbert.obj -MD -MP -MF $(DEPDIR)/testHilbert-testHilbert.Tpo -c -o testHilbert-testHilbert.obj `if test -f 'testHilbert.c'; then $(CYGPATH_W) 'testHilbert.c'; else $(CYGPATH_W) '$(srcdir)/testHilbert.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testHilbert-testHilbert.Tpo $(DEPDIR)/testHilbert-testHilbert.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testHilbert.c' object='testHilbert-testHilbert.obj' libtool=no @AMDEPBACKSLASH@
+testFloatLevin-testFloatLevin.o: testFloatLevin.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatLevin_CFLAGS) $(CFLAGS) -MT testFloatLevin-testFloatLevin.o -MD -MP -MF $(DEPDIR)/testFloatLevin-testFloatLevin.Tpo -c -o testFloatLevin-testFloatLevin.o `test -f 'testFloatLevin.c' || echo '$(srcdir)/'`testFloatLevin.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatLevin-testFloatLevin.Tpo $(DEPDIR)/testFloatLevin-testFloatLevin.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatLevin.c' object='testFloatLevin-testFloatLevin.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testHilbert_CFLAGS) $(CFLAGS) -c -o testHilbert-testHilbert.obj `if test -f 'testHilbert.c'; then $(CYGPATH_W) 'testHilbert.c'; else $(CYGPATH_W) '$(srcdir)/testHilbert.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatLevin_CFLAGS) $(CFLAGS) -c -o testFloatLevin-testFloatLevin.o `test -f 'testFloatLevin.c' || echo '$(srcdir)/'`testFloatLevin.c
+
+testFloatLevin-testFloatLevin.obj: testFloatLevin.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatLevin_CFLAGS) $(CFLAGS) -MT testFloatLevin-testFloatLevin.obj -MD -MP -MF $(DEPDIR)/testFloatLevin-testFloatLevin.Tpo -c -o testFloatLevin-testFloatLevin.obj `if test -f 'testFloatLevin.c'; then $(CYGPATH_W) 'testFloatLevin.c'; else $(CYGPATH_W) '$(srcdir)/testFloatLevin.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatLevin-testFloatLevin.Tpo $(DEPDIR)/testFloatLevin-testFloatLevin.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatLevin.c' object='testFloatLevin-testFloatLevin.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatLevin_CFLAGS) $(CFLAGS) -c -o testFloatLevin-testFloatLevin.obj `if test -f 'testFloatLevin.c'; then $(CYGPATH_W) 'testFloatLevin.c'; else $(CYGPATH_W) '$(srcdir)/testFloatLevin.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
