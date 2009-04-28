@@ -10,8 +10,8 @@
 ##
 ##
 
-libDisp_la_CFLAGS =	-I $(top_builddir)/type \
-			-I $(top_builddir)/string/includes
+libDisp_la_CFLAGS =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/string/includes
 
 pkglib_LTLIBRARIES =	libDisp.la
 
@@ -32,12 +32,12 @@ HEAD	=	../includes/disp.h
 # Checking Part
 ####
 
-check_INCLUDES	=	-I $(top_builddir)/string/includes \
-			-I $(top_builddir)/type
+check_INCLUDES	=	-I $(top_builddir)/src/c/string/includes \
+			-I $(top_builddir)/src/c/type
 
-check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/string/disp/libDisp.la
+check_LDADD	=	$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/string/disp/libDisp.la
 
 check_PROGRAMS	= 	testDisp
 
