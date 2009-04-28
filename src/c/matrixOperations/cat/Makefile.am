@@ -10,8 +10,8 @@
 ##
 ##
 
-libMatrixConcatenation_la_CFLAGS =	-I $(top_builddir)/type \
-					-I $(top_builddir)/matrixOperations/includes
+libMatrixConcatenation_la_CFLAGS =	-I $(top_builddir)/src/c/type \
+					-I $(top_builddir)/src/c/matrixOperations/includes
 
 instdir = $(top_builddir)/lib
 
@@ -32,13 +32,13 @@ libMatrixConcatenation_la_SOURCES = 	$(HEAD) \
 check_PROGRAMS = 	testFloatMatrixConcatenation \
 			testDoubleMatrixConcatenation
 
-check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/lib/blas/libsciblas.la \
+check_LDADD =		$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/fortran/blas/libsciblas.la \
 			libMatrixConcatenation.la
 
-check_INCLUDES =	-I $(top_builddir)/type \
-			-I $(top_builddir)/matrixOperations/includes
+check_INCLUDES =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/matrixOperations/includes
 
 testDoubleMatrixConcatenation_SOURCES = testDoubleMatrixConcatenation.c
 testDoubleMatrixConcatenation_LDADD = $(check_LDADD)

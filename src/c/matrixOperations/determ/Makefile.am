@@ -10,9 +10,9 @@
 ##
 ##
 
-libMatrixDeterm_la_CFLAGS =	-I $(top_builddir)/type \
-				-I $(top_builddir)/matrixOperations/includes \
-				-I $(top_builddir)/operations/includes
+libMatrixDeterm_la_CFLAGS =	-I $(top_builddir)/src/c/type \
+				-I $(top_builddir)/src/c/matrixOperations/includes \
+				-I $(top_builddir)/src/c/operations/includes
 
 
 instdir = $(top_builddir)/lib
@@ -26,28 +26,28 @@ libMatrixDeterm_la_SOURCES = 	$(HEAD) \
 					ddeterma.c \
 					cdeterma.c \
 					zdeterma.c
-					
-					
-############					
-##  CHECK			
+
+
+############
+##  CHECK
 ############
 
 
 check_PROGRAMS = 	testDoubleDeterm   testFloatDeterm
 
-check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/operations/subtraction/libSubtraction.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
-			$(top_builddir)/operations/division/libDivision.la \
-			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
+check_LDADD =		$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/operations/subtraction/libSubtraction.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/src/c/operations/division/libDivision.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/conj/libConj.la \
+			$(top_builddir)/src/fortran/lapack/libscilapack.la \
 			libMatrixDeterm.la
 
-check_INCLUDES =	-I $(top_builddir)/type \
-			-I $(top_builddir)/matrixOperations/includes \
-			-I $(top_builddir)/elementaryFunctions/includes
+check_INCLUDES =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/matrixOperations/includes \
+			-I $(top_builddir)/src/c/elementaryFunctions/includes
 
 testDoubleDeterm_SOURCES = testDoubleDeterm.c
 testDoubleDeterm_LDADD = $(check_LDADD)
@@ -59,6 +59,6 @@ testFloatDeterm_CFLAGS = $(check_INCLUDES)
 
 TESTS =		testDoubleDeterm   testFloatDeterm
 
-		
-		
-		
+
+
+

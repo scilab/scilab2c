@@ -10,8 +10,8 @@
 ##
 ##
 
-libHilbert_la_CFLAGS =	-I $(top_builddir)/type \
-				-I ../includes
+libHilbert_la_CFLAGS =	-I $(top_builddir)/src/c/type \
+			-I ../includes
 
 instdir = $(top_builddir)/lib
 
@@ -27,7 +27,7 @@ check_PROGRAMS = 	testHilbert
 
 check_LDADD =   libHilbert.la
 
-check_INCLUDES =	-I $(top_builddir)/type \
+check_INCLUDES =	-I $(top_builddir)/src/c/type \
 			-I ../includes
 
 testHilbert_SOURCES = testHilbert.c

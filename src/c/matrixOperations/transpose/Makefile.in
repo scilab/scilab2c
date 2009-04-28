@@ -34,7 +34,7 @@ build_triplet = @build@
 host_triplet = @host@
 check_PROGRAMS = testMatrixTranspose$(EXEEXT)
 TESTS = testMatrixTranspose$(EXEEXT)
-subdir = matrixOperations/transpose
+subdir = src/c/matrixOperations/transpose
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -209,8 +209,8 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libMatrixTranspose_la_CFLAGS = -I $(top_builddir)/type \
-					-I $(top_builddir)/matrixOperations/includes
+libMatrixTranspose_la_CFLAGS = -I $(top_builddir)/src/c/type \
+				-I $(top_builddir)/src/c/matrixOperations/includes
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libMatrixTranspose.la
@@ -221,9 +221,9 @@ libMatrixTranspose_la_SOURCES = $(HEAD) \
 					ctransposea.c \
 					ztransposea.c
 
-check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/lib/blas/libsciblas.la \
+check_LDADD = $(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/fortran/blas/libsciblas.la \
 			libMatrixTranspose.la
 
 check_INCLUDES = -I $(top_builddir)/type \
@@ -245,9 +245,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  matrixOperations/transpose/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  src/c/matrixOperations/transpose/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  matrixOperations/transpose/Makefile
+	  $(AUTOMAKE) --foreign  src/c/matrixOperations/transpose/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \

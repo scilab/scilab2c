@@ -10,8 +10,8 @@
 ##
 ##
 
-libMatrixEye_la_CFLAGS =	-I $(top_builddir)/type \
-				-I $(top_builddir)/matrixOperations/includes \
+libMatrixEye_la_CFLAGS =	-I $(top_builddir)/src/c/type \
+				-I $(top_builddir)/src/c/matrixOperations/includes \
 				-I $(top_builddir)/includes
 
 
@@ -25,19 +25,19 @@ libMatrixEye_la_SOURCES = 	$(HEAD) \
 				seyea.c \
 				deyea.c \
 				ceyea.c \
-				zeyea.c 
+				zeyea.c
 
 
 
 check_PROGRAMS = 	testMatrixEye
 
-check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
+check_LDADD =		$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
 			libMatrixEye.la
 
-check_INCLUDES =	-I $(top_builddir)/type \
-			-I $(top_builddir)/matrixOperations/includes \
-			-I $(top_builddir)/includes
+check_INCLUDES =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/matrixOperations/includes \
+			-I $(top_builddir)/src/c/includes
 
 testMatrixEye_SOURCES = testMatrixEye.c
 testMatrixEye_LDADD = $(check_LDADD)

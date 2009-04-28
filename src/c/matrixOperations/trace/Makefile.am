@@ -10,8 +10,8 @@
 ##
 ##
 
-libMatrixTrace_la_CFLAGS =	-I $(top_builddir)/type \
-					-I $(top_builddir)/matrixOperations/includes
+libMatrixTrace_la_CFLAGS =	-I $(top_builddir)/src/c/type \
+				-I $(top_builddir)/src/c/matrixOperations/includes
 
 instdir = $(top_builddir)/lib
 
@@ -20,19 +20,19 @@ pkglib_LTLIBRARIES = libMatrixTrace.la
 HEAD = ../includes/matrixTrace.h
 
 libMatrixTrace_la_SOURCES = 	$(HEAD) \
-					stracea.c \
-					dtracea.c \
-					ctracea.c \
-					ztracea.c
+				stracea.c \
+				dtracea.c \
+				ctracea.c \
+				ztracea.c
 
 check_PROGRAMS = 	testMatrixTrace
 
-check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
+check_LDADD =		$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
 			libMatrixTrace.la
 
-check_INCLUDES =	-I $(top_builddir)/type \
-			-I $(top_builddir)/matrixOperations/includes
+check_INCLUDES =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/matrixOperations/includes
 
 testMatrixTrace_SOURCES = testMatrixTrace.c
 testMatrixTrace_LDADD = $(check_LDADD)

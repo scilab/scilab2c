@@ -10,8 +10,8 @@
 ##
 ##
 
-libMatrixZeros_la_CFLAGS =	-I $(top_builddir)/type \
-				-I $(top_builddir)/matrixOperations/includes
+libMatrixZeros_la_CFLAGS =	-I $(top_builddir)/src/c/type \
+				-I $(top_builddir)/src/c/matrixOperations/includes
 
 
 instdir = $(top_builddir)/lib
@@ -28,12 +28,12 @@ libMatrixZeros_la_SOURCES = 	$(HEAD) \
 
 check_PROGRAMS = 	testMatrixZeros
 
-check_LDADD =		$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
+check_LDADD =		$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
 			libMatrixZeros.la
 
-check_INCLUDES =	-I $(top_builddir)/type \
-			-I $(top_builddir)/matrixOperations/includes
+check_INCLUDES =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/matrixOperations/includes
 
 testMatrixZeros_SOURCES = testMatrixZeros.c
 testMatrixZeros_LDADD = $(check_LDADD)

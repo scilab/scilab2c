@@ -34,7 +34,7 @@ build_triplet = @build@
 host_triplet = @host@
 check_PROGRAMS = testHilbert$(EXEEXT)
 TESTS = testHilbert$(EXEEXT)
-subdir = matrixOperations/hilbert
+subdir = src/c/matrixOperations/hilbert
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -201,8 +201,8 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libHilbert_la_CFLAGS = -I $(top_builddir)/type \
-				-I ../includes
+libHilbert_la_CFLAGS = -I $(top_builddir)/src/c/type \
+			-I ../includes
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libHilbert.la
@@ -212,7 +212,7 @@ libHilbert_la_SOURCES = $(HEAD) \
 				dhilba.c
 
 check_LDADD = libHilbert.la
-check_INCLUDES = -I $(top_builddir)/type \
+check_INCLUDES = -I $(top_builddir)/src/c/type \
 			-I ../includes
 
 testHilbert_SOURCES = testHilbert.c
@@ -231,9 +231,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  matrixOperations/hilbert/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  src/c/matrixOperations/hilbert/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  matrixOperations/hilbert/Makefile
+	  $(AUTOMAKE) --foreign  src/c/matrixOperations/hilbert/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
