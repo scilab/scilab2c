@@ -32,9 +32,9 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testDoubleLpc2cep$(EXEEXT) testFloatLpc2cep$(EXEEXT)
-TESTS = testDoubleLpc2cep$(EXEEXT) testFloatLpc2cep$(EXEEXT)
-subdir = signalProcessing/lpc2cep
+check_PROGRAMS = testDoubleLev$(EXEEXT) testFloatLev$(EXEEXT)
+TESTS = testDoubleLev$(EXEEXT) testFloatLev$(EXEEXT)
+subdir = signalProcessing/lev
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -52,53 +52,36 @@ am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
 am__installdirs = "$(DESTDIR)$(pkglibdir)"
 pkglibLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkglib_LTLIBRARIES)
-libLpc2cep_la_LIBADD =
+libLev_la_LIBADD =
 am__objects_1 =
-am_libLpc2cep_la_OBJECTS = $(am__objects_1) libLpc2cep_la-slpc2cepa.lo \
-	libLpc2cep_la-dlpc2cepa.lo libLpc2cep_la-clpc2cepa.lo \
-	libLpc2cep_la-zlpc2cepa.lo
-libLpc2cep_la_OBJECTS = $(am_libLpc2cep_la_OBJECTS)
-libLpc2cep_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libLpc2cep_la_CFLAGS) \
+am_libLev_la_OBJECTS = $(am__objects_1) libLev_la-dleva.lo \
+	libLev_la-sleva.lo libLev_la-zleva.lo libLev_la-cleva.lo \
+	libLev_la-dleva2.lo
+libLev_la_OBJECTS = $(am_libLev_la_OBJECTS)
+libLev_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libLev_la_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testDoubleLpc2cep_OBJECTS =  \
-	testDoubleLpc2cep-testDoubleLpc2cep.$(OBJEXT)
-testDoubleLpc2cep_OBJECTS = $(am_testDoubleLpc2cep_OBJECTS)
+am_testDoubleLev_OBJECTS = testDoubleLev-testDoubleLev.$(OBJEXT)
+testDoubleLev_OBJECTS = $(am_testDoubleLev_OBJECTS)
 am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
 	$(top_builddir)/type/libFloatComplex.la \
-	$(top_builddir)/lib/lapack/libscilapack.la \
 	$(top_builddir)/lib/blas/libsciblas.la \
-	$(top_builddir)/elementaryFunctions/log/libLog.la \
-	$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-	$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
-	$(top_builddir)/elementaryFunctions/lnp1m1/libLnp1m1.la \
-	$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
+	$(top_builddir)/lib/lapack/libscilapack.la \
 	$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
-	$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-	$(top_builddir)/auxiliaryFunctions/sign/libSign.la \
 	$(top_builddir)/operations/addition/libAddition.la \
-	$(top_builddir)/operations/subtraction/libSubtraction.la \
 	$(top_builddir)/operations/multiplication/libMultiplication.la \
-	$(top_builddir)/matrixOperations/multiplication/libMatrixMultiplication.la \
-	$(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la \
-	$(top_builddir)/matrixOperations/inversion/libMatrixInversion.la \
-	$(top_builddir)/matrixOperations/logm/libLogm.la \
-	$(top_builddir)/matrixOperations/spec2/libSpec2.la \
-	$(top_builddir)/matrixOperations/zeros/libMatrixZeros.la \
-	$(top_builddir)/signalProcessing/fft/libFft.la \
-	$(top_builddir)/signalProcessing/ifft/libIfft.la \
-	$(top_builddir)/signalProcessing/lpc2cep/libLpc2cep.la
-testDoubleLpc2cep_DEPENDENCIES = $(am__DEPENDENCIES_1)
-testDoubleLpc2cep_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
-	$(testDoubleLpc2cep_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) \
-	-o $@
-am_testFloatLpc2cep_OBJECTS =  \
-	testFloatLpc2cep-testFloatLpc2cep.$(OBJEXT)
-testFloatLpc2cep_OBJECTS = $(am_testFloatLpc2cep_OBJECTS)
-testFloatLpc2cep_DEPENDENCIES = $(am__DEPENDENCIES_1)
-testFloatLpc2cep_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatLpc2cep_CFLAGS) \
+	$(top_builddir)/operations/subtraction/libSubtraction.la \
+	$(top_builddir)/operations/division/libDivision.la \
+	$(top_builddir)/signalProcessing/lev/libLev.la
+testDoubleLev_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testDoubleLev_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleLev_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testFloatLev_OBJECTS = testFloatLev-testFloatLev.$(OBJEXT)
+testFloatLev_OBJECTS = $(am_testFloatLev_OBJECTS)
+testFloatLev_DEPENDENCIES = $(am__DEPENDENCIES_1)
+testFloatLev_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatLev_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
@@ -112,10 +95,10 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libLpc2cep_la_SOURCES) $(testDoubleLpc2cep_SOURCES) \
-	$(testFloatLpc2cep_SOURCES)
-DIST_SOURCES = $(libLpc2cep_la_SOURCES) $(testDoubleLpc2cep_SOURCES) \
-	$(testFloatLpc2cep_SOURCES)
+SOURCES = $(libLev_la_SOURCES) $(testDoubleLev_SOURCES) \
+	$(testFloatLev_SOURCES)
+DIST_SOURCES = $(libLev_la_SOURCES) $(testDoubleLev_SOURCES) \
+	$(testFloatLev_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -139,7 +122,7 @@ CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
 DSYMUTIL = @DSYMUTIL@
-ECHO = @ECHO@
+DUMPBIN = @DUMPBIN@
 ECHO_C = @ECHO_C@
 ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
@@ -147,24 +130,30 @@ EGREP = @EGREP@
 EXEEXT = @EXEEXT@
 F77 = @F77@
 FFLAGS = @FFLAGS@
+FGREP = @FGREP@
 GREP = @GREP@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
+LD = @LD@
 LDFLAGS = @LDFLAGS@
 LIBMATH = @LIBMATH@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
+LIPO = @LIPO@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
 MAKEINFO = @MAKEINFO@
 MKDIR_P = @MKDIR_P@
+NM = @NM@
 NMEDIT = @NMEDIT@
 OBJEXT = @OBJEXT@
+OTOOL = @OTOOL@
+OTOOL64 = @OTOOL64@
 PACKAGE = @PACKAGE@
 PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
 PACKAGE_NAME = @PACKAGE_NAME@
@@ -184,6 +173,7 @@ abs_top_builddir = @abs_top_builddir@
 abs_top_srcdir = @abs_top_srcdir@
 ac_ct_CC = @ac_ct_CC@
 ac_ct_CXX = @ac_ct_CXX@
+ac_ct_DUMPBIN = @ac_ct_DUMPBIN@
 ac_ct_F77 = @ac_ct_F77@
 am__include = @am__include@
 am__leading_dot = @am__leading_dot@
@@ -215,6 +205,7 @@ libdir = @libdir@
 libexecdir = @libexecdir@
 localedir = @localedir@
 localstatedir = @localstatedir@
+lt_ECHO = @lt_ECHO@
 mandir = @mandir@
 mkdir_p = @mkdir_p@
 oldincludedir = @oldincludedir@
@@ -229,61 +220,47 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libLpc2cep_la_CFLAGS = -I $(top_builddir)/type \
-			-I $(top_builddir)/elementaryFunctions/includes \
-			-I $(top_builddir)/auxiliaryFunctions/includes \
-			-I $(top_builddir)/matrixOperations/includes \
-			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/signalProcessing/includes
+libLev_la_CFLAGS = -I $(top_builddir)/type \
+				-I $(top_builddir)/matrixOperations/includes \
+				-I $(top_builddir)/operations/includes \
+				-I $(top_builddir)/auxiliaryFunctions/includes \
+				-I $(top_builddir)/elementaryFunctions/includes \
+				-I $(top_builddir)/signalProcessing/includes
 
 instdir = $(top_builddir)/lib
-pkglib_LTLIBRARIES = libLpc2cep.la
-HEAD = ../includes/lpc2cep.h
-libLpc2cep_la_SOURCES = $(HEAD) \
-					slpc2cepa.c \
-					dlpc2cepa.c \
-					clpc2cepa.c \
-					zlpc2cepa.c 
+pkglib_LTLIBRARIES = libLev.la
+HEAD = ../includes/lev.h
+libLev_la_SOURCES = $(HEAD) \
+					dleva.c\
+					sleva.c\
+					zleva.c\
+					cleva.c\
+					dleva2.c
 
 check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
-			$(top_builddir)/lib/blas/libsciblas.la \
-			$(top_builddir)/elementaryFunctions/log/libLog.la \
-			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-			$(top_builddir)/elementaryFunctions/log1p/libLog1p.la \
-			$(top_builddir)/elementaryFunctions/lnp1m1/libLnp1m1.la \
-			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
-			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-			$(top_builddir)/auxiliaryFunctions/sign/libSign.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/operations/subtraction/libSubtraction.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
-			$(top_builddir)/matrixOperations/multiplication/libMatrixMultiplication.la \
-			$(top_builddir)/matrixOperations/transpose/libMatrixTranspose.la \
-			$(top_builddir)/matrixOperations/inversion/libMatrixInversion.la \
-			$(top_builddir)/matrixOperations/logm/libLogm.la\
-			$(top_builddir)/matrixOperations/spec2/libSpec2.la\
-			$(top_builddir)/matrixOperations/zeros/libMatrixZeros.la\
-			$(top_builddir)/signalProcessing/fft/libFft.la \
-			$(top_builddir)/signalProcessing/ifft/libIfft.la \
-			$(top_builddir)/signalProcessing/lpc2cep/libLpc2cep.la \
-			@LIBMATH@			
+				$(top_builddir)/type/libFloatComplex.la \
+				$(top_builddir)/lib/blas/libsciblas.la \
+				$(top_builddir)/lib/lapack/libscilapack.la \
+				$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
+				$(top_builddir)/operations/addition/libAddition.la \
+				$(top_builddir)/operations/multiplication/libMultiplication.la \
+				$(top_builddir)/operations/subtraction/libSubtraction.la \
+				$(top_builddir)/operations/division/libDivision.la \
+				$(top_builddir)/signalProcessing/lev/libLev.la \
+				@LIBMATH@
 
 check_INCLUDES = -I $(top_builddir)/type \
-			-I $(top_builddir)/elementaryFunctions/includes \
-			-I $(top_builddir)/auxiliaryFunctions/includes \
+			-I $(top_builddir)/signalProcessing/includes \
 			-I $(top_builddir)/matrixOperations/includes \
 			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/signalProcessing/includes
+			-I $(top_builddir)/auxiliaryFunctions/includes
 
-testDoubleLpc2cep_SOURCES = testDoubleLpc2cep.c
-testDoubleLpc2cep_LDADD = $(check_LDADD)
-testDoubleLpc2cep_CFLAGS = $(check_INCLUDES)
-testFloatLpc2cep_SOURCES = testFloatLpc2cep.c
-testFloatLpc2cep_LDADD = $(check_LDADD)
-testFloatLpc2cep_CFLAGS = $(check_INCLUDES)
+testDoubleLev_SOURCES = testDoubleLev.c
+testDoubleLev_LDADD = $(check_LDADD)
+testDoubleLev_CFLAGS = $(check_INCLUDES)
+testFloatLev_SOURCES = testFloatLev.c
+testFloatLev_LDADD = $(check_LDADD)
+testFloatLev_CFLAGS = $(check_INCLUDES)
 all: all-am
 
 .SUFFIXES:
@@ -297,9 +274,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  signalProcessing/lpc2cep/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  signalProcessing/lev/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  signalProcessing/lpc2cep/Makefile
+	  $(AUTOMAKE) --foreign  signalProcessing/lev/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
@@ -344,8 +321,8 @@ clean-pkglibLTLIBRARIES:
 	  echo "rm -f \"$${dir}/so_locations\""; \
 	  rm -f "$${dir}/so_locations"; \
 	done
-libLpc2cep.la: $(libLpc2cep_la_OBJECTS) $(libLpc2cep_la_DEPENDENCIES) 
-	$(libLpc2cep_la_LINK) -rpath $(pkglibdir) $(libLpc2cep_la_OBJECTS) $(libLpc2cep_la_LIBADD) $(LIBS)
+libLev.la: $(libLev_la_OBJECTS) $(libLev_la_DEPENDENCIES) 
+	$(libLev_la_LINK) -rpath $(pkglibdir) $(libLev_la_OBJECTS) $(libLev_la_LIBADD) $(LIBS)
 
 clean-checkPROGRAMS:
 	@list='$(check_PROGRAMS)'; for p in $$list; do \
@@ -353,12 +330,12 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testDoubleLpc2cep$(EXEEXT): $(testDoubleLpc2cep_OBJECTS) $(testDoubleLpc2cep_DEPENDENCIES) 
-	@rm -f testDoubleLpc2cep$(EXEEXT)
-	$(testDoubleLpc2cep_LINK) $(testDoubleLpc2cep_OBJECTS) $(testDoubleLpc2cep_LDADD) $(LIBS)
-testFloatLpc2cep$(EXEEXT): $(testFloatLpc2cep_OBJECTS) $(testFloatLpc2cep_DEPENDENCIES) 
-	@rm -f testFloatLpc2cep$(EXEEXT)
-	$(testFloatLpc2cep_LINK) $(testFloatLpc2cep_OBJECTS) $(testFloatLpc2cep_LDADD) $(LIBS)
+testDoubleLev$(EXEEXT): $(testDoubleLev_OBJECTS) $(testDoubleLev_DEPENDENCIES) 
+	@rm -f testDoubleLev$(EXEEXT)
+	$(testDoubleLev_LINK) $(testDoubleLev_OBJECTS) $(testDoubleLev_LDADD) $(LIBS)
+testFloatLev$(EXEEXT): $(testFloatLev_OBJECTS) $(testFloatLev_DEPENDENCIES) 
+	@rm -f testFloatLev$(EXEEXT)
+	$(testFloatLev_LINK) $(testFloatLev_OBJECTS) $(testFloatLev_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -366,12 +343,13 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLpc2cep_la-clpc2cepa.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLpc2cep_la-dlpc2cepa.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLpc2cep_la-slpc2cepa.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLpc2cep_la-zlpc2cepa.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleLpc2cep-testDoubleLpc2cep.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatLpc2cep-testFloatLpc2cep.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLev_la-cleva.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLev_la-dleva.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLev_la-dleva2.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLev_la-sleva.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libLev_la-zleva.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleLev-testDoubleLev.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatLev-testFloatLev.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -394,61 +372,68 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
-libLpc2cep_la-slpc2cepa.lo: slpc2cepa.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLpc2cep_la_CFLAGS) $(CFLAGS) -MT libLpc2cep_la-slpc2cepa.lo -MD -MP -MF $(DEPDIR)/libLpc2cep_la-slpc2cepa.Tpo -c -o libLpc2cep_la-slpc2cepa.lo `test -f 'slpc2cepa.c' || echo '$(srcdir)/'`slpc2cepa.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLpc2cep_la-slpc2cepa.Tpo $(DEPDIR)/libLpc2cep_la-slpc2cepa.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='slpc2cepa.c' object='libLpc2cep_la-slpc2cepa.lo' libtool=yes @AMDEPBACKSLASH@
+libLev_la-dleva.lo: dleva.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLev_la_CFLAGS) $(CFLAGS) -MT libLev_la-dleva.lo -MD -MP -MF $(DEPDIR)/libLev_la-dleva.Tpo -c -o libLev_la-dleva.lo `test -f 'dleva.c' || echo '$(srcdir)/'`dleva.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLev_la-dleva.Tpo $(DEPDIR)/libLev_la-dleva.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dleva.c' object='libLev_la-dleva.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLpc2cep_la_CFLAGS) $(CFLAGS) -c -o libLpc2cep_la-slpc2cepa.lo `test -f 'slpc2cepa.c' || echo '$(srcdir)/'`slpc2cepa.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLev_la_CFLAGS) $(CFLAGS) -c -o libLev_la-dleva.lo `test -f 'dleva.c' || echo '$(srcdir)/'`dleva.c
 
-libLpc2cep_la-dlpc2cepa.lo: dlpc2cepa.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLpc2cep_la_CFLAGS) $(CFLAGS) -MT libLpc2cep_la-dlpc2cepa.lo -MD -MP -MF $(DEPDIR)/libLpc2cep_la-dlpc2cepa.Tpo -c -o libLpc2cep_la-dlpc2cepa.lo `test -f 'dlpc2cepa.c' || echo '$(srcdir)/'`dlpc2cepa.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLpc2cep_la-dlpc2cepa.Tpo $(DEPDIR)/libLpc2cep_la-dlpc2cepa.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dlpc2cepa.c' object='libLpc2cep_la-dlpc2cepa.lo' libtool=yes @AMDEPBACKSLASH@
+libLev_la-sleva.lo: sleva.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLev_la_CFLAGS) $(CFLAGS) -MT libLev_la-sleva.lo -MD -MP -MF $(DEPDIR)/libLev_la-sleva.Tpo -c -o libLev_la-sleva.lo `test -f 'sleva.c' || echo '$(srcdir)/'`sleva.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLev_la-sleva.Tpo $(DEPDIR)/libLev_la-sleva.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sleva.c' object='libLev_la-sleva.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLpc2cep_la_CFLAGS) $(CFLAGS) -c -o libLpc2cep_la-dlpc2cepa.lo `test -f 'dlpc2cepa.c' || echo '$(srcdir)/'`dlpc2cepa.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLev_la_CFLAGS) $(CFLAGS) -c -o libLev_la-sleva.lo `test -f 'sleva.c' || echo '$(srcdir)/'`sleva.c
 
-libLpc2cep_la-clpc2cepa.lo: clpc2cepa.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLpc2cep_la_CFLAGS) $(CFLAGS) -MT libLpc2cep_la-clpc2cepa.lo -MD -MP -MF $(DEPDIR)/libLpc2cep_la-clpc2cepa.Tpo -c -o libLpc2cep_la-clpc2cepa.lo `test -f 'clpc2cepa.c' || echo '$(srcdir)/'`clpc2cepa.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLpc2cep_la-clpc2cepa.Tpo $(DEPDIR)/libLpc2cep_la-clpc2cepa.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='clpc2cepa.c' object='libLpc2cep_la-clpc2cepa.lo' libtool=yes @AMDEPBACKSLASH@
+libLev_la-zleva.lo: zleva.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLev_la_CFLAGS) $(CFLAGS) -MT libLev_la-zleva.lo -MD -MP -MF $(DEPDIR)/libLev_la-zleva.Tpo -c -o libLev_la-zleva.lo `test -f 'zleva.c' || echo '$(srcdir)/'`zleva.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLev_la-zleva.Tpo $(DEPDIR)/libLev_la-zleva.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zleva.c' object='libLev_la-zleva.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLpc2cep_la_CFLAGS) $(CFLAGS) -c -o libLpc2cep_la-clpc2cepa.lo `test -f 'clpc2cepa.c' || echo '$(srcdir)/'`clpc2cepa.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLev_la_CFLAGS) $(CFLAGS) -c -o libLev_la-zleva.lo `test -f 'zleva.c' || echo '$(srcdir)/'`zleva.c
 
-libLpc2cep_la-zlpc2cepa.lo: zlpc2cepa.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLpc2cep_la_CFLAGS) $(CFLAGS) -MT libLpc2cep_la-zlpc2cepa.lo -MD -MP -MF $(DEPDIR)/libLpc2cep_la-zlpc2cepa.Tpo -c -o libLpc2cep_la-zlpc2cepa.lo `test -f 'zlpc2cepa.c' || echo '$(srcdir)/'`zlpc2cepa.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLpc2cep_la-zlpc2cepa.Tpo $(DEPDIR)/libLpc2cep_la-zlpc2cepa.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zlpc2cepa.c' object='libLpc2cep_la-zlpc2cepa.lo' libtool=yes @AMDEPBACKSLASH@
+libLev_la-cleva.lo: cleva.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLev_la_CFLAGS) $(CFLAGS) -MT libLev_la-cleva.lo -MD -MP -MF $(DEPDIR)/libLev_la-cleva.Tpo -c -o libLev_la-cleva.lo `test -f 'cleva.c' || echo '$(srcdir)/'`cleva.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLev_la-cleva.Tpo $(DEPDIR)/libLev_la-cleva.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cleva.c' object='libLev_la-cleva.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLpc2cep_la_CFLAGS) $(CFLAGS) -c -o libLpc2cep_la-zlpc2cepa.lo `test -f 'zlpc2cepa.c' || echo '$(srcdir)/'`zlpc2cepa.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLev_la_CFLAGS) $(CFLAGS) -c -o libLev_la-cleva.lo `test -f 'cleva.c' || echo '$(srcdir)/'`cleva.c
 
-testDoubleLpc2cep-testDoubleLpc2cep.o: testDoubleLpc2cep.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleLpc2cep_CFLAGS) $(CFLAGS) -MT testDoubleLpc2cep-testDoubleLpc2cep.o -MD -MP -MF $(DEPDIR)/testDoubleLpc2cep-testDoubleLpc2cep.Tpo -c -o testDoubleLpc2cep-testDoubleLpc2cep.o `test -f 'testDoubleLpc2cep.c' || echo '$(srcdir)/'`testDoubleLpc2cep.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleLpc2cep-testDoubleLpc2cep.Tpo $(DEPDIR)/testDoubleLpc2cep-testDoubleLpc2cep.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleLpc2cep.c' object='testDoubleLpc2cep-testDoubleLpc2cep.o' libtool=no @AMDEPBACKSLASH@
+libLev_la-dleva2.lo: dleva2.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLev_la_CFLAGS) $(CFLAGS) -MT libLev_la-dleva2.lo -MD -MP -MF $(DEPDIR)/libLev_la-dleva2.Tpo -c -o libLev_la-dleva2.lo `test -f 'dleva2.c' || echo '$(srcdir)/'`dleva2.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libLev_la-dleva2.Tpo $(DEPDIR)/libLev_la-dleva2.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dleva2.c' object='libLev_la-dleva2.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleLpc2cep_CFLAGS) $(CFLAGS) -c -o testDoubleLpc2cep-testDoubleLpc2cep.o `test -f 'testDoubleLpc2cep.c' || echo '$(srcdir)/'`testDoubleLpc2cep.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libLev_la_CFLAGS) $(CFLAGS) -c -o libLev_la-dleva2.lo `test -f 'dleva2.c' || echo '$(srcdir)/'`dleva2.c
 
-testDoubleLpc2cep-testDoubleLpc2cep.obj: testDoubleLpc2cep.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleLpc2cep_CFLAGS) $(CFLAGS) -MT testDoubleLpc2cep-testDoubleLpc2cep.obj -MD -MP -MF $(DEPDIR)/testDoubleLpc2cep-testDoubleLpc2cep.Tpo -c -o testDoubleLpc2cep-testDoubleLpc2cep.obj `if test -f 'testDoubleLpc2cep.c'; then $(CYGPATH_W) 'testDoubleLpc2cep.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleLpc2cep.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleLpc2cep-testDoubleLpc2cep.Tpo $(DEPDIR)/testDoubleLpc2cep-testDoubleLpc2cep.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleLpc2cep.c' object='testDoubleLpc2cep-testDoubleLpc2cep.obj' libtool=no @AMDEPBACKSLASH@
+testDoubleLev-testDoubleLev.o: testDoubleLev.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleLev_CFLAGS) $(CFLAGS) -MT testDoubleLev-testDoubleLev.o -MD -MP -MF $(DEPDIR)/testDoubleLev-testDoubleLev.Tpo -c -o testDoubleLev-testDoubleLev.o `test -f 'testDoubleLev.c' || echo '$(srcdir)/'`testDoubleLev.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleLev-testDoubleLev.Tpo $(DEPDIR)/testDoubleLev-testDoubleLev.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleLev.c' object='testDoubleLev-testDoubleLev.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleLpc2cep_CFLAGS) $(CFLAGS) -c -o testDoubleLpc2cep-testDoubleLpc2cep.obj `if test -f 'testDoubleLpc2cep.c'; then $(CYGPATH_W) 'testDoubleLpc2cep.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleLpc2cep.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleLev_CFLAGS) $(CFLAGS) -c -o testDoubleLev-testDoubleLev.o `test -f 'testDoubleLev.c' || echo '$(srcdir)/'`testDoubleLev.c
 
-testFloatLpc2cep-testFloatLpc2cep.o: testFloatLpc2cep.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatLpc2cep_CFLAGS) $(CFLAGS) -MT testFloatLpc2cep-testFloatLpc2cep.o -MD -MP -MF $(DEPDIR)/testFloatLpc2cep-testFloatLpc2cep.Tpo -c -o testFloatLpc2cep-testFloatLpc2cep.o `test -f 'testFloatLpc2cep.c' || echo '$(srcdir)/'`testFloatLpc2cep.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatLpc2cep-testFloatLpc2cep.Tpo $(DEPDIR)/testFloatLpc2cep-testFloatLpc2cep.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatLpc2cep.c' object='testFloatLpc2cep-testFloatLpc2cep.o' libtool=no @AMDEPBACKSLASH@
+testDoubleLev-testDoubleLev.obj: testDoubleLev.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleLev_CFLAGS) $(CFLAGS) -MT testDoubleLev-testDoubleLev.obj -MD -MP -MF $(DEPDIR)/testDoubleLev-testDoubleLev.Tpo -c -o testDoubleLev-testDoubleLev.obj `if test -f 'testDoubleLev.c'; then $(CYGPATH_W) 'testDoubleLev.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleLev.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleLev-testDoubleLev.Tpo $(DEPDIR)/testDoubleLev-testDoubleLev.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleLev.c' object='testDoubleLev-testDoubleLev.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatLpc2cep_CFLAGS) $(CFLAGS) -c -o testFloatLpc2cep-testFloatLpc2cep.o `test -f 'testFloatLpc2cep.c' || echo '$(srcdir)/'`testFloatLpc2cep.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleLev_CFLAGS) $(CFLAGS) -c -o testDoubleLev-testDoubleLev.obj `if test -f 'testDoubleLev.c'; then $(CYGPATH_W) 'testDoubleLev.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleLev.c'; fi`
 
-testFloatLpc2cep-testFloatLpc2cep.obj: testFloatLpc2cep.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatLpc2cep_CFLAGS) $(CFLAGS) -MT testFloatLpc2cep-testFloatLpc2cep.obj -MD -MP -MF $(DEPDIR)/testFloatLpc2cep-testFloatLpc2cep.Tpo -c -o testFloatLpc2cep-testFloatLpc2cep.obj `if test -f 'testFloatLpc2cep.c'; then $(CYGPATH_W) 'testFloatLpc2cep.c'; else $(CYGPATH_W) '$(srcdir)/testFloatLpc2cep.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatLpc2cep-testFloatLpc2cep.Tpo $(DEPDIR)/testFloatLpc2cep-testFloatLpc2cep.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatLpc2cep.c' object='testFloatLpc2cep-testFloatLpc2cep.obj' libtool=no @AMDEPBACKSLASH@
+testFloatLev-testFloatLev.o: testFloatLev.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatLev_CFLAGS) $(CFLAGS) -MT testFloatLev-testFloatLev.o -MD -MP -MF $(DEPDIR)/testFloatLev-testFloatLev.Tpo -c -o testFloatLev-testFloatLev.o `test -f 'testFloatLev.c' || echo '$(srcdir)/'`testFloatLev.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatLev-testFloatLev.Tpo $(DEPDIR)/testFloatLev-testFloatLev.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatLev.c' object='testFloatLev-testFloatLev.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatLpc2cep_CFLAGS) $(CFLAGS) -c -o testFloatLpc2cep-testFloatLpc2cep.obj `if test -f 'testFloatLpc2cep.c'; then $(CYGPATH_W) 'testFloatLpc2cep.c'; else $(CYGPATH_W) '$(srcdir)/testFloatLpc2cep.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatLev_CFLAGS) $(CFLAGS) -c -o testFloatLev-testFloatLev.o `test -f 'testFloatLev.c' || echo '$(srcdir)/'`testFloatLev.c
+
+testFloatLev-testFloatLev.obj: testFloatLev.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatLev_CFLAGS) $(CFLAGS) -MT testFloatLev-testFloatLev.obj -MD -MP -MF $(DEPDIR)/testFloatLev-testFloatLev.Tpo -c -o testFloatLev-testFloatLev.obj `if test -f 'testFloatLev.c'; then $(CYGPATH_W) 'testFloatLev.c'; else $(CYGPATH_W) '$(srcdir)/testFloatLev.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatLev-testFloatLev.Tpo $(DEPDIR)/testFloatLev-testFloatLev.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatLev.c' object='testFloatLev-testFloatLev.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatLev_CFLAGS) $(CFLAGS) -c -o testFloatLev-testFloatLev.obj `if test -f 'testFloatLev.c'; then $(CYGPATH_W) 'testFloatLev.c'; else $(CYGPATH_W) '$(srcdir)/testFloatLev.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo

@@ -32,10 +32,9 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testFloatCrossCorr$(EXEEXT) \
-	testDoubleCrossCorr$(EXEEXT)
-TESTS = testFloatCrossCorr$(EXEEXT) testDoubleCrossCorr$(EXEEXT)
-subdir = signalProcessing/crossCorr
+check_PROGRAMS = testFloatConv$(EXEEXT) testDoubleConv$(EXEEXT)
+TESTS = testFloatConv$(EXEEXT) testDoubleConv$(EXEEXT)
+subdir = signalProcessing/conv
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -53,31 +52,26 @@ am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
 am__installdirs = "$(DESTDIR)$(pkglibdir)"
 pkglibLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkglib_LTLIBRARIES)
-libCrossCorr_la_LIBADD =
+libConv_la_LIBADD =
 am__objects_1 =
-am_libCrossCorr_la_OBJECTS = $(am__objects_1) \
-	libCrossCorr_la-scrossCorra.lo libCrossCorr_la-dcrossCorra.lo \
-	libCrossCorr_la-ccrossCorra.lo libCrossCorr_la-zcrossCorra.lo
-libCrossCorr_la_OBJECTS = $(am_libCrossCorr_la_OBJECTS)
-libCrossCorr_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libCrossCorr_la_CFLAGS) \
+am_libConv_la_OBJECTS = $(am__objects_1) libConv_la-sconva.lo \
+	libConv_la-dconva.lo libConv_la-cconva.lo libConv_la-zconva.lo
+libConv_la_OBJECTS = $(am_libConv_la_OBJECTS)
+libConv_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libConv_la_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am_testDoubleCrossCorr_OBJECTS =  \
-	testDoubleCrossCorr-testDoubleCrossCorr.$(OBJEXT)
-testDoubleCrossCorr_OBJECTS = $(am_testDoubleCrossCorr_OBJECTS)
-testDoubleCrossCorr_DEPENDENCIES = $(check_LDADD)
-testDoubleCrossCorr_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
-	$(testDoubleCrossCorr_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
-	$(LDFLAGS) -o $@
-am_testFloatCrossCorr_OBJECTS =  \
-	testFloatCrossCorr-testFloatCrossCorr.$(OBJEXT)
-testFloatCrossCorr_OBJECTS = $(am_testFloatCrossCorr_OBJECTS)
-testFloatCrossCorr_DEPENDENCIES = $(check_LDADD)
-testFloatCrossCorr_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
-	$(testFloatCrossCorr_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
-	$(LDFLAGS) -o $@
+am_testDoubleConv_OBJECTS = testDoubleConv-testDoubleConv.$(OBJEXT)
+testDoubleConv_OBJECTS = $(am_testDoubleConv_OBJECTS)
+testDoubleConv_DEPENDENCIES = $(check_LDADD)
+testDoubleConv_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleConv_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_testFloatConv_OBJECTS = testFloatConv-testFloatConv.$(OBJEXT)
+testFloatConv_OBJECTS = $(am_testFloatConv_OBJECTS)
+testFloatConv_DEPENDENCIES = $(check_LDADD)
+testFloatConv_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFloatConv_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/includes
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -90,10 +84,10 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libCrossCorr_la_SOURCES) $(testDoubleCrossCorr_SOURCES) \
-	$(testFloatCrossCorr_SOURCES)
-DIST_SOURCES = $(libCrossCorr_la_SOURCES) \
-	$(testDoubleCrossCorr_SOURCES) $(testFloatCrossCorr_SOURCES)
+SOURCES = $(libConv_la_SOURCES) $(testDoubleConv_SOURCES) \
+	$(testFloatConv_SOURCES)
+DIST_SOURCES = $(libConv_la_SOURCES) $(testDoubleConv_SOURCES) \
+	$(testFloatConv_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -117,7 +111,7 @@ CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
 DSYMUTIL = @DSYMUTIL@
-ECHO = @ECHO@
+DUMPBIN = @DUMPBIN@
 ECHO_C = @ECHO_C@
 ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
@@ -125,24 +119,30 @@ EGREP = @EGREP@
 EXEEXT = @EXEEXT@
 F77 = @F77@
 FFLAGS = @FFLAGS@
+FGREP = @FGREP@
 GREP = @GREP@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
+LD = @LD@
 LDFLAGS = @LDFLAGS@
 LIBMATH = @LIBMATH@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
+LIPO = @LIPO@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
 MAKEINFO = @MAKEINFO@
 MKDIR_P = @MKDIR_P@
+NM = @NM@
 NMEDIT = @NMEDIT@
 OBJEXT = @OBJEXT@
+OTOOL = @OTOOL@
+OTOOL64 = @OTOOL64@
 PACKAGE = @PACKAGE@
 PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
 PACKAGE_NAME = @PACKAGE_NAME@
@@ -162,6 +162,7 @@ abs_top_builddir = @abs_top_builddir@
 abs_top_srcdir = @abs_top_srcdir@
 ac_ct_CC = @ac_ct_CC@
 ac_ct_CXX = @ac_ct_CXX@
+ac_ct_DUMPBIN = @ac_ct_DUMPBIN@
 ac_ct_F77 = @ac_ct_F77@
 am__include = @am__include@
 am__leading_dot = @am__leading_dot@
@@ -193,6 +194,7 @@ libdir = @libdir@
 libexecdir = @libexecdir@
 localedir = @localedir@
 localstatedir = @localstatedir@
+lt_ECHO = @lt_ECHO@
 mandir = @mandir@
 mkdir_p = @mkdir_p@
 oldincludedir = @oldincludedir@
@@ -207,18 +209,18 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libCrossCorr_la_CFLAGS = -I $(top_builddir)/type \
-				-I $(top_builddir)/auxiliaryFunctions/includes \
-				-I $(top_builddir)/signalProcessing/includes
+libConv_la_CFLAGS = -I $(top_builddir)/type \
+			-I $(top_builddir)/operations/includes \
+			-I $(top_builddir)/signalProcessing/includes
 
 instdir = $(top_builddir)/lib
-pkglib_LTLIBRARIES = libCrossCorr.la
-HEAD = ../includes/crossCorr.h 
-libCrossCorr_la_SOURCES = $(HEAD) \
-					scrossCorra.c \
-					dcrossCorra.c \
-					ccrossCorra.c \
-					zcrossCorra.c
+pkglib_LTLIBRARIES = libConv.la
+HEAD = ../includes/conv.h
+libConv_la_SOURCES = $(HEAD) \
+					sconva.c \
+					dconva.c \
+					cconva.c \
+					zconva.c
 
 
 ###############
@@ -226,22 +228,28 @@ libCrossCorr_la_SOURCES = $(HEAD) \
 ###############
 check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
 			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
 			$(top_builddir)/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/signalProcessing/ifft/libIfft.la \
+			$(top_builddir)/signalProcessing/fft/libFft.la \
+			$(top_builddir)/lib/lapack/libscilapack.la \
+			$(top_builddir)/lib/blas/libsciblas.la \
 			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/signalProcessing/conv2d/libConv2d.la \
-			libCrossCorr.la
+			$(top_builddir)/operations/subtraction/libSubtraction.la \
+			$(top_builddir)/matrixOperations/zeros/libMatrixZeros.la \
+			libConv.la 
 
 check_INCLUDES = -I $(top_builddir)/type \
-			-I $(top_builddir)/auxiliaryFunctions/includes \
+			-I $(top_builddir)/operations/includes \
+			-I $(top_builddir)/signalProcessing/fft \
+			-I $(top_builddir)/signalProcessing/ifft \
 			-I $(top_builddir)/signalProcessing/includes
 
-testDoubleCrossCorr_SOURCES = testDoubleCrossCorr.c
-testDoubleCrossCorr_LDADD = $(check_LDADD)
-testDoubleCrossCorr_CFLAGS = $(check_INCLUDES)
-testFloatCrossCorr_SOURCES = testFloatCrossCorr.c
-testFloatCrossCorr_LDADD = $(check_LDADD)
-testFloatCrossCorr_CFLAGS = $(check_INCLUDES)
+testDoubleConv_SOURCES = testDoubleConv.c
+testDoubleConv_LDADD = $(check_LDADD)
+testDoubleConv_CFLAGS = $(check_INCLUDES)
+testFloatConv_SOURCES = testFloatConv.c
+testFloatConv_LDADD = $(check_LDADD)
+testFloatConv_CFLAGS = $(check_INCLUDES)
 all: all-am
 
 .SUFFIXES:
@@ -255,9 +263,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  signalProcessing/crossCorr/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  signalProcessing/conv/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  signalProcessing/crossCorr/Makefile
+	  $(AUTOMAKE) --foreign  signalProcessing/conv/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
@@ -302,8 +310,8 @@ clean-pkglibLTLIBRARIES:
 	  echo "rm -f \"$${dir}/so_locations\""; \
 	  rm -f "$${dir}/so_locations"; \
 	done
-libCrossCorr.la: $(libCrossCorr_la_OBJECTS) $(libCrossCorr_la_DEPENDENCIES) 
-	$(libCrossCorr_la_LINK) -rpath $(pkglibdir) $(libCrossCorr_la_OBJECTS) $(libCrossCorr_la_LIBADD) $(LIBS)
+libConv.la: $(libConv_la_OBJECTS) $(libConv_la_DEPENDENCIES) 
+	$(libConv_la_LINK) -rpath $(pkglibdir) $(libConv_la_OBJECTS) $(libConv_la_LIBADD) $(LIBS)
 
 clean-checkPROGRAMS:
 	@list='$(check_PROGRAMS)'; for p in $$list; do \
@@ -311,12 +319,12 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-testDoubleCrossCorr$(EXEEXT): $(testDoubleCrossCorr_OBJECTS) $(testDoubleCrossCorr_DEPENDENCIES) 
-	@rm -f testDoubleCrossCorr$(EXEEXT)
-	$(testDoubleCrossCorr_LINK) $(testDoubleCrossCorr_OBJECTS) $(testDoubleCrossCorr_LDADD) $(LIBS)
-testFloatCrossCorr$(EXEEXT): $(testFloatCrossCorr_OBJECTS) $(testFloatCrossCorr_DEPENDENCIES) 
-	@rm -f testFloatCrossCorr$(EXEEXT)
-	$(testFloatCrossCorr_LINK) $(testFloatCrossCorr_OBJECTS) $(testFloatCrossCorr_LDADD) $(LIBS)
+testDoubleConv$(EXEEXT): $(testDoubleConv_OBJECTS) $(testDoubleConv_DEPENDENCIES) 
+	@rm -f testDoubleConv$(EXEEXT)
+	$(testDoubleConv_LINK) $(testDoubleConv_OBJECTS) $(testDoubleConv_LDADD) $(LIBS)
+testFloatConv$(EXEEXT): $(testFloatConv_OBJECTS) $(testFloatConv_DEPENDENCIES) 
+	@rm -f testFloatConv$(EXEEXT)
+	$(testFloatConv_LINK) $(testFloatConv_OBJECTS) $(testFloatConv_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -324,12 +332,12 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCrossCorr_la-ccrossCorra.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCrossCorr_la-dcrossCorra.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCrossCorr_la-scrossCorra.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libCrossCorr_la-zcrossCorra.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleCrossCorr-testDoubleCrossCorr.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatCrossCorr-testFloatCrossCorr.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libConv_la-cconva.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libConv_la-dconva.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libConv_la-sconva.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libConv_la-zconva.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testDoubleConv-testDoubleConv.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testFloatConv-testFloatConv.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -352,61 +360,61 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
-libCrossCorr_la-scrossCorra.lo: scrossCorra.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCrossCorr_la_CFLAGS) $(CFLAGS) -MT libCrossCorr_la-scrossCorra.lo -MD -MP -MF $(DEPDIR)/libCrossCorr_la-scrossCorra.Tpo -c -o libCrossCorr_la-scrossCorra.lo `test -f 'scrossCorra.c' || echo '$(srcdir)/'`scrossCorra.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libCrossCorr_la-scrossCorra.Tpo $(DEPDIR)/libCrossCorr_la-scrossCorra.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scrossCorra.c' object='libCrossCorr_la-scrossCorra.lo' libtool=yes @AMDEPBACKSLASH@
+libConv_la-sconva.lo: sconva.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libConv_la_CFLAGS) $(CFLAGS) -MT libConv_la-sconva.lo -MD -MP -MF $(DEPDIR)/libConv_la-sconva.Tpo -c -o libConv_la-sconva.lo `test -f 'sconva.c' || echo '$(srcdir)/'`sconva.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libConv_la-sconva.Tpo $(DEPDIR)/libConv_la-sconva.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sconva.c' object='libConv_la-sconva.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCrossCorr_la_CFLAGS) $(CFLAGS) -c -o libCrossCorr_la-scrossCorra.lo `test -f 'scrossCorra.c' || echo '$(srcdir)/'`scrossCorra.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libConv_la_CFLAGS) $(CFLAGS) -c -o libConv_la-sconva.lo `test -f 'sconva.c' || echo '$(srcdir)/'`sconva.c
 
-libCrossCorr_la-dcrossCorra.lo: dcrossCorra.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCrossCorr_la_CFLAGS) $(CFLAGS) -MT libCrossCorr_la-dcrossCorra.lo -MD -MP -MF $(DEPDIR)/libCrossCorr_la-dcrossCorra.Tpo -c -o libCrossCorr_la-dcrossCorra.lo `test -f 'dcrossCorra.c' || echo '$(srcdir)/'`dcrossCorra.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libCrossCorr_la-dcrossCorra.Tpo $(DEPDIR)/libCrossCorr_la-dcrossCorra.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dcrossCorra.c' object='libCrossCorr_la-dcrossCorra.lo' libtool=yes @AMDEPBACKSLASH@
+libConv_la-dconva.lo: dconva.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libConv_la_CFLAGS) $(CFLAGS) -MT libConv_la-dconva.lo -MD -MP -MF $(DEPDIR)/libConv_la-dconva.Tpo -c -o libConv_la-dconva.lo `test -f 'dconva.c' || echo '$(srcdir)/'`dconva.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libConv_la-dconva.Tpo $(DEPDIR)/libConv_la-dconva.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dconva.c' object='libConv_la-dconva.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCrossCorr_la_CFLAGS) $(CFLAGS) -c -o libCrossCorr_la-dcrossCorra.lo `test -f 'dcrossCorra.c' || echo '$(srcdir)/'`dcrossCorra.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libConv_la_CFLAGS) $(CFLAGS) -c -o libConv_la-dconva.lo `test -f 'dconva.c' || echo '$(srcdir)/'`dconva.c
 
-libCrossCorr_la-ccrossCorra.lo: ccrossCorra.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCrossCorr_la_CFLAGS) $(CFLAGS) -MT libCrossCorr_la-ccrossCorra.lo -MD -MP -MF $(DEPDIR)/libCrossCorr_la-ccrossCorra.Tpo -c -o libCrossCorr_la-ccrossCorra.lo `test -f 'ccrossCorra.c' || echo '$(srcdir)/'`ccrossCorra.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libCrossCorr_la-ccrossCorra.Tpo $(DEPDIR)/libCrossCorr_la-ccrossCorra.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ccrossCorra.c' object='libCrossCorr_la-ccrossCorra.lo' libtool=yes @AMDEPBACKSLASH@
+libConv_la-cconva.lo: cconva.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libConv_la_CFLAGS) $(CFLAGS) -MT libConv_la-cconva.lo -MD -MP -MF $(DEPDIR)/libConv_la-cconva.Tpo -c -o libConv_la-cconva.lo `test -f 'cconva.c' || echo '$(srcdir)/'`cconva.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libConv_la-cconva.Tpo $(DEPDIR)/libConv_la-cconva.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cconva.c' object='libConv_la-cconva.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCrossCorr_la_CFLAGS) $(CFLAGS) -c -o libCrossCorr_la-ccrossCorra.lo `test -f 'ccrossCorra.c' || echo '$(srcdir)/'`ccrossCorra.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libConv_la_CFLAGS) $(CFLAGS) -c -o libConv_la-cconva.lo `test -f 'cconva.c' || echo '$(srcdir)/'`cconva.c
 
-libCrossCorr_la-zcrossCorra.lo: zcrossCorra.c
-@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCrossCorr_la_CFLAGS) $(CFLAGS) -MT libCrossCorr_la-zcrossCorra.lo -MD -MP -MF $(DEPDIR)/libCrossCorr_la-zcrossCorra.Tpo -c -o libCrossCorr_la-zcrossCorra.lo `test -f 'zcrossCorra.c' || echo '$(srcdir)/'`zcrossCorra.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libCrossCorr_la-zcrossCorra.Tpo $(DEPDIR)/libCrossCorr_la-zcrossCorra.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zcrossCorra.c' object='libCrossCorr_la-zcrossCorra.lo' libtool=yes @AMDEPBACKSLASH@
+libConv_la-zconva.lo: zconva.c
+@am__fastdepCC_TRUE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libConv_la_CFLAGS) $(CFLAGS) -MT libConv_la-zconva.lo -MD -MP -MF $(DEPDIR)/libConv_la-zconva.Tpo -c -o libConv_la-zconva.lo `test -f 'zconva.c' || echo '$(srcdir)/'`zconva.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/libConv_la-zconva.Tpo $(DEPDIR)/libConv_la-zconva.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='zconva.c' object='libConv_la-zconva.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libCrossCorr_la_CFLAGS) $(CFLAGS) -c -o libCrossCorr_la-zcrossCorra.lo `test -f 'zcrossCorra.c' || echo '$(srcdir)/'`zcrossCorra.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libConv_la_CFLAGS) $(CFLAGS) -c -o libConv_la-zconva.lo `test -f 'zconva.c' || echo '$(srcdir)/'`zconva.c
 
-testDoubleCrossCorr-testDoubleCrossCorr.o: testDoubleCrossCorr.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleCrossCorr_CFLAGS) $(CFLAGS) -MT testDoubleCrossCorr-testDoubleCrossCorr.o -MD -MP -MF $(DEPDIR)/testDoubleCrossCorr-testDoubleCrossCorr.Tpo -c -o testDoubleCrossCorr-testDoubleCrossCorr.o `test -f 'testDoubleCrossCorr.c' || echo '$(srcdir)/'`testDoubleCrossCorr.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleCrossCorr-testDoubleCrossCorr.Tpo $(DEPDIR)/testDoubleCrossCorr-testDoubleCrossCorr.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleCrossCorr.c' object='testDoubleCrossCorr-testDoubleCrossCorr.o' libtool=no @AMDEPBACKSLASH@
+testDoubleConv-testDoubleConv.o: testDoubleConv.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleConv_CFLAGS) $(CFLAGS) -MT testDoubleConv-testDoubleConv.o -MD -MP -MF $(DEPDIR)/testDoubleConv-testDoubleConv.Tpo -c -o testDoubleConv-testDoubleConv.o `test -f 'testDoubleConv.c' || echo '$(srcdir)/'`testDoubleConv.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleConv-testDoubleConv.Tpo $(DEPDIR)/testDoubleConv-testDoubleConv.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleConv.c' object='testDoubleConv-testDoubleConv.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleCrossCorr_CFLAGS) $(CFLAGS) -c -o testDoubleCrossCorr-testDoubleCrossCorr.o `test -f 'testDoubleCrossCorr.c' || echo '$(srcdir)/'`testDoubleCrossCorr.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleConv_CFLAGS) $(CFLAGS) -c -o testDoubleConv-testDoubleConv.o `test -f 'testDoubleConv.c' || echo '$(srcdir)/'`testDoubleConv.c
 
-testDoubleCrossCorr-testDoubleCrossCorr.obj: testDoubleCrossCorr.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleCrossCorr_CFLAGS) $(CFLAGS) -MT testDoubleCrossCorr-testDoubleCrossCorr.obj -MD -MP -MF $(DEPDIR)/testDoubleCrossCorr-testDoubleCrossCorr.Tpo -c -o testDoubleCrossCorr-testDoubleCrossCorr.obj `if test -f 'testDoubleCrossCorr.c'; then $(CYGPATH_W) 'testDoubleCrossCorr.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleCrossCorr.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleCrossCorr-testDoubleCrossCorr.Tpo $(DEPDIR)/testDoubleCrossCorr-testDoubleCrossCorr.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleCrossCorr.c' object='testDoubleCrossCorr-testDoubleCrossCorr.obj' libtool=no @AMDEPBACKSLASH@
+testDoubleConv-testDoubleConv.obj: testDoubleConv.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleConv_CFLAGS) $(CFLAGS) -MT testDoubleConv-testDoubleConv.obj -MD -MP -MF $(DEPDIR)/testDoubleConv-testDoubleConv.Tpo -c -o testDoubleConv-testDoubleConv.obj `if test -f 'testDoubleConv.c'; then $(CYGPATH_W) 'testDoubleConv.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleConv.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testDoubleConv-testDoubleConv.Tpo $(DEPDIR)/testDoubleConv-testDoubleConv.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testDoubleConv.c' object='testDoubleConv-testDoubleConv.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleCrossCorr_CFLAGS) $(CFLAGS) -c -o testDoubleCrossCorr-testDoubleCrossCorr.obj `if test -f 'testDoubleCrossCorr.c'; then $(CYGPATH_W) 'testDoubleCrossCorr.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleCrossCorr.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testDoubleConv_CFLAGS) $(CFLAGS) -c -o testDoubleConv-testDoubleConv.obj `if test -f 'testDoubleConv.c'; then $(CYGPATH_W) 'testDoubleConv.c'; else $(CYGPATH_W) '$(srcdir)/testDoubleConv.c'; fi`
 
-testFloatCrossCorr-testFloatCrossCorr.o: testFloatCrossCorr.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatCrossCorr_CFLAGS) $(CFLAGS) -MT testFloatCrossCorr-testFloatCrossCorr.o -MD -MP -MF $(DEPDIR)/testFloatCrossCorr-testFloatCrossCorr.Tpo -c -o testFloatCrossCorr-testFloatCrossCorr.o `test -f 'testFloatCrossCorr.c' || echo '$(srcdir)/'`testFloatCrossCorr.c
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatCrossCorr-testFloatCrossCorr.Tpo $(DEPDIR)/testFloatCrossCorr-testFloatCrossCorr.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatCrossCorr.c' object='testFloatCrossCorr-testFloatCrossCorr.o' libtool=no @AMDEPBACKSLASH@
+testFloatConv-testFloatConv.o: testFloatConv.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatConv_CFLAGS) $(CFLAGS) -MT testFloatConv-testFloatConv.o -MD -MP -MF $(DEPDIR)/testFloatConv-testFloatConv.Tpo -c -o testFloatConv-testFloatConv.o `test -f 'testFloatConv.c' || echo '$(srcdir)/'`testFloatConv.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatConv-testFloatConv.Tpo $(DEPDIR)/testFloatConv-testFloatConv.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatConv.c' object='testFloatConv-testFloatConv.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatCrossCorr_CFLAGS) $(CFLAGS) -c -o testFloatCrossCorr-testFloatCrossCorr.o `test -f 'testFloatCrossCorr.c' || echo '$(srcdir)/'`testFloatCrossCorr.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatConv_CFLAGS) $(CFLAGS) -c -o testFloatConv-testFloatConv.o `test -f 'testFloatConv.c' || echo '$(srcdir)/'`testFloatConv.c
 
-testFloatCrossCorr-testFloatCrossCorr.obj: testFloatCrossCorr.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatCrossCorr_CFLAGS) $(CFLAGS) -MT testFloatCrossCorr-testFloatCrossCorr.obj -MD -MP -MF $(DEPDIR)/testFloatCrossCorr-testFloatCrossCorr.Tpo -c -o testFloatCrossCorr-testFloatCrossCorr.obj `if test -f 'testFloatCrossCorr.c'; then $(CYGPATH_W) 'testFloatCrossCorr.c'; else $(CYGPATH_W) '$(srcdir)/testFloatCrossCorr.c'; fi`
-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatCrossCorr-testFloatCrossCorr.Tpo $(DEPDIR)/testFloatCrossCorr-testFloatCrossCorr.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatCrossCorr.c' object='testFloatCrossCorr-testFloatCrossCorr.obj' libtool=no @AMDEPBACKSLASH@
+testFloatConv-testFloatConv.obj: testFloatConv.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatConv_CFLAGS) $(CFLAGS) -MT testFloatConv-testFloatConv.obj -MD -MP -MF $(DEPDIR)/testFloatConv-testFloatConv.Tpo -c -o testFloatConv-testFloatConv.obj `if test -f 'testFloatConv.c'; then $(CYGPATH_W) 'testFloatConv.c'; else $(CYGPATH_W) '$(srcdir)/testFloatConv.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/testFloatConv-testFloatConv.Tpo $(DEPDIR)/testFloatConv-testFloatConv.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testFloatConv.c' object='testFloatConv-testFloatConv.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatCrossCorr_CFLAGS) $(CFLAGS) -c -o testFloatCrossCorr-testFloatCrossCorr.obj `if test -f 'testFloatCrossCorr.c'; then $(CYGPATH_W) 'testFloatCrossCorr.c'; else $(CYGPATH_W) '$(srcdir)/testFloatCrossCorr.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testFloatConv_CFLAGS) $(CFLAGS) -c -o testFloatConv-testFloatConv.obj `if test -f 'testFloatConv.c'; then $(CYGPATH_W) 'testFloatConv.c'; else $(CYGPATH_W) '$(srcdir)/testFloatConv.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
