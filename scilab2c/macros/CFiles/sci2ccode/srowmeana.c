@@ -1,0 +1,1 @@
+../../../../statisticsFunctions/mean/srowmeana.c

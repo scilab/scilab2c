@@ -1,0 +1,1 @@
+../../../../elementaryFunctions/tanh/dtanhs.c

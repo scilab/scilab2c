@@ -1,0 +1,1 @@
+../../../../statisticsFunctions/sum/scolumnsuma.c
