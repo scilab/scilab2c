@@ -34,7 +34,7 @@ build_triplet = @build@
 host_triplet = @host@
 check_PROGRAMS = testFloatAtan$(EXEEXT) testDoubleAtan$(EXEEXT)
 TESTS = testFloatAtan$(EXEEXT) testDoubleAtan$(EXEEXT)
-subdir = elementaryFunctions/atan
+subdir = src/c/elementaryFunctions/atan
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -64,16 +64,16 @@ libAtan_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_testDoubleAtan_OBJECTS = testDoubleAtan-testDoubleAtan.$(OBJEXT)
 testDoubleAtan_OBJECTS = $(am_testDoubleAtan_OBJECTS)
-am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
-	$(top_builddir)/type/libFloatComplex.la \
-	$(top_builddir)/operations/addition/libAddition.la \
-	$(top_builddir)/lib/lapack/libscilapack.la \
-	$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-	$(top_builddir)/elementaryFunctions/atan/libAtan.la \
-	$(top_builddir)/elementaryFunctions/lnp1m1/libLnp1m1.la \
-	$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-	$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-	$(top_builddir)/operations/multiplication/libMultiplication.la
+am__DEPENDENCIES_1 = $(top_builddir)/src/c/type/libDoubleComplex.la \
+	$(top_builddir)/src/c/type/libFloatComplex.la \
+	$(top_builddir)/src/c/operations/addition/libAddition.la \
+	$(top_builddir)/src/fortran/lapack/libscilapack.la \
+	$(top_builddir)/src/c/elementaryFunctions/sqrt/libSqrt.la \
+	$(top_builddir)/src/c/elementaryFunctions/atan/libAtan.la \
+	$(top_builddir)/src/c/elementaryFunctions/lnp1m1/libLnp1m1.la \
+	$(top_builddir)/src/c/auxiliaryFunctions/abs/libAbs.la \
+	$(top_builddir)/src/c/auxiliaryFunctions/pythag/libPythag.la \
+	$(top_builddir)/src/c/operations/multiplication/libMultiplication.la
 testDoubleAtan_DEPENDENCIES = $(am__DEPENDENCIES_1)
 testDoubleAtan_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleAtan_CFLAGS) \
@@ -221,9 +221,9 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libAtan_la_CFLAGS = -I $(top_builddir)/type \
-			-I $(top_builddir)/elementaryFunctions/includes \
-			-I $(top_builddir)/auxiliaryFunctions/includes
+libAtan_la_CFLAGS = -I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/elementaryFunctions/includes \
+			-I $(top_builddir)/src/c/auxiliaryFunctions/includes
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libAtan.la
@@ -242,19 +242,19 @@ HEAD = ../includes/atan.h
 ####
 # Checking Part
 ####
-check_INCLUDES = -I $(top_builddir)/elementaryFunctions/includes \
-			-I $(top_builddir)/type
+check_INCLUDES = -I $(top_builddir)/src/c/elementaryFunctions/includes \
+			-I $(top_builddir)/src/c/type
 
-check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
-			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-			$(top_builddir)/elementaryFunctions/atan/libAtan.la \
-			$(top_builddir)/elementaryFunctions/lnp1m1/libLnp1m1.la \
-			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
+check_LDADD = $(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			$(top_builddir)/src/fortran/lapack/libscilapack.la \
+			$(top_builddir)/src/c/elementaryFunctions/sqrt/libSqrt.la \
+			$(top_builddir)/src/c/elementaryFunctions/atan/libAtan.la \
+			$(top_builddir)/src/c/elementaryFunctions/lnp1m1/libLnp1m1.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/pythag/libPythag.la \
+			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
 			@LIBMATH@
 
 
@@ -280,9 +280,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  elementaryFunctions/atan/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  src/c/elementaryFunctions/atan/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  elementaryFunctions/atan/Makefile
+	  $(AUTOMAKE) --foreign  src/c/elementaryFunctions/atan/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \

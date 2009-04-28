@@ -12,8 +12,8 @@
 
 
 
-libFix_la_CFLAGS =	-I $(top_builddir)/type \
-				-I $(top_builddir)/elementaryFunctions/includes
+libFix_la_CFLAGS =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/elementaryFunctions/includes
 
 instdir = $(top_builddir)/lib
 
@@ -36,17 +36,17 @@ SRC	=	sfixs.c \
 # Checking Part
 ####
 
-check_INCLUDES	=	-I $(top_builddir)/elementaryFunctions/includes \
-				-I $(top_builddir)/type
+check_INCLUDES	=	-I $(top_builddir)/src/c/elementaryFunctions/includes \
+			-I $(top_builddir)/src/c/type
 
-check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/elementaryFunctions/fix/libFix.la \
+check_LDADD	=	$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/elementaryFunctions/fix/libFix.la \
 			@LIBMATH@
 
 check_PROGRAMS	= 	testFloatFix testDoubleFix
 
-TESTS		=		testFloatFix testDoubleFix
+TESTS		=	testFloatFix testDoubleFix
 
 #
 # -*- Fix Tests -*-
