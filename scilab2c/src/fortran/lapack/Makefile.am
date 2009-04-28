@@ -311,7 +311,7 @@ libdummy_lapack_la_FFLAGS = `echo "@FFLAGS@"| sed -e 's|-O[0-9+]|-O0|'`
 
 
 libscilapack_la_LIBADD = libdummy-lapack.la \
-			$(top_builddir)/lib/blas/libsciblas.la
+			$(top_builddir)/src/fortran/blas/libsciblas.la
 
 libscilapack_la_PKGCONFIG = lapack.pc
 
