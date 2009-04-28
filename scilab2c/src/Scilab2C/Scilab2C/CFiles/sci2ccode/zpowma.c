@@ -1,1 +1,0 @@
-../../../../matrixOperations/powm/zpowma.c

@@ -1,1 +1,0 @@
-../../../../elementaryFunctions/sin/ssins.c

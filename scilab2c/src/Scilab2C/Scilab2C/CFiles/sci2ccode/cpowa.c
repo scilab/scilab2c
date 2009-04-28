@@ -1,1 +1,0 @@
-../../../../elementaryFunctions/pow/cpowa.c

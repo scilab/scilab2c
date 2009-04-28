@@ -1,1 +1,0 @@
-../../../../elementaryFunctions/cosh/zcoshs.c

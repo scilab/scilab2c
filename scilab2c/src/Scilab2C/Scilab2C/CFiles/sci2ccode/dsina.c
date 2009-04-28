@@ -1,1 +1,0 @@
-../../../../elementaryFunctions/sin/dsina.c
