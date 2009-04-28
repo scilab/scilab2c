@@ -10,7 +10,7 @@
 ##
 ##
 
-libMin_la_CFLAGS =	-I $(top_builddir)/statisticsFunctions/includes
+libMin_la_CFLAGS =	-I $(top_builddir)/src/c/statisticsFunctions/includes
 
 instdir = $(top_builddir)/lib
 
@@ -23,7 +23,7 @@ SRC	=	smina.c \
 		scolumnmina.c \
 		dmina.c \
 		drowmina.c \
-		dcolumnmina.c 
+		dcolumnmina.c
 
 HEAD	=	../includes/statMin.h
 
@@ -31,9 +31,9 @@ HEAD	=	../includes/statMin.h
 # Checking Part
 ####
 
-check_INCLUDES	=	-I $(top_builddir)/statisticsFunctions/includes 
+check_INCLUDES	=	-I $(top_builddir)/src/c/statisticsFunctions/includes
 
-check_LDADD	=	$(top_builddir)/statisticsFunctions/min/libMin.la 
+check_LDADD	=	$(top_builddir)/src/c/statisticsFunctions/min/libMin.la
 
 check_PROGRAMS	= 	testFloatMin testDoubleMin
 

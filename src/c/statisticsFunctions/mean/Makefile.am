@@ -10,8 +10,8 @@
 ##
 ##
 
-libMean_la_CFLAGS =	-I $(top_builddir)/type \
-			-I $(top_builddir)/operations/includes \
+libMean_la_CFLAGS =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/operations/includes \
 			-I ../includes
 
 instdir = $(top_builddir)/lib
@@ -39,18 +39,18 @@ HEAD	=	../includes/mean.h
 # Checking Part
 ####
 
-check_INCLUDES	=	-I $(top_builddir)/statisticsFunctions/includes \
-			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/type
+check_INCLUDES	=	-I $(top_builddir)/src/c/statisticsFunctions/includes \
+			-I $(top_builddir)/src/c/operations/includes \
+			-I $(top_builddir)/src/c/type
 
-check_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/statisticsFunctions/mean/libMean.la \
-			$(top_builddir)/statisticsFunctions/sum/libSum.la \
-			$(top_builddir)/operations/division/libDivision.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
-			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
+check_LDADD	=	$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			$(top_builddir)/src/c/statisticsFunctions/mean/libMean.la \
+			$(top_builddir)/src/c/statisticsFunctions/sum/libSum.la \
+			$(top_builddir)/src/c/operations/division/libDivision.la \
+			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/conj/libConj.la \
 			@LIBMATH@
 
 check_PROGRAMS	= 	testFloatMean testDoubleMean

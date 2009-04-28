@@ -34,7 +34,7 @@ build_triplet = @build@
 host_triplet = @host@
 check_PROGRAMS = testFloatMin$(EXEEXT) testDoubleMin$(EXEEXT)
 TESTS = testFloatMin$(EXEEXT) testDoubleMin$(EXEEXT)
-subdir = statisticsFunctions/min
+subdir = src/c/statisticsFunctions/min
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -211,7 +211,7 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libMin_la_CFLAGS = -I $(top_builddir)/statisticsFunctions/includes
+libMin_la_CFLAGS = -I $(top_builddir)/src/c/statisticsFunctions/includes
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libMin.la
 libMin_la_SOURCES = $(HEAD) $(SRC)
@@ -220,15 +220,15 @@ SRC = smina.c \
 		scolumnmina.c \
 		dmina.c \
 		drowmina.c \
-		dcolumnmina.c 
+		dcolumnmina.c
 
 HEAD = ../includes/statMin.h
 
 ####
 # Checking Part
 ####
-check_INCLUDES = -I $(top_builddir)/statisticsFunctions/includes 
-check_LDADD = $(top_builddir)/statisticsFunctions/min/libMin.la 
+check_INCLUDES = -I $(top_builddir)/src/c/statisticsFunctions/includes
+check_LDADD = $(top_builddir)/src/c/statisticsFunctions/min/libMin.la
 
 #
 # -*- Min Tests -*-
@@ -252,9 +252,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  statisticsFunctions/min/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  src/c/statisticsFunctions/min/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  statisticsFunctions/min/Makefile
+	  $(AUTOMAKE) --foreign  src/c/statisticsFunctions/min/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \

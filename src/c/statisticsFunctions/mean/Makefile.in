@@ -34,7 +34,7 @@ build_triplet = @build@
 host_triplet = @host@
 check_PROGRAMS = testFloatMean$(EXEEXT) testDoubleMean$(EXEEXT)
 TESTS = testFloatMean$(EXEEXT) testDoubleMean$(EXEEXT)
-subdir = statisticsFunctions/mean
+subdir = src/c/statisticsFunctions/mean
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -67,14 +67,14 @@ libMean_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_testDoubleMean_OBJECTS = testDoubleMean-testDoubleMean.$(OBJEXT)
 testDoubleMean_OBJECTS = $(am_testDoubleMean_OBJECTS)
-am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
-	$(top_builddir)/type/libFloatComplex.la \
-	$(top_builddir)/operations/addition/libAddition.la \
-	$(top_builddir)/statisticsFunctions/mean/libMean.la \
-	$(top_builddir)/statisticsFunctions/sum/libSum.la \
-	$(top_builddir)/operations/division/libDivision.la \
-	$(top_builddir)/operations/multiplication/libMultiplication.la \
-	$(top_builddir)/auxiliaryFunctions/conj/libConj.la
+am__DEPENDENCIES_1 = $(top_builddir)/src/c/type/libDoubleComplex.la \
+	$(top_builddir)/src/c/type/libFloatComplex.la \
+	$(top_builddir)/src/c/operations/addition/libAddition.la \
+	$(top_builddir)/src/c/statisticsFunctions/mean/libMean.la \
+	$(top_builddir)/src/c/statisticsFunctions/sum/libSum.la \
+	$(top_builddir)/src/c/operations/division/libDivision.la \
+	$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
+	$(top_builddir)/src/c/auxiliaryFunctions/conj/libConj.la
 testDoubleMean_DEPENDENCIES = $(am__DEPENDENCIES_1)
 testDoubleMean_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleMean_CFLAGS) \
@@ -222,8 +222,8 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libMean_la_CFLAGS = -I $(top_builddir)/type \
-			-I $(top_builddir)/operations/includes \
+libMean_la_CFLAGS = -I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/operations/includes \
 			-I ../includes
 
 instdir = $(top_builddir)/lib
@@ -247,18 +247,18 @@ HEAD = ../includes/mean.h
 ####
 # Checking Part
 ####
-check_INCLUDES = -I $(top_builddir)/statisticsFunctions/includes \
-			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/type
+check_INCLUDES = -I $(top_builddir)/src/c/statisticsFunctions/includes \
+			-I $(top_builddir)/src/c/operations/includes \
+			-I $(top_builddir)/src/c/type
 
-check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/statisticsFunctions/mean/libMean.la \
-			$(top_builddir)/statisticsFunctions/sum/libSum.la \
-			$(top_builddir)/operations/division/libDivision.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
-			$(top_builddir)/auxiliaryFunctions/conj/libConj.la \
+check_LDADD = $(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			$(top_builddir)/src/c/statisticsFunctions/mean/libMean.la \
+			$(top_builddir)/src/c/statisticsFunctions/sum/libSum.la \
+			$(top_builddir)/src/c/operations/division/libDivision.la \
+			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/conj/libConj.la \
 			@LIBMATH@
 
 
@@ -284,9 +284,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  statisticsFunctions/mean/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  src/c/statisticsFunctions/mean/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  statisticsFunctions/mean/Makefile
+	  $(AUTOMAKE) --foreign  src/c/statisticsFunctions/mean/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \

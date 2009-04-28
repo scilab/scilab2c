@@ -34,7 +34,7 @@ build_triplet = @build@
 host_triplet = @host@
 check_PROGRAMS = testFloatProd$(EXEEXT) testDoubleProd$(EXEEXT)
 TESTS = testFloatProd$(EXEEXT) testDoubleProd$(EXEEXT)
-subdir = statisticsFunctions/prod
+subdir = src/c/statisticsFunctions/prod
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -67,10 +67,10 @@ libProd_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_testDoubleProd_OBJECTS = testDoubleProd-testDoubleProd.$(OBJEXT)
 testDoubleProd_OBJECTS = $(am_testDoubleProd_OBJECTS)
-am__DEPENDENCIES_1 = $(top_builddir)/type/libDoubleComplex.la \
-	$(top_builddir)/type/libFloatComplex.la \
-	$(top_builddir)/operations/multiplication/libMultiplication.la \
-	$(top_builddir)/statisticsFunctions/prod/libProd.la
+am__DEPENDENCIES_1 = $(top_builddir)/src/c/type/libDoubleComplex.la \
+	$(top_builddir)/src/c/type/libFloatComplex.la \
+	$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
+	$(top_builddir)/src/c/statisticsFunctions/prod/libProd.la
 testDoubleProd_DEPENDENCIES = $(am__DEPENDENCIES_1)
 testDoubleProd_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleProd_CFLAGS) \
@@ -218,8 +218,8 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libProd_la_CFLAGS = -I $(top_builddir)/type \
-			-I $(top_builddir)/operations/includes \
+libProd_la_CFLAGS = -I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/operations/includes \
 			-I ../includes
 
 instdir = $(top_builddir)/lib
@@ -243,14 +243,14 @@ HEAD = ../includes/prod.h
 ####
 # Checking Part
 ####
-check_INCLUDES = -I $(top_builddir)/statisticsFunctions/includes \
-			-I $(top_builddir)/operations/includes \
-			-I $(top_builddir)/type
+check_INCLUDES = -I $(top_builddir)/src/c/statisticsFunctions/includes \
+			-I $(top_builddir)/src/c/operations/includes \
+			-I $(top_builddir)/src/c/type
 
-check_LDADD = $(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
-			$(top_builddir)/statisticsFunctions/prod/libProd.la \
+check_LDADD = $(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/src/c/statisticsFunctions/prod/libProd.la \
 			@LIBMATH@
 
 
@@ -276,9 +276,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  statisticsFunctions/prod/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  src/c/statisticsFunctions/prod/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  statisticsFunctions/prod/Makefile
+	  $(AUTOMAKE) --foreign  src/c/statisticsFunctions/prod/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
