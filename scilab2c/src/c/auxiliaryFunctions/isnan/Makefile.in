@@ -34,7 +34,7 @@ build_triplet = @build@
 host_triplet = @host@
 check_PROGRAMS = testIsnan$(EXEEXT)
 TESTS = testIsnan$(EXEEXT)
-subdir = auxiliaryFunctions/isnan
+subdir = src/c/auxiliaryFunctions/isnan
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -63,9 +63,10 @@ libIsnan_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_testIsnan_OBJECTS = testIsnan-testIsNan.$(OBJEXT)
 testIsnan_OBJECTS = $(am_testIsnan_OBJECTS)
-testIsnan_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
-	$(top_builddir)/type/libFloatComplex.la \
-	$(top_builddir)/auxiliaryFunctions/isnan/libIsnan.la
+testIsnan_DEPENDENCIES =  \
+	$(top_builddir)/src/c/type/libDoubleComplex.la \
+	$(top_builddir)/src/c/type/libFloatComplex.la \
+	$(top_builddir)/src/c/auxiliaryFunctions/isnan/libIsnan.la
 testIsnan_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testIsnan_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
@@ -220,8 +221,8 @@ HEAD = ../includes/isnan.h
 ####
 # Checking Part
 ####
-check_INCLUDES = -I $(top_builddir)/auxiliaryFunctions/includes \
-			-I $(top_builddir)/type
+check_INCLUDES = -I $(top_builddir)/src/c/auxiliaryFunctions/includes \
+			-I $(top_builddir)/src/c/type
 
 
 #
@@ -229,9 +230,9 @@ check_INCLUDES = -I $(top_builddir)/auxiliaryFunctions/includes \
 #
 testIsnan_SOURCES = testIsNan.h testIsNan.c
 testIsnan_CFLAGS = $(check_INCLUDES)
-testIsnan_LDADD = $(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/auxiliaryFunctions/isnan/libIsnan.la \
+testIsnan_LDADD = $(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/isnan/libIsnan.la \
 			@LIBMATH@
 
 all: all-am
@@ -247,9 +248,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  auxiliaryFunctions/isnan/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  src/c/auxiliaryFunctions/isnan/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  auxiliaryFunctions/isnan/Makefile
+	  $(AUTOMAKE) --foreign  src/c/auxiliaryFunctions/isnan/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \

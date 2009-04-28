@@ -34,7 +34,7 @@ build_triplet = @build@
 host_triplet = @host@
 check_PROGRAMS = testFind2d$(EXEEXT)
 TESTS = testFind2d$(EXEEXT)
-subdir = auxiliaryFunctions/find2d
+subdir = src/c/auxiliaryFunctions/find2d
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -59,9 +59,10 @@ am_libFind2d_la_OBJECTS = $(am__objects_1) $(am__objects_2)
 libFind2d_la_OBJECTS = $(am_libFind2d_la_OBJECTS)
 am_testFind2d_OBJECTS = testFind2d-testFind2d.$(OBJEXT)
 testFind2d_OBJECTS = $(am_testFind2d_OBJECTS)
-testFind2d_DEPENDENCIES = $(top_builddir)/type/libDoubleComplex.la \
-	$(top_builddir)/type/libFloatComplex.la \
-	$(top_builddir)/auxiliaryFunctions/find2d/libFind2d.la
+testFind2d_DEPENDENCIES =  \
+	$(top_builddir)/src/c/type/libDoubleComplex.la \
+	$(top_builddir)/src/c/type/libFloatComplex.la \
+	$(top_builddir)/src/c/auxiliaryFunctions/find2d/libFind2d.la
 testFind2d_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testFind2d_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
@@ -201,7 +202,7 @@ target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CFLAGS = -I ../../type \
-		-I $(top_builddir)/auxiliaryFunctions/includes
+		-I $(top_builddir)/src/c/auxiliaryFunctions/includes
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libFind2d.la
@@ -216,8 +217,8 @@ HEAD = ../includes/find2d.h
 ####
 # Checking Part
 ####
-check_INCLUDES = -I $(top_builddir)/auxiliaryFunctions/includes \
-				-I $(top_builddir)/type
+check_INCLUDES = -I $(top_builddir)/src/c/auxiliaryFunctions/includes \
+			-I $(top_builddir)/src/c/type
 
 
 #
@@ -225,9 +226,9 @@ check_INCLUDES = -I $(top_builddir)/auxiliaryFunctions/includes \
 #
 testFind2d_SOURCES = testFind2d.h testFind2d.c
 testFind2d_CFLAGS = $(check_INCLUDES)
-testFind2d_LDADD = $(top_builddir)/type/libDoubleComplex.la \
-				$(top_builddir)/type/libFloatComplex.la \
-				$(top_builddir)/auxiliaryFunctions/find2d/libFind2d.la \
+testFind2d_LDADD = $(top_builddir)/src/c/type/libDoubleComplex.la \
+				$(top_builddir)/src/c/type/libFloatComplex.la \
+				$(top_builddir)/src/c/auxiliaryFunctions/find2d/libFind2d.la \
 				@LIBMATH@
 
 all: all-am
@@ -243,9 +244,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  auxiliaryFunctions/find2d/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  src/c/auxiliaryFunctions/find2d/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  auxiliaryFunctions/find2d/Makefile
+	  $(AUTOMAKE) --foreign  src/c/auxiliaryFunctions/find2d/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \

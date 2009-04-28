@@ -25,8 +25,8 @@ HEAD	=	../includes/type.h
 # Checking Part
 ####
 
-check_INCLUDES	=	-I $(top_builddir)/auxiliaryFunctions/includes \
-			-I $(top_builddir)/type
+check_INCLUDES	=	-I $(top_builddir)/src/c/auxiliaryFunctions/includes \
+			-I $(top_builddir)/src/c/type
 
 check_PROGRAMS	= 	testType
 
@@ -37,7 +37,7 @@ TESTS		=	testType
 #
 testType_SOURCES = 	testType.h testType.c
 testType_CFLAGS	=	$(check_INCLUDES)
-testType_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/auxiliaryFunctions/type/libType.la \
+testType_LDADD	=	$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/type/libType.la \
 			@LIBMATH@
