@@ -34,7 +34,7 @@ build_triplet = @build@
 host_triplet = @host@
 check_PROGRAMS = testPythag$(EXEEXT)
 TESTS = testPythag$(EXEEXT)
-subdir = auxiliaryFunctions/pythag
+subdir = src/c/auxiliaryFunctions/pythag
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -63,15 +63,16 @@ libPythag_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_testPythag_OBJECTS = testPythag-testPythag.$(OBJEXT)
 testPythag_OBJECTS = $(am_testPythag_OBJECTS)
-testPythag_DEPENDENCIES = $(top_builddir)/type/libFloatComplex.la \
-	$(top_builddir)/type/libDoubleComplex.la \
-	$(top_builddir)/operations/addition/libAddition.la \
-	$(top_builddir)/lib/lapack/libscilapack.la \
-	$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-	$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-	$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-	$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-	$(top_builddir)/operations/multiplication/libMultiplication.la
+testPythag_DEPENDENCIES =  \
+	$(top_builddir)/src/c/type/libFloatComplex.la \
+	$(top_builddir)/src/c/type/libDoubleComplex.la \
+	$(top_builddir)/src/c/operations/addition/libAddition.la \
+	$(top_builddir)/src/fortran/lapack/libscilapack.la \
+	$(top_builddir)/src/c/auxiliaryFunctions/pythag/libPythag.la \
+	$(top_builddir)/src/c/elementaryFunctions/sqrt/libSqrt.la \
+	$(top_builddir)/src/c/auxiliaryFunctions/abs/libAbs.la \
+	$(top_builddir)/src/c/auxiliaryFunctions/pythag/libPythag.la \
+	$(top_builddir)/src/c/operations/multiplication/libMultiplication.la
 testPythag_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testPythag_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
@@ -210,10 +211,10 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-libPythag_la_CFLAGS = -I  $(top_builddir)/type \
-			-I  $(top_builddir)/auxiliaryFunctions/includes \
-			-I  $(top_builddir)/elementaryFunctions/includes \
-			-I  $(top_builddir)/operations/includes
+libPythag_la_CFLAGS = -I  $(top_builddir)/src/c/type \
+			-I  $(top_builddir)/src/c/auxiliaryFunctions/includes \
+			-I  $(top_builddir)/src/c/elementaryFunctions/includes \
+			-I  $(top_builddir)/src/c/operations/includes
 
 instdir = $(top_builddir)/lib
 pkglib_LTLIBRARIES = libPythag.la
@@ -228,10 +229,10 @@ HEAD = ../includes/pythag.h
 ####
 # Checking Part
 ####
-check_INCLUDES = -I $(top_builddir)/auxiliaryFunctions/includes \
-			-I $(top_builddir)/elementaryFunctions/includes \
-			-I  $(top_builddir)/operations/includes \
-			-I $(top_builddir)/type
+check_INCLUDES = -I $(top_builddir)/src/c/auxiliaryFunctions/includes \
+			-I $(top_builddir)/src/c/elementaryFunctions/includes \
+			-I  $(top_builddir)/src/c/operations/includes \
+			-I $(top_builddir)/src/c/type
 
 
 #
@@ -239,15 +240,15 @@ check_INCLUDES = -I $(top_builddir)/auxiliaryFunctions/includes \
 #
 testPythag_SOURCES = testPythag.h testPythag.c
 testPythag_CFLAGS = $(check_INCLUDES)
-testPythag_LDADD = $(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/operations/addition/libAddition.la \
-			$(top_builddir)/lib/lapack/libscilapack.la \
-			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-			$(top_builddir)/elementaryFunctions/sqrt/libSqrt.la \
-			$(top_builddir)/auxiliaryFunctions/abs/libAbs.la \
-			$(top_builddir)/auxiliaryFunctions/pythag/libPythag.la \
-			$(top_builddir)/operations/multiplication/libMultiplication.la \
+testPythag_LDADD = $(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
+			$(top_builddir)/src/fortran/lapack/libscilapack.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/pythag/libPythag.la \
+			$(top_builddir)/src/c/elementaryFunctions/sqrt/libSqrt.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/abs/libAbs.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/pythag/libPythag.la \
+			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
 			@LIBMATH@
 
 all: all-am
@@ -263,9 +264,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  auxiliaryFunctions/pythag/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  src/c/auxiliaryFunctions/pythag/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  auxiliaryFunctions/pythag/Makefile
+	  $(AUTOMAKE) --foreign  src/c/auxiliaryFunctions/pythag/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \

@@ -34,8 +34,8 @@ HEAD	=	../includes/rand.h
 # Checking Part
 ####
 
-check_INCLUDES	=	-I $(top_builddir)/auxiliaryFunctions/includes \
-			-I $(top_builddir)/type
+check_INCLUDES	=	-I $(top_builddir)/src/c/auxiliaryFunctions/includes \
+			-I $(top_builddir)/src/c/type
 
 check_PROGRAMS	= 	testRand
 
@@ -46,7 +46,7 @@ TESTS		=	testRand
 #
 testRand_SOURCES = 	testRand.h testRand.c
 testRand_CFLAGS	=	$(check_INCLUDES)
-testRand_LDADD	=	$(top_builddir)/type/libDoubleComplex.la \
-			$(top_builddir)/type/libFloatComplex.la \
-			$(top_builddir)/auxiliaryFunctions/rand/libRand.la \
+testRand_LDADD	=	$(top_builddir)/src/c/type/libDoubleComplex.la \
+			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/auxiliaryFunctions/rand/libRand.la \
 			@LIBMATH@
