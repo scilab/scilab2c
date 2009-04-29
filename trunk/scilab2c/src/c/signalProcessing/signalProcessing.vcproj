@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="includes;../type;../operations/includes;../matrixOperations/includes;../auxiliaryFunctions/includes;../includes;../elementaryFunctions/includes"
+				AdditionalIncludeDirectories="includes;../type;../operations/includes;../matrixOperations/includes;../auxiliaryFunctions/includes;../../../includes;../elementaryFunctions/includes"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;SIGNALPROCESSING_EXPORTS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -117,7 +117,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="includes;../type;../operations/includes;../matrixOperations/includes;../auxiliaryFunctions/includes;../includes;../elementaryFunctions/includes"
+				AdditionalIncludeDirectories="includes;../type;../operations/includes;../matrixOperations/includes;../auxiliaryFunctions/includes;../../../includes;../elementaryFunctions/includes"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;SIGNALPROCESSING_EXPORTS"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -1638,7 +1638,7 @@
 			>
 		</Filter>
 		<File
-			RelativePath="..\..\bin\blasplus.lib"
+			RelativePath="..\..\..\bin\blasplus.lib"
 			>
 		</File>
 	</Files>
