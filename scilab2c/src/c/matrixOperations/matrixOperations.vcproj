@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="includes;../includes;../type;../elementaryFunctions/includes;../operations/includes;../auxiliaryFunctions/includes"
+				AdditionalIncludeDirectories="includes;../../../includes;../type;../elementaryFunctions/includes;../operations/includes;../auxiliaryFunctions/includes"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;MATRIXOPERATIONS_EXPORTS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -117,7 +117,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="includes;../includes;../type;../elementaryFunctions/includes;../operations/includes;../auxiliaryFunctions/includes"
+				AdditionalIncludeDirectories="includes;../../../includes;../type;../elementaryFunctions/includes;../operations/includes;../auxiliaryFunctions/includes"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;MATRIXOPERATIONS_EXPORTS"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -2650,7 +2650,7 @@
 			>
 		</Filter>
 		<File
-			RelativePath="..\..\bin\lapack.lib"
+			RelativePath="..\..\..\bin\lapack.lib"
 			>
 		</File>
 	</Files>
