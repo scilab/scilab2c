@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    * Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+    * Copyright (C) DIGITEO - Bruno JOFRET
+    *
+    * This file is released into the public domain
+    *
+  -->
+<refentry version="5.0-subset Scilab" xml:id="runscicode" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:db="http://docbook.org/ns/docbook">
+  <info>
+    <pubdate>$LastChangedDate$</pubdate>
+  </info>
+
+  <refnamediv>
+    <refname>runscicode</refname>
+
+    <refpurpose>Launch a scilabfunction with specific path loaded.</refpurpose>
+  </refnamediv>
+
+  <refsynopsisdiv>
+    <title>Calling Sequence</title>
+
+    <synopsis>
+      runscicode(UserScilabMainFile, UserSciFilesPaths);
+    </synopsis>
+  </refsynopsisdiv>
+
+  <refsection>
+    <title>Parameters</title>
+    <variablelist>
+      <varlistentry>
+        <term>UserScilabMainFile</term>
+        <listitem>
+          <para>This file should contain the main scilab function to run.</para>
+	  <para>The function should have the same name as the file.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+	<term>UserSciFilesPaths</term>
+        <listitem>
+          <para>This is a matrix of PATH containing .sci files.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+  </refsection>
+
+  <refsection>
+    <title>Description</title>
+
+    <para>Run a Scilab function with specific PATH loaded.</para>
+
+    <para>This function will load all .sci files given in UserSciFilesPaths.
+Then it loads UserScilabMainFile and the function corresponding to the file name is launched.</para>
+  </refsection>
+
+  <refsection>
+    <title>Examples</title>
+
+    <programlisting role="example">
+      runscicode("./mysScript.sci", []);
+      // Will load myScript.sci then run myScript()
+      runscicode("./myScript.sci", "/tmp/myScriptDependencies");
+      // Will load each .sci file in /tmp/myScriptDependencies
+      // Then load myScript.sci and run myScript()
+    </programlisting>
+  </refsection>
+
+  <refsection>
+    <title>Authors</title>
+
+    <simplelist type="vert">
+      <member>Bruno JOFRET</member>
+      <member>Raffaele NUTRICATO</member>
+    </simplelist>
+  </refsection>
+</refentry>
