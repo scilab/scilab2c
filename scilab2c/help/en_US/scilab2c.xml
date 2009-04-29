@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    * Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+    * Copyright (C) DIGITEO - Bruno JOFRET
+    *
+    * This file is released into the public domain
+    *
+  -->
+<refentry version="5.0-subset Scilab" xml:id="scilab2c" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:db="http://docbook.org/ns/docbook">
+  <info>
+    <pubdate>$LastChangedDate$</pubdate>
+  </info>
+
+  <refnamediv>
+    <refname>scilab2c</refname>
+
+    <refpurpose>Scilab to C Converter</refpurpose>
+  </refnamediv>
+
+  <refsynopsisdiv>
+    <title>Calling Sequence</title>
+
+    <synopsis>
+      scilab2c();
+      scilab2c("PATH/script_to_translate.sci", "PATH/generated_c_code.c");
+    </synopsis>
+  </refsynopsisdiv>
+
+  <refsection>
+    <title>Parameters</title>
+    <variablelist>
+      <varlistentry>
+        <term>PATH/script_to_translate.sci</term>
+        <listitem>
+          <para>This file should contain the scilab function we want
+	    to translate.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+	<term>PATH/generated_c_code.c</term>
+        <listitem>
+          <para>This file will contain the C code translate from the script.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+  </refsection>
+
+  <refsection>
+    <title>Description</title>
+
+    <para>Convert a scilab function into a C File.</para>
+
+    <para>//FIXME : Add more informations here</para>
+  </refsection>
+
+  <refsection>
+    <title>Examples</title>
+
+    <programlisting role="example">
+      // Launch the GUI
+      scilab2c();
+      // Convert the function present in myScript.sci
+      // into a C file : myMain.c
+      scilab2c("./mysScript.sci", "./myMain.c");
+    </programlisting>
+  </refsection>
+
+  <refsection>
+    <title>Authors</title>
+
+    <simplelist type="vert">
+      <member>Bruno JOFRET</member>
+      <member>Raffaele NUTRICATO</member>
+    </simplelist>
+  </refsection>
+</refentry>
