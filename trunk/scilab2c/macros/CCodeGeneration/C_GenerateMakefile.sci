@@ -37,34 +37,18 @@ PrintStringInfo('# -----------------------',FileInfo.MakefileFilename,'file','y'
 PrintStringInfo('# --- USER PARAMETERS ---',FileInfo.MakefileFilename,'file','y');
 PrintStringInfo('# -----------------------',FileInfo.MakefileFilename,'file','y');
 PrintStringInfo('# --- DIRECTORIES AND FILES ---',FileInfo.MakefileFilename,'file','y');
-if (SharedInfo.CCompilerPathStyle == 'windows')
-   makeobjpath  = '..\..\..\Scilab2C\CFiles\sci2cobj';
-   // makeobjpath  = FileInfo.CStyleSCI2CMainDir+'\CFiles\sci2cobj';
-   makecsrcdir  = '..\..\..\Scilab2C\CFiles\sci2ccode';
-   // makecsrcdir  = FileInfo.CStyleSCI2CMainDir+'\CFiles\sci2ccode';
-   makehsrcdir  = '..\..\..\Scilab2C\CFiles\sci2cincludes';
-   // makehsrcdir  = FileInfo.CStyleSCI2CMainDir+'\CFiles\sci2cincludes';
-   makeisrcdir  = '..\..\..\Scilab2C\CFiles\sci2cinterfaces';
-   // makeisrcdir  = FileInfo.CStyleSCI2CMainDir+'\CFiles\sci2cinterfaces';
-   makesci2cdir = FileInfo.CStyleOutCCCodeDir;
-   // makesci2cdir = FileInfo.CStyleOutCCCodeDir;
-elseif (SharedInfo.CCompilerPathStyle == 'unix' | ...
-        SharedInfo.CCompilerPathStyle == 'cygwin')
-   makeobjpath  = '../../../Scilab2C/CFiles/sci2cobj';
-   // makeobjpath  = FileInfo.CStyleSCI2CMainDir+'/CFiles/sci2cobj';
-   makecsrcdir  = '../../../Scilab2C/CFiles/sci2ccode';
-   // makecsrcdir  = FileInfo.CStyleSCI2CMainDir+'/CFiles/sci2ccode';
-   makehsrcdir  = '../../../Scilab2C/CFiles/sci2cincludes';
-   // makehsrcdir  = FileInfo.CStyleSCI2CMainDir+'/CFiles/sci2cincludes';
-   makeisrcdir  = '../../../Scilab2C/CFiles/sci2cinterfaces';
-   // makeisrcdir  = FileInfo.CStyleSCI2CMainDir+'/CFiles/sci2cinterfaces';
-   makesci2cdir = FileInfo.CStyleOutCCCodeDir;
-else
-   PrintStringInfo(' ',ReportFileName,'stdout','y');
-   PrintStringInfo('SCI2CERROR: Unkwnown option for CCompilerPathStyle','','both','y');
-   PrintStringInfo('SCI2CERROR: Please check SCI2CInputParameters.sce file.','','both','y');
-   SCI2Cerror(' ');
-end
+
+makeobjpath  = pathconvert('..\..\..\Scilab2C\CFiles\sci2cobj', %f, %f, 'u');
+// makeobjpath  = FileInfo.CStyleSCI2CMainDir+'\CFiles\sci2cobj';
+makecsrcdir  = pathconvert('..\..\..\Scilab2C\CFiles\sci2ccode', %f, %f, 'u');
+// makecsrcdir  = FileInfo.CStyleSCI2CMainDir+'\CFiles\sci2ccode';
+makehsrcdir  = pathconvert('..\..\..\Scilab2C\CFiles\sci2cincludes', %f, %f, 'u');
+// makehsrcdir  = FileInfo.CStyleSCI2CMainDir+'\CFiles\sci2cincludes';
+makeisrcdir  = pathconvert('..\..\..\Scilab2C\CFiles\sci2cinterfaces', %f, %f, 'u');
+// makeisrcdir  = FileInfo.CStyleSCI2CMainDir+'\CFiles\sci2cinterfaces';
+makesci2cdir = FileInfo.CStyleOutCCCodeDir;
+// makesci2cdir = FileInfo.CStyleOutCCCodeDir;
+
 
 PrintStringInfo('OBJDIR      = '+makeobjpath,FileInfo.MakefileFilename,'file','y');
 PrintStringInfo('CSRCDIR     = '+makecsrcdir,FileInfo.MakefileFilename,'file','y');
@@ -77,17 +61,17 @@ PrintStringInfo('EXEFILENAME = mytest.exe',FileInfo.MakefileFilename,'file','y')
 // -------------------------------
 // --- Open template makefile. ---
 // -------------------------------
-fidfile = SCI2COpenFileRead(FileInfo.MakefileTemplate);
+//-- fidfile = SCI2COpenFileRead(FileInfo.MakefileTemplate);
 
 // -------------------
 // --- Read lines. ---
 // -------------------
-tmpline = mgetl(fidfile,1);
-while (meof(fidfile) == 0)
-   PrintStringInfo(tmpline,FileInfo.MakefileFilename,'file','y');
-   tmpline = mgetl(fidfile,1);
-end
+//-- tmpline = mgetl(fidfile,1);
+//-- while (meof(fidfile) == 0)
+//--   PrintStringInfo(tmpline,FileInfo.MakefileFilename,'file','y');
+//--   tmpline = mgetl(fidfile,1);
+//-- end
 
-mclose(fidfile);
+//-- mclose(fidfile);
 
 endfunction
