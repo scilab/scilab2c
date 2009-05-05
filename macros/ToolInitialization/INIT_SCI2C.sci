@@ -1,4 +1,5 @@
-function [FileInfoDatFile,SharedInfoDatFile] = INIT_SCI2C(SCI2CInputPrmFile)
+function [FileInfoDatFile,SharedInfoDatFile] = ...
+    INIT_SCI2C(UserScilabMainFile, UserSciFilesPaths, SCI2COutputDir, RunMode)
 // function [FileInfoDatFile,SharedInfoDatFile] = INIT_SCI2C(SCI2CInputPrmFile)
 // -----------------------------------------------------------------
 // #RNU_RES_B
@@ -27,12 +28,12 @@ function [FileInfoDatFile,SharedInfoDatFile] = INIT_SCI2C(SCI2CInputPrmFile)
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-SCI2CNInArgCheck(argn(2),1,1);
+//SCI2CNInArgCheck(argn(2),1,1);
 
 // ------------------------------
 // --- Read Input Parameters. ---
 // ------------------------------
-exec(SCI2CInputPrmFile);
+//exec(SCI2CInputPrmFile);
 // #RNU_RES_B
 //NUT: queste variabili sono per usi futuri.
 //NUT: e saranno introdotti nel parameter file.
@@ -41,7 +42,7 @@ WorkAreaSizeBytes = 2000*8; // 2000 locations of double
 // #RNU_RES_B
 // Maximum number of temporary scalar variables that can be used.
 // #RNU_RES_E
-TotTempScalarVars = 20; 
+TotTempScalarVars = 20;
 EnableTempVarsReuse = 0; // 0 = Disable; 1 = Enable.
 
 
@@ -49,7 +50,9 @@ EnableTempVarsReuse = 0; // 0 = Disable; 1 = Enable.
 //NUT: I prefer to don't show this parameters to the user.
 // --- Directory where all the products of the SCI2C tool will be stored. ---
 // #RNU_RES_E
-[SCI2CResultDir,tmpfile,tmpext] = fileparts(SCI2CInputPrmFile);
+//-- [SCI2CResultDir,tmpfile,tmpext] = fileparts(SCI2CInputPrmFile);
+SCI2CResultDir = SCI2COutputDir;
+
 
 WorkingDir = fullfile(SCI2CResultDir,'SCI2CTmpResultsReports');
 // #RNU_RES_B
@@ -60,9 +63,11 @@ OutCCCodeDir = fullfile(SCI2CResultDir,'C_Code');
 // ------------------------------
 // --- Initialize SharedInfo. ---
 // ------------------------------
-SharedInfo = INIT_GenSharedInfo(WorkingDir,OutCCCodeDir,UserSciFilesPaths,...
-   RunMode,UserScilabMainFile,TotTempScalarVars,EnableTempVarsReuse,Sci2CLibMainHeaderFName);
-   
+//SharedInfo = INIT_GenSharedInfo(WorkingDir,OutCCCodeDir,UserSciFilesPaths,...
+//   RunMode,UserScilabMainFile,TotTempScalarVars,EnableTempVarsReuse,Sci2CLibMainHeaderFName);
+SharedInfo = INIT_GenSharedInfo(RunMode,UserScilabMainFile, ...
+				TotTempScalarVars,EnableTempVarsReuse,"sci2cincludes/sci2clib.h", %t);
+
 // ----------------------------
 // --- Initialize FileInfo. ---
 // ----------------------------

@@ -37,10 +37,10 @@ FileInfo.UserSciFilesPaths = UserSciFilesPaths;
 // -------------------
 // --- .dat Files. ---
 // -------------------
-FileInfo.FileInfoDatFile       = fullfile(FileInfo.WorkingDir,'FileInfo.dat'); 
-FileInfo.SharedInfoDatFile     = fullfile(FileInfo.WorkingDir,'SharedInfo.dat'); 
+FileInfo.FileInfoDatFile       = fullfile(FileInfo.WorkingDir,'FileInfo.dat');
+FileInfo.SharedInfoDatFile     = fullfile(FileInfo.WorkingDir,'SharedInfo.dat');
 FileInfo.GlobalVarFileName     = fullfile(FileInfo.WorkingDir,'GBLVAR.dat');
-FileInfo.ASTStackDataFile      = fullfile(FileInfo.WorkingDir,'ASTStack.dat'); 
+FileInfo.ASTStackDataFile      = fullfile(FileInfo.WorkingDir,'ASTStack.dat');
 
 // ----------------------
 // --- SCI2C Library. ---
@@ -89,11 +89,11 @@ FileInfo.USER2CLibCFLCls        = fullfile(FileInfo.USER2CLibCFunListDir,'Classe
 // --- Function List. ---
 // ----------------------
 FileInfo.FunctionList.MainDir             = fullfile(FileInfo.WorkingDir,'FunctionList');
-FileInfo.FunctionList.SCI2CAvailableCDat  = fullfile(FileInfo.FunctionList.MainDir,'SCI2CAvailableC.dat'); 
-FileInfo.FunctionList.USER2CAvailableCDat = fullfile(FileInfo.FunctionList.MainDir,'USER2CAvailableC.dat'); 
-FileInfo.FunctionList.ConvertedDat        = fullfile(FileInfo.FunctionList.MainDir,'Converted.dat'); 
-FileInfo.FunctionList.ToBeConvertedDat    = fullfile(FileInfo.FunctionList.MainDir,'ToBeConverted.dat'); 
-FileInfo.FunctionList.FunInfoDatDir       = fullfile(FileInfo.FunctionList.MainDir,'FunInfoDatFiles'); 
+FileInfo.FunctionList.SCI2CAvailableCDat  = fullfile(FileInfo.FunctionList.MainDir,'SCI2CAvailableC.dat');
+FileInfo.FunctionList.USER2CAvailableCDat = fullfile(FileInfo.FunctionList.MainDir,'USER2CAvailableC.dat');
+FileInfo.FunctionList.ConvertedDat        = fullfile(FileInfo.FunctionList.MainDir,'Converted.dat');
+FileInfo.FunctionList.ToBeConvertedDat    = fullfile(FileInfo.FunctionList.MainDir,'ToBeConverted.dat');
+FileInfo.FunctionList.FunInfoDatDir       = fullfile(FileInfo.FunctionList.MainDir,'FunInfoDatFiles');
 
 // --------------------
 // --- Other Files. ---
@@ -103,8 +103,10 @@ FileInfo.GeneralReport = fullfile(FileInfo.WorkingDir,'SCI2CGeneralReport.txt');
 // -----------------------------------
 // --- C-Style paths and Makefile. ---
 // -----------------------------------
-FileInfo.CStyleSCI2CMainDir = ConvertPathMat2C(FileInfo.SCI2CMainDir,SharedInfo.CCompilerPathStyle);
-FileInfo.CStyleOutCCCodeDir = ConvertPathMat2C(OutCCCodeDir,SharedInfo.CCompilerPathStyle);
+//-- FileInfo.CStyleSCI2CMainDir = ConvertPathMat2C(FileInfo.SCI2CMainDir,SharedInfo.CCompilerPathStyle);
+//-- FileInfo.CStyleOutCCCodeDir = ConvertPathMat2C(OutCCCodeDir,SharedInfo.CCompilerPathStyle);
+FileInfo.CStyleSCI2CMainDir = pathconvert(FileInfo.SCI2CMainDir, %f, %f, 'u');
+FileInfo.CStyleOutCCCodeDir = pathconvert(OutCCCodeDir, %f, %f, 'u');
 FileInfo.MakefileFilename   = fullfile(FileInfo.CStyleOutCCCodeDir,'Makefile');
 FileInfo.MakefileTemplate   = fullfile(FileInfo.SCI2CMainDir,'CCodeGeneration','SCI2CMakefileTemplate.rc');
 endfunction
