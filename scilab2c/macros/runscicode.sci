@@ -1,4 +1,4 @@
-function runscicode(SCI2CInputPrmFile)
+function runscicode(UserScilabMainFile, UserSciFilesPaths)
 // function runscicode(SCI2CInputPrmFile)
 // -----------------------------------------------------------------
 // ===         hArtes/PoliBa/GAP SCI2C tool                      ===
@@ -24,8 +24,8 @@ function runscicode(SCI2CInputPrmFile)
 // -------------------
 // --- Soft reset. ---
 // -------------------
-mode(-1);
-clc;
+//mode(-1);
+//clc;
 // -----------------------
 // --- End Soft reset. ---
 // -----------------------
@@ -33,17 +33,17 @@ clc;
 // -------------------------
 // --- Input Parameters. ---
 // -------------------------
-RunSci2CMainDir = pwd();
+//RunSci2CMainDir = pwd();
 // -----------------------------
 // --- End input Parameters. ---
 // -----------------------------
 
-cd(fullfile(RunSci2CMainDir,'ToolInitialization'));
-exec('INIT_SCI2CLoader.sce');
-cd(RunSci2CMainDir);
+//cd(fullfile(RunSci2CMainDir,'ToolInitialization'));
+//exec('INIT_SCI2CLoader.sce');
+//cd(RunSci2CMainDir);
 
 // --- Read user parameters. ---
-exec(SCI2CInputPrmFile);
+//exec(SCI2CInputPrmFile);
 
 
 // --- Add all user paths. ---
@@ -55,10 +55,12 @@ end
 disp('-----------------------------------');
 disp('--- Executing your SCILAB code. ---');
 disp('-----------------------------------');
+getf(UserScilabMainFile);
 [tmppath,tmpfile,tmpext] = fileparts(UserScilabMainFile);
-cd(tmppath);
+//cd(tmppath);
 execstr(tmpfile);
-cd(RunSci2CMainDir);
+//cd(RunSci2CMainDir);
 disp('------------------------------------------');
 disp('--- End Execution of your SCILAB code. ---');
 disp('------------------------------------------');
+endfunction

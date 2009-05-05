@@ -1,4 +1,4 @@
-function runsci2c(SCI2CInputPrmFile)
+function runsci2c(UserScilabMainFile, UserSciFilesPaths, SCI2COutputPath, Runmode)
 // function runsci2c(SCI2CInputPrmFile)
 // -----------------------------------------------------------------
 // ===         hArtes/PoliBa/GAP SCI2C tool                      ===
@@ -26,8 +26,8 @@ function runsci2c(SCI2CInputPrmFile)
 // -------------------
 // --- Soft reset. ---
 // -------------------
-mode(-1);
-clc;
+//mode(-1);
+//clc;
 // -----------------------
 // --- End Soft reset. ---
 // -----------------------
@@ -44,30 +44,31 @@ RunSci2CMainDir = pwd();
 // --- Perform Intializations. ---
 // -------------------------------
 // --- Load SCI2C directories and files. ---
-cd(fullfile(RunSci2CMainDir,'ToolInitialization'));
-exec('INIT_SCI2CLoader.sce');
-cd(RunSci2CMainDir);
+//cd(fullfile(RunSci2CMainDir,'ToolInitialization'));
+//exec('INIT_SCI2CLoader.sce');
+//cd(RunSci2CMainDir);
 
 // --- Initialize the SCI2C tool directories and files. ---
-[FileInfoDatFile,SharedInfoDatFile] = INIT_SCI2C(SCI2CInputPrmFile);
-   
+[FileInfoDatFile,SharedInfoDatFile] = INIT_SCI2C(UserScilabMainFile, ...
+						 UserSciFilesPaths, SCI2COutputPath, RunMode);
+
 // --- Load RunMode. ---
 load(SharedInfoDatFile,'SharedInfo');
 RunMode = SharedInfo.RunMode;
 clear ShareInfo
-   
+
 // --- Generation of the library structure. ---
 if (RunMode == 'GenLibraryStructure' | RunMode == 'All')
    INIT_GenLibraries(FileInfoDatFile);
 end
-   
+
 // --- Load Library Info. ---
 INIT_LoadLibraries(FileInfoDatFile);
-   
+
 // -----------------------------------
 // --- End Perform Intializations. ---
 // -----------------------------------
-   
+
 // ----------------------------------
 // --- Perform SCI2C Translation. ---
 // ----------------------------------
@@ -81,7 +82,7 @@ if (RunMode == 'All' | RunMode == 'Translate')
       FlagContinueTranslation = ManageNextConversion(FileInfoDatFile);
    end
 end
-   
+
 // --------------------------
 // --- Generate Makefile. ---
 // --------------------------
@@ -90,7 +91,7 @@ load(SharedInfoDatFile,'SharedInfo');
 C_GenerateMakefile(FileInfo,SharedInfo);
 clear FileInfo
 clear SharedInfo
-   
+
 // -----------------
 // --- Epilogue. ---
 // -----------------
@@ -101,3 +102,4 @@ elseif (RunMode == 'GenLibraryStructure')
    PrintStepInfo('Library Structure Successfully Created!!!',FileInfo.GeneralReport,'both');
 end
 clear FileInfo
+endfunction

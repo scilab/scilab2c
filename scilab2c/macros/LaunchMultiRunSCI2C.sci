@@ -1,11 +1,12 @@
 // Before launching this script, please
-// check all the paths below. 
+// check all the paths below.
 // User should change parameters only in (USER PARAMETERS) sections.
 // cd C:\Nutricato\OpenProjects\FP6_hArtes\WP2_SCI2C\Software\Scilab2C; exec LaunchMultiRunSCI2C.sci
 
+function LaunchMultiRunSCI2C()
 // --- CLEAN WORKSPACE ---
-exec full_reset.sce;
-mode(-1);
+//exec full_reset.sce;
+//mode(-1);
 
 // --- GENERAL SETTINGS (USER PARAMETERS) ---
 RunsDirectory         = pwd(); // Path of the SCI2CRuns directory
@@ -20,7 +21,7 @@ WorkingListSCI2CInputPrmFiles = ...
    [...
       'D:\Nutricato_GAPSVN\PROGETTI_APERTI\POLIBA\hArtes\WP2_SCI2C\Software\Version_alpha\SCI2CTests\test999_WorkingDir\SCI2CInputParameters.sce';...
    ];
-   
+
 // Select one of the two lists above.
 
 ListSCI2CInputPrmFiles = WorkingListSCI2CInputPrmFiles;
@@ -46,7 +47,7 @@ for cnttransl = 1:NTranslations
    // --- ASK USER FOR CONTINUATION. ---
    userchoice = input('Start translation [y/n]?','s');
    if (userchoice == 'y')
-   
+
       // --- LAUNCH SCI2C ---
       cd(SCI2CDirectory)
       getf("runsci2c.sci");
@@ -78,3 +79,4 @@ cd (RunsDirectory);
 // ------------------------
 // --- This must be the last instruction. ---
 mclose('all');
+endfunction
