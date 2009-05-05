@@ -1,13 +1,13 @@
 // Clear files, variables, figures, screen.
-mode(-1);
-clc;
+//mode(-1);
+//clc;
 
-disp('Starting full reset...')
+//disp('Starting full reset...')
 //disp('Press enter to continue...');
 //halt;
 
-clc;
-clear
+//clc;
+//clear
 //mclose('all');
 
 //
@@ -19,4 +19,4 @@ clear
 //   close
 //end
 //YES BUT I NEED HOW TO PERFORM THE CLOSE ALL ACTION!!!
-lines(0)
+//lines(0)
