@@ -1,13 +1,15 @@
 //
 // Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
 // Copyright (C) 2009 - INRIA - Arnaud Torset
-// 
+//
 // This file must be used under the terms of the CeCILL.
 // This source file is licensed as described in the file COPYING, which
 // you should have received as part of this distribution.  The terms
-// are also available at    
+// are also available at
 // http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 
+
+function scilab2ccode = initDependecies()
 
 
 /////////////////////////////////
@@ -377,7 +379,7 @@ scilab2ccode.deps.zdista=["dpows","zreals","zimags","dsqrts"]
 scilab2ccode.deps.crdivma=["DoubleComplex","creals","cimags","zrdivma","FloatComplex","zreals","zimags"]
 scilab2ccode.deps.drdivma=["dtransposea"]
 scilab2ccode.deps.srdivma=["drdivma"]
-scilab2ccode.deps.zrdivma=["ztransposea","zconja","DoubleComplex","zreals","zimags","]
+scilab2ccode.deps.zrdivma=["ztransposea","zconja","DoubleComplex","zreals","zimags"]
 
 
 //OpBackSlash
@@ -610,7 +612,7 @@ scilab2ccode.deps.dlevina=["dinitTab","dr1","dr2","dr3","dr4","dlevinmul","dinve
 scilab2ccode.deps.slevina=["sinitTab","sr1","sr2","sr3","sr4","slevinmul","sinverma","smulma","slevinmul2","sdecalage","slevinsub","slevinsig"]
 scilab2ccode.deps.dinitTab=[]
 scilab2ccode.deps.dr1=[]
-scilab2ccode.deps.dr2[]
+scilab2ccode.deps.dr2=[]
 scilab2ccode.deps.dr3=[]
 scilab2ccode.deps.dr4=[]
 scilab2ccode.deps.dlevinmul=[]
@@ -620,7 +622,7 @@ scilab2ccode.deps.dlevinsub=[]
 scilab2ccode.deps.dlevinsig=[]
 scilab2ccode.deps.sinitTab=[]
 scilab2ccode.deps.sr1=[]
-scilab2ccode.deps.sr2[]
+scilab2ccode.deps.sr2=[]
 scilab2ccode.deps.sr3=[]
 scilab2ccode.deps.sr4=[]
 scilab2ccode.deps.slevinmul=[]
@@ -744,5 +746,4 @@ scilab2ccode.deps.DoubleComplexMatrix=["DoubleComplex"]
 scilab2ccode.deps.zisreals=["zimags"]
 scilab2ccode.deps.zisimags=["zreals"]
 
-
-
+endfunction
