@@ -101,9 +101,9 @@ if ((mtlb_strcmp(FunctionName,'size')))
          PrintStringInfo('   '+CCall,ReportFileName,'file','y');
          // #RNU_RES_E
          PrintStringInfo(C_IndentBlanks(IndentLevel)+CCall,CPass1FileName,'file','y');
-         
+
          CCall ='';
-         CCall = CCall+OutArg(1).Name+'[1] = __'+InArg(1).Name+'Size[1];';         
+         CCall = CCall+OutArg(1).Name+'[1] = __'+InArg(1).Name+'Size[1];';
          // #RNU_RES_B
          PrintStringInfo('   '+CCall,ReportFileName,'file','y');
          // #RNU_RES_E
@@ -114,9 +114,9 @@ if ((mtlb_strcmp(FunctionName,'size')))
          PrintStringInfo('   '+CCall,ReportFileName,'file','y');
          // #RNU_RES_E
          PrintStringInfo(C_IndentBlanks(IndentLevel)+CCall,CPass1FileName,'file','y');
-         
+
          CCall ='';
-         CCall = CCall+OutArg(2).Name+' = __'+InArg(1).Name+'Size[1];';               
+         CCall = CCall+OutArg(2).Name+' = __'+InArg(1).Name+'Size[1];';
          // #RNU_RES_B
          PrintStringInfo('   '+CCall,ReportFileName,'file','y');
          // #RNU_RES_E
@@ -126,13 +126,13 @@ if ((mtlb_strcmp(FunctionName,'size')))
       end
    elseif (NInArg == 2)
       if (NOutArg == 1)
-         if (InArg(2).Value == 1)      
+         if (InArg(2).Value == 1)
             CCall = CCall+OutArg(1).Name+' = __'+InArg(1).Name+'Size[0];';
             // #RNU_RES_B
             PrintStringInfo('   '+CCall,ReportFileName,'file','y');
             // #RNU_RES_E
             PrintStringInfo(C_IndentBlanks(IndentLevel)+CCall,CPass1FileName,'file','y');
-         elseif (InArg(2).Value == 2)      
+         elseif (InArg(2).Value == 2)
             CCall = CCall+OutArg(1).Name+' = __'+InArg(1).Name+'Size[1];';
             // #RNU_RES_B
             PrintStringInfo('   '+CCall,ReportFileName,'file','y');
@@ -206,15 +206,15 @@ for counterin = 1:NInArg
    else
       TmpInArgName = InArg(counterin).Name;
    end
-   
+
    TmpInArgType = C_Type(InArg(counterin).Type);
-   
+
    //if (FunctionName == 'OpEqual')
    //      TmpInArgSizeVar = '__'+OutArg(counterin).Name+'Size';
    // else
-   TmpInArgSizeVar = '__'+InArg(counterin).Name+'Size';   
+   TmpInArgSizeVar = '__'+InArg(counterin).Name+'Size';
    //end
-      
+
    if (InArg(counterin).Dimension == 0)
       if (FlagCall == 0)
          CCall = CCall+TmpInArgType+' ';
@@ -261,7 +261,7 @@ for counterout = 1:NOutArg
       else
          if (FlagCall == 0)
             CCall = CCall+TmpOutArgType+'* '+TmpOutArgName+',';
-            if (OutArg(counterout).FindLike == 1)  
+            if (OutArg(counterout).FindLike == 1)
                CCall = CCall+'SCI2Cint* __'+TmpOutArgName+'Size'+',';
             end
             // #RNU_RES_B
@@ -280,9 +280,9 @@ for counterout = 1:NOutArg
             PrintStringInfo(' ',CInitVarsFileName,'file','y');
          else
             CCall = CCall+OutArg(counterout).Name+',';
-            if (OutArg(counterout).FindLike == 1)  
+            if (OutArg(counterout).FindLike == 1)
                CCall = CCall+'(SCI2Cint* ) __'+TmpOutArgName+'Size'+',';
-            end            
+            end
          end
       end
    end
@@ -302,7 +302,7 @@ if (FlagCall == 1)
 end
 //NUT: la parte di generazione della C call va inserita in una funzione a parte.
 //NUT: tale funzione deve avere anche uno switch che consenta di generare differenti versioni
-//NUT: delle chiamate C in accordo con la libreria disponibile, fermo restando che 
+//NUT: delle chiamate C in accordo con la libreria disponibile, fermo restando che
 //NUT:  e' sempre possibile fornire la lista delle macro.
 if mtlb_strcmp(FunctionName,'return')
    // Here I introduce the pointer assignment for output scalar arguments.
@@ -358,12 +358,14 @@ else
    PrintStringInfo(C_IndentBlanks(IndentLevel)+CCall,CPass1FileName,'file','y');
    if (FlagCall == 0)
       // Add prototype to the header file
-      C_InitHeader(CCall+';',HeaderFileName,SharedInfo.Sci2CLibMainHeaderFName);
-      
+
+     //-- FIXME : disable this for now
+     //-- C_InitHeader(CCall+';',HeaderFileName,SharedInfo.Sci2CLibMainHeaderFName);
+
       // Add { at the beginning of the function.
       PrintStringInfo('   {',ReportFileName,'file','y');
       PrintStringInfo(C_IndentBlanks(IndentLevel)+'{',CPass1FileName,'file','y');
-      
+
    end
 end
 

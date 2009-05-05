@@ -1,5 +1,4 @@
-function SharedInfo = INIT_GenSharedInfo(WorkingDir,OutCCCodeDir,UserSciFilesPaths,...
-   RunMode,UserScilabMainFile,TotTempScalarVars,EnableTempVarsReuse,Sci2CLibMainHeaderFName)
+function SharedInfo = INIT_GenSharedInfo(RunMode,UserScilabMainFile,TotTempScalarVars,EnableTempVarsReuse,Sci2CLibMainHeaderFName,CopySciCodeIntoCCode)
 // function SharedInfo = INIT_GenSharedInfo(WorkingDir,OutCCCodeDir,UserSciFilesPaths,...
 //    RunMode,UserScilabMainFile,TotTempScalarVars,EnableTempVarsReuse,Sci2CLibMainHeaderFName)
 // -----------------------------------------------------------------
@@ -30,27 +29,31 @@ function SharedInfo = INIT_GenSharedInfo(WorkingDir,OutCCCodeDir,UserSciFilesPat
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-SCI2CNInArgCheck(argn(2),8,8);
+
+//-- SCI2CNInArgCheck(argn(2),8,8);
 
 
 // ------------------------------
 // --- Initialize SharedInfo. ---
 // ------------------------------
-SharedInfo.CCompilerPathStyle = CCompilerPathStyle;
+//-- SharedInfo.CCompilerPathStyle = CCompilerPathStyle;
 SharedInfo.RunMode = RunMode;
-SharedInfo.Sci2CLibMainHeaderFName = ConvertPathMat2C(Sci2CLibMainHeaderFName,SharedInfo.CCompilerPathStyle);
+//-- SharedInfo.Sci2CLibMainHeaderFName = ConvertPathMat2C(Sci2CLibMainHeaderFName,SharedInfo.CCompilerPathStyle);
+
+//-- FIXME : Must enable this for Makefile generation
+//-- SharedInfo.Sci2CLibMainHeaderFName = pathconvert(Sci2CLibMainHeaderFName, 'u');
 
 // #RNU_RES_B
 // File names of the next .sci files to be converted in AST and
-// successively into C. 
+// successively into C.
 // #RNU_RES_E
-SharedInfo.NextSCIFileName  = UserScilabMainFile; 
+SharedInfo.NextSCIFileName  = UserScilabMainFile;
 [scipath,funname,sciext]    = fileparts(UserScilabMainFile);
 SharedInfo.SCIMainFunName   = funname;
 SharedInfo.CMainFunName     = 'main';
 SharedInfo.NextSCIFunName   = SharedInfo.SCIMainFunName; //NUT: per ora no so cosa metter
 SharedInfo.NextCFunName     = SharedInfo.CMainFunName; //NUT: per ora no so cosa metter //NUT: questo viene aggiornato dalla C_Funcall
-SharedInfo.NextSCIFunNumber = 1; 
+SharedInfo.NextSCIFunNumber = 1;
 SharedInfo.NFilesToTranslate = 1;
 
 
