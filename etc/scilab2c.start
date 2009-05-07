@@ -15,15 +15,15 @@ pathmacros = pathconvert( root_tlbx ) + 'macros'+ filesep();
 
 disp('Load macros');
 //Load  functions library
-scilab2c_mainlib = lib(pathmacros);
-scilab2c_ASTManagementlib = lib(pathmacros + "ASTManagement" + filesep());
-scilab2c_CCodeGenerationlib = lib(pathmacros + "CCodeGeneration" + filesep());
-scilab2c_ErrorMessageslib = lib(pathmacros + "ErrorMessages" + filesep());
-scilab2c_FunctionAnnotationlib = lib(pathmacros + "FunctionAnnotation"+ filesep());
-scilab2c_FunctionListlib = lib(pathmacros + "FunctionList" + filesep());
-scilab2c_GeneralFunctionslib = lib(pathmacros + "GeneralFunctions" + filesep());
-scilab2c_SymbolTablelib = lib(pathmacros + "SymbolTable" + filesep());
-scilab2c_ToolInitializationlib = lib(pathmacros + "ToolInitialization" + filesep());
+sci2c_mainlib = lib(pathmacros);
+sci2c_ASTManagementlib = lib(pathmacros + "ASTManagement" + filesep());
+sci2c_CCodeGenerationlib = lib(pathmacros + "CCodeGeneration" + filesep());
+sci2c_ErrorMessageslib = lib(pathmacros + "ErrorMessages" + filesep());
+sci2c_FunctionAnnotationlib = lib(pathmacros + "FunctionAnnotation"+ filesep());
+sci2c_FunctionListlib = lib(pathmacros + "FunctionList" + filesep());
+sci2c_GeneralFunctionslib = lib(pathmacros + "GeneralFunctions" + filesep());
+sci2c_SymbolTablelib = lib(pathmacros + "SymbolTable" + filesep());
+sci2c_ToolInitializationlib = lib(pathmacros + "ToolInitialization" + filesep());
 
 // load gateways
 //disp('Load gateways');
