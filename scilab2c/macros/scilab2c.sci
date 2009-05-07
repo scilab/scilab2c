@@ -12,48 +12,79 @@
 
 function scilab2c(varargin)
   [lhs, rhs] = argn();
-  if rhs == 0
-// scilab2c()
-// launch gui
-// scilab2c_gui();
-    disp("Launching GUI : Not implemented now...");
-    return;
-  end
 
-  if rhs == 2
-// scilab2c(arg1, arg2)
-    if typeof(varargin(1)) <> "string"
-      error(msprintf(gettext("%s: Wrong type for input argument #%d: String expected.\n"),"scilab2c",1));
-      return
+  select rhs
+    //
+    // scilab2c()
+    //
+   case 0
+    sci2c_gui();
+    return
+    //
+    // scilab2c(UserScilabMainFile, CCodeOutputDir)
+    //
+   case 2
+    for i = 1:2
+      if typeof(varargin(i)) <> "string"
+	error(msprintf(gettext("%s: Wrong type for input argument #%d: String expected.\n"),"scilab2c",i));
+	return
+      end
     end
-
-    if typeof(varargin(2)) <> "string"
-      error(msprintf(gettext("%s: Wrong type for input argument #%d: String expected.\n"),"scilab2c",2));
-      return
-    end
-
-    //disp("That''s a good starting point")
-    //disp("Input File = "+varargin(1))
-    //disp("Output File = "+varargin(2))
     UserScilabMainFile = varargin(1);
+    CCodeOutputDir = varargin(2);
     UserSciFilesPaths = [];
+    RunMode = 'All';
     //RunMode = 'GenLibraryStructure';
     //RunMode = 'Translate';
-    RunMode = 'All';
+    //
+    // scilab2c(UserScilabMainFile, CCodeOutputDir, UserSciFilesPaths)
+    //
+   case 3
+    for i = 1:3
+      if typeof(varargin(i)) <> "string"
+	error(msprintf(gettext("%s: Wrong type for input argument #%d: String expected.\n"),"scilab2c",i));
+	return
+      end
+    end
+    UserScilabMainFile = varargin(1);
+    CCodeOutputDir = varargin(2);
+    UserSciFilesPaths = varargin(3);
+    RunMode = "All";
+    //
+    // scilab2c(UserScilabMainFile, CCodeOutputDir, UserSciFilesPaths, RunMode)
+    //
+   case 4
+    for i = 1:4
+      if typeof(varargin(i)) <> "string"
+	error(msprintf(gettext("%s: Wrong type for input argument #%d: String expected.\n"),"scilab2c",i));
+	return
+      end
+    end
+    if varargin(4) <> "All" & varargin(4) <> "Translate" & varargin(4) <> "GenLibraryStructure"
+      	error(msprintf(gettext("%s: argument #%d must be: ""All"", ""Translate"" or ""GenLibraryStructure"".\n"),"scilab2c",4));
+	return
+      return
+    end
+    UserScilabMainFile = varargin(1);
+    CCodeOutputDir = varargin(2);
+    if varargin(3) == ""
+      UserSciFilesPaths = [];
+    else
+      UserSciFilesPaths = varargin(3);
+    end
+    RunMode = varargin(4);
+  else
+    error(msprintf(gettext("%s: Wrong number of input argument(s): %d expected.\n"),"scilab2c",2));
+  end
+
 
 // --- LAUNCH USER SCI CODE TO TEST IT BEFORE TRANSLATING IT!!! ---
     runscicode(UserScilabMainFile, UserSciFilesPaths);
 // --- ASK USER FOR CONTINUATION. ---
-    userchoice = input('Start translation [y/n]?','s');
-    if (userchoice == 'y')
+userchoice = messagebox("Exection Succesfull. Start translation ?", "modal", "info", ["Yes" "No"])
+if (userchoice == 1)
 // --- LAUNCH SCI2C ---
-      runsci2c(UserScilabMainFile, UserSciFilesPaths, TMPDIR, RunMode);
+      runsci2c(UserScilabMainFile, UserSciFilesPaths, CCodeOutputDir, RunMode);
 //      cd(SCI2CDirectory);
     end
-
-
-    return
-  end
-
-  error(msprintf(gettext("%s: Wrong number of input argument(s): %d expected.\n"),"scilab2c",2));
 endfunction
