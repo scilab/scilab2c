@@ -29,7 +29,9 @@
     <synopsis>
       scilab2c();
       scilab2c("PATH/script_to_translate.sci", "PATH/generated_c_code.c");
-    </synopsis>
+      scilab2c("PATH/script_to_translate.sci", "PATH/generated_c_code.c", "PATH_TO_ADDITIONNAL_FUNCTIONS");
+      scilab2c("PATH/script_to_translate.sci", "PATH/generated_c_code.c", "PATH_TO_ADDITIONNAL_FUNCTIONS", RunMode);
+   </synopsis>
   </refsynopsisdiv>
 
   <refsection>
@@ -42,13 +44,30 @@
 	    to translate.</para>
         </listitem>
       </varlistentry>
+
       <varlistentry>
 	<term>PATH/generated_c_code.c</term>
         <listitem>
           <para>This file will contain the C code translate from the script.</para>
         </listitem>
       </varlistentry>
-    </variablelist>
+
+     <varlistentry>
+	<term>PATH_TO_ADDITIONNAL_FUNCTIONS</term>
+        <listitem>
+          <para>This is the path to look in for additional user defined functions.</para>
+        </listitem>
+      </varlistentry>
+
+     <varlistentry>
+	<term>RunMode</term>
+        <listitem>
+          <para>Must be "All", "Translate" or "GenLibraryStructure"</para>
+	  <para>//FIXME : Must explain here which parameter does what ?</para>
+        </listitem>
+      </varlistentry>
+
+   </variablelist>
 
   </refsection>
 
