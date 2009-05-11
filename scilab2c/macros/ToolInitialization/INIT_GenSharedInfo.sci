@@ -38,10 +38,7 @@ function SharedInfo = INIT_GenSharedInfo(RunMode,UserScilabMainFile,TotTempScala
 // ------------------------------
 //-- SharedInfo.CCompilerPathStyle = CCompilerPathStyle;
 SharedInfo.RunMode = RunMode;
-//-- SharedInfo.Sci2CLibMainHeaderFName = ConvertPathMat2C(Sci2CLibMainHeaderFName,SharedInfo.CCompilerPathStyle);
-
-//-- FIXME : Must enable this for Makefile generation
-//-- SharedInfo.Sci2CLibMainHeaderFName = pathconvert(Sci2CLibMainHeaderFName, 'u');
+SharedInfo.Sci2CLibMainHeaderFName = pathconvert(Sci2CLibMainHeaderFName, %f, %f, 'u');
 
 // #RNU_RES_B
 // File names of the next .sci files to be converted in AST and

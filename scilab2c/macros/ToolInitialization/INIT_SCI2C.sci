@@ -65,6 +65,8 @@ OutCCCodeDir = fullfile(SCI2CResultDir,'C_Code');
 // ------------------------------
 //SharedInfo = INIT_GenSharedInfo(WorkingDir,OutCCCodeDir,UserSciFilesPaths,...
 //   RunMode,UserScilabMainFile,TotTempScalarVars,EnableTempVarsReuse,Sci2CLibMainHeaderFName);
+
+//-- FIXME : MainLibHeader and Verbose mode are (?) configurable
 SharedInfo = INIT_GenSharedInfo(RunMode,UserScilabMainFile, ...
 				TotTempScalarVars,EnableTempVarsReuse,"sci2cincludes/sci2clib.h", %t);
 
