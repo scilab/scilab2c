@@ -1,11 +1,11 @@
 //
 // Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
-// Copyright (C) 2009 - INRIA - Vincent COUVERT 
-// 
+// Copyright (C) 2009 - INRIA - Vincent COUVERT
+//
 // This file must be used under the terms of the CeCILL.
 // This source file is licensed as described in the file COPYING, which
 // you should have received as part of this distribution.  The terms
-// are also available at    
+// are also available at
 // http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 //
 
@@ -17,63 +17,63 @@ function cb_sci2c_gui
 // --- File to convert ---
 //
 if get(gcbo,"tag")=="filebtn" then
-  
+
   filename = uigetfile("*.sci", getcwd(), gettext("Select the file to translate"));
   if ~isempty(filename) then
     set(findobj("tag", "fileedit"), "string", filename);
   end
-  
+
 //
 // --- Sub-functions directory ---
 //
 elseif get(gcbo,"tag")=="subfunsbtn" then
-  
+
   directory = uigetdir(getcwd(), gettext("Select your sub-functions directory"));
   if ~isempty(directory) then
     set(findobj("tag", "subfunsedit"), "string", directory);
   end
-  
+
 //
 // --- Header file ---
 //
 elseif get(gcbo,"tag")=="headerbtn" then
-  
+
   filename = uigetfile("*.h", getcwd(), gettext("Select SciLib main header file"));
   if ~isempty(filename) then
     set(findobj("tag", "headeredit"), "string", filename);
   end
-  
+
 //
 // --- Output directory ---
 //
 elseif get(gcbo,"tag")=="outbtn" then
-  
+
   directory = uigetdir(getcwd(), gettext("Select the directory for generated files"));
   if ~isempty(directory) then
     set(findobj("tag", "outedit"), "string", directory);
   end
-  
+
 //
 // --- Run mode option ---
 //
 elseif or(get(gcbo, "tag")==["runradioall","runradiotranslate","runradiogenlib"]) then
-  
+
   set(findobj("tag", "runradioall"), "value", 0);
   set(findobj("tag", "runradiotranslate"), "value", 0);
   set(findobj("tag", "runradiogenlib"), "value", 0);
-  
+
   set(gcbo, "value", 1);
-  
+
 //
 // --- Copy Scilab code into C option ---
 //
 elseif or(get(gcbo, "tag")==["sciintocradioyes","sciintocradiono"]) then
-  
+
   set(findobj("tag", "sciintocradioyes"), "value", 0);
   set(findobj("tag", "sciintocradiono"), "value", 0);
 
   set(gcbo, "value", 1);
-  
+
 //
 // --- Paths style option ---
 //
@@ -82,9 +82,9 @@ elseif or(get(gcbo, "tag")==["pathsradiowin","pathsradiounix","pathsradiocygwin"
   set(findobj("tag", "pathsradiowin"), "value", 0);
   set(findobj("tag", "pathsradiounix"), "value", 0);
   set(findobj("tag", "pathsradiocygwin"), "value", 0);
-  
+
   set(gcbo, "value", 1);
-  
+
 //
 // --- Cancel conversion ---
 //
@@ -96,13 +96,13 @@ elseif get(gcbo, "tag")=="cancelbtn" | get(gcbo, "tag")=="close_menu" then
 //
 elseif get(gcbo, "tag")=="convertbtn" then
   UserScilabMainFile =  get(findobj("tag", "fileedit"), "string");
-  
+
   UserSciFilesPaths = get(findobj("tag", "subfunsedit"), "string");
-  
+
   Sci2CLibMainHeaderFName = get(findobj("tag", "headeredit"), "string");
-  
+
   UserSciCodeMainDir = get(findobj("tag", "outedit"), "string");
-  
+
   if get(findobj("tag", "runradioall"), "value") == 1 then
     RunMode = "All";
   elseif get(findobj("tag", "runradiotranslate"), "value") == 1 then
@@ -110,9 +110,9 @@ elseif get(gcbo, "tag")=="convertbtn" then
   else
     RunMode = "GenLibraryStructure";
   end
-  
+
   CopySciCodeIntoCCode = get(findobj("tag", "sciintocradioyes"), "value") == 1;
-  
+
   if get(findobj("tag", "pathsradiowin"), "value") == 1 then
     CCompilerPathStyle = "windows";
   elseif get(findobj("tag", "pathsradiounix"), "value") == 1 then
@@ -120,15 +120,15 @@ elseif get(gcbo, "tag")=="convertbtn" then
   else
     CCompilerPathStyle = "cygwin";
   end
-  
-  mprintf("UserScilabMainFile = %s\n", UserScilabMainFile);
-  mprintf("UserSciFilesPaths = %s\n", UserSciFilesPaths);
-  mprintf("Sci2CLibMainHeaderFName = %s\n", Sci2CLibMainHeaderFName);
-  mprintf("UserSciCodeMainDir = %s\n", UserSciCodeMainDir);
-  mprintf("RunMode = %s\n", RunMode);
-  mprintf("CopySciCodeIntoCCode = %d\n", bool2s(CopySciCodeIntoCCode));
-  mprintf("CCompilerPathStyle = %s\n", CCompilerPathStyle);
 
+  mprintf("UserScilabMainFile = {%s}\n", UserScilabMainFile);
+  mprintf("UserSciFilesPaths = {%s}\n", UserSciFilesPaths);
+  mprintf("Sci2CLibMainHeaderFName = {%s}\n", Sci2CLibMainHeaderFName);
+  mprintf("UserSciCodeMainDir = {%s}\n", UserSciCodeMainDir);
+  mprintf("RunMode = {%s}\n", RunMode);
+  mprintf("CopySciCodeIntoCCode = {%d}\n", bool2s(CopySciCodeIntoCCode));
+  mprintf("CCompilerPathStyle = {%s}\n", CCompilerPathStyle);
+  scilab2c(UserScilabMainFile, UserSciCodeMainDir, UserSciFilesPaths, RunMode);
 //
 // --- sci2c help ---
 //
