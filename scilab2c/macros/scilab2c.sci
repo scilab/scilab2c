@@ -48,7 +48,11 @@ function scilab2c(varargin)
     end
     UserScilabMainFile = varargin(1);
     CCodeOutputDir = varargin(2);
-    UserSciFilesPaths = varargin(3);
+    if varargin(3) == ""
+      UserSciFilesPaths = [];
+    else
+      UserSciFilesPaths = varargin(3);
+    end
     RunMode = "All";
     //
     // scilab2c(UserScilabMainFile, CCodeOutputDir, UserSciFilesPaths, RunMode)
