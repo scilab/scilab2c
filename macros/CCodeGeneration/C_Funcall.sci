@@ -359,8 +359,7 @@ else
    if (FlagCall == 0)
       // Add prototype to the header file
 
-     //-- FIXME : disable this for now
-     //-- C_InitHeader(CCall+';',HeaderFileName,SharedInfo.Sci2CLibMainHeaderFName);
+     C_InitHeader(CCall+';',HeaderFileName,SharedInfo.Sci2CLibMainHeaderFName);
 
       // Add { at the beginning of the function.
       PrintStringInfo('   {',ReportFileName,'file','y');
