@@ -45,7 +45,6 @@ function runscicode(UserScilabMainFile, UserSciFilesPaths)
 // --- Read user parameters. ---
 //exec(SCI2CInputPrmFile);
 
-
 // --- Add all user paths. ---
 for cntpath = 1:size(UserSciFilesPaths,1)
    getd(UserSciFilesPaths(cntpath));
