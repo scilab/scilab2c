@@ -58,7 +58,7 @@ WorkingDir = fullfile(SCI2CResultDir,'SCI2CTmpResultsReports');
 // #RNU_RES_B
 // --- Directory where the generated C code will be stored. ---
 // #RNU_RES_E
-OutCCCodeDir = fullfile(SCI2CResultDir,'C_Code');
+OutCCCodeDir = SCI2CResultDir;
 
 // ------------------------------
 // --- Initialize SharedInfo. ---
@@ -68,7 +68,7 @@ OutCCCodeDir = fullfile(SCI2CResultDir,'C_Code');
 
 //-- FIXME : MainLibHeader and Verbose mode are (?) configurable
 SharedInfo = INIT_GenSharedInfo(RunMode,UserScilabMainFile, ...
-				TotTempScalarVars,EnableTempVarsReuse,"sci2cincludes/sci2clib.h", %t);
+				TotTempScalarVars,EnableTempVarsReuse,"sci2clib.h", %t);
 
 // ----------------------------
 // --- Initialize FileInfo. ---
@@ -79,7 +79,7 @@ PrintStepInfo('SCI2C hArtes/POLIBA Tool!!!',FileInfo.GeneralReport,'stdout');
 // ----------------------------------------------------
 // --- Remove previous versions of SCI2C files/dir. ---
 // ----------------------------------------------------
-INIT_RemoveDirs(FileInfo,SharedInfo.RunMode);
+//-- INIT_RemoveDirs(FileInfo,SharedInfo.RunMode);
 
 // ---------------------------
 // --- Create Directories. ---

@@ -38,11 +38,9 @@ PrintStringInfo('# --- USER PARAMETERS ---',FileInfo.MakefileFilename,'file','y'
 PrintStringInfo('# -----------------------',FileInfo.MakefileFilename,'file','y');
 PrintStringInfo('# --- DIRECTORIES AND FILES ---',FileInfo.MakefileFilename,'file','y');
 
-makeobjpath  = pathconvert('..\..\..\Scilab2C\CFiles\sci2cobj', %f, %f, 'u');
-// makeobjpath  = FileInfo.CStyleSCI2CMainDir+'\CFiles\sci2cobj';
-makecsrcdir  = pathconvert('..\..\..\Scilab2C\CFiles\sci2ccode', %f, %f, 'u');
+makecsrcdir  = pathconvert('src/c', %f, %f, 'u');
 // makecsrcdir  = FileInfo.CStyleSCI2CMainDir+'\CFiles\sci2ccode';
-makehsrcdir  = pathconvert('..\..\..\Scilab2C\CFiles\sci2cincludes', %f, %f, 'u');
+makehsrcdir  = pathconvert('includes', %f, %f, 'u');
 // makehsrcdir  = FileInfo.CStyleSCI2CMainDir+'\CFiles\sci2cincludes';
 makeisrcdir  = pathconvert('..\..\..\Scilab2C\CFiles\sci2cinterfaces', %f, %f, 'u');
 // makeisrcdir  = FileInfo.CStyleSCI2CMainDir+'\CFiles\sci2cinterfaces';
@@ -50,7 +48,6 @@ makesci2cdir = FileInfo.CStyleOutCCCodeDir;
 // makesci2cdir = FileInfo.CStyleOutCCCodeDir;
 
 
-PrintStringInfo('OBJDIR      = '+makeobjpath,FileInfo.MakefileFilename,'file','y');
 PrintStringInfo('CSRCDIR     = '+makecsrcdir,FileInfo.MakefileFilename,'file','y');
 PrintStringInfo('HSRCDIR     = '+makehsrcdir,FileInfo.MakefileFilename,'file','y');
 PrintStringInfo('ISRCDIR     = '+makeisrcdir,FileInfo.MakefileFilename,'file','y');
@@ -61,17 +58,17 @@ PrintStringInfo('EXEFILENAME = mytest.exe',FileInfo.MakefileFilename,'file','y')
 // -------------------------------
 // --- Open template makefile. ---
 // -------------------------------
-//-- fidfile = SCI2COpenFileRead(FileInfo.MakefileTemplate);
+fidfile = SCI2COpenFileRead(FileInfo.MakefileTemplate);
 
 // -------------------
 // --- Read lines. ---
 // -------------------
-//-- tmpline = mgetl(fidfile,1);
-//-- while (meof(fidfile) == 0)
-//--   PrintStringInfo(tmpline,FileInfo.MakefileFilename,'file','y');
-//--   tmpline = mgetl(fidfile,1);
-//-- end
+tmpline = mgetl(fidfile,1);
+while (meof(fidfile) == 0)
+  PrintStringInfo(tmpline,FileInfo.MakefileFilename,'file','y');
+  tmpline = mgetl(fidfile,1);
+end
 
-//-- mclose(fidfile);
+mclose(fidfile);
 
 endfunction
