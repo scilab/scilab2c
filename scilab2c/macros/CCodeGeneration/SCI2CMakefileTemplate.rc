@@ -23,17 +23,6 @@ EXEFILE = $(SCI2CDIR)/$(EXEFILENAME)
 SWSRCS	=	\
 	$(CSRCDIR)/doubleComplex.c \
 	$(CSRCDIR)/floatComplex.c \
-	$(CSRCDIR)/RealToComplex.c \
-	$(CSRCDIR)/OpIns.c \
-	$(CSRCDIR)/OpExt.c \
-	$(CSRCDIR)/FileManagement.c \
-	$(CSRCDIR)/OpLogLt.c \
-	$(CSRCDIR)/OpLogGt.c \
-	$(CSRCDIR)/OpLogGe.c \
-	$(CSRCDIR)/OpLogLe.c \
-	$(CSRCDIR)/OpLogOr.c \
-	$(CSRCDIR)/OpLogAnd.c \
-	$(CSRCDIR)/ConvertPrecision.c \
 	$(CSRCDIR)/ssqrts.c \
 	$(CSRCDIR)/dsqrts.c \
 	$(CSRCDIR)/csqrts.c \
@@ -489,16 +478,27 @@ SWSRCS	=	\
 	$(CSRCDIR)/srounds.c \
 	$(CSRCDIR)/srounda.c \
 	$(CSRCDIR)/zrounds.c \
-	$(CSRCDIR)/zrounda.c 
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	$(CSRCDIR)/zrounda.c
+
+
+
+
+#	$(CSRCDIR)/RealToComplex.c \
+#	$(CSRCDIR)/OpIns.c \
+#	$(CSRCDIR)/OpExt.c \
+#	$(CSRCDIR)/FileManagement.c \
+#	$(CSRCDIR)/OpLogLt.c \
+#	$(CSRCDIR)/OpLogGt.c \
+#	$(CSRCDIR)/OpLogGe.c \
+#	$(CSRCDIR)/OpLogLe.c \
+#	$(CSRCDIR)/OpLogOr.c \
+#	$(CSRCDIR)/OpLogAnd.c \
+#	$(CSRCDIR)/ConvertPrecision.c \
+
+
+
+
+
 #	$(CSRCDIR)/clog1ps.c \
 #	$(CSRCDIR)/zlog1ps.c \
 #	$(CSRCDIR)/clog1pa.c \
@@ -514,7 +514,7 @@ compileexecute: $(SWOBJS)
 	@echo "============================"
 	@echo "Generation of the executable"
 	@echo "============================"
-	$(CC) $(CFLAGS) $(SWOBJS) $(SCI2CDIR)/*.c -llapack -lblas -o $(EXEFILE)
+	$(CC) $(CFLAGS) $(SWOBJS) *.c -llapack -lblas -o $(EXEFILE)
 	@echo " "
 	@echo "=============="
 	@echo "Executing code"

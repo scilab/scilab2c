@@ -24,6 +24,7 @@ sci2c_FunctionListlib = lib(pathmacros + "FunctionList" + filesep());
 sci2c_GeneralFunctionslib = lib(pathmacros + "GeneralFunctions" + filesep());
 sci2c_SymbolTablelib = lib(pathmacros + "SymbolTable" + filesep());
 sci2c_ToolInitializationlib = lib(pathmacros + "ToolInitialization" + filesep());
+sci2c_finDeps = lib(pathmacros + "findDeps" + filesep());
 
 // load gateways
 //disp('Load gateways');

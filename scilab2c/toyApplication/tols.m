@@ -74,7 +74,7 @@ while hassignal || hastail
             fprintf(' - loop %i: signal finished, processing tail only.\n', i + 1);
         end
     end
-    
+
     % drop oldest frame and add new one
     % @real-time: can be implemented using a circular buffer
     if (i >= R)
@@ -93,7 +93,7 @@ while hassignal || hastail
         % @real-time: during convolution ending
         rstart = i - xframes + 1;
     end
-    
+
     % total length of y
     ylen = lenx + length(h) - 1;
     % end of output larger than expected result?
@@ -103,23 +103,23 @@ while hassignal || hastail
         hastail = 0;
         loops = i;
     end
-    
+
     % add most recent frame to convolution result
     if hastail == 1
         yylen = S;
-        y = [y; zeros(S,1)]; 
+        y = [y; zeros(S,1)];
     else
         yylen = S - (yyend - ylen);
         y = [y; zeros(yylen,1)];
         loops = i;
     end
-    
+
     % @real-time: loops over r can be done in parallel, also between
     % subsequent loops over i
     for r=rstart:rend
         rcirc = mod(i - (r - 1), R) + 1;
         % calculate partial convolution
-        Y = XX(:,rcirc) .* HH(:,r);        
+        Y = XX(:,rcirc) .* HH(:,r);
         yy = ifft(Y, L);
         % select last L-K points
         yy = yy(S+1:L);
@@ -127,16 +127,16 @@ while hassignal || hastail
         y(end-yylen+1:end) = y(end-yylen+1:end) + yy(1:yylen);
     end
     i = i+1;
-    
+
 end % while
 fprintf(' - total loops: %i\n', i);
 % TODO: make this independent of xlen
 %y = y(1:ylen);
-end % convolve
+endfunction % convolve
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [HH, R] = segmentir(h, K)
-% segment impulse response into columns, the last 
+% segment impulse response into columns, the last
 % frame/column is zero-padded as needed.
 % HH -- matrix of impulse response frames
 % R -- number of IR frames (=columns of HH)
@@ -151,10 +151,10 @@ function [HH, R] = segmentir(h, K)
         hlast = h((fullframes*K+1):length(h));
         hlast = [hlast ; zeros(K - length(hlast),1)];
         hh(:,fullframes+1) = hlast;
-    end 
+    end
     % column ffts
     HH = fft(hh, L);
     % for debugging 1:n: HH = round(ifft(HH));
     R = size(HH,2);
-end % segmentir
+endfunction % segmentir
 

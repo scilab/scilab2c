@@ -83,6 +83,27 @@ if (RunMode == 'All' | RunMode == 'Translate')
    end
 end
 
+
+
+// ---------------------------
+// --- Copy library files. ---
+// ---------------------------
+allSources = getAllSources();
+allHeaders = getAllHeaders();
+mkdir(SCI2COutputPath+"/src/");
+mkdir(SCI2COutputPath+"/src/c/");
+mkdir(SCI2COutputPath+"/includes/");
+//pause
+for i = 1:size(allSources, "*")
+  disp("Copying "+allSources(i)+" in "+SCI2COutputPath+"/src/c/");
+  copyfile(allSources(i), SCI2COutputPath+"/src/c/");
+end
+for i = 1:size(allHeaders, "*")
+  disp("Copying "+allHeaders(i)+" in "+SCI2COutputPath+"/includes/");
+  copyfile(allHeaders(i), SCI2COutputPath+"/includes/");
+end
+
+
 // --------------------------
 // --- Generate Makefile. ---
 // --------------------------
