@@ -1,3 +1,63 @@
+2007-09-07  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/auxiliaryFunctions/includes/rand.h :
+	Modification of funtions prototypes.
+	Array generation must be in a given array.
+
+2007-08-30  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/auxiliaryFunctions/pythag :
+	Add Pythag mangement for complex type.
+
+2007-07-11  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/*/Makefile.* :
+	Update Autotools version.
+	* src/configure :
+	Update Autotools version.
+
+2007-07-11  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/type/doubleComplex.c :
+	Begin complex operations. Must be improved/tested.
+
+2007-06-XX  Bruno JOFRET  <bruno.jofret@inria.fr>
+
+	* src/elementaryFunctions/acos :
+	Finalise Prototyping, add dummy code with FIXME.
+	* src/elementaryFunctions/acosh :
+	Finalise Prototyping, add dummy code with FIXME.
+	* src/elementaryFunctions/asin :
+	Finalise Prototyping, add dummy code with FIXME.
+	* src/elementaryFunctions/asinh :
+	Finalise Prototyping, add dummy code with FIXME.
+	* src/elementaryFunctions/atan :
+	Finalise Prototyping, add dummy code with FIXME.
+	* src/elementaryFunctions/atanh :
+	Finalise Prototyping, add dummy code with FIXME.
+	* src/elementaryFunctions/cos :
+	Finalise Prototyping, add dummy code with FIXME.
+	* src/elementaryFunctions/cosh :
+	Finalise Prototyping, add dummy code with FIXME.
+	* src/elementaryFunctions/exp :
+	Finalise Prototyping, add dummy code with FIXME.
+	* src/elementaryFunctions/exp10 :
+	Finalise Prototyping, add dummy code with FIXME.
+	* src/elementaryFunctions/log :
+	Finalise Prototyping, add dummy code with FIXME.
+	* src/elementaryFunctions/log10 :
+	Finalise Prototyping, add dummy code with FIXME.
+	* src/elementaryFunctions/sin :
+	Finalise Prototyping, add dummy code with FIXME.
+	* src/elementaryFunctions/sinh :
+	Finalise Prototyping, add dummy code with FIXME.
+	* src/elementaryFunctions/sqrt :
+	Finalise Prototyping, add dummy code with FIXME.
+	* src/elementaryFunctions/tan :
+	Finalise Prototyping, add dummy code with FIXME.
+	* src/elementaryFunctions/tanh :
+	Finalise Prototyping, add dummy code with FIXME.
+
 2007-05-07  Bruno JOFRET  <bruno.jofret@inria.fr>
 
 	* src/AuxiliaryFunctions/isnan :

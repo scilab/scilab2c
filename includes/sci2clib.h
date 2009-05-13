@@ -2,26 +2,26 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#include "SCI2CMacroInterface.h"
-#include "constant.h"
-#include "notFound.h"
-#include "doubleComplex.h"
-#include "floatComplex.h"
-#include "RealToComplex.h"
-#include "OpEqual.h"
-#include "OpIns.h"
-#include "OpExt.h"
-#include "FileManagement.h"
-#include "OpLogNe.h"
-#include "OpLogGt.h"
-#include "OpLogLt.h"
-#include "OpLogGe.h"
-#include "OpLogLe.h"
-#include "OpLogEq.h"
-#include "OpLogOr.h"
-#include "OpLogAnd.h"
-#include "OpLogNot.h"
-#include "ConvertPrecision.h"
+/* #include "SCI2CMacroInterface.h" */
+/* #include "constant.h" */
+/* #include "notFound.h" */
+/* #include "doubleComplex.h" */
+/* #include "floatComplex.h" */
+/* #include "RealToComplex.h" */
+/* #include "OpEqual.h" */
+/* #include "OpIns.h" */
+/* #include "OpExt.h" */
+/* #include "FileManagement.h" */
+/* #include "OpLogNe.h" */
+/* #include "OpLogGt.h" */
+/* #include "OpLogLt.h" */
+/* #include "OpLogGe.h" */
+/* #include "OpLogLe.h" */
+/* #include "OpLogEq.h" */
+/* #include "OpLogOr.h" */
+/* #include "OpLogAnd.h" */
+/* #include "OpLogNot.h" */
+/* #include "ConvertPrecision.h" */
 
 
 /* LIB */
