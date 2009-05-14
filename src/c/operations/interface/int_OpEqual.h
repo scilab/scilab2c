@@ -24,15 +24,15 @@
 
 #define z0OpEqualz0(in)					in
 
-#define s2OpPluss2(in1,size,out)			{int i=0;	\
+#define s2OpEquals2(in1,size,out)			{int i=0;	\
     for (i = 0 ; i<size[0] * size[1] ; i++) out[i]=in1[i];		\
   }
 
-#define d2OpPlusd2(in1,size,out)			{int i=0;	\
+#define d2OpEquald2(in1,size,out)			{int i=0;	\
     for (i = 0 ; i<size[0] * size[1] ; i++) out[i]=in1[i];		\
   }
 
-#define g2OpPlusg2(in1,size,out)			{int i=0;	\
+#define g2OpEqualg2(in1,size,out)			{int i=0;	\
     for (i = 0 ; i<size[0] * size[1] ; i++) out[i]=in1[i];		\
   }
 
