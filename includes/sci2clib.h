@@ -158,11 +158,15 @@
 
 
 /* OPERATIONS */
+/* interfacing assignation */
+#include "int_OpEqual.h"
 /* interfacing addition */
 #include "addition.h"
-#include "int_OpPlus.h"/* interfacing subtraction */
+#include "int_OpPlus.h"
+/* interfacing subtraction */
 #include "subtraction.h"
-#include "int_OpMinus.h"/* interfacing multiplication */
+#include "int_OpMinus.h"
+/* interfacing multiplication */
 #include "multiplication.h"
 #include "matrixMultiplication.h"
 #include "int_OpStar.h"
