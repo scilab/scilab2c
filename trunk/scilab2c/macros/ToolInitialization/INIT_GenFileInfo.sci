@@ -108,5 +108,5 @@ FileInfo.GeneralReport = fullfile(FileInfo.WorkingDir,'SCI2CGeneralReport.txt');
 FileInfo.CStyleSCI2CMainDir = pathconvert(FileInfo.SCI2CMainDir, %f, %f, 'u');
 FileInfo.CStyleOutCCCodeDir = pathconvert(OutCCCodeDir, %f, %f, 'u');
 FileInfo.MakefileFilename   = fullfile(FileInfo.CStyleOutCCCodeDir,'Makefile');
-FileInfo.MakefileTemplate   = fullfile(FileInfo.SCI2CMainDir,SCI+'/contrib/scilab2c/macros/CCodeGeneration','SCI2CMakefileTemplate.rc');
+FileInfo.MakefileTemplate   = fullfile(SCI+'/contrib/scilab2c/macros/CCodeGeneration','SCI2CMakefileTemplate.rc');
 endfunction
