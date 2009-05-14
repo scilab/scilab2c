@@ -52,10 +52,11 @@ RunSci2CMainDir = pwd();
 [FileInfoDatFile,SharedInfoDatFile] = INIT_SCI2C(UserScilabMainFile, ...
 						 UserSciFilesPaths, SCI2COutputPath, RunMode);
 
-// --- Load RunMode. ---
+// -- Load FileInfo and SharedInfo
 load(SharedInfoDatFile,'SharedInfo');
+load(FileInfoDatFile,'FileInfo');
+
 RunMode = SharedInfo.RunMode;
-clear ShareInfo
 
 // --- Generation of the library structure. ---
 if (RunMode == 'GenLibraryStructure' | RunMode == 'All')
@@ -90,37 +91,48 @@ end
 // ---------------------------
 allSources = getAllSources();
 allHeaders = getAllHeaders();
+allInterfaces = getAllInterfaces();
+
 mkdir(SCI2COutputPath+"/src/");
 mkdir(SCI2COutputPath+"/src/c/");
 mkdir(SCI2COutputPath+"/includes/");
-//pause
+mkdir(SCI2COutputPath+"/interfaces/");
+
+// -- Sources
+PrintStepInfo('Copying sources needed in ' + SCI2COutputPath + ...
+	      "/src/c/", FileInfo.GeneralReport,'both');
 for i = 1:size(allSources, "*")
-  disp("Copying "+allSources(i)+" in "+SCI2COutputPath+"/src/c/");
+  //disp("Copying "+allSources(i)+" in "+SCI2COutputPath+"/src/c/");
   copyfile(allSources(i), SCI2COutputPath+"/src/c/");
 end
+
+// -- Includes
+PrintStepInfo('Copying headers needed in ' + SCI2COutputPath + ...
+	      "/includes/", FileInfo.GeneralReport,'both');
 for i = 1:size(allHeaders, "*")
-  disp("Copying "+allHeaders(i)+" in "+SCI2COutputPath+"/includes/");
+  //disp("Copying "+allHeaders(i)+" in "+SCI2COutputPath+"/includes/");
   copyfile(allHeaders(i), SCI2COutputPath+"/includes/");
 end
 
+// -- Interfaces
+PrintStepInfo('Copying interfaces needed in ' + SCI2COutputPath + ...
+	      "/interfaces/", FileInfo.GeneralReport,'both');
+for i = 1:size(allInterfaces, "*")
+  //disp("Copying "+allInterfaces(i)+" in "+SCI2COutputPath+"/interfaces/");
+  copyfile(allInterfaces(i), SCI2COutputPath+"/interfaces/");
+end
 
 // --------------------------
 // --- Generate Makefile. ---
 // --------------------------
-load(FileInfoDatFile,'FileInfo');
-load(SharedInfoDatFile,'SharedInfo');
 C_GenerateMakefile(FileInfo,SharedInfo);
-clear FileInfo
-clear SharedInfo
 
 // -----------------
 // --- Epilogue. ---
 // -----------------
-load(FileInfoDatFile,'FileInfo');
 if (RunMode == 'All' | RunMode == 'Translate')
    PrintStepInfo('Translation Successfully Completed!!!',FileInfo.GeneralReport,'both');
 elseif (RunMode == 'GenLibraryStructure')
    PrintStepInfo('Library Structure Successfully Created!!!',FileInfo.GeneralReport,'both');
 end
-clear FileInfo
 endfunction
