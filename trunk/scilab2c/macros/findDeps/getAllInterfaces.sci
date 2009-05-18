@@ -80,6 +80,7 @@ function allInterfaces = getAllInterfaces()
       "src/c/statisticsFunctions/interfaces/int_prod.h"
       "src/c/statisticsFunctions/interfaces/int_variance.h"
       "src/c/statisticsFunctions/interfaces/int_sum.h"
+      "src/c/operations/interface/int_OpEqual.h"
       "src/c/operations/interface/int_OpDotStar.h"
       "src/c/operations/interface/int_OpDotSlash.h"
       "src/c/operations/interface/int_OpBackSlash.h"
