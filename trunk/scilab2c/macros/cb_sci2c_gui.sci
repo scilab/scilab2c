@@ -36,12 +36,12 @@ elseif get(gcbo,"tag")=="subfunsbtn" then
 //
 // --- Header file ---
 //
-elseif get(gcbo,"tag")=="headerbtn" then
+// elseif get(gcbo,"tag")=="headerbtn" then
 
-  filename = uigetfile("*.h", getcwd(), gettext("Select SciLib main header file"));
-  if ~isempty(filename) then
-    set(findobj("tag", "headeredit"), "string", filename);
-  end
+//   filename = uigetfile("*.h", getcwd(), gettext("Select SciLib main header file"));
+//   if ~isempty(filename) then
+//     set(findobj("tag", "headeredit"), "string", filename);
+//   end
 
 //
 // --- Output directory ---
@@ -99,7 +99,7 @@ elseif get(gcbo, "tag")=="convertbtn" then
 
   UserSciFilesPaths = get(findobj("tag", "subfunsedit"), "string");
 
-  Sci2CLibMainHeaderFName = get(findobj("tag", "headeredit"), "string");
+//  Sci2CLibMainHeaderFName = get(findobj("tag", "headeredit"), "string");
 
   UserSciCodeMainDir = get(findobj("tag", "outedit"), "string");
 
@@ -117,13 +117,13 @@ elseif get(gcbo, "tag")=="convertbtn" then
     CCompilerPathStyle = "windows";
   elseif get(findobj("tag", "pathsradiounix"), "value") == 1 then
     CCompilerPathStyle = "unix";
-  else
-    CCompilerPathStyle = "cygwin";
+//  else
+//    CCompilerPathStyle = "cygwin";
   end
 
   mprintf("UserScilabMainFile = {%s}\n", UserScilabMainFile);
   mprintf("UserSciFilesPaths = {%s}\n", UserSciFilesPaths);
-  mprintf("Sci2CLibMainHeaderFName = {%s}\n", Sci2CLibMainHeaderFName);
+//  mprintf("Sci2CLibMainHeaderFName = {%s}\n", Sci2CLibMainHeaderFName);
   mprintf("UserSciCodeMainDir = {%s}\n", UserSciCodeMainDir);
   mprintf("RunMode = {%s}\n", RunMode);
   mprintf("CopySciCodeIntoCCode = {%d}\n", bool2s(CopySciCodeIntoCCode));
