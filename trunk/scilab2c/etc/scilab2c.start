@@ -19,11 +19,11 @@ sci2c_mainlib = lib(pathmacros);
 sci2c_ASTManagementlib = lib(pathmacros + "ASTManagement" + filesep());
 sci2c_CCodeGenerationlib = lib(pathmacros + "CCodeGeneration" + filesep());
 sci2c_ErrorMessageslib = lib(pathmacros + "ErrorMessages" + filesep());
-sci2c_FunctionAnnotationlib = lib(pathmacros + "FunctionAnnotation"+ filesep());
-sci2c_FunctionListlib = lib(pathmacros + "FunctionList" + filesep());
-sci2c_GeneralFunctionslib = lib(pathmacros + "GeneralFunctions" + filesep());
+sci2c_FunAnnotationlib = lib(pathmacros + "FunctionAnnotation"+ filesep());
+sci2c_FunListlib = lib(pathmacros + "FunctionList" + filesep());
+sci2c_GenFunctionslib = lib(pathmacros + "GeneralFunctions" + filesep());
 sci2c_SymbolTablelib = lib(pathmacros + "SymbolTable" + filesep());
-sci2c_ToolInitializationlib = lib(pathmacros + "ToolInitialization" + filesep());
+sci2c_ToolInitlib = lib(pathmacros + "ToolInitialization" + filesep());
 sci2c_finDeps = lib(pathmacros + "findDeps" + filesep());
 
 // load gateways
