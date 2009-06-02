@@ -182,6 +182,8 @@
 
 
 /* MATRIX OPERATIONS */
+/* interfacing extraction */
+#include "int_OpExt.h"
 /* interfacing cat */
 #include "cat.h"
 #include "int_OpRc.h"
