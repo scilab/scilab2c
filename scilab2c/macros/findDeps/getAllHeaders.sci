@@ -104,6 +104,7 @@ function allHeaders = getAllHeaders()
       "src/c/string/includes/string.h"
       "src/c/signalProcessing/fft/fft_internal.h"
       "src/c/signalProcessing/ifft/ifft_internal.h"
+      "src/c/signalProcessing/levin/levinUtils.h"
       "src/c/signalProcessing/includes/hilbert.h"
       "src/c/signalProcessing/includes/fft.h"
       "src/c/signalProcessing/includes/lev.h"
