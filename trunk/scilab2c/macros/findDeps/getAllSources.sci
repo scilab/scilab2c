@@ -523,7 +523,6 @@ function allSources = getAllSources()
       "src/c/signalProcessing/ifft/ir2tx.c"
       "src/c/signalProcessing/ifft/ir4tx.c"
       "src/c/signalProcessing/ifft/ir8tx.c"
-      "src/c/signalProcessing/ifft/diffbi_lavraie.c"
       "src/c/signalProcessing/fftshift/crowfftshifta.c"
       "src/c/signalProcessing/fftshift/sfftshifta.c"
       "src/c/signalProcessing/fftshift/drowfftshifta.c"
