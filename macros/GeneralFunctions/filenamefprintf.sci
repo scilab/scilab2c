@@ -34,9 +34,9 @@ SCI2CNInArgCheck(argn(2),3,3);
       SCI2Cerror(mess);
    end
    if ennewline=='y' then
-      mfprintf(FidReportFile,'%s\n',str);
+      mfprintf(FidReportFile, str+'\n');
    else
-      mfprintf(FidReportFile,'%s',str);
+      mfprintf(FidReportFile, str);
    end
    mclose(FidReportFile);
    
