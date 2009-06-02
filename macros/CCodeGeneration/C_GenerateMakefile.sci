@@ -53,22 +53,77 @@ PrintStringInfo('HSRCDIR     = '+makehsrcdir,FileInfo.MakefileFilename,'file','y
 PrintStringInfo('ISRCDIR     = '+makeisrcdir,FileInfo.MakefileFilename,'file','y');
 //PrintStringInfo('SCI2CDIR    = '+makesci2cdir,FileInfo.MakefileFilename,'file','y');
 PrintStringInfo('SCI2CDIR    = .',FileInfo.MakefileFilename,'file','y');
+
+// Compiler definition
+PrintStringInfo('CC     = gcc',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('CFLAGS = -Wall -pedantic -O3 -I $(HSRCDIR) -I $(ISRCDIR) -lm',FileInfo.MakefileFilename,'file','y');
+
+// Binary definition
 PrintStringInfo('EXEFILENAME = mytest.exe',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('EXEFILE = $(SCI2CDIR)/$(EXEFILENAME)', FileInfo.MakefileFilename,'file','y');
+
+// Sources
+PrintStringInfo('SRC = \\', FileInfo.MakefileFilename,'file','y');
+allSources = getAllSources();
+nbSources = size(allSources);
+for i = 1:(nbSources(1) - 1)
+  [tmppath,tmpfile,tmpext] = fileparts(allSources(i));
+  PrintStringInfo('    $(CSRCDIR)/'+tmpfile+tmpext+' \\', FileInfo.MakefileFilename,'file','y');
+end
+[tmppath,tmpfile,tmpext] = fileparts(allSources(nbSources(1)));
+PrintStringInfo('    $(CSRCDIR)/'+tmpfile+tmpext, FileInfo.MakefileFilename,'file','y');
+
+// Objects
+PrintStringInfo('OBJ = $(SRC:.c=.o)', FileInfo.MakefileFilename,'file','y');
+
+// Rules
+PrintStringInfo('# ---------------',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('# --- TARGETS ---',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('# ---------------',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('compileexecute: $(OBJ)',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('\t@echo "" ""',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('\t@echo ""============================""',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('\t@echo ""Generation of the executable""',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('\t@echo ""============================""',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('\t$(CC) $(CFLAGS) $(OBJ) *.c -llapack -lblas -o $(EXEFILE)',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('\t@echo "" ""',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('\t@echo ""==============""',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('\t@echo ""Executing code""',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('\t@echo ""==============""',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('\t$(EXEFILE)',FileInfo.MakefileFilename,'file','y');
+
+PrintStringInfo('clean:',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('\t@echo "" ""',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('\t@echo ""=============================""',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('\t@echo ""Removing only exe + obj files""',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('\t@echo ""=============================""',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('\trm -rf $(EXEFILE)',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('\trm -rf $(OBJ)',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('\t@echo "" ""',FileInfo.MakefileFilename,'file','y');
+
+PrintStringInfo('distclean: clean',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('\t@echo "" ""',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('\t@echo ""==========================""',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('\t@echo ""Removing only the exe file""',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('\t@echo ""==========================""',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('\trm -rf $(EXEFILE)',FileInfo.MakefileFilename,'file','y');
+PrintStringInfo('\t@echo "" ""',FileInfo.MakefileFilename,'file','y');
+
 
 // -------------------------------
 // --- Open template makefile. ---
 // -------------------------------
-fidfile = SCI2COpenFileRead(FileInfo.MakefileTemplate);
+//fidfile = SCI2COpenFileRead(FileInfo.MakefileTemplate);
 
 // -------------------
 // --- Read lines. ---
 // -------------------
-tmpline = mgetl(fidfile,1);
-while (meof(fidfile) == 0)
-  PrintStringInfo(tmpline,FileInfo.MakefileFilename,'file','y');
-  tmpline = mgetl(fidfile,1);
-end
+//tmpline = mgetl(fidfile,1);
+//while (meof(fidfile) == 0)
+// PrintStringInfo(tmpline,FileInfo.MakefileFilename,'file','y');
+//  tmpline = mgetl(fidfile,1);
+//end
 
-mclose(fidfile);
+//mclose(fidfile);
 
 endfunction
