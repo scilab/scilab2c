@@ -1,5 +1,5 @@
-function PrintStringInfo(str, filename, outputtype, ennewline)
-// function PrintStringInfo(str,filename,outputtype,ennewline)
+function PrintStringInfo(str, filename, outputtype, ennewline,formattedstring)
+// function PrintStringInfo(str,filename,outputtype,ennewline,formattedstring)
 // -----------------------------------------------------------------
 // #RNU_RES_B
 // Prints a string into a file or on the stdout or on both.
@@ -14,6 +14,8 @@ function PrintStringInfo(str, filename, outputtype, ennewline)
 //             Default is 'stdout'.
 // ennewline: optional (default = 'y'); If y adds a newline character
 //            at the end of the input string.
+// formattedstring: if 'n' (default) it means that str is considered as a simple string (mputstr).
+//                  if 'y' then str is considered formatted according to mfprint syntax
 //
 // Output data:
 // ---
@@ -31,8 +33,10 @@ function PrintStringInfo(str, filename, outputtype, ennewline)
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-SCI2CNInArgCheck(argn(2),0,4);
+SCI2CNInArgCheck(argn(2),0,5);
 
+if argn(2) < 5
+   formattedstring = 'n';
    if argn(2) < 4
       ennewline = 'y';
       if argn(2) < 3
@@ -45,21 +49,21 @@ SCI2CNInArgCheck(argn(2),0,4);
          end
       end
    end
+end
+if (length(filename) == 0) then 
+   outputtype = 'stdout'; // Prints only on the stdout.
+end
 
-   if (length(filename) == 0) then 
-      outputtype = 'stdout'; // Prints only on the stdout.
-   end
+if (outputtype=='both') | (outputtype=='stdout')
+   disp(str)
+end
 
-   if (outputtype=='both') | (outputtype=='stdout')
-      disp(str)
+if (outputtype=='both') | (outputtype=='file')
+   if (ennewline=='y')
+      filenamefprintf(filename,'y',str,formattedstring);
+   else
+      filenamefprintf(filename,'n',str,formattedstring);
    end
-
-   if (outputtype=='both') | (outputtype=='file')
-      if (ennewline=='y')
-         filenamefprintf(filename,'y',str);
-      else
-         filenamefprintf(filename,'n',str);
-      end
-   end
+end
    
 endfunction

@@ -100,16 +100,16 @@ for counterinputargs = 1:NInArg
 end
 
 //#RNU_RES_B
-PrintStringInfo('Function Name: '+FunctionName,ReportFileName,'file','y');
-PrintStringInfo('N Intput Arguments: '+string(NInArg),ReportFileName,'file','y');
-PrintStringInfo('N Output Arguments: '+string(NOutArg),ReportFileName,'file','y');
+PrintStringInfo('Function Name: '+FunctionName,ReportFileName,'file','y','n');
+PrintStringInfo('N Intput Arguments: '+string(NInArg),ReportFileName,'file','y','n');
+PrintStringInfo('N Output Arguments: '+string(NOutArg),ReportFileName,'file','y','n');
 //#RNU_RES_E
 for counterinputargs = 1:NInArg
    //#RNU_RES_B
    PrintStringInfo('Input Argument Number '+string(counterinputargs)+': '+InArg(counterinputargs).Name,...
-      ReportFileName,'file','y');
+      ReportFileName,'file','y','n');
    PrintStringInfo('   Scope: '+InArg(counterinputargs).Scope,...
-      ReportFileName,'file','y');
+      ReportFileName,'file','y','n');
    //#RNU_RES_E
 end
 

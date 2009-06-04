@@ -44,8 +44,8 @@ global StackPosition;
 global STACKDEDUG
 
 //#RNU_RES_B
-PrintStringInfo(' ',ReportFileName,'file','y');
-PrintStringInfo('***Reading AST***',ReportFileName,'file','y');
+PrintStringInfo(' ',ReportFileName,'file','y','n');
+PrintStringInfo('***Reading AST***',ReportFileName,'file','y','n');
 //#RNU_RES_E
 
 // -------------------------------
@@ -122,8 +122,8 @@ end
 // --- Print Some Info. ---
 // ------------------------
 //#RNU_RES_B
-PrintStringInfo('Function Name: '+FunctionName,ReportFileName,'file','y');
-PrintStringInfo('N Intput Arguments: '+string(NInArg),ReportFileName,'file','y');
+PrintStringInfo('Function Name: '+FunctionName,ReportFileName,'file','y','n');
+PrintStringInfo('N Intput Arguments: '+string(NInArg),ReportFileName,'file','y','n');
 //#RNU_RES_E
 if (SharedInfo.Equal.Nins > 0)
    //#RNU_RES_B
@@ -147,17 +147,17 @@ else
    for counterinputargs = 1:NInArg
       //#RNU_RES_B
       PrintStringInfo('Input Argument Number '+string(counterinputargs)+': '+InArg(counterinputargs).Name,...
-         ReportFileName,'file','y');
+         ReportFileName,'file','y','n');
       PrintStringInfo('   Scope: '+InArg(counterinputargs).Scope,...
-         ReportFileName,'file','y');
+         ReportFileName,'file','y','n');
       //#RNU_RES_E
    end
    for counteroutputargs = 1:NOutArg
       //#RNU_RES_B
       PrintStringInfo('Output Argument Number '+string(counteroutputargs)+': '+OutArg(counteroutputargs).Name,...
-         ReportFileName,'file','y');
+         ReportFileName,'file','y','n');
       PrintStringInfo('   Scope: '+OutArg(counterinputargs).Scope,...
-         ReportFileName,'file','y');
+         ReportFileName,'file','y','n');
       //#RNU_RES_E
    end
    if (NInArg ~= NOutArg)

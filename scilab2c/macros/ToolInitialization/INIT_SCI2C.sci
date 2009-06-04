@@ -79,7 +79,7 @@ PrintStepInfo('SCI2C hArtes/POLIBA Tool!!!',FileInfo.GeneralReport,'stdout');
 // ----------------------------------------------------
 // --- Remove previous versions of SCI2C files/dir. ---
 // ----------------------------------------------------
-//-- INIT_RemoveDirs(FileInfo,SharedInfo.RunMode);
+INIT_RemoveDirs(FileInfo,SharedInfo.RunMode);
 
 // ---------------------------
 // --- Create Directories. ---
