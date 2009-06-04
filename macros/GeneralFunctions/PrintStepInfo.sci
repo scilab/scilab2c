@@ -1,5 +1,5 @@
-function PrintStepInfo(inputstring,filename,outputtype)
-// function PrintStepInfo(inputstring,filename,outputtype)
+function PrintStepInfo(inputstring,filename,outputtype,formattedstring)
+// function PrintStepInfo(inputstring,filename,outputtype,formattedstring)
 // -----------------------------------------------------------------
 // #RNU_RES_B
 // Prints a string by using a predefined format into a file or on 
@@ -13,6 +13,8 @@ function PrintStepInfo(inputstring,filename,outputtype)
 //             'stdout' -> prints only on the stdout.
 //             'both' -> prints on both file and stdoud.
 //             Default is 'stdout'.
+// formattedstring: if 'n' (default) it means that str is considered as a simple string (mputstr).
+//                  if 'y' then str is considered formatted according to mfprint syntax
 // Output data:
 //
 // #RNU_RES_E
@@ -27,13 +29,15 @@ function PrintStepInfo(inputstring,filename,outputtype)
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-SCI2CNInArgCheck(argn(2),1,3);
+SCI2CNInArgCheck(argn(2),1,4);
 
-
-if argn(2) < 3
-	bothout = 'n';
-   if argn(2) < 2
-	   filename = '';
+if argn(2) < 4
+   formattedstring = 'n';
+   if argn(2) < 3
+      bothout = 'n';
+      if argn(2) < 2
+         filename = '';
+      end
    end
 end
 if (length(filename) == 0)
@@ -57,11 +61,11 @@ if ((outputtype=='both') | (outputtype=='stdout'))
 end
 
 if ((outputtype=='both') | (outputtype=='file'))
-   filenamefprintf(filename,'y',' ');
-   filenamefprintf(filename,'y',' ');
-   filenamefprintf(filename,'y',blankstring+'    '+starstring);
-   filenamefprintf(filename,'y',blankstring+'==> '+inputstring);
-   filenamefprintf(filename,'y',blankstring+'    '+starstring);
-   filenamefprintf(filename,'y',' ');
+   filenamefprintf(filename,'y',' ',formattedstring);
+   filenamefprintf(filename,'y',' ',formattedstring);
+   filenamefprintf(filename,'y',blankstring+'    '+starstring,formattedstring);
+   filenamefprintf(filename,'y',blankstring+'==> '+inputstring,formattedstring);
+   filenamefprintf(filename,'y',blankstring+'    '+starstring,formattedstring);
+   filenamefprintf(filename,'y',' ',formattedstring);
 end
 endfunction

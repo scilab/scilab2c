@@ -42,7 +42,7 @@ CPass1FreeFileName   = FileInfo.Funct(nxtscifunnumber).CPass1FreeFileName;
 
 // #RNU_RES_B
 PrintStringInfo(' ',ReportFileName,'file','y');
-PrintStringInfo('***Putting output arguments in the symbol table***',ReportFileName,'file','y');
+PrintStringInfo('***Putting output arguments in the symbol table***',ReportFileName,'file','y','n');
 // #RNU_RES_E
 // ---------------------------
 // --- End Initialization. ---
@@ -51,15 +51,15 @@ PrintStringInfo('***Putting output arguments in the symbol table***',ReportFileN
 
 for counteroutput = 1:NOutArg
    // #RNU_RES_B
-   PrintStringInfo('   Symbol ""'+OutArg(counteroutput).Name+'""',ReportFileName,'file','y');
-   PrintStringInfo('   Type:      '+OutArg(counteroutput).Type,ReportFileName,'file','y');
-   PrintStringInfo('   Size(1):   '+string(OutArg(counteroutput).Size(1)),ReportFileName,'file','y');
-   PrintStringInfo('   Size(2):   '+string(OutArg(counteroutput).Size(2)),ReportFileName,'file','y');
-   PrintStringInfo('   Value:     '+string(OutArg(counteroutput).Value),ReportFileName,'file','y');
-   PrintStringInfo('   FindLike:  '+string(OutArg(counteroutput).FindLike),ReportFileName,'file','y');
-   PrintStringInfo('   Dimension: '+string(OutArg(counteroutput).Dimension),ReportFileName,'file','y');
-   PrintStringInfo('   Scope:     '+string(OutArg(counteroutput).Scope),ReportFileName,'file','y');
-   PrintStringInfo(' ',ReportFileName,'file','y');
+   PrintStringInfo('   Symbol ""'+OutArg(counteroutput).Name+'""',ReportFileName,'file','y','n');
+   PrintStringInfo('   Type:      '+OutArg(counteroutput).Type,ReportFileName,'file','y','n');
+   PrintStringInfo('   Size(1):   '+string(OutArg(counteroutput).Size(1)),ReportFileName,'file','y','n');
+   PrintStringInfo('   Size(2):   '+string(OutArg(counteroutput).Size(2)),ReportFileName,'file','y','n');
+   PrintStringInfo('   Value:     '+string(OutArg(counteroutput).Value),ReportFileName,'file','y','n');
+   PrintStringInfo('   FindLike:  '+string(OutArg(counteroutput).FindLike),ReportFileName,'file','y','n');
+   PrintStringInfo('   Dimension: '+string(OutArg(counteroutput).Dimension),ReportFileName,'file','y','n');
+   PrintStringInfo('   Scope:     '+string(OutArg(counteroutput).Scope),ReportFileName,'file','y','n');
+   PrintStringInfo(' ',ReportFileName,'file','y','n');
    // #RNU_RES_E
    
    if mtlb_strcmp(OutArg(counteroutput).Scope,'Temp')

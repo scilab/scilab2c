@@ -30,6 +30,9 @@ SCI2CNInArgCheck(argn(2),3,3);
 
       
 C_SCI2CHeader(HeaderFileName);
+[tmppath,tmpfname,tmpextension]=fileparts(HeaderFileName);
+PrintStringInfo('#ifndef '+tmpfname+'_h',HeaderFileName,'file','y');
+PrintStringInfo('#define '+tmpfname+'_h',HeaderFileName,'file','y');
 PrintStringInfo('/*',HeaderFileName,'file','y');
 PrintStringInfo('** ----------------------- ',HeaderFileName,'file','y');
 PrintStringInfo('** --- SCI2C Includes. --- ',HeaderFileName,'file','y');
