@@ -2,19 +2,29 @@
 
 function mainfunction()
 
-//test OpColon
+// ------------------------------
+// --- Simple Scalar Addition ---
+// ------------------------------
+a = 1;
+b = 2;
+c = 0;
+c = a + b;
+disp(c);
 
+// ------------------------------
+// --- Trigonometric Identity ---
+// ------------------------------
+x = (1:3)' * (4:9);
+y = (sin(x).^2) + (cos(x).^2);
+disp(x);
+disp(y-ones(3,6));
 
-2+%i:2-%i
-
-1+%i:6+%i*5
-
-2+%i*3:1-%i*4:2+%i*2
-
-2+%i:1+%i:5+%i
-
-1+%i:2+%i:1+%i
-
-1+%i:3+%i:10+%i
-
+// -------------------------------
+// --- Computation of Distance ---
+// -------------------------------
+// generate a vector w 
+w = cos(sin(cos(x*3)*2).* x+ones(3,6).*cos(x-sin(y*2))); 
+distxw = sqrt(x.^2 + w.^2);
+disp(distxw);
 endfunction
+   

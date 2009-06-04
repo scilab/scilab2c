@@ -35,7 +35,7 @@ CPass1ForEpilFileName = FileInfo.Funct(nxtscifunnumber).CPass1ForEpilFileName(Sh
 
 // #RNU_RES_B
 PrintStringInfo(' ',ReportFileName,'file','y');
-PrintStringInfo('***Generating C code***',ReportFileName,'file','y');
+PrintStringInfo('***Generating C code***',ReportFileName,'file','y','n');
 // #RNU_RES_E
 CCall ='';
 // ---------------------------
@@ -97,11 +97,20 @@ elseif (SharedInfo.ForExpr.AssignmentFun == SharedInfo.CFunId.OpColon)
       // #RNU_RES_B
       // Prologue
       // #RNU_RES_E
-      PrintStringInfo(C_IndentBlanks(SharedInfo.NIndent)+C_Strings(cntstr),CPass1FileName,'file','y');
+      PrintStringInfo(C_IndentBlanks(SharedInfo.NIndent)+C_Strings(cntstr),CPass1FileName,'file','y','n');
       // #RNU_RES_B
       // Epilogue
       // #RNU_RES_E
-      PrintStringInfo(C_Strings(cntstr),CPass1ForEpilFileName ,'file','y');
+      disp('C_Strings(cntstr)')
+      disp(C_Strings(cntstr))
+      disp('CPass1ForEpilFileName')
+      disp(CPass1ForEpilFileName)
+      if (length(C_Strings(cntstr)) == 0)
+         C_Strings(cntstr) = ''; // If I don't do that I get a PrintStringInfo error related to mputstr.
+         // Function not defined for given argument type(s),
+         // check arguments or define function %0_mputstr for overloading.
+      end
+      PrintStringInfo(string(C_Strings(cntstr)),CPass1ForEpilFileName ,'file','y','n');
    end
    // #RNU_RES_B
    // ----------------------------------------

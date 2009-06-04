@@ -41,22 +41,22 @@ IndentLevel     = SharedInfo.NIndent;
 
 PrintStepInfo('Handling EOL',ReportFileName,'file');
 sciline = mgetl(SciFileFid,1);
-
+   
 // #RNU_RES_B
-PrintStringInfo(' ',ReportFileName,'file','y');
-PrintStringInfo('##################'+'################'+'##################'+'##################'+'##################',ReportFileName,'file','y');
-PrintStringInfo('##################'+'################'+'##################'+'##################'+'##################',ReportFileName,'file','y');
-PrintStringInfo('### Scilab code: '+sciline+' ###',ReportFileName,'file','y');
-PrintStringInfo('##################'+'################'+'##################'+'##################'+'##################',ReportFileName,'file','y');
-PrintStringInfo('##################'+'################'+'##################'+'##################'+'##################',ReportFileName,'file','y');
+PrintStringInfo(' ',ReportFileName,'file','y','n');
+PrintStringInfo('##################'+'################'+'##################'+'##################'+'##################',ReportFileName,'file','y','n');
+PrintStringInfo('##################'+'################'+'##################'+'##################'+'##################',ReportFileName,'file','y','n');
+PrintStringInfo('### Scilab code: '+sciline+' ###',ReportFileName,'file','y','n');
+PrintStringInfo('##################'+'################'+'##################'+'##################'+'##################',ReportFileName,'file','y','n');
+PrintStringInfo('##################'+'################'+'##################'+'##################'+'##################',ReportFileName,'file','y','n');
 // #RNU_RES_E
 PrintStringInfo(' ',CPass1FileName,'file','y');
 modeprintstringinfo = 'stdout';
 if (SharedInfo.CopySciCodeIntoCCode == 1)
    modeprintstringinfo = 'both';
 end
-PrintStringInfo(C_IndentBlanks(IndentLevel)+'/*SCI2C: #############'+'############'+'##############'+'###############'+'############',CPass1FileName,modeprintstringinfo,'y');
-PrintStringInfo(C_IndentBlanks(IndentLevel)+'  SCI2C: '+sciline,CPass1FileName,modeprintstringinfo,'y');
-PrintStringInfo(C_IndentBlanks(IndentLevel)+'  SCI2C: #############'+'############'+'##############'+'###############'+'############*/',CPass1FileName,modeprintstringinfo,'y');
+PrintStringInfo(C_IndentBlanks(IndentLevel)+'/*SCI2C: #############'+'############'+'##############'+'###############'+'############',CPass1FileName,modeprintstringinfo,'y','n');
+PrintStringInfo(C_IndentBlanks(IndentLevel)+'  SCI2C: '+sciline,CPass1FileName,modeprintstringinfo,'y','n');
+PrintStringInfo(C_IndentBlanks(IndentLevel)+'  SCI2C: #############'+'############'+'##############'+'###############'+'############*/',CPass1FileName,modeprintstringinfo,'y','n');
 
 endfunction

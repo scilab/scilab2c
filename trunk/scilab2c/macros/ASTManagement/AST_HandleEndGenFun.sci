@@ -419,7 +419,8 @@ load(FunInfoDatFileName,'FunInfo');
 //#RNU_RES_B
 // --- Generate include. ---
 //#RNU_RES_E
-if ((Flag_FunAlreadyCalled == 0) & (FunInfo.LibTypeInfo == 'USER2C'))
+if ((Flag_FunAlreadyCalled == 0) & (FunInfo.LibTypeInfo == 'USER2C') & (SharedInfo.NextCFunName ~= CFunName)) 
+   // (SharedInfo.NextCFunName ~= CFunName) I don't want an include in the same file. Ex. in main.h I don't want include "main.h"
    // #RNU_RES_B
    PrintStringInfo('Adding include',ReportFileName,'file','y');
    PrintStringInfo('#include ""'+CFunName+'.h""',...

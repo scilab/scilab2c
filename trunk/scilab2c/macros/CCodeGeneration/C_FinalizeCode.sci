@@ -50,6 +50,7 @@ PrintStringInfo('** ---------------------------- ',Pass1HeaderFileName,'file','y
 PrintStringInfo('** --- End USER2C Includes. --- ',Pass1HeaderFileName,'file','y');
 PrintStringInfo('** ---------------------------- ',Pass1HeaderFileName,'file','y');
 PrintStringInfo('*/',Pass1HeaderFileName,'file','y');
+PrintStringInfo('#endif',Pass1HeaderFileName,'file','y');
 // -------------------------------------
 // --- End Finalize the header file. ---
 // -------------------------------------
