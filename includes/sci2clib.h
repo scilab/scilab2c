@@ -185,6 +185,10 @@
 /* interfacing comparison */
 #include "int_OpLogEq.h"
 #include "int_OpLogNe.h"
+#include "int_OpLogGt.h"
+#include "int_OpLogGe.h"
+#include "int_OpLogLt.h"
+#include "int_OpLogLe.h"
 
 
 /* MATRIX OPERATIONS */
