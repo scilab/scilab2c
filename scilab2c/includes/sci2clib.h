@@ -1,9 +1,11 @@
+#ifndef __SCI2CLIB_H__
+#define __SCI2CLIB_H__
+
 #define SCI2Cint int
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
 /* #include "SCI2CMacroInterface.h" */
-/* #include "constant.h" */
 /* #include "notFound.h" */
 /* #include "doubleComplex.h" */
 /* #include "floatComplex.h" */
@@ -23,6 +25,8 @@
 /* #include "OpLogNot.h" */
 /* #include "ConvertPrecision.h" */
 
+/* CONSTANT */
+#include "constant.h"
 
 /* LIB */
 /* interfacing lapack */
@@ -178,7 +182,8 @@
 #include "int_OpDotSlash.h"
 #include "int_OpBackSlash.h"
 #include "int_OpDotBackSlash.h"
-
+/* interfacing comparison */
+#include "int_OpLogEq.h"
 
 
 /* MATRIX OPERATIONS */
@@ -268,3 +273,4 @@
 /* interfacing imag */
 #include "int_imag.h"
 
+#endif /* !__SCI2CLIB_H__ */
