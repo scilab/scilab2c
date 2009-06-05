@@ -184,6 +184,7 @@
 #include "int_OpDotBackSlash.h"
 /* interfacing comparison */
 #include "int_OpLogEq.h"
+#include "int_OpLogNe.h"
 
 
 /* MATRIX OPERATIONS */
