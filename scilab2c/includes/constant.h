@@ -13,8 +13,19 @@
 #ifndef __CONSTANT_H__
 #define __CONSTANT_H__
 
+#include <math.h>
+
 #define FPI 3.1415926535897931159980f
 #define DPI 3.1415926535897931159980
+
+#define PI DPI
+#define SCI2C_PI DPI
+#define SCI2C_T 1
+#define SCI2C_F 0
+#define SCI2C_NAN nan("")
+#define SCI2C_INF 1e100000
+#define SCI2C_IMG_C FloatComplex(0,1)
+#define SCI2C_IMG_Z DoubleComplex(0,1)
 
 #endif /* !__CONSTANT_H__ */
 
