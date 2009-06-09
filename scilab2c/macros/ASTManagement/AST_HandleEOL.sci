@@ -51,7 +51,8 @@ PrintStringInfo('##################'+'################'+'##################'+'##
 PrintStringInfo('##################'+'################'+'##################'+'##################'+'##################',ReportFileName,'file','y','n');
 // #RNU_RES_E
 PrintStringInfo(' ',CPass1FileName,'file','y');
-modeprintstringinfo = 'stdout';
+// RNU BRUNO modeprintstringinfo MUST BE AN EXTERNAL PARAMETER!
+modeprintstringinfo = 'both';
 if (SharedInfo.CopySciCodeIntoCCode == 1)
    modeprintstringinfo = 'both';
 end
