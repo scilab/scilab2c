@@ -106,7 +106,7 @@ elseif (SharedInfo.ForExpr.AssignmentFun == SharedInfo.CFunId.OpColon)
       disp('CPass1ForEpilFileName')
       disp(CPass1ForEpilFileName)
       if (length(C_Strings(cntstr)) == 0)
-         C_Strings(cntstr) = ''; // If I don't do that I get a PrintStringInfo error related to mputstr.
+         C_Strings(cntstr) = ' '; // RNU for Bruno: If I don't do that I get a PrintStringInfo error related to mputstr.
          // Function not defined for given argument type(s),
          // check arguments or define function %0_mputstr for overloading.
       end
