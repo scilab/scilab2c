@@ -28,8 +28,10 @@ libMultiplication_la_SOURCES = 	$(HEAD) \
 				dmula.c \
 				cmula.c \
 				zmula.c \
-				ctimess.c \
-				ztimess.c
+				smulv.c \
+				dmulv.c \
+				cmulv.c \
+				zmulv.c
 
 check_PROGRAMS = 	testMultiplication
 
