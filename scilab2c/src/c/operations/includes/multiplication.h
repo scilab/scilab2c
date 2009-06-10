@@ -45,6 +45,15 @@ EXTERN_OPERATIONS float	smuls(float in1, float in2);
 EXTERN_OPERATIONS void	smula(float *in1,  float *in2, int size2, float *out);
 
 /*
+** \brief Compute a multiplication for floats.
+** \param in1 : input array.
+** \param in2 : input array.
+** \param size : size of in2 array.
+** \return : scalar that contains the multiplication of the two vectors = in1 .* in2.
+*/
+EXTERN_OPERATIONS float	smulv(float *in1,  float *in2, int size2);
+
+/*
 ** \brief Compute a multiplication with double.
 ** \param in1 : input double.
 ** \param in2 : input double.
@@ -60,6 +69,15 @@ EXTERN_OPERATIONS double	dmuls(double in1, double in2);
 ** \param out : array that contains the multiplication  = in1 .* in2.
 */
 EXTERN_OPERATIONS void	dmula(double *in1, double *in2, int size,double * out);
+
+/*
+** \brief Compute a multiplication for floats.
+** \param in1 : input array.
+** \param in2 : input array.
+** \param size : size of in2 array.
+** \return : scalar that contains the multiplication of the two vectors = in1 .* in2.
+*/
+EXTERN_OPERATIONS double dmulv(double *in1, double *in2, int size2);
 
 /*
 ** \brief Compute a multiplication with floats Complex.
@@ -79,6 +97,15 @@ EXTERN_OPERATIONS floatComplex	cmuls(floatComplex in1, floatComplex in2);
 EXTERN_OPERATIONS void	cmula(floatComplex *in1, floatComplex *in2, int size, floatComplex *out);
 
 /*
+** \brief Compute a multiplication for floats.
+** \param in1 : input array.
+** \param in2 : input array.
+** \param size : size of in2 array.
+** \return : scalar that contains the multiplication of the two vectors = in1 .* in2.
+*/
+EXTERN_OPERATIONS floatComplex	cmulv(floatComplex *in1, floatComplex *in2, int size2);
+
+/*
 ** \brief Compute a multiplication with double complex.
 ** \param in1 : input double complex.
 ** \param in2 : input double conplex.
@@ -95,6 +122,14 @@ EXTERN_OPERATIONS doubleComplex	zmuls(doubleComplex in1, doubleComplex in2);
 */
 EXTERN_OPERATIONS void	zmula(doubleComplex *in1, doubleComplex *in2, int size, doubleComplex *out);
 
+/*
+** \brief Compute a multiplication for floats.
+** \param in1 : input array.
+** \param in2 : input array.
+** \param size : size of in2 array.
+** \return : scalar that contains the multiplication of the two vectors = in1 .* in2.
+*/
+EXTERN_OPERATIONS doubleComplex zmulv(doubleComplex *in1, doubleComplex *in2, int size2);
 
 /*
 ** \function ctimess
