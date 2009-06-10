@@ -127,4 +127,16 @@
 									dfilla(temp,size1[0],size1[1],0);\
 									z2z2OpStarz2(DoubleComplexMatrix(in1,temp,size1[0]*size1[1]), size1, in2, size2, out);}
 
+/* Vector * Vector, so there is a scalar output */
+
+#define MAX(a, b)	(a > b ? a : b)
+
+#define s2s2OpStars0(in1, size1, in2, size2)		smulv(in1, in2, MAX(MAX(size1[0], size1[1]), MAX(size2[0], size2[1])))
+
+#define d2d2OpStard0(in1, size1, in2, size2)		dmulv(in1, in2, MAX(MAX(size1[0], size1[1]), MAX(size2[0], size2[1])))
+
+#define c2c2OpStarc0(in1, size1, in2, size2)		cmulv(in1, in2, MAX(MAX(size1[0], size1[1]), MAX(size2[0], size2[1])))
+
+#define z2z2OpStarz0(in1, size1, in2, size2)		zmulv(in1, in2, MAX(MAX(size1[0], size1[1]), MAX(size2[0], size2[1])))
+
 #endif /* !__INT_OPSTAR_H__ */
