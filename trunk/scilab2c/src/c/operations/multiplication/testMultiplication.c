@@ -1244,45 +1244,6 @@
 
 
 
-static void ztimessTest(void) {
-  double P1_R[] = ZR1;
-  double P1_I[] = ZI1;
-  double P2_R[] = ZR2;
-  double P2_I[] = ZI2;
-  double Res_R[] = ZResR;
-  double Res_I[] = ZResI;
-  int i=0;
-  doubleComplex in1,in2,out;
-
-  for (i=0;i<200;i++){
-	in1=DoubleComplex(P1_R[i],P1_I[i]);
-	in2=DoubleComplex(P2_R[i],P2_I[i]);
-	out=ztimess(in1,in2);
-	assert( ( fabs(zreals(out)-Res_R[i]) / fabs(zreals(out)) ) <3e-16);
-	assert( ( fabs(zimags(out)-Res_I[i]) / fabs(zimags(out)) ) <3e-16);
-  }
-}
-
-static void ctimessTest(void) {
-  float P1_R[] = CR1;
-  float P1_I[] = CI1;
-  float P2_R[] = CR2;
-  float P2_I[] = CI2;
-  float Res_R[] = CResR;
-  float Res_I[] = CResI;
-  int i=0;
-  floatComplex in1,in2,out;
-
-  for (i=0;i<200;i++){
-	in1=FloatComplex(P1_R[i],P1_I[i]);
-	in2=FloatComplex(P2_R[i],P2_I[i]);
-	out=ctimess(in1,in2);
-	assert( ( fabs(creals(out)-Res_R[i]) / fabs(creals(out)) ) <3e-6);
-	assert( ( fabs(cimags(out)-Res_I[i]) / fabs(cimags(out)) ) <1e-6);
-  }	
-}
-
-
 static void smulsTest(void){
   float P1[]=FP1;
   float P2[]=FP2;
@@ -1427,8 +1388,6 @@ static void zmulaTest(void){
 
 
 static int testMult(void) {
-  ztimessTest();
-  ctimessTest();
   smulsTest();
   dmulsTest();
   cmulsTest();
