@@ -37,6 +37,7 @@ check_PROGRAMS = 	testMultiplication
 
 check_LDADD =		$(top_builddir)/src/c/type/libDoubleComplex.la \
 			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
 			libMultiplication.la
 
 check_INCLUDES =	-I $(top_builddir)/src/c/type \
