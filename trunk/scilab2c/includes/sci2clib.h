@@ -189,6 +189,8 @@
 #include "int_OpLogGe.h"
 #include "int_OpLogLt.h"
 #include "int_OpLogLe.h"
+/* interfacing insertion */
+#include "int_OpIns.h"
 
 
 /* MATRIX OPERATIONS */
