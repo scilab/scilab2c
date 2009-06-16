@@ -134,9 +134,9 @@
 
 
 /* Strings */
-
+/* RNU: size1[1]-1 -> "-1" because '\0' of the first string must be removed. */
 #define g2g2OpPlusg2(in1,size1,in2,size2,out)		{int i = 0, j = 0;	\
-    for(i = 0 ; i < size1[1] ; ++i, ++j) out[j] = in1[i];		\
+    for(i = 0 ; i < size1[1]-1 ; ++i, ++j) out[j] = in1[i];		\
     for(i = 0 ; i < size2[1] ; ++i, ++j) out[j] = in2[i]; \
 									}
 
