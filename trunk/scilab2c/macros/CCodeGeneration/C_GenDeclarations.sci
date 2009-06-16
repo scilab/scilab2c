@@ -44,11 +44,12 @@ if (ArgStruct.Dimension > 0)
    // if ((ArgStruct.Scope=='Temp') | (ArgStruct.FindLike == -1) | (SCI2Cisnum(ArgStruct.Size(1))==%F) | (SCI2Cisnum(ArgStruct.Size(2))==%F))
    // #RNU_RES_E
    if (ArgStruct.Type=='g')
-      if (isnan(ArgStruct.Value))
+      // if (isnan(ArgStruct.Value) )
+      if ((SCI2Cisnum(ArgStruct.Size(1))==%F) | (SCI2Cisnum(ArgStruct.Size(2))==%F) )
          Cdeclaration(1) = Cdeclaration(1)+C_Type(ArgStruct.Type)+...
             ' * '+ArgStruct.Name+';';         
       else
-         if (FlagExt == 1)
+         if ((FlagExt == 1) | (isnan(ArgStruct.Value)))
             Cdeclaration(1) = Cdeclaration(1)+C_Type(ArgStruct.Type)+...
                ' '+ArgStruct.Name+'['+ArgStruct.Size(1)+'*'+ArgStruct.Size(2)+'];';
          else
