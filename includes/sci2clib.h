@@ -183,6 +183,7 @@
 #include "int_OpBackSlash.h"
 #include "int_OpDotBackSlash.h"
 /* interfacing comparison */
+#include "int_OpLogNot.h"
 #include "int_OpLogEq.h"
 #include "int_OpLogNe.h"
 #include "int_OpLogGt.h"
