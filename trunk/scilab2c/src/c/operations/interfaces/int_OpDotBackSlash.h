@@ -37,47 +37,47 @@
 /* Scalar \ Matrix */
 
 #define s0s2OpDotBackSlashs2(in1,in2,size,out)			{int i;\
-										for(int i=0;i<size[0]*size[1];i++) out[i]= sldivs(in1,in2[i]);}
+										for(i=0;i<size[0]*size[1];i++) out[i]= sldivs(in1,in2[i]);}
 
 #define d0d2OpDotBackSlashd2(in1,in2,size,out)			{int i;\
-										for(int i=0;i<size[0]*size[1];i++) out[i]= dldivs(in1,in2[i]);}
+										for(i=0;i<size[0]*size[1];i++) out[i]= dldivs(in1,in2[i]);}
 									
 #define c0c2OpDotBackSlashc2(in1,in2,size,out)			{int i;\
-										for(int i=0;i<size[0]*size[1];i++) out[i]= cldivs(in1,in2[i]);}
+										for(i=0;i<size[0]*size[1];i++) out[i]= cldivs(in1,in2[i]);}
 
 #define z0z2OpDotBackSlashz2(in1,in2,size,out)			{int i;\
-										for(int i=0;i<size[0]*size[1];i++) out[i]= zldivs(in1,in2[i]);}
+										for(i=0;i<size[0]*size[1];i++) out[i]= zldivs(in1,in2[i]);}
 
 #define s0c2OpDotBackSlashc2(in1,in2,size,out)			c0c2OpDotBackSlashc2(FloatComplex(in1,0),in2,size,out)
 
-#define d0z2OpDotBackSlashz2(in1,in2,size,out)			z0z2OpDotBackSlashz2(DoubleCompelex(in1,0),in2,size,out)
+#define d0z2OpDotBackSlashz2(in1,in2,size,out)			z0z2OpDotBackSlashz2(DoubleComplex(in1,0),in2,size,out)
 
 #define c0s2OpDotBackSlashc2(in1,in2,size,out)			{int i;\
-										for(int i=0;i<size[0]*size[1];i++) out[i]= cldivs(in1,FloatComplex(in2[i],0));}
+										for(i=0;i<size[0]*size[1];i++) out[i]= cldivs(in1,FloatComplex(in2[i],0));}
 
 #define z0d2OpDotBackSlashz2(in1,in2,size,out)			{int i;\
-										for(int i=0;i<size[0]*size[1];i++) out[i]= zldivs(in1,DoubleComplex(in2[i],0));}
+										for(i=0;i<size[0]*size[1];i++) out[i]= zldivs(in1,DoubleComplex(in2[i],0));}
 
 
 /* Matrix \ Scalar */
 
 #define s2s0OpDotBackSlashs2(in1,size,in2,out)			{int i;\
-										for(int i=0;i<size[0]*size[1];i++) out[i]= sldivs(in1[i],in2);}
+										for(i=0;i<size[0]*size[1];i++) out[i]= sldivs(in1[i],in2);}
 
 #define d2d0OpDotBackSlashd2(in1,size,in2,out)			{int i;\
-										for(int i=0;i<size[0]*size[1];i++) out[i]= dldivs(in1[i],in2);}
+										for(i=0;i<size[0]*size[1];i++) out[i]= dldivs(in1[i],in2);}
 
 #define c2c0OpDotBackSlashc2(in1,size,in2,out)			{int i;\
-										for(int i=0;i<size[0]*size[1];i++) out[i]= cldivs(in1[i],in2);}
+										for(i=0;i<size[0]*size[1];i++) out[i]= cldivs(in1[i],in2);}
 
 #define z2z0OpDotBackSlashz2(in1,size,in2,out)			{int i;\
-										for(int i=0;i<size[0]*size[1];i++) out[i]= zldivs(in1[i],in2);}
+										for(i=0;i<size[0]*size[1];i++) out[i]= zldivs(in1[i],in2);}
 
 #define s2c0OpDotBackSlashc2(in1,size,in2,out)			{int i;\
-										for(int i=0;i<size[0]*size[1];i++) out[i]= cldivs(FloatComplex(in1[i],0),in2);}
+										for(i=0;i<size[0]*size[1];i++) out[i]= cldivs(FloatComplex(in1[i],0),in2);}
 
 #define d2z0OpDotBackSlashz2(in1,size,in2,out)			{int i;\
-										for(int i=0;i<size[0]*size[1];i++) out[i]= zldivs(DoubleComplex(in1[i],0),in2);}
+										for(i=0;i<size[0]*size[1];i++) out[i]= zldivs(DoubleComplex(in1[i],0),in2);}
 
 #define c2s0OpDotBackSlashc2(in1,size,in2,out)			c2c0OpDotBackSlashc2(in1,size,FloatComplex(in2,0),out)
 
@@ -91,15 +91,19 @@
 
 #define c2c2OpDotBackSlashc2(in1,size1,in2,size2,out)		cldiva(in1,in2,size2[0]*size2[1],out)
 
-#define c2s2OpDotBackSlashc2(in1,size1,in2,size2,out)		cldiva(in1,FloatComplexMatrix(in2,0,size2[0]*size2[1]),size2[0]*size2[1],out)
+#define c2s2OpDotBackSlashc2(in1,size1,in2,size2,out))		{int i;\
+										for(i=0;i<size1[0]*size2[1];i++) out[i]= cldivs(in1[i],FloatComplex(in2[i], 0));}
 
-#define s2c2OpDotBackSlashc2(in1,size1,in2,size2,out)		cldiva(FloatComplexMatrix(in1,0,size1[0]*size1[1]),in2,size2[0]*size2[1],out)
+#define s2c2OpDotBackSlashc2(in1,size1,in2,size2,out)		{int i;	\
+										for(i=0;i<size1[0]*size2[1];i++) out[i]= cldivs(FloatComplex(in1[i], 0),in2[i]);}
 
 #define z2z2OpDotBackSlashz2(in1,size1,in2,size2,out)		zldiva(in1,in2,size2[0]*size2[1],out)
 
-#define z2d2OpDotBackSlashc2(in1,size1,in2,size2,out)		cldiva(in1,DoubleComplexMatrix(in2,0,size2[0]*size2[1]),size2[0]*size2[1],out)
+#define z2d2OpDotBackSlashz2(in1,size1,in2,size2,out)		{int i;\
+										for(i=0;i<size1[0]*size2[1];i++) out[i]= zldivs(in1[i],DoubleComplex(in2[i], 0));}
 
-#define d2z2OpDotBackSlashc2(in1,size1,in2,size2,out)		cldiva(DoubleComplexMatrix(in1,0,size1[0]*size1[1]),in2,size2[0]*size2[1],out)
+#define d2z2OpDotBackSlashz2(in1,size1,in2,size2,out)		{int i;\
+										for(i=0;i<size1[0]*size2[1];i++) out[i]= zldivs(DoubleComplex(in1[i], 0),in2[i]);}
 
 
 #endif /* !__INT_OPDOTBACKSLASH_H__ */
