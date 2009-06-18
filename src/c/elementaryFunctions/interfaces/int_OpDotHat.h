@@ -87,14 +87,14 @@
 								}
 
 #define z2z0OpDotHatz2(in1,size,in2,out)		{int i=0;\
-								for (i=0,i<size[0]*size[1];i++) out[i]=zpows(in1[i],in2);\
+								for (i=0;i<size[0]*size[1];i++) out[i]=zpows(in1[i],in2);\
 								}
 
 #define s2c0OpDotHatc2(in1,size,in2,out)		{int i=0;\
 								for (i=0;i<size[0]*size[1];i++) out[i]=cpows(FloatComplex(in1[i],0),in2);\
 								}
 
-#define d2z0OpDotHatc2(in1,size,in2,out)		{int i=0;\
+#define d2z0OpDotHatz2(in1,size,in2,out)		{int i=0;\
 								for (i=0;i<size[0]*size[1];i++) out[i]=zpows(DoubleComplex(in1[i],0),in2);\
 								}
 
@@ -108,6 +108,7 @@
 
 
 /* Matrix - Matrix */
+
 #define s2s2OpDotHats2(in1, size1, in2, size2, out)	spowa(in1, size1[0]*size2[1], in2, out)
 
 #define d2d2OpDotHatd2(in1, size1, in2, size2, out)	dpowa(in1, size1[0]*size2[1], in2, out)
