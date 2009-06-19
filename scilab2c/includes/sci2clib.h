@@ -77,6 +77,9 @@
 /* interfacing type */
 #include "type.h"
 #include "int_type.h"
+/* interfacing rand */
+#include "rand.h"
+#include "int_rand.h"
 
 /* ELEMENTARY FUNCTIONS */
 
@@ -190,6 +193,8 @@
 #include "int_OpLogGe.h"
 #include "int_OpLogLt.h"
 #include "int_OpLogLe.h"
+#include "int_OpLogAnd.h"
+#include "int_OpLogOr.h"
 /* interfacing insertion */
 #include "int_OpIns.h"
 
@@ -271,6 +276,9 @@
 /* interfacing sum */
 #include "sum.h"
 #include "int_sum.h"
+/* interfacing prod */
+#include "prod.h"
+#include "int_prod.h"
 /* interfacing variance */
 #include "variance.h"
 #include "int_variance.h"
