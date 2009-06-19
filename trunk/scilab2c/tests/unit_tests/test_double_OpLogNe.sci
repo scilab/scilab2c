@@ -1,25 +1,33 @@
 function test_double_OpLogNe()
-  a = 1;
-  b = 2 + %i;
-  c = [1 2 3]
-  d = %i * [1 2 3 4 5 6]
-  disp(a <> a); // d0d0OpLogEqd0
-  disp(a <> b); // d0z0OpLogEqd0
-  disp(a <> c); // d0d2OpLogEqd2
-  disp(a <> d); // d0z2OpLogEqd2
+   d0 = %pi
+   d2 = [1 2 3 4 ; 5 6 7 8 ; 9 10 11 12 ; 13 14 15 16]
+   z0 = d0 + %i * d0
+   z2 = d2 + %i * d2
+   g0 = 'A'
+   g2 = "foo"
 
-  disp(b <> a); // z0d0OpLogEqd0
-  disp(b <> b); // z0z0OpLogEqd0
-  disp(b <> c); // z0d2OpLogEqd2
-  disp(b <> d); // z0z2OpLogEqd2
+  //disp(g0<>g0)
+   
+  disp(d0<>d0)
+  disp(z0<>z0)
+  disp(d2<>d0)
+  disp(z2<>z0)
 
-  disp(c <> a); // d2d0OpLogEqd0
-  disp(c <> b); // d2z0OpLogEqd0
-  disp(c <> c); // d2d2OpLogEqd2
-  disp(c <> d); // d2z2OpLogEqd2
+  disp(d0<>d2)
+  disp(z0<>z2)
+
+  disp(d2<>d2)
+  disp(z2<>z2)
   
-  disp(d <> a); // z2d0OpLogEqd0
-  disp(d <> b); // z2z0OpLogEqd0
-  disp(d <> c); // z2d2OpLogEqd2
-  disp(d <> d); // z2z2OpLogEqd2
+  disp(d2<>z0)
+  disp(z2<>d0)
+  
+  disp(d0<>z2)
+  disp(z0<>d2)
+  
+  disp(d0<>z0)
+  disp(z0<>d0)
+
+  disp(d2<>z2)
+  disp(z2<>d2)
 endfunction
