@@ -88,6 +88,8 @@ function allInterfaces = getAllInterfaces()
       "src/c/operations/interfaces/int_OpLogGe.h"
       "src/c/operations/interfaces/int_OpLogLt.h"
       "src/c/operations/interfaces/int_OpLogLe.h"
+      "src/c/operations/interfaces/int_OpLogAnd.h"
+      "src/c/operations/interfaces/int_OpLogOr.h"
       "src/c/operations/interfaces/int_OpDotStar.h"
       "src/c/operations/interfaces/int_OpDotSlash.h"
       "src/c/operations/interfaces/int_OpBackSlash.h"
