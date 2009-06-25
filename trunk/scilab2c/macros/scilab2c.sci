@@ -88,7 +88,7 @@ function scilab2c(varargin)
 
 // -- FIXME : bypass this for now !!
 // -- userchoice = messagebox("Exection Succesfull. Start translation ?", "modal", "info", ["Yes" "No"])
-userchoice = 1;
+userchoice = 0;
 if (userchoice == 1)
 // --- LAUNCH SCI2C ---
       runsci2c(UserScilabMainFile, UserSciFilesPaths, CCodeOutputDir, RunMode);
