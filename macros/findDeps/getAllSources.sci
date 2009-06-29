@@ -443,8 +443,6 @@ function allSources = getAllSources()
       "src/c/operations/multiplication/zmula.c"
       "src/c/operations/multiplication/zmuls.c"
       "src/c/operations/multiplication/zmulv.c"
-      "src/c/operations/multiplication/ctimess.c"
-      "src/c/operations/multiplication/ztimess.c"
       "src/c/operations/division/drdiva.c"
       "src/c/operations/division/drdivs.c"
       "src/c/operations/division/srdiva.c"
