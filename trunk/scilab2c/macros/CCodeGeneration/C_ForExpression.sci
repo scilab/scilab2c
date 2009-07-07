@@ -101,10 +101,6 @@ elseif (SharedInfo.ForExpr.AssignmentFun == SharedInfo.CFunId.OpColon)
       // #RNU_RES_B
       // Epilogue
       // #RNU_RES_E
-      disp('C_Strings(cntstr)')
-      disp(C_Strings(cntstr))
-      disp('CPass1ForEpilFileName')
-      disp(CPass1ForEpilFileName)
       if (length(C_Strings(cntstr)) == 0)
          C_Strings(cntstr) = ' '; // RNU for Bruno: If I don't do that I get a PrintStringInfo error related to mputstr.
          // Function not defined for given argument type(s),

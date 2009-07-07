@@ -52,18 +52,21 @@ CCall ='';
 // -------------------------
 PrintStringInfo('   Handling While Expression with OpColon.',ReportFileName,'file','y'); //NUT: sistema il commento.
    
-// #RNU_RES_B
 // -------------------------------------------------------------------------------------
 // --- Generate Prologue and Epilogue -> Copy the first N-1 lines of the for.c code. ---
 // -------------------------------------------------------------------------------------
-// #RNU_RES_E
 [C_Strings,NumCStrings] = File2StringArray(CPass1WhileProlFileName);
 C_Strings = stripblanks(C_Strings);
 for cntstr = 1:NumCStrings
    // Prologue
-   PrintStringInfo(C_IndentBlanks(SharedInfo.NIndent)+C_Strings(cntstr),CPass1FileName,'file','y');
+   PrintStringInfo(C_IndentBlanks(SharedInfo.NIndent)+C_Strings(cntstr),CPass1FileName,'file','y','n');
    // Epilogue
-   PrintStringInfo(C_Strings(cntstr),CPass1WhileEpilFileName ,'file','y');
+   if (length(C_Strings(cntstr)) == 0)
+      C_Strings(cntstr) = ' '; // RNU for Bruno: If I don't do that I get a PrintStringInfo error related to mputstr.
+      // Function not defined for given argument type(s),
+      // check arguments or define function %0_mputstr for overloading.
+   end
+   PrintStringInfo(C_Strings(cntstr),CPass1WhileEpilFileName ,'file','y','n');
 end
 // ----------------------------------------
 // --- Insert "}" in the epilogue file. ---
