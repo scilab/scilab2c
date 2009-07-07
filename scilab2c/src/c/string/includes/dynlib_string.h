@@ -24,3 +24,4 @@
 #endif
 
 #endif /* __DYNLIB_STRING_H__ */
+
