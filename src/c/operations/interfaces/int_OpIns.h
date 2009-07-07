@@ -16,13 +16,13 @@
 
 
 /* a(3)=2 */
-#define s2s0s0OpIns(in,size,indice,newVal)	in[indice-1]=newVal;
+#define s2s0s0OpIns(in,size,indice,newVal)	in[(int) indice-1]=newVal;
 
-#define d2d0d0OpIns(in,size,indice,newVal)	in[indice-1]=newVal;
+#define d2d0d0OpIns(in,size,indice,newVal)	in[(int) indice-1]=newVal;
 
-#define c2s0c0OpIns(in,size,indice,newVal)	in[indice-1]=newVal;
+#define c2s0c0OpIns(in,size,indice,newVal)	in[(int) indice-1]=newVal;
 
-#define z2d0z0OpIns(in,size,indice,newVal)	in[indice-1]=newVal;
+#define z2d0z0OpIns(in,size,indice,newVal)	in[(int) indice-1]=newVal;
 
 /* a([1 2])=2 */
 #define s2s2s0OpIns(in,size1,indices,size2,newVal)	{int i;\
