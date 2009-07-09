@@ -7,3 +7,4 @@ disp(a)
 disp('scalar product a * a''');
 disp(b)
 endfunction
+

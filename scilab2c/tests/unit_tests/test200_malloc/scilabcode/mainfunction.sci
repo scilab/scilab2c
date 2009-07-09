@@ -15,3 +15,4 @@ D=B+2.*C;
 disp('D')
 disp(D)
 endfunction
+

@@ -27,3 +27,4 @@ w = cos(sin(cos(x*3)*2).* x+ones(3,6).*cos(x-sin(y*2)));
 distxw = sqrt(x.^2 + w.^2);
 disp(distxw);
 endfunction
+
