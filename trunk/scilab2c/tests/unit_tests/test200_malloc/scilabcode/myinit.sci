@@ -10,3 +10,4 @@ out1 = m+ones(n,n);
 out = out1+2*ones(n,n);
 
 endfunction
+

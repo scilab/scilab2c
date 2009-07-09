@@ -38,25 +38,19 @@
 
 
 #define s0s2OpDotSlashs2(in1,in2,size,out)			{int i=0;\
-										sinverma(in2,out,size[0]);\
-										for (i=0;i<size[0]*size[1];i++) out[i]=in1*out[i];}
+										for (i=0;i<size[0]*size[1];i++) out[i]=in1/in2[i];}
 
 
 #define d0d2OpDotSlashd2(in1,in2,size,out)			{int i=0;\
-										dinverma(in2,out,size[0]);\
-										for (i=0;i<size[0]*size[1];i++) out[i]=in1*out[i];}
+										for (i=0;i<size[0]*size[1];i++) out[i]=in1/in2[i];}
 									
 									
 #define c0c2OpDotSlashc2(in1,in2,size,out)			{int i=0;\
-										cinverma(in2,out,size[0]);\
-										for (i=0;i<size[0]*size[1];i++) out[i]=cmuls(in1,out[i]);}
+										for (i=0;i<size[0]*size[1];i++) out[i]=crdivs(in1,in2[i]);}
 
 
 #define z0z2OpDotSlashz2(in1,in2,size,out)			{int i=0;\
-										zinverma(in2,out,size[0]);\
-										for (i=0;i<size[0]*size[1];i++) out[i]=zmuls(in1,out[i]);}
-
-
+										for (i=0;i<size[0]*size[1];i++) out[i]=crdivs(in1,in2[i]);}
 
 #define s0c2OpDotSlashc2(in1,in2,size,out)			c0c2OpDotSlashc2(FloatComplex(in1,0),in2,size,out)
 
@@ -64,14 +58,11 @@
 #define d0z2OpDotSlashz2(in1,in2,size,out)			z0z2OpDotSlashz2(DoubleComplex(in1,0),in2,size,out)
 
 
-/* FIXME: malloc */
 #define c0s2OpDotSlashc2(in1,in2,size,out)			{int i=0;\
 										float* temp = malloc((uint)(size[0]*size[1])*sizeof(float));\
 										sinverma(in2,temp,size[0]);\
 										for (i=0;i<size[0]*size[1];i++) out[i]=cmuls(in1,FloatComplex(temp[i],0));}
 
-
-/* FIXME: malloc */
 #define z0d2OpDotSlashz2(in1,in2,size,out)			{int i=0;\
 										double* temp = malloc((uint)(size[0]*size[1])*sizeof(double));\
 										dinverma(in2,temp,size[0]);\

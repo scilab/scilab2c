@@ -8,3 +8,4 @@ function out = myzeros(in)
 
 out = 3+zeros(in);
 endfunction
+
