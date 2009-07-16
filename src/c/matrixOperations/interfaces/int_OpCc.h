@@ -76,9 +76,12 @@
 										  drowcata(in1, size[0], size[1],&temp, 1, 1, out); \
 										}
 
-#define c2c0OpCcc2(in1,size,in2,out)				crowcata(in1, size[0], size[1], &in2, 1, 1, out);
+#define c2c0OpCcc2(in1,size,in2,out)				{ floatComplex temp = in2;   \
+										  crowcata(in1, size[0], size[1],&temp, 1, 1, out);\
 
-#define z2z0OpCcz2(in1,size,in2,out)				zrowcata(in1, size[0], size[1], &in2, 1, 1, out);
+#define z2z0OpCcz2(in1,size,in2,out)				{ doubleComplex temp =in2;   \
+										  zrowcata(in1, size[0], size[1],&temp, 1, 1, out);\
+								}
 
 
 /* Different type */
@@ -96,13 +99,25 @@
 /* Scalar-Matrix */
 
 /* Same type */
-#define s0s2OpCcs2(in1,in2,size,out)				srowcata(in1, 1, 1, in2, size[0], size[1], out);
+#define s0s2OpCcs2(in1,in2,size,out)				{ \
+ float __tmp1 = in1 ;\
+ srowcata(&__tmp1, 1, 1, in2, size[0], size[1], out);\
+}
 
-#define d0d2OpCcd2(in1,in2,size,out)				drowcata(in1, 1, 1, in2, size[0], size[1], out);
+#define d0d2OpCcd2(in1,in2,size,out)				{ \
+ double __tmp1 = in1 ;\
+ drowcata(&__tmp1, 1, 1, in2, size[0], size[1], out);\
+}
 
-#define c0c2OpCcc2(in1,in2,size,out)				crowcata(in1, 1, 1, in2, size[0], size[1], out);
+#define c0c2OpCcc2(in1,in2,size,out)				{ \
+ floatComplex __tmp1 = in1 ;\
+ crowcata(&__tmp1, 1, 1, in2, size[0], size[1], out);\
+}
 
-#define z0z2OpCcz2(in1,in2,size,out)				zrowcata(in1, 1, 1, in2, size[0], size[1], out);
+#define z0z2OpCcz2(in1,in2,size,out)				{ \
+ doubleComplex __tmp1 = in1 ;\
+ zrowcata(&__tmp1, 1, 1, in2, size[0], size[1], out);\
+}
 
 /* Different type */
 #define s0c2OpCcc2(in1,in2,size,out)				c0c2OpCcc2(FloatComplex(in1,0),in2,size,out)

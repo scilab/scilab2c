@@ -1207,7 +1207,7 @@ PrintStringInfo('z2z2'+ArgSeparator+'z2',ClassFileName,'file','y');
 
 
 // --- Annotation Function And Function List Function. ---
-FunctionName = 'OpMinus';
+FunctionName = 'OpMinus'; // AS : Done 
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'both','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
@@ -1259,8 +1259,18 @@ PrintStringInfo('s2c0'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('d0z0'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('d2z0'+ArgSeparator+'z2',ClassFileName,'file','y');
 
+PrintStringInfo('s2c2'+ArgSeparator+'c2',ClassFileName,'file','y');
+PrintStringInfo('c2s2'+ArgSeparator+'c2',ClassFileName,'file','y');
+PrintStringInfo('d2z2'+ArgSeparator+'z2',ClassFileName,'file','y');
+PrintStringInfo('z2d2'+ArgSeparator+'z2',ClassFileName,'file','y');
+
+PrintStringInfo('s0c2'+ArgSeparator+'c2',ClassFileName,'file','y');
+PrintStringInfo('c0s2'+ArgSeparator+'c2',ClassFileName,'file','y');
+PrintStringInfo('d0z2'+ArgSeparator+'z2',ClassFileName,'file','y');
+PrintStringInfo('z0d2'+ArgSeparator+'z2',ClassFileName,'file','y');
+
 // --- Annotation Function And Function List Function. ---
-FunctionName = 'OpRc';
+FunctionName = 'OpRc'; // AS : Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'both','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
@@ -1317,8 +1327,13 @@ PrintStringInfo('c2s2'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('d2z2'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('z2d2'+ArgSeparator+'z2',ClassFileName,'file','y');
 
+PrintStringInfo('s0c2'+ArgSeparator+'c2',ClassFileName,'file','y');
+PrintStringInfo('c0s2'+ArgSeparator+'c2',ClassFileName,'file','y');
+PrintStringInfo('d0z2'+ArgSeparator+'z2',ClassFileName,'file','y');
+PrintStringInfo('z0d2'+ArgSeparator+'z2',ClassFileName,'file','y');
+
 // --- Annotation Function And Function List Function. ---
-FunctionName = 'OpCc';
+FunctionName = 'OpCc'; // AS : Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'both','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
