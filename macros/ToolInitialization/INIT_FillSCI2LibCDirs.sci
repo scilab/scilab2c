@@ -1505,7 +1505,7 @@ PrintStringInfo('c2s0'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('z2d0'+ArgSeparator+'d0',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
-FunctionName = 'size';
+FunctionName = 'size'; // AS : Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'both','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
@@ -1528,7 +1528,7 @@ PrintStringInfo(ArgSeparator,ClassFileName,'file','y');
 //NUT anche se metto Return funziona bene comunque! cerca di capire il motivo.
 //NUT limited use to zero in and out args only.
 // --- Annotation Function And Function List Function. ---
-FunctionName = 'return';
+FunctionName = 'return';//
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'both','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
@@ -1564,15 +1564,65 @@ PrintStringInfo('d0d0'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('c0c0'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('z0z0'+ArgSeparator+'d2',ClassFileName,'file','y');
 
+
+PrintStringInfo('s0c0'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('d0z0'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('c0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('z0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
+
+
+PrintStringInfo('s0c0'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('d0z0'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('c0s0'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('z0d0'+ArgSeparator+'d2',ClassFileName,'file','y');
+
+
+
+
 PrintStringInfo('s0s0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('d0d0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('c0c0c0'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('z0z0z0'+ArgSeparator+'d0',ClassFileName,'file','y');
 
+PrintStringInfo('s0s0c0'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('s0c0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('s0c0c0'+ArgSeparator+'s0',ClassFileName,'file','y');
+	
+PrintStringInfo('c0s0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('c0c0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('c0s0c0'+ArgSeparator+'s0',ClassFileName,'file','y');
+
+PrintStringInfo('d0z0z0'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('d0d0z0'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('d0z0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
+
+PrintStringInfo('z0d0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('z0z0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('z0d0z0'+ArgSeparator+'d0',ClassFileName,'file','y');
+
+
 PrintStringInfo('s0s0s0'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d0d0d0'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('c0c0c0'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('z0z0z0'+ArgSeparator+'d2',ClassFileName,'file','y');
+
+
+PrintStringInfo('s0s0c0'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('s0c0s0'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('s0c0c0'+ArgSeparator+'s2',ClassFileName,'file','y');
+	
+PrintStringInfo('c0s0s0'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('c0c0s0'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('c0s0c0'+ArgSeparator+'s2',ClassFileName,'file','y');
+
+PrintStringInfo('d0z0z0'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('d0d0z0'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('d0z0d0'+ArgSeparator+'d2',ClassFileName,'file','y');
+
+PrintStringInfo('z0d0d0'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('z0z0d0'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('z0d0z0'+ArgSeparator+'d2',ClassFileName,'file','y');
+
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'OpColon';
