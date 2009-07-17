@@ -1687,14 +1687,14 @@ PrintStringInfo('c2'+ArgSeparator+'c0',ClassFileName,'file','y');
 PrintStringInfo('z2'+ArgSeparator+'z0',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
-FunctionName = 'trace';
+FunctionName = 'trace'; // AS : Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'both','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
 //NUT det is a little bit complex but for the moment we assume that
 //NUT that det works as trace function.
-FunctionName = 'det';
+FunctionName = 'det'; //
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'both','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
@@ -1805,7 +1805,7 @@ PrintStringInfo('z2d2d0d2'+ArgSeparator,ClassFileName,'file','y');
 PrintStringInfo('z2d2d2d2'+ArgSeparator,ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
-FunctionName = 'OpIns';
+FunctionName = 'OpIns'; // AS : Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'both','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
