@@ -86,69 +86,74 @@ if ((mtlb_strcmp(FunctionName,'OpEqual')) & ...
    return;
 end
 
+// #BJ
+// size should be managed as other functions
+// otherwise size(4) will lead to a C variable __4Size reference
+// wich will never exists
+
 // #RNU_RES_B
 // Exit if the function is size.
 // #RNU_RES_E
-if ((mtlb_strcmp(FunctionName,'size')))
-   // #RNU_RES_B
-   PrintStringInfo('   Anticipated exit for the size function.',ReportFileName,'file','y');
-   // #RNU_RES_E
-   CCall ='';
-   if (NInArg == 1)
-      if (NOutArg == 1)
-         CCall = CCall+OutArg(1).Name+'[0] = __'+InArg(1).Name+'Size[0];';
-         // #RNU_RES_B
-         PrintStringInfo('   '+CCall,ReportFileName,'file','y');
-         // #RNU_RES_E
-         PrintStringInfo(C_IndentBlanks(IndentLevel)+CCall,CPass1FileName,'file','y');
+// if ((mtlb_strcmp(FunctionName,'size')))
+//    // #RNU_RES_B
+//    PrintStringInfo('   Anticipated exit for the size function.',ReportFileName,'file','y');
+//    // #RNU_RES_E
+//    CCall ='';
+//    if (NInArg == 1)
+//       if (NOutArg == 1)
+//          CCall = CCall+OutArg(1).Name+'[0] = __'+InArg(1).Name+'Size[0];';
+//          // #RNU_RES_B
+//          PrintStringInfo('   '+CCall,ReportFileName,'file','y');
+//          // #RNU_RES_E
+//          PrintStringInfo(C_IndentBlanks(IndentLevel)+CCall,CPass1FileName,'file','y');
 
-         CCall ='';
-         CCall = CCall+OutArg(1).Name+'[1] = __'+InArg(1).Name+'Size[1];';
-         // #RNU_RES_B
-         PrintStringInfo('   '+CCall,ReportFileName,'file','y');
-         // #RNU_RES_E
-         PrintStringInfo(C_IndentBlanks(IndentLevel)+CCall,CPass1FileName,'file','y');
-      elseif (NOutArg == 2)
-         CCall = CCall+OutArg(1).Name+' = __'+InArg(1).Name+'Size[0];';
-         // #RNU_RES_B
-         PrintStringInfo('   '+CCall,ReportFileName,'file','y');
-         // #RNU_RES_E
-         PrintStringInfo(C_IndentBlanks(IndentLevel)+CCall,CPass1FileName,'file','y');
+//          CCall ='';
+//          CCall = CCall+OutArg(1).Name+'[1] = __'+InArg(1).Name+'Size[1];';
+//          // #RNU_RES_B
+//          PrintStringInfo('   '+CCall,ReportFileName,'file','y');
+//          // #RNU_RES_E
+//          PrintStringInfo(C_IndentBlanks(IndentLevel)+CCall,CPass1FileName,'file','y');
+//       elseif (NOutArg == 2)
+//          CCall = CCall+OutArg(1).Name+' = __'+InArg(1).Name+'Size[0];';
+//          // #RNU_RES_B
+//          PrintStringInfo('   '+CCall,ReportFileName,'file','y');
+//          // #RNU_RES_E
+//          PrintStringInfo(C_IndentBlanks(IndentLevel)+CCall,CPass1FileName,'file','y');
 
-         CCall ='';
-         CCall = CCall+OutArg(2).Name+' = __'+InArg(1).Name+'Size[1];';
-         // #RNU_RES_B
-         PrintStringInfo('   '+CCall,ReportFileName,'file','y');
-         // #RNU_RES_E
-         PrintStringInfo(C_IndentBlanks(IndentLevel)+CCall,CPass1FileName,'file','y');
-      else
-         SCI2Cerror('Don''t know how to manage size function with number of output args different from 1 and 2.');
-      end
-   elseif (NInArg == 2)
-      if (NOutArg == 1)
-         if (InArg(2).Value == 1)
-            CCall = CCall+OutArg(1).Name+' = __'+InArg(1).Name+'Size[0];';
-            // #RNU_RES_B
-            PrintStringInfo('   '+CCall,ReportFileName,'file','y');
-            // #RNU_RES_E
-            PrintStringInfo(C_IndentBlanks(IndentLevel)+CCall,CPass1FileName,'file','y');
-         elseif (InArg(2).Value == 2)
-            CCall = CCall+OutArg(1).Name+' = __'+InArg(1).Name+'Size[1];';
-            // #RNU_RES_B
-            PrintStringInfo('   '+CCall,ReportFileName,'file','y');
-            // #RNU_RES_E
-            PrintStringInfo(C_IndentBlanks(IndentLevel)+CCall,CPass1FileName,'file','y');
-         else
-            SCI2Cerror('Not known the value of the second input arg for the size function.');
-         end
-      else
-         SCI2Cerror('Don''t know how to manage size function with number of output args different from 1.');
-      end
-   else
-      SCI2Cerror('Don''t know how to manage size function with number of input args different from 1 and 2.');
-   end
-   return;
-end
+//          CCall ='';
+//          CCall = CCall+OutArg(2).Name+' = __'+InArg(1).Name+'Size[1];';
+//          // #RNU_RES_B
+//          PrintStringInfo('   '+CCall,ReportFileName,'file','y');
+//          // #RNU_RES_E
+//          PrintStringInfo(C_IndentBlanks(IndentLevel)+CCall,CPass1FileName,'file','y');
+//       else
+//          SCI2Cerror('Don''t know how to manage size function with number of output args different from 1 and 2.');
+//       end
+//    elseif (NInArg == 2)
+//       if (NOutArg == 1)
+//          if (InArg(2).Value == 1)
+//             CCall = CCall+OutArg(1).Name+' = __'+InArg(1).Name+'Size[0];';
+//             // #RNU_RES_B
+//             PrintStringInfo('   '+CCall,ReportFileName,'file','y');
+//             // #RNU_RES_E
+//             PrintStringInfo(C_IndentBlanks(IndentLevel)+CCall,CPass1FileName,'file','y');
+//          elseif (InArg(2).Value == 2)
+//             CCall = CCall+OutArg(1).Name+' = __'+InArg(1).Name+'Size[1];';
+//             // #RNU_RES_B
+//             PrintStringInfo('   '+CCall,ReportFileName,'file','y');
+//             // #RNU_RES_E
+//             PrintStringInfo(C_IndentBlanks(IndentLevel)+CCall,CPass1FileName,'file','y');
+//          else
+//             SCI2Cerror('Not known the value of the second input arg for the size function.');
+//          end
+//       else
+//          SCI2Cerror('Don''t know how to manage size function with number of output args different from 1.');
+//       end
+//    else
+//       SCI2Cerror('Don''t know how to manage size function with number of input args different from 1 and 2.');
+//    end
+//    return;
+// end
 // ------------------------------------------------------
 // --- End Manage anticipated exit from the function. ---
 // ------------------------------------------------------
