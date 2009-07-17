@@ -68,6 +68,9 @@ for cntinarg = 1:NInArg
       if (tmpname == '%pi')
          UpdatedInArg(cntinarg).Name = 'SCI2C_PI'; 
          numvalue = %pi;
+      elseif (tmpname == '%e')
+         UpdatedInArg(cntinarg).Name = 'SCI2C_E'; 
+         numvalue = %e;
       elseif (tmpname == '%T')
          UpdatedInArg(cntinarg).Name = 'SCI2C_T'; 
          numvalue = 1;
