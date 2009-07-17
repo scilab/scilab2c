@@ -1,1 +1,0 @@
-../../../../statisticsFunctions/mean/zcolumnmeana.c

@@ -1,1 +1,0 @@
-../../../../statisticsFunctions/min/dcolumnmina.c

@@ -1,1 +1,0 @@
-../../../../elementaryFunctions/sqrt/ssqrts.c

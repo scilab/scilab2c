@@ -1,1 +1,0 @@
-../../../../elementaryFunctions/pow/dpowa.c
