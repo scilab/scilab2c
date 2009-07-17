@@ -1,1 +1,0 @@
-../../../../elementaryFunctions/lnp1m1/slnp1m1s.c

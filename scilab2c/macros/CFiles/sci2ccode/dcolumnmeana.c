@@ -1,1 +1,0 @@
-../../../../statisticsFunctions/mean/dcolumnmeana.c

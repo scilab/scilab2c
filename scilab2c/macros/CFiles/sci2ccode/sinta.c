@@ -1,1 +1,0 @@
-../../../../elementaryFunctions/int/sinta.c

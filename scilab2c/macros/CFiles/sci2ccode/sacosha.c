@@ -1,1 +1,0 @@
-../../../../elementaryFunctions/acosh/sacosha.c

@@ -1,1 +1,0 @@
-../../../../matrixOperations/chol/schola.c
