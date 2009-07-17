@@ -1,1 +1,0 @@
-../../../../elementaryFunctions/includes/lnp1m1.h
