@@ -1936,7 +1936,7 @@ PrintStringInfo('g2'+ArgSeparator+'g2',ClassFileName,'file','y');
 //NUT per ora non considero le equal con nin != 1
 
 // --- Annotation Function And Function List Function. ---
-FunctionName = 'OpEqual';
+FunctionName = 'OpEqual'; // AS : Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'both','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
