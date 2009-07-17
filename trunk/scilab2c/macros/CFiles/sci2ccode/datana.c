@@ -1,1 +1,0 @@
-../../../../elementaryFunctions/atan/datana.c

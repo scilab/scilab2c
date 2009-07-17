@@ -1,1 +1,0 @@
-../../../../elementaryFunctions/atan2/datan2a.c

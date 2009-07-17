@@ -1,1 +1,0 @@
-../../../../matrixOperations/transpose/ztransposea.c

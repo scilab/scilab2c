@@ -1,1 +1,0 @@
-../../../../statisticsFunctions/sum/zcolumnsuma.c

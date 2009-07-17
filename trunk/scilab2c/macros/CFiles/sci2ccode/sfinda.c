@@ -1,1 +1,0 @@
-../../../../auxiliaryFunctions/find/sfinda.c

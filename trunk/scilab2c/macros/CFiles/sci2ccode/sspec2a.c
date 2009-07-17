@@ -1,1 +1,0 @@
-../../../../matrixOperations/spec2/sspec2a.c
