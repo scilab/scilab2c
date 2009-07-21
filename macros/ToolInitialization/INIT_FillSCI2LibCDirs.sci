@@ -1528,7 +1528,7 @@ PrintStringInfo(ArgSeparator,ClassFileName,'file','y');
 //NUT anche se metto Return funziona bene comunque! cerca di capire il motivo.
 //NUT limited use to zero in and out args only.
 // --- Annotation Function And Function List Function. ---
-FunctionName = 'return';//
+FunctionName = 'return'; 
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'both','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
@@ -1694,7 +1694,7 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 
 //NUT det is a little bit complex but for the moment we assume that
 //NUT that det works as trace function.
-FunctionName = 'det'; //
+FunctionName = 'det'; 
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'both','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
@@ -2253,7 +2253,7 @@ PrintStringInfo('d2z0'+ArgSeparator+'z0z2',ClassFileName,'file','y');
 
 
 // --- Annotation Function And Function List Function. ---
-FunctionName = 'convol';
+FunctionName = 'convol'; // AS : done except 2 ouputs cases and 3 inputs cases
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'both','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
