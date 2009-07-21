@@ -2243,6 +2243,14 @@ PrintStringInfo('d2z0'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('c2s0'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('z2d0'+ArgSeparator+'z2',ClassFileName,'file','y');
 
+//added combination
+
+PrintStringInfo('d2d0'+ArgSeparator+'d0d2',ClassFileName,'file','y');
+PrintStringInfo('z2z0'+ArgSeparator+'z0z2',ClassFileName,'file','y');
+PrintStringInfo('d0z2'+ArgSeparator+'z2z2',ClassFileName,'file','y');
+PrintStringInfo('z2d0'+ArgSeparator+'z0z2',ClassFileName,'file','y');
+PrintStringInfo('d2z0'+ArgSeparator+'z0z2',ClassFileName,'file','y');
+
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'convol';
@@ -2283,7 +2291,7 @@ PrintStringInfo('c2'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('z2'+ArgSeparator+'z2',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
-FunctionName = 'ifft';
+FunctionName = 'ifft'; 
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'both','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
@@ -2777,7 +2785,7 @@ PrintStringInfo('c2'+ArgSeparator+'c2c2',ClassFileName,'file','y');
 PrintStringInfo('z2'+ArgSeparator+'z2z2',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
-FunctionName = 'spec';
+FunctionName = 'spec'; // AS : Done 
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'both','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
