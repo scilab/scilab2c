@@ -1694,7 +1694,7 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 
 //NUT det is a little bit complex but for the moment we assume that
 //NUT that det works as trace function.
-FunctionName = 'det'; 
+FunctionName = 'det'; // AS : Done 
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'both','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
