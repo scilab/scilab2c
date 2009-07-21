@@ -38,13 +38,13 @@
 
 /* FIXME : malloc here */
 #define s2ifftc2(in,size,out)		{float* ZEROS;\
-						ZEROS=malloc((uint)(size[0]*size[1]*sizeof(float));\
+						ZEROS=malloc((uint)(size[0]*size[1]*sizeof(float)));\
 						szerosa(ZEROS,size[0],size[1]);\
 						cifftma(FloatComplexMatrix(in,ZEROS,size[0]*size[1]), size[0], size[1], out);\
 						}
 /* FIXME : malloc here */
 #define d2ifftz2(in,size,out)		{double* ZEROS;\
-						ZEROS=malloc((uint)(size[0]*size[1]*sizeof(double));\
+						ZEROS=malloc((uint)(size[0]*size[1]*sizeof(double)));\
 						dzerosa(ZEROS,size[0],size[1]);\
 						zifftma(DoubleComplexMatrix(in,ZEROS,size[0]*size[1]), size[0], size[1], out);\
 						}
