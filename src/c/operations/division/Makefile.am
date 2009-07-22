@@ -43,6 +43,7 @@ check_PROGRAMS = 	testLDivision \
 
 check_LDADD =		$(top_builddir)/src/c/type/libDoubleComplex.la \
 			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
 			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
 			$(top_builddir)/src/c/auxiliaryFunctions/conj/libConj.la \
 			libDivision.la
