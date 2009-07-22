@@ -1297,12 +1297,12 @@ static void crdivsTest()
   	in1 = FloatComplex(NR[i],NI[i]);
   	in2 = FloatComplex(DR[i],DI[i]);
   	out = crdivs(in1,in2);
-  	assert( ( fabs(creals(out)-RR[i]) / fabs(creals(out)) ) <1e-6);
-  	assert( ( fabs(cimags(out)-RI[i]) / fabs(cimags(out)) ) <3e-6);
-	if (! ( fabs(cimags(out)-RI[i]) / fabs(cimags(out)) ) <3e-6 )
+  	assert( ( fabs(creals(out)-RR[i]) / fabs(creals(out)) ) < 1e-6);
+	if (( fabs(cimags(out)-RI[i]) / fabs(cimags(out)) ) >= 1e-5 )
 	  {
-	    printf("%d : %f ; num = %f;erreur = %1.25f\n",i,cimags(out),RI[i], fabs(cimags(out)-RI[i]) / fabs(cimags(out)));
+	    printf("%d : %1.25f ; num = %1.25f;erreur = %1.25f\n",i,cimags(out),RI[i], fabs(cimags(out)-RI[i]) / fabs(cimags(out)));
 	  }
+  	assert( ( fabs(cimags(out)-RI[i]) / fabs(cimags(out)) ) < 1e-5);
   }
 }
 
@@ -1322,8 +1322,10 @@ static void zrdivsTest()
   	in1 = DoubleComplex(NR[i],NI[i]);
   	in2 = DoubleComplex(DR[i],DI[i]);
   	out = zrdivs(in1,in2);
-  	assert( ( fabs(zreals(out)-RR[i]) / fabs(zreals(out)) ) <3e-16);
-  	assert( ( fabs(zimags(out)-RI[i]) / fabs(zimags(out)) ) <3e-16);
+	printf("%d : %1.25f ; num = %1.25f;erreur = %1.25f\n",i,zreals(out),RR[i], fabs(zreals(out)-RR[i]) );
+  	assert( ( fabs(zreals(out)-RR[i]) ) < 1e-15);
+	printf("%d : %1.25f ; num = %1.25f;erreur = %1.25f\n",i,zimags(out),RI[i], fabs(zimags(out)-RI[i]) );
+  	assert( ( fabs(zimags(out)-RI[i]) ) < 1e-15);
   }
 }
 
@@ -1379,8 +1381,8 @@ static void crdivaTest()
   crdiva(in1,in2,200,out);
 
   for (i=0;i<200;i++){
-  	assert( ( fabs(creals(out[i])-RR[i]) / fabs(creals(out[i])) ) <1e-6);
-  	assert( ( fabs(cimags(out[i])-RI[i]) / fabs(cimags(out[i])) ) <3e-6);
+  	assert( ( fabs(creals(out[i])-RR[i]) ) < 1e-6);
+  	assert( ( fabs(cimags(out[i])-RI[i]) ) < 3e-6);
   }
 }
 
@@ -1404,8 +1406,8 @@ static void zrdivaTest()
   zrdiva(in1,in2,200,out);
 
   for (i=0;i<200;i++){
-  	assert( ( fabs(zreals(out[i])-RR[i]) / fabs(zreals(out[i])) ) <3e-16);
-  	assert( ( fabs(zimags(out[i])-RI[i]) / fabs(zimags(out[i])) ) <3e-16);
+  	assert( ( fabs(zreals(out[i])-RR[i]) ) < 1e-15);
+  	assert( ( fabs(zimags(out[i])-RI[i]) ) < 1e-15);
   }
 }
 
