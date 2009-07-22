@@ -1306,8 +1306,8 @@ static void cldivsTest()
 		in1 = FloatComplex(NR[i],NI[i]);
 		in2 = FloatComplex(DR[i],DI[i]);
 		out = cldivs(in1,in2);
-		assert( ( fabs(creals(out)-RR[i]) / fabs(creals(out)) ) <1e-6);
-		assert( ( fabs(cimags(out)-RI[i]) / fabs(cimags(out)) ) <3e-6);
+		assert( fabs(creals(out)-RR[i]) < 1e-6);
+		assert( fabs(cimags(out)-RI[i]) < 1e-6);
 	}
 }
 
@@ -1327,8 +1327,8 @@ static void zldivsTest()
 		in1 = DoubleComplex(NR[i],NI[i]);
 		in2 = DoubleComplex(DR[i],DI[i]);
 		out = zldivs(in1,in2);
-		assert( ( fabs(zreals(out)-RR[i]) / fabs(zreals(out)) ) <3e-16);
-		assert( ( fabs(zimags(out)-RI[i]) / fabs(zimags(out)) ) <3e-16);
+		assert( fabs(zreals(out)-RR[i]) < 1e-14);
+		assert( fabs(zimags(out)-RI[i]) < 1e-14);
 	}
 
 }
@@ -1387,8 +1387,8 @@ static void cldivaTest()
 	cldiva(in1,in2,200,out);
 
 	for (i=0;i<200;i++){
-		assert( ( fabs(creals(out[i])-RR[i]) / fabs(creals(out[i])) ) <1e-6);
-		assert( ( fabs(cimags(out[i])-RI[i]) / fabs(cimags(out[i])) ) <3e-6);
+		assert( fabs(creals(out[i])-RR[i]) < 1e-6);
+		assert( fabs(cimags(out[i])-RI[i]) < 1e-6);
 	}
 }
 
@@ -1412,8 +1412,8 @@ static void zldivaTest()
 	zldiva(in1,in2,200,out);
 
 	for (i=0;i<200;i++){
-		assert( ( fabs(zreals(out[i])-RR[i]) / fabs(zreals(out[i])) ) <3e-16);
-		assert( ( fabs(zimags(out[i])-RI[i]) / fabs(zimags(out[i])) ) <3e-16);
+		assert( fabs(zreals(out[i])-RR[i]) < 5e-15);
+		assert( fabs(zimags(out[i])-RI[i]) < 5e-15);
 	}
 }
 
