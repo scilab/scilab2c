@@ -318,15 +318,16 @@ static int zrowmeanaTest(void) {
     printf("rowMeanmedIn_2_6[%d] = %e + %ei\n", i, zreals(rowMeanmedIn_2_6[i]), zimags(rowMeanmedIn_2_6[i]));
   }
   assert(zreals(rowMeanmedIn_2_6[0]) == 0.1 / 2.0 && zimags(rowMeanmedIn_2_6[0]) == 2.1 / 2.0);
-  assert( ( fabs(zreals(rowMeanmedIn_2_6[1]) ) - (  0.5 / 2.0 ) ) / fabs ( zreals(rowMeanmedIn_2_6[1])  ) <  3e-16 );
-  assert(fabs(double(zimags(rowMeanmedIn_2_6[1]) == 1.7 / 2.0)) < 1e-16);
-  assert( ( fabs(zreals(rowMeanmedIn_2_6[2]) ) - (  0.9 / 2.0 ) ) / fabs ( zreals(rowMeanmedIn_2_6[2])  ) <  3e-16 );
-  assert(fabs(double(zimags(rowMeanmedIn_2_6[2]) == 1.3 / 2.0)) < 1e-16);
-  assert(fabs(double(zreals(rowMeanmedIn_2_6[3]) == 1.3 / 2.0)) < 1e-16);
-  assert( ( fabs(zimags(rowMeanmedIn_2_6[3]) ) - (  0.9 / 2.0 ) ) / fabs ( zimags(rowMeanmedIn_2_6[3])  ) <  3e-16 );
-  assert(fabs(double(zreals(rowMeanmedIn_2_6[4]) == 1.7 / 2.0)) < 1e-16);
-  assert( ( fabs(zimags(rowMeanmedIn_2_6[4]) ) - (  0.5 / 2.0 ) ) / fabs ( zimags(rowMeanmedIn_2_6[4])  ) <  3e-16 );
-  assert(zreals(rowMeanmedIn_2_6[5]) == 2.1 / 2.0 && zimags(rowMeanmedIn_2_6[5]) == 0.1 / 2.0);
+  assert( ( fabs(zreals(rowMeanmedIn_2_6[1]) ) - ( 0.5 / 2.0 ) ) / fabs(zreals(rowMeanmedIn_2_6[1])) < 3e-16);
+  assert( ( fabs(zimags(rowMeanmedIn_2_6[1]) ) - ( 1.7 / 2.0 ) ) / fabs(zimags(rowMeanmedIn_2_6[1])) < 3e-16);
+  assert( ( fabs(zreals(rowMeanmedIn_2_6[2]) ) - ( 0.9 / 2.0 ) ) / fabs(zreals(rowMeanmedIn_2_6[2])) < 3e-16);
+  assert( ( fabs(zimags(rowMeanmedIn_2_6[2]) ) - ( 1.3 / 2.0 ) ) / fabs(zimags(rowMeanmedIn_2_6[2])) < 3e-16);
+  assert( ( fabs(zreals(rowMeanmedIn_2_6[3]) ) - ( 1.3 / 2.0 ) ) / fabs(zreals(rowMeanmedIn_2_6[3])) < 3e-16);
+  assert( ( fabs(zimags(rowMeanmedIn_2_6[3]) ) - ( 0.9 / 2.0 ) ) / fabs(zimags(rowMeanmedIn_2_6[3])) < 3e-16);
+  assert( ( fabs(zreals(rowMeanmedIn_2_6[4]) ) - ( 1.7 / 2.0 ) ) / fabs(zreals(rowMeanmedIn_2_6[4])) < 3e-16);
+  assert( ( fabs(zimags(rowMeanmedIn_2_6[4]) ) - ( 0.5 / 2.0 ) ) / fabs(zimags(rowMeanmedIn_2_6[4])) < 3e-16);
+  assert( ( fabs(zreals(rowMeanmedIn_2_6[5]) ) - ( 2.1 / 2.0 ) ) / fabs(zreals(rowMeanmedIn_2_6[5])) < 3e-16);
+  assert( ( fabs(zimags(rowMeanmedIn_2_6[5]) ) - ( 0.1 / 2.0 ) ) / fabs(zimags(rowMeanmedIn_2_6[5])) < 3e-16);
 
   /*
     [ 1.1i 0.1+i 0.2+0.9i  0.3+0.8i 0.4+0.7i 0.5+0.6i 0.6+0.5i 0.7+0.4i 0.8+0.3i 0.9+0.2i 1+0.1i 1.1 ]
@@ -388,10 +389,12 @@ static int zcolumnmeanaTest(void) {
     printf("columnMeanmedIn_4_3[%d] = %e + %ei\n", i, zreals(columnMeanmedIn_4_3[i]), zimags(columnMeanmedIn_4_3[i]));
   }
   assert(fabs(zreals(columnMeanmedIn_4_3[0]) - 1.2 / 3.0) < 3e-16);
-  assert(zimags(columnMeanmedIn_4_3[0]) == 2.1 / 3.0);
-  assert(zreals(columnMeanmedIn_4_3[1]) == 1.5 / 3.0 && zimags(columnMeanmedIn_4_3[1]) == 1.8 / 3.0);
-  assert(zreals(columnMeanmedIn_4_3[2]) == 1.8  / 3.0&& zimags(columnMeanmedIn_4_3[2]) == 1.5 / 3.0);
-  assert(zreals(columnMeanmedIn_4_3[3]) == 2.1 / 3.0);
+  assert(fabs(zimags(columnMeanmedIn_4_3[0]) - 2.1 / 3.0) < 3e-16);
+  assert(fabs(zreals(columnMeanmedIn_4_3[1]) - 1.5 / 3.0) < 3e-16);
+  assert(fabs(zimags(columnMeanmedIn_4_3[1]) - 1.8 / 3.0) < 3e-16);
+  assert(fabs(zreals(columnMeanmedIn_4_3[2]) - 1.8 / 3.0) < 3e-16);
+  assert(fabs(zimags(columnMeanmedIn_4_3[2]) - 1.5 / 3.0) < 3e-16);
+  assert(fabs(zreals(columnMeanmedIn_4_3[3]) - 2.1 / 3.0) < 3e-16);
   assert(fabs(zimags(columnMeanmedIn_4_3[3]) - 1.2 / 3.0) < 3e-16);
 
   /*
@@ -437,8 +440,10 @@ static int zcolumnmeanaTest(void) {
   for (i = 0 ; i < 2 ; ++i) {
     printf("columnMeanmedIn_2_6[%d] = %e + %ei\n", i, zreals(columnMeanmedIn_2_6[i]), zimags(columnMeanmedIn_2_6[i]));
   }
-  assert(zreals(columnMeanmedIn_2_6[0]) == 3.0 / 6.0 && zimags(columnMeanmedIn_2_6[0]) == 3.6 / 6.0);
-  assert(zreals(columnMeanmedIn_2_6[1]) == 3.6 / 6.0 && zimags(columnMeanmedIn_2_6[1]) == 3.0 / 6.0);
+  assert(fabs(zreals(columnMeanmedIn_2_6[0]) - 3.0 / 6.0) < 3e-16);
+  assert(fabs(zimags(columnMeanmedIn_2_6[0]) - 3.6 / 6.0) < 3e-16);
+  assert(fabs(zreals(columnMeanmedIn_2_6[1]) - 3.6 / 6.0) < 3e-16); 
+  assert(fabs(zimags(columnMeanmedIn_2_6[1]) - 3.0 / 6.0) < 3e-16);
 
   /*
     [ 1.1i 0.1+i 0.2+0.9i  0.3+0.8i 0.4+0.7i 0.5+0.6i 0.6+0.5i 0.7+0.4i 0.8+0.3i 0.9+0.2i 1+0.1i 1.1 ]
