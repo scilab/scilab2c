@@ -40,7 +40,7 @@ static int dsumaTest(void) {
 
   printf("\n>>>> Sum Double Array Test\n");
   assert(dsuma(table1, 3) == 9.0);
-  assert((dsuma(table2, 5) - (9.186784 + 9.186784 + 9.186784 + 9.186784 + 9.186784)) / dsuma(table2, 5) < 3e-16);
+  assert((dsuma(table2, 5) - (9.186784653 + 9.186785634 + 9.186784563 + 9.186784563 + 9.186784563)) < 3e-16);
   return 0;
 }
 
@@ -319,12 +319,12 @@ static int zrowsumaTest(void) {
   }
   assert(zreals(rowSummedIn_2_6[0]) == 0.1 && zimags(rowSummedIn_2_6[0]) == 2.1);
   assert(zreals(rowSummedIn_2_6[1]) == 0.5);
-  assert(fabs(double(zimags(rowSummedIn_2_6[1]) == 1.7)) < 1e-16);
+  assert(fabs(zimags(rowSummedIn_2_6[1]) - 1.7) < 3e-16);
   assert(zreals(rowSummedIn_2_6[2]) == 0.9);
-  assert(fabs(double(zimags(rowSummedIn_2_6[2]) == 1.3)) < 1e-16);
-  assert(fabs(double(zreals(rowSummedIn_2_6[3]) == 1.3)) < 1e-16);
+  assert(fabs(zimags(rowSummedIn_2_6[2]) - 1.3) < 3e-16);
+  assert(fabs(zreals(rowSummedIn_2_6[3]) - 1.3) < 3e-16);
   assert(zimags(rowSummedIn_2_6[3]) == 0.9);
-  assert(fabs(double(zreals(rowSummedIn_2_6[4]) == 1.7)) < 1e-16);
+  assert(fabs(zreals(rowSummedIn_2_6[4]) - 1.7) < 3e-16);
   assert(zimags(rowSummedIn_2_6[4]) == 0.5);
   assert(zreals(rowSummedIn_2_6[5]) == 2.1 && zimags(rowSummedIn_2_6[5]) == 0.1);
 
