@@ -2494,7 +2494,7 @@ PrintStringInfo('c2s2s0'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('z2d2d0'+ArgSeparator+'z2',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
-FunctionName = 'meanf';
+FunctionName = 'meanf'; // AS : Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'both','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);

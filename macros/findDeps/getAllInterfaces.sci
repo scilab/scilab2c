@@ -77,6 +77,7 @@ function allInterfaces = getAllInterfaces()
       "src/c/elementaryFunctions/interfaces/int_ceil.h"
       "src/c/elementaryFunctions/interfaces/int_cosh.h"
       "src/c/statisticsFunctions/interfaces/int_mean.h"
+      "src/c/statisticsFunctions/interfaces/int_meanf.h"
       "src/c/statisticsFunctions/interfaces/int_prod.h"
       "src/c/statisticsFunctions/interfaces/int_variance.h"
       "src/c/statisticsFunctions/interfaces/int_sum.h"

@@ -273,6 +273,9 @@
 /* interfacing mean */
 #include "mean.h"
 #include "int_mean.h"
+/* interfacing meanf */
+#include "meanf.h"
+#include "int_meanf.h"
 /* interfacing sum */
 #include "sum.h"
 #include "int_sum.h"
