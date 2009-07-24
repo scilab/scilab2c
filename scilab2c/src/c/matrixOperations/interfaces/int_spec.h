@@ -28,7 +28,7 @@
 #define s2specc2(in,size,out)		{float* ZEROS;\
 						ZEROS=malloc((uint)(size[0]*size[0]*sizeof(float)));\
 						szerosa(ZEROS,size[0],size[0]);\
-						sspeca(FloatComplexMatrix(in,ZEROS,size[0]*size[0]), size[0], out);\
+						cspeca(FloatComplexMatrix(in,ZEROS,size[0]*size[0]), size[0], out);\
 						}
 
 #define d2specz2(in,size,out)		{double* ZEROS;\

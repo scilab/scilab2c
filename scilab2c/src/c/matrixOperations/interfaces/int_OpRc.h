@@ -85,18 +85,22 @@
 										}
 
 /* Different type */
-#define s2c0OpRcc2(in1,size,in2,out)				sfilla((float *)out,size[0],size[1],0);  \
-										c2c0OpRcc2(FloatComplexMatrix(in1,(float*)out,size[0]*size[1]),size,in2,out)
+#define s2c0OpRcc2(in1,size,in2,out)				{ floatComplex temp=in2; \
+										sfilla((float *)out,size[0],size[1],0);  \
+										scolumncata(FloatComplexMatrix(in1,(float*)out,size[0]*size[1]), size[0], size[1], &temp , 1, 1, out); \
+										}
 
-#define d2z0OpRcz2(in1,size,in2,out)				dfilla((double *)out,size[0],size[1],0);  \
-										z2z0OpRcz2(DoubleComplexMatrix(in1,(double *)out,size[0]*size[1]),size,in2,out)
+#define d2z0OpRcz2(in1,size,in2,out)				{ doubleComplex temp=in2; \
+										dfilla((double *)out,size[0],size[1],0);  \
+										zcolumncata(DoubleComplexMatrix(in1,(double *)out,size[0]*size[1]), size[0], size[1], &temp , 1, 1, out); \
+										}
 
 #define c2s0OpRcc2(in1,size,in2,out)				{ floatComplex temp = FloatComplex(in2,0);   \
-										  c2c0OpRcc2(in1, size, temp, out) \
+										  ccolumncata(in1, size[0], size[1], &temp, 1, 1, out); \
 										}
 
 #define z2d0OpRcz2(in1,size,in2,out)				{ doubleComplex temp = DoubleComplex(in2,0);   \
-										  z2z0OpRcz2(in1, size, temp, out) \
+										   zcolumncata(in1, size[0], size[1], &temp, 1, 1, out); \
 										}
 
 /* Scalar-Matrix */
