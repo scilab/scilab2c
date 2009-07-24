@@ -180,7 +180,8 @@ SUBDIRS = mean \
 		variance\
 		prod\
 		min\
-		max
+		max\
+		meanf
 
 all: all-recursive
 
