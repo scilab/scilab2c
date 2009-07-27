@@ -15,4 +15,6 @@ SUBDIRS=	mean \
 		variance\
 		prod\
 		min\
-		max
+		max\
+		meanf\
+		variancef

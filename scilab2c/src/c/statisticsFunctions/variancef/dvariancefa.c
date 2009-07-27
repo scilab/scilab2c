@@ -10,26 +10,26 @@
  *
  */
 
-#include "variance.h" 
+#include "variancef.h" 
 
-double	dvariancea(double *in, int size)
+double	dvariancefa(double *in1, int size , double * in2)
 {
-    int i = 0 ;
-    
-    double temp = 0 ;
-    double variance = 0;
-    
-    double mean =  dmeana ( in, size );
- 
-    for ( i = 0 ; i < size ; i++)
-    { 
-       temp += dpows (  (in[i]  - mean ) ,2 ) ;
+  int i = 0 ;
+  double temp = 0.0;
+  double accumulate = 0.0 ;
+  double accumulateFre = 0.0 ;
+
+  double meanf = dmeanfa (in1 , size , in2);
+
+  for(i = 0 ; i < size ; ++i)
+    {
+     temp = spows (  (in1[i]  - meanf ) ,2 );
+     temp *= in2[i];
+
+     accumulate += temp ;
+     accumulateFre += in2[i];
     }
-    
-    
-    variance =  ( temp )/ ( size -1);
-   
-    
-    return variance ;
+
+  return accumulate / (accumulateFre -1);
 }
 

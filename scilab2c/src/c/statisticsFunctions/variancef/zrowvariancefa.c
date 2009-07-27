@@ -10,26 +10,12 @@
  *
  */
 
-#include "variance.h" 
+#include "variancef.h"
 
-double	dvariancea(double *in, int size)
-{
+void zrowvariancea(doubleComplex *in1, int lines, int columns,doubleComplex *in2, doubleComplex* out){
+    
     int i = 0 ;
     
-    double temp = 0 ;
-    double variance = 0;
-    
-    double mean =  dmeana ( in, size );
- 
-    for ( i = 0 ; i < size ; i++)
-    { 
-       temp += dpows (  (in[i]  - mean ) ,2 ) ;
-    }
-    
-    
-    variance =  ( temp )/ ( size -1);
-   
-    
-    return variance ;
+    for ( i = 0; i < columns ; i++)
+    out[i] = zvariancefa ( in1 + i*lines , lines , in2 ) ;
 }
-

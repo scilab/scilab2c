@@ -181,7 +181,8 @@ SUBDIRS = mean \
 		prod\
 		min\
 		max\
-		meanf
+		meanf\
+		variancef
 
 all: all-recursive
 

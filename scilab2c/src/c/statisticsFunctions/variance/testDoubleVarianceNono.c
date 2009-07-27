@@ -161,7 +161,7 @@ static int doubleComplexVariance(void){
 		
 		out=zvariancea(in,6);
 		printf("Variance \n");
-		printf("%f + %f *i\n",zreals(out),zimags(out));
+		printf("%f + %f *i\texpecting result : %f + %f *i\n",zreals(out),zimags(out) , varianceR , varianceI);
 		
 		assert(fabs(zreals(out)-varianceR)/fabs(zreals(out)) <3e-16);
 		assert(fabs(zimags(out)-varianceI)/fabs(zimags(out)) <3e-16);
