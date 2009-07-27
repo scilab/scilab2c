@@ -16,13 +16,25 @@
 
 floatComplex cmeanfa(floatComplex *in1, int size, floatComplex *in2 ) {
   floatComplex accumulate = FloatComplex(0.0f, 0.0f);
-  floatComplex freAccumulate = FloatComplex(0.0f, 0.0f);
+  float freAccumulate =  0.0f;
   int i = 0;
 
   for (i = 0; i < size; ++i)
     {
       accumulate = cadds(accumulate, cmuls (in1[i] , in2[i]));
-      freAccumulate = cadds(accumulate, in2[i]);
+      freAccumulate +=  creals(in2[i]);
     }
-  return FloatComplex(creals(accumulate) / creals(freAccumulate), cimags(accumulate) / creals(freAccumulate));
+  return FloatComplex(creals(accumulate) /freAccumulate, cimags(accumulate) /freAccumulate);
 }
+
+
+/*
+  for (i = 0; i < size; ++i)
+    {
+      accumulate += (in1[i] * in2[i]) ;
+      freAccumulate += in2[i] ;
+    }
+  return accumulate / freAccumulate;
+
+
+*/
