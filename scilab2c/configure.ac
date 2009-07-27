@@ -237,6 +237,7 @@ src/c/statisticsFunctions/meanf/Makefile
 src/c/statisticsFunctions/prod/Makefile
 src/c/statisticsFunctions/sum/Makefile
 src/c/statisticsFunctions/variance/Makefile
+src/c/statisticsFunctions/variancef/Makefile
 src/c/statisticsFunctions/max/Makefile
 src/c/statisticsFunctions/min/Makefile
 src/c/string/Makefile
