@@ -10,26 +10,23 @@
  *
  */
 
-#include "variance.h" 
+#include "variancef.h"
 
-double	dvariancea(double *in, int size)
-{
+void dcolumnvariancefa(double *in1, int lines, int columns, double *in2, double* out){
+    
     int i = 0 ;
     
-    double temp = 0 ;
-    double variance = 0;
-    
-    double mean =  dmeana ( in, size );
- 
-    for ( i = 0 ; i < size ; i++)
-    { 
-       temp += dpows (  (in[i]  - mean ) ,2 ) ;
-    }
+    double* transp = (double*) malloc ( sizeof (double) *(unsigned int) (lines*columns));
+
     
     
-    variance =  ( temp )/ ( size -1);
-   
+    dtransposea ( in1 , lines , columns , transp ) ;
     
-    return variance ;
+
+    for ( i = 0; i < lines ; i++)
+    out[i] = dvariancefa ( transp + i*columns , columns , in2) ;
+    
+
+    free (transp);
 }
 

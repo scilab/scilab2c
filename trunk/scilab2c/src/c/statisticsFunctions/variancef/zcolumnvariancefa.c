@@ -10,26 +10,25 @@
  *
  */
 
-#include "variance.h" 
 
-double	dvariancea(double *in, int size)
-{
+#include "variancef.h"
+
+void zcolumnvariancea(doubleComplex *in1, int lines, int columns,doubleComplex *in2 , doubleComplex* out){
+    
     int i = 0 ;
     
-    double temp = 0 ;
-    double variance = 0;
-    
-    double mean =  dmeana ( in, size );
- 
-    for ( i = 0 ; i < size ; i++)
-    { 
-       temp += dpows (  (in[i]  - mean ) ,2 ) ;
-    }
+    doubleComplex* transp = (doubleComplex*) malloc ( sizeof (doubleComplex) *(unsigned int) (lines*columns));
+
     
     
-    variance =  ( temp )/ ( size -1);
-   
+    ztransposea ( in1 , lines , columns , transp ) ;
     
-    return variance ;
+
+    for ( i = 0; i < lines ; i++)
+    out[i] = zvariancefa ( transp + i*columns , columns, in2 ) ;
+    
+
+    free (transp);
+
 }
 
