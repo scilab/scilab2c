@@ -228,10 +228,10 @@ static int cmeanfaTest(void) {
 
 
   printf("\n>>>> Mean Float Complex Array Test\n");
-  
+  printf("\tMeanmedTable_1_1[0] = %e + %ei\n", creals(cmeanfa(table1, 9, coef1)), cimags(cmeanfa(table1, 9, coef1)));
 
-  assert( ( fabs(creals(cmeanfa(table1, 3, coef1)) ) - (  246.0f /  57.0f ) ) / fabs ( creals(cmeanfa(table1, 3, coef1))  ) <  1e-6 );
-  assert( ( fabs(cimags(cmeanfa(table1, 3, coef1)) ) - (  288.0f /  57.0f ) ) / fabs ( cimags(cmeanfa(table1, 3, coef1))  ) <  1e-6 );/*
+  assert( fabs( (creals(cmeanfa(table1, 9, coef1)) ) - (  246.0f /  57.0f ) ) / fabs ( creals(cmeanfa(table1, 9, coef1))  ) <  1e-6 );
+  assert( fabs( (cimags(cmeanfa(table1, 9, coef1)) ) - (  288.0f /  57.0f ) ) / fabs ( cimags(cmeanfa(table1, 9, coef1))  ) <  1e-6 );/*
 */
   return 0;
 }
