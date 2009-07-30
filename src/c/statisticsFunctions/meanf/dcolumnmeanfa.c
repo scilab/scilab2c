@@ -11,7 +11,6 @@
  */
 
 #include "meanf.h"
-#include <stdio.h>
 
 void dcolumnmeanfa(double *in1, int lines , int columns, double *in2, double *out) {
   int i = 0;
