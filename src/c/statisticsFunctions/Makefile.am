@@ -17,4 +17,5 @@ SUBDIRS=	mean \
 		min\
 		max\
 		meanf\
-		variancef
+		variancef\
+		stdevf

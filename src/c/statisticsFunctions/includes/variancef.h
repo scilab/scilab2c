@@ -10,8 +10,8 @@
  *
  */
 
-#ifndef __VARIANCE_H__
-#define __VARIANCE_H__
+#ifndef __VARIANCEF_H__
+#define __VARIANCEF_H__
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -114,4 +114,4 @@ EXTERN_STATFUNC void		zcolumnvariancefa(doubleComplex *in1, int lines, int colum
 #endif
 
 
-#endif /* !__VARIANCE_H__ */
+#endif /* !__VARIANCEF_H__ */
