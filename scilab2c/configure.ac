@@ -234,6 +234,7 @@ src/c/auxiliaryFunctions/conj/Makefile
 src/c/statisticsFunctions/Makefile
 src/c/statisticsFunctions/mean/Makefile
 src/c/statisticsFunctions/meanf/Makefile
+src/c/statisticsFunctions/stdevf/Makefile
 src/c/statisticsFunctions/prod/Makefile
 src/c/statisticsFunctions/sum/Makefile
 src/c/statisticsFunctions/variance/Makefile
