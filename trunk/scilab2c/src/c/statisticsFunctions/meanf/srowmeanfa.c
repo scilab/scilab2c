@@ -13,6 +13,7 @@
 #include "meanf.h"
 #include "sum.h"
 
+
 void srowmeanfa(float *in1, int lines, int columns, float *in2, float *out) {
   int i = 0;
   int j = 0;
@@ -26,7 +27,7 @@ void srowmeanfa(float *in1, int lines, int columns, float *in2, float *out) {
     for ( i = 0 ; i < lines; ++i )
       {
 
-        tempMul = in1[lines*j + i] * in2[lines*j + i]; // we times by the coefficient
+        tempMul = in1[lines*j + i] * in2[lines*j + i]; /* we times by the coefficient*/
         tempCoefSum +=in2[lines*j + i];
         out[j] +=tempMul ;
       } 
