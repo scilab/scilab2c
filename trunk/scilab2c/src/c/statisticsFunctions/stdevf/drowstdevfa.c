@@ -11,37 +11,43 @@
  */
 
 
-#include "variancef.h"
-#include "meanf.h"
+#include "stdevf.h"
 
 
-void scolumnvariancefa(float *in1, int lines, int columns, float *in2, float* out){
+void drowstdevfa(double *in1, int lines, int columns, double *in2, double* out){
   int i = 0;
   int j = 0;
-  float temp = 0.0f;
-  float accumulate = 0.0f;
-  float accumulateFre = 0.0f ;
+  double temp = 0.0f;
+  double accumulate = 0.0f;
+  double accumulateFre = 0.0f ;
     
-  scolumnmeanfa(in1, lines, columns, in2, out );
+  drowmeanfa(in1, lines, columns, in2, out );
 
-  
+
   /*we first multiply each cell of the input matrix by its coefficient*/
-  for (j = 0; j < lines; ++j)
+  for (j = 0; j < columns; ++j)
     {
       accumulate = 0.0f;
       accumulateFre= 0.0f;
       temp = 0.0f;
 
-      for ( i = 0 ; i < columns; ++i )
+      for ( i = 0 ; i < lines; ++i )
         {
-         temp = spows (  (in1[lines*i + j]  - out[j] ) ,2 );
-         temp *= in2[lines*i + j];
+         temp = dpows (  (in1[lines*j + i]  - out[j] ) ,2 );
+         temp *= in2[lines*j + i];
 
          accumulate += temp ;
-         accumulateFre += in2[lines*i + j];
+         accumulateFre += in2[lines*j + i];
         } 
-      out[j] = accumulate / (accumulateFre - 1) ;
+
+      if (lines <= 1)
+       {
+        out[j] =  0.0 * accumulate ; 
+       }
+      else
+       {
+        out[j] = dsqrts(accumulate / (accumulateFre - 1));
+       }
     }
 
 }
-
