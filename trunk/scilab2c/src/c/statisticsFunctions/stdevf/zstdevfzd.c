@@ -12,35 +12,30 @@
 
 #include "stdevf.h" 
 
-
-doubleComplex zstdevfa(doubleComplex *in1, int lines, int columns, doubleComplex* in2)
+doubleComplex zstdevfzd(doubleComplex *in1, int lines, int columns, double* in2)
 {
   int i = 0 ;
-
   doubleComplex temp = DoubleComplex(0.0,0.0);
   doubleComplex accumulate = DoubleComplex(0.0,0.0);
-  doubleComplex accumulateFre = DoubleComplex(0.0,0.0);
-  doubleComplex meanf = zmeanfa (in1 , lines*columns , in2);
-	
+  double accumulateFre = 0.0 ;
+  doubleComplex meanf = zmeanfzd (in1 , lines , columns , in2);
+/*equivalent to  (in1 - meanf(x , in2 )).^2 .*in2   */
   for(i = 0 ; i < lines*columns ; ++i)
     {
-     temp = zpows (  zdiffs (in1[i] , meanf ) ,DoubleComplex (2.0, 0.0 ) );	
-     temp = zmuls( in2[i] , temp);
+     temp = zpows (  zdiffs (in1[i] , meanf ) ,DoubleComplex (2.0, 0.0 ) );
+     temp = zmuls( DoubleComplex(in2[i],0.0f) , temp);
 
      accumulate = zadds( temp , accumulate);
-     accumulateFre = zadds(in2[i ] ,accumulateFre );
-
-    } 
+     accumulateFre +=  in2[i];
+    }
 
     if (lines <= 1)
       {
-	
         return zmuls (DoubleComplex(0.0,0.0) , accumulate ) ; 
       }
     else
       {
-
-       accumulate = zrdivs(accumulate, zdiffs(accumulateFre ,DoubleComplex(1.0,0.0) ));
-       return zsqrts(accumulate);
+        accumulate = DoubleComplex(  zreals(accumulate ) / (accumulateFre - 1) , zimags(accumulate)  / (accumulateFre - 1));
+        return zsqrts(accumulate);
       }
 }
