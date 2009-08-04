@@ -13,6 +13,7 @@
 #include "meanf.h"
 #include "sum.h"
 #include "multiplication.h"
+
 void zcolumnmeanfa(doubleComplex *in1, int lines, int columns, doubleComplex *in2, doubleComplex *out) {
   int i = 0;
   int j = 0;
@@ -26,7 +27,7 @@ void zcolumnmeanfa(doubleComplex *in1, int lines, int columns, doubleComplex *in
     for ( i = 0 ; i < columns; ++i )
       {
 
-        tempMul = zmuls ( in1[lines*i + j] , in2[lines*i + j]); // we times by the coefficient
+        tempMul = zmuls ( in1[lines*i + j] , in2[lines*i + j]); /* we times by the coefficient*/
         tempCoefSum = zadds ( in2[lines*i + j] ,tempCoefSum ) ;
         out[j] = zadds (tempMul, out[j]) ;
       } 

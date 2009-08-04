@@ -93,8 +93,11 @@ EXTERN_STATFUNC void		zrowmeanfa(doubleComplex *in1, int lines, int columns, dou
 EXTERN_STATFUNC void		zcolumnmeanfa(doubleComplex *in1, int lines, int columns, doubleComplex *in2, doubleComplex* out);
 
 /* for convenience with interface */
-doubleComplex zmeanfv (doubleComplex* in1 ,int lines , int columns , double* in2);
-floatComplex cmeanfv (floatComplex* in1 ,int lines , int columns , float* in2);
+doubleComplex zmeanfzd (doubleComplex* in1 ,int lines , int columns , double* in2);
+doubleComplex zmeanfdz (double* in1 ,int lines , int columns , doubleComplex* in2);
+
+floatComplex cmeanfcs (floatComplex* in1 ,int lines , int columns , float* in2);
+floatComplex cmeanfsc (float* in1 ,int lines , int columns , floatComplex* in2);
 
 #ifdef  __cplusplus
 } /* extern "C" */

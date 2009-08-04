@@ -25,6 +25,9 @@ static int dmeanfsTest(void) {
   double coef1  = 56 ;
   double coef2  = 2 ;
 
+  coef1  = 56 ;
+  coef2  = 2 ;
+
   printf("\n>>>> Meanf Double Scalar Test\n");
   assert( ( fabs(dmeanfs(value1,coef1) ) - (  3.0 ) ) / fabs ( dmeanfs(value1,coef1)  ) <  3e-16 );
   assert( ( fabs(dmeanfs(value2,coef2) ) - (  1.123456789 ) ) / fabs ( dmeanfs(value2,coef2)  ) <  3e-16 );
@@ -143,7 +146,7 @@ static int drowmeanfaTest(void) {
   double rowMeanmedTable1_1_9[9] = {0};
   double rowMeanmedTable1_9_1[1] = {0};
   double rowMeanmedTable2_2_5[5] = {0};
-  double rowMeanmedTable2_5_2[2] = {0};
+
 
   printf("\n>>>> Row Mean Double Array Test\n");
   /*
@@ -206,6 +209,9 @@ static int zmeanfsTest(void) {
   doubleComplex value2 = DoubleComplex(1.123456789, 1.123456789);
   doubleComplex coef2 = DoubleComplex(9.0, 0.0);
 
+  coef1 = DoubleComplex(3.0, 0.0);
+  coef2 = DoubleComplex(9.0, 0.0);
+
   printf("\n>>>> Mean Double Complex Scalar Test\n");
   assert( ( fabs(zreals(zmeanfs(value1,coef1)) ) - (  3.0 ) ) / fabs ( zreals(zmeanfs(value1,coef1))  ) <  3e-16 );
   assert( ( fabs(zimags(zmeanfs(value1,coef1)) ) - (  3.0 ) ) / fabs ( zimags(zmeanfs(value1,coef1))  ) <  3e-16 );
@@ -244,23 +250,35 @@ static int zrowmeanfaTest(void) {
   double tableI1[9] = {1.0, 2.0, 3.0, 4.0 , 5.0, 6.0, 7.0, 8.0, 9.0};
   double coefR1[9] = {10.0, 1.0, 5.0,11.0 , 2.0, 6.0,12.0, 3.0, 7.0}; 
   double coefI1[9] = { 0.0, 0.0, 0.0, 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0}; 
-/*
+
   double tableR2[10] = {1.0, 4.0, 7.0, 2.0 , 5.0, 8.0, 3.0, 6.0, 9.0, 10.0};
-  double tableI2[10] = {1.0, 2.0, 3.0, 4.0 , 5.0, 6.0, 7.0, 8.0, 9.0, 15.0};
-  double coefR2[10]  = {10.0, 1.0, 5.0,11.0 , 2.0, 6.0,12.0, 3.0, 7.0, 19.0}; 
-  double coefI2[10]   = { 0.0, 0.0, 0.0, 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0, 0.0}; 
-*/
+  double tableI2[10] = { 0.0, 0.0, 0.0, 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0 , 0.0};
+  double coefR2[10]  = { 0.0, 0.0, 0.0, 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0 , 0.0}; 
+  double coefI2[10]   ={10.0, 1.0, 5.0,11.0 , 2.0, 6.0,12.0, 3.0, 7.0, 19.0};
+
   doubleComplex* table1 = DoubleComplexMatrix (tableR1, tableI1, 9);
   doubleComplex* coef1 = DoubleComplexMatrix (coefR1, coefI1, 9);
-/*
-  doubleComplex* table2 = DoubleComplexMatrix (tableR2, tableI2, 9);
-  doubleComplex* coef2 = DoubleComplexMatrix (coefR2, coefI2, 9);
-*/
-  doubleComplex rowMeanmedTable1_3_3[3] = {DoubleComplex(0.0, 0.0)};
+
+  doubleComplex* table2 = DoubleComplexMatrix (tableR2, tableI2, 10);
+  doubleComplex* coef2 = DoubleComplexMatrix (coefR2, coefI2, 10);
+
+  doubleComplex rowMeanmedTable1_3_3[3];
+  doubleComplex rowMeanmedTable2_2_5[5];
+
+  rowMeanmedTable1_3_3[0] = DoubleComplex(0.0, 0.0);
+  rowMeanmedTable1_3_3[1] = DoubleComplex(0.0, 0.0);
+  rowMeanmedTable1_3_3[2] = DoubleComplex(0.0, 0.0);
+
+  rowMeanmedTable2_2_5[0] = DoubleComplex(0.0, 0.0);
+  rowMeanmedTable2_2_5[1] = DoubleComplex(0.0, 0.0);
+  rowMeanmedTable2_2_5[2] = DoubleComplex(0.0, 0.0);
+  rowMeanmedTable2_2_5[3] = DoubleComplex(0.0, 0.0);
+  rowMeanmedTable2_2_5[4] = DoubleComplex(0.0, 0.0);
+
  /*
   doubleComplex rowMeanmedTable1_1_9[9] = {DoubleComplex(0.0, 0.0)};
   doubleComplex rowMeanmedTable1_9_1[1] = {DoubleComplex(0.0, 0.0)};
-  doubleComplex rowMeanmedTable2_2_5[5] = {DoubleComplex(0.0, 0.0)};
+
   doubleComplex rowMeanmedTable2_5_2[2] = {DoubleComplex(0.0, 0.0)};
 */
 
@@ -275,16 +293,37 @@ static int zrowmeanfaTest(void) {
 
       printf("rowMeanmedTable_3_3[%d] = %e + %ei\n", i, zreals(rowMeanmedTable1_3_3[i]), zimags(rowMeanmedTable1_3_3[i]));
     }
-  assert( ( fabs(zimags(rowMeanmedTable1_3_3[0]) ) - ( 27.0 / 16.0 ) ) / fabs ( zimags(rowMeanmedTable1_3_3[0])  ) <  3e-16 );
-  assert( ( fabs(zreals(rowMeanmedTable1_3_3[0]) ) - ( 49.0 / 16.0 ) ) / fabs ( zreals(rowMeanmedTable1_3_3[0])  ) <  3e-16 );
+  assert(  fabs(zimags(rowMeanmedTable1_3_3[0])  - ( 27.0 / 16.0 ) ) / fabs ( zimags(rowMeanmedTable1_3_3[0])  ) <  3e-16 );
+  assert(  fabs(zreals(rowMeanmedTable1_3_3[0])  - ( 49.0 / 16.0 ) ) / fabs ( zreals(rowMeanmedTable1_3_3[0])  ) <  3e-16 );
   
-  assert( ( fabs(zimags(rowMeanmedTable1_3_3[1]) ) - ( 90.0 / 19.0 ) ) / fabs ( zimags(rowMeanmedTable1_3_3[1])  ) <  3e-16 );
-  assert( ( fabs(zreals(rowMeanmedTable1_3_3[1]) ) - ( 80.0 / 19.0 ) ) / fabs ( zreals(rowMeanmedTable1_3_3[1])  ) <  3e-16 );
+  assert(  fabs(zimags(rowMeanmedTable1_3_3[1])  - ( 90.0 / 19.0 ) ) / fabs ( zimags(rowMeanmedTable1_3_3[1])  ) <  3e-16 );
+  assert(  fabs(zreals(rowMeanmedTable1_3_3[1])  - ( 80.0 / 19.0 ) ) / fabs ( zreals(rowMeanmedTable1_3_3[1])  ) <  3e-16 );
 
-  assert( ( fabs(zimags(rowMeanmedTable1_3_3[2]) ) - (171.0 / 22.0 ) ) / fabs ( zimags(rowMeanmedTable1_3_3[2])  ) <  3e-16 );
-  assert( ( fabs(zreals(rowMeanmedTable1_3_3[2]) ) - (117.0 / 22.0 ) ) / fabs ( zreals(rowMeanmedTable1_3_3[2])  ) <  3e-16 );
+  assert(  fabs(zimags(rowMeanmedTable1_3_3[2])  - (171.0 / 22.0 ) ) / fabs ( zimags(rowMeanmedTable1_3_3[2])  ) <  3e-16 );
+  assert(  fabs(zreals(rowMeanmedTable1_3_3[2])  - (117.0 / 22.0 ) ) / fabs ( zreals(rowMeanmedTable1_3_3[2])  ) <  3e-16 );
+/**/
 
+  printf("\n\n");
+  zrowmeanfa(table2 , 2 , 5 , coef2 , rowMeanmedTable2_2_5);
 
+  for (i = 0 ; i < 5 ; ++i )
+    {
+      printf("rowMeanmedTable_2_5[%d] = %e + %ei\n", i, zreals(rowMeanmedTable2_2_5[i]), zimags(rowMeanmedTable2_2_5[i]));
+    }
+  assert( fabs(zreals(rowMeanmedTable2_2_5[0])  - 1.2727273 ) / fabs ( zreals(rowMeanmedTable2_2_5[0])  ) <  1e-6 );
+  assert( zimags(rowMeanmedTable2_2_5[0])  == 0);
+
+  assert( fabs(zreals(rowMeanmedTable2_2_5[1])  - 3.5625000 ) / fabs ( zreals(rowMeanmedTable2_2_5[1])  ) <  1e-6 );
+  assert( zimags(rowMeanmedTable2_2_5[1])  == 0);
+
+  assert( fabs(zreals(rowMeanmedTable2_2_5[2])  - 7.2500000 ) / fabs ( zreals(rowMeanmedTable2_2_5[2])  ) <  1e-6 );
+  assert( zimags(rowMeanmedTable2_2_5[2])  == 0);
+
+  assert( fabs(zreals(rowMeanmedTable2_2_5[3])  - 3.6000000 ) / fabs ( zreals(rowMeanmedTable2_2_5[3])  ) <  1e-6 );
+  assert( zimags(rowMeanmedTable2_2_5[3])  == 0);
+
+  assert( fabs(zreals(rowMeanmedTable2_2_5[4])  - 9.7307692 ) / fabs ( zreals(rowMeanmedTable2_2_5[4])  ) <  1e-6 );
+ assert( zimags(rowMeanmedTable2_2_5[4])  == 0);
 
 
   return 0;
@@ -311,13 +350,17 @@ static int zcolumnmeanfaTest(void) {
   doubleComplex* table2 = DoubleComplexMatrix (tableR2, tableI2, 9);
   doubleComplex* coef2 = DoubleComplexMatrix (coefR2, coefI2, 9);
 */
-  doubleComplex columnMeanmedTable1_3_3[3] = {DoubleComplex(0.0, 0.0)};
+  doubleComplex columnMeanmedTable1_3_3[3] ;
  /*
   doubleComplex rowMeanmedTable1_1_9[9] = {DoubleComplex(0.0, 0.0)};
   doubleComplex rowMeanmedTable1_9_1[1] = {DoubleComplex(0.0, 0.0)};
   doubleComplex rowMeanmedTable2_2_5[5] = {DoubleComplex(0.0, 0.0)};
   doubleComplex rowMeanmedTable2_5_2[2] = {DoubleComplex(0.0, 0.0)};
 */
+
+  columnMeanmedTable1_3_3[0] = DoubleComplex(0.0, 0.0);
+  columnMeanmedTable1_3_3[1] = DoubleComplex(0.0, 0.0);
+  columnMeanmedTable1_3_3[2] = DoubleComplex(0.0, 0.0);
 
   printf("\n>>>> Column Meanf Double Complex Array Test\n");
 
