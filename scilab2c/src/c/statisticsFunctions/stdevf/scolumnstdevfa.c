@@ -14,7 +14,6 @@
 #include "stdevf.h"
 #include "meanf.h"
 
-#include <stdio.h>
 
 void scolumnstdevfa(float *in1, int lines, int columns, float *in2, float* out){
   int i = 0;

@@ -13,7 +13,7 @@
 
 #include "stdevf.h"
 #include "meanf.h"
-
+#include "abs.h"
 
 
 void crowstdevfa(floatComplex *in1, int lines, int columns, floatComplex*in2, floatComplex* out){
@@ -21,7 +21,7 @@ void crowstdevfa(floatComplex *in1, int lines, int columns, floatComplex*in2, fl
   int j = 0;
   floatComplex temp = FloatComplex(0.0f,0.0f);
   floatComplex accumulate = FloatComplex(0.0f,0.0f);
-  float accumulateFre = 0.0f ;
+  floatComplex accumulateFre = FloatComplex(0.0f,0.0f);
     
   crowmeanfa(in1, lines, columns, in2, out );
 
@@ -29,7 +29,7 @@ void crowstdevfa(floatComplex *in1, int lines, int columns, floatComplex*in2, fl
   for (j = 0; j < columns; ++j)
     {
       accumulate = FloatComplex(0.0f,0.0f);
-      accumulateFre = 0.0f ;
+      accumulateFre =FloatComplex(0.0f,0.0f);
       temp = FloatComplex(0.0f,0.0f);
 
       for ( i = 0 ; i < lines; ++i )
@@ -39,7 +39,7 @@ void crowstdevfa(floatComplex *in1, int lines, int columns, floatComplex*in2, fl
          temp = cmuls( in2[lines*j + i] , temp);
 
          accumulate = cadds( temp , accumulate);
-         accumulateFre +=  creals(in2[lines*j + i]);
+         accumulateFre =  cadds (in2[lines*j + i] ,accumulateFre );
 
         } 
 
@@ -49,8 +49,10 @@ void crowstdevfa(floatComplex *in1, int lines, int columns, floatComplex*in2, fl
         }
       else
         {
-           accumulate = FloatComplex(  creals(accumulate ) / (accumulateFre - 1) , cimags(accumulate)  / (accumulateFre - 1));
-           out[j] = csqrts(accumulate);
+	  if( sabss (creals(accumulate)) <= 3e-6 ) accumulate = FloatComplex(sabss(creals(accumulate)) ,cimags(accumulate));
+	  if( sabss (cimags(accumulate)) <= 3e-6 ) accumulate = FloatComplex(creals(accumulate) ,sabss(cimags(accumulate)));
+          accumulate =   crdivs (accumulate , cdiffs (accumulateFre ,FloatComplex(1.0f,0.0f))   );
+          out[j] =csqrts(accumulate);
         }
     }
 

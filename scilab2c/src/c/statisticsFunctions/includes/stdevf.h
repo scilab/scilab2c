@@ -111,6 +111,16 @@ EXTERN_STATFUNC doubleComplex	zstdevfa(doubleComplex *in1, int lines, int column
 EXTERN_STATFUNC void		zrowstdevfa(doubleComplex *in1, int lines, int columns, doubleComplex *in2, doubleComplex* out);
 EXTERN_STATFUNC void		zcolumnstdevfa(doubleComplex *in1, int lines, int columns, doubleComplex *in2, doubleComplex* out);
 
+/*
+**  convenience functions
+*/
+
+EXTERN_STATFUNC floatComplex	cstdevfcs(floatComplex *in1, int lines, int columns, float *in2);
+EXTERN_STATFUNC floatComplex	cstdevfsc(float *in1, int lines, int columns, floatComplex *in2);
+
+EXTERN_STATFUNC doubleComplex	zstdevfzd(doubleComplex *in1, int lines, int columns, double *in2);
+EXTERN_STATFUNC doubleComplex	zstdevfdz(double *in1, int lines, int columns, doubleComplex *in2);
+
 #ifdef  __cplusplus
 } /* extern "C" */
 #endif

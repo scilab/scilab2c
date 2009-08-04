@@ -11,7 +11,7 @@
  */
 
 #include "stdevf.h" 
-#include <stdio.h>
+
 float sstdevfa(float *in1, int lines, int columns, float* in2)
 {
   int i = 0 ;

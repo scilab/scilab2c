@@ -13,15 +13,14 @@
 
 #include "stdevf.h"
 #include "meanf.h"
-
-#include <stdio.h>
+#include "abs.h"
 
 void zcolumnstdevfa(doubleComplex *in1, int lines, int columns, doubleComplex*in2, doubleComplex* out){
   int i = 0;
   int j = 0;
   doubleComplex temp = DoubleComplex(0.0,0.0);
   doubleComplex accumulate = DoubleComplex(0.0,0.0);
-  double accumulateFre = 0.0;
+  doubleComplex accumulateFre = DoubleComplex(0.0,0.0);
     
   zcolumnmeanfa(in1, lines, columns, in2, out );
 
@@ -30,7 +29,7 @@ void zcolumnstdevfa(doubleComplex *in1, int lines, int columns, doubleComplex*in
   for (j = 0; j < lines; ++j)
     {
       accumulate = DoubleComplex(0.0,0.0);
-      accumulateFre = 0.0;
+      accumulateFre = DoubleComplex(0.0,0.0);
       temp = DoubleComplex(0.0,0.0);
 
       for ( i = 0 ; i < columns; ++i )
@@ -40,7 +39,7 @@ void zcolumnstdevfa(doubleComplex *in1, int lines, int columns, doubleComplex*in
          temp = zmuls( in2[lines*i + j] , temp);
 
          accumulate = zadds( temp , accumulate);
-         accumulateFre +=  zreals(in2[lines*i + j]);
+         accumulateFre = zadds(in2[lines*i + j] ,accumulateFre );
 
         } 
 
@@ -50,7 +49,9 @@ void zcolumnstdevfa(doubleComplex *in1, int lines, int columns, doubleComplex*in
         }
       else
         {
-        accumulate = DoubleComplex(  zreals(accumulate ) / (accumulateFre - 1) , zimags(accumulate)  / (accumulateFre - 1));
+	  if( dabss (zreals(accumulate)) <= 3e-14 ) accumulate = DoubleComplex(dabss(zreals(accumulate)) ,zimags(accumulate));
+	  if( dabss (zimags(accumulate)) <= 3e-14 ) accumulate = DoubleComplex(zreals(accumulate) ,dabss(zimags(accumulate)));
+       accumulate = zrdivs(accumulate, zdiffs(accumulateFre ,DoubleComplex(1.0,0.0)));
         out[j] = zsqrts(accumulate);
         }
     }
