@@ -14,7 +14,6 @@
 #include "stdevf.h"
 #include "meanf.h"
 
-#include <stdio.h>
 
 void srowstdevfa(float *in1, int lines, int columns, float *in2, float* out){
   int i = 0;
@@ -24,7 +23,6 @@ void srowstdevfa(float *in1, int lines, int columns, float *in2, float* out){
   float accumulateFre = 0.0f ;
     
   srowmeanfa(in1, lines, columns, in2, out );
-printf ("\nmfwerfwerfwefwef \n" );
 
   /*we first multiply each cell of the input matrix by its coefficient*/
   for (j = 0; j < columns; ++j)

@@ -12,32 +12,30 @@
 
 #include "stdevf.h" 
 
-floatComplex cstdevfa(floatComplex *in1, int lines, int columns, floatComplex* in2)
+floatComplex cstdevfcs(floatComplex *in1, int lines, int columns, float* in2)
 {
   int i = 0 ;
-
   floatComplex temp = FloatComplex(0.0f,0.0f);
   floatComplex accumulate = FloatComplex(0.0f,0.0f);
-  floatComplex accumulateFre = FloatComplex(0.0f,0.0f);
-  floatComplex meanf = cmeanfa (in1 , lines*columns , in2);
+  float accumulateFre = 0.0f ;
+  floatComplex meanf = cmeanfcs (in1 , lines ,columns , in2);
 /*equivalent to  (in1 - meanf(x , in2 )).^2 .*in2   */
   for(i = 0 ; i < lines*columns ; ++i)
     {
      temp = cpows (  cdiffs (in1[i] , meanf ) ,FloatComplex (2.0f, 0.0f ) );
-     temp = cmuls( in2[i] , temp);
+     temp = cmuls( FloatComplex (in2[i],0.0f) , temp);
 
      accumulate = cadds( temp , accumulate);
-     accumulateFre =  cadds (in2[i] ,accumulateFre );
+     accumulateFre +=  in2[i];
+    }
 
-     } 
-
-     if (lines <= 1)
+    if (lines <= 1)
       {
-        return  cmuls (FloatComplex(0.0f,0.0f) , accumulate ) ; 
+        return cmuls (FloatComplex(0.0f,0.0f) , accumulate ) ; 
       }
-     else
+    else
       {
-        accumulate =   crdivs (accumulate , cdiffs (accumulateFre ,FloatComplex(1.0f,0.0f))   );
+        accumulate = FloatComplex(  creals(accumulate ) / (accumulateFre - 1) , cimags(accumulate)  / (accumulateFre - 1));
         return csqrts(accumulate);
       }
 }

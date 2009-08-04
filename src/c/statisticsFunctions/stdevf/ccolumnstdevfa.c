@@ -12,14 +12,14 @@
 
 
 #include "stdevf.h"
-
+#include "abs.h"
 
 void ccolumnstdevfa(floatComplex *in1, int lines, int columns, floatComplex*in2, floatComplex* out){
   int i = 0;
   int j = 0;
   floatComplex temp = FloatComplex(0.0f,0.0f);
   floatComplex accumulate = FloatComplex(0.0f,0.0f);
-  float accumulateFre =0.0f ;
+  floatComplex accumulateFre = FloatComplex(0.0f,0.0f);
     
   ccolumnmeanfa(in1, lines, columns, in2, out );
 
@@ -28,7 +28,7 @@ void ccolumnstdevfa(floatComplex *in1, int lines, int columns, floatComplex*in2,
   for (j = 0; j < lines; ++j)
     {
       accumulate = FloatComplex(0.0f,0.0f);
-      accumulateFre =0.0f ;
+      accumulateFre = FloatComplex(0.0f,0.0f);
       temp = FloatComplex(0.0f,0.0f);
 
       for ( i = 0 ; i < columns; ++i )
@@ -38,7 +38,7 @@ void ccolumnstdevfa(floatComplex *in1, int lines, int columns, floatComplex*in2,
          temp = cmuls( in2[lines*i + j] , temp);
 
          accumulate = cadds( temp , accumulate);
-         accumulateFre +=  creals(in2[lines*i + j]);
+         accumulateFre =  cadds (in2[lines*i + j] ,accumulateFre );
 
         } 
 
@@ -48,7 +48,9 @@ void ccolumnstdevfa(floatComplex *in1, int lines, int columns, floatComplex*in2,
         }
       else
         {
-          accumulate = FloatComplex(  creals(accumulate ) / (accumulateFre - 1) , cimags(accumulate)  / (accumulateFre - 1));
+	  if( sabss (creals(accumulate)) <= 3e-6 ) accumulate = FloatComplex(sabss(creals(accumulate)) ,cimags(accumulate));
+	  if( sabss (cimags(accumulate)) <= 3e-6 ) accumulate = FloatComplex(creals(accumulate) ,sabss(cimags(accumulate)));
+          accumulate =   crdivs (accumulate , cdiffs (accumulateFre ,FloatComplex(1.0f,0.0f))   );
           out[j] =csqrts(accumulate);
         }
     }
