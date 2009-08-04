@@ -12,17 +12,18 @@
 
 #include "meanf.h"
 #include "multiplication.h"
+#include "division.h"
 
 doubleComplex zmeanfa(doubleComplex *in1, int size, doubleComplex *in2 ) {
   doubleComplex accumulate = DoubleComplex(0.0, 0.0);
-  double freAccumulate = 0.0;
+  doubleComplex freAccumulate = DoubleComplex(0.0, 0.0);
   int i = 0;
 
   for (i = 0; i < size; ++i)
     {
       accumulate = zadds(accumulate , zmuls( in1[i] ,in2[i]));
-      freAccumulate += zreals(in2[i]);
+      freAccumulate = zadds(in2[i],freAccumulate);
     }
-  return DoubleComplex(zreals(accumulate) / freAccumulate, zimags(accumulate) /freAccumulate);
+  return zrdivs(accumulate ,freAccumulate);
 }
 

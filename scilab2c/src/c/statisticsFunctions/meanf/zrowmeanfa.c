@@ -26,7 +26,7 @@ void zrowmeanfa(doubleComplex *in1, int lines, int columns, doubleComplex *in2, 
     for ( i = 0 ; i < lines; ++i )
       {
 
-        tempMul = zmuls ( in1[lines*j + i] , in2[lines*j + i]); // we times by the coefficient
+        tempMul = zmuls ( in1[lines*j + i] , in2[lines*j + i]); /* we times by the coefficient*/
         tempCoefSum = zadds ( in2[lines*j + i] ,tempCoefSum ) ;
         out[j] = zadds (tempMul, out[j]) ;
       } 

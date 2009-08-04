@@ -15,7 +15,7 @@
 #include "zeros.h"
 #include <malloc.h>
 
-doubleComplex zmeanfv (doubleComplex* in1 ,int lines , int columns , double* in2)
+doubleComplex zmeanfzd (doubleComplex* in1 ,int lines , int columns , double* in2)
   {
     double* ZEROS;
     ZEROS=malloc((unsigned int)(lines*columns*sizeof(double)));
