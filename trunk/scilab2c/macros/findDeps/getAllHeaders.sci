@@ -91,6 +91,7 @@ function allHeaders = getAllHeaders()
       "src/c/statisticsFunctions/includes/sum.h"
       "src/c/statisticsFunctions/includes/mean.h"
       "src/c/statisticsFunctions/includes/meanf.h"
+      "src/c/statisticsFunctions/includes/stdevf.h"
       "src/c/statisticsFunctions/includes/prod.h"
       "src/c/statisticsFunctions/includes/dynlib_statisticsfunctions.h"
       "src/c/statisticsFunctions/includes/statMax.h"
