@@ -18,6 +18,8 @@
 #include "lapack.h"
 #include "fft_internal.h"
 
+#include <stdio.h>
+
 void zfftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 {
 
@@ -48,7 +50,7 @@ void zfftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 
   if ( rows  ==  1 || cols == 1 )
     {
-      sizeTemp = (int) pow(2.0, log(size + 0.5) / log(2.0));
+      sizeTemp = (int) pow(2.0, (int) (log(size + 0.5) / log(2.0)));
       if ( size == sizeTemp )
 	{
 	  if ( size <= pow(2.0, 15.0))
@@ -68,8 +70,8 @@ void zfftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
     }
   else
     {
-      rowsTemp = (int) pow(2.0, log(rows + 0.5) / log(2.0)) ;
-      colsTemp = (int) pow(2.0 ,log(cols + 0.5) / log(2.0)) ;
+      rowsTemp = (int) pow(2.0, (int)(log(rows + 0.5) / log(2.0))) ;
+      colsTemp = (int) pow(2.0 ,(int)(log(cols + 0.5) / log(2.0))) ;
 
       if ( rows == rowsTemp)
 	{
@@ -104,29 +106,29 @@ void zfftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 	}
       /*second call*/
       if ( colsTemp == cols )
+        {
+	  if ( cols <= pow(2.0, 15.0) )
             {
-	      if ( cols <= pow(2.0, 15.0) )
-		{
-		  /*compute the fft on each line of the matrix */
-		  for (i = 0 ; i < rows ; i++ )
-		    {
-                      C2F(zcopy) ( &cols, inCopy + i, &rows, inTemp , &increment );
+              /*compute the fft on each line of the matrix */
+              for (i = 0 ; i < rows ; i++ )
+                {
+                  C2F(zcopy) ( &cols, inCopy + i, &rows, inTemp , &increment );
 
-                      fft842( inTemp , cols , 0);
-                      choosenAlgo = FFT842 ;
-                      C2F(zcopy) ( &cols, inTemp , &increment, inCopy + i, &rows );
+                  fft842( inTemp , cols , 0);
+                  choosenAlgo = FFT842 ;
+                  C2F(zcopy) ( &cols, inTemp , &increment, inCopy + i, &rows );
 
-		    }
 		}
-	      else
-		{
-		  dfft2 ( realIn, imagIn, 1, cols, rows, isn, ierr);
-		}
-           }
+            }
 	  else
             {
-	      dfft2 ( realIn, imagIn, 1, cols, rows, isn, ierr);
+              dfft2 ( realIn, imagIn, 1, cols, rows, isn, ierr);
             }
+        }
+      else
+        {
+          dfft2 ( realIn, imagIn, 1, cols, rows, isn, ierr);
+        }
 
     }
 
@@ -147,7 +149,7 @@ void zfftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
         }
 
     }
-
+ 
   free(realIn);
   free(imagIn);
   free(inCopy);

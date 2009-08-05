@@ -2356,39 +2356,41 @@ PrintStringInfo('d2d0'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('c2s0'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('z2d0'+ArgSeparator+'z2',ClassFileName,'file','y');
 
-PrintStringInfo('s0s0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
-PrintStringInfo('d0d0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
-PrintStringInfo('s0s0s0'+ArgSeparator+'c0',ClassFileName,'file','y');
-PrintStringInfo('d0d0d0'+ArgSeparator+'z0',ClassFileName,'file','y');
-PrintStringInfo('c0s0s0'+ArgSeparator+'c0',ClassFileName,'file','y');
-PrintStringInfo('z0d0d0'+ArgSeparator+'z0',ClassFileName,'file','y');
+// scilab2c doesn't handle multidimensionnal Fft
 
-PrintStringInfo('s2s0s0'+ArgSeparator+'s2',ClassFileName,'file','y');
-PrintStringInfo('d2d0d0'+ArgSeparator+'d2',ClassFileName,'file','y');
-PrintStringInfo('s2s0s0'+ArgSeparator+'c2',ClassFileName,'file','y');
-PrintStringInfo('d2d0d0'+ArgSeparator+'z2',ClassFileName,'file','y');
-PrintStringInfo('c2s0s0'+ArgSeparator+'c2',ClassFileName,'file','y');
-PrintStringInfo('z2d0d0'+ArgSeparator+'z2',ClassFileName,'file','y');
+//PrintStringInfo('s0s0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
+//PrintStringInfo('d0d0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
+//PrintStringInfo('s0s0s0'+ArgSeparator+'c0',ClassFileName,'file','y');
+//PrintStringInfo('d0d0d0'+ArgSeparator+'z0',ClassFileName,'file','y');
+//PrintStringInfo('c0s0s0'+ArgSeparator+'c0',ClassFileName,'file','y');
+//PrintStringInfo('z0d0d0'+ArgSeparator+'z0',ClassFileName,'file','y');
 
-PrintStringInfo('s0s0s0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
-PrintStringInfo('d0d0d0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
-PrintStringInfo('s0s0s0s0'+ArgSeparator+'c0',ClassFileName,'file','y');
-PrintStringInfo('d0d0d0d0'+ArgSeparator+'z0',ClassFileName,'file','y');
-PrintStringInfo('c0s0s0s0'+ArgSeparator+'c0',ClassFileName,'file','y');
-PrintStringInfo('z0d0d0d0'+ArgSeparator+'z0',ClassFileName,'file','y');
+//PrintStringInfo('s2s0s0'+ArgSeparator+'s2',ClassFileName,'file','y');
+//PrintStringInfo('d2d0d0'+ArgSeparator+'d2',ClassFileName,'file','y');
+//PrintStringInfo('s2s0s0'+ArgSeparator+'c2',ClassFileName,'file','y');
+//PrintStringInfo('d2d0d0'+ArgSeparator+'z2',ClassFileName,'file','y');
+//PrintStringInfo('c2s0s0'+ArgSeparator+'c2',ClassFileName,'file','y');
+//PrintStringInfo('z2d0d0'+ArgSeparator+'z2',ClassFileName,'file','y');
 
-PrintStringInfo('s2s0s0s0'+ArgSeparator+'s2',ClassFileName,'file','y');
-PrintStringInfo('d2d0d0d0'+ArgSeparator+'d2',ClassFileName,'file','y');
-PrintStringInfo('s2s0s0s0'+ArgSeparator+'c2',ClassFileName,'file','y');
-PrintStringInfo('d2d0d0d0'+ArgSeparator+'z2',ClassFileName,'file','y');
-PrintStringInfo('c2s0s0s0'+ArgSeparator+'c2',ClassFileName,'file','y');
-PrintStringInfo('z2d0d0d0'+ArgSeparator+'z2',ClassFileName,'file','y');
+//PrintStringInfo('s0s0s0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
+//PrintStringInfo('d0d0d0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
+//PrintStringInfo('s0s0s0s0'+ArgSeparator+'c0',ClassFileName,'file','y');
+//PrintStringInfo('d0d0d0d0'+ArgSeparator+'z0',ClassFileName,'file','y');
+//PrintStringInfo('c0s0s0s0'+ArgSeparator+'c0',ClassFileName,'file','y');
+//PrintStringInfo('z0d0d0d0'+ArgSeparator+'z0',ClassFileName,'file','y');
+
+//PrintStringInfo('s2s0s0s0'+ArgSeparator+'s2',ClassFileName,'file','y');
+//PrintStringInfo('d2d0d0d0'+ArgSeparator+'d2',ClassFileName,'file','y');
+//PrintStringInfo('s2s0s0s0'+ArgSeparator+'c2',ClassFileName,'file','y');
+//PrintStringInfo('d2d0d0d0'+ArgSeparator+'z2',ClassFileName,'file','y');
+//PrintStringInfo('c2s0s0s0'+ArgSeparator+'c2',ClassFileName,'file','y');
+//PrintStringInfo('z2d0d0d0'+ArgSeparator+'z2',ClassFileName,'file','y');
 
 
 //NUT non metto tutte le combinazioni ma prima cerco di capire cosa mi offre INRIA
 //NUT come libreria a disposizione.
 // --- Annotation Function And Function List Function. ---
-FunctionName = 'fft';
+FunctionName = 'fft';  // AS : Done 
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'both','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
@@ -2544,7 +2546,7 @@ PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'both',
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
-FunctionName = 'stdevf';
+FunctionName = 'stdevf'; // AS : Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'both','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);

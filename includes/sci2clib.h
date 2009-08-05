@@ -273,6 +273,9 @@
 /* interfacing mean */
 #include "mean.h"
 #include "int_mean.h"
+/* interfacing stdevf */
+#include "stdevf.h"
+#include "int_stdevf.h"
 /* interfacing meanf */
 #include "meanf.h"
 #include "int_meanf.h"
