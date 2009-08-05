@@ -1550,7 +1550,7 @@ PrintStringInfo('NIN=          3',ClassFileName,'file','y');
 PrintStringInfo('NOUT=         1',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).TP=    FA_TP_MIN_REAL(IN(1).TP,FA_TP_MIN_REAL(IN(2).TP,IN(3).TP))',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(1)= ''1''',ClassFileName,'file','y');
-PrintStringInfo('OUT(1).SZ(2)= FA_INT(FA_ADD(FA_DIV(FA_SUB(FA_REAL(IN(3).VAL,IN(3).TP),FA_REAL(IN(1).VAL, IN(3).TP)),FA_REAL(IN(2).VAL)),''1''))',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= FA_INT(FA_ADD(FA_DIV(FA_SUB(FA_REAL(IN(3).VAL,IN(3).TP),FA_REAL(IN(1).VAL, IN(3).TP)),FA_REAL(IN(2).VAL,IN(2).TP)),''1''))',ClassFileName,'file','y');
 
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
