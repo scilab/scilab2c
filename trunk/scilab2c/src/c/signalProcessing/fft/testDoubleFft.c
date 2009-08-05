@@ -307,884 +307,114 @@
 
 static void zfftmaTest2 (void )
 {
-      int i = 0 ;
+  int i = 0 ;
 
-    double tRealIn [] = ZREAL_IN2;
-    double tImagIn [] = ZIMAG_IN2 ;
-
-
-
-    double tRealResult [] = ZREAL_RESULT2 ;
-    double tImagResult [] = ZIMAG_RESULT2 ;
+  double tRealIn [] = ZREAL_IN2;
+  double tImagIn [] = ZIMAG_IN2 ;
 
 
 
-    doubleComplex*  out     = (doubleComplex*) malloc ( sizeof(doubleComplex) * (unsigned int) (ROW*COLS2));
-    doubleComplex*  in      = DoubleComplexMatrix ( tRealIn , tImagIn , ROW*COLS2 );
-    doubleComplex* Result   = DoubleComplexMatrix ( tRealResult , tImagResult ,ROW*COLS2) ;
+  double tRealResult [] = ZREAL_RESULT2 ;
+  double tImagResult [] = ZIMAG_RESULT2 ;
+
+
+  doubleComplex*  out     = (doubleComplex*) malloc ( sizeof(doubleComplex) * (unsigned int) (ROW*COLS2));
+  doubleComplex*  in      = DoubleComplexMatrix ( tRealIn , tImagIn , ROW*COLS2 );
+  doubleComplex* Result   = DoubleComplexMatrix ( tRealResult , tImagResult ,ROW*COLS2) ;
 
 
 
     zfftma ( in , ROW , COLS2 , out ) ;
 
-    /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/
+  /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/
 
+  for ( i = 0 ; i < (ROW*COLS2 )  ; i++ )
+    {
+      printf ( "\t\t%d out: %e \t%e\t*i result: %e \t%e\t*i assert: %e \t%e\t*i  \n" ,
+              i ,
+              zreals(out[i]) ,
+              zimags(out[i]),
+              zreals (Result[i])  ,
+              zimags (Result[i]),
+              fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) ,
+              fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))
+             );
 
-	for ( i = 0 ; i < (ROW*COLS2 )  ; i++ )
-	{
-	  printf ( "\t\t %d out : %e\t %e\t * i result : %e\t %e\t * i assert : : %e\t %e\t * i  \n" ,
-                i ,
-                zreals(out[i]) ,
-                zimags(out[i]),
-                zreals (Result[i])  ,
-                zimags (Result[i]),
-                fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) ,
-                fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i])));
-
-   if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
-        assert ( 1 ) ;
-    else
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 3e-16 );
+     if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
+       assert ( 1 ) ;
+     else
+       assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 3e-16 );
 
 
     if (  zimags(out[i])  < 1e-14 && zimags (Result[i]) < 1e-18 )
-        assert ( 1 ) ;
+       assert ( 1 ) ;
     else
-	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-16 ) ;
+       assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-16 ) ;
 
     }
     
-    free(out);
-    free(in);
-    free(Result);
+  free(out);
+  free(in);
+  free(Result);
 
 }
 
+
 static void zfftmaTest3 (void )
 {
-      int i = 0 ;
+  int i = 0 ;
 
-    double tRealIn [] = ZREAL_IN3;
-    double tImagIn [] = ZIMAG_IN3 ;
-
-
-
-    double tRealResult [] = ZREAL_RESULT3;
-    double tImagResult [] = ZIMAG_RESULT3 ;
+  double tRealIn [] = ZREAL_IN3;
+  double tImagIn [] = ZIMAG_IN3 ;
 
 
 
-    doubleComplex*  out     = (doubleComplex*) malloc ( sizeof(doubleComplex) * (unsigned int) (ROW*COLS3));
-    doubleComplex*  in      = DoubleComplexMatrix ( tRealIn , tImagIn , ROW*COLS3 );
-    doubleComplex* Result   = DoubleComplexMatrix ( tRealResult , tImagResult ,ROW*COLS3) ;
+  double tRealResult [] = ZREAL_RESULT3 ;
+  double tImagResult [] = ZIMAG_RESULT3 ;
+
+
+  doubleComplex*  out     = (doubleComplex*) malloc ( sizeof(doubleComplex) * (unsigned int) (ROW*COLS3));
+  doubleComplex*  in      = DoubleComplexMatrix ( tRealIn , tImagIn , ROW*COLS3 );
+  doubleComplex* Result   = DoubleComplexMatrix ( tRealResult , tImagResult ,ROW*COLS3) ;
 
 
 
     zfftma ( in , ROW , COLS3 , out ) ;
 
-    /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/
+  /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/
 
-
-	for ( i = 0 ; i < (ROW*COLS3 )  ; i++ )
-	{
-	  printf ( "\t\t %d out : %e\t %e\t * i result : %e\t %e\t * i assert : : %e\t %e\t * i  \n" ,
-                i ,
-                zreals(out[i]) ,
-                zimags(out[i]),
-                zreals (Result[i])  ,
-                zimags (Result[i]),
-                fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) ,
-                fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i])));
-
-   if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
-        assert ( 1 ) ;
-    else
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 3e-16 );
-
-
-    if (  zimags(out[i])  < 1e-14 && zimags (Result[i]) < 1e-18 )
-        assert ( 1 ) ;
-    else
-	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-16 ) ;
-
-    }
-    
-    free(out);
-    free(in);
-    free(Result);
-
-}
-
-
-static void zfftmaTest4 (void )
-{
-      int i = 0 ;
-
-    double tRealIn [] = ZREAL_IN4;
-    double tImagIn [] = ZIMAG_IN4 ;
-
-
-
-    double tRealResult [] = ZREAL_RESULT4 ;
-    double tImagResult [] = ZIMAG_RESULT4 ;
-
-
-
-    doubleComplex*  out     = (doubleComplex*) malloc ( sizeof(doubleComplex) * (unsigned int) (ROW*COLS4));
-    doubleComplex*  in      = DoubleComplexMatrix ( tRealIn , tImagIn , ROW*COLS4 );
-    doubleComplex* Result   = DoubleComplexMatrix ( tRealResult , tImagResult ,ROW*COLS4) ;
-
-
-    zfftma ( in , ROW , COLS4 , out ) ;
-
-    /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/
-	for ( i = 0 ; i < (ROW*COLS4 )  ; i++ )
-	{
-	  printf ( "\t\t %d out : %e\t %e\t * i result : %e\t %e\t * i assert : : %e\t %e\t * i  \n" ,
-              i ,zreals(out[i]) , zimags(out[i]), zreals (Result[i])  , zimags (Result[i]),
+  for ( i = 0 ; i < (ROW*COLS3 )  ; i++ )
+    {
+      printf ( "\t\t%d out: %e \t%e\t*i result: %e \t%e\t*i assert: %e \t%e\t*i  \n" ,
+              i ,
+              zreals(out[i]) ,
+              zimags(out[i]),
+              zreals (Result[i])  ,
+              zimags (Result[i]),
               fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) ,
-              fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i])));
+              fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))
+             );
 
-   if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
-        assert ( 1 ) ;
-    else
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 3e-16 );
-
-
-    if (  zimags(out[i])  < 1e-14 && zimags (Result[i]) < 1e-18 )
-        assert ( 1 ) ;
-    else
-	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-16 ) ;
-
-    }
-    
-    free(out);
-    free(in);
-    free(Result);
-
-}
-
-
-static void zfftmaTest5 (void )
-{
-      int i = 0 ;
-
-    double tRealIn [] = ZREAL_IN5;
-    double tImagIn [] = ZIMAG_IN5 ;
-
-
-
-    double tRealResult [] = ZREAL_RESULT5;
-    double tImagResult [] = ZIMAG_RESULT5 ;
-
-
-
-    doubleComplex*  out     = (doubleComplex*) malloc ( sizeof(doubleComplex) * (unsigned int) (ROW*COLS5));
-    doubleComplex*  in      = DoubleComplexMatrix ( tRealIn , tImagIn , ROW*COLS5 );
-    doubleComplex* Result   = DoubleComplexMatrix ( tRealResult , tImagResult ,ROW*COLS5) ;
-
-
-
-    zfftma ( in , ROW , COLS5 , out ) ;
-
-    /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/
-
-
-	for ( i = 0 ; i < (ROW*COLS5 )  ; i++ )
-	{
-	  printf ( "\t\t %d out : %e\t %e\t * i result : %e\t %e\t * i assert : : %e\t %e\t * i  \n" ,
-                i ,
-                zreals(out[i]) ,
-                zimags(out[i]),
-                zreals (Result[i])  ,
-                zimags (Result[i]),
-                fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) ,
-                fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i])));
-
-   if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
-        assert ( 1 ) ;
-    else
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 3e-16 );
+     if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
+       assert ( 1 ) ;
+     else
+       assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 3e-16 );
 
 
     if (  zimags(out[i])  < 1e-14 && zimags (Result[i]) < 1e-18 )
-        assert ( 1 ) ;
+       assert ( 1 ) ;
     else
-	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-16 ) ;
-
-    }
-
-    
-    free(out);
-    free(in);
-    free(Result);
-}
-
-
-static void zfftmaTest6 (void )
-{
-      int i = 0 ;
-
-    double tRealIn [] = ZREAL_IN6;
-    double tImagIn [] = ZIMAG_IN6 ;
-
-
-
-    double tRealResult [] = ZREAL_RESULT6;
-    double tImagResult [] = ZIMAG_RESULT6;
-
-
-
-    doubleComplex*  out     = (doubleComplex*) malloc ( sizeof(doubleComplex) * (unsigned int) (ROW*COLS6));
-    doubleComplex*  in      = DoubleComplexMatrix ( tRealIn , tImagIn , ROW*COLS6 );
-    doubleComplex* Result   = DoubleComplexMatrix ( tRealResult , tImagResult ,ROW*COLS6) ;
-
-
-
-    zfftma ( in , ROW , COLS6 , out ) ;
-
-    /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/
-
-
-	for ( i = 0 ; i < (ROW*COLS6 )  ; i++ )
-	{
-	  printf ( "\t\t %d out : %e\t %e\t * i result : %e\t %e\t * i assert : : %e\t %e\t * i  \n" ,
-                i ,
-                zreals(out[i]) ,
-                zimags(out[i]),
-                zreals (Result[i])  ,
-                zimags (Result[i]),
-                fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) ,
-                fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i])));
-
-   if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
-        assert ( 1 ) ;
-    else
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 3e-16 );
-
-
-    if (  zimags(out[i])  < 1e-14 && zimags (Result[i]) < 1e-18 )
-        assert ( 1 ) ;
-    else
-	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-16 ) ;
+       assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-16 ) ;
 
     }
     
-    free(out);
-    free(in);
-    free(Result);
+  free(out);
+  free(in);
+  free(Result);
 
 }
 
 
-static void zfftmaTest7 (void )
-{
-      int i = 0 ;
-
-    double tRealIn [] = ZREAL_IN7;
-    double tImagIn [] = ZIMAG_IN7 ;
-
-
-
-    double tRealResult [] = ZREAL_RESULT7;
-    double tImagResult [] = ZIMAG_RESULT7;
-
-
-
-    doubleComplex*  out     = (doubleComplex*) malloc ( sizeof(doubleComplex) * (unsigned int) (ROW*COLS7));
-    doubleComplex*  in      = DoubleComplexMatrix ( tRealIn , tImagIn , ROW*COLS7 );
-    doubleComplex* Result   = DoubleComplexMatrix ( tRealResult , tImagResult ,ROW*COLS7) ;
-
-
-
-    zfftma ( in , ROW , COLS7 , out ) ;
-
-    /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/
-
-
-	for ( i = 0 ; i < (ROW*COLS7 )  ; i++ )
-	{
-	  printf ( "\t\t %d out : %e\t %e\t * i result : %e\t %e\t * i assert : : %e\t %e\t * i  \n" ,
-                i ,
-                zreals(out[i]) ,
-                zimags(out[i]),
-                zreals (Result[i])  ,
-                zimags (Result[i]),
-                fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) ,
-                fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i])));
-
-   if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
-        assert ( 1 ) ;
-    else
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 3e-16 );
-
-
-    if (  zimags(out[i])  < 1e-14 && zimags (Result[i]) < 1e-18 )
-        assert ( 1 ) ;
-    else
-	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-16 ) ;
-
-    }
-    
-    free(out);
-    free(in);
-    free(Result);
-
-}
-
-static void zfftmaTest8 (void )
-{
-      int i = 0 ;
-
-    double tRealIn [] = ZREAL_IN8;
-    double tImagIn [] = ZIMAG_IN8 ;
-
-
-
-    double tRealResult [] = ZREAL_RESULT8 ;
-    double tImagResult [] = ZIMAG_RESULT8 ;
-
-
-
-    doubleComplex*  out     = (doubleComplex*) malloc ( sizeof(doubleComplex) * (unsigned int) (ROW*COLS8));
-    doubleComplex*  in      = DoubleComplexMatrix ( tRealIn , tImagIn , ROW*COLS8 );
-    doubleComplex* Result   = DoubleComplexMatrix ( tRealResult , tImagResult ,ROW*COLS8) ;
-
-
-    zfftma ( in , ROW , COLS8 , out ) ;
-
-    /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/
-	for ( i = 0 ; i < (ROW*COLS8 )  ; i++ )
-	{
-	  printf ( "\t\t %d out : %e\t %e\t * i result : %e\t %e\t * i assert : : %e\t %e\t * i  \n" ,
-              i ,zreals(out[i]) , zimags(out[i]), zreals (Result[i])  , zimags (Result[i]),
-              fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) ,
-              fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i])));
-
-   if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
-        assert ( 1 ) ;
-    else
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 3e-16 );
-
-
-    if (  zimags(out[i])  < 1e-14 && zimags (Result[i]) < 1e-18 )
-        assert ( 1 ) ;
-    else
-	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-16 ) ;
-
-    }
-    
-    free(out);
-    free(in);
-    free(Result);
-
-}
-
-
-static void zfftmaTest9 (void )
-{
-      int i = 0 ;
-
-    double tRealIn [] = ZREAL_IN9;
-    double tImagIn [] = ZIMAG_IN9 ;
-
-
-
-    double tRealResult [] = ZREAL_RESULT9 ;
-    double tImagResult [] = ZIMAG_RESULT9 ;
-
-
-
-    doubleComplex*  out     = (doubleComplex*) malloc ( sizeof(doubleComplex) * (unsigned int) (ROW*COLS9));
-    doubleComplex*  in      = DoubleComplexMatrix ( tRealIn , tImagIn , ROW*COLS9 );
-    doubleComplex* Result   = DoubleComplexMatrix ( tRealResult , tImagResult ,ROW*COLS9) ;
-
-
-    zfftma ( in , ROW , COLS9 , out ) ;
-
-    /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/
-	for ( i = 0 ; i < (ROW*COLS9 )  ; i++ )
-	{
-	  printf ( "\t\t %d out : %e\t %e\t * i result : %e\t %e\t * i assert : : %e\t %e\t * i  \n" ,
-              i ,zreals(out[i]) , zimags(out[i]), zreals (Result[i])  , zimags (Result[i]),
-              fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) ,
-              fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i])));
-
-   if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
-        assert ( 1 ) ;
-    else
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 3e-16 );
-
-
-    if (  zimags(out[i])  < 1e-14 && zimags (Result[i]) < 1e-18 )
-        assert ( 1 ) ;
-    else
-	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-16 ) ;
-
-    }
-    
-    free(out);
-    free(in);
-    free(Result);
-
-}
-
-static void zfftmaTest10 (void )
-{
-      int i = 0 ;
-
-    double tRealIn [] = ZREAL_IN10;
-    double tImagIn [] = ZIMAG_IN10 ;
-
-
-
-    double tRealResult [] = ZREAL_RESULT10 ;
-    double tImagResult [] = ZIMAG_RESULT10 ;
-
-
-
-    doubleComplex*  out     = (doubleComplex*) malloc ( sizeof(doubleComplex) * (unsigned int) (ROW*COLS10));
-    doubleComplex*  in      = DoubleComplexMatrix ( tRealIn , tImagIn , ROW*COLS10 );
-
-
-
-    zfftma ( in , ROW , COLS10 , out );
-
-
-
-
-    /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/
-		for ( i = 0 ; i < (ROW*COLS10 )  ; i++ )
-	{
-
-
-	  printf ( "\t\t %d out : %e\t %e\t * i result : %e\t %e\t * i assert : : %e\t %e\t * i  \n" ,
-                i ,
-                zreals(out[i]) ,
-                zimags(out[i]),
-                tRealResult[i]  ,
-                tImagResult[i],
-                fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i])) ,
-                fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i])));
-
-
-   if (  zreals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
-        assert ( 1 ) ;
-    else
-        assert ( fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i]))  < 3e-16 );
-
-
-    if (  zimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
-        assert ( 1 ) ;
-    else
-	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 3e-16 ) ;
-
-    }
-    
-    free(out);
-    free(in);
-}
-
-static void zfftmaTest11 (void )
-{
-      int i = 0 ;
-
-    double tRealIn [] = ZREAL_IN11;
-    double tImagIn [] = ZIMAG_IN11 ;
-
-
-
-    double tRealResult [] = ZREAL_RESULT11 ;
-    double tImagResult [] = ZIMAG_RESULT11 ;
-
-
-
-    doubleComplex*  out     = (doubleComplex*) malloc ( sizeof(doubleComplex) * (unsigned int) (ROW*COLS11));
-    doubleComplex*  in      = DoubleComplexMatrix ( tRealIn , tImagIn , ROW*COLS11 );
-
-
-
-    zfftma ( in , ROW , COLS11 , out );
-
-
-
-
-    /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/
-		for ( i = 0 ; i < (ROW*COLS11 )  ; i++ )
-	{
-
-
-	  printf ( "\t\t %d out : %e\t %e\t * i result : %e\t %e\t * i assert : : %e\t %e\t * i  \n" ,
-                i ,
-                zreals(out[i]) ,
-                zimags(out[i]),
-                tRealResult[i]  ,
-                tImagResult[i],
-                fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i])) ,
-                fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i])));
-
-
-   if (  zreals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
-        assert ( 1 ) ;
-    else
-        assert ( fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i]))  < 3e-16 );
-
-
-    if (  zimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
-        assert ( 1 ) ;
-    else
-	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 3e-16 ) ;
-
-    }
-    
-    free(out);
-    free(in);
-}
-
-
-static void zfftmaTest12 (void )
-{
-      int i = 0 ;
-
-    double tRealIn [] = ZREAL_IN12;
-    double tImagIn [] = ZIMAG_IN12 ;
-
-
-
-    double tRealResult [] = ZREAL_RESULT12 ;
-    double tImagResult [] = ZIMAG_RESULT12 ;
-
-
-
-    doubleComplex*  out     = (doubleComplex*) malloc ( sizeof(doubleComplex) * (unsigned int) (ROW*COLS12));
-    doubleComplex*  in      = DoubleComplexMatrix ( tRealIn , tImagIn , ROW*COLS12 );
-
-
-
-    zfftma ( in , ROW , COLS12 , out );
-
-
-
-
-    /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/
-		for ( i = 0 ; i < (ROW*COLS12 )  ; i++ )
-	{
-
-
-	  printf ( "\t\t %d out : %e\t %e\t * i result : %e\t %e\t * i assert : : %e\t %e\t * i  \n" ,
-                i ,
-                zreals(out[i]) ,
-                zimags(out[i]),
-                tRealResult[i]  ,
-                tImagResult[i],
-                fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i])) ,
-                fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i])));
-
-
-   if (  zreals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
-        assert ( 1 ) ;
-    else
-        assert ( fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i]))  < 3e-16 );
-
-
-    if (  zimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
-        assert ( 1 ) ;
-    else
-	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 3e-16 ) ;
-
-    }
-    
-    free(out);
-    free(in);
-}
-
-
-static void zfftmaTest13 (void )
-{
-      int i = 0 ;
-
-    double tRealIn [] = ZREAL_IN13;
-    double tImagIn [] = ZIMAG_IN13 ;
-
-
-
-    double tRealResult [] = ZREAL_RESULT13 ;
-    double tImagResult [] = ZIMAG_RESULT13 ;
-
-
-
-    doubleComplex*  out     = (doubleComplex*) malloc ( sizeof(doubleComplex) * (unsigned int) (ROW*COLS13));
-    doubleComplex*  in      = DoubleComplexMatrix ( tRealIn , tImagIn , ROW*COLS13 );
-
-
-
-    zfftma ( in , ROW , COLS13 , out );
-
-
-
-
-    /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/
-		for ( i = 0 ; i < (ROW*COLS13 )  ; i++ )
-	{
-
-
-	  printf ( "\t\t %d out : %e\t %e\t * i result : %e\t %e\t * i assert : : %e\t %e\t * i  \n" ,
-                i ,
-                zreals(out[i]) ,
-                zimags(out[i]),
-                tRealResult[i]  ,
-                tImagResult[i],
-                fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i])) ,
-                fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i])));
-
-
-   if (  zreals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
-        assert ( 1 ) ;
-    else
-        assert ( fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i]))  < 3e-16 );
-
-
-    if (  zimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
-        assert ( 1 ) ;
-    else
-	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 3e-16 ) ;
-
-    }
-    
-    free(out);
-    free(in);
-}
-
-
-static void zfftmaTest14 (void )
-{
-      int i = 0 ;
-
-    double tRealIn [] = ZREAL_IN14;
-    double tImagIn [] = ZIMAG_IN14 ;
-
-
-
-    double tRealResult [] = ZREAL_RESULT14 ;
-    double tImagResult [] = ZIMAG_RESULT14 ;
-
-
-
-    doubleComplex*  out     = (doubleComplex*) malloc ( sizeof(doubleComplex) * (unsigned int) (ROW*COLS14));
-    doubleComplex*  in      = DoubleComplexMatrix ( tRealIn , tImagIn , ROW*COLS14 );
-
-
-
-    zfftma ( in , ROW , COLS14 , out );
-
-
-
-
-    /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/
-		for ( i = 0 ; i < (ROW*COLS14 )  ; i++ )
-	{
-
-
-	  printf ( "\t\t %d out : %e\t %e\t * i result : %e\t %e\t * i assert : : %e\t %e\t * i  \n" ,
-                i ,
-                zreals(out[i]) ,
-                zimags(out[i]),
-                tRealResult[i]  ,
-                tImagResult[i],
-                fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i])) ,
-                fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i])));
-
-
-   if (  zreals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
-        assert ( 1 ) ;
-    else
-        assert ( fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i]))  < 3e-16 );
-
-
-    if (  zimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
-        assert ( 1 ) ;
-    else
-	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 3e-16 ) ;
-
-    }
-    
-    free(out);
-    free(in);
-}
-
-
-
-static void zfftmaTest15 (void )
-{
-      int i = 0 ;
-
-    double tRealIn [] = ZREAL_IN15;
-    double tImagIn [] = ZIMAG_IN15 ;
-
-
-
-    double tRealResult [] = ZREAL_RESULT15 ;
-    double tImagResult [] = ZIMAG_RESULT15 ;
-
-
-
-    doubleComplex*  out     = (doubleComplex*) malloc ( sizeof(doubleComplex) * (unsigned int) (ROW*COLS15));
-    doubleComplex*  in      = DoubleComplexMatrix ( tRealIn , tImagIn , ROW*COLS15 );
-
-
-
-    zfftma ( in , ROW , COLS15 , out );
-
-
-
-
-    /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/
-		for ( i = 0 ; i < (ROW*COLS15 )  ; i++ )
-	{
-
-
-	  printf ( "\t\t %d out : %e\t %e\t * i result : %e\t %e\t * i assert : : %e\t %e\t * i  \n" ,
-                i ,
-                zreals(out[i]) ,
-                zimags(out[i]),
-                tRealResult[i]  ,
-                tImagResult[i],
-                fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i])) ,
-                fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i])));
-
-
-   if (  zreals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
-        assert ( 1 ) ;
-    else
-        assert ( fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i]))  < 3e-16 );
-
-
-    if (  zimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
-        assert ( 1 ) ;
-    else
-	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 3e-16 ) ;
-
-    }
-    
-    free(out);
-    free(in);
-}
-
-
-
-static void zfftmaTest16 (void )
-{
-      int i = 0 ;
-
-    double tRealIn [] = ZREAL_IN16;
-    double tImagIn [] = ZIMAG_IN16 ;
-
-
-
-    double tRealResult [] = ZREAL_RESULT16 ;
-    double tImagResult [] = ZIMAG_RESULT16 ;
-
-
-
-    doubleComplex*  out     = (doubleComplex*) malloc ( sizeof(doubleComplex) * (unsigned int) (ROW*COLS16));
-    doubleComplex*  in      = DoubleComplexMatrix ( tRealIn , tImagIn , ROW*COLS16 );
-
-
-
-    zfftma ( in , ROW , COLS16 , out );
-
-
-
-
-    /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/
-		for ( i = 0 ; i < (ROW*COLS16 )  ; i++ )
-	{
-
-
-	  printf ( "\t\t %d out : %e\t %e\t * i result : %e\t %e\t * i assert : : %e\t %e\t * i  \n" ,
-                i ,
-                zreals(out[i]) ,
-                zimags(out[i]),
-                tRealResult[i]  ,
-                tImagResult[i],
-                fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i])) ,
-                fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i])));
-
-
-   if (  zreals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
-        assert ( 1 ) ;
-    else
-        assert ( fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i]))  < 3e-16 );
-
-
-    if (  zimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
-        assert ( 1 ) ;
-    else
-	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 3e-16 ) ;
-
-    }
-    
-    free(out);
-    free(in);
-}
-
-
-
-static void zfftmaTest32 (void )
-{
-      int i = 0 ;
-
-    double tRealIn [] = ZREAL_IN32;
-    double tImagIn [] = ZIMAG_IN32 ;
-
-
-
-    double tRealResult [] = ZREAL_RESULT32 ;
-    double tImagResult [] = ZIMAG_RESULT32 ;
-
-
-
-    doubleComplex*  out     = (doubleComplex*) malloc ( sizeof(doubleComplex) * (unsigned int) (ROW*COLS32));
-    doubleComplex*  in      = DoubleComplexMatrix ( tRealIn , tImagIn , ROW*COLS32 );
-
-
-
-    zfftma ( in , ROW , COLS32 , out );
-
-
-
-
-    /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/
-		for ( i = 0 ; i < (ROW*COLS32 )  ; i++ )
-	{
-
-
-	  printf ( "\t\t %d out : %e\t %e\t * i result : %e\t %e\t * i assert : : %e\t %e\t * i  \n" ,
-                i ,
-                zreals(out[i]) ,
-                zimags(out[i]),
-                tRealResult[i]  ,
-                tImagResult[i],
-                fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i])) ,
-                fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i])));
-
-
-   if (  zreals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
-        assert ( 1 ) ;
-    else
-        assert ( fabs(  zreals(out[i]) -  tRealResult[i] ) / fabs (zreals (out[i]))  < 3e-16 );
-
-
-    if (  zimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
-        assert ( 1 ) ;
-    else
-	    assert ( fabs(  zimags(out[i]) -  tImagResult[i] ) / fabs (zimags (out[i]))  < 3e-16 ) ;
-
-    }
-    
-    free(out);
-    free(in);
-}
 
 static int testFft(void) {
 
@@ -1198,6 +428,8 @@ static int testFft(void) {
   zfftmaTest2();
   printf("\n\t>>>> Vector 3 Double Complex Tests\n");
   zfftmaTest3();
+  
+/*
   printf("\n\t>>>> Vector 4 Double Complex Tests\n");
   zfftmaTest4();
   printf("\n\t>>>> Vector 5 Double Complex Tests\n");
@@ -1226,7 +458,7 @@ static int testFft(void) {
   zfftmaTest16();
   printf("\n\t>>>> Vector 32 Double Complex Tests\n");
   zfftmaTest32();
-
+*/
   return 0;
 }
 
