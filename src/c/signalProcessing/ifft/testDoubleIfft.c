@@ -487,7 +487,7 @@ static void zifftmaTest4 (void )
               i ,zreals(out[i]) , zimags(out[i]), zreals (Result[i])  , zimags (Result[i]),
               fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) ,
               fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i])));
-/*
+
    if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else
@@ -498,7 +498,7 @@ static void zifftmaTest4 (void )
         assert ( 1 ) ;
     else
 	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-16 ) ;
-*/
+
     }
 
     free(out);
