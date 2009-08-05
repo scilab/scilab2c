@@ -38,9 +38,9 @@ void zifftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 
 	double* realIn = (double*) malloc ( sizeof (double) * (unsigned int) size );
 	double* imagIn = (double*) malloc ( sizeof (double) * (unsigned int) size );
-	doubleComplex* inCopy = (doubleComplex*) malloc ( sizeof (doubleComplex) * (unsigned int) size );
+	doubleComplex* inCopy = (doubleComplex*) malloc ( sizeof (doubleComplex) * (unsigned int) size*2 );
 
-	doubleComplex* inTemp = (doubleComplex*) malloc ( sizeof (doubleComplex) * (unsigned int) size );
+	doubleComplex* inTemp = (doubleComplex*) malloc ( sizeof (doubleComplex) * (unsigned int) size*2 );
 
 
 
@@ -50,8 +50,8 @@ void zifftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 
 	if ( rows  ==  1 || cols == 1 )
 	{
-
-		sizeTemp = (int) pow(2.0 , log(size + 0.5) / log(2.0)) ;
+		/*test if size is a power of 2*/
+		sizeTemp = (int) pow(2.0, (int) (log(size + 0.5) / log(2.0)));
 
 
 		if ( size == sizeTemp )
@@ -77,8 +77,10 @@ void zifftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 
 	else
 	{
-		rowsTemp = (int) pow(2.0, log(rows + 0.5) / log(2.0));
-		colsTemp = (int) pow(2.0, log(cols + 0.5) / log(2.0));
+		/*test if rows and/or cols is a power of 2*/
+		rowsTemp = (int) pow(2.0, (int)(log(rows + 0.5) / log(2.0))) ;
+		colsTemp = (int) pow(2.0 ,(int)(log(cols + 0.5) / log(2.0))) ;
+
 
 		if (rows == rowsTemp)
 		{

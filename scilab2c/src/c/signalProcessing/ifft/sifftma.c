@@ -29,4 +29,7 @@ void sifftma ( float* in , int rows, int cols, float* out){
 	cifftma(inCpx,rows,cols,outCpx);
 
 	creala(outCpx, rows*cols, out);
+
+	free(ZEROS);
+	free(outCpx);
 }
