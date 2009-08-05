@@ -39,7 +39,7 @@ void cfftma ( floatComplex* in , int rows, int cols, floatComplex* out)
 		dblin[i] = DoubleComplex ( (double) creals( in[i]) , (double) cimags ( in[i])) ;
 		}
 
-    zfftma ( dblin, rows , cols , dblout );
+        zfftma ( dblin, rows , cols , dblout );
 
 
 	for ( i = 0 ; i < (rows * cols) ; i++ )
