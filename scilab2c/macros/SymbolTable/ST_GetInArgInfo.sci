@@ -71,10 +71,10 @@ for cntinarg = 1:NInArg
       elseif (tmpname == '%e')
          UpdatedInArg(cntinarg).Name = 'SCI2C_E'; 
          numvalue = %e;
-      elseif (tmpname == '%T')
+      elseif (tmpname == '%T' | tmpname == '%t')
          UpdatedInArg(cntinarg).Name = 'SCI2C_T'; 
          numvalue = 1;
-      elseif (tmpname == '%F')
+      elseif (tmpname == '%F' | tmpname == '%f')
          UpdatedInArg(cntinarg).Name = 'SCI2C_F'; 
          numvalue = 0;
       elseif (tmpname == '%nan')
