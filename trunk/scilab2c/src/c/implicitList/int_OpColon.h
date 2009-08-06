@@ -19,38 +19,83 @@
 
 #define d0d0OpColond0(in1,in2)			in1
 
-#define c0c0OpColonc0(in1,in2)			in1
+#define c0c0OpColons0(in1,in2)			in1
 
-#define z0z0OpColonz0(in1,in2)			in1
-
-
-
-#define s0s0OpColons2(in1,in2,out)			simplicitLists(in1,1,in2,out)
-
-#define d0d0OpColond2(in1,in2,out)			dimplicitLists(in1,1,in2,out)
-
-#define c0c0OpColonc2(in1,in2,out)			cimplicitLists(in1,1,in2,out)
-
-#define z0z0OpColonz2(in1,in2,out)			zimplicitLists(in1,1,in2,out)
+#define z0z0OpColond0(in1,in2)			in1
 
 
+
+#define s0s0OpColons2(in1,in2,out)			simplicitLists(in1,1.0,in2,out)
+
+#define d0d0OpColond2(in1,in2,out)			dimplicitLists(in1,1.0,in2,out)
+
+#define c0c0OpColons2(in1,in2,out)			cimplicitLists(in1,FloatComplex(1.0f,0.0f),in2,out)
+
+#define z0z0OpColond2(in1,in2,out)			zimplicitLists(in1,DoubleComplex(1.0,0.0),in2,out)
+
+/*mixed input*/
+#define s0c0OpColons0(in1,in2)			in1
+
+#define d0z0OpColond0(in1,in2)			in1
+
+#define c0s0OpColons0(in1,in2)			in1
+
+#define z0d0OpColond0(in1,in2)			in1
+
+
+
+#define s0c0OpColons2(in1,in2,out)			cimplicitLists(FloatComplex(in1,0.0f),FloatComplex(1.0f,0.0f),in2,out)
+
+#define d0z0OpColond2(in1,in2,out)			zimplicitLists(DoubleComplex(in1,0.0),DoubleComplex(1.0,0.0),in2,out)
+
+#define c0s0OpColons2(in1,in2,out)			cimplicitLists(in1,FloatComplex(1.0f,0.0f),FloatComplex(in2,0.0f),out)
+
+#define z0d0OpColond2(in1,in2,out)			zimplicitLists(in1,DoubleComplex(1.0,0.0),DoubleComplex(in2,0.0),out)
+
+
+/*three input*/
 
 #define s0s0s0OpColons0(in1,in2,in3)		in1
+#define s0s0c0OpColons0(in1,in2,in3)		in1
+#define s0c0s0OpColons0(in1,in2,in3)		in1
+#define s0c0c0OpColons0(in1,in2,in3)		in1
 
 #define d0d0d0OpColond0(in1,in2,in3)		in1
+#define d0d0z0OpColond0(in1,in2,in3)		in1
+#define d0z0d0OpColond0(in1,in2,in3)		in1
+#define d0z0z0OpColond0(in1,in2,in3)		in1
 
-#define c0c0c0OpColonc0(in1,in2,in3)		in1
+#define c0c0c0OpColons0(in1,in2,in3)		in1
+#define c0c0s0OpColons0(in1,in2,in3)		in1
+#define c0s0c0OpColons0(in1,in2,in3)		in1
+#define c0s0s0OpColons0(in1,in2,in3)		in1
 
-#define z0z0z0OpColonz0(in1,in2,in3)		in1
-
+#define z0z0z0OpColond0(in1,in2,in3)		in1
+#define z0z0d0OpColond0(in1,in2,in3)		in1
+#define z0d0z0OpColond0(in1,in2,in3)		in1
+#define z0d0d0OpColond0(in1,in2,in3)		in1
 
 
 #define s0s0s0OpColons2(in1,in2,in3,out)		simplicitLists(in1,in2,in3,out)
+#define s0s0c0OpColons2(in1,in2,in3,out)		cimplicitLists(FloatComplex(in1,0.0f),FloatComplex(in2,0.0f),in3,out)
+#define s0c0s0OpColons2(in1,in2,in3,out)		cimplicitLists(FloatComplex(in1,0.0f),in2,FloatComplex(in3,0.0f),out)
+#define s0c0c0OpColons2(in1,in2,in3,out)		cimplicitLists(FloatComplex(in1,0.0f),in2,in3,out)
 
 #define d0d0d0OpColond2(in1,in2,in3,out)		dimplicitLists(in1,in2,in3,out)
+#define d0d0z0OpColond2(in1,in2,in3,out)		zimplicitLists(DoubleComplex(in1,0.0),DoubleComplex(in2,0.0),in3,out)
+#define d0z0d0OpColond2(in1,in2,in3,out)		zimplicitLists(DoubleComplex(in1,0.0),in2,DoubleComplex(in3,0.0),out)
+#define d0z0z0OpColond2(in1,in2,in3,out)		zimplicitLists(DoubleComplex(in1,0.0),in2,in3,out)
 
-#define c0c0c0OpColonc2(in1,in2,in3,out)		cimplicitLists(in1,in2,in3,out)
+#define c0c0c0OpColons2(in1,in2,in3,out)		cimplicitLists(in1,in2,in3,out)
+#define c0c0s0OpColons2(in1,in2,in3,out)		cimplicitLists(in1,in2,FloatComplex(in3,0.0f),out)
+#define c0s0c0OpColons2(in1,in2,in3,out)		cimplicitLists(in1,FloatComplex(in2,0.0f),in3,out)
+#define c0s0s0OpColons2(in1,in2,in3,out)		cimplicitLists(in1,FloatComplex(in2,0.0f),FloatComplex(in3,0.0f),out)
 
-#define z0z0z0OpColonz2(in1,in2,in3,out)		zimplicitLists(in1,in2,in3,out)
+#define z0z0z0OpColond2(in1,in2,in3,out)		zimplicitLists(in1,in2,in3,out)
+#define z0z0d0OpColond2(in1,in2,in3,out)		zimplicitLists(in1,in2,DoubleComplex(in3,0.0),out)
+#define z0d0z0OpColond2(in1,in2,in3,out)		zimplicitLists(in1,DoubleComplex(in2,0.0),in3,out)
+#define z0d0d0OpColond2(in1,in2,in3,out)		zimplicitLists(in1,DoubleComplex(in2,0.0),DoubleComplex(in3,0.0),out)
+
+
 
 #endif /* !__INT_OPCOLON_H__ */
