@@ -493,8 +493,8 @@ PrintStringInfo('NOUT=         1',ClassFileName,'file','y');
 //Was FA_TP_USER
 //Cause some trouble if user specify some precision and if input(and also output) is complex.
 PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
-PrintStringInfo('OUT(1).SZ(1)= IN(1).VAL',ClassFileName,'file','y');
-PrintStringInfo('OUT(1).SZ(2)= IN(2).VAL',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= FA_SZ_FROM_VAL(IN(1).VAL)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= FA_SZ_FROM_VAL(IN(2).VAL)',ClassFileName,'file','y');
 
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
@@ -2057,7 +2057,7 @@ PrintStringInfo('NIN=          3',ClassFileName,'file','y');
 PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).TP=    FA_TP_USER',ClassFileName,'file','y'); 
 PrintStringInfo('OUT(1).SZ(1)= ''1''',ClassFileName,'file','y'); 
-PrintStringInfo('OUT(1).SZ(2)= FA_SZ_RTMAX(IN(1).VAL)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= FA_SZ_RTMAX(FA_SZ_FROM_VAL(IN(1).VAL))',ClassFileName,'file','y');
 
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
