@@ -57,16 +57,16 @@ elseif (OperatorName == './.')
    SCI2Cerror(' ');
 elseif (OperatorName == '.\')
    FunName = FuncPrefix+'DotBackSlash'+FuncSuffix;
-elseif (OperatorName == '\\')
+elseif (OperatorName == '\')
    PrintStringInfo('SCI2CERROR: Operator ""'+OperatorName+'"" not supported.','','stout','y');
    SCI2Cerror(' ');
-elseif (OperatorName == '.\\')
+elseif (OperatorName == '.\')
    PrintStringInfo('SCI2CERROR: Operator ""'+OperatorName+'"" not supported.','','stout','y');
    SCI2Cerror(' ');
-elseif (OperatorName == '\\.')
+elseif (OperatorName == '\.')
    PrintStringInfo('SCI2CERROR: Operator ""'+OperatorName+'"" not supported.','','stout','y');
    SCI2Cerror(' ');
-elseif (OperatorName == '.\\.')
+elseif (OperatorName == '.\.')
    PrintStringInfo('SCI2CERROR: Operator ""'+OperatorName+'"" not supported.','','stout','y');
    SCI2Cerror(' ');
 elseif (OperatorName == '^')
