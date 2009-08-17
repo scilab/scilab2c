@@ -493,8 +493,8 @@ PrintStringInfo('NOUT=         1',ClassFileName,'file','y');
 //Was FA_TP_USER
 //Cause some trouble if user specify some precision and if input(and also output) is complex.
 PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
-PrintStringInfo('OUT(1).SZ(1)= FA_SZ_FROM_VAL(IN(1).VAL)',ClassFileName,'file','y');
-PrintStringInfo('OUT(1).SZ(2)= FA_SZ_FROM_VAL(IN(2).VAL)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= FA_SZ_FROM_VAL(IN(1).VAL,IN(1).TP)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= FA_SZ_FROM_VAL(IN(2).VAL,IN(2).TP)',ClassFileName,'file','y');
 
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
@@ -1545,12 +1545,12 @@ PrintStringInfo('NIN=          2',ClassFileName,'file','y');
 PrintStringInfo('NOUT=         1',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).TP=    FA_TP_MIN_REAL(IN(1).TP,IN(2).TP)',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(1)= ''1''',ClassFileName,'file','y');
-PrintStringInfo('OUT(1).SZ(2)= FA_INT(FA_ADD(FA_SUB(FA_REAL(IN(2).VAL,IN(2).TP),FA_REAL(IN(1).VAL,IN(1).TP)),''1''))',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= FA_SZ_FROM_VAL(FA_ADD(FA_SUB(FA_REAL(IN(2).VAL,IN(2).TP),FA_REAL(IN(1).VAL,IN(1).TP)),''1''),FA_TP_REAL(IN(2).TP))',ClassFileName,'file','y');
 PrintStringInfo('NIN=          3',ClassFileName,'file','y');
 PrintStringInfo('NOUT=         1',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).TP=    FA_TP_MIN_REAL(IN(1).TP,FA_TP_MIN_REAL(IN(2).TP,IN(3).TP))',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(1)= ''1''',ClassFileName,'file','y');
-PrintStringInfo('OUT(1).SZ(2)= FA_INT(FA_ADD(FA_DIV(FA_SUB(FA_REAL(IN(3).VAL,IN(3).TP),FA_REAL(IN(1).VAL, IN(3).TP)),FA_REAL(IN(2).VAL,IN(2).TP)),''1''))',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= FA_SZ_FROM_VAL(FA_ADD(FA_DIV(FA_SUB(FA_REAL(IN(3).VAL,IN(3).TP),FA_REAL(IN(1).VAL, IN(1).TP)),FA_REAL(IN(2).VAL,IN(2).TP)),''1''),FA_TP_REAL(IN(3).TP))',ClassFileName,'file','y');
 
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
@@ -1625,7 +1625,7 @@ PrintStringInfo('z0d0z0'+ArgSeparator+'d2',ClassFileName,'file','y');
 
 
 // --- Annotation Function And Function List Function. ---
-FunctionName = 'OpColon';
+FunctionName = 'OpColon'; // AS : done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'both','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
