@@ -41,6 +41,10 @@ if (SCI2Cisnum(in1))
       opout  = string(outnum);
    end
 else
-   opout  = in2+"0real"+FA_TP_REAL(in2)+"0"+"("+in1+")";
+   if (in1 == "%i")
+      opout  = " 0 ";
+   else   
+      opout  = in2+"0real"+FA_TP_REAL(in2)+"0"+"("+in1+")";
+   end
 end
 endfunction

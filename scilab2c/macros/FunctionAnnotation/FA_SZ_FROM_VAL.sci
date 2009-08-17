@@ -1,5 +1,5 @@
-function opout = FA_SZ_FROM_VAL(in1)
-// function  opout = FA_SZ_FROM_VAL(in1)
+function opout = FA_SZ_FROM_VAL(in1,in2)
+// function  opout = FA_SZ_FROM_VAL(in1,in2)
 // -----------------------------------------------------------------
 // Return a size according to the floored value of the first argument
 //
@@ -11,7 +11,7 @@ function opout = FA_SZ_FROM_VAL(in1)
 //
 // -----------------------------------------------------------------
 
-SCI2CNInArgCheck(argn(2),1,1);
+SCI2CNInArgCheck(argn(2),2,2);
 
 
 if (SCI2Cisnum(in1))
@@ -33,5 +33,4 @@ else
 end 
 
 
-
-endfunction
+endfunction:
