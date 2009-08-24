@@ -49,7 +49,22 @@
 #define z2d0sumz2(in1,size,in2,out)		(in2==1) ? zrowsuma(in1,size[0],size[1],out) : zcolumnsuma(in1,size[0],size[1],out)	
 		
 		
-	
+/*'r'  and 'c' case  */	
+#define s0g2sums0(in1,in2,size2)			(in2[0]=='r') ? srowsums(in1) : scolumnsums(in1)	
+
+#define d0g2sumd0(in1,in2,size2)			(in2[0]=='r') ? drowsums(in1) : dcolumnsums(in1)	
+
+#define c0g2sumc0(in1,in2,size2)			(in2[0]=='r') ? crowsums(in1) : ccolumnsums(in1)	
+
+#define z0g2sumz0(in1,in2,size2)			(in2[0]=='r') ? zrowsums(in1) : zcolumnsums(in1)	
+
+#define s2g2sums2(in1,size,in2,size2,out)		(in2[0]=='r') ? srowsuma(in1,size[0],size[1],out) : scolumnsuma(in1,size[0],size[1],out)	
+
+#define d2g2sumd2(in1,size,in2,size2,out)		(in2[0]=='r') ? drowsuma(in1,size[0],size[1],out) : dcolumnsuma(in1,size[0],size[1],out)
+
+#define c2g2sumc2(in1,size,in2,size2,out)		(in2[0]=='r') ? crowsuma(in1,size[0],size[1],out) : ccolumnsuma(in1,size[0],size[1],out)
+
+#define z2g2sumz2(in1,size,in2,size2,out)		(in2[0]=='r') ? zrowsuma(in1,size[0],size[1],out) : zcolumnsuma(in1,size[0],size[1],out)	
 	
 
 #endif /* !__INT_SUM_H__ */
