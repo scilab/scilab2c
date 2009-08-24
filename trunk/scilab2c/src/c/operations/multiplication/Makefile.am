@@ -11,6 +11,7 @@
 ##
 
 libMultiplication_la_CFLAGS =	-I $(top_builddir)/src/c/type \
+				-I $(top_builddir)/src/c/matrixOperations/includes \
 				-I $(top_builddir)/src/c/operations/includes
 
 instdir = $(top_builddir)/lib
@@ -33,10 +34,12 @@ libMultiplication_la_SOURCES = 	$(HEAD) \
 				cmulv.c \
 				zmulv.c
 
+
 check_PROGRAMS = 	testMultiplication
 
 check_LDADD =		$(top_builddir)/src/c/type/libDoubleComplex.la \
 			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/matrixOperations/libZeros.la \
 			$(top_builddir)/src/c/operations/addition/libAddition.la \
 			libMultiplication.la
 
