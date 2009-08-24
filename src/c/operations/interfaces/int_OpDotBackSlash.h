@@ -91,7 +91,7 @@
 
 #define c2c2OpDotBackSlashc2(in1,size1,in2,size2,out)		cldiva(in1,in2,size2[0]*size2[1],out)
 
-#define c2s2OpDotBackSlashc2(in1,size1,in2,size2,out))		{int i;\
+#define c2s2OpDotBackSlashc2(in1,size1,in2,size2,out)		{int i;\
 										for(i=0;i<size1[0]*size2[1];i++) out[i]= cldivs(in1[i],FloatComplex(in2[i], 0));}
 
 #define s2c2OpDotBackSlashc2(in1,size1,in2,size2,out)		{int i;	\
