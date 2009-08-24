@@ -105,6 +105,11 @@ EXTERN_OPERATIONS void	cmula(floatComplex *in1, floatComplex *in2, int size, flo
 */
 EXTERN_OPERATIONS floatComplex	cmulv(floatComplex *in1, floatComplex *in2, int size2);
 
+EXTERN_OPERATIONS floatComplex	cmulcsv(floatComplex *in1, float *in2, int size2);
+
+EXTERN_OPERATIONS floatComplex	cmulscv(float *in1, floatComplex *in2, int size2);
+
+
 /*
 ** \brief Compute a multiplication with double complex.
 ** \param in1 : input double complex.
@@ -123,7 +128,7 @@ EXTERN_OPERATIONS doubleComplex	zmuls(doubleComplex in1, doubleComplex in2);
 EXTERN_OPERATIONS void	zmula(doubleComplex *in1, doubleComplex *in2, int size, doubleComplex *out);
 
 /*
-** \brief Compute a multiplication for floats.
+** \brief Compute a multiplication for double.
 ** \param in1 : input array.
 ** \param in2 : input array.
 ** \param size : size of in2 array.
@@ -131,6 +136,9 @@ EXTERN_OPERATIONS void	zmula(doubleComplex *in1, doubleComplex *in2, int size, d
 */
 EXTERN_OPERATIONS doubleComplex zmulv(doubleComplex *in1, doubleComplex *in2, int size2);
 
+EXTERN_OPERATIONS doubleComplex zmulzdv(doubleComplex *in1, double *in2, int size2);
+
+EXTERN_OPERATIONS doubleComplex zmuldzv(double *in1, doubleComplex *in2, int size2);
 /*
 ** \function ctimess
 ** \brief Multiply 2 Complex numbers.
