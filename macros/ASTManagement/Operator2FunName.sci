@@ -58,8 +58,9 @@ elseif (OperatorName == './.')
 elseif (OperatorName == '.\')
    FunName = FuncPrefix+'DotBackSlash'+FuncSuffix;
 elseif (OperatorName == '\')
-   PrintStringInfo('SCI2CERROR: Operator ""'+OperatorName+'"" not supported.','','stout','y');
-   SCI2Cerror(' ');
+   //PrintStringInfo('SCI2CERROR: Operator ""'+OperatorName+'"" not supported.','','stout','y');
+   //SCI2Cerror(' ');
+   FunName = FuncPrefix+'BackSlash'+FuncSuffix;
 elseif (OperatorName == '.\')
    PrintStringInfo('SCI2CERROR: Operator ""'+OperatorName+'"" not supported.','','stout','y');
    SCI2Cerror(' ');
