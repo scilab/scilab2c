@@ -49,6 +49,22 @@
 #define z2d0variancez2(in1,size,in2,out)		(in2==1) ? zrowvariancea(in1,size[0],size[1],out) : zcolumnvariancea(in1,size[0],size[1],out)	
 		
 		
+	/*'r'  and 'c' case  */	
+#define s0g2variances0(in1,in2,size2)			(in2[0]=='r') ? srowvariances(in1) : scolumnvariances(in1)	
+
+#define d0g2varianced0(in1,in2,size2)			(in2[0]=='r') ? drowvariances(in1) : dcolumnvariances(in1)	
+
+#define c0g2variancec0(in1,in2,size2)			(in2[0]=='r') ? crowvariances(in1) : ccolumnvariances(in1)	
+
+#define z0g2variancez0(in1,in2,size2)			(in2[0]=='r') ? zrowvariances(in1) : zcolumnvariances(in1)	
+
+#define s2g2variances2(in1,size,in2,size2,out)		(in2[0]=='r') ? srowvariancea(in1,size[0],size[1],out) : scolumnvariancea(in1,size[0],size[1],out)	
+
+#define d2g2varianced2(in1,size,in2,size2,out)		(in2[0]=='r') ? drowvariancea(in1,size[0],size[1],out) : dcolumnvariancea(in1,size[0],size[1],out)
+
+#define c2g2variancec2(in1,size,in2,size2,out)		(in2[0]=='r') ? crowvariancea(in1,size[0],size[1],out) : ccolumnvariancea(in1,size[0],size[1],out)
+
+#define z2g2variancez2(in1,size,in2,size2,out)		(in2[0]=='r') ? zrowvariancea(in1,size[0],size[1],out) : zcolumnvariancea(in1,size[0],size[1],out)	
 	
 	
 
