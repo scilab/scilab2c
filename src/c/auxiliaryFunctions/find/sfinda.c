@@ -12,7 +12,7 @@
 
 #include "find.h"
 
-void sfinda(float* x, int size, float* out, int *indiceOut) {
+void sfinda(float* x, int size, float* out, int *indiceOut , int max ) {
   int i = 0;
   
   indiceOut[1]=0;
@@ -22,6 +22,8 @@ void sfinda(float* x, int size, float* out, int *indiceOut) {
 
   
   for (i = 0; i < size ; ++i) {
+    /*to avoid useless search if we only want to find the  max first founded value   */
+    if (indiceOut[1] == max  ) return ;
     if (x[i] != 0) {
 	out[indiceOut[1]] = (float)(i+1);
 	indiceOut[1]++;

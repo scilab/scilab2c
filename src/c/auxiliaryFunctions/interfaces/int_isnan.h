@@ -19,16 +19,16 @@
 
 #define d0isnand0(in)			disnans(in)
 
-#define c0isnanc0(in)			cisnans(in)
+#define c0isnans0(in)			cisnans(in)
 
-#define z0isnanz0(in)			zisnans(in)
+#define z0isnand0(in)			zisnans(in)
 
 #define s2isnans2(in,size,out)		sisnana(in, size[0]*size[1], out)
 
 #define d2isnand2(in,size,out)		disnana(in, size[0]*size[1], out)
 
-#define c2isnanc2(in,size,out)		cisnana(in, size[0]*size[1], out)
+#define c2isnans2(in,size,out)		cisnana(in, size[0]*size[1], out)
 
-#define z2isnanz2(in,size,out)		zisnana(in, size[0]*size[1], out)
+#define z2isnand2(in,size,out)		zisnana(in, size[0]*size[1], out)
 
 #endif /* !__INT_ISNAN_H__ */

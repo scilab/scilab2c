@@ -22,23 +22,27 @@ extern "C" {
 #endif
 /*
 ** \brief Float Find function
+** max is an integer giving the maximum number of indices to return. (use -1 to search them all)
 */
-EXTERN_AUXFUNCT void sfind2da(float* x, int rows, int columns, float* out1, int* sizeOut1, float* out2, int* sizeOut2);
+EXTERN_AUXFUNCT void sfind2da(float* x, int rows, int columns, float* out1, int* sizeOut1, float* out2, int* sizeOut2,int max);
 
 /*
 ** \brief Double Find function
+** max is an integer giving the maximum number of indices to return. (use -1 to search them all)
 */
-EXTERN_AUXFUNCT void dfind2da(double* x, int rows, int columns, double* out1, int* sizeOut1, double* out2, int* sizeOut2);
+EXTERN_AUXFUNCT void dfind2da(double* x, int rows, int columns, double* out1, int* sizeOut1, double* out2, int* sizeOut2,int max);
 
 /*
 ** \brief Float Complex Find function
+** max is an integer giving the maximum number of indices to return. (use -1 to search them all)
 */
-EXTERN_AUXFUNCT void cfind2da(floatComplex* z, int rows, int columns, float* out1, int* sizeOut1, float* out2, int* sizeOut2);
+EXTERN_AUXFUNCT void cfind2da(floatComplex* z, int rows, int columns, float* out1, int* sizeOut1, float* out2, int* sizeOut2,int max);
 
 /*
 ** \brief Double Complex Find function
+** max is an integer giving the maximum number of indices to return. (use -1 to search them all)
 */
-EXTERN_AUXFUNCT void zfind2da(doubleComplex* z, int rows, int columns, double* out1, int* sizeOut1, double* out2, int* sizeOut2);
+EXTERN_AUXFUNCT void zfind2da(doubleComplex* z, int rows, int columns, double* out1, int* sizeOut1, double* out2, int* sizeOut2,int max);
 
 #ifdef  __cplusplus
 } /* extern "C" */
