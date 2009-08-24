@@ -48,6 +48,22 @@
 
 #define z2d0prodz2(in1,size,in2,out)		(in2==1) ? zrowproda(in1,size[0],size[1],out) : zcolumnproda(in1,size[0],size[1],out)	
 		
+	/*'r'  and 'c' case  */	
+#define s0g2prods0(in1,in2,size2)			(in2[0]=='r') ? srowprods(in1) : scolumnprods(in1)	
+
+#define d0g2prodd0(in1,in2,size2)			(in2[0]=='r') ? drowprods(in1) : dcolumnprods(in1)	
+
+#define c0g2prodc0(in1,in2,size2)			(in2[0]=='r') ? crowprods(in1) : ccolumnprods(in1)	
+
+#define z0g2prodz0(in1,in2,size2)			(in2[0]=='r') ? zrowprods(in1) : zcolumnprods(in1)	
+
+#define s2g2prods2(in1,size,in2,size2,out)		(in2[0]=='r') ? srowproda(in1,size[0],size[1],out) : scolumnproda(in1,size[0],size[1],out)	
+
+#define d2g2prodd2(in1,size,in2,size2,out)		(in2[0]=='r') ? drowproda(in1,size[0],size[1],out) : dcolumnproda(in1,size[0],size[1],out)
+
+#define c2g2prodc2(in1,size,in2,size2,out)		(in2[0]=='r') ? crowproda(in1,size[0],size[1],out) : ccolumnproda(in1,size[0],size[1],out)
+
+#define z2g2prodz2(in1,size,in2,size2,out)		(in2[0]=='r') ? zrowproda(in1,size[0],size[1],out) : zcolumnproda(in1,size[0],size[1],out)	
 		
 	
 	
