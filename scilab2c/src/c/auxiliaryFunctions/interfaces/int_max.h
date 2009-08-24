@@ -29,9 +29,9 @@
 
 #define d0d0maxd0(in1,in2)			max(in1,in2)
 
-#define s2s2maxs2(in1,size1,in2,size2,out)			maxa(in1, size1[0]*size1[1], in2, size2[0]*size2[1], out)
+#define s2s2maxs2(in1,size1,in2,size2,out)		maxa(in1, size1, in2, size2, out)
 
-#define d2d2maxd2(in1,size1,in2,size2,out)		maxa(in1, size1[0]*size1[1], in2, size2[0]*size2[1], out)
+#define d2d2maxd2(in1,size1,in2,size2,out)		maxa(in1, size1, in2, size2, out)
 
 
 #define s2s0maxs2(in1,size,in2,out)		{int i;\

@@ -29,9 +29,9 @@
 
 #define d0d0mind0(in1,in2)			min(in1,in2)
 
-#define s2s2mins2(in1,size1,in2,size2,out)			mina(in1, size1[0]*size1[1], in2, size2[0]*size2[1], out)
+#define s2s2mins2(in1,size1,in2,size2,out)			mina(in1, size1, in2, size2, out)
 
-#define d2d2mind2(in1,size1,in2,size2,out)		mina(in1, size1[0]*size1[1], in2, size2[0]*size2[1], out)
+#define d2d2mind2(in1,size1,in2,size2,out)		mina(in1, size1, in2, size2, out)
 
 
 #define s2s0mins2(in1,size,in2,out)		{int i;\
