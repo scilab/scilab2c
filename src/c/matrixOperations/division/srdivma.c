@@ -49,7 +49,7 @@ void srdivma (	float* in1, int lines1, int columns1 ,
          dblin2[i] = (double) in2[i] ;
 		}       
                      
-    drdivma( dblin1 , lines1 , columns1 , dblin2 , lines2 , columns2 , dblout );
+        drdivma( dblin1 , lines1 , columns1 , dblin2 , lines2 , columns2 , dblout );
 
                      
 	for ( i = 0 ; i < min(lines2,columns2) * lines1 ; i++ )

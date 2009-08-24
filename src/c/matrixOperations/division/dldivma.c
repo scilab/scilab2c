@@ -47,11 +47,11 @@ void dldivma (double* in1, int lines1, int columns1 ,
 	iWork	= max(4 * columns1, max(min(lines1, columns1) + 3 * lines1 + 1, 2 * min(lines1, columns1) + columns2));
 
 
-
+        lines2 = 0 ;
 
 	/* Array allocations*/
 	pAf			= (double*)malloc(sizeof(double) * (unsigned int) lines1 * (unsigned int) columns1);
-	pXb			= (double*)malloc(sizeof(double) * (unsigned int) max(lines1,columns1) * (unsigned int) columns1);
+	pXb			= (double*)malloc(sizeof(double) * (unsigned int) max(lines1,columns1) * (unsigned int) columns2);
 
 	pRank		= (int*)malloc(sizeof(int));
 	pIpiv		= (int*)malloc(sizeof(int) *(unsigned int) columns1);
@@ -65,7 +65,8 @@ void dldivma (double* in1, int lines1, int columns1 ,
 	dblEps		= getRelativeMachinePrecision() ;
 	
 	dblAnorm	= dlange_(&cNorm, &lines1, &columns1, in1, &lines1, pDwork);
-
+	printf ("initial variable \n");
+	printf ("dblAnorm : %e\n" ,dblAnorm );
 	if(lines1 == columns1)
 	{
 		cNorm		= 'F';
@@ -90,12 +91,13 @@ void dldivma (double* in1, int lines1, int columns1 ,
 	if(iExit == 0)
 	{
 		dblRcond = sqrt(dblEps);
+printf ("dblRcond : %e\n" ,dblRcond );
 		cNorm = 'F';
 		iMax = max(lines1, columns1);
-		C2F(dlacpy)(&cNorm, &lines1, &columns2, in2, &lines2, pXb, &iMax);
+		C2F(dlacpy)(&cNorm, &lines1, &columns2, in2, &lines1, pXb, &iMax);
 		memset(pJpvt, 0x00,(unsigned int) sizeof(int) * (unsigned int) columns1);
 		C2F(dgelsy)(	&lines1, &columns1, &columns2, in1, &lines1, pXb, &iMax,
-						pJpvt, &dblRcond, &pRank[0], pDwork, &iWork, &iInfo);
+				pJpvt, &dblRcond, &pRank[0], pDwork, &iWork, &iInfo);
 
 		if(iInfo == 0)
 		{

@@ -16,7 +16,7 @@
 #include <string.h>
 #include <stdio.h>
 void sldivma (	float* in1, int lines1, int columns1 ,
-			    float* in2, int lines2, int columns2 ,
+                float* in2, int lines2, int columns2 ,
 			 	float* out ){
 
 	int i = 0 ;
@@ -45,7 +45,7 @@ void sldivma (	float* in1, int lines1, int columns1 ,
 	for ( i = 0 ; i < lines2 * columns2 ; i ++ )
         {
          dblin2[i] = (double) in2[i] ;
-		}       
+	}       
                      
     dldivma( dblin1 , lines1 , columns1 , dblin2 , lines2 , columns2 , dblout );
 
