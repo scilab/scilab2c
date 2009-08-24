@@ -145,4 +145,24 @@
 									z2z2OpSlashz2(DoubleComplexMatrix(in1,temp,size1[0]*size1[1]), size1, in2, size2, out);}
 
 
+/* Vector * Vector, so there is a scalar output */
+
+#define s2s2OpSlashs0(in1, size1, in2, size2)		srdivv(  in1, in2, size1[1])
+
+#define c2s2OpSlashc0(in1, size1, in2, size2)		crdivcsv(in1, in2, size1[1])
+
+#define s2c2OpSlashc0(in1, size1, in2, size2)		crdivscv(in1, in2, size1[1])
+
+#define c2c2OpSlashc0(in1, size1, in2, size2)		crdivv(  in1, in2, size1[1])
+
+
+#define d2d2OpSlashd0(in1, size1, in2, size2)		drdivv(  in1, in2, size1[1])
+
+#define z2d2OpSlashz0(in1, size1, in2, size2)		zrdivzdv(in1, in2, size1[1])
+
+#define d2z2OpSlashz0(in1, size1, in2, size2)		zrdivdzv(in1, in2, size1[1])
+
+#define z2z2OpSlashz0(in1, size1, in2, size2)		zrdivv(  in1, in2, size1[1])
+
+
 #endif /* !__INT_OPSLASH_H__ */

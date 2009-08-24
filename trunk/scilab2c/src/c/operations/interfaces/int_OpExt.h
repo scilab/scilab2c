@@ -36,7 +36,7 @@
   }
 								
 #define c2s2OpExtc2(in1,size1,in2,size2,out)	{int i;			\
-    for (i=0;i<size2[0]*size2[1;i++]) out[i]=in1[(int)in2[i]-1];	\
+    for (i=0;i<size2[0]*size2[1];i++) out[i]=in1[(int)in2[i]-1];	\
   }
 								
 #define z2d2OpExtz2(in1,size1,in2,size2,out)	{int i;			\
