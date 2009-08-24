@@ -54,7 +54,6 @@ void schola(float * in, int size, float *out){
 	/* Do not use Lapack functions*/
 	int i=0, j=0, k=0;
 	float tmp=0, accu=0;
-			printf("passe\n");
 	for (i=0;i<size;i++){
 		accu=0;
 		for (j=0;j<i;j++){
