@@ -456,12 +456,33 @@ static void zrdivmaTest ( void ){
 	free(out);
 }
 
+
+
+static void mytest (void ){
+  double in1[16] = {  1 , 5 , 9  , 13  } ;
+  double in2[16] = {  2 , 6 , 10   } ;
+
+  double out[16] = { 0 } ;
+ 
+  int i = 0 ;
+
+ drdivma  ( in1 , 1 , 4  , in2 ,1, 3 , out  ); 
+
+  for ( i = 0 ; i <1; i++)
+     {
+printf ( "\t\t %d out : %20.15e\t\n" , i , out[i]  ) ;
+
+     }
+
+}
+
+
 static int testRDivma   (void) {
 
   printf("\n\n\n\n**********************\n");
   printf("***** Right Tests ****\n");
   printf("**********************\n");
-    
+   mytest ( );
   printf("\n\t>>>> Float real  Tests\n");
   sdivmaTest();
     

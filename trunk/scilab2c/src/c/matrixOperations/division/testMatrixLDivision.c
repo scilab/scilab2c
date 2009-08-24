@@ -302,9 +302,7 @@ static void cldivmaTest (void )
     float tin2[] = { 1.0f , 2.0f};
 
 
-   /* float tin1[] =    { 4.0f , 3.0f , 8.0f , 9.0f } ;
-	float tin2[] =    { 1.0f , 3.0f , 2.0f , 4.0f } ;
-    */
+
 	floatComplex* in1 ;
 	floatComplex* in2 ;
 	floatComplex* out  ;
@@ -317,11 +315,6 @@ static void cldivmaTest (void )
     Result[0] = FloatComplex ( 0 ,  0 );
     Result[1] = FloatComplex ( 0.5f   , 0 );
 
-   /*
-    Result[0] = FloatComplex ( -1.25f ,  0 );
-    Result[1] = FloatComplex ( 0.75f   , 0 );
-    Result[2] = FloatComplex ( -1.16666666f  , 0 );
-    Result[3] = FloatComplex ( 0.833333333333f   , 0 );*/
 
 	cldivma ( in1 , ZLINES , ZCOLUMNS1 , in2 ,ZLINES , ZCOLUMNS2 , out) ;
 
@@ -411,12 +404,34 @@ static void zldivmaTest (void )
 
 
 
+static void mytest (void ){
+  double in1[2] = {  1 , 4  } ;
+  double in2[3] = { 1 , 2  , 3 };
+  double out[6] = { 0 , 0 , 0 , 0 ,0 , 0 } ;
+ 
+  int i = 0 ;
+
+  dldivma ( in1 , 1, 2, in2 , 1, 3 , out  ); 
+
+  for ( i = 0 ; i <6; i++)
+     {
+printf ( "\t\t %d out : %20.15e\t\n" , i , out[i]  ) ;
+
+     }
+
+}
+
 static int testLDivma   (void) {
   printf ("&&&& WARNING , TESTS FOR COMPLEX ARE STILL WRONG &&&&&&\n\n" ) ;
 
   printf("\n\n\n\n*********************\n");
   printf("***** Left Tests ****\n");
   printf("*********************\n");
+
+
+
+  printf("\n\n\n\t>>> MY TEST  Tests\n");
+  mytest () ;
 
   printf("\n\t>>>>Float real  Tests\n");
   sldivmaTest();
