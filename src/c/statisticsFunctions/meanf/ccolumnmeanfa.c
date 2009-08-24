@@ -17,22 +17,22 @@
 void ccolumnmeanfa(floatComplex *in1, int lines, int columns,floatComplex *in2, floatComplex *out) {
   int i = 0;
   int j = 0;
-  float tempCoefSum = 0.0f;
+  floatComplex tempCoefSum = FloatComplex(0.0f,0.0f);
   floatComplex tempMul = FloatComplex(0.0f,0.0f);
   /*we first multiply each cell of the input matrix by its coefficient*/
   for (j = 0; j < lines ; ++j)
   {
-    tempCoefSum =  0.0f;
+    tempCoefSum = FloatComplex(0.0f,0.0f);
     out[j]=  FloatComplex(0.0f,0.0f);
     for ( i = 0 ; i < columns; ++i )
       {
 
         tempMul = cmuls ( in1[lines*i + j] , in2[lines*i + j]); /* we times by the coefficient*/
-        tempCoefSum += creals(in2[lines*i + j]) ;
+        tempCoefSum = cadds ( in2[lines*i + j] ,tempCoefSum ) ;
         out[j] = cadds (tempMul, out[j]) ;
       } 
 
-    out[j] =FloatComplex(creals(out[j]) /tempCoefSum, cimags(out[j]) /tempCoefSum);
+    out[j] = crdivs(out[j] ,tempCoefSum);
   }
 }
 
