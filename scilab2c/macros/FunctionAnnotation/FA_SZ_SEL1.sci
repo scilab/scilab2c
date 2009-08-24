@@ -25,14 +25,18 @@ function opout = FA_SZ_SEL1(in1,in2)
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
+
+
 SCI2CNInArgCheck(argn(2),2,2);
 ReportFileName = '';
 in2 = string(in2);
 
-if (in2 == '1')
+if (in2 == '1' | in2 == '""rr""' ) // Where can r become  rr ??? 
    opout = '1';
-elseif (in2 == '2')
+elseif (in2 == '2' | in2 == '""c""' )
    opout = in1;
+
+
 else   
    PrintStringInfo(' ',ReportFileName,'both','y');
    PrintStringInfo('SCI2CERROR: Cannot associate the second input argument to a known specifier.',ReportFileName,'both','y');
