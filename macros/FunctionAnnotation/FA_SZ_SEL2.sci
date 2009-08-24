@@ -29,9 +29,9 @@ SCI2CNInArgCheck(argn(2),2,2);
 ReportFileName = '';
 in2 = string(in2);
 
-if (in2 == '1')
+if (in2 == '1'| in2 == '""rr""')
    opout = in1;
-elseif (in2 == '2')
+elseif (in2 == '2'| in2 == '""c""')
    opout = '1';
 else   
    PrintStringInfo(' ',ReportFileName,'both','y');
