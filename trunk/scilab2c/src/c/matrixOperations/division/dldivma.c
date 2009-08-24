@@ -15,7 +15,7 @@
 #include <malloc.h>
 #include "matrixDivision.h" 
 #include "lapack.h" 
-#include <stdio.h>
+
 #include <string.h>
 
 void dldivma (double* in1, int lines1, int columns1 ,
@@ -65,8 +65,6 @@ void dldivma (double* in1, int lines1, int columns1 ,
 	dblEps		= getRelativeMachinePrecision() ;
 	
 	dblAnorm	= dlange_(&cNorm, &lines1, &columns1, in1, &lines1, pDwork);
-	printf ("initial variable \n");
-	printf ("dblAnorm : %e\n" ,dblAnorm );
 	if(lines1 == columns1)
 	{
 		cNorm		= 'F';
@@ -91,7 +89,6 @@ void dldivma (double* in1, int lines1, int columns1 ,
 	if(iExit == 0)
 	{
 		dblRcond = sqrt(dblEps);
-printf ("dblRcond : %e\n" ,dblRcond );
 		cNorm = 'F';
 		iMax = max(lines1, columns1);
 		C2F(dlacpy)(&cNorm, &lines1, &columns2, in2, &lines1, pXb, &iMax);
