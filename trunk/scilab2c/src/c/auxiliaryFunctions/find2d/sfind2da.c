@@ -12,8 +12,8 @@
 
 #include "find2d.h"
 #include <malloc.h>
-#include <stdio.h>
-void sfind2da(float* x, int rows, int columns, float* out1,int* indiceOut1, float* out2,int* indiceOut2) {
+
+void sfind2da(float* x, int rows, int columns, float* out1,int* indiceOut1, float* out2,int* indiceOut2,int max) {
   int i = 0, j=0;
   indiceOut1[1] = 0;
   
@@ -21,8 +21,10 @@ void sfind2da(float* x, int rows, int columns, float* out1,int* indiceOut1, floa
   out1[0]=-1;
   out2[0]=-1;
   
-  for (i = 0; i < rows ; ++i) {
-  	for	(j = 0; j < columns ; ++j) {
+  for	(j = 0; j < columns ; ++j){
+  	 for (i = 0; i < rows ; ++i) {
+            /*to avoid useless search if we only want to find the  max first founded value   */
+            if (indiceOut1[1] == max  ) return ;
 	    if (x[j*rows+i] != 0) {
 	    	
 		out1[indiceOut1[1]] = (float)(i+1);

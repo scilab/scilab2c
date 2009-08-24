@@ -25,13 +25,13 @@
 
 #define z0findd0(in)						((zreals(in) == 0) && (zimags(in) == 0)) ? -1 : 1
 
-#define s2finds2(in,size,out,sizeOut)			sfinda(in, size[0]*size[1], out, sizeOut)
+#define s2finds2(in,size,out,sizeOut)			sfinda(in, size[0]*size[1], out, sizeOut,-1)
 
-#define d2findd2(in,size,out,sizeOut)			dfinda(in, size[0]*size[1], out, sizeOut)
+#define d2findd2(in,size,out,sizeOut)			dfinda(in, size[0]*size[1], out, sizeOut,-1)
 
-#define c2finds2(in,size,out,sizeOut)			cfinda(in, size[0]*size[1], out, sizeOut)
+#define c2finds2(in,size,out,sizeOut)			cfinda(in, size[0]*size[1], out, sizeOut,-1)
 
-#define z2findd2(in,size,out,sizeOut)			zfinda(in, size[0]*size[1], out, sizeOut)
+#define z2findd2(in,size,out,sizeOut)			zfinda(in, size[0]*size[1], out, sizeOut,-1)
 
 /* 1 input, 2 outputs */
 
@@ -44,13 +44,13 @@
 #define z0findd0d0(in,out2)					if ((zreals(in)==0) && (zimags(in)==0)) {out2=0;} else {out2=1;}
 
 
-#define s2finds2s2(in,size,out1,sizeOut1,out2,sizeOut2)			sfind2da(in,size[0],size[1],out1,sizeOut1,out2,sizeOut2)
+#define s2finds2s2(in,size,out1,sizeOut1,out2,sizeOut2)			sfind2da(in,size[0],size[1],out1,sizeOut1,out2,sizeOut2,-1)
 
-#define d2findd2d2(in,size,out1,sizeOut1,out2,sizeOut2)			dfind2da(in,size[0],size[1],out1,sizeOut1,out2,sizeOut2)
+#define d2findd2d2(in,size,out1,sizeOut1,out2,sizeOut2)			dfind2da(in,size[0],size[1],out1,sizeOut1,out2,sizeOut2,-1)
 
-#define c2finds2s2(in,size,out1,sizeOut1,out2,sizeOut2)			cfind2da(in,size[0],size[1],out1,sizeOut1,out2,sizeOut2)
+#define c2finds2s2(in,size,out1,sizeOut1,out2,sizeOut2)			cfind2da(in,size[0],size[1],out1,sizeOut1,out2,sizeOut2,-1)
 
-#define z2finds2s2(in,size,out1,sizeOut1,out2,sizeOut2)			zfind2da(in,size[0],size[1],out1,sizeOut1,out2,sizeOut2)
+#define z2finds2s2(in,size,out1,sizeOut1,out2,sizeOut2)			zfind2da(in,size[0],size[1],out1,sizeOut1,out2,sizeOut2,-1)
 
 /* 2 inputs, 1 output */
 
@@ -62,29 +62,26 @@
 
 #define z0d0findd0(in1,in2)					z0findd0(in1)
 	
-#define s2s0finds2(in1,size,in2,out,sizeOut)			{\
- float* out_tmp = out;\
- int i = 0 ;\
- s2finds2(in1,size,out_tmp,sizeOut);for( i=0;i<in2;i++){out[i]=out_tmp[i];}\
+#define s2s0finds2(in1,size,in2,out)			{\
+ int temp_out_indice[2] = {0} ;\
+ sfinda(in1,size[0]*size[1],out,temp_out_indice,in2);\
  }
 
-#define d2d0findd2(in1,size,in2,out,sizeOut)			{\
- double* out_tmp = out;\
- int i = 0 ;\
- d2findd2(in1,size,out_tmp,sizeOut);for( i=0;i<in2;i++){out[i]=out_tmp[i];}\
+#define d2d0findd2(in1,size,in2,out)			{\
+ int temp_out_indice[2] = {0} ;\
+ dfinda(in1,size[0]*size[1],out,temp_out_indice,in2);\
  }
 
-#define c2s0finds2(in1,size,in2,out,sizeOut)			{\
- floatComplex* out_tmp = out;\
- int i = 0 ;\
- c2finds2(in1,size,out_tmp,sizeOut);for( i=0;i<in2;i++){out[i]=out_tmp[i];}\
+#define c2s0finds2(in1,size,in2,out)			{\
+ int temp_out_indice[2] = {0} ;\
+ cfinda(in1,size[0]*size[1],out,temp_out_indice,in2);\
  }
 
-#define z2d0findd2(in1,size,in2,out,sizeOut)			{\
- doubleComplex* out_tmp = out;\
- int i = 0 ;\
- z2findd2(in1,size,out_tmp,sizeOut);for( i=0;i<in2;i++){out[i]=out_tmp[i];}\
+#define z2d0findd2(in1,size,in2,out)			{\
+ int temp_out_indice[2] = {0} ;\
+ zfinda(in1,size[0]*size[1],out,temp_out_indice,in2);\
  }
+
 /* 2 inputs, 2 outputs */			
 
 #define s0s0finds0s0(in1,in2,out2)				s0finds0s0(in1,out2)			
@@ -97,32 +94,29 @@
 
 
 /*FIXME : prototypes are wrong*/
-#define s2s0finds2s2(in1,size,in2,out1,sizeOut1,out2,sizeOut2)		{\
- float* out1_tmp = out1;\
- float* out2_tmp = out2;\
- int i = 0 ;\
- s2finds2s2(in1,size,out1_tmp,sizeOut1,out2_tmp,sizeOut2);for( i=0;i<in2;i++) {out1[i]=out1_tmp[i];out2[i]=	out2_tmp[i];}\
+#define s2s0finds2s2(in1,size,in2,out1,out2)		{\
+ int temp_out_indice1[2] = {0} ;\
+ int temp_out_indice2[2] = {0} ;\
+ sfind2da(in1,size[0],size[1],out1,temp_out_indice1,out2,temp_out_indice2,in2);\
  }
 
-#define d2d0findd2d2(in1,size,in2,out1,sizeOut1,out2,sizeOut2)		{\
- double* out1_tmp = out1;\
- double* out2_tmp = out2;\
- int i = 0 ;\
- d2findd2d2(in1,size,out1_tmp,sizeOut1,out2_tmp,sizeOut2);for( i=0;i<in2;i++) {out1[i]=out1_tmp[i];out2[i]=	out2_tmp[i];}\
- }				
+#define d2d0findd2d2(in1,size,in2,out1,out2)		{\
+ int temp_out_indice1[2] = {0} ;\
+ int temp_out_indice2[2] = {0} ;\
+ dfind2da(in1,size[0],size[1],out1,temp_out_indice1,out2,temp_out_indice2,in2);\
+ }
+		
 
-#define c2s0finds2s2(in1,size,in2,out1,sizeOut1,out2,sizeOut2)		{\
- floatComplex* out1_tmp = out1;\
- floatComplex* out2_tmp = out2;\
- int i = 0 ;\
- c2finds2s2(in1,size,out1_tmp,sizeOut1,out_tmp2,sizeOut2);for( i=0;i<in2;i++) {out1[i]=out1_tmp[i];out2[i]=	out2_tmp[i];}\
- }			
+#define c2s0finds2s2(in1,size,in2,out1,out2)		{\
+ int temp_out_indice1[2] = {0} ;\
+ int temp_out_indice2[2] = {0} ;\
+ cfind2da(in1,size[0],size[1],out1,temp_out_indice1,out2,temp_out_indice2,in2);\
+ }		
 
-#define z2d0findd2d2(in1,size,in2,out1,sizeOut1,out2,sizeOut2)		{\
- doubleComplex* out1_tmp = out1;\
- doubleComplex* out2_tmp = out2;\
- int i = 0 ;\
- z2findd2d2(in1,size,out1_tmp,sizeOut1,out2_tmp,sizeOut2);for( i=0;i<in2;i++) {out1[i]=out1_tmp[i];out2[i]=	out2_tmp[i];}\
+#define z2d0findd2d2(in1,size,in2,out1,out2)		{\
+ int temp_out_indice1[2] = {0} ;\
+ int temp_out_indice2[2] = {0} ;\
+ zfind2da(in1,size[0],size[1],out1,temp_out_indice1,out2,temp_out_indice2,in2);\
  }		
 
 
