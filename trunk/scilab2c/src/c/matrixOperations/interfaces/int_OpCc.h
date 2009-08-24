@@ -78,6 +78,7 @@
 
 #define c2c0OpCcc2(in1,size,in2,out)				{ floatComplex temp = in2;   \
 										  crowcata(in1, size[0], size[1],&temp, 1, 1, out);\
+										}
 
 #define z2z0OpCcz2(in1,size,in2,out)				{ doubleComplex temp =in2;   \
 										  zrowcata(in1, size[0], size[1],&temp, 1, 1, out);\
