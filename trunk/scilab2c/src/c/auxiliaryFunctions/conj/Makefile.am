@@ -34,7 +34,7 @@ check_LDADD =   	libConj.la \
 
 
 
-check_INCLUDES =	-I $(top_builddir)/type \
+check_INCLUDES =	-I $(top_builddir)/src/c/type \
 			-I ../includes
 
 testConj_SOURCES = testConj.c

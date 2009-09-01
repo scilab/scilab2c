@@ -43,7 +43,7 @@ int sfind2daTest() {
   }
   
   printf("\n");
-  sfind2da(badArray, 1, 6, out1Bad, size1,out2Bad,size2);
+  sfind2da(badArray, 1, 6, out1Bad, size1,out2Bad,size2,-1);
   if ((out1Bad[0]!=-1) || (out2Bad[0]!=-1) ) {
     printf("ERROR ! : Test Failed (empty array)\n");
     result = ERROR;
