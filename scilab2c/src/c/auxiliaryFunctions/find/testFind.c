@@ -24,8 +24,8 @@ int sfindaTest() {
   outBad=(float*)malloc((unsigned int)5*sizeof(float));  
  
   printf(">> Floats \n");
-  sfinda(goodArray, 5, outGood, &indiceOut);
-  sfinda(badArray, 5, outBad, &indiceOut);
+  sfinda(goodArray, 5, outGood, &indiceOut,-1);
+  sfinda(badArray, 5, outBad, &indiceOut,-1);
   
   for (i=0;i<4;i++){
   	if ( outGood[i] != res[i]) {
@@ -64,8 +64,8 @@ int dfindaTest() {
   
   
   printf(">> Double \n");
-  dfinda(goodArray, 5, outGood, &indiceOut);
-  dfinda(badArray, 5, outBad, &indiceOut);
+  dfinda(goodArray, 5, outGood, &indiceOut,-1);
+  dfinda(badArray, 5, outBad, &indiceOut,-1);
   
   for (i=0;i<4;i++){
   	if ( outGood[i] != res[i]) {
@@ -116,8 +116,8 @@ int cfindaTest() {
   badArray[4] = FloatComplex(0., 0.);
   
   printf(">> Float Complex \n");
-  cfinda(goodArray, 5, outGood, &indiceOut);
-  cfinda(badArray, 5, outBad, &indiceOut);
+  cfinda(goodArray, 5, outGood, &indiceOut,-1);
+  cfinda(badArray, 5, outBad, &indiceOut,-1);
   
   for (i=0;i<4;i++){
   	if ( outGood[i] != res[i]) {
@@ -170,8 +170,8 @@ int zfindaTest() {
  
   
   printf(">> Double Complex \n");
-  zfinda(goodArray, 5, outGood, &indiceOut);
-  zfinda(badArray, 5, outBad, &indiceOut);
+  zfinda(goodArray, 5, outGood, &indiceOut,-1);
+  zfinda(badArray, 5, outBad, &indiceOut,-1);
   
   for (i=0;i<4;i++){
   	if ( outGood[i] != res[i]) {
