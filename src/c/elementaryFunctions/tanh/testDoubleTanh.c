@@ -445,8 +445,8 @@ void ztanhsTest(void) {
 	for (i=0;i<200;i++){
 		in=DoubleComplex(inR[i],inI[i]);
 		out=ztanhs(in);
-		assert(( (fabs(zreals(out)-resR[i]))/(fabs(zreals(out))) )<3e-16);	
-		assert(( (fabs(zimags(out)-resI[i]))/(fabs(zimags(out))) )<3e-16);			
+		assert(( (fabs(zreals(out)-resR[i]))/(fabs(zreals(out))) )<3e-15);	
+		assert(( (fabs(zimags(out)-resI[i]))/(fabs(zimags(out))) )<3e-15);			
 	}
 }
 
@@ -458,7 +458,7 @@ void dtanhaTest(void) {
 
 	dtanha(in,200,out);
 	for (i=0;i<200;i++){
-		assert(( (fabs(out[i]-res[i]))/(fabs(out[i])) )<3e-16);
+		assert(( (fabs(out[i]-res[i]))/(fabs(out[i])) )<3e-15);
 	}
 }
 
@@ -475,8 +475,8 @@ void ztanhaTest(void) {
 	ztanha(in,200,out);
 
 	for (i=0;i<200;i++){
-		assert(( (fabs(zreals(out[i])-resR[i]))/(fabs(zreals(out[i]))) )<3e-16);	
-		assert(( (fabs(zimags(out[i])-resI[i]))/(fabs(zimags(out[i]))) )<3e-16);			
+		assert(( (fabs(zreals(out[i])-resR[i]))/(fabs(zreals(out[i]))) )<3e-15);	
+		assert(( (fabs(zimags(out[i])-resI[i]))/(fabs(zimags(out[i]))) )<3e-15);			
 	}
 }
 

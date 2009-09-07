@@ -532,7 +532,7 @@ void datanhsTest() {
 		out=datanhs(in[i]);
 		if (disnans(out)) assert(1);
 		else {
-			assert( ( (fabs(out-res[i])) / (fabs(out)) ) <3e-16);
+			assert( ( (fabs(out-res[i])) / (fabs(out)) ) <3e-15);
 		}
 	}
 }
@@ -548,12 +548,12 @@ void zatanhsTest() {
 	for (i=0;i<200;i++){
 		in=DoubleComplex(inR[i],inI[i]);
 		out=zatanhs(in);
-		assert( ( (fabs(zreals(out)-resR[i])) / (fabs(zreals(out))) ) <3e-16);
-		assert( ( (fabs(zimags(out)-resI[i])) / (fabs(zimags(out))) ) <3e-16);	
+		assert( ( (fabs(zreals(out)-resR[i])) / (fabs(zreals(out))) ) <3e-15);
+		assert( ( (fabs(zimags(out)-resI[i])) / (fabs(zimags(out))) ) <3e-15);	
 	}
 	out=zatanhs((DoubleComplex(2.0/10.0,11.0/10.0)));
-	assert( ( (fabs(zreals(out)-0.0898435002269743487879)) / (fabs(zreals(out))) ) <3e-16);
-	assert( ( (fabs(zimags(out)-0.8419736541926906570055)) / (fabs(zimags(out))) ) <1e-16);
+	assert( ( (fabs(zreals(out)-0.0898435002269743487879)) / (fabs(zreals(out))) ) <3e-15);
+	assert( ( (fabs(zimags(out)-0.8419736541926906570055)) / (fabs(zimags(out))) ) <1e-15);
 	
 }
 
@@ -566,7 +566,7 @@ void datanhaTest(void) {
 	datanha(in,200,out);
 	for (i=0;i<200;i++){
 		if (disnans(out[i])) assert(1);
-		else assert( ( (fabs(out[i]-res[i])) / (fabs(out[i])) ) <3e-16);
+		else assert( ( (fabs(out[i]-res[i])) / (fabs(out[i])) ) <3e-15);
 	}
 }
 
@@ -583,8 +583,8 @@ void zatanhaTest(void) {
 	}
 	zatanha(in,200,out);
 	for (i=0;i<200;i++){
-		assert( ( (fabs(zreals(out[i])-resR[i])) / (fabs(zreals(out[i]))) ) <3e-16);
-		assert( ( (fabs(zimags(out[i])-resI[i])) / (fabs(zimags(out[i]))) ) <3e-16);	
+		assert( ( (fabs(zreals(out[i])-resR[i])) / (fabs(zreals(out[i]))) ) <3e-15);
+		assert( ( (fabs(zimags(out[i])-resI[i])) / (fabs(zimags(out[i]))) ) <3e-15);	
 	}	
 }
 
