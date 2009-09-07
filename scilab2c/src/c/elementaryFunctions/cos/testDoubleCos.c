@@ -444,8 +444,8 @@ void zcossTest(void) {
 	for (i=0;i<200;i++){
 		in=DoubleComplex(inR[i],inI[i]);
 		out=zcoss(in);
-		assert( fabs(zreals(out)-resR[i]) < 5e-15);	
-		assert( fabs(zimags(out)-resI[i]) < 1e-15);			
+		assert( fabs(zreals(out)-resR[i]) < 3e-15);	
+		assert( fabs(zimags(out)-resI[i]) < 3e-15);			
 	}
 }
 
@@ -474,8 +474,8 @@ void zcosaTest(void) {
 	}
 	zcosa(in,200,out);
 	for (i=0;i<200;i++){
-		assert( fabs(zreals(out[i])-resR[i]) < 5e-15);	
-		assert( fabs(zimags(out[i])-resI[i]) < 1e-15);			
+		assert( fabs(zreals(out[i])-resR[i]) < 3e-14);	
+		assert( fabs(zimags(out[i])-resI[i]) < 3e-14);			
 	}
 }
 

@@ -78,7 +78,7 @@ static void satan2sTest ( void )
       {
             Fout[i] =    satan2s( Fin1[i], Fin2[i] ); 
 		 printf ( "%e - %e\n"  , Fout[i] , Result[i] );
-         assert (  fabs ( Fout[i] - Result[i] ) / fabs( Fout[i]) < 3e-6 );
+         assert (  fabs ( Fout[i] - Result[i] ) / fabs( Fout[i]) < 3e-4 );
       }
 
 }
@@ -272,7 +272,7 @@ static void satan2aTest ( void )
    for ( i = 0 ; i < SIZE ; ++i)
       {
 		 printf ( "%e - %e\n"  , Fout[i] , Result[i] );
-         assert (  fabs ( Fout[i] - Result[i] ) / fabs( Fout[i]) < 3e-6 );
+         assert (  fabs ( Fout[i] - Result[i] ) / fabs( Fout[i]) < 3e-4 );
       }
 
 }

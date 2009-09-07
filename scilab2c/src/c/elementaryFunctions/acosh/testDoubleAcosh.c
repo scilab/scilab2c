@@ -455,8 +455,8 @@ void zacoshsTest(void) {
   for (i=0;i<200;i++){
 	in=DoubleComplex(InR[i],InI[i]);
 	out=zacoshs(in);
-	assert( ( fabs(zreals(out)-ResR[i]) / fabs(zreals(out)) ) <3e-16);
-	assert( ( fabs(zimags(out)-ResI[i]) / fabs(zimags(out)) ) <3e-16);
+	assert( ( fabs(zreals(out)-ResR[i]) / fabs(zreals(out)) ) <3e-15);
+	assert( ( fabs(zimags(out)-ResI[i]) / fabs(zimags(out)) ) <3e-15);
   }
 }
 
@@ -492,8 +492,8 @@ void zacoshaTest(void) {
   }
   zacosha(in,200,out);
   for (i=0;i<200;i++){
-	assert( ( fabs(zreals(out[i])-ResR[i]) / fabs(zreals(out[i])) ) <3e-16);
-	assert( ( fabs(zimags(out[i])-ResI[i]) / fabs(zimags(out[i])) ) <3e-16);
+	assert( ( fabs(zreals(out[i])-ResR[i]) / fabs(zreals(out[i])) ) <3e-15);
+	assert( ( fabs(zimags(out[i])-ResI[i]) / fabs(zimags(out[i])) ) <3e-15);
   }
 }
 

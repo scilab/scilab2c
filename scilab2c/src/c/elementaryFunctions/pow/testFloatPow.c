@@ -457,8 +457,8 @@ void cpowsTest(void) {
 	for (i=0;i<200;i++){
 		in1=FloatComplex(in1R[i],in1I[i]);
 		out=cpows(in1,in2);
-		assert(( (fabs(creals(out)-resR[i]))/(fabs(creals(out))) )<1e-6);	
-		assert(( (fabs(cimags(out)-resI[i]))/(fabs(cimags(out))) )<1e-6);			
+		assert(( (fabs(creals(out)-resR[i]))/(fabs(creals(out))) )<1e-5);	
+		assert(( (fabs(cimags(out)-resI[i]))/(fabs(cimags(out))) )<1e-5);			
 	}
 }
 
