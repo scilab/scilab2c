@@ -52,7 +52,7 @@ check_LDADD =		$(top_builddir)/src/c/type/libDoubleComplex.la \
 			$(top_builddir)/src/c/elementaryFunctions/cosh/libCosh.la \
 			$(top_builddir)/src/c/elementaryFunctions/sin/libSin.la \
 			$(top_builddir)/src/c/elementaryFunctions/sinh/libSinh.la \
-			$(top_builddir)/src/cmatrixOperations/transpose/libMatrixTranspose.la \
+			$(top_builddir)/src/c/matrixOperations/transpose/libMatrixTranspose.la \
 			$(top_builddir)/src/c/matrixOperations/cat/libMatrixConcatenation.la \
 			$(top_builddir)/src/c/matrixOperations/multiplication/libMatrixMultiplication.la \
 			$(top_builddir)/src/c/matrixOperations/infiniteNorm/libMatrixInfiniteNorm.la \

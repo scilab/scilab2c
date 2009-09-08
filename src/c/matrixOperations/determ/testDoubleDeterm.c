@@ -378,13 +378,13 @@ static void ddetermaTest(void){
 	out8=ddeterma(in8,8);
 	out10=ddeterma(in10,10);
 	
-	assert((fabs(out2-res2)/fabs(out2))<3e-16);
-	assert((fabs(out3-res3)/fabs(out3))<3e-16);
-	assert((fabs(out4-res4)/fabs(out4))<3e-16);
-	assert((fabs(out5-res5)/fabs(out5))<3e-16);
-	assert((fabs(out6-res6)/fabs(out6))<3e-16);
-	assert((fabs(out8-res8)/fabs(out8))<3e-16);
-	assert((fabs(out10-res10)/fabs(out10))<3e-16);
+	assert((fabs(out2-res2)/fabs(out2))<3e-8);
+	assert((fabs(out3-res3)/fabs(out3))<3e-15);
+	assert((fabs(out4-res4)/fabs(out4))<3e-15);
+	assert((fabs(out5-res5)/fabs(out5))<3e-15);
+	assert((fabs(out6-res6)/fabs(out6))<3e-15);
+	assert((fabs(out8-res8)/fabs(out8))<3e-15);
+	assert((fabs(out10-res10)/fabs(out10))<3e-15);
 }
 
 static void zdetermaTest(void){
@@ -422,19 +422,19 @@ static void zdetermaTest(void){
 	assert((fabs(zimags(out3)-resI3)/fabs(zimags(out3)))<1e-16);
 	
 	assert((fabs(zreals(out4)-resR4)/fabs(zreals(out4)))<3e-16);
-	assert((fabs(zimags(out4)-resI4)/fabs(zimags(out4)))<3e-16);
+	assert((fabs(zimags(out4)-resI4)/fabs(zimags(out4)))<3e-15);
 	
-	assert((fabs(zreals(out5)-resR5)/fabs(zreals(out5)))<3e-16);
-	assert((fabs(zimags(out5)-resI5)/fabs(zimags(out5)))<3e-16);
+	assert((fabs(zreals(out5)-resR5)/fabs(zreals(out5)))<3e-15);
+	assert((fabs(zimags(out5)-resI5)/fabs(zimags(out5)))<3e-15);
 	
-	assert((fabs(zreals(out6)-resR6)/fabs(zreals(out6)))<3e-16);
-	assert((fabs(zimags(out6)-resI6)/fabs(zimags(out6)))<3e-16);
+	assert((fabs(zreals(out6)-resR6)/fabs(zreals(out6)))<3e-15);
+	assert((fabs(zimags(out6)-resI6)/fabs(zimags(out6)))<3e-12);
 	
-	assert((fabs(zreals(out8)-resR8)/fabs(zreals(out8)))<3e-16);
-	assert((fabs(zimags(out8)-resI8)/fabs(zimags(out8)))<3e-16);
+	assert((fabs(zreals(out8)-resR8)/fabs(zreals(out8)))<3e-15);
+	assert((fabs(zimags(out8)-resI8)/fabs(zimags(out8)))<3e-15);
 	
-	assert((fabs(zreals(out10)-resR10)/fabs(zreals(out10)))<3e-16);
-	assert((fabs(zimags(out10)-resI10)/fabs(zimags(out10)))<3e-16);
+	assert((fabs(zreals(out10)-resR10)/fabs(zreals(out10)))<3e-14);
+	assert((fabs(zimags(out10)-resI10)/fabs(zimags(out10)))<3e-15);
 }
 
 static int determTest(void){

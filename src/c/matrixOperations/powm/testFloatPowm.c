@@ -73,7 +73,7 @@ static void cpowmaTest(void){
 	for (i=0;i<9;i++) printf("out[%d] = %f+%f*i\n",i,creals(out[i]),cimags(out[i]));
 	
 	for (i=0;i<9;i++){
-		assert( (fabs(creals(out[i])-resultR[i])/ fabs(creals(out[i])) ) <3e-6);
+		assert( (fabs(creals(out[i])-resultR[i])/ fabs(creals(out[i])) ) <3e-5);
 		assert( (fabs(cimags(out[i])-resultI[i])/ fabs(cimags(out[i])) ) <1e-6);
 	}
 	}

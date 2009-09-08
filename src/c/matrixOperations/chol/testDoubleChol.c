@@ -124,9 +124,9 @@ static void zcholaTest(void){
 
 		for (i=0;i<9;i++){
 		if (zreals(out[i])>1e-16)
-			assert( (fabs(zreals(out[i])-resR[i]) / fabs(zreals(out[i]))) <3e-16);
+			assert( (fabs(zreals(out[i])-resR[i]) / fabs(zreals(out[i]))) <3e-15);
 		if (zimags(out[i])>1e-16)	
-			assert( (fabs(zimags(out[i])-resI[i]) / fabs(zimags(out[i]))) <1e-16);
+			assert( (fabs(zimags(out[i])-resI[i]) / fabs(zimags(out[i]))) <1e-15);
 		}
 		free(in);
 	}

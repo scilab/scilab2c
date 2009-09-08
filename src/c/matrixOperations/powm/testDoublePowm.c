@@ -40,11 +40,11 @@ static void dpowmaTest(void){
 	dpowma(in2, 4, expand2, out2);
 	
 	for (i=0;i<4;i++) {
-		assert( fabs(out1[i]-result1R[i]) / fabs(out1[i]) <3e-16);
+		assert( fabs(out1[i]-result1R[i]) / fabs(out1[i]) <3e-15);
 	}
 	
 	for (i=0;i<16;i++) {
-		assert( fabs(out2[i]-result2R[i]) / fabs(out2[i]) <3e-16);
+		assert( fabs(out2[i]-result2R[i]) / fabs(out2[i]) <3e-14);
 	}	
 	
 }
@@ -71,8 +71,8 @@ static void zpowmaTest(void){
 		for (i=0;i<9;i++) printf("out[%d] = %f+%f*i\n",i,zreals(out[i]),zimags(out[i]));
 	
 		for (i=0;i<9;i++){
-			assert( (fabs(zreals(out[i])-resultR[i])/ fabs(zreals(out[i])) ) <3e-16);
-			assert( (fabs(zimags(out[i])-resultI[i])/ fabs(zimags(out[i])) ) <3e-16);
+			assert( (fabs(zreals(out[i])-resultR[i])/ fabs(zreals(out[i])) ) <3e-13);
+			assert( (fabs(zimags(out[i])-resultI[i])/ fabs(zimags(out[i])) ) <3e-13);
 		}
 	}
 	
@@ -113,8 +113,8 @@ static void zpowmaTest(void){
 		zpowma(in2, 4, DoubleComplex(expand2,0), out2);
 	
 		for (i=0;i<4;i++) {
-			assert( fabs(zreals(out1[i])-result1R[i]) / fabs(zreals(out1[i])) <3e-16);
-			assert( fabs(zimags(out1[i])-result1I[i]) / fabs(zimags(out1[i])) <3e-16);
+			assert( fabs(zreals(out1[i])-result1R[i]) / fabs(zreals(out1[i])) <3e-15);
+			assert( fabs(zimags(out1[i])-result1I[i]) / fabs(zimags(out1[i])) <3e-15);
 		}
 	
 	/*	
@@ -122,8 +122,8 @@ static void zpowmaTest(void){
 	*/	
 		for (i=0;i<16;i++) {
 			printf("out[%d] = %1.16f+%1.16f*i --- result = %1.16f+%1.16f*i\n",i,zreals(out2[i]),zimags(out2[i]),result2R[i],result2I[i]);		
-			assert( fabs(zreals(out2[i])-result2R[i]) / fabs(zreals(out2[i])) <3e-16);
-			assert( fabs(zimags(out2[i])-result2I[i]) / fabs(zimags(out2[i])) <3e-16);
+			assert( fabs(zreals(out2[i])-result2R[i]) / fabs(zreals(out2[i])) <3e-11);
+			assert( fabs(zimags(out2[i])-result2I[i]) / fabs(zimags(out2[i])) <3e-11);
 		}	
 	}
 	
