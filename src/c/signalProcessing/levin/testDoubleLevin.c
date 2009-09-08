@@ -67,14 +67,14 @@ static void dlevinaTest(void) {
 
 	for (i=0;i<48;i++){
 		if (la[i]!=0)
-			assert( (fabs(la[i]-result_la[i]) / fabs(la[i]) ) <3e-16);
+			assert( (fabs(la[i]-result_la[i]) / fabs(la[i]) ) <3e-15);
 		else 
 			assert( fabs(la[i]-result_la[i]) == 0);
 	}
 	
 	for (i=0;i<12;i++){
 		if (sig[i]!=0)
-			assert( (fabs(sig[i]-result_sig[i]) / fabs(sig[i]) ) <3e-16);
+			assert( (fabs(sig[i]-result_sig[i]) / fabs(sig[i]) ) <3e-15);
 		else 
 			assert( fabs(sig[i]-result_sig[i]) == 0);
 	}
@@ -82,7 +82,7 @@ static void dlevinaTest(void) {
 	
 	for (i=0;i<48;i++){
 		if (lb[i]!=0)
-			assert( (fabs(lb[i]-result_lb[i]) / fabs(lb[i]) ) <3e-16);
+			assert( (fabs(lb[i]-result_lb[i]) / fabs(lb[i]) ) <3e-13);
 		else 
 			assert( fabs(lb[i]-result_lb[i]) == 0);
 	}

@@ -33,7 +33,7 @@ static void slevaTest(void) {
 	
 	;
 	for (i=0;i<3;i++) {
-		if (out1[i]>1e-6)	assert((fabs(out1[i]-result1[i]) / fabs (out1[i]))<1e-8);
+		if (out1[i]>1e-6)	assert( (fabs(out1[i]-result1[i]) / fabs (out1[i]) )<1e-8);
 		else assert(1);
 	}
 	
@@ -71,7 +71,7 @@ static void slevaTest(void) {
 	out2 = sleva(in,8,out1,out3);
 	/*FIXME : Assert à 10^-4*/
 	for (i=0;i<7;i++) {
-		if (out1[i]>1e-6)	assert((fabs(out1[i]-result1[i]) / fabs (out1[i]))<3e-6);
+		if (out1[i]>1e-6)	assert((fabs(out1[i]-result1[i]) / fabs (out1[i]))<3e-5);
 		else assert(1);
 	}
 	

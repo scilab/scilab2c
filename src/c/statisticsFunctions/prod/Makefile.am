@@ -45,6 +45,7 @@ check_INCLUDES	=	-I $(top_builddir)/src/c/statisticsFunctions/includes \
 
 check_LDADD	=	$(top_builddir)/src/c/type/libDoubleComplex.la \
 			$(top_builddir)/src/c/type/libFloatComplex.la \
+			$(top_builddir)/src/c/operations/addition/libAddition.la \
 			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
 			$(top_builddir)/src/c/statisticsFunctions/prod/libProd.la \
 			@LIBMATH@

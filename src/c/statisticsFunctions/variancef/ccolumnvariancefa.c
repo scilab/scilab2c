@@ -12,8 +12,9 @@
 
 
 #include "variancef.h"
+#include "matrixTranspose.h"
 
-void ccolumnvariancea(floatComplex *in1, int lines, int columns,floatComplex *in2, floatComplex* out){
+void ccolumnvariancefa(floatComplex *in1, int lines, int columns,floatComplex *in2, floatComplex* out){
     
     int i = 0 ;
     
