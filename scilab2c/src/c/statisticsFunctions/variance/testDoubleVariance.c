@@ -170,7 +170,7 @@ static void  dvarianceaTest ( void){
     
 
     
-    assert ( fabs ( out - result ) / fabs( out ) < 3e-16 ) ;
+    assert ( fabs ( out - result ) / fabs( out ) < 3e-15 ) ;
     
 }
 
@@ -228,7 +228,7 @@ static void  zvarianceaTest ( void){
     doubleComplex out = zvariancea ( mtoTest ,  LINES*COLUMNS );  ;
     
             assert ( fabs(  zreals(out) -  zreals (Result) ) / fabs (zreals (out)) < 3e-16 );
-            assert(  fabs(  zimags(out) -  zimags (Result )) / fabs (zimags (out)) < 3e-16 );
+            assert(  fabs(  zimags(out) -  zimags (Result )) / fabs (zimags (out)) < 3e-15 );
 
     
 }
@@ -252,8 +252,8 @@ static void zrowvarianceaTest (void ) {
     for ( i = 0 ; i < COLUMNS ; i++)
     {
         printf ( "%d out : %e  %e \t result %e %e \n" , i , zreals(out[i])  , zimags(out[i]), zreals(Result[i]) ,zimags( Result[i]));
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) < 3e-16 );
-        assert(  fabs(  zimags(out[i]) -  zimags (Result[i])) / fabs (zimags (out[i])) < 3e-16);
+        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i])) < 3e-8 );
+        assert(  fabs(  zimags(out[i]) -  zimags (Result[i])) / fabs (zimags (out[i])) < 3e-15);
       
     }
 }

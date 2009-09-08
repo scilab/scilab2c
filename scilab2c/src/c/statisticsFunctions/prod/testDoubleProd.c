@@ -41,7 +41,7 @@ static int dprodaTest(void) {
   printf("\n>>>> prod Double Array Test\n");
   printf("%f\n", dproda(table1, 3));
   assert(dproda(table1, 3) == 27.0);
-  assert((dproda(table2, 5) - (9.186784 * 9.186784 * 9.186784 * 9.186784 * 9.186784)) / dproda(table2, 5) < 3e-16);
+  assert((dproda(table2, 5) - (9.186784563 * 9.186784563 * 9.186784563 * 9.186784563 * 9.186784563)) / dproda(table2, 5) < 3e-15);
   return 0;
 }
 

@@ -33,7 +33,8 @@ static void dlevaTest(void) {
 	
 	;
 	for (i=0;i<3;i++) {
-		if (out1[i]>1e-16)	assert((fabs(out1[i]-result1[i]) / fabs (out1[i]))<3e-16);
+	  printf ("assert : %e \n" , (fabs(out1[i]-result1[i]) )/ fabs (out1[i]))  ;
+		if (out1[i]>1e-15)	assert((fabs(out1[i]-result1[i]) / fabs (out1[i]))<3e-15);
 		else assert(1);
 	}
 	
@@ -41,7 +42,7 @@ static void dlevaTest(void) {
 	else assert (1);
 	
 	for (i=0;i<3;i++) {
-		if (out3[i]>1e-16)	 assert((fabs(out3[i]-result3[i]) / fabs (out3[i]))<1e-16);
+		if (out3[i]>1e-16)	 assert((fabs(out3[i]-result3[i]) / fabs (out3[i]))<1e-14);
 		else assert(1);
 	}
 	
@@ -79,7 +80,7 @@ static void dlevaTest(void) {
 	
 	
 	for (i=0;i<7;i++) {
-		if (out3[i]>1e-16)	  assert((fabs(out3[i]-result3[i]) / fabs (out3[i]))<3e-16);
+		if (out3[i]>1e-15)	  assert((fabs(out3[i]-result3[i]) / fabs (out3[i]))<3e-14);
 		else assert(1);
 	}
 	
@@ -110,19 +111,19 @@ static void zlevaTest(void) {
 	out2 = zleva(in,4,out1,out3);
 	
 	for (i=0;i<3;i++){
-		if (zreals(out1[i])>1e-16) assert((fabs(zreals(out1[i])-result1R[i]) / fabs(zreals(out1[i]))) <3e-16);	
+		if (zreals(out1[i])>1e-16) assert((fabs(zreals(out1[i])-result1R[i]) / fabs(zreals(out1[i]))) <3e-15);	
 		else assert(1);
 		if (zimags(out1[i])>1e-16) assert((fabs(zimags(out1[i])-result1I[i]) / fabs(zimags(out1[i]))) <1e-16);	
 		else assert(1);
 	}
 	
-	if (zreals(out2)>1e-16) assert((fabs(zreals(out2)-result2R) / fabs(zreals(out2))) <3e-16);	
+	if (zreals(out2)>1e-16) assert((fabs(zreals(out2)-result2R) / fabs(zreals(out2))) <3e-15);	
 	else assert(1);
-	if (zimags(out2)>1e-16) assert((fabs(zimags(out2)-result2I) / fabs(zimags(out2))) <3e-16);	
+	if (zimags(out2)>1e-16) assert((fabs(zimags(out2)-result2I) / fabs(zimags(out2))) <3e-15);	
 	else assert(1);
 	
 	for (i=0;i<3;i++){
-		if (zreals(out3[i])>1e-16) assert((fabs(zreals(out3[i])-result3R[i]) / fabs(zreals(out3[i]))) <3e-16);	
+		if (zreals(out3[i])>1e-16) assert((fabs(zreals(out3[i])-result3R[i]) / fabs(zreals(out3[i]))) <3e-15);	
 		else assert(1);
 		if (zimags(out3[i])>1e-16) assert((fabs(zimags(out3[i])-result3I[i]) / fabs(zimags(out3[i]))) <1e-16);	
 		else assert(1);
@@ -162,21 +163,21 @@ static void zlevaTest(void) {
 	
 	for (i=0;i<5;i++) printf("out : %1.20f+%1.20f\n",zreals(out1[i]),zimags(out1[i]));
 	for (i=0;i<5;i++){
-		if (zreals(out1[i])>1e-16) assert((fabs(zreals(out1[i])-result1R[i]) / fabs(zreals(out1[i]))) <3e-16);	
+		if (zreals(out1[i])>1e-16) assert((fabs(zreals(out1[i])-result1R[i]) / fabs(zreals(out1[i]))) <3e-14);	
 		else assert(1);
-		if (zimags(out1[i])>1e-16) assert((fabs(zimags(out1[i])-result1I[i]) / fabs(zimags(out1[i]))) <3e-16);	
+		if (zimags(out1[i])>1e-16) assert((fabs(zimags(out1[i])-result1I[i]) / fabs(zimags(out1[i]))) <3e-15);	
 		else assert(1);
 	}
 	
-	if (zreals(out2)>1e-16) assert((fabs(zreals(out2)-result2R) / fabs(zreals(out2))) <3e-16);	
+	if (zreals(out2)>1e-16) assert((fabs(zreals(out2)-result2R) / fabs(zreals(out2))) <3e-15);	
 	else assert(1);
-	if (zimags(out2)>1e-16) assert((fabs(zimags(out2)-result2I) / fabs(zimags(out2))) <3e-16);	
+	if (zimags(out2)>1e-16) assert((fabs(zimags(out2)-result2I) / fabs(zimags(out2))) <3e-15);	
 	else assert(1);
 	
 	for (i=0;i<5;i++){
-		if (zreals(out3[i])>1e-16) assert((fabs(zreals(out3[i])-result3R[i]) / fabs(zreals(out3[i]))) <3e-16);	
+		if (zreals(out3[i])>1e-16) assert((fabs(zreals(out3[i])-result3R[i]) / fabs(zreals(out3[i]))) <3e-15);	
 		else assert(1);
-		if (zimags(out3[i])>1e-16) assert((fabs(zimags(out3[i])-result3I[i]) / fabs(zimags(out3[i]))) <3e-16);	
+		if (zimags(out3[i])>1e-16) assert((fabs(zimags(out3[i])-result3I[i]) / fabs(zimags(out3[i]))) <3e-15);	
 		else assert(1);
 	}
 	}

@@ -10,12 +10,12 @@
  *
  */
 
-#include "variance.h"
+#include "variancef.h"
 
-void srowvariancea(float *in, int lines, int columns, float* out){
+void srowvariancefa(float *in1, int lines, int columns, float *in2, float* out){
     
     int i = 0 ;
 
     for ( i = 0; i < columns ; i++)
-    out[i] = svariancefa ( in + i*lines , lines  ) ;
+    out[i] = svariancefa ( in1 + i*lines , lines,in2 + i*lines  ) ;
 }

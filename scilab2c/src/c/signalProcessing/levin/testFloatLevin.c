@@ -82,7 +82,7 @@ static void dlevinaTest(void) {
 	
 	for (i=0;i<48;i++){
 		if (lb[i]!=0)
-			assert( (fabs(lb[i]-result_lb[i]) / fabs(lb[i]) ) <3e-6);
+			assert( (fabs(lb[i]-result_lb[i]) / fabs(lb[i]) ) <3e-5);
 		else 
 			assert( fabs(lb[i]-result_lb[i]) == 0);
 	}

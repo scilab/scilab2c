@@ -891,7 +891,7 @@ static void cfftmaTest12 (void )
     if (  cimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 3e-6 ) ;
+	    assert ( fabs(  cimags(out[i]) -  tImagResult[i] ) / fabs (cimags (out[i]))  < 3e-5 ) ;
 
     }
 
@@ -1173,7 +1173,7 @@ static void cfftmaTest32 (void )
    if (  creals(out[i])  < 1e-14 && tRealResult[i] < 1e-18 )
         assert ( 1 ) ;
     else
-        assert ( fabs(  creals(out[i]) -  tRealResult[i] ) / fabs (creals (out[i]))  < 3e-6 );
+        assert ( fabs(  creals(out[i]) -  tRealResult[i] ) / fabs (creals (out[i]))  < 3e-5 );
 
 
     if (  cimags(out[i])  < 1e-14 && tImagResult[i] < 1e-18 )

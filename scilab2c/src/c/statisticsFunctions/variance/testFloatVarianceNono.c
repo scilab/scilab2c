@@ -177,7 +177,7 @@ static int floatComplexVariance(void){
 			
 		for (i=0;i<3;i++){
 			assert(fabs(creals(outRow[i])-rowVarianceR[i])/fabs(creals(outRow[i])) <1e-6);
-			assert(fabs(cimags(outRow[i])-rowVarianceI[i])/fabs(cimags(outRow[i])) <3e-6);
+			assert(fabs(cimags(outRow[i])-rowVarianceI[i])/fabs(cimags(outRow[i])) <3e-5);
 		}
 		
 		
@@ -306,7 +306,7 @@ static int floatComplexVariance(void){
 		printf("%f + %f *i\n",creals(out),cimags(out));
 		
 		assert(fabs(creals(out)-varianceR)/fabs(creals(out)) <1e-6);
-		assert(fabs(cimags(out)-varianceI)/fabs(cimags(out)) <3e-6);
+		assert(fabs(cimags(out)-varianceI)/fabs(cimags(out)) <3e-5);
 		
 		
 		
@@ -319,7 +319,7 @@ static int floatComplexVariance(void){
 			
 		for (i=0;i<7;i++){
 			assert(fabs(creals(outRow[i])-rowVarianceR[i])/fabs(creals(outRow[i])) <1e-6);
-			assert(fabs(cimags(outRow[i])-rowVarianceI[i])/fabs(cimags(outRow[i])) <3e-6);
+			assert(fabs(cimags(outRow[i])-rowVarianceI[i])/fabs(cimags(outRow[i])) <3e-5);
 		}
 		
 		

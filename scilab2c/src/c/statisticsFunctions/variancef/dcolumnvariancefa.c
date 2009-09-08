@@ -11,6 +11,7 @@
  */
 
 #include "variancef.h"
+#include "matrixTranspose.h"
 
 void dcolumnvariancefa(double *in1, int lines, int columns, double *in2, double* out){
     

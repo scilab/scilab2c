@@ -19,18 +19,17 @@ floatComplex cvariancefa(floatComplex *in1, int size, floatComplex *in2)
   int i = 0 ;
   floatComplex temp = FloatComplex (0.0f, 0.0f );
   floatComplex accumulate =FloatComplex (0.0f, 0.0f );
-  float accumulateFre = 0.0f;
+  floatComplex accumulateFre = FloatComplex (0.0f, 0.0f );
 
   floatComplex meanf = cmeanfa (in1 , size , in2);
-  //printf("\n\tComplex meanf result : %lf \t+ %lf i " ,creals( meanf) ,cimags( meanf)) ;
+
   for(i = 0 ; i < size ; ++i)
     {
      temp = cpows (  cdiffs (in1[i] , meanf ) ,FloatComplex (2.0f, 0.0f ) );
      temp = cmuls( in2[i] , temp);
-     //printf("\n\tComplex accumulate : %lf \t+ %lf i   " ,creals(temp) ,cimags(temp)) ;
+
      accumulate = cadds( temp , accumulate);
-     accumulateFre +=  creals(in2[i]);
+     accumulateFre =  cadds (in2[i] ,accumulateFre );
     }
-//printf("\n\tComplex division result : %lf \t+ %lf i / %lf  " ,creals(accumulate) ,cimags(accumulate),accumulateFre) ;
-  return FloatComplex( creals(accumulate) /(accumulateFre -1),  cimags(accumulate) /(accumulateFre -1)); 
+  return crdivs (accumulate , cdiffs (accumulateFre ,FloatComplex(1.0f,0.0f))   ); 
 }
