@@ -439,16 +439,16 @@ static void zrdivmaTest ( void ){
     
     /* if we don't add that test assert failed if result = 0  'cause then we have  |(out - 0)|/|out| = 1*/     
         
-    if (  zreals(out[i])  < 1e-16 && zreals (Result[i]) < 1e-18 )
+    if (  zreals(out[i])  < 1e-16 && zreals (Result[i]) < 1e-16 )
         assert ( 1 ) ;
     else         
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 3e-16 );
+        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 3e-15 );
     
         
-    if (  zimags(out[i])  < 1e-16 && zimags (Result[i]) < 1e-18 )
+    if (  zimags(out[i])  < 1e-16 && zimags (Result[i]) < 1e-16 )
         assert ( 1 ) ;
     else         
-	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-16  ) ;
+	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-15  ) ;
 
 	}
 	

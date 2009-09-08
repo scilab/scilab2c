@@ -287,7 +287,7 @@ static void dldivmaTest ( void )
 	{
 		printf ( "\t\t %d out : %e\tresult : %e\tassert : %e \n" , i , out[i] , result[i] , fabs ( out[i] - result[i] ) / fabs( out[i]) ) ;
 
-			assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 3e-16 ) ;
+			assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 3e-15 ) ;
 	}
 
 }

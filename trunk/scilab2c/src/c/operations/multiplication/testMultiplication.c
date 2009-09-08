@@ -1306,8 +1306,8 @@ static void zmulsTest(void){
 	in1=DoubleComplex(P1_R[i],P1_I[i]);
 	in2=DoubleComplex(P2_R[i],P2_I[i]);
 	out=zmuls(in1,in2);
-	assert( ( fabs(zreals(out)-Res_R[i]) / fabs(zreals(out)) ) <3e-16);
-	assert( ( fabs(zimags(out)-Res_I[i]) / fabs(zimags(out)) ) <3e-16);
+	assert( ( fabs(zreals(out)-Res_R[i]) / fabs(zreals(out)) ) <3e-15);
+	assert( ( fabs(zimags(out)-Res_I[i]) / fabs(zimags(out)) ) <3e-15);
   }
 }
 
@@ -1380,8 +1380,8 @@ static void zmulaTest(void){
   
   zmula(in1,in2,200,out);
   for (i=0;i<200;i++){
-  	assert( ( fabs(zreals(out[i])-Res_R[i]) / fabs(zreals(out[i])) ) <3e-16);
-  	assert( ( fabs(zimags(out[i])-Res_I[i]) / fabs(zimags(out[i])) ) <3e-16);
+  	assert( ( fabs(zreals(out[i])-Res_R[i]) / fabs(zreals(out[i])) ) <3e-15);
+  	assert( ( fabs(zimags(out[i])-Res_I[i]) / fabs(zimags(out[i])) ) <3e-15);
   }
 }
 

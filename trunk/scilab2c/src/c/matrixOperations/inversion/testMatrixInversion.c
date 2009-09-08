@@ -409,7 +409,7 @@ static void sinvermaTest (void)
 	{
 
 		printf ( "\t\t %d out : %e\tresult : %e\tassert : %e \n" , i , out[i] , result[i] , fabs ( out[i] - result[i] ) / fabs( out[i]) ) ;
-		assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 3e-6 ) ;
+		assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 3e-4 ) ;
 	} 
     
     
@@ -433,7 +433,7 @@ static void dinvermaTest (void)
 	{
 
 		printf ( "\t\t %d out : %e\tresult : %e\tassert : %e \n" , i , out[i] , result[i] , fabs ( out[i] - result[i] ) / fabs( out[i]) ) ;
-		assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 3e-16 ) ;
+		assert ( fabs ( out[i] - result[i] ) / fabs( out[i]) < 3e-14 ) ;
 	} 
     
     
@@ -472,13 +472,13 @@ static void cinvermaTest (void)
     if (  creals(out[i])  < 1e-6 && creals (Result[i]) < 1e-6 )
         assert ( 1 ) ;
     else         
-        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 3e-6 );
+        assert ( fabs(  creals(out[i]) -  creals (Result[i]) ) / fabs (creals (out[i]))  < 3e-5 );
     
         
     if (  cimags(out[i])  < 1e-6 && cimags (Result[i]) < 1e-6 )
         assert ( 1 ) ;
     else         
-	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 3e-6 ) ;
+	    assert ( fabs(  cimags(out[i]) -  cimags (Result[i]) ) / fabs (cimags (out[i]))  < 3e-5) ;
     
     }
 }
@@ -516,19 +516,42 @@ static void zinvermaTest (void)
     if (  zreals(out[i])  < 1e-14 && zreals (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else         
-        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 3e-16 );
+        assert ( fabs(  zreals(out[i]) -  zreals (Result[i]) ) / fabs (zreals (out[i]))  < 3e-13 );
     
         
     if (  zimags(out[i])  < 1e-14 && zimags (Result[i]) < 1e-18 )
         assert ( 1 ) ;
     else         
-	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-16 ) ;
+	    assert ( fabs(  zimags(out[i]) -  zimags (Result[i]) ) / fabs (zimags (out[i]))  < 3e-13 ) ;
     
     }
 }
 
+static void mytest (void ){
+  double in1[16] = {  1 , 5 , 9  ,13  ,
+                      2 , 6 , 10 , 14 ,
+                      3 , 7 , 11 , 15 ,
+                      4 , 8 , 12 , 16 } ;
+
+  double out[16] = { 0 } ;
+ 
+  int i = 0 ;
+
+ dinverma  ( in1 , out , 4  ); 
+
+  for ( i = 0 ; i <16; i++)
+     {
+printf ( "\t\t %d out : %20.15e\t\n" , i , out[i]  ) ;
+
+     }
+
+}
 
 static int testMatrixInversion(void) {
+
+  printf("\n\n\n\t>>> MY TEST  Tests\n");
+  mytest () ;
+
 
   printf("\n>>>> Matrix Inversion Tests\n");
   printf("\t>>>> Matrix Double Realt Tests\n");  
