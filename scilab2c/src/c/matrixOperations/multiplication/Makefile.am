@@ -26,7 +26,7 @@ libMatrixMultiplication_la_SOURCES = 	$(HEAD) \
 					cmulma.c \
 					zmulma.c
 
-check_PROGRAMS = 	testMatrixMultiplication
+check_PROGRAMS = 	testFloatMatrixMultiplication testDoubleMatrixMultiplication
 
 check_LDADD =		$(top_builddir)/src/c/type/libDoubleComplex.la \
 			$(top_builddir)/src/c/type/libFloatComplex.la \
@@ -39,9 +39,11 @@ check_INCLUDES =	-I $(top_builddir)/src/c/type \
 			-I $(top_builddir)/src/c/matrixOperations/includes \
 			-I $(top_builddir)/src/c/operations/includes
 
-testMatrixMultiplication_SOURCES = 	testFloatMatrixMultiplication.c \
-					testDoubleMatrixMultiplication.c
-testMatrixMultiplication_LDADD = $(check_LDADD)
-testMatrixMultiplication_CFLAGS = $(check_INCLUDES)
+testFloatMatrixMultiplication_SOURCES = 	testFloatMatrixMultiplication.c 
+testFloatMatrixMultiplication_LDADD = $(check_LDADD)
+testFloatMatrixMultiplication_CFLAGS = $(check_INCLUDES)
 
-TESTS =		testMatrixMultiplication
+testDoubleMatrixMultiplication_SOURCES = 	testDoubleMatrixMultiplication.c 
+testDoubleMatrixMultiplication_LDADD = $(check_LDADD)
+testDoubleMatrixMultiplication_CFLAGS = $(check_INCLUDES)
+TESTS =		testFloatMatrixMultiplication testDoubleMatrixMultiplication

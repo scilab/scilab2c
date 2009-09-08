@@ -81,16 +81,16 @@ static void zspecaTest(void){
 	for(i=0;i<2;i++){
 		if (zreals(out[i])>1e-16)  assert( fabs(zreals(out[i])-result2R[i]) / fabs(zreals(out[i])) <3e-16);
 		else assert(1);
-		if (zimags(out[i])>1e-16)  assert( fabs(zimags(out[i])-result2I[i]) / fabs(zimags(out[i])) <3e-16);
+		if (zimags(out[i])>1e-16)  assert( fabs(zimags(out[i])-result2I[i]) / fabs(zimags(out[i])) <3e-15);
 		else assert(1);
 	}	
 	
 	
 	zspeca(in3,4,out2);	
 	for(i=0;i<4;i++){
-		if (zreals(out2[i])>1e-16)  assert( fabs(zreals(out2[i])-result3R[i]) / fabs(zreals(out2[i])) <3e-16);
+		if (zreals(out2[i])>1e-16)  assert( fabs(zreals(out2[i])-result3R[i]) / fabs(zreals(out2[i])) <3e-15);
 		else assert(1);
-		if (zimags(out2[i])>1e-16)  assert( fabs(zimags(out2[i])-result3I[i]) / fabs(zimags(out2[i])) <3e-16);
+		if (zimags(out2[i])>1e-16)  assert( fabs(zimags(out2[i])-result3I[i]) / fabs(zimags(out2[i])) <3e-15);
 		else assert(1);
 	}	
 	

@@ -32,7 +32,7 @@ check_LDADD =		$(top_builddir)/src/c/type/libDoubleComplex.la \
 			$(top_builddir)/src/c/type/libFloatComplex.la \
 			libImplicitlist.la
 
-check_INCLUDES =	-I  $(top_builddir)/type \
+check_INCLUDES =	-I  $(top_builddir)/src/c/type \
 			-I .
 
 testFloatImplicitList_SOURCES = testFloatImplicitList.c

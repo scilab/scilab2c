@@ -1323,9 +1323,9 @@ static void zrdivsTest()
   	in2 = DoubleComplex(DR[i],DI[i]);
   	out = zrdivs(in1,in2);
 	printf("%d : %1.25f ; num = %1.25f;erreur = %1.25f\n",i,zreals(out),RR[i], fabs(zreals(out)-RR[i]) );
-  	assert( ( fabs(zreals(out)-RR[i]) ) < 1e-15);
+  	assert( ( fabs(zreals(out)-RR[i]) ) < 1e-14);
 	printf("%d : %1.25f ; num = %1.25f;erreur = %1.25f\n",i,zimags(out),RI[i], fabs(zimags(out)-RI[i]) );
-  	assert( ( fabs(zimags(out)-RI[i]) ) < 1e-15);
+  	assert( ( fabs(zimags(out)-RI[i]) ) < 1e-14);
   }
 }
 
@@ -1406,8 +1406,8 @@ static void zrdivaTest()
   zrdiva(in1,in2,200,out);
 
   for (i=0;i<200;i++){
-  	assert( ( fabs(zreals(out[i])-RR[i]) ) < 1e-15);
-  	assert( ( fabs(zimags(out[i])-RI[i]) ) < 1e-15);
+  	assert( ( fabs(zreals(out[i])-RR[i]) ) < 1e-14);
+  	assert( ( fabs(zimags(out[i])-RI[i]) ) < 1e-14);
   }
 }
 

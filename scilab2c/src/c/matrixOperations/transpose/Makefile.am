@@ -32,8 +32,8 @@ check_LDADD =		$(top_builddir)/src/c/type/libDoubleComplex.la \
 			$(top_builddir)/src/fortran/blas/libsciblas.la \
 			libMatrixTranspose.la
 
-check_INCLUDES =	-I $(top_builddir)/type \
-			-I $(top_builddir)/matrixOperations/includes
+check_INCLUDES =	-I $(top_builddir)/src/c/type \
+			-I $(top_builddir)/src/c/matrixOperations/includes
 
 testMatrixTranspose_SOURCES = 	testMatrixTranspose.c
 testMatrixTranspose_LDADD = $(check_LDADD)
