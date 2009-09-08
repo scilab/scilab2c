@@ -12,8 +12,9 @@
 
 
 #include "variancef.h"
+#include "matrixTranspose.h"
 
-void zcolumnvariancea(doubleComplex *in1, int lines, int columns,doubleComplex *in2 , doubleComplex* out){
+void zcolumnvariancefa(doubleComplex *in1, int lines, int columns,doubleComplex *in2 , doubleComplex* out){
     
     int i = 0 ;
     

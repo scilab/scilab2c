@@ -23,7 +23,7 @@ double	dvariancefa(double *in1, int size , double * in2)
 
   for(i = 0 ; i < size ; ++i)
     {
-     temp = spows (  (in1[i]  - meanf ) ,2 );
+     temp = dpows (  (in1[i]  - meanf ) ,2 );
      temp *= in2[i];
 
      accumulate += temp ;

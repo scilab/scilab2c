@@ -100,8 +100,8 @@ static void zconv2daTest(void){
 	in2=DoubleComplexMatrix(rin2,iin2,16);
 	zconv2da(in1,2,2,in2,4,4,out);
 	for (i=0;i<25;i++){
-		assert( ( fabs(zreals(out[i])-rres[i]) / fabs(zreals(out[i])) ) <3e-16);
-		assert( ( fabs(zimags(out[i])-ires[i]) / fabs(zimags(out[i])) ) <3e-16);
+		assert( ( fabs(zreals(out[i])-rres[i]) / fabs(zreals(out[i])) ) <3e-14);
+		assert( ( fabs(zimags(out[i])-ires[i]) / fabs(zimags(out[i])) ) <3e-14);
 	}
 }
 

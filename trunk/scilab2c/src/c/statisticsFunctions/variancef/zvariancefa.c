@@ -19,18 +19,17 @@ doubleComplex zvariancefa(doubleComplex *in1, int size, doubleComplex *in2)
   int i = 0 ;
   doubleComplex temp = DoubleComplex (0.0, 0.0 );
   doubleComplex accumulate =DoubleComplex (0.0, 0.0 );
-  double accumulateFre = 0.0;
+  doubleComplex accumulateFre = DoubleComplex (0.0, 0.0 );
 
   doubleComplex meanf = zmeanfa (in1 , size , in2);
-  //printf("\n\tComplex meanf result : %lf \t+ %lf i " ,zreals( meanf) ,zimags( meanf)) ;
   for(i = 0 ; i < size ; ++i)
     {
      temp = zpows (  zdiffs (in1[i] , meanf ) ,DoubleComplex (2.0, 0.0 ) );
      temp = zmuls( in2[i] , temp);
-     //printf("\n\tComplex accumulate : %lf \t+ %lf i   " ,zreals(temp) ,zimags(temp)) ;
+
      accumulate = zadds( temp , accumulate);
-     accumulateFre +=  zreals(in2[i]);
+     accumulateFre =  zadds(in2[i ] ,accumulateFre );
     }
-//printf("\n\tComplex division result : %lf \t+ %lf i / %lf  " ,zreals(accumulate) ,zimags(accumulate),accumulateFre) ;
-  return DoubleComplex( zreals(accumulate) /(accumulateFre -1),  zimags(accumulate) /(accumulateFre -1)); 
+
+  return zrdivs(accumulate, zdiffs(accumulateFre ,DoubleComplex(1.0,0.0) ));
 }

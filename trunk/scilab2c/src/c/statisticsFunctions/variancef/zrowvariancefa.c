@@ -12,7 +12,7 @@
 
 #include "variancef.h"
 
-void zrowvariancea(doubleComplex *in1, int lines, int columns,doubleComplex *in2, doubleComplex* out){
+void zrowvariancefa(doubleComplex *in1, int lines, int columns,doubleComplex *in2, doubleComplex* out){
     
     int i = 0 ;
     
