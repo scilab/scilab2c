@@ -56,7 +56,7 @@ PrintStringInfo('SCI2CDIR    = .',FileInfo.MakefileFilename,'file','y','y');
 
 // Compiler definition
 PrintStringInfo('CC     = gcc',FileInfo.MakefileFilename,'file','y','y');
-PrintStringInfo('CFLAGS = -Wall -pedantic -O3 -I $(HSRCDIR) -I $(ISRCDIR) -lm',FileInfo.MakefileFilename,'file','y','y');
+PrintStringInfo('CFLAGS = -Wall -pedantic -I $(HSRCDIR) -I $(ISRCDIR) -lm',FileInfo.MakefileFilename,'file','y','y');
 
 // Binary definition
 PrintStringInfo('EXEFILENAME = mytest.exe',FileInfo.MakefileFilename,'file','y','y');
