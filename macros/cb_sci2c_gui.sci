@@ -18,7 +18,7 @@ function cb_sci2c_gui
 //
 if get(gcbo,"tag")=="filebtn" then
 
-  filename = uigetfile("*.sci", getcwd(), gettext("Select the file to translate"));
+  filename = uigetfile("*.sci", pwd(), gettext("Select the file to translate"));
   if ~isempty(filename) then
     set(findobj("tag", "fileedit"), "string", filename);
   end
@@ -28,27 +28,17 @@ if get(gcbo,"tag")=="filebtn" then
 //
 elseif get(gcbo,"tag")=="subfunsbtn" then
 
-  directory = uigetdir(getcwd(), gettext("Select your sub-functions directory"));
+  directory = uigetdir(pwd(), gettext("Select your sub-functions directory"));
   if ~isempty(directory) then
     set(findobj("tag", "subfunsedit"), "string", directory);
   end
-
-//
-// --- Header file ---
-//
-// elseif get(gcbo,"tag")=="headerbtn" then
-
-//   filename = uigetfile("*.h", getcwd(), gettext("Select SciLib main header file"));
-//   if ~isempty(filename) then
-//     set(findobj("tag", "headeredit"), "string", filename);
-//   end
 
 //
 // --- Output directory ---
 //
 elseif get(gcbo,"tag")=="outbtn" then
 
-  directory = uigetdir(getcwd(), gettext("Select the directory for generated files"));
+  directory = uigetdir(pwd(), gettext("Select the directory for generated files"));
   if ~isempty(directory) then
     set(findobj("tag", "outedit"), "string", directory);
   end
