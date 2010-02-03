@@ -34,6 +34,9 @@ if or(getscilabmode() == ["NW";"STD"]) then
 	end
 end
 
+global SCI2CHOME
+SCI2CHOME = root_tlbx;
+
 // =============================================================================
 clear root_tlbx;
 clear etc_tlbx;
