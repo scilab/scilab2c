@@ -54,7 +54,7 @@ end
 disp('-----------------------------------');
 disp('--- Executing your SCILAB code. ---');
 disp('-----------------------------------');
-getf(UserScilabMainFile);
+exec(UserScilabMainFile);
 [tmppath,tmpfile,tmpext] = fileparts(UserScilabMainFile);
 //cd(tmppath);
 execstr(tmpfile);

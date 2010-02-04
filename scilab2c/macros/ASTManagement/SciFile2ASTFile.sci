@@ -19,7 +19,7 @@ function SciFile2ASTFile(SciFile,ASTFile);
 // Contact: raffaele.nutricato@tiscali.it
 // -----------------------------------------------------------------
 
-getf(SciFile);
+exec(SciFile);
 [tmppath,ScilabFunName,tmpext] = fileparts(SciFile);
 AST=eval('macr2tree('+ScilabFunName+')');
 
