@@ -1,3 +1,4 @@
+lines(0)
 clear all
 tmpPWD = pwd;
 
