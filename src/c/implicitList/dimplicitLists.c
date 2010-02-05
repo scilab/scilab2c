@@ -10,33 +10,33 @@
  *
  */
 
+#include <math.h>
 #include "implicitList.h"
 
 void dimplicitLists(double start, double step, double end, double *out)
 {
   int i = 0;
+  int iNbElements = 0;
   if (start <= end)
     {
       if (start < start + step)
 	{
-	  while (start <= end)
-	    {
-	      out[i] = start;
-	      start += step;
-	      ++i;
-	    }
+	  iNbElements = floor((end - start) / step) + 1;
+	  out[0] = start;
 	}
     }
   else
     {
       if (start > start + step)
 	{
-	  while (start >= end)
-	    {
-	      out[i] = start;
-	      start += step;
-	      ++i;
-	    }
+	  iNbElements = floor((start - end) / step) + 1;
+	  out[0] = start;
 	}
+    }
+
+  for (i = 1 ; i < iNbElements ; ++i)
+    {
+      start += step;
+      out[i] = start;
     }
 }
