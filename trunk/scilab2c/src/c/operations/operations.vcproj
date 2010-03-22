@@ -42,7 +42,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="includes;../type;../auxiliaryFunctions/includes"
+				AdditionalIncludeDirectories="includes;../type;../auxiliaryFunctions/includes;../matrixOperations/includes"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;OPERATIONS_EXPORTS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -700,6 +700,18 @@
 					</FileConfiguration>
 				</File>
 				<File
+					RelativePath=".\multiplication\cmulcsv.c"
+					>
+					<FileConfiguration
+						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
 					RelativePath=".\multiplication\cmuls.c"
 					>
 					<FileConfiguration
@@ -720,18 +732,10 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\multiplication\ctimess.c"
+					RelativePath=".\multiplication\cmulscv.c"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
-						>
-						<Tool
-							Name="VCCLCompilerTool"
-							CompileAs="2"
-						/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32"
 						>
 						<Tool
 							Name="VCCLCompilerTool"
@@ -778,10 +782,6 @@
 							CompileAs="2"
 						/>
 					</FileConfiguration>
-				</File>
-				<File
-					RelativePath=".\multiplication\Makefile.am"
-					>
 				</File>
 				<File
 					RelativePath=".\multiplication\smula.c"
@@ -844,6 +844,18 @@
 					</FileConfiguration>
 				</File>
 				<File
+					RelativePath=".\multiplication\zmuldzv.c"
+					>
+					<FileConfiguration
+						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							CompileAs="2"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
 					RelativePath=".\multiplication\zmuls.c"
 					>
 					<FileConfiguration
@@ -864,18 +876,10 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\multiplication\ztimess.c"
+					RelativePath=".\multiplication\zmulzdv.c"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
-						>
-						<Tool
-							Name="VCCLCompilerTool"
-							CompileAs="2"
-						/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32"
 						>
 						<Tool
 							Name="VCCLCompilerTool"
