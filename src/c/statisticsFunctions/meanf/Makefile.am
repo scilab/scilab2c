@@ -12,6 +12,7 @@
 
 libMeanf_la_CFLAGS =	-I $(top_builddir)/src/c/type \
 			-I $(top_builddir)/src/c/operations/includes \
+			-I $(top_builddir)/src/c/matrixOperations/includes \
 			-I ../includes
 
 instdir = $(top_builddir)/lib
@@ -31,7 +32,11 @@ SRC	=	smeanfa.c \
 		ccolumnmeanfa.c \
 		zmeanfa.c \
 		zrowmeanfa.c \
-		zcolumnmeanfa.c
+		zcolumnmeanfa.c \
+		cmeanfcs.c \
+		cmeanfsc.c \
+		zmeanfdz.c \
+		zmeanfzd.c
 
 HEAD	=	../includes/meanf.h
 
