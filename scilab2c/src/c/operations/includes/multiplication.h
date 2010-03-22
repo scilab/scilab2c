@@ -139,17 +139,6 @@ EXTERN_OPERATIONS doubleComplex zmulv(doubleComplex *in1, doubleComplex *in2, in
 EXTERN_OPERATIONS doubleComplex zmulzdv(doubleComplex *in1, double *in2, int size2);
 
 EXTERN_OPERATIONS doubleComplex zmuldzv(double *in1, doubleComplex *in2, int size2);
-/*
-** \function ctimess
-** \brief Multiply 2 Complex numbers.
-*/
-EXTERN_OPERATIONS floatComplex ctimess(floatComplex z1, floatComplex z2);
-
-/*
-** \function ztimess
-** \brief Multiply 2 Complex numbers.
-*/
-EXTERN_OPERATIONS doubleComplex ztimess(doubleComplex z1, doubleComplex z2);
 
 #ifdef  __cplusplus
 } /* extern "C" */
