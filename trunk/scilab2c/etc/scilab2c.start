@@ -1,6 +1,6 @@
 // This file is released into the public domain
 
-mprintf("Start Scilab 2 C module");
+mprintf("Start Scilab 2 C module\n");
 
 etc_tlbx  = get_absolute_file_path("scilab2c.start");
 etc_tlbx  = getshortpathname(etc_tlbx);
