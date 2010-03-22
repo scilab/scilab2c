@@ -17,8 +17,7 @@
 
 floatComplex cmeanfcs (floatComplex* in1 ,int lines , int columns , float* in2)
   {
-    float* ZEROS;
-    ZEROS=malloc((unsigned int)(lines*columns*sizeof(float)));
+    float* ZEROS = (float *) malloc((unsigned int)(lines*columns*sizeof(float)));
     szerosa(ZEROS,lines,columns);
     
     return cmeanfa(in1, lines*columns , FloatComplexMatrix(in2,ZEROS,lines*columns));

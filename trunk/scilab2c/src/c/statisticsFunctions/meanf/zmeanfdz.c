@@ -17,8 +17,7 @@
 
 doubleComplex zmeanfdz (double* in1 ,int lines , int columns , doubleComplex* in2)
   {
-    double* ZEROS;
-    ZEROS=malloc((unsigned int)(lines*columns*sizeof(double)));
+    double* ZEROS = (double *) malloc((unsigned int)(lines*columns*sizeof(double)));
     dzerosa(ZEROS,lines,columns);
     
     return zmeanfa(DoubleComplexMatrix(in1,ZEROS,lines*columns), lines*columns , in2);
