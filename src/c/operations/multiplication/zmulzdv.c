@@ -17,8 +17,7 @@
 
 doubleComplex zmulzdv (doubleComplex* in1, double* in2, int size)
   {
-    double* ZEROS;
-    ZEROS=malloc((unsigned int)(size*sizeof(double)));
+    double* ZEROS = (double *) malloc((unsigned int)(size*sizeof(double)));
     dzerosa(ZEROS,size  , 1);
     
     return zmulv(in1, DoubleComplexMatrix(in2,ZEROS,size), size );

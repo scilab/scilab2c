@@ -17,8 +17,7 @@
 
 floatComplex cmulcsv (floatComplex* in1, float* in2, int size)
   {
-    float* ZEROS;
-    ZEROS=malloc((unsigned int)(size)*sizeof(float));
+    float* ZEROS = (float *) malloc((unsigned int)(size)*sizeof(float));
     szerosa(ZEROS,size  , 1);
     
     return cmulv(in1, FloatComplexMatrix(in2,ZEROS,size), size );
