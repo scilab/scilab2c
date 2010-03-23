@@ -38,7 +38,7 @@ function allHeaders = getAllHeaders()
       "src/c/type/dynlib_type.h"
       "src/c/type/floatComplex.h"
       "src/c/matrixOperations/includes/cat.h"
-      "src/c/matrixOperations/includes/hilbert.h"
+      "src/c/matrixOperations/includes/hilb.h"
       "src/c/matrixOperations/includes/eye.h"
       "src/c/matrixOperations/includes/matrixTrace.h"
       "src/c/matrixOperations/includes/matrixExponential.h"
