@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <math.h>
-#include "hilbert.h"
+#include "hilb.h"
 
 #define SIZE 6
 
