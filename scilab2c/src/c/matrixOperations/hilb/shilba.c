@@ -11,7 +11,7 @@
  */
 
 
-#include "hilbert.h"
+#include "hilb.h"
 
 void shilba ( float* out, int size ){
     
