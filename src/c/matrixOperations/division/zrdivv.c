@@ -12,6 +12,7 @@
 
 
 #include "division.h"
+#include "matrixDivision.h"
 
 doubleComplex zrdivv(doubleComplex *in1, doubleComplex *in2, int size){
 
