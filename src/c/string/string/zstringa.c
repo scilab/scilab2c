@@ -10,7 +10,7 @@
  *
  */
 
-#include "string.h" 
+#include "str.h" 
 
 void zstringa (doubleComplex* in, int size, char** out){
 	

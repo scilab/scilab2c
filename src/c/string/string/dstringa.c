@@ -10,7 +10,7 @@
  *
  */
 
-#include "string.h" 
+#include "str.h" 
 
 void dstringa (double* in, int size, char** out){
 
