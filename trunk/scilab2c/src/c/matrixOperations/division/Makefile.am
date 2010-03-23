@@ -30,7 +30,15 @@ libMatrixDivision_la_SOURCES = 	$(HEAD) \
 				zrdivma.c \
 				zldivma.c \
 				crdivma.c \
-				cldivma.c
+				cldivma.c \
+				crdivcsv.c \
+				crdivscv.c \
+				crdivv.c \
+				drdivv.c \
+				srdivv.c \
+				zrdivdzv.c \
+				zrdivv.c \
+				zrdivzdv.c
 
 check_PROGRAMS = 	testMatrixRDivision \
 			testMatrixLDivision
