@@ -1,0 +1,7 @@
+LIBRARY    matrixOperations.dll
+
+
+EXPORTS
+szerosa
+dzerosa
+zzerosa
