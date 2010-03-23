@@ -171,7 +171,7 @@ src/c/matrixOperations/division/Makefile
 src/c/matrixOperations/cat/Makefile
 src/c/matrixOperations/transpose/Makefile
 src/c/matrixOperations/trace/Makefile
-src/c/matrixOperations/hilbert/Makefile
+src/c/matrixOperations/hilb/Makefile
 src/c/matrixOperations/expm/Makefile
 src/c/matrixOperations/eye/Makefile
 src/c/matrixOperations/ones/Makefile
