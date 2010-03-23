@@ -10,7 +10,7 @@
  *
  */
 
-#include "string.h" 
+#include "str.h" 
 
 void sstringa (float* in, int size, char** out){
 	
