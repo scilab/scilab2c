@@ -12,8 +12,8 @@
 
 
 
-#ifndef __STRING_H__
-#define __STRING_H__
+#ifndef __STR_H__
+#define __STR_H__
 
 #include <stdio.h>
 #include "dynlib_string.h"
@@ -85,4 +85,4 @@ EXTERN_STRING void zstringa (doubleComplex* in, int size, char** out);
 } /* extern "C" */
 #endif
 
-#endif /* !__STRING_H__ */
+#endif /* !__STR_H__ */
