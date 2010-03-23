@@ -14,7 +14,7 @@ SUBDIRS= 	cat \
 		division \
 		expm \
 		eye \
-		hilbert \
+		hilb \
 		infiniteNorm \
 		multiplication \
 		trace \
