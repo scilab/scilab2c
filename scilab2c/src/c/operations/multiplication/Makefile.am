@@ -32,7 +32,11 @@ libMultiplication_la_SOURCES = 	$(HEAD) \
 				smulv.c \
 				dmulv.c \
 				cmulv.c \
-				zmulv.c
+				zmulv.c \
+				zmulzdv.c \
+				zmuldzv.c \
+				cmulcsv.c \
+				cmulscv.c
 
 
 check_PROGRAMS = 	testMultiplication
