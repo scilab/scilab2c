@@ -10,8 +10,8 @@
  *
  */
 
-#ifndef __HILBERT_H__
-#define __HILBERT_H__
+#ifndef __HILB_H__
+#define __HILB_H__
 
 #include "dynlib_matrixoperations.h"
 #include "floatComplex.h"
@@ -42,5 +42,5 @@ EXTERN_MATOPS void dhilba ( double* out, int size ) ;
 } /* extern "C" */
 #endif
 
-#endif /* !__HILBERT_H__ */
+#endif /* !__HILB_H__ */
 
