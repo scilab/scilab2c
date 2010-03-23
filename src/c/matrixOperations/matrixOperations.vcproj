@@ -993,10 +993,10 @@
 				</File>
 			</Filter>
 			<Filter
-				Name="hilbert"
+				Name="hilb"
 				>
 				<File
-					RelativePath=".\hilbert\dhilba.c"
+					RelativePath=".\hilb\dhilba.c"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
@@ -1006,32 +1006,12 @@
 							CompileAs="2"
 						/>
 					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32"
-						>
-						<Tool
-							Name="VCCLCompilerTool"
-							CompileAs="2"
-						/>
-					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\hilbert\Makefile.am"
-					>
-				</File>
-				<File
-					RelativePath=".\hilbert\shilba.c"
+					RelativePath=".\hilb\shilba.c"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
-						>
-						<Tool
-							Name="VCCLCompilerTool"
-							CompileAs="2"
-						/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32"
 						>
 						<Tool
 							Name="VCCLCompilerTool"
@@ -1546,10 +1526,6 @@
 							CompileAs="2"
 						/>
 					</FileConfiguration>
-				</File>
-				<File
-					RelativePath=".\multiplication\Makefile.am"
-					>
 				</File>
 				<File
 					RelativePath=".\multiplication\smulma.c"
