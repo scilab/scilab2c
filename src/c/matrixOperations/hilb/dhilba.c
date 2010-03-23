@@ -10,7 +10,7 @@
  *
  */
 
-#include "hilbert.h"
+#include "hilb.h"
 
 void dhilba ( double* out, int size ){
     
