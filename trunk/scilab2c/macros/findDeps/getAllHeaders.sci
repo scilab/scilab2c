@@ -103,7 +103,7 @@ function allHeaders = getAllHeaders()
       "src/c/operations/includes/multiplication.h"
       "src/c/string/includes/dynlib_string.h"
       "src/c/string/includes/disp.h"
-      "src/c/string/includes/string.h"
+      "src/c/string/includes/str.h"
       "src/c/signalProcessing/fft/fft_internal.h"
       "src/c/signalProcessing/ifft/ifft_internal.h"
       "src/c/signalProcessing/levin/levinUtils.h"
