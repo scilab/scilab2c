@@ -11,7 +11,7 @@
  */
 
 #include <stdio.h>
-#include "string.h" 
+#include "str.h" 
 
 void zstrings (doubleComplex in, char* out) {
 	
