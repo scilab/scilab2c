@@ -1,4 +1,4 @@
-function runsci2c(UserScilabMainFile, UserSciFilesPaths, SCI2COutputPath, Runmode)
+function runsci2c(UserScilabMainFile, UserSciFilesPaths, SCI2COutputPath, Runmode, BuildTool)
 // function runsci2c(SCI2CInputPrmFile)
 // -----------------------------------------------------------------
 // ===         hArtes/PoliBa/GAP SCI2C tool                      ===
@@ -129,7 +129,13 @@ end
 // --------------------------
 // --- Generate Makefile. ---
 // --------------------------
-C_GenerateMakefile(FileInfo,SharedInfo);
+if BuildTool == "make"
+  C_GenerateMakefile(FileInfo,SharedInfo);
+end
+if BuildTool == "nmake"
+  // FIXME : Add copy of missing dll before.
+  C_GenerateMakefile_msvc(FileInfo,SharedInfo);
+end
 
 // -----------------
 // --- Epilogue. ---

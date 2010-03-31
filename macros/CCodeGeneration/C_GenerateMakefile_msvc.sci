@@ -21,7 +21,7 @@ MakefileFilename = FileInfo.MakefileFilename + '.mak';
 // -----------------------
 // --- Initialization. ---
 // -----------------------
-PrintStepInfo('Generating Makefile '+FileInfo.MakefileFilename,...
+PrintStepInfo('Generating Builder '+MakefileFilename,...
    FileInfo.GeneralReport,'both');
 
 PrintStringInfo('# SCI2C Makefile (Visual Studio 2008)',MakefileFilename,'file','y','y');
