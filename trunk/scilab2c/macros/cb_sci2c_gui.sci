@@ -65,13 +65,12 @@ elseif or(get(gcbo, "tag")==["sciintocradioyes","sciintocradiono"]) then
   set(gcbo, "value", 1);
 
 //
-// --- Paths style option ---
+// --- Build Tool option ---
 //
-elseif or(get(gcbo, "tag")==["pathsradiowin","pathsradiounix","pathsradiocygwin"]) then
+elseif or(get(gcbo, "tag")==["buildtoolradiowin","buildtoolradiounix"]) then
 
-  set(findobj("tag", "pathsradiowin"), "value", 0);
-  set(findobj("tag", "pathsradiounix"), "value", 0);
-  set(findobj("tag", "pathsradiocygwin"), "value", 0);
+  set(findobj("tag", "buildtoolradiowin"), "value", 0);
+  set(findobj("tag", "buildtoolradiounix"), "value", 0);
 
   set(gcbo, "value", 1);
 
@@ -103,10 +102,10 @@ elseif get(gcbo, "tag")=="convertbtn" then
 
   CopySciCodeIntoCCode = get(findobj("tag", "sciintocradioyes"), "value") == 1;
 
-  if get(findobj("tag", "pathsradiowin"), "value") == 1 then
-    CCompilerPathStyle = "windows";
-  elseif get(findobj("tag", "pathsradiounix"), "value") == 1 then
-    CCompilerPathStyle = "unix";
+  if get(findobj("tag", "buildtoolradiowin"), "value") == 1 then
+    NativeBuild = "nmake";
+  elseif get(findobj("tag", "buildtoolradiounix"), "value") == 1 then
+    NativeBuild = "make";
 //  else
 //    CCompilerPathStyle = "cygwin";
   end
@@ -117,8 +116,8 @@ elseif get(gcbo, "tag")=="convertbtn" then
   mprintf("UserSciCodeMainDir = {%s}\n", UserSciCodeMainDir);
   mprintf("RunMode = {%s}\n", RunMode);
   mprintf("CopySciCodeIntoCCode = {%d}\n", bool2s(CopySciCodeIntoCCode));
-  mprintf("CCompilerPathStyle = {%s}\n", CCompilerPathStyle);
-  scilab2c(UserScilabMainFile, UserSciCodeMainDir, UserSciFilesPaths, RunMode);
+  mprintf("NativeBuild = {%s}\n", NativeBuild);
+  scilab2c(UserScilabMainFile, UserSciCodeMainDir, UserSciFilesPaths, RunMode, NativeBuild);
 //
 // --- sci2c help ---
 //
