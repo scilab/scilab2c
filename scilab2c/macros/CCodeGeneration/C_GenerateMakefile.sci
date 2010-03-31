@@ -24,7 +24,7 @@ SCI2CNInArgCheck(argn(2),2,2);
 // -----------------------
 // --- Initialization. ---
 // -----------------------
-PrintStepInfo('Generating Makefile '+FileInfo.MakefileFilename,...
+PrintStepInfo('Generating Builder '+FileInfo.MakefileFilename,...
    FileInfo.GeneralReport,'both');
 // ---------------------------
 // --- End Initialization. ---
