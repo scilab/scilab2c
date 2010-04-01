@@ -21,7 +21,7 @@ void dimplicitLists(double start, double step, double end, double *out)
     {
       if (start < start + step)
 	{
-	  iNbElements = floor((end - start) / step) + 1;
+	  iNbElements = (int)(floor((end - start) / step) + 1);
 	  out[0] = start;
 	}
     }
@@ -29,7 +29,7 @@ void dimplicitLists(double start, double step, double end, double *out)
     {
       if (start > start + step)
 	{
-	  iNbElements = floor((start - end) / step) + 1;
+	  iNbElements = (int)(floor((start - end) / step) + 1);
 	  out[0] = start;
 	}
     }

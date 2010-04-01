@@ -23,13 +23,13 @@ int sisnansTest() {
   float full = 1.23456789f;
 
   printf(">> Float \n");
-  if (sisnans(nan) == false) {
+  if ((bool)sisnans(nan) == false) {
     printf("ERROR ! : Test Failed (Must be nan)\n");
     result = ERROR;
   }
   assert (sisnans(nan) == true);
 
-  if (sisnans(full) == true) {
+  if ((bool)sisnans(full) == true) {
     printf("ERROR ! : Test Failed (Must not be nan)\n");
     result = ERROR;
   }
@@ -46,13 +46,13 @@ int disnansTest() {
   double full = 1.456789321861;
 
   printf(">> Double\n");
-  if (disnans(nan) == false) {
+  if ((bool)disnans(nan) == false) {
     printf("ERROR ! : Test Failed (Must be nan)\n");
     result = ERROR;
   }
   assert(disnans(nan) == true);
 
-  if (disnans(full) == true) {
+  if ((bool)disnans(full) == true) {
     printf("ERROR ! : Test Failed (non nan array)\n");
     result = ERROR;
   }
@@ -71,25 +71,25 @@ int cisnansTest() {
   floatComplex full = FloatComplex(0.0f,1.0f);
 
   printf(">> Float Complex\n");
-  if (cisnans(nan_nan) == false) {
+  if ((bool)cisnans(nan_nan) == false) {
     printf("ERROR ! : Test Failed (Must be nan)\n");
     result = ERROR;
   }
   assert (cisnans(nan_nan) == true);
 
- if (cisnans(nan_real) == true) {
+ if ((bool)cisnans(nan_real) == true) {
     printf("ERROR ! : Test Failed (Must not be nan)\n");
     result = ERROR;
   }
   assert(cisnans(nan_real) == false);
 
- if (cisnans(real_nan) == true) {
+ if ((bool)cisnans(real_nan) == true) {
     printf("ERROR ! : Test Failed (Must not be nan)\n");
     result = ERROR;
   }
   assert(cisnans(real_nan) == false);
 
-  if (cisnans(full) == true) {
+  if ((bool)cisnans(full) == true) {
     printf("ERROR ! : Test Failed (Must not be nan)\n");
     result = ERROR;
   }
@@ -109,25 +109,25 @@ int zisnansTest() {
   floatComplex full = FloatComplex(0.0f,1.0f);
 
   printf(">> Double Complex\n");
-  if (cisnans(nan_nan) == false) {
+  if ((bool)cisnans(nan_nan) == false) {
     printf("ERROR ! : Test Failed (Must be nan)\n");
     result = ERROR;
   }
   assert (cisnans(nan_nan) == true);
 
- if (cisnans(nan_real) == true) {
+ if ((bool)cisnans(nan_real) == true) {
     printf("ERROR ! : Test Failed (Must not be nan)\n");
     result = ERROR;
   }
   assert(cisnans(nan_real) == false);
 
- if (cisnans(real_nan) == true) {
+ if ((bool)cisnans(real_nan) == true) {
     printf("ERROR ! : Test Failed (Must not be nan)\n");
     result = ERROR;
   }
   assert(cisnans(real_nan) == false);
 
-  if (cisnans(full) == true) {
+  if ((bool)cisnans(full) == true) {
     printf("ERROR ! : Test Failed (Must not be nan)\n");
     result = ERROR;
   }
