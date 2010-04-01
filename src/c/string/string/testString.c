@@ -14,8 +14,8 @@
 #include <stdio.h>
 #include <assert.h>
 #include <math.h>
-#include "string.h"
-
+#include <string.h>
+#include "str.h"
 #define SIZE 10000
 
 /*
