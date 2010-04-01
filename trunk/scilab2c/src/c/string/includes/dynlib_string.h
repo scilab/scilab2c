@@ -13,7 +13,7 @@
 #ifndef __DYNLIB_STRING_H__
 #define __DYNLIB_STRING_H__
 
-#ifdef _MSC_VER
+#if defined(_MSC_VER) && defined(_USRDLL)
 	#if STRING_EXPORTS
 		#define EXTERN_STRING __declspec (dllexport)
 	#else

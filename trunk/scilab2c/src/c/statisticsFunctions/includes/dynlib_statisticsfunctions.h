@@ -13,7 +13,7 @@
 #ifndef __DYNLIB_STATISTICSFUNCTIONS_H__
 #define __DYNLIB_STATISTICSFUNCTIONS_H__
 
-#ifdef _MSC_VER
+#if defined(_MSC_VER) && defined(_USRDLL)
 	#if STATISTICSFUNCTIONS_EXPORTS
 		#define EXTERN_STATFUNC __declspec (dllexport)
 	#else

@@ -13,7 +13,7 @@
 #ifndef __DYNLIB_IMPLICITLIST_H__
 #define __DYNLIB_IMPLICITLIST_H__
 
-#ifdef _MSC_VER
+#if defined(_MSC_VER) && defined(_USRDLL)
 	#if IMPLICITLIST_EXPORTS
 		#define EXTERN_IMPLIST __declspec (dllexport)
 	#else
