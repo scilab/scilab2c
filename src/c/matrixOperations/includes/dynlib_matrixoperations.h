@@ -13,7 +13,7 @@
 #ifndef __DYNLIB_MATRIXOPERATIONS_H__
 #define __DYNLIB_MATRIXOPERATIONS_H__
 
-#ifdef _MSC_VER
+#if defined(_MSC_VER) && defined(_USRDLL)
 	#if MATRIXOPERATIONS_EXPORTS
 		#define EXTERN_MATOPS __declspec (dllexport)
 	#else

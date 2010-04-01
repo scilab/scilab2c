@@ -13,7 +13,7 @@
 #ifndef __DYNLIB_ELEMENTARYFUNCTIONS_H__
 #define __DYNLIB_ELEMENTARYFUNCTIONS_H__
 
-#ifdef _MSC_VER
+#if defined(_MSC_VER) && defined(_USRDLL)
 	#if ELEMENTARYFUNCTIONS_EXPORTS
 		#define EXTERN_ELEMFUNCT __declspec (dllexport)
 	#else

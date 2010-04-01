@@ -13,7 +13,7 @@
 #ifndef __DYNLIB_SIGNALPROCESSING_H__
 #define __DYNLIB_SIGNALPROCESSING_H__
 
-#ifdef _MSC_VER
+#if defined(_MSC_VER) && defined(_USRDLL)
 	#if SIGNALPROCESSING_EXPORTS
 		#define EXTERN_SIGPROC __declspec (dllexport)
 	#else
