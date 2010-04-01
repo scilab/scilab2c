@@ -13,7 +13,7 @@
 #ifndef __DYNLIB_OPERATIONS_H__
 #define __DYNLIB_OPERATIONS_H__
 
-#ifdef _MSC_VER
+#if defined(_MSC_VER) && defined(_USRDLL)
 	#if OPERATIONS_EXPORTS
 		#define EXTERN_OPERATIONS __declspec (dllexport)
 	#else
