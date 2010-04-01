@@ -133,7 +133,7 @@ if BuildTool == "make"
   C_GenerateMakefile(FileInfo,SharedInfo);
 end
 if BuildTool == "nmake"
-  // FIXME : Add copy of missing dll before.
+  copyBlasLapackLibs(FileInfo,SharedInfo);
   C_GenerateMakefile_msvc(FileInfo,SharedInfo);
 end
 
@@ -145,4 +145,32 @@ if (RunMode == 'All' | RunMode == 'Translate')
 elseif (RunMode == 'GenLibraryStructure')
    PrintStepInfo('Library Structure Successfully Created!!!',FileInfo.GeneralReport,'both');
 end
+endfunction
+
+
+function r = copyBlasLapackLibs(FileInfo, SharedInfo)
+  r = %f;
+  if getos() == 'Windows' then
+    // create external-libs directory
+    EXTERNLIBSPATH = FileInfo.OutCCCodeDir + '/external-libs';
+    if ~isdir(EXTERNLIBSPATH) then
+      mkdir(EXTERNLIBSPATH);
+    end
+    if ~isdir(EXTERNLIBSPATH) r = %f;
+    else
+      // copy blas & lapack librairies
+      copyfile(SCI + '/bin/blasplus.lib', EXTERNLIBSPATH);
+      copyfile(SCI + '/bin/lapack.lib', EXTERNLIBSPATH);
+      copyfile(SCI + '/bin/blasplus.dll', FileInfo.OutCCCodeDir);
+      copyfile(SCI + '/bin/lapack.dll', FileInfo.OutCCCodeDir);
+      // copy dependencies if MKL
+      if isfile(SCI + '/bin/libguide40.dll') then
+        copyfile(SCI + '/bin/libguide40.dll', FileInfo.OutCCCodeDir);
+      end
+      if isfile(SCI + '/bin/libiomp5md.dll') then
+        copyfile(SCI + '/bin/libiomp5md.dll', FileInfo.OutCCCodeDir);
+      end
+      r = %t;
+    end
+  end
 endfunction
