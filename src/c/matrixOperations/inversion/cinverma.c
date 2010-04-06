@@ -10,11 +10,9 @@
  *
  */
 
-
-#include <malloc.h>
+#include <stdlib.h>
 #include "matrixInversion.h" 
 #include "lapack.h" 
-#include <stdio.h>
 
 void cinverma ( floatComplex* in, floatComplex* out, int leadDimIn )
 {

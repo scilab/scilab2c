@@ -9,10 +9,10 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
-#include <malloc.h>
+
+#include <stdlib.h>
 #include "matrixInversion.h" 
 #include "lapack.h"
-#include <stdio.h>
 
 void zinverma ( doubleComplex* in, doubleComplex* out, int leadDimIn )
 {
