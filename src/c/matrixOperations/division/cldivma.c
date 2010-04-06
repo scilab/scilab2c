@@ -10,16 +10,12 @@
  *
  */
 
-#include <malloc.h>
-
+#include <stdlib.h>
 /******FIXME********/
 /**** WARNING NOT WORK AT ALL FOR THE MOMENT  ***/
 /**** Because of problem of conversion float-> double ****/
 #include "matrixDivision.h" 
 #include "lapack.h" 
-#include <string.h>
-#include <stdio.h>
-
 
 void cldivma (	floatComplex* in1, int lines1, int columns1 ,
 			    floatComplex* in2, int lines2, int columns2 ,
