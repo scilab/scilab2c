@@ -15,12 +15,6 @@ libSize_la_CFLAGS =	-I ../../type \
 
 instdir = $(top_builddir)/lib
 
-pkglib_LTLIBRARIES =	libSize.la
-
-libSize_la_SOURCES =	$(HEAD)
-
-HEAD	=	../includes/size.h
-
 ####
 # Checking Part
 ####
