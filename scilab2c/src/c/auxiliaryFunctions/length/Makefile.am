@@ -15,12 +15,6 @@ libLength_la_CFLAGS =	-I ../../type \
 
 instdir = $(top_builddir)/lib
 
-pkglib_LTLIBRARIES =	libLength.la
-
-libLength_la_SOURCES =	$(HEAD)
-
-HEAD	=	../includes/length.h
-
 ####
 # Checking Part
 ####
