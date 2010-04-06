@@ -15,12 +15,6 @@ libType_la_CFLAGS =	-I ../../type \
 
 instdir = $(top_builddir)/lib
 
-pkglib_LTLIBRARIES =	libType.la
-
-libType_la_SOURCES =	$(HEAD)
-
-HEAD	=	../includes/type.h
-
 ####
 # Checking Part
 ####
