@@ -110,13 +110,14 @@ elseif get(gcbo, "tag")=="convertbtn" then
 //    CCompilerPathStyle = "cygwin";
   end
 
-  mprintf("UserScilabMainFile = {%s}\n", UserScilabMainFile);
-  mprintf("UserSciFilesPaths = {%s}\n", UserSciFilesPaths);
-//  mprintf("Sci2CLibMainHeaderFName = {%s}\n", Sci2CLibMainHeaderFName);
-  mprintf("UserSciCodeMainDir = {%s}\n", UserSciCodeMainDir);
-  mprintf("RunMode = {%s}\n", RunMode);
-  mprintf("CopySciCodeIntoCCode = {%d}\n", bool2s(CopySciCodeIntoCCode));
-  mprintf("NativeBuild = {%s}\n", NativeBuild);
+  // -*- DEBUG ONLY -*-
+  
+//  mprintf("UserScilabMainFile = {%s}\n", UserScilabMainFile);
+//  mprintf("UserSciFilesPaths = {%s}\n", UserSciFilesPaths);
+//  mprintf("UserSciCodeMainDir = {%s}\n", UserSciCodeMainDir);
+//  mprintf("RunMode = {%s}\n", RunMode);
+//  mprintf("CopySciCodeIntoCCode = {%d}\n", bool2s(CopySciCodeIntoCCode));
+//  mprintf("NativeBuild = {%s}\n", NativeBuild);
   scilab2c(UserScilabMainFile, UserSciCodeMainDir, UserSciFilesPaths, RunMode, NativeBuild);
 //
 // --- sci2c help ---
