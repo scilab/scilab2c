@@ -15,12 +15,6 @@ libIsempty_la_CFLAGS =	-I ../../type \
 
 instdir = $(top_builddir)/lib
 
-pkglib_LTLIBRARIES =	libIsempty.la
-
-libIsempty_la_SOURCES =	$(HEAD) $(SRC)
-
-HEAD	=	../includes/isempty.h
-
 ####
 # Checking Part
 ####
@@ -39,6 +33,5 @@ testIsEmpty_SOURCES	= 	testIsEmpty.h testIsEmpty.c
 testIsEmpty_CFLAGS	=	$(check_INCLUDES)
 testIsEmpty_LDADD	=	$(top_builddir)/src/c/type/libDoubleComplex.la \
 				$(top_builddir)/src/c/type/libFloatComplex.la \
-				$(top_builddir)/src/c/auxiliaryFunctions/isempty/libIsempty.la \
 				$(top_builddir)/src/c/auxiliaryFunctions/find/libFind.la \
 				@LIBMATH@
