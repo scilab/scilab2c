@@ -10,11 +10,9 @@
  *
  */
 
-#include <malloc.h>
+#include <stdlib.h>
 #include "matrixDivision.h" 
 #include "lapack.h" 
-#include <string.h>
-#include <stdio.h>
 void sldivma (	float* in1, int lines1, int columns1 ,
                 float* in2, int lines2, int columns2 ,
 			 	float* out ){

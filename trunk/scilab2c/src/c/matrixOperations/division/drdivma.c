@@ -9,13 +9,9 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
-#include <malloc.h>
+#include <stdlib.h>
 #include "matrixDivision.h" 
 #include "lapack.h" 
-#include <string.h>
-#include <stdio.h>
-
-
 
 void drdivma (	double * in1,		int lines1,	int columns1,
 				double * in2,		int lines2,	int columns2,

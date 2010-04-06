@@ -10,13 +10,9 @@
  *
  */
 
-
-
-#include <malloc.h>
+#include <stdlib.h>
 #include "matrixDivision.h" 
 #include "lapack.h" 
-
-#include <string.h>
 
 void dldivma (double* in1, int lines1, int columns1 ,
 				double* in2, int lines2, int columns2 ,

@@ -1,4 +1,3 @@
-
 /*
  *  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
  *  Copyright (C) 2008-2008 - INRIA - Allan SIMON
@@ -11,9 +10,8 @@
  *
  */
 
-#include <malloc.h>
+#include <stdlib.h>
 #include "matrixDivision.h"
-#include "string.h"
 #include "lapack.h"
 
 void zldivma(	doubleComplex* in1, int lines1, int columns1 ,
