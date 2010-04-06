@@ -11,7 +11,6 @@
  */
 
 #include "find2d.h"
-#include <malloc.h>
 
 void sfind2da(float* x, int rows, int columns, float* out1,int* indiceOut1, float* out2,int* indiceOut2,int max) {
   int i = 0, j=0;
