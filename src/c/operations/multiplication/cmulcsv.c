@@ -11,7 +11,7 @@
  */
 
 
-#include <malloc.h>
+#include <stdlib.h>
 #include "zeros.h"
 #include "multiplication.h"
 
