@@ -9,14 +9,12 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
-#include <malloc.h>
+#include <stdlib.h>
 /****FIXME****/
 /**** WARNING NOT WORK AT ALL FOR THE MOMENT  ***/
 /**** Because of problem of conversion float-> double ****/
 #include "matrixDivision.h" 
 #include "lapack.h" 
-#include <string.h>
-#include <stdio.h>
 void srdivma (	float* in1, int lines1, int columns1 ,
 			    float* in2, int lines2, int columns2 ,
 			 	float* out ){
