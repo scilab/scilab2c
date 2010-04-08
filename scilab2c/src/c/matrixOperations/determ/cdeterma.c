@@ -10,6 +10,7 @@
  *
  */
 
+#include <stdlib.h>
 #ifndef WITHOUT_LAPACK
 #include "lapack.h"
 #else
@@ -20,7 +21,7 @@
 #include "multiplication.h"
 #include "subtraction.h"
 #include "addition.h"
-#include <malloc.h>
+
 
 
 floatComplex cdeterma(floatComplex *in, int size){

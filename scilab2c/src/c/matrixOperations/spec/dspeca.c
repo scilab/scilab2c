@@ -10,13 +10,11 @@
  *
  */
  
-#include <malloc.h>
+#include <stdlib.h>
 #include "spec.h"
 #include "lapack.h"
 #include "zeros.h"
 #include "max.h"
-#include "stdio.h"
-
 
 void dspeca(double* in, int rows,double* out){
 	int i=0, j=0;

@@ -10,8 +10,7 @@
  *
  */
 
-#include <malloc.h>
-#include <stdio.h>
+#include <stdlib.h>
 
 #ifndef WITHOUT_LAPACK
 #include "lapack.h"

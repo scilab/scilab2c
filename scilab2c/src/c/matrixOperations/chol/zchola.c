@@ -10,6 +10,7 @@
  *
  */
 
+#include <stdlib.h>
 #ifndef WITHOUT_LAPACK
 #include "lapack.h"
 #else
@@ -20,8 +21,6 @@
 #endif
 
 #include "chol.h"
-#include <malloc.h>
-#include <stdio.h>
 
 void zchola(doubleComplex * in, int size, doubleComplex *out){
 	/* param in : input matrix (square matrix)

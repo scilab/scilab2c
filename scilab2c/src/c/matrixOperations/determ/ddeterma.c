@@ -10,15 +10,12 @@
  *
  */
 
-
+#include <stdlib.h>
 #ifndef WITHOUT_LAPACK
 #include "lapack.h"
 #endif
 #include "determ.h"
-#include <malloc.h>
 #include "lapack.h"
-#include <stdio.h>
-
 
 double ddeterma(double * in, int size){
 #ifndef WITHOUT_LAPACK

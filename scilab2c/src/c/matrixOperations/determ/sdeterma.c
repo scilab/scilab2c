@@ -10,13 +10,11 @@
  *
  */
 
-
+#include <stdlib.h>
 #ifndef WITHOUT_LAPACK
 #include "lapack.h"
 #endif
 #include "determ.h"
-#include <malloc.h>
-#include <stdio.h>
 
 float sdeterma(float * in, int size){
 #ifndef WITHOUT_LAPACK

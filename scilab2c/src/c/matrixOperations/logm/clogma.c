@@ -10,10 +10,8 @@
  *
  */
 
-
-#include <malloc.h>
+#include <stdlib.h>
 #include "logm.h"
-
 
 void clogma (floatComplex* in, int rows, floatComplex* out){
 	doubleComplex *inCopy, *outCopy;
