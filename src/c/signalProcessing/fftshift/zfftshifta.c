@@ -10,7 +10,7 @@
  *
  */
 
-#include <malloc.h>
+#include <stdlib.h>
 #include "fftshift.h"
 
 void zfftshifta(doubleComplex* in,int rows,int columns,doubleComplex* out){

@@ -26,11 +26,8 @@
   rc     :Reflection coefficients 
 */
 
-
+#include <stdlib.h>
 #include "lev.h"
-#include "malloc.h"
-#include "stdlib.h"
-
 
 double dleva(double* in,int size, double* ar, double* rc){
 	int i=0, j=0;

@@ -10,13 +10,12 @@
  *
  */
 
+#include <stdlib.h>
 #include "levin.h"
 #include "levinUtils.h"
 #include "matrixInversion.h"
 #include "matrixMultiplication.h"
 #include "zeros.h"
-#include <malloc.h>
-#include <stdio.h>
 
 void dlevina (int n, double* cov, int lCov, int cCov, double* la, double* sig, double* lb){
 /*

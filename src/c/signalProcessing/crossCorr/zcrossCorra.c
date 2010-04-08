@@ -11,7 +11,7 @@
  *
  */
 
-#include <malloc.h>
+#include <stdlib.h>
 #include "crossCorr.h"
 #include "conv2d.h"
 #include "conj.h"

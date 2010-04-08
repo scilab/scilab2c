@@ -10,7 +10,7 @@
  *
  */
 
-#include <malloc.h>
+#include <stdlib.h>
 #include "fftshift.h"
 
 void sfftshifta(float* in,int rows,int columns,float* out){

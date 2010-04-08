@@ -26,7 +26,7 @@
   rc     :Reflection coefficients 
 */
 
-
+#include <stdlib.h>
 #include "lev.h"
 #include "malloc.h"
 #include "stdlib.h"
