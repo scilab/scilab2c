@@ -11,6 +11,7 @@
  */
 
 #include <stdlib.h>
+#include <string.h>
 #include "matrixDivision.h" 
 
 void	zrdivma(	doubleComplex* in1, int lines1, int columns1 ,

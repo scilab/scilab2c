@@ -11,6 +11,7 @@
  */
 
 #include <stdlib.h>
+#include <string.h>
 #include "matrixDivision.h" 
 #include "lapack.h" 
 
