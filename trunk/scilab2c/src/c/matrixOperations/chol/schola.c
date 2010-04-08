@@ -10,15 +10,13 @@
  *
  */
 
-
+#include <stdlib.h>
 #ifndef WITHOUT_LAPACK
 #include "lapack.h"
 #else
 #include "sqrt.h"
 #endif
 #include "chol.h"
-#include <malloc.h>
-#include <stdio.h>
 
 void schola(float * in, int size, float *out){
 	/* param in : input matrix (square matrix)

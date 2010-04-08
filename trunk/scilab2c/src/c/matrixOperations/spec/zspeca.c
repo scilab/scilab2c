@@ -10,13 +10,11 @@
  *
  */
  
-#include <malloc.h>
-#include <stdio.h>
+#include <stdlib.h>
 #include "spec.h"
 #include "lapack.h"
 #include "zeros.h"
 #include "conj.h"
-
 
 void zspeca(doubleComplex* in, int rows,doubleComplex* out){
 	int i = 0, j = 0;

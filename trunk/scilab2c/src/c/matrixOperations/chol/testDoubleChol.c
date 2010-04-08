@@ -11,11 +11,11 @@
  */
  
  
+#include <math.h>
+#include <stdlib.h>
 #include <assert.h>
 #include <stdio.h>
 #include "chol.h"
-#include <math.h>
-#include <malloc.h>
 
 /* FIXME : assert à 1e-14 pour une valeur d'entrée de 0.003... */
 

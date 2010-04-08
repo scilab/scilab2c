@@ -10,13 +10,11 @@
  *
  */
  
-#include <malloc.h>
+#include <stdlib.h>
 #include "spec.h"
 #include "lapack.h"
 #include "zeros.h"
 #include "max.h"
-#include "stdio.h"
-
 
 void dspec2a(double* in, int rows,double* eigenvalues,double* eigenvectors){
 	int i=0, j=0, ij=0, ij1=0;
