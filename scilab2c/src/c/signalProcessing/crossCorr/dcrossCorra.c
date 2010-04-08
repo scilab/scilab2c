@@ -11,11 +11,9 @@
  *
  */
 
-#include <malloc.h>
+#include <stdlib.h>
 #include "crossCorr.h"
 #include "conv2d.h"
-
-
 
 void dcrossCorra(double* in1, int rows1, int cols1, double* in2, int rows2, int cols2, double* out){
 	double *in2Copy;
@@ -24,7 +22,10 @@ void dcrossCorra(double* in1, int rows1, int cols1, double* in2, int rows2, int 
 	in2Copy=(double*)malloc((unsigned int)(rows2*cols2)*sizeof(double));
 
 	/* We change in2 to be in appropriate form in in2Copy*/
-	for (i=0;i<(rows2*cols2);i++) in2Copy[i]=in2[rows2*cols2-1-i];
+	for (i=0;i<(rows2*cols2);i++)
+    {
+        in2Copy[i]=in2[rows2*cols2-1-i];
+    }
 
 	dconv2da(in1, rows1, cols1, in2Copy, rows2, cols2, out);
 

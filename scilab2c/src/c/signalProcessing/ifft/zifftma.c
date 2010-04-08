@@ -9,15 +9,15 @@
  * http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
+
 #define IFFT842 1
 #define DFFT2  0
 
-#include <malloc.h>
+#include <stdlib.h>
 #include <math.h>
 #include "ifft.h"
 #include "lapack.h"
 #include "ifft_internal.h"
-
 
 void zifftma ( doubleComplex* in , int rows, int cols, doubleComplex* out)
 {

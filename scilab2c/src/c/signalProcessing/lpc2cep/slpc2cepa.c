@@ -10,7 +10,7 @@
  *
  */
 
-#include <malloc.h>
+#include <stdlib.h>
 #include "lpc2cep.h"
 #include "fft.h"
 #include "ifft.h"
@@ -23,7 +23,9 @@ void slpc2cepa(float *in, int size, float*out){
 	/* Copy in in a FloatComplex*/
 	inCpx=(floatComplex*)malloc((unsigned int)(size*size)*sizeof(floatComplex));
 	for (i=0;i<size*size;i++)
+    {
 		inCpx[i]=FloatComplex(in[i],0);
+    }
 
 	cfftma(inCpx,size,size,inCpx);
 	clogma(inCpx,size,inCpx);

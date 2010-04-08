@@ -26,11 +26,8 @@
   rc     :Reflection coefficients 
 */
 
-
+#include <stdlib.h>
 #include "lev.h"
-#include "malloc.h"
-#include "stdlib.h"
-
 
 float sleva(float* in,int size, float* ar, float* rc){
 	int i=0, j=0;
