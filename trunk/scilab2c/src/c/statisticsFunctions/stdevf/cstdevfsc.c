@@ -10,10 +10,9 @@
  *
  */
 
+#include <stdlib.h>
 #include "stdevf.h" 
 #include "zeros.h"
-#include <malloc.h>
-
 
 floatComplex cstdevfsc(float *in1, int lines, int columns, floatComplex* in2)
 {
