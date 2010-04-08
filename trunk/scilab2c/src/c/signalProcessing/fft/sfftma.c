@@ -10,10 +10,9 @@
  *
  */
 
-#include <malloc.h>
+#include <stdlib.h>
 #include "fft.h"
 #include "zeros.h"
-
 
 void sfftma ( float* in , int rows, int cols, float* out){
 	float* ZEROS;

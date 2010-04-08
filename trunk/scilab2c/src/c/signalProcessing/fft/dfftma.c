@@ -10,10 +10,9 @@
  *
  */
 
-#include <malloc.h>
+#include <stdlib.h>
 #include "fft.h"
 #include "zeros.h"
-
 
 void dfftma ( double* in , int rows, int cols, double* out){
 	double* ZEROS;

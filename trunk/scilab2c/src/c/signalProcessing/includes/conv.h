@@ -14,7 +14,7 @@
 #define __CONV_H__
 
 #include <math.h>
-#include <malloc.h>
+#include <stdlib.h>
 #include "dynlib_signalprocessing.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
