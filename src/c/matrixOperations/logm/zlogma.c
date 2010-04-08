@@ -10,8 +10,7 @@
  *
  */
 
-#include <stdio.h>
-#include <malloc.h>
+#include <stdlib.h>
 #include "lapack.h"
 #include "logm.h"
 #include "log.h"

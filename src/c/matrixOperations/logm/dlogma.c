@@ -10,9 +10,8 @@
  *
  */
 
-#include <malloc.h>
+#include <stdlib.h>
 #include "logm.h"
-
 
 void dlogma (double* in, int rows, double* out){
 	doubleComplex *inCpx,*outCpx;

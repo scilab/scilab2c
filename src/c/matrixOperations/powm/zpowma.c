@@ -9,7 +9,8 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
-#include <malloc.h>
+
+#include <stdlib.h>
 #include "matrixPow.h"
 #include "spec.h"
 #include "pow.h"

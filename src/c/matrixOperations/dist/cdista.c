@@ -9,7 +9,8 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
-#include <malloc.h>
+
+#include <stdlib.h>
 #include "dist.h"
 #include "matrixTranspose.h"
 #include "matrixMultiplication.h"
@@ -17,7 +18,6 @@
 #include "sqrt.h"
 #include "conj.h"
 #include "subtraction.h"
-#include "stdio.h"
 
 float cdista(floatComplex* in1,floatComplex* in2, int lines, int columns){
 	int i=0;
