@@ -10,10 +10,9 @@
  *
  */
 
-
+#include <stdlib.h>
 #include "meanf.h"
 #include "zeros.h"
-#include <malloc.h>
 
 floatComplex cmeanfsc (float* in1 ,int lines , int columns , floatComplex* in2)
   {

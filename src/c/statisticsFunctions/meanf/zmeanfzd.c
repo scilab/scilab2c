@@ -10,10 +10,9 @@
  *
  */
 
-
+#include <stdlib.h>
 #include "meanf.h"
 #include "zeros.h"
-#include <malloc.h>
 
 doubleComplex zmeanfzd (doubleComplex* in1 ,int lines , int columns , double* in2)
   {

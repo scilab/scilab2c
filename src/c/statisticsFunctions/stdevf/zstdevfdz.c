@@ -10,9 +10,9 @@
  *
  */
 
+#include <stdlib.h>
 #include "stdevf.h" 
 #include "zeros.h"
-#include <malloc.h>
 
 doubleComplex zstdevfdz(double *in1, int lines, int columns, doubleComplex* in2)
 {
