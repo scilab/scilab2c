@@ -1,6 +1,7 @@
 /*
  *  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
  *  Copyright (C) 2008-2008 - INRIA - Bruno JOFRET
+ *  Copyright (C) Bruno Pincon
  *
  *  This file must be used under the terms of the CeCILL.
  *  This source file is licensed as described in the file COPYING, which
@@ -18,6 +19,7 @@
  *          "Implementing the Complex Arcsine and Arccosine
  *           Functions Using Exception Handling", ACM, TOMS,
  *           Vol 23, No. 3, Sept 1997, p. 299-335
+ *     Thanks to Tom Fairgrieve
  */
 
 #include "lapack.h"
