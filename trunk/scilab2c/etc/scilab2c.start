@@ -34,6 +34,21 @@ if or(getscilabmode() == ["NW";"STD"]) then
 	end
 end
 
+// Add demos
+// =============================================================================
+
+if or(getscilabmode() == ["NW";"STD"]) then
+    mprintf("\tLoad demos\n");
+   pathdemos = pathconvert(root_tlbx + "/demos/alldemos.dem.sce",%f,%t);
+
+disp("**")
+disp(pathdemos);
+disp("**")
+   add_demo(gettext("Scilab2C"),pathdemos);
+   clear pathdemos ;
+end
+
+
 global SCI2CHOME
 SCI2CHOME = root_tlbx;
 

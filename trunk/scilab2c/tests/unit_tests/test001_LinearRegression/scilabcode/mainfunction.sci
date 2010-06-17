@@ -50,7 +50,7 @@ disp(b)
 disp('beq');
 disp(beq)
 
-// plot(Volume,Pressure);
-// plot(Volume,(C ./(Volume.^gamma)),'r')
+ plot(Volume,Pressure);
+ plot(Volume,(C ./(Volume.^gamma)),'r')
 endfunction
 
