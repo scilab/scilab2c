@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   * Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+   * Copyright (C) DIGITEO - Bruno JOFRET
+   *
+   * This file is released into the public domain
+   *
+  -->
+<refentry version="5.0-subset Scilab" xml:id="scilab2c_data_annotations" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:db="http://docbook.org/ns/docbook">
+  <info>
+    <pubdate>$LastChangedDate$</pubdate>
+  </info>
+
+  <refnamediv>
+    <refname>Scilab2C Data Annotations</refname>
+
+    <refpurpose>Scilab to C Converter : Data Annotations How To</refpurpose>
+  </refnamediv>
+
+  <refsection>
+    <title>Description</title>
+    <para>
+      Data annotations are used to define the size, type and precisions of variables and numbers used in the Scilab code.
+    </para>
+    <para>
+      By default Sci2C assumes the double precision, which is the default precision used by the Scilab language.
+      Actually the whole Scilab software only works with double precision. Pay attention that the computation done in Scilab and the C code generated with single precision can differ.
+    </para>
+    <para>
+      It is possible to force a default precision for each source file, by using a dedicated annotation that must be inserted after the function annotation section (Cf. <link linkend="scilab2c_functions_annotations">Function Annotation.</link>):
+      <programlisting role=""><![CDATA[//SCI2C: DEFAULT_PRECISION= precision]]></programlisting>
+
+      This annotation specifies the default precision for all the data used in the function body.
+      Allowed settings for precision are:
+      <itemizedlist>
+        <listitem><literal><![CDATA[//SCI2C: DEFAULT_PRECISION= FLOAT]]></literal></listitem>
+        <listitem><literal><![CDATA[//SCI2C: DEFAULT_PRECISION= DOUBLE]]></literal></listitem>
+      </itemizedlist>
+      If not otherwise specified, the precision of the data will be float single and float double, respectively.
+    </para>
+
+    <para>
+      It is also possible to force some variable having a certain type using functions :
+      <itemizedlist>
+        <listitem>float: forces a variable or a number or a matrix of numbers to be real float.</listitem>
+        <listitem>double: forces a variable or a number or a matrix of numbers to be real double.</listitem>
+        <listitem>floatcomplex: forces a variable or a number or a matrix of numbers to be complex float.</listitem>
+        <listitem>doublecomplex: forces a variable or a number or a matrix of numbers to be complex double.</listitem>
+      </itemizedlist>
+    </para>
+
+  </refsection>
+
+  <refsection>
+    <title>Example 1</title>
+      <programlisting role="example"><![CDATA[
+//SCI2C: DEFAULT_PRECISION= FLOAT
+y = 10;
+]]></programlisting>
+      This will generate a C code with the <literal>y</literal> variable declared as a scalar, real, float.
+  </refsection>
+
+  <refsection>
+    <title>Example 2</title>
+      <programlisting role="example"><![CDATA[
+x = -10.3;
+y = zeros(10,3);
+z = double(-10.3);
+]]></programlisting>
+      Assuming <literal><![CDATA[//SCI2C: DEFAULT_PRECISION]]></literal> is not present, the default precision will be <literal><![CDATA[DOUBLE]]></literal>
+      This will generate a C code with
+      <itemizedlist>
+        <listitem>
+          <literal>x</literal> as scalar real double.
+        </listitem>
+        <listitem>
+          <literal>y</literal> as 10 by 3 matrix of real double filled with zeros.
+        </listitem>
+        <listitem>
+          <literal>z</literal> as scalar real double. In this case the double specifier is redundant.
+        </listitem>
+      </itemizedlist>
+  </refsection>
+
+
+  <refsection>
+    <title>Example 3</title>
+      <programlisting role="example"><![CDATA[
+//SCI2C: DEFAULT_PRECISION= FLOAT
+x = -10.3;
+y = float(zeros(10,3));
+z = double(-10.3);
+]]></programlisting>
+      This will generate a C code with
+      <itemizedlist>
+        <listitem>
+          <literal>x</literal> as scalar real float.
+        </listitem>
+        <listitem>
+          <literal>y</literal> as 10 by 3 matrix of real float filled with zeros. In this case the float specifier is redundant.
+        </listitem>
+        <listitem>
+          <literal>z</literal> as scalar real double.
+        </listitem>
+      </itemizedlist>
+  </refsection>
+
+
+  <refsection>
+    <title>Example 4</title>
+      <programlisting role="example"><![CDATA[
+//SCI2C: DEFAULT_PRECISION= FLOAT
+x = double(3);
+y = double(4);
+z = x + y;
+]]></programlisting>
+      This will generate a C code with
+      <itemizedlist>
+        <listitem>
+          <literal>x</literal> as scalar real double.
+        </listitem>
+        <listitem>
+          <literal>y</literal> as scalar real double.
+        </listitem>
+        <listitem>
+          <literal>z</literal> as scalar real double. According to the behaviour of <literal>+</literal> operator and due to the fact that <literal>x</literal>
+          and <literal>y</literal> are both in double precision, Scilab2C will set <literal>z</literal> with double precision.
+        </listitem>
+      </itemizedlist>
+  </refsection>
+
+  <refsection>
+    <title>See Also</title>
+    <simplelist type="inline">
+      <member>
+        <link linkend="scilab2c_annotations">Sciab2C Annotations</link>,
+        <link linkend="scilab2c">Scilab2C Code Generator</link>
+      </member>
+    </simplelist>
+  </refsection>
+
+
+
+  <refsection>
+    <title>Authors</title>
+    <simplelist type="vert">
+      <member>Bruno JOFRET</member>
+      <member>Raffaele NUTRICATO</member>
+    </simplelist>
+  </refsection>
+</refentry>
