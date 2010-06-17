@@ -34,7 +34,7 @@ for counterout = 1:NOutArg
    if (OutArg(counterout).Dimension > 0)
       // #RNU_RES_B
       // if ((OutArg(counterout).Scope == 'Temp') | (OutArg(counterout).FindLike == -1) | ...
-      //     (SCI2Cisnum(OutArg(counterout).Size(1))==%F) | (SCI2Cisnum(OutArg(counterout).Size(2))==%F))
+      //     (isnum(OutArg(counterout).Size(1))==%F) | (isnum(OutArg(counterout).Size(2))==%F))
       //NUT: qui forse ci vuole un check per verificare se per caso la variabile e' globale e non se ne conosce la size numerica.
       //NUT infatti. Per ora se la size numerica assumo che la variabile globale e' da reallocare. Secondo me occorre aggiungere
       //NUT un campo negli argomenti che specifichi la presenza di realloc da fare.
@@ -42,7 +42,7 @@ for counterout = 1:NOutArg
       //RNU sulle stringhe ancora non applico realloc
       // #RNU_RES_E
       if ((OutArg(counterout).FindLike == -1) | ...
-          (SCI2Cisnum(OutArg(counterout).Size(1))==%F) | (SCI2Cisnum(OutArg(counterout).Size(2))==%F)| ...
+          (isnum(OutArg(counterout).Size(1))==%F) | (isnum(OutArg(counterout).Size(2))==%F)| ...
           (ResizeApproach=='REALLOC_ALL_RESIZE_ALL' & OutArg(counterout).Type ~= 'g'))
          OutArgName = OutArg(counterout).Name;
          tmpcode = '__'+OutArgName+'Size[0]='+OutArg(counterout).Size(1)+';';

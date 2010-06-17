@@ -27,7 +27,7 @@ SCI2CNInArgCheck(argn(2),2,2);
 // ------------------------
 // --- Generate Output. ---
 // ------------------------
-if (SCI2Cisnum(in1) & SCI2Cisnum(in2))
+if (isnum(in1) & isnum(in2))
    in1num = eval(in1);
    in2num = eval(in2);
    outnum = in1num*in2num;
@@ -38,5 +38,5 @@ if (SCI2Cisnum(in1) & SCI2Cisnum(in2))
    end
 else
    opout  = '('+string(in1)+'*'+string(in2)+')';
-end   
+end
 endfunction

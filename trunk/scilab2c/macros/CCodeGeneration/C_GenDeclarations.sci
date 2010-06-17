@@ -41,13 +41,13 @@ if (ArgStruct.Dimension > 0)
    end
    // #RNU_RES_B
    //NUT: vedi Mem_Alloc_Out per maggiori info sulla rimozione della temp nella if
-   // if ((ArgStruct.Scope=='Temp') | (ArgStruct.FindLike == -1) | (SCI2Cisnum(ArgStruct.Size(1))==%F) | (SCI2Cisnum(ArgStruct.Size(2))==%F))
+   // if ((ArgStruct.Scope=='Temp') | (ArgStruct.FindLike == -1) | (isnum(ArgStruct.Size(1))==%F) | (isnum(ArgStruct.Size(2))==%F))
    // #RNU_RES_E
    if (ArgStruct.Type=='g')
       // if (isnan(ArgStruct.Value) )
-      if ((SCI2Cisnum(ArgStruct.Size(1))==%F) | (SCI2Cisnum(ArgStruct.Size(2))==%F) )
+      if ((isnum(ArgStruct.Size(1))==%F) | (isnum(ArgStruct.Size(2))==%F) )
          Cdeclaration(1) = Cdeclaration(1)+C_Type(ArgStruct.Type)+...
-            ' * '+ArgStruct.Name+';';         
+            ' * '+ArgStruct.Name+';';
       else
          if ((FlagExt == 1) | (isnan(ArgStruct.Value)))
             Cdeclaration(1) = Cdeclaration(1)+C_Type(ArgStruct.Type)+...
@@ -60,7 +60,7 @@ if (ArgStruct.Dimension > 0)
       Cdeclaration(2) = Cdeclaration(2)+C_Type('i')+' __'+ArgStruct.Name+'Size[2] = {'+ArgStruct.Size(1)+','+ArgStruct.Size(2)+'};';
       NDeclarations   = 2;
    elseif ((ArgStruct.FindLike == -1) | ...
-           (SCI2Cisnum(ArgStruct.Size(1))==%F) | (SCI2Cisnum(ArgStruct.Size(2))==%F) | ...
+           (isnum(ArgStruct.Size(1))==%F) | (isnum(ArgStruct.Size(2))==%F) | ...
            (ResizeApproach=='REALLOC_ALL_RESIZE_ALL' & ArgStruct.Type~='g'))
       // #RNU_RES_B
       //RNU sulle stringhe non ho ancora deciso se applicare la realloc.

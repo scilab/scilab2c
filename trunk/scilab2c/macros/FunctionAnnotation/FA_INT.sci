@@ -27,7 +27,7 @@ SCI2CNInArgCheck(argn(2),1,1);
 // ------------------------
 // --- Generate Output. ---
 // ------------------------
-if (SCI2Cisnum(in1))
+if (isnum(in1))
    outnum = int(eval(in1));
    if isnan(outnum)
       opout  = '__SCI2CNANSIZE';
@@ -36,5 +36,5 @@ if (SCI2Cisnum(in1))
    end
 else
    opout  = in1;
-end   
+end
 endfunction
