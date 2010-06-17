@@ -3,7 +3,7 @@ function opoutsize = FA_SZ_OPPLUS(in1size,in2size,in1type,in2type)
 // -----------------------------------------------------------------
 // Returns the size of the output computed by OPPLUS operator,
 // including the string operations.
-// 
+//
 // Assuming:
 // size(in1) = [in1r,in1c]
 // size(in2) = [in2r,in2c]
@@ -12,7 +12,7 @@ function opoutsize = FA_SZ_OPPLUS(in1size,in2size,in1type,in2type)
 // we have the following combinations:
 // in1   in2   outr   outc
 // -----------------------
-//  S     S    in2r   in2c    
+//  S     S    in2r   in2c
 //  S     M    in2r   in2c
 //  M     S    in1r   in1c
 //  M     M    in1r   in1c
@@ -23,18 +23,18 @@ function opoutsize = FA_SZ_OPPLUS(in1size,in2size,in1type,in2type)
 // This is the main difference between - and + operators.
 //
 // Input data:
-// in1size: size of input number 1. It is an array of 2 strings. 
+// in1size: size of input number 1. It is an array of 2 strings.
 //          The first string specifies the number of rows.
 //          The second string specifies the number of columns.
-// 
-// in2size: size of input number 2. It is an array of 2 strings. 
+//
+// in2size: size of input number 2. It is an array of 2 strings.
 //          The first string specifies the number of rows.
 //          The second string specifies the number of columns.
 //
 // Output data:
-// opoutsize: size of output. It is an array of 2 strings. 
+// opoutsize: size of output. It is an array of 2 strings.
 //            The first string specifies the number of rows.
-//            The second string specifies the number of columns. 
+//            The second string specifies the number of columns.
 //
 // Status:
 // 08-Dec-2007 -- Raffaele Nutricato: Author.
@@ -63,7 +63,7 @@ if ((in1type ~= 'g') & (in2type ~= 'g'))
    opoutsize = FA_SZ_OPPLUSA(in1size,in2size);
 elseif ((in1type == 'g') & (in2type == 'g'))
    opoutsize(1) = '1';
-   if (SCI2Cisnum(in1size(1)) & SCI2Cisnum(in2size(1)))
+   if (isnum(in1size(1)) & isnum(in2size(1)))
       in1num = eval(in1size(1));
       in2num = eval(in2size(1));
       if (in1num > 1 | in2num > 1)
@@ -74,7 +74,7 @@ elseif ((in1type == 'g') & (in2type == 'g'))
          //NUT: ho provato in scilab a fare la trasposta di una stringa e ottengo sempre 1x1.
       end
    end
-   if (SCI2Cisnum(in1size(2)) & SCI2Cisnum(in2size(2)))
+   if (isnum(in1size(2)) & isnum(in2size(2)))
       in1num = eval(in1size(2));
       in2num = eval(in2size(2));
       opoutsize(2) = string(in1num+in2num-1);
@@ -83,7 +83,7 @@ elseif ((in1type == 'g') & (in2type == 'g'))
       else
          opoutsize(2) = string(opoutsize(2));
       end
-   else  
+   else
       opoutsize(2) = '('+string(in1size(2))+'+'+string(in2size(2))+'-1)';
    end
 else
