@@ -12,7 +12,10 @@
 lines(0);
 
 global SCI2CHOME
-editor(SCI2CHOME+"/tests/unit_tests/test004_Filter/scilabcode/main.sci");
-editor(SCI2CHOME+"/tests/unit_tests/test004_Filter/scilabcode/high_pass.sci");
+editor([SCI2CHOME+"/tests/unit_tests/test004_Filter/scilabcode/main.sci";
+        SCI2CHOME+"/tests/unit_tests/test004_Filter/scilabcode/high_pass.sci"]);
 
-scilab2c(SCI2CHOME+"/tests/unit_tests/test004_Filter/scilabcode/main.sci", TMPDIR, SCI2CHOME+"/tests/unit_tests/test004_Filter/scilabcode/");
+scilab2c(SCI2CHOME+"/tests/unit_tests/test004_Filter/scilabcode/main.sci", TMPDIR, SCI2CHOME+"/tests/unit_tests/test004_Filter/scilabcode");
+
+editor([TMPDIR+"/main.c";
+        TMPDIR+"/d2d0d0d0high_passd2.c"]);
