@@ -41,7 +41,7 @@ for countersize = 1:Nelem
    // A symbol is column or row if the sum of the Field_Type elements is one.
    // A symbol is a matrix if the sum of the Field_Type elements is > 1.
    // #RNU_RES_E
-   if (SCI2Cisnum(Field_Size(countersize)))
+   if (isnum(Field_Size(countersize)))
       tmpnum = eval(Field_Size(countersize));
       if (tmpnum == 0)
          SCI2Cerror('Found a symbol that has zeros elements. 0xN or Nx0 matrices are not allowed.');

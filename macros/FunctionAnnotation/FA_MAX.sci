@@ -30,9 +30,9 @@ SCI2CNInArgCheck(argn(2),2,2);
 // ------------------------
 // --- Generate Output. ---
 // ------------------------
-if (SCI2Cisnum(in1))
+if (isnum(in1))
    in1num = eval(in1);
-   if (SCI2Cisnum(in2))
+   if (isnum(in2))
       in2num = eval(in2);
       outnum = max(in1num,in2num);
       if isnan(outnum)
@@ -47,6 +47,6 @@ if (SCI2Cisnum(in1))
    end
 else
    opout  = string(in1);
-end   
+end
 
 endfunction

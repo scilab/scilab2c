@@ -33,7 +33,7 @@ SCI2CNInArgCheck(argn(2),2,2);
 // ------------------------
 // --- Generate Output. ---
 // ------------------------
-if (SCI2Cisnum(in1))
+if (isnum(in1))
    outnum = real(eval(in1));
    if isnan(outnum)
       opout  = '__SCI2CNANSIZE';
@@ -43,7 +43,7 @@ if (SCI2Cisnum(in1))
 else
    if (in1 == "%i")
       opout  = " 0 ";
-   else   
+   else
       opout  = in2+"0real"+FA_TP_REAL(in2)+"0"+"("+in1+")";
    end
 end

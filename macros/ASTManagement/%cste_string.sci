@@ -15,7 +15,7 @@ function txt=%cste_string(c)
       stringcvalue == "%e"	 | ...
       stringcvalue == "%pi")
      txt=['Number_x: '+stringcvalue];
-  elseif (SCI2Cisnum(stringcvalue))
+  elseif (isnum(stringcvalue))
      //NUT needed to convert format 1D-14 into 1d-14
      txt=['Number_x: '+strsubst(stringcvalue,'D','e')];
   elseif (stringcvalue == "%i")

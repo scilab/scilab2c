@@ -12,7 +12,7 @@ function [TBFlagfound,TBFlagEqualSymbols] = ST_MatchSymbol(TBName,TBType,TBSize,
 //              1 = the symbol exits.
 //              2 = the symbol exists but it is a non-initialized global variable.
 // TBFlagEqualSymbols: 0 if the two symbols don't have the same settings,
-//                     1 if the two symbols have the same settings.  
+//                     1 if the two symbols have the same settings.
 //
 // Status:
 // 26-Oct-2007 -- Raffaele Nutricato: Author.
@@ -53,12 +53,12 @@ if (TBFlagfound == 1)
             TBFlagEqualSymbols = 0;
          end
          // Then if the size is a number also its value is compared.
-         if (SCI2Cisnum(tmpSize(1))) & (SCI2Cisnum(TBSize(1)))
+         if (isnum(tmpSize(1))) & (isnum(TBSize(1)))
             if (mtlb_strcmp(tmpSize(1),TBSize(1)) == %F)
                TBFlagEqualSymbols = 0;
             end
          end
-         if (SCI2Cisnum(tmpSize(2))) & (SCI2Cisnum(TBSize(2)))
+         if (isnum(tmpSize(2))) & (isnum(TBSize(2)))
             if (mtlb_strcmp(tmpSize(2),TBSize(2)) == %F)
                TBFlagEqualSymbols = 0;
             end
@@ -66,5 +66,5 @@ if (TBFlagfound == 1)
       end
    end
 end
-   
+
 endfunction
