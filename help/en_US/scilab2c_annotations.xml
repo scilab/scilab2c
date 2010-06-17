@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   * Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+   * Copyright (C) DIGITEO - Bruno JOFRET
+   *
+   * This file is released into the public domain
+   *
+  -->
+<refentry version="5.0-subset Scilab" xml:id="scilab2c_annotations" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:db="http://docbook.org/ns/docbook">
+  <info>
+    <pubdate>$LastChangedDate$</pubdate>
+  </info>
+
+  <refnamediv>
+    <refname>Scilab2C Annotations</refname>
+
+    <refpurpose>Scilab to C Converter : Annotations How To</refpurpose>
+  </refnamediv>
+
+  <refsection>
+    <title>Introduction</title>
+    <para>
+      Both data and functions declared into the Scilab source code must be annotated in order make the translator able to extract size, precision and type of data and of input and output function arguments.
+    </para>
+  </refsection>
+
+  <refsection>
+    <title>See Also</title>
+     <simplelist type="inline">
+      <member>
+        <link linkend="scilab2c">Scilab2C Code Generator</link>,
+        <link linkend="scilab2c_data_annotations">Data annotations</link>,
+        <link linkend="scilab2c_function_annotations">Functions annotations</link>
+      </member>
+     </simplelist>
+  </refsection>
+
+  <refsection>
+    <title>Authors</title>
+    <simplelist type="vert">
+      <member>Bruno JOFRET</member>
+      <member>Raffaele NUTRICATO</member>
+    </simplelist>
+  </refsection>
+</refentry>

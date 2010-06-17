@@ -28,9 +28,9 @@
 
     <synopsis>
       scilab2c();
-      scilab2c("PATH/script_to_translate.sci", "PATH/generated_c_code.c");
-      scilab2c("PATH/script_to_translate.sci", "PATH/generated_c_code.c", "PATH_TO_ADDITIONNAL_FUNCTIONS");
-      scilab2c("PATH/script_to_translate.sci", "PATH/generated_c_code.c", "PATH_TO_ADDITIONNAL_FUNCTIONS", RunMode);
+      scilab2c(inputScript, outputPath);
+      scilab2c(inputScript, outputPath, pathToADditionnalFunctions);
+      scilab2c(inputScript, outputPath, pathToADditionnalFunctions, RunMode);
    </synopsis>
   </refsynopsisdiv>
 
@@ -38,7 +38,7 @@
     <title>Parameters</title>
     <variablelist>
       <varlistentry>
-        <term>PATH/script_to_translate.sci</term>
+        <term>inputScript</term>
         <listitem>
           <para>This file should contain the scilab function we want
 	    to translate.</para>
@@ -46,14 +46,14 @@
       </varlistentry>
 
       <varlistentry>
-	<term>PATH/generated_c_code.c</term>
+	<term>outputPath</term>
         <listitem>
-          <para>This file will contain the C code translate from the script.</para>
+          <para>Output Path for code genrated and logs.</para>
         </listitem>
       </varlistentry>
 
      <varlistentry>
-	<term>PATH_TO_ADDITIONNAL_FUNCTIONS</term>
+	<term>pathToADditionnalFunctions</term>
         <listitem>
           <para>This is the path to look in for additional user defined functions.</para>
         </listitem>
@@ -63,7 +63,6 @@
 	<term>RunMode</term>
         <listitem>
           <para>Must be "All", "Translate" or "GenLibraryStructure"</para>
-	  <para>//FIXME : Must explain here which parameter does what ?</para>
         </listitem>
       </varlistentry>
 
@@ -76,7 +75,6 @@
 
     <para>Convert a scilab function into a C File.</para>
 
-    <para>//FIXME : Add more informations here</para>
   </refsection>
 
   <refsection>
@@ -85,10 +83,24 @@
     <programlisting role="example">
       // Launch the GUI
       scilab2c();
+
       // Convert the function present in myScript.sci
       // into a C file : myMain.c
-      scilab2c("./mysScript.sci", "./myMain.c");
+      scilab2c("./mysScript.sci", "./");
+
+      // Example in unit_tests
+      global SCI2CHOME
+      scilab2c(SCI2CHOME+"/tests/unit_tests/test000_TrigonIdentity/scilabcode/mainfunction.sci", TMPDIR);
     </programlisting>
+  </refsection>
+
+  <refsection>
+    <title>See Also</title>
+    <simplelist type="inline">
+      <member>
+        <link linkend="scilab2c_annotations">Sciab2C Annotations</link>
+      </member>
+    </simplelist>
   </refsection>
 
   <refsection>
