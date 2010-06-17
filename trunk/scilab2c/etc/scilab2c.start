@@ -39,7 +39,7 @@ end
 
 if or(getscilabmode() == ["NW";"STD"]) then
     mprintf("\tLoad demos\n");
-   pathdemos = pathconvert(root_tlbx + "/demos/alldemos.dem.sce",%f,%t);
+   pathdemos = pathconvert(root_tlbx + "/demos/scilab2c.dem.gateway.sce",%f,%t);
 
 disp("**")
 disp(pathdemos);

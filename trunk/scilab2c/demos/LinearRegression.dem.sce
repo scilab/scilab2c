@@ -11,11 +11,9 @@
 //
 
 lines(0);
-
 global SCI2CHOME
-editor(SCI2CHOME+"/tests/unit_tests/test000_TrigonIdentity/scilabcode/mainfunction.sci");
+editor(SCI2CHOME+"/tests/unit_tests/test001_LinearRegression/scilabcode/mainfunction.sci");
 
-scilab2c(SCI2CHOME+"/tests/unit_tests/test000_TrigonIdentity/scilabcode/mainfunction.sci", TMPDIR);
+scilab2c(SCI2CHOME+"/tests/unit_tests/test001_LinearRegression/scilabcode/mainfunction.sci", TMPDIR);
 
 editor(TMPDIR+"/main.c");
-
