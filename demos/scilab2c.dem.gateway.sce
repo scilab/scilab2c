@@ -10,12 +10,12 @@
 //
 //
 
-lines(0);
+demopath = get_absolute_file_path("scilab2c.dem.gateway.sce");
 
-global SCI2CHOME
-editor(SCI2CHOME+"/tests/unit_tests/test000_TrigonIdentity/scilabcode/mainfunction.sci");
+subdemolist = ["Trigonometric Identity" , "TrigonometricIdentity.dem.sce";
+              "Linear Regression" , "LinearRegression.dem.sce";
+              "Symbols", "Symbols.dem.sce";
+               "High Pass Filter", "Filter.dem.sce";
+              ];
 
-scilab2c(SCI2CHOME+"/tests/unit_tests/test000_TrigonIdentity/scilabcode/mainfunction.sci", TMPDIR);
-
-editor(TMPDIR+"/main.c");
-
+subdemolist(:,2) = demopath + subdemolist(:,2);

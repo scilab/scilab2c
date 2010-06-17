@@ -10,8 +10,11 @@
 //
 //
 
-demopath = get_absolute_file_path("alldemos.dem.sce");
+lines(0);
 
-subdemolist = ["Trigonometric Identity" , "TrigonometricIdentity.dem.sce"];
+global SCI2CHOME
+editor(SCI2CHOME+"/tests/unit_tests/test002_Symbols/scilabcode/mainfunction.sci");
 
-subdemolist(:,2) = demopath + subdemolist(:,2);
+scilab2c(SCI2CHOME+"/tests/unit_tests/test002_Symbols/scilabcode/mainfunction.sci", TMPDIR);
+
+editor(TMPDIR+"/main.c");

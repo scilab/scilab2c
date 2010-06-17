@@ -9,13 +9,10 @@
 // http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 //
 //
-
 lines(0);
 
 global SCI2CHOME
-editor(SCI2CHOME+"/tests/unit_tests/test000_TrigonIdentity/scilabcode/mainfunction.sci");
+editor(SCI2CHOME+"/tests/unit_tests/test004_Filter/scilabcode/main.sci");
+editor(SCI2CHOME+"/tests/unit_tests/test004_Filter/scilabcode/high_pass.sci");
 
-scilab2c(SCI2CHOME+"/tests/unit_tests/test000_TrigonIdentity/scilabcode/mainfunction.sci", TMPDIR);
-
-editor(TMPDIR+"/main.c");
-
+scilab2c(SCI2CHOME+"/tests/unit_tests/test004_Filter/scilabcode/main.sci", TMPDIR, SCI2CHOME+"/tests/unit_tests/test004_Filter/scilabcode/");
