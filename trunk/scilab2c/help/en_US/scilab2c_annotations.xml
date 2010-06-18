@@ -36,7 +36,7 @@
       <member>
         <link linkend="scilab2c">Scilab2C Code Generator</link>,
         <link linkend="scilab2c_data_annotations">Data annotations</link>,
-        <link linkend="scilab2c_function_annotations">Functions annotations</link>
+        <link linkend="scilab2c_functions_annotations">Functions annotations</link>
       </member>
      </simplelist>
   </refsection>
