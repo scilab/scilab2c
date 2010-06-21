@@ -300,27 +300,27 @@ PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file',
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
-FunctionName = 'fix'; //BJ : Done AS : Float_Done 
+FunctionName = 'fix'; //BJ : Done AS : Float_Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
-FunctionName = 'floor'; //BJ : Done AS : Float_Done 
+FunctionName = 'floor'; //BJ : Done AS : Float_Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
-FunctionName = 'round'; //BJ : Done AS : Float_Done 
+FunctionName = 'round'; //BJ : Done AS : Float_Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
-FunctionName = 'int'; //BJ : Done AS : Float_Done 
+FunctionName = 'int'; //BJ : Done AS : Float_Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
-FunctionName = 'OpLogNot'; //BJ : Done AS : Float_Done 
+FunctionName = 'OpLogNot'; //BJ : Done AS : Float_Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
@@ -330,12 +330,12 @@ PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file',
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
-FunctionName = 'sign'; //BJ : Done AS : Float_Done 
+FunctionName = 'sign'; //BJ : Done AS : Float_Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
-FunctionName = 'chol'; //BJ : Done AS : Float_Done 
+FunctionName = 'chol'; //BJ : Done AS : Float_Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
@@ -381,7 +381,7 @@ PrintStringInfo('d2d2'+ArgSeparator+'d2',ClassFileName,'file','y');
 // PrintStringInfo('z2z2'+ArgSeparator+'z2',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
-FunctionName = 'atan'; //BJ : atan AS : Float_Done 
+FunctionName = 'atan'; //BJ : atan AS : Float_Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
@@ -432,32 +432,32 @@ PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file',
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
-FunctionName = 'acosh'; // BJ : Done AS : Float_Done 
+FunctionName = 'acosh'; // BJ : Done AS : Float_Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
-FunctionName = 'atanh'; // BJ : Done AS : Float_Done 
+FunctionName = 'atanh'; // BJ : Done AS : Float_Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
-FunctionName = 'sqrt'; // BJ : Done AS : Float_Done 
+FunctionName = 'sqrt'; // BJ : Done AS : Float_Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
-FunctionName = 'log'; // BJ : Done AS : Float_Done 
+FunctionName = 'log'; // BJ : Done AS : Float_Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
-FunctionName = 'log10'; // BJ : Done AS : Float_Done 
+FunctionName = 'log10'; // BJ : Done AS : Float_Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
-FunctionName = 'log1p'; // BJ : Ok AS : Float_Done 
+FunctionName = 'log1p'; // BJ : Ok AS : Float_Done
 			//--> log1p(%i) Not implemented in Scilab.
                         //WARNING z0log1pz0 will never happened.
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
@@ -781,7 +781,7 @@ PrintStringInfo('c0s2'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('z0z2'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('d0z2'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('z0d2'+ArgSeparator+'z2',ClassFileName,'file','y');
-   
+
 PrintStringInfo('s2s2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d2d2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('c2c2'+ArgSeparator+'c2',ClassFileName,'file','y');
@@ -842,7 +842,7 @@ PrintStringInfo('s0s2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d0d2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('c0c2'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('z0z2'+ArgSeparator+'z2',ClassFileName,'file','y');
-   
+
 PrintStringInfo('s2s2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d2d2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('c2c2'+ArgSeparator+'c2',ClassFileName,'file','y');
@@ -948,7 +948,7 @@ PrintStringInfo('c0c2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('z0z2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('g0g2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('g0g2'+ArgSeparator+'d2',ClassFileName,'file','y');
-   
+
 PrintStringInfo('s2s2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d2d2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('c2c2'+ArgSeparator+'s2',ClassFileName,'file','y');
@@ -992,13 +992,13 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,E
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
 FunctionName = 'OpLogAnd'; // AS : Double and Float_Done
-			   // ERROR : z0z0OpLogAndz0 -> z0z0OpLogAndd0 
+			   // ERROR : z0z0OpLogAndz0 -> z0z0OpLogAndd0
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
 FunctionName = 'OpLogOr'; // AS : Double and Float_Done
-			  // ERROR : z0z0OpLogAndz0 -> z0z0OpLogAndd0 
+			  // ERROR : z0z0OpLogAndz0 -> z0z0OpLogAndd0
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
@@ -1045,7 +1045,7 @@ PrintStringInfo('c0c2'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('d0z2'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('z0d2'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('z0z2'+ArgSeparator+'z2',ClassFileName,'file','y');
-   
+
 PrintStringInfo('s2s2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d2d2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('s2c2'+ArgSeparator+'c2',ClassFileName,'file','y');
@@ -1066,7 +1066,7 @@ PrintStringInfo('z2z2'+ArgSeparator+'z0',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'OpStar'; // BJ : Done AS : Float_Done
-			
+
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
@@ -1116,7 +1116,7 @@ PrintStringInfo('c0c2'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('d0z2'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('z0d2'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('z0z2'+ArgSeparator+'z2',ClassFileName,'file','y');
-   
+
 PrintStringInfo('s2s2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d2d2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('s2c2'+ArgSeparator+'c2',ClassFileName,'file','y');
@@ -1270,7 +1270,7 @@ PrintStringInfo('d0z2'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('z0d2'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('z0z2'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('g0g2'+ArgSeparator+'g2',ClassFileName,'file','y');
-   
+
 PrintStringInfo('s2s2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d2d2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('s2c2'+ArgSeparator+'c2',ClassFileName,'file','y');
@@ -1349,7 +1349,7 @@ PrintStringInfo('c0c2'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('d0z2'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('z0d2'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('z0z2'+ArgSeparator+'z2',ClassFileName,'file','y');
-   
+
 PrintStringInfo('s2s2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d2d2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('s2c2'+ArgSeparator+'c2',ClassFileName,'file','y');
@@ -1687,7 +1687,7 @@ PrintStringInfo(ArgSeparator,ClassFileName,'file','y');
 //NUT anche se metto Return funziona bene comunque! cerca di capire il motivo.
 //NUT limited use to zero in and out args only.
 // --- Annotation Function And Function List Function. ---
-FunctionName = 'return'; 
+FunctionName = 'return';
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
@@ -1746,7 +1746,7 @@ PrintStringInfo('z0z0z0'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('s0s0c0'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('s0c0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('s0c0c0'+ArgSeparator+'s0',ClassFileName,'file','y');
-	
+
 PrintStringInfo('c0s0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('c0c0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('c0s0c0'+ArgSeparator+'s0',ClassFileName,'file','y');
@@ -1769,7 +1769,7 @@ PrintStringInfo('z0z0z0'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('s0s0c0'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('s0c0s0'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('s0c0c0'+ArgSeparator+'s2',ClassFileName,'file','y');
-	
+
 PrintStringInfo('c0s0s0'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('c0c0s0'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('c0s0c0'+ArgSeparator+'s2',ClassFileName,'file','y');
@@ -1967,10 +1967,11 @@ PrintStringInfo('z2d2d0d2'+ArgSeparator,ClassFileName,'file','y');
 PrintStringInfo('z2d2d2d2'+ArgSeparator,ClassFileName,'file','y');
 
 // Hypermatrix management
+PrintStringInfo('d3d0d0'+ArgSeparator,ClassFileName,'file','y');
 PrintStringInfo('d3d0d0d0d0'+ArgSeparator,ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
-FunctionName = 'OpIns'; // AS : Done  AS : Float_Done	
+FunctionName = 'OpIns'; // AS : Done  AS : Float_Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
@@ -2203,7 +2204,7 @@ PrintStringInfo('s0g2f0'+ArgSeparator,ClassFileName,'file','y');
 PrintStringInfo('s2g2f0'+ArgSeparator,ClassFileName,'file','y');
 PrintStringInfo('d0g2f0'+ArgSeparator,ClassFileName,'file','y');
 PrintStringInfo('d2g2f0'+ArgSeparator,ClassFileName,'file','y');
-PrintStringInfo('s0g2f0'+ArgSeparator+'i0',ClassFileName,'file','y'); //NUT la mput e' strana 
+PrintStringInfo('s0g2f0'+ArgSeparator+'i0',ClassFileName,'file','y'); //NUT la mput e' strana
 PrintStringInfo('s2g2f0'+ArgSeparator+'i0',ClassFileName,'file','y');
 PrintStringInfo('d0g2f0'+ArgSeparator+'i0',ClassFileName,'file','y');
 PrintStringInfo('d2g2f0'+ArgSeparator+'i0',ClassFileName,'file','y');
@@ -2222,8 +2223,8 @@ PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
 ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
 PrintStringInfo('NIN=          3',ClassFileName,'file','y');
 PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
-PrintStringInfo('OUT(1).TP=    FA_TP_USER',ClassFileName,'file','y'); 
-PrintStringInfo('OUT(1).SZ(1)= ''1''',ClassFileName,'file','y'); 
+PrintStringInfo('OUT(1).TP=    FA_TP_USER',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= ''1''',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(2)= FA_SZ_RTMAX(FA_SZ_FROM_VAL(IN(1).VAL,IN(1).TP))',ClassFileName,'file','y');
 
 // --- Function List Class. ---
@@ -2269,7 +2270,7 @@ FunctionName = 'mclose';
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
-  
+
 // ---------------------
 // --- Class Mseek. ---
 // ---------------------
@@ -3118,43 +3119,43 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 
 
 // ////////////////////////////////////////////
-// /////PARTE INTRODOTTA DA ALBERTO MOREA 
+// /////PARTE INTRODOTTA DA ALBERTO MOREA
 // /////////////////////////////////////////////
 // ///////////////////////////////////////////////
 
 // // DOMAINS DEFINITION  FOR EVERY CLASS-LEADER IN SCI2C LIBRARY
 
-// // In the  following  lets: 
+// // In the  following  lets:
 // //	N,R ,C     are the  standard sets of integer,real ,complex numbers
-// //	 I,J c R   are intervals of real numbers 
-// //   {}  the empty set  
-// //	  Sel={'r','c'}  or {0,1}   are the selection sets r=row,c=column 
+// //	 I,J c R   are intervals of real numbers
+// //   {}  the empty set
+// //	  Sel={'r','c'}  or {0,1}   are the selection sets r=row,c=column
 // //	  B={T,F} is Boolean set
-// //   F is the standard set of File IDentify  files  
+// //   F is the standard set of File IDentify  files
 // //	  G is the standard alphanumeric string domain
 
-// // For every  sci2c function library class  we reported  
-// // the domains , annotations only for the class-leader 
+// // For every  sci2c function library class  we reported
+// // the domains , annotations only for the class-leader
 
 // //  Example    [y1,y2]=Fun(x1,x2,x3) : scilab library  function call
 
-// // Domain RxNxSel->{R,R}   :the first input element  is real number ,the second is integer , 
+// // Domain RxNxSel->{R,R}   :the first input element  is real number ,the second is integer ,
 // // the last is in the selection set
 // // The first output and the second are real numbers
 
-// // Notice : only   default (double) precision are considered for real and complex data 
-// // The dimension of the input/output data are provided in the mapping schema 
+// // Notice : only   default (double) precision are considered for real and complex data
+// // The dimension of the input/output data are provided in the mapping schema
 
-// //    d0 =  double real  scalar 
+// //    d0 =  double real  scalar
 // //    d2 =  double real vector or matrix
-// //    z0=  double complex scalar 
+// //    z0=  double complex scalar
 // //    z2= double complex  vector or matrix
 
 // // ---------------------
 // // --- Class Global. ---
 // // ---------------------
 
-// // DOMAINS   G -> R  
+// // DOMAINS   G -> R
 
 // //////////////////////////////////
 
@@ -3163,7 +3164,7 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class Float. ---
 // // ---------------------
 
-// // DOMAINS   R -> R   
+// // DOMAINS   R -> R
 
 // //////////////////////////////////
 
@@ -3172,7 +3173,7 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class Double. ---
 // // ---------------------
 
-// // DOMAINS   R -> R   
+// // DOMAINS   R -> R
 
 // //////////////////////////////////
 
@@ -3180,8 +3181,8 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class FloatComplex. ---
 // // ----------------------------
 
-// // DOMAINS      1)R -> C         
-// //              2)C -> C  
+// // DOMAINS      1)R -> C
+// //              2)C -> C
 
 // /////////////////////////////////
 
@@ -3189,8 +3190,8 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class DoubleComplex. ---
 // // ----------------------------
 
-// // DOMAINS     1) R -> C         
-// //             2) C -> C  
+// // DOMAINS     1) R -> C
+// //             2) C -> C
 
 // /////////////////////////////////
 
@@ -3198,8 +3199,8 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class Sin. ---
 // // ------------------
 
-// // DOMAINS   1) IcR -> JcR       
-// //           2) C -> C    
+// // DOMAINS   1) IcR -> JcR
+// //           2) C -> C
 
 // /////////////////////////////////
 
@@ -3207,49 +3208,49 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class Atan. ---
 // // -------------------
 
-// // DOMAINS     1) IcR -> JcR  
-// //             2) C -> C 
+// // DOMAINS     1) IcR -> JcR
+// //             2) C -> C
 // //             3) RxR -> JcR
-             
+
 // /////////////////////////////////
 
 // // -------------------
 // // --- Class Sqrt. ---
 // // -------------------
 
-// // DOMAINS     1) IcR -> JcR  
-// //             2) R -> R 
+// // DOMAINS     1) IcR -> JcR
+// //             2) R -> R
 // //             3) C -> C
-             
+
  // /////////////////////////////////
 
 // // --------------------
 // // --- Class Zeros. ---
 // // --------------------
 
-// // DOMAINS        1) {}->R 
-// //                2) NxN -> R 
-// //                3) R -> R  
+// // DOMAINS        1) {}->R
+// //                2) NxN -> R
+// //                3) R -> R
 // //                4) C -> R
-                
+
 // /////////////////////////////////
 
 // // --------------------
 // // --- Class Sum. ---
 // // --------------------
 
-// // DOMAINS      1) R -> R  
+// // DOMAINS      1) R -> R
 // //              2) C -> C
 // //              3) RxSel -> R
 // //              4) CxSel -> R
-              
+
  // /////////////////////////////////
 
 // // --------------------
 // // --- Class Abs. ---
 // // --------------------
 
-// // DOMAINS    1) R -> R+  
+// // DOMAINS    1) R -> R+
 // //            2) C -> R+
 
 // /////////////////////////////////
@@ -3258,9 +3259,9 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class OpDotStar. ---
 // // ------------------------
 
-// // DOMAINS        1) RxR -> R 
-// //                2) CxC -> C 
-// //                3) RxC -> C  
+// // DOMAINS        1) RxR -> R
+// //                2) CxC -> C
+// //                3) RxC -> C
 // //                4) CxR -> C
 
 // /////////////////////////////////
@@ -3269,8 +3270,8 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class OpDotHat. ---
 // // ------------------------
 
-// // DOMAINS        1) RxR -> R 
-// //                2) CxC -> C 
+// // DOMAINS        1) RxR -> R
+// //                2) CxC -> C
 
 // /////////////////////////////////
 
@@ -3278,8 +3279,8 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class OpLogEq. ---
 // // ----------------------
 
-// // DOMAINS        1) RxR -> B 
-// //                2) CxC -> B 
+// // DOMAINS        1) RxR -> B
+// //                2) CxC -> B
 // //                3) GxG -> B
 
 // /////////////////////////////////
@@ -3288,9 +3289,9 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class OpStar. ---
 // // ---------------------
 
-// // DOMAINS        1) RxR -> R 
-// //                2) CxC -> C 
-// //                3) RxC -> C  
+// // DOMAINS        1) RxR -> R
+// //                2) CxC -> C
+// //                3) RxC -> C
 // //                4) CxR -> C
 
 // /////////////////////////////////
@@ -3299,7 +3300,7 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class OpApex. ---
 // // ---------------------
 
-// // DOMAINS        1) R -> R 
+// // DOMAINS        1) R -> R
 // //                2) C -> C
 
 // /////////////////////////////////
@@ -3308,13 +3309,13 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class OpPlus. ---
 // // ---------------------
 
-// // DOMAINS        1) R -> R 
-// //                2) C -> C 
-// //                3) RxR -> R  
+// // DOMAINS        1) R -> R
+// //                2) C -> C
+// //                3) RxR -> R
 // //                4) CxC -> C
 // //                5) RxC -> C
-// //                6) CxR -> C 
-// //                7) GxG -> G 
+// //                6) CxR -> C
+// //                7) GxG -> G
 
 // /////////////////////////////////
 
@@ -3322,12 +3323,12 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class OpMinus. ---
 // // ----------------------
 
-// // DOMAINS        1) R -> R 
-// //                2) C -> C 
-// //                3) RxR -> R  
+// // DOMAINS        1) R -> R
+// //                2) C -> C
+// //                3) RxR -> R
 // //                4) CxC -> C
 // //                5) RxC -> C
-// //                6) CxR -> C 
+// //                6) CxR -> C
 
 
 // /////////////////////////////////
@@ -3336,8 +3337,8 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class OpRc. ---
 // // -------------------
 
-// // DOMAINS        1) RxR -> R 
-// //                2) CxC -> C 
+// // DOMAINS        1) RxR -> R
+// //                2) CxC -> C
 
 // /////////////////////////////////
 
@@ -3345,8 +3346,8 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class OpCc. ---
 // // -------------------
 
-// // DOMAINS        1) RxR -> R 
-// //                2) CxC -> C 
+// // DOMAINS        1) RxR -> R
+// //                2) CxC -> C
 
 // /////////////////////////////////
 
@@ -3354,9 +3355,9 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class Find. ---
 // // -------------------
 
-// // DOMAINS        1) R -> N 
-// //                2) R -> {N,N} 
-// //                3) RxN -> N  
+// // DOMAINS        1) R -> N
+// //                2) R -> {N,N}
+// //                3) RxN -> N
 // //                4) RxN ->{N,N}
 
 // /////////////////////////////////
@@ -3365,9 +3366,9 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class Length. ---
 // // ---------------------
 
-// // DOMAINS        1) R -> N 
-// //                2) C -> N 
-// //                3) G -> N 
+// // DOMAINS        1) R -> N
+// //                2) C -> N
+// //                3) G -> N
 
 // /////////////////////////////////
 
@@ -3375,9 +3376,9 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class Size. ---
 // // -------------------
 
-// // DOMAINS        1) R -> {N,N} 
-// //                2) C -> {N,N} 
-// //                3) RxSel -> {N,N} 
+// // DOMAINS        1) R -> {N,N}
+// //                2) C -> {N,N}
+// //                3) RxSel -> {N,N}
 // //                4) CxSel -> {N,N}
 
 // /////////////////////////////////
@@ -3385,7 +3386,7 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // ---------------------
 // // --- Class Return. ---
 // // ---------------------
-// // DOMAINS        1) {} -> {} 
+// // DOMAINS        1) {} -> {}
 
 // /////////////////////////////////
 
@@ -3393,7 +3394,7 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class OpColon. ---
 // // ----------------------
 
-// // DOMAINS        1) RxR -> R 
+// // DOMAINS        1) RxR -> R
 // //                2) RxRxR -> R
 
 // /////////////////////////////////
@@ -3402,7 +3403,7 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class IsEmpty. ---
 // // ----------------------
 
-// // DOMAINS        1) R -> B 
+// // DOMAINS        1) R -> B
 // //                2) C -> B
 
 // /////////////////////////////////
@@ -3411,7 +3412,7 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class Trace. ---
 // // ----------------------
 
-// // DOMAINS        1) R -> R 
+// // DOMAINS        1) R -> R
 // //                2) C -> C
 
 // ////////////////////////////////
@@ -3432,7 +3433,7 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class OpExt. ---
 // // --------------------
 
-// // DOMAINS        1) RxR   -> R  
+// // DOMAINS        1) RxR   -> R
 // //                2) CxR   -> C
 // //                3) CxRxR -> C
 
@@ -3442,7 +3443,7 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class Disp. ---
 // // -------------------
 
-// // DOMAINS        1) R -> R  
+// // DOMAINS        1) R -> R
 // //                2) C -> R
 // //                3) G -> R
 
@@ -3452,7 +3453,7 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class OpEqual. ---
 // // ----------------------
 
-// // DOMAINS        1) R -> R  
+// // DOMAINS        1) R -> R
 // //                2) C -> C
 // //                3) G -> G
 
@@ -3510,20 +3511,20 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class Convol. ---
 // // ---------------------
 
-// // DOMAINS         1) RxR->R   
-                   // 2) CxC->C  
-                   // 3) RxC->C  
+// // DOMAINS         1) RxR->R
+                   // 2) CxC->C
+                   // 3) RxC->C
                    // 4) CxR->C
-                   // 5) RxR->{R,R}   
-                   // 6) CxC->{C,C}  
-                   // 7) RxC->{C,C} 
-                   // 8) CxR->{C,C}  
+                   // 5) RxR->{R,R}
+                   // 6) CxC->{C,C}
+                   // 7) RxC->{C,C}
+                   // 8) CxR->{C,C}
                    // 9) CxC->{C,C}
-                  // 10) RxRxR->{R,R} 
-                  // 11) RxCxC->{C,C}   
+                  // 10) RxRxR->{R,R}
+                  // 11) RxCxC->{C,C}
                   // and so on …..
-                  
- 
+
+
 // ////////////////////////////////
 
 
@@ -3531,58 +3532,58 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class IFFT. ---
 // // -------------------
 
-// // DOMAINS         1) R->C   
-                   // 2) C->C  
-                   
+// // DOMAINS         1) R->C
+                   // 2) C->C
+
  // ////////////////////////////////
 
 // // ------------------
 // // --- Class FFT. ---
 // // ------------------
 
-// // DOMAINS         1) R->C   
-                   // 2) RxN->C  
-                   // 3) C->C  
+// // DOMAINS         1) R->C
+                   // 2) RxN->C
+                   // 3) C->C
                    // 4) CxN->C
-                   // 5) RxNxN->C   
-                   // 6) CxNxN->C  
+                   // 5) RxNxN->C
+                   // 6) CxNxN->C
                    // 7) RxNxNxN->C
                    // 8) CxNxNxN->C
-                   
+
 // ////////////////////////////////
 
 // // -----------------------
 // // --- Class FFTShift. ---
 // // -----------------------
 
-// // DOMAINS         1) R->R  
-                   // 2) C->C  
-                   // 3) RxR->R  
+// // DOMAINS         1) R->R
+                   // 2) C->C
+                   // 3) RxR->R
                    // 4) RxG->R
-                   // 5) CxR->C   
-                   // 6) CxG->C 
-                   
-// ////////////////////////////////                  
-                   
+                   // 5) CxR->C
+                   // 6) CxG->C
+
+// ////////////////////////////////
+
 // // --------------------
 // // --- Class Meanf. ---
 // // --------------------
 
-// // DOMAINS         1) R->R  
-                   // 2) C->C  
-                   // 3) CxSel->C  
+// // DOMAINS         1) R->R
+                   // 2) C->C
+                   // 3) CxSel->C
                    // 4) RxSel->R
-                   
+
 // ////////////////////////////////
 
 // // --------------------
 // // --- Class Frmag. ---
 // // --------------------
 
-// // DOMAINS         1) RxN->R  
-                   // 2) RxN->{R,R}   
-                   // 3) RxRxN->R  
-                   // 4) RxRxN->{R,R} 
+// // DOMAINS         1) RxN->R
+                   // 2) RxN->{R,R}
+                   // 3) RxRxN->R
+                   // 4) RxRxN->{R,R}
 
 // ////////////////////////////////
 
@@ -3590,41 +3591,41 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 // // --- Class Lev. ---
 // // ------------------
 
-// // DOMAINS         1) R->R  
-                   // 2) R->{R,R}   
+// // DOMAINS         1) R->R
+                   // 2) R->{R,R}
                    // 3) R->{R,R,R}
-                   // 4) C->C                   
-                   // 5) C->{C,C} 
-                   // 6) C->{C,C,C} 
-                   
+                   // 4) C->C
+                   // 5) C->{C,C}
+                   // 6) C->{C,C,C}
+
 // ////////////////////////////////
 
 // // --------------------------
 // // --- Class OpBackSlash. ---
 // // --------------------------
 
-// // DOMAINS         1) RxR->R   
-                   // 2) CxC->C  
-                   // 3) RxC->C  
+// // DOMAINS         1) RxR->R
+                   // 2) CxC->C
+                   // 3) RxC->C
                    // 4) CxR->C
-                   
+
 // ////////////////////////////////
 
 // // -----------------------
 // // --- Class Cepstrum. ---
 // // -----------------------
 
-// // DOMAINS         1) RxR->C  
-                   // 2) RxC->C 
-                   
+// // DOMAINS         1) RxR->C
+                   // 2) RxC->C
+
 // ////////////////////////////////
 
 // // -----------------------
 // // --- Class Spec. ---
 // // -----------------------
 
-// // DOMAINS         1) R->R   
-                   // 2) C->C  
+// // DOMAINS         1) R->R
+                   // 2) C->C
                    // 3) R->{R,R}
                    // 4) C->{C,C}
 
