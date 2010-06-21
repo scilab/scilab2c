@@ -33,6 +33,8 @@
 
 #define z2dispd0(in,size)		zdispa(in,size[0],size[1])
 
+#define d3dispd0(in,size)       ddisph(in,size[0],size[1],size[2])
+
 #define g2dispd0(in, size)		printf("%s\n",in)
 
 #endif /* __INT_DISP_H__ */

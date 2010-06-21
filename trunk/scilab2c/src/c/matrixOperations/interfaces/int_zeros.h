@@ -1,6 +1,7 @@
 /*
  * Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
  * Copyright (C) 2008-2008 - INRIA - Bruno JOFRET
+ * Copyright (C) 2010-2010 - DIGITEO - Bruno JOFRET
  * 
  * This file must be used under the terms of the CeCILL.
  * This source file is licensed as described in the file COPYING, which
@@ -49,5 +50,5 @@
 
 #define z2zerosz2(in,size,out)		zzerosa(out, size[0], size[1])
 
-
+#define d0d0d0zerosd3(in1, in2, in3, out) dzerosh(out, in1, in2, in3);
 #endif /* !__INT_ZEROS_H__ */

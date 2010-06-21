@@ -61,6 +61,12 @@ EXTERN_MATOPS void dzerosa ( double* in , int rows ,int cols );
 */
 EXTERN_MATOPS void zzerosa ( doubleComplex* in , int rows ,int cols );
 
+/*
+** \brief create a double complex  matrix full of one
+*/
+EXTERN_MATOPS void dzerosh ( double* in , int rows ,int cols , int levels);
+
+
 #ifdef  __cplusplus
 } /* extern "C" */
 #endif
