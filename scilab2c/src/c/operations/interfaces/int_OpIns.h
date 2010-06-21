@@ -357,8 +357,8 @@
 /* a(x,y,z) = b */
 
 #define s3s0s0s0s0OpIns(in, size1, row, col, level, newVal)   \
-    in[(row - 1) + (col - 1) * size1[0] + (level - 1) * size1[0] * size1[1]] = newVal;
+    in[(int) ((row - 1) + (col - 1) * size1[0] + (level - 1) * size1[0] * size1[1])] = newVal;
 
 #define d3d0d0d0d0OpIns(in, size1, row, col, level, newVal)   \
-    in[(row - 1) + (col - 1) * size1[0] + (level - 1) * size1[0] * size1[1]] = newVal;
+    in[(int) ((row - 1) + (col - 1) * size1[0] + (level - 1) * size1[0] * size1[1])] = newVal;
 #endif /* !__OPINS_H__ */

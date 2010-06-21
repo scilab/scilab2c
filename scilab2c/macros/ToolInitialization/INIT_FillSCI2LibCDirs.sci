@@ -1996,6 +1996,12 @@ PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(1)= FA_MUL(IN(2).SZ(1),IN(2).SZ(2))',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(2)= FA_MUL(IN(3).SZ(1),IN(3).SZ(2))',ClassFileName,'file','y');
 
+PrintStringInfo('NIN=          4',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= FA_MUL(IN(2).SZ(1),IN(2).SZ(2))',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= FA_MUL(IN(3).SZ(1),IN(3).SZ(2))',ClassFileName,'file','y');
+
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('s2s0'+ArgSeparator+'s0',ClassFileName,'file','y');
@@ -2025,6 +2031,12 @@ PrintStringInfo('z2d0d0'+ArgSeparator+'z0',ClassFileName,'file','y');
 PrintStringInfo('z2d2d0'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('z2d0d2'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('z2d2d2'+ArgSeparator+'z2',ClassFileName,'file','y');
+
+// Hypermatrix Management
+PrintStringInfo('s3s0'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('d3d0'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('d3d0d0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('d3s0s0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'OpExt'; // AS : Done  AS : Float_Done
