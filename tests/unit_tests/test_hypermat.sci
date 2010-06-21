@@ -12,11 +12,12 @@
 
 function test_hypermat()
   a = zeros(2,3,4);
-  //a(2,2,2) = 2;
   
-  b = zeros(2,5);
-  b(2,2) = 2;
+  for i = 1:24
+    a(i) = i
+  end
   
   disp(a);
-  disp(b);
+  
+  
 endfunction
