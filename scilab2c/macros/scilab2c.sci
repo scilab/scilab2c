@@ -12,15 +12,15 @@
 
 function scilab2c(varargin)
   [lhs, rhs] = argn();
-  
+
   select rhs
-// 
+//
 // scilab2c()
 //
    case 0
     sci2c_gui();
     return
-// 
+//
 // scilab2c(UserScilabMainFile, CCodeOutputDir)
 //
    case 2
@@ -102,7 +102,7 @@ function scilab2c(varargin)
     RunMode = varargin(4);
 	BuildTool = varargin(5);
   else
-// 
+//
 // Calling scilab2c with more than understood values
 //
 error(msprintf(gettext("%s: Wrong number of input argument(s): %d expected.\n"),"scilab2c",2));
@@ -113,7 +113,12 @@ error(msprintf(gettext("%s: Wrong number of input argument(s): %d expected.\n"),
   runscicode(UserScilabMainFile, UserSciFilesPaths);
 // --- ASK USER FOR CONTINUATION. ---
 
-  userchoice = messagebox("Exection Succesfull. Start translation ?", "modal", "info", ["Yes" "No"])
+  // Do not open confirmation box if we are not in STD mode.
+  if(getscilabmode() == "STD")
+    userchoice = messagebox("Exection Succesfull. Start translation ?", "modal", "info", ["Yes" "No"])
+  else
+    userchoice = 1
+  end
   if (userchoice == 1)
 // --- LAUNCH SCI2C ---
 	runsci2c(UserScilabMainFile, UserSciFilesPaths, CCodeOutputDir, RunMode, BuildTool);
