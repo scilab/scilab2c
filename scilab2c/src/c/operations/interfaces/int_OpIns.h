@@ -1,15 +1,16 @@
 /*
-**  -*- C -*-
-**
-** 
-** Made by  Raffaele.Nutricato@tiscali.it
-**
-** Copyright Raffaele Nutricato
-*/
-
-/*
-	Modify by Arnaud Torset : 20/02/09
-*/
+ *  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+ *  Copyright (C) 2009 - POLIBA - Raffaele NUTRICATO
+ *  Copyright (C) 2009 - INRIA - Arnaud TORSET
+ *  Copyright (C) 2010-2010 - DIGITEO - Bruno JOFRET
+ *
+ *  This file must be used under the terms of the CeCILL.
+ *  This source file is licensed as described in the file COPYING, which
+ *  you should have received as part of this distribution.  The terms
+ *  are also available at
+ *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+ *
+ */
 
 #ifndef __OPINS_H__
 #define __OPINS_H__
@@ -23,6 +24,10 @@
 #define c2s0c0OpIns(in,size,indice,newVal)	in[(int) indice-1]=newVal;
 
 #define z2d0z0OpIns(in,size,indice,newVal)	in[(int) indice-1]=newVal;
+
+#define s3s0s0OpIns(in,size,indice,newVal)  in[(int) indice-1]=newVal;
+
+#define d3d0d0OpIns(in,size,indice,newVal)  in[(int) indice-1]=newVal;
 
 /* a([1 2])=2 */
 #define s2s2s0OpIns(in,size1,indices,size2,newVal)	{int i;\
@@ -41,7 +46,7 @@
 #define z2d2z0OpIns(in,size1,indices,size2,newVal)	{int i;\
 									for (i=0;i<size2[0]*size2[1];i++)	in[(int)indices[i]-1]=newVal;\
 									}
-/* a([1 2])=[3,1] */								
+/* a([1 2])=[3,1] */
 #define s2s2s2OpIns(in,size1,indices,size2,newVals,size3)	{int i;\
 										for (i=0;i<size2[0]*size3[1];i++)	in[(int)indices[i]-1]=newVals[i];\
 										}
@@ -58,9 +63,9 @@
 #define z2d2z2OpIns(in,size1,indices,size2,newVals,size3)	{int i;\
 										for (i=0;i<size2[0]*size3[1];i++)	in[(int)indices[i]-1]=newVals[i];\
 										}
-									
 
-/* a(1,3)=2 */	
+
+/* a(1,3)=2 */
 #define s2s0s0s0OpIns(in,size,row,col,newVal)	in[(int)(col-1)*size[0]+(int)row-1]=newVal;
 
 #define d2d0d0d0OpIns(in,size,row,col,newVal)	in[(int)(col-1)*size[0]+(int)row-1]=newVal;
@@ -69,8 +74,8 @@
 
 #define z2d0d0z0OpIns(in,size,row,col,newVal)	in[(int)(col-1)*size[0]+(int)row-1]=newVal;
 
-	
-/* a(1,[3,1])=2 */	
+
+/* a(1,[3,1])=2 */
 #define s2s0s2s0OpIns(in,size1,row,cols,size2,newVal)	{int i;\
 									for (i=0;i<size2[0]*size2[1];i++) 	in[(int)(cols[i]-1)*size1[0]+(int)row-1]=newVal;\
 									}
@@ -85,10 +90,10 @@
 
 #define z2d0d2z0OpIns(in,size1,row,cols,size2,newVal)	{int i;\
 									for (i=0;i<size2[0]*size2[1];i++) 	in[(int)(cols[i]-1)*size1[0]+(int)row-1]=newVal;\
-									}						
+									}
 
-	
-/* a([3,1],1)=2 */	
+
+/* a([3,1],1)=2 */
 #define s2s2s0s0OpIns(in,size1,rows,size2,col,newVal)	{int i;\
 									for (i=0;i<size2[0]*size2[1];i++) 	in[(int)(col-1)*size1[0]+(int)rows[i]-1]=newVal;\
 									}
@@ -104,7 +109,7 @@
 #define z2d2d0z0OpIns(in,size1,rows,size2,col,newVal)	{int i;\
 									for (i=0;i<size2[0]*size2[1];i++) 	in[(int)(col-1)*size1[0]+(int)rows[i]-1]=newVal;\
 									}
-									
+
 /* a([3,1],[1 2])=2 */
 #define s2s2s2s0OpIns(in,size1,rows,size2,cols,size3,newVal)	{int i,j;\
 											for (i=0;i<size3[0]*size3[1];i++)\
@@ -129,7 +134,7 @@
 												for (j=0;j<size2[0]*size2[1];j++)\
 													in[(int)(cols[i]-1)*size1[0]+(int)rows[j]-1]=newVal;\
 											}
-/* a(1,[3,1])=[2,5] */	
+/* a(1,[3,1])=[2,5] */
 #define s2s0s2s2OpIns(in,size1,row,cols,size2,newVals,size3)	{int i;\
 											for (i=0;i<size2[0]*size2[1];i++)\
 											 	in[(int)(cols[i]-1)*size1[0]+(int)row-1]=newVals[i];\
@@ -148,8 +153,8 @@
 #define z2d0d2z2OpIns(in,size1,row,cols,size2,newVals,size3)	{int i;\
 											for (i=0;i<size2[0]*size2[1];i++)\
 											 	in[(int)(cols[i]-1)*size1[0]+(int)row-1]=newVals[i];\
-											}	
-/* a([3,1],1)=[2,5] */	
+											}
+/* a([3,1],1)=[2,5] */
 #define s2s2s0s2OpIns(in,size1,rows,size2,col,newVals,size3)	{int i;\
 											for (i=0;i<size2[0]*size2[1];i++)\
 												in[(int)(col-1)*size1[0]+(int)rows[i]-1]=newVals[i];\
@@ -194,9 +199,9 @@
 													for (j=0;j<size2[0]*size2[1];j++)\
 														in[(int)(cols[i]-1)*size1[0]+(int)rows[j]-1]=newVals[i*size4[0]+j];\
 												}
-												
-												
-/* Mixed types 
+
+
+/* Mixed types
 2 cases : we assign a real in a complex array => ok, we just have put the imaginary part to 0
 	    we assign a complex in a real array => ko, we can't enlarge the input matrix. So we just replace by the real part of the complex
 */
@@ -220,8 +225,8 @@
 
 #define z2d2d0OpIns(in,size1,indices,size2,newVal)	z2d2z0OpIns(in,size1,indices,size2,DoubleComplex(newVal,0))
 
-	
-/* a([1 2])=[3,1] */								
+
+/* a([1 2])=[3,1] */
 #define s2s2c2OpIns(in,size1,indices,size2,newVals,size3)	{int i;\
 										for (i=0;i<size2[0]*size3[1];i++)	in[(int)indices[i]-1]=creals(newVals[i]);\
 										}
@@ -238,9 +243,9 @@
 #define z2d2d2OpIns(in,size1,indices,size2,newVals,size3)	{int i;\
 										for (i=0;i<size2[0]*size3[1];i++)	in[(int)indices[i]-1]=DoubleComplex(newVals[i],0);\
 										}
-									
 
-/* a(1,3)=2 */	
+
+/* a(1,3)=2 */
 #define s2s0s0c0OpIns(in,size,row,col,newVal)	s2s0s0s0OpIns(in,size,row,col,creals(newVal))
 
 #define d2d0d0z0OpIns(in,size,row,col,newVal)	d2d0d0d0OpIns(in,size,row,col,zreals(newVal))
@@ -249,26 +254,26 @@
 
 #define z2d0d0d0OpIns(in,size,row,col,newVal)	z2d0d0z0OpIns(in,size,row,col,DoubleComplex(newVal,0))
 
-	
-/* a(1,[3,1])=2 */	
+
+/* a(1,[3,1])=2 */
 #define s2s0s2c0OpIns(in,size1,row,cols,size2,newVal)	s2s0s2s0OpIns(in,size1,row,cols,size2,creals(newVal))
 
 #define d2d0d2z0OpIns(in,size1,row,cols,size2,newVal)	d2d0d2d0OpIns(in,size1,row,cols,size2,zreals(newVal))
 
 #define c2s0s2s0OpIns(in,size1,row,cols,size2,newVal)	c2s0s2c0OpIns(in,size1,row,cols,size2,FloatComplex(newVal,0))
 
-#define z2d0d2d0OpIns(in,size1,row,cols,size2,newVal)	z2d0d2z0OpIns(in,size1,row,cols,size2,DoubleComplex(newVal,0))				
+#define z2d0d2d0OpIns(in,size1,row,cols,size2,newVal)	z2d0d2z0OpIns(in,size1,row,cols,size2,DoubleComplex(newVal,0))
 
-	
-/* a([3,1],1)=2 */	
+
+/* a([3,1],1)=2 */
 #define s2s2s0c0OpIns(in,size1,rows,size2,col,newVal)	s2s2s0s0OpIns(in,size1,rows,size2,col,creals(newVal))
 
 #define d2d2d0z0OpIns(in,size1,rows,size2,col,newVal)	d2d2d0d0OpIns(in,size1,rows,size2,col,zreals(newVal))
 
 #define c2s2s0s0OpIns(in,size1,rows,size2,col,newVal)	c2s2s0c0OpIns(in,size1,rows,size2,col,FloatComplex(newVal,0))
 
-#define z2d2d0d0OpIns(in,size1,rows,size2,col,newVal)	z2d2d0z0OpIns(in,size1,rows,size2,col,DoubleComplex(newVal,0))	
-									
+#define z2d2d0d0OpIns(in,size1,rows,size2,col,newVal)	z2d2d0z0OpIns(in,size1,rows,size2,col,DoubleComplex(newVal,0))
+
 /* a([3,1],[1 2])=2 */
 #define s2s2s2c0OpIns(in,size1,rows,size2,cols,size3,newVal)	s2s2s2s0OpIns(in,size1,rows,size2,cols,size3,creals(newVal))
 
@@ -276,10 +281,10 @@
 
 #define c2s2s2s0OpIns(in,size1,rows,size2,cols,size3,newVal)	c2s2s2c0OpIns(in,size1,rows,size2,cols,size3,FloatComplex(newVal,0))
 
-#define z2d2d2d0OpIns(in,size1,rows,size2,cols,size3,newVal)	z2d2d2z0OpIns(in,size1,rows,size2,cols,size3,DoubleComplex(newVal,0))	
+#define z2d2d2d0OpIns(in,size1,rows,size2,cols,size3,newVal)	z2d2d2z0OpIns(in,size1,rows,size2,cols,size3,DoubleComplex(newVal,0))
 
 
-/* a(1,[3,1])=[2,5] */	
+/* a(1,[3,1])=[2,5] */
 #define s2s0s2c2OpIns(in,size1,row,cols,size2,newVals,size3)	{int i;\
 											for (i=0;i<size2[0]*size2[1];i++)\
 											 	in[(int)(cols[i]-1)*size1[0]+(int)row-1]=creals(newVals[i]);\
@@ -298,8 +303,8 @@
 #define z2d0d2d2OpIns(in,size1,row,cols,size2,newVals,size3)	{int i;\
 											for (i=0;i<size2[0]*size2[1];i++)\
 											 	in[(int)(cols[i]-1)*size1[0]+(int)row-1]=DoubleComplex(newVals[i],0);\
-											}	
-/* a([3,1],1)=[2,5] */	
+											}
+/* a([3,1],1)=[2,5] */
 #define s2s2s0c2OpIns(in,size1,rows,size2,col,newVals,size3)	{int i;\
 											for (i=0;i<size2[0]*size2[1];i++)\
 												in[(int)(col-1)*size1[0]+(int)rows[i]-1]=creals(newVals[i]);\
@@ -348,5 +353,12 @@
 										for (j=0;j<size2[0]*size2[1];j++)\
 											in[(int)(cols[i]-1)*size1[0]+(int)rows[j]-1]=DoubleComplex(newVals[i*size4[0]+j],0);\
 									}
-																
+
+/* a(x,y,z) = b */
+
+#define s3s0s0s0s0OpIns(in, size1, row, col, level, newVal)   \
+    in[(row - 1) + (col - 1) * size1[0] + (level - 1) * size1[0] * size1[1]] = newVal;
+
+#define d3d0d0d0d0OpIns(in, size1, row, col, level, newVal)   \
+    in[(row - 1) + (col - 1) * size1[0] + (level - 1) * size1[0] * size1[1]] = newVal;
 #endif /* !__OPINS_H__ */
