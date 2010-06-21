@@ -71,6 +71,8 @@ EXTERN_STRING double cdispa (floatComplex* in, int rows, int columns);
 */
 EXTERN_STRING double zdispa (doubleComplex* in, int rows, int columns);
 
+    
+EXTERN_STRING double ddisph (double *in, int rows, int cols, int levels);
 
 EXTERN_STRING double g2dispd0(char *array,int* tmparraysize);
 
