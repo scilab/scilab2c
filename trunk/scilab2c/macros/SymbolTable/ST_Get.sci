@@ -46,18 +46,16 @@ TBSize(2)   = '';
 TBValue     = %nan;
 TBFindLike  = %nan;
 TBDimension = %nan;
-if (TBFlagfound == 0)
-   NEntries = max(size(SCI2CSymbolTable));
-   for countertable = 1:NEntries
-      if (mtlb_strcmp(Field_Name,SCI2CSymbolTable(countertable).Name))
-         TBFlagfound = TBFlagfound + 1;
-         TBType      = SCI2CSymbolTable(countertable).Type; // String
-         TBSize      = SCI2CSymbolTable(countertable).Size; // String
-         TBValue     = SCI2CSymbolTable(countertable).Value; 
-         TBFindLike  = SCI2CSymbolTable(countertable).FindLike; // Number: 0 or 1.
-         TBDimension = SCI2CSymbolTable(countertable).Dimension; // Number: 0 or 1 or 2.
-      end
-   end
+NEntries = max(size(SCI2CSymbolTable));
+for countertable = 1:NEntries
+  if (mtlb_strcmp(Field_Name,SCI2CSymbolTable(countertable).Name))
+    TBFlagfound = TBFlagfound + 1;
+    TBType      = SCI2CSymbolTable(countertable).Type; // String
+    TBSize      = SCI2CSymbolTable(countertable).Size; // String
+    TBValue     = SCI2CSymbolTable(countertable).Value; 
+    TBFindLike  = SCI2CSymbolTable(countertable).FindLike; // Number: 0 or 1.
+    TBDimension = SCI2CSymbolTable(countertable).Dimension; // Number: 0 or 1 or 2.
+  end
 end
 
 if (TBFlagfound > 1)
