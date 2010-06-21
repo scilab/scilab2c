@@ -19,5 +19,29 @@ function test_hypermat()
   
   disp(a);
   
+  for i = 1:24
+    disp(a(i))
+  end
+  
+  b = zeros(4,5,6);
+  
+  for i = 1:4
+    for j = 1:5
+      for k = 1:6
+        b(i,j,k) = (i - 1) + 4 * (j - 1) + 4 * 5 * (k - 1);
+      end
+    end
+  end
+  
+  disp(b);
+  
+  for k = 1:6
+    for j = 1:5
+      for i = 1:4
+        disp(b(i,j,k));
+      end
+    end
+  end
+  
   
 endfunction
