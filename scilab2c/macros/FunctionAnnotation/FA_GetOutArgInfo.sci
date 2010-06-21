@@ -24,15 +24,15 @@ function UpdatedOutArg = ...
 // --- Check input arguments. ---
 // ------------------------------
 SCI2CNInArgCheck(argn(2),9,9);
-
 // -----------------------
 // --- Initialization. ---
 // -----------------------
 UpdatedOutArg   = OutArg;
 for cntin = 1:NInArg
    IN(cntin).TP    = InArg(cntin).Type;
-   IN(cntin).SZ(1) = InArg(cntin).Size(1);
-   IN(cntin).SZ(2) = InArg(cntin).Size(2);
+   for _InArgSize=1:size(InArg(cntin).Size, '*')
+     IN(cntin).SZ(_InArgSize) = InArg(cntin).Size(_InArgSize);
+   end
    if ((isnan(InArg(cntin).Value)) & (GetSymbolDimension(InArg(cntin).Size) == 0))
       // #RNU_RES_B
       // IN(cntin).VAL = '__SCI2CNANSIZE'; //RNU: toglimi
@@ -97,46 +97,27 @@ for counterout = 1:NOutArg
    // This is a dynamic memory extension of a local variable and for the moment
    // we issue an error according to SCI2C specifications
    // #RNU_RES_E
-   tmpeval = eval(FunSizeAnnot(counterout,1));
-   if (IsNanSize(tmpeval))
-      if SharedInfo.ForExpr.OnExec == 0
+   for iterOutputPosition=1:size(FunSizeAnnot, '*')
+     tmpeval = eval(FunSizeAnnot(counterout,iterOutputPosition));
+     if (IsNanSize(tmpeval))
+       if SharedInfo.ForExpr.OnExec == 0
          EM_NanSize(ReportFileName);
-      else
-         UpdatedOutArg(counterout).Size(1) = string(tmpeval);
-      end
-   elseif(isnum(tmpeval))
-      if (eval(tmpeval) <= 0)
+       else
+         UpdatedOutArg(counterout).Size(iterOutputPosition) = string(tmpeval);
+       end
+     elseif(isnum(tmpeval))
+       if (eval(tmpeval) <= 0)
          EM_ZeroSize(ReportFileName);
-      else
-         UpdatedOutArg(counterout).Size(1) = string(tmpeval);
-      end
-   else
-      UpdatedOutArg(counterout).Size(1) = string(tmpeval);
-   end
-
-   tmpeval = eval(FunSizeAnnot(counterout,2));
-   if (IsNanSize(tmpeval))
-      if SharedInfo.ForExpr.OnExec == 0
-         EM_NanSize(ReportFileName);
-      else
-         // #RNU_RES_B
-         // If we are in for expression I prefer to issue the error later.
-         // #RNU_RES_E
-         UpdatedOutArg(counterout).Size(2) = string(tmpeval);
-      end
-   elseif(isnum(tmpeval))
-      if (eval(tmpeval) <= 0)
-         EM_ZeroSize(ReportFileName);
-      else
-         UpdatedOutArg(counterout).Size(2) = string(tmpeval);
-      end
-   else
-      UpdatedOutArg(counterout).Size(2) = string(tmpeval);
+       else
+         UpdatedOutArg(counterout).Size(iterOutputPosition) = string(tmpeval);
+       end
+     else
+       UpdatedOutArg(counterout).Size(iterOutputPosition) = string(tmpeval);
+     end
    end
 
    UpdatedOutArg(counterout).Value     = %nan;
    UpdatedOutArg(counterout).Dimension = GetSymbolDimension(UpdatedOutArg(counterout).Size);
    UpdatedOutArg(counterout).Scope     = 'Temp';//NUT anche su questo si puo' ragionare verifica anche la handleoperation.
 end
-
 endfunction
