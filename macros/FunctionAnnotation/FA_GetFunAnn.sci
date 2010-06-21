@@ -159,42 +159,28 @@ else
       // #RNU_RES_B
       // --- Read the Fun size annotation. ---
       // #RNU_RES_E
-      SCI2C_nelem = 1; // Useful for eval.
-      line_position = line_position + 1;
-      if (isempty(check_string) == %F)
-         tmpannstring = eval(SharedInfo.Annotations.FUNSIZE);
-         check_string = stripblanks(mgetl(inclsfid,1));
-         if (SCI2Cstrncmps1size(tmpannstring,check_string))
+      SCI2C_nelem = 0; // Useful for eval.
+      while(SCI2C_nelem < 2 | isempty(check_string) == %F)
+        SCI2C_nelem = SCI2C_nelem + 1
+        line_position = line_position + 1;
+        if (isempty(check_string) == %F)
+          tmpannstring = eval(SharedInfo.Annotations.FUNSIZE);
+          check_string = stripblanks(mgetl(inclsfid,1));
+          if (SCI2Cstrncmps1size(tmpannstring,check_string))
             // #RNU_RES_B
             PrintStringInfo('   Line '+string(line_position)+' - Function Size Annotation: '+' ""'+check_string+' ""',...
-               ReportFileName,'file','y');
+                            ReportFileName,'file','y');
             // #RNU_RES_E
-            FunSizeAnnot(cntout,1) = ...
-               stripblanks(part(check_string,length(tmpannstring)+1:length(check_string)));
-         end
-      else
-         PrintStringInfo(' ',ReportFileName,'both','y');
-         PrintStringInfo('SCI2CERROR: Line '+string(line_position)+' Function size annotation not found in file: '+SCI2CClassFileName,ReportFileName,'both','y');
-         PrintStringInfo(' ',ReportFileName,'both','y');
-         SCI2Cerror(' ');
-      end      
-      SCI2C_nelem = 2; // Useful for eval.
-      line_position = line_position + 1;
-      if (isempty(check_string) == %F)
-         tmpannstring = eval(SharedInfo.Annotations.FUNSIZE);
-         check_string = stripblanks(mgetl(inclsfid,1));
-         if (SCI2Cstrncmps1size(tmpannstring,check_string))
-            PrintStringInfo('   Line '+string(line_position)+' - Function Size Annotation: '+' ""'+check_string+' ""',...
-               ReportFileName,'file','y');
-            FunSizeAnnot(cntout,2) = ...
-               stripblanks(part(check_string,length(tmpannstring)+1:length(check_string)));
-         end
-      else
-         PrintStringInfo(' ',ReportFileName,'both','y');
-         PrintStringInfo('SCI2CERROR: Line '+string(line_position)+' Function type annotation (//_SCI2C_FUNSIZE:) not found in file: '+SCI2CClassFileName,ReportFileName,'both','y');
-         PrintStringInfo(' ',ReportFileName,'both','y');
-         SCI2Cerror(' ');
-      end      
+            FunSizeAnnot(cntout,SCI2C_nelem) = ...
+                stripblanks(part(check_string,length(tmpannstring)+1:length(check_string)));
+          end
+        else
+          PrintStringInfo(' ',ReportFileName,'both','y');
+          PrintStringInfo('SCI2CERROR: Line '+string(line_position)+' Function size annotation not found in file: '+SCI2CClassFileName,ReportFileName,'both','y');
+          PrintStringInfo(' ',ReportFileName,'both','y');
+          SCI2Cerror(' ');
+        end
+      end
    end
 end
 // --- End loop over the lines of the input file. ---

@@ -496,6 +496,16 @@ PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(1)= FA_SZ_FROM_VAL(IN(1).VAL,IN(1).TP)',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(2)= FA_SZ_FROM_VAL(IN(2).VAL,IN(2).TP)',ClassFileName,'file','y');
 
+PrintStringInfo('NIN=          3',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1',ClassFileName,'file','y');
+//Was FA_TP_USER
+//Cause some trouble if user specify some precision and if input(and also output) is complex.
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= FA_SZ_FROM_VAL(IN(1).VAL,IN(1).TP)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= FA_SZ_FROM_VAL(IN(2).VAL,IN(2).TP)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(3)= FA_SZ_FROM_VAL(IN(3).VAL,IN(3).TP)',ClassFileName,'file','y');
+
+
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 
@@ -520,6 +530,8 @@ PrintStringInfo('d0d0'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('d0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('d0d0'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d0d0'+ArgSeparator+'d2',ClassFileName,'file','y');
+
+PrintStringInfo('d0d0d0'+ArgSeparator+'d3',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'zeros'; // BJ : Done AS : Float_Done
@@ -1860,6 +1872,9 @@ PrintStringInfo('NOUT=         0',ClassFileName,'file','y');
 PrintStringInfo('NIN=          4',ClassFileName,'file','y');
 PrintStringInfo('NOUT=         0',ClassFileName,'file','y');
 
+PrintStringInfo('NIN=          5',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         0',ClassFileName,'file','y');
+
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('s2s0s0'+ArgSeparator,ClassFileName,'file','y');
@@ -1951,6 +1966,9 @@ PrintStringInfo('z2d0d2d2'+ArgSeparator,ClassFileName,'file','y');
 PrintStringInfo('z2d2d0d2'+ArgSeparator,ClassFileName,'file','y');
 PrintStringInfo('z2d2d2d2'+ArgSeparator,ClassFileName,'file','y');
 
+// Hypermatrix management
+PrintStringInfo('d3d0d0d0d0'+ArgSeparator,ClassFileName,'file','y');
+
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'OpIns'; // AS : Done  AS : Float_Done	
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
@@ -2040,6 +2058,8 @@ PrintStringInfo('d2'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('c2'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('z2'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('g2'+ArgSeparator+'d0',ClassFileName,'file','y');
+
+PrintStringInfo('d3'+ArgSeparator+'d0',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'disp'; // AS : Done  AS : Float_Done
