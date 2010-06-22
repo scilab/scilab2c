@@ -28,11 +28,16 @@ SCI2CNInArgCheck(argn(2),1,1);
 // --- End Initialization. ---
 // ---------------------------
 
-      
+
 PrintStringInfo('/*',FileName,'file','y');
 PrintStringInfo('** ************************************************',FileName,'file','y');
-PrintStringInfo('** hArtes/POLIBA SCILAB2C',FileName,'file','y');
-PrintStringInfo('** Contact: raffaele.nutricato@tiscali.it',FileName,'file','y');
+PrintStringInfo('** This file has been generated using',FileName,'file','y');
+PrintStringInfo('**      Scilab2C (Version 2.0)',FileName,'file','y');
+PrintStringInfo('**',FileName,'file','y');
+PrintStringInfo('** Please visit following links for more informations:',FileName,'file','y');
+PrintStringInfo('** Atoms Module: http://atoms.scilab.org/toolboxes/scilab2c',FileName,'file','y');
+PrintStringInfo('** Scilab2C Forge: http://forge.scilab.org/index.php/p/scilab2c/',FileName,'file','y');
+PrintStringInfo('** Scilab2C ML: http://forge.scilab.org/index.php/p/scilab2c/',FileName,'file','y');
 PrintStringInfo('** ************************************************',FileName,'file','y');
 PrintStringInfo('*/',FileName,'file','y');
 PrintStringInfo(' ',FileName,'file','y');

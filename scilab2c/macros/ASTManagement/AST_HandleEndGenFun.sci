@@ -7,7 +7,7 @@ function [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,ASTFunT
 // Structure of Funcall:
 // overloading function for "funcall" type tlist string function
 // this is a node of the AST
-// fields:     
+// fields:
 //     rhs  : a list
 //     name : string, the name of the function
 //     lhsnb: number, the number of function lhs
@@ -52,7 +52,7 @@ Flag_FunAlreadyCalled = 0;
 PrintStepInfo('Handling Funcall/Operation/Equal',FileInfo.Funct(nxtscifunnumber).ReportFileName,'file');
 // #RNU_RES_E
 //NUT: da sistemare senza le global
-global SCI2CSTACK 
+global SCI2CSTACK
 global StackPosition;
 global STACKDEDUG
 // ---------------------------
@@ -69,7 +69,7 @@ global STACKDEDUG
 if (ASTFunName == 'OpIns')
    SharedInfo.SkipNextEqual = 1;
    SharedInfo.Equal.Nins = SharedInfo.Equal.Nins + 1;
-   //NUT: Force ins to have 0 args. Double check it. 
+   //NUT: Force ins to have 0 args. Double check it.
    NOutArg = 0;
    // #RNU_RES_B
    //NUT: io aumenterei qui gli argomenti in ingresso della ins cosi qui vengono fatte tutte le modifiche del
@@ -78,7 +78,7 @@ if (ASTFunName == 'OpIns')
 
    // 1 more input argument containing the values to be inserted in the matrix.
    // #RNU_RES_E
-   NInArg = NInArg + 1; 
+   NInArg = NInArg + 1;
    InArg(NInArg).Name = SharedInfo.Equal.InArg(SharedInfo.Equal.Nins).Name;
    InArg(NInArg).Scope = SharedInfo.Equal.InArg(SharedInfo.Equal.Nins).Scope;
 elseif (ASTFunName == 'global')
@@ -97,8 +97,7 @@ elseif (ASTFunName == 'global')
    if (NOutArg ~= 1)
       PrintStringInfo(' ',ReportFileName,'both','y');
       PrintStringInfo('SCI2CERROR: Unexpected number of output arguments for global function.',ReportFileName,'both','y');
-      PrintStringInfo('SCI2CERROR: Please report this error to:',ReportFileName,'both','y');
-      PrintStringInfo('SCI2CERROR: raffaele.nutricato@tiscali.it',ReportFileName,'both','y');
+      PrintStringInfo('SCI2CERROR: Please report this error to: http://forge.scilab.org/index.php/p/scilab2c/issues/',ReportFileName,'both','y');
       PrintStringInfo(' ',ReportFileName,'both','y');
       SCI2Cerror(' ');
    end
@@ -145,13 +144,13 @@ if (ASTFunName == 'global')
       C_GenDeclarations(InArg(1),CGblDeclarFileName,IndentLevelGlobal,ReportFileName,FlagExt,SharedInfo.ResizeApproach);
    else
       // #RNU_RES_B
-      // That means it is the first time we encounter 
+      // That means it is the first time we encounter
       // this global variable and in C this means that
       // we don't have to do nothing.
       // #RNU_RES_E
       // SharedInfo.SkipNextFun = SharedInfo.SkipNextFun + 1;
       SharedInfo.SkipNextFun = 1;
-      
+
       InArg(1).Type      = 'GBLToBeDefined';
       InArg(1).Size(1)   = 'GBLToBeDefined';
       InArg(1).Size(2)   = 'GBLToBeDefined';
@@ -159,11 +158,11 @@ if (ASTFunName == 'global')
       InArg(1).FindLike  = %nan;
       InArg(1).Dimension = %nan;
       InArg(1).Scope     = 'Global';
-      
-      // #RNU_RES_B  
+
+      // #RNU_RES_B
       PrintStringInfo('***Putting global variable in the symbol table***',ReportFileName,'file','y');
       PrintStringInfo('   Symbol ""'+InArg(1).Name+'""',ReportFileName,'file','y');
-   
+
       PrintStringInfo('   Type:      '+InArg(1).Type,ReportFileName,'file','y');
       PrintStringInfo('   Size(1):   '+string(InArg(1).Size(1)),ReportFileName,'file','y');
       PrintStringInfo('   Size(2):   '+string(InArg(1).Size(2)),ReportFileName,'file','y');
@@ -173,7 +172,7 @@ if (ASTFunName == 'global')
       PrintStringInfo('   Scope:     '+string(InArg(1).Scope),ReportFileName,'file','y');
       PrintStringInfo(' ',ReportFileName,'file','y');
       // #RNU_RES_E
-      
+
       ST_Set(InArg(1).Name,...
          InArg(1).Type,...
          InArg(1).Size,...
@@ -202,7 +201,7 @@ if (SharedInfo.ResizeApproach=='REALLOC_ALL_RESIZE_ALL')
          InArg(cntin).Size(2) = '__'+InArg(cntin).Name+'Size[1]';
       end
       //#RNUREM_MERNU vedi se la seguente fa casino l'ho aggiunta in modo che agia=ones(1,3) sia generata come realloc ma non ho verificato.
-      tmpscope = InArg(cntin).Scope; 
+      tmpscope = InArg(cntin).Scope;
       lengthNumber = length('Number_');
       if (part(tmpscope,1:lengthNumber) == 'Number_')
       //#RNUREM_ME RNU il problema e' che ones(3,1) allora l'output e' 3,1 e come faccio a trasformare 3 e 1 in simboli in modo tale che realloco anziche' allocare
@@ -237,26 +236,26 @@ elseif ((ASTFunName == 'OpMinus') & (NInArg == 1) & (InArg(1).Dimension == 0)&(I
    // -1 is not translated as tmp = OpMinus(1), but
    // it is considered as a single entity "-1"
    // #RNU_RES_E
-   SharedInfo.SkipNextFun = 1; //RN: SISTEMAMI 
+   SharedInfo.SkipNextFun = 1; //RN: SISTEMAMI
    OutArg(1).Type      = InArg(1).Type;
    OutArg(1).Size      = InArg(1).Size;
    OutArg(1).Dimension = InArg(1).Dimension;
    OutArg(1).Value     = -InArg(1).Value;
    OutArg(1).FindLike  = InArg(1).FindLike;
-   OutArg(1).Scope  = 'Number_'+InArg(1).Type; 
+   OutArg(1).Scope  = 'Number_'+InArg(1).Type;
 elseif ((ASTFunName == 'float') & (NInArg == 1) & (InArg(1).Dimension == 0) & (InArg(1).Scope == 'Number'))
    // #RNU_RES_B
    // --- Manage OpMinus when applied to scalars. ---
    // -1 is not translated as tmp = OpMinus(1), but
    // it is considered as a single entity "-1"
    // #RNU_RES_E
-   SharedInfo.SkipNextFun = 1; //RN: SISTEMAMI 
+   SharedInfo.SkipNextFun = 1; //RN: SISTEMAMI
    OutArg(1).Type      = InArg(1).Type;
    OutArg(1).Size      = InArg(1).Size;
    OutArg(1).Dimension = InArg(1).Dimension;
    OutArg(1).Value     = InArg(1).Value;
    OutArg(1).FindLike  = InArg(1).FindLike;
-   OutArg(1).Scope     = 'Number_s'; 
+   OutArg(1).Scope     = 'Number_s';
 elseif ((ASTFunName == 'double') & (NInArg == 1) & (InArg(1).Dimension == 0) & (InArg(1).Scope == 'Number'))
    // #RNU_RES_B
    // --- Manage OpMinus when applied to scalars. ---
@@ -265,27 +264,27 @@ elseif ((ASTFunName == 'double') & (NInArg == 1) & (InArg(1).Dimension == 0) & (
    // #RNU_RES_E
    SharedInfo.SkipNextFun = 1;
    //RN: SISTEMAMI
-   SharedInfo.SkipNextFun = 1; //RN: SISTEMAMI 
+   SharedInfo.SkipNextFun = 1; //RN: SISTEMAMI
    OutArg(1).Type      = InArg(1).Type;
    OutArg(1).Size      = InArg(1).Size;
    OutArg(1).Dimension = InArg(1).Dimension;
    OutArg(1).Value     = InArg(1).Value;
    OutArg(1).FindLike  = InArg(1).FindLike;
-   OutArg(1).Scope     = 'Number_d'; 
+   OutArg(1).Scope     = 'Number_d';
 else
    OutArg = FA_GetOutArgInfo(InArg,NInArg,OutArg,NOutArg,SharedInfo,FunPrecSpecifier,FunTypeAnnot,FunSizeAnnot,ReportFileName);
 end
 
 // #RNU_RES_B
 // --- Generate the names for the output arguments. ---
-// Update of OutArg.Name and OutArg.Scope fields. 
+// Update of OutArg.Name and OutArg.Scope fields.
 // #RNU_RES_E
 if ((ASTFunName == 'OpMinus') & (NInArg == 1) & (InArg(1).Dimension == 0) & (InArg(1).Scope == 'Number'))
-   OutArg(1).Name  = string(OutArg(1).Value); 
+   OutArg(1).Name  = string(OutArg(1).Value);
 elseif ((ASTFunName == 'float') & (NInArg == 1) & (InArg(1).Dimension == 0) & (InArg(1).Scope == 'Number'))
-   OutArg(1).Name  = string(OutArg(1).Value); 
+   OutArg(1).Name  = string(OutArg(1).Value);
 elseif ((ASTFunName == 'double') & (NInArg == 1) & (InArg(1).Dimension == 0) & (InArg(1).Scope == 'Number'))
-   OutArg(1).Name  = string(OutArg(1).Value); 
+   OutArg(1).Name  = string(OutArg(1).Value);
 else
    [OutArg,SharedInfo] = GenOutArgNames(ASTFunName,InArg,NInArg,OutArg,NOutArg,LhsArg,NLhsArg,FileInfo,SharedInfo);
 end
@@ -366,7 +365,7 @@ end
 if (sum(SharedInfo.CFunctsAlreadyCalled == CFunName) == 1)
    Flag_FunAlreadyCalled = 1;
 else
-   
+
    //#RNUREM_ME Add the C function name to the list of C functions called in the current .sci file.
    SharedInfo.CFunctsAlreadyCalled(size(SharedInfo.CFunctsAlreadyCalled,1)+1) = CFunName;
 end
@@ -386,7 +385,7 @@ GenCFunDatFiles(ASTFunName,FunPrecSpecifier,FunTypeAnnot,FunSizeAnnot,InArg,NInA
 // -----------------------------------
 // --- Update SCI2C Function List. ---
 // -----------------------------------
-// Functions that are not already available in C are stored 
+// Functions that are not already available in C are stored
 // in the SCI2C Function List and converted in C at the end of
 // the translation of the current .sci file.
 //NUT: il problema della d0d0OpEqual dovrebbe essere legato al fatto che cerco di fare la opequal legata alla ins...
@@ -419,7 +418,7 @@ load(FunInfoDatFileName,'FunInfo');
 //#RNU_RES_B
 // --- Generate include. ---
 //#RNU_RES_E
-if ((Flag_FunAlreadyCalled == 0) & (FunInfo.LibTypeInfo == 'USER2C') & (SharedInfo.NextCFunName ~= CFunName)) 
+if ((Flag_FunAlreadyCalled == 0) & (FunInfo.LibTypeInfo == 'USER2C') & (SharedInfo.NextCFunName ~= CFunName))
    // (SharedInfo.NextCFunName ~= CFunName) I don't want an include in the same file. Ex. in main.h I don't want include "main.h"
    // #RNU_RES_B
    PrintStringInfo('Adding include',ReportFileName,'file','y');
