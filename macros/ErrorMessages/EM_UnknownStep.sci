@@ -66,5 +66,5 @@ PrintStringInfo('SCI2CERROR: disp(cnt);',ReportFileName,'both','y');
 PrintStringInfo('SCI2CERROR: }',ReportFileName,'both','y');
 PrintStringInfo('SCI2CERROR: Of course it is not optimized C code.',ReportFileName,'both','y');
 PrintStringInfo(' ',ReportFileName,'both','y');
-SCI2Cerror(' ');
+error(9999, 'SCI2C forbids use of step values in ""for"" loops which come from a function or an operation.');
 endfunction

@@ -33,6 +33,6 @@ elseif (mtlb_strcmp(PrecisionSpecifier,'double'))
 elseif (mtlb_strcmp(PrecisionSpecifier,'default'))
    type_out = DefaultType;
 else
-   SCI2Cerror('Unknown precision function: ""'+AnnotationFnc+'"".');
+   error(9999, 'Unknown precision function: ""'+AnnotationFnc+'"".');
 end
 endfunction

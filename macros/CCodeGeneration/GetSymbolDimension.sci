@@ -30,7 +30,7 @@ function symboldimension = GetSymbolDimension(Field_Size)
 // Size is expressed as an array of two strings.
   Nelem = max(size(Field_Size));
   if (Nelem < 2)
-    SCI2Cerror('The size of a symbol cannot be expressed with one or zero numbers.');
+    error(9999, 'The size of a symbol cannot be expressed with one or zero numbers.');
   end
 
   for countersize = 1:Nelem
@@ -45,7 +45,7 @@ function symboldimension = GetSymbolDimension(Field_Size)
     if (isnum(Field_Size(countersize)))
       tmpnum = eval(Field_Size(countersize));
       if (tmpnum == 0)
-        SCI2Cerror('Found a symbol that has zeros elements. 0xN or Nx0 matrices are not allowed.');
+        error(9999, 'Found a symbol that has zeros elements. 0xN or Nx0 matrices are not allowed.');
       elseif (tmpnum == 1)
         Field_Type(countersize) = 0;
       else

@@ -39,6 +39,6 @@ else
    PrintStringInfo('SCI2CERROR: Please rearrange your code by using one of the following specifiers:',ReportFileName,'both','y');
    PrintStringInfo('SCI2CERROR: 1 or 2.',ReportFileName,'both','y');
    PrintStringInfo(' ',ReportFileName,'both','y');
-   SCI2Cerror(' ');
+   error(9999, 'SCI2CERROR: Cannot associate the second input argument to a known specifier.');
 end
 endfunction

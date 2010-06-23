@@ -22,6 +22,8 @@ function AST_CheckLineLength(instring)
 // ------------------------------
 SCI2CNInArgCheck(argn(2),1,1);
 
+// TODO : Remove me
+
 //if length(instring) > 77
 //   SCI2Cerror('Line too long: please reduce the length of the current line.');
 //end

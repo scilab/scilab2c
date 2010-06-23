@@ -41,20 +41,20 @@ elseif (OperatorName == '.*')
    FunName = FuncPrefix+'DotStar'+FuncSuffix;
 elseif (OperatorName == '*.')
    PrintStringInfo('SCI2CERROR: Operator ""'+OperatorName+'"" not supported.','','stout','y');
-   SCI2Cerror(' ');
+   error(9999, 'SCI2CERROR: Operator ""'+OperatorName+'"" not supported.');
 elseif (OperatorName == '.*.')
    PrintStringInfo('SCI2CERROR: Operator ""'+OperatorName+'"" not supported.','','stout','y');
-   SCI2Cerror(' ');
+   error(9999, 'SCI2CERROR: Operator ""'+OperatorName+'"" not supported.');
 elseif (OperatorName == '/')
    FunName = FuncPrefix+'Slash'+FuncSuffix;
 elseif (OperatorName == './')
    FunName = FuncPrefix+'DotSlash'+FuncSuffix;
 elseif (OperatorName == '/.')
    PrintStringInfo('SCI2CERROR: Operator ""'+OperatorName+'"" not supported.','','stout','y');
-   SCI2Cerror(' ');
+   error(9999, 'SCI2CERROR: Operator ""'+OperatorName+'"" not supported.');
 elseif (OperatorName == './.')
    PrintStringInfo('SCI2CERROR: Operator ""'+OperatorName+'"" not supported.','','stout','y');
-   SCI2Cerror(' ');
+   error(9999, 'SCI2CERROR: Operator ""'+OperatorName+'"" not supported.');
 elseif (OperatorName == '.\')
    FunName = FuncPrefix+'DotBackSlash'+FuncSuffix;
 elseif (OperatorName == '\')
@@ -63,13 +63,13 @@ elseif (OperatorName == '\')
    FunName = FuncPrefix+'BackSlash'+FuncSuffix;
 elseif (OperatorName == '.\')
    PrintStringInfo('SCI2CERROR: Operator ""'+OperatorName+'"" not supported.','','stout','y');
-   SCI2Cerror(' ');
+   error(9999, 'SCI2CERROR: Operator ""'+OperatorName+'"" not supported.');
 elseif (OperatorName == '\.')
    PrintStringInfo('SCI2CERROR: Operator ""'+OperatorName+'"" not supported.','','stout','y');
-   SCI2Cerror(' ');
+   error(9999, 'SCI2CERROR: Operator ""'+OperatorName+'"" not supported.');
 elseif (OperatorName == '.\.')
    PrintStringInfo('SCI2CERROR: Operator ""'+OperatorName+'"" not supported.','','stout','y');
-   SCI2Cerror(' ');
+   error(9999, 'SCI2CERROR: Operator ""'+OperatorName+'"" not supported.');
 elseif (OperatorName == '^')
    FunName = FuncPrefix+'Hat'+FuncSuffix;
 elseif (OperatorName == '.^')
@@ -110,10 +110,10 @@ elseif (OperatorName == 'ext')
    FunName = 'OpExt';
 elseif (OperatorName == 'cceol')
    PrintStringInfo('SCI2CERROR: Operator ""'+OperatorName+'"" not supported.','','stout','y');
-   SCI2Cerror(' ');
+   error(9999, 'SCI2CERROR: Operator ""'+OperatorName+'"" not supported.');
 else
    PrintStringInfo('SCI2CERROR: Unknown Operator ""'+OperatorName+'.','','stout','y');
-   SCI2Cerror(' ');
+   error(9999, 'SCI2CERROR: Unknown Operator ""'+OperatorName+'.');
 end
 
 endfunction

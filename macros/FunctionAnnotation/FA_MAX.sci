@@ -25,8 +25,6 @@ function opout = FA_MAX(in1,in2)
 // ------------------------------
 SCI2CNInArgCheck(argn(2),2,2);
 
-//SCI2Cerror('Not allowed to use FA_MAX in this release.');
-
 // ------------------------
 // --- Generate Output. ---
 // ------------------------

@@ -36,6 +36,6 @@ elseif (ArgType == 'g')
 elseif (ArgType == 'f')
    OutC_Type = 'SCI2CFILEID';
 else
-   SCI2Cerror('Unknown Argument Type: ""'+ArgType+'"".');
+   error(9999, 'Unknown Argument Type: ""'+ArgType+'"".');
 end
 endfunction

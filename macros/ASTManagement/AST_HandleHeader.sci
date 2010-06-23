@@ -30,8 +30,8 @@ ReportFileName  = FileInfo.Funct(nxtscifunnumber).ReportFileName;
 
 FunctionName = ASTHeader.Name;
 if (mtlb_strcmp(ASTHeader.Name,SharedInfo.NextSCIFunName) == %F)
-   SCI2CerrorFile('Very strange! AST Name field ""'+ASTHeader.Name+...
-      '""is different from function name ""'+SharedInfo.NextSCIFunName+'"".',ReportFileName);
+   error(9999, 'Very strange! AST Name field ""'+ASTHeader.Name+...
+      '""is different from function name ""'+SharedInfo.NextSCIFunName+'"".');
 end
 // ---------------------------
 // --- End Initialization. ---
@@ -136,7 +136,7 @@ if (NInArgDat == NInArg)
       end
    end
 else
-   SCI2CerrorFile('Number of input arguments specified in AST is different from the number specified in .dat file.',ReportFileName);
+   error(9999, 'Number of input arguments specified in AST is different from the number specified in .dat file.');
 end
 
 
@@ -149,7 +149,7 @@ else
    PrintStringInfo('N. of output arguments found in the AST: '+string(NOutArg),ReportFileName,'both','y');
    PrintStringInfo('N. of output arguments found in the call (FunInfo structure): '+string(SharedInfo.CurrentFunInfo.NOutArg),ReportFileName,'both','y');
    //#RNU_RES_E
-   SCI2CerrorFile('Number of output arguments specified in AST is different from the number specified in .dat file.',ReportFileName);
+   error(9999, 'Number of output arguments specified in AST is different from the number specified in .dat file.');
 end
 //#RNU_RES_B
 //NUT: using approach 1: Setting for input and output arguments symbolic sizes.

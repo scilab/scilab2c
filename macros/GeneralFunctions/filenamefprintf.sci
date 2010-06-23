@@ -33,7 +33,7 @@ SCI2CNInArgCheck(argn(2),4,4);
 //   [FidReportFile, mess] = mopen(deblank(filename),'at+');
    [FidReportFile, mess] = mopen(filename,'a+');
    if (FidReportFile == -1) then
-      SCI2Cerror(mess);
+      error(9999, mess);
    end
    if formattedstring == 'n'
       mputstr(str,FidReportFile);

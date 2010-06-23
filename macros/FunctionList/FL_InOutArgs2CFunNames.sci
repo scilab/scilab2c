@@ -44,8 +44,7 @@ for cntelem = 1:CFuncListNElem
       FunNameCFuncList(cntelem) = tmptokens(1)+FunctionName+tmptokens(2);
    else
       disp('Incorrect format for the function list class.');
-      disp('Check the following function list class item: ""'+CommaSepCFuncList(cntelem)+'"".');
-      SCI2Cerror(' ');
+      error(9999, 'Check the following function list class item: ""'+CommaSepCFuncList(cntelem)+'"".');
    end
 end
 

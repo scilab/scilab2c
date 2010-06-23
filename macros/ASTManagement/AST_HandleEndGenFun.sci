@@ -92,14 +92,14 @@ elseif (ASTFunName == 'global')
       PrintStringInfo('SCI2CERROR: global var1; //ALLOWED',ReportFileName,'both','y');
       PrintStringInfo('SCI2CERROR: global var2; //ALLOWED',ReportFileName,'both','y');
       PrintStringInfo(' ',ReportFileName,'both','y');
-      SCI2Cerror(' ');
+      error(9999, 'SCI2CERROR: Multiple declaration of global variables is not allowed.');
    end
    if (NOutArg ~= 1)
       PrintStringInfo(' ',ReportFileName,'both','y');
       PrintStringInfo('SCI2CERROR: Unexpected number of output arguments for global function.',ReportFileName,'both','y');
       PrintStringInfo('SCI2CERROR: Please report this error to: http://forge.scilab.org/index.php/p/scilab2c/issues/',ReportFileName,'both','y');
       PrintStringInfo(' ',ReportFileName,'both','y');
-      SCI2Cerror(' ');
+      error(9999, 'SCI2CERROR: Unexpected number of output arguments for global function.');
    end
 end
 
