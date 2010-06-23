@@ -25,7 +25,7 @@ function SCI2CSymbolTable = ST_Load(SymbolTableFileName)
 // --------------------------
 [tmpnams,tmptyps,tmpdims,tmpvols]=listvarinfile(SymbolTableFileName);
 if (max(size(tmpnams)) > 1)
-    SCI2Cerror('More than one variable found in ""'+SymbolTableFileName+'"".');
+    error(9999, 'More than one variable found in ""'+SymbolTableFileName+'"".');
 end
 load(SymbolTableFileName,tmpnams);
 SCI2CSymbolTable = eval(tmpnams);

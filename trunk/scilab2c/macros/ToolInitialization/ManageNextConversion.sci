@@ -59,8 +59,7 @@ if (SharedInfo.NFilesToTranslate >= 1)
    [FlagFound,SharedInfo.NextSCIFileName] = ...
       SCI2CFindFile(FileInfo.UserSciFilesPaths,SharedInfo.NextSCIFunName+'.sci');
    if (FlagFound == 0)
-      SCI2CerrorFile('Cannot find a scilab file to generate ""'+SharedInfo.NextCFunName+'"".',...
-         FileInfo.GeneralReport);
+      error(9999, 'Cannot find a scilab file to generate ""'+SharedInfo.NextCFunName+'"".');
    end
 end
 // ----------------------------------------------------

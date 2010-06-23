@@ -176,7 +176,7 @@ end
 CCall ='';
 if (FunInfo.CFunctionName == SharedInfo.CMainFunName)
    if (FlagCall == 1)
-      SCI2Cerror('main function called in a source code!');
+      error(9999, 'main function called in a source code!');
    else
       CCall =CCall+'SCI2Cint ';
    end

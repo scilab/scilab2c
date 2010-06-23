@@ -67,7 +67,7 @@ elseif ((in1type == 'g') & (in2type == 'g'))
       in1num = eval(in1size(1));
       in2num = eval(in2size(1));
       if (in1num > 1 | in2num > 1)
-         SCI2Cerror('String catenation can be performed only on strings of 1 x N size not N x 1 size');
+         error(9999, 'String catenation can be performed only on strings of 1 x N size not N x 1 size');
          //NUT: mi pare che non possano proprio esistere stringe di dimensione Nx1 perche' in
          //NUT: scilab esiste il tipo string che e' di size 1x1 e sono io a trasformarlo in
          //NUT: 1xN per cui se uso sempre questa convenzione non sbaglio mai.
@@ -87,7 +87,7 @@ elseif ((in1type == 'g') & (in2type == 'g'))
       opoutsize(2) = '('+string(in1size(2))+'+'+string(in2size(2))+'-1)';
    end
 else
-   SCI2Cerror('Unexpected type combination for ""+"" operator (type1,type2): ('+in1type+in2type+').');
+   error(9999, 'Unexpected type combination for ""+"" operator (type1,type2): ('+in1type+in2type+').');
 end
 
 endfunction

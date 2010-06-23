@@ -40,7 +40,7 @@ for countertable = 1:NEntries
 end
 
 if (TBFlagfound > 1)
-   SCI2Cerror('Symbol table conflict: found two symbols with the same name ""'+TBName+'"".');
+   error(9999, 'Symbol table conflict: found two symbols with the same name ""'+TBName+'"".');
 end
 
 endfunction

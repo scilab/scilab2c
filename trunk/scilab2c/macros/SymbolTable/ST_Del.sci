@@ -29,7 +29,7 @@ SCI2CSymbolTable = ST_Load(SymbolTableFileName);
 [TBFlagfound,TBPosition] = ST_FindPos(TBName,SymbolTableFileName);
 
 if (TBFlagfound == 0)
-   SCI2Cerror('Missing symbol: trying to del a non existing symbol ""'+TBName+'"".');
+   error(9999, 'Missing symbol: trying to del a non existing symbol ""'+TBName+'"".');
 elseif (TBFlagfound == 1)
    // --- Update symbol table. ---
    SCI2CSymbolTable(TBPosition) = [];

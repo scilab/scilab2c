@@ -88,7 +88,7 @@ if (NLhsArg > 0)
    // #RNU_RES_E
    SharedInfo.SkipNextEqual = 1; // 1 = the next equal in the AST will not produce C code.
    if (NLhsArg ~= NOutArg)
-      SCI2CerrorFile('NLhsArg='+string(NLhsArg)+' must be equal to NOutArg='+string(NOutArg)+'.',ReportFileName);
+      error(9999, 'NLhsArg='+string(NLhsArg)+' must be equal to NOutArg='+string(NOutArg)+'.');
    end
 else
    // #RNU_RES_B

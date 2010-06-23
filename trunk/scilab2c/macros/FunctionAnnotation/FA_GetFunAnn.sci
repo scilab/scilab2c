@@ -107,14 +107,14 @@ while ((meof(inclsfid) == 0) & (FoundNIn == 0) & (FoundNOut == 0))
                   PrintStringInfo('SCI2CERROR: Incorrect format for function annotation.',ReportFileName,'both','y');
                   PrintStringInfo('SCI2CERROR: Expected '+SharedInfo.Annotations.FUNNIN+' field in the annotations of the function.',ReportFileName,'both','y');
                   PrintStringInfo(' ',ReportFileName,'both','y');
-                  SCI2Cerror(' ');
+                  error(9999, 'SCI2CERROR: Incorrect format for function annotation.');
                end
             else
                PrintStringInfo(' ',ReportFileName,'both','y');
                PrintStringInfo('SCI2CERROR: Incorrect format for function annotation.',ReportFileName,'both','y');
                PrintStringInfo('SCI2CERROR: Expected '+SharedInfo.Annotations.FUNNIN+' field in the annotations of the function.',ReportFileName,'both','y');
                PrintStringInfo(' ',ReportFileName,'both','y');
-               SCI2Cerror(' ');
+               error(9999, 'SCI2CERROR: Incorrect format for function annotation.');
             end
          end
       end
@@ -129,7 +129,7 @@ if (FoundNOut*FoundNIn == 0)
    PrintStringInfo('SCI2CERROR: 1. Syntax error in function annotations.',ReportFileName,'both','y');
    PrintStringInfo('SCI2CERROR: 2. Missing the right combination of NIN/NOUT annotations: ""'+SharedInfo.Annotations.FUNNIN+string(NInArg)+','+SharedInfo.Annotations.FUNNOUT+' '+string(NOutArg)+'"".',ReportFileName,'both','y');
    PrintStringInfo(' ',ReportFileName,'both','y');
-   SCI2Cerror(' ');
+   error(9999, 'SCI2CERROR: Incorrect function annotation.');
 else
    for cntout = 1:NOutArg
       SCI2C_nout=cntout; // Useful for eval.
@@ -153,7 +153,7 @@ else
          PrintStringInfo(' ',ReportFileName,'both','y');
          PrintStringInfo('SCI2CERROR: Line '+string(line_position)+' Function type annotation not found in file: '+SCI2CClassFileName,ReportFileName,'both','y');
          PrintStringInfo(' ',ReportFileName,'both','y');
-         SCI2Cerror(' ');
+         error(9999, 'SCI2CERROR: Line '+string(line_position)+' Function type annotation not found in file: '+SCI2CClassFileName);
       end      
 
       // #RNU_RES_B
@@ -178,7 +178,7 @@ else
           PrintStringInfo(' ',ReportFileName,'both','y');
           PrintStringInfo('SCI2CERROR: Line '+string(line_position)+' Function size annotation not found in file: '+SCI2CClassFileName,ReportFileName,'both','y');
           PrintStringInfo(' ',ReportFileName,'both','y');
-          SCI2Cerror(' ');
+          error(9999, 'SCI2CERROR: Line '+string(line_position)+' Function size annotation not found in file: '+SCI2CClassFileName);
         end
       end
    end

@@ -23,7 +23,7 @@ SCI2CNInArgCheck(argn(2),5,5);
 
 // --- Check NIfCondArg value. ---
 if ((NIfCondArg ~= 1) & (ASTIfExpType~='else'))
-   SCI2CerrorFile('Cannot manage ""if/elseif"" with a number of condition variables not equal to 1.',ReportFileName);
+   error(9999, 'Cannot manage ""if/elseif"" with a number of condition variables not equal to 1.');
 end
 
 // -----------------------
@@ -53,7 +53,7 @@ elseif (ASTIfExpType=='elseif')
 elseif (ASTIfExpType=='else')
    CFunName = 'else';
 else
-   SCI2CerrorFile('Unknown ASTIfExpType ""'+ASTIfExpType+'"".',ReportFileName);
+   error(9999, 'Unknown ASTIfExpType ""'+ASTIfExpType+'"".');
 end
 
 // ----------------------------

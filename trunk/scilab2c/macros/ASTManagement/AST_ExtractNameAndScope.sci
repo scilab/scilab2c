@@ -87,7 +87,7 @@ elseif (SCI2Cstrncmps1size(tagname(7),ASTField))
    ArgName  = '<empty>';
    ArgScope = 'None';
 else
-   SCI2Cerror('Argument specifier not found in the AST field: '+ASTField);
+   error(9999, 'Argument specifier not found in the AST field: '+ASTField);
 end
 
 endfunction

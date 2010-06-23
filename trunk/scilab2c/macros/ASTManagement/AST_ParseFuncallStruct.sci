@@ -62,9 +62,9 @@ while (RhsField ~= 'Rhs    :')
    [InputArgumentNames(NInArg),InputArgumentScope(NInArg)] = AST_ExtractNameAndScope(RhsField);
    RhsField = AST_PopASTStack();
    if (RhsField == '#lhs   :')
-     SCI2Cerror('Found #lhs before Rhs');
+     error(9999, 'Found #lhs before Rhs');
    elseif (RhsField == 'Funcall  :')
-     SCI2Cerror('Found Funcall before Rhs');
+     error(9999, 'Found Funcall before Rhs');
    end
 end
 if (stripblanks(InputArgumentNames(NInArg)) == '<empty>')

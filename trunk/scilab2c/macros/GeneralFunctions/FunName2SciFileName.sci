@@ -27,11 +27,11 @@ function ScilabFileName = FunName2SciFileName(DirList,InFunName);
 SCI2CNInArgCheck(argn(2),2,2);
 
 if (prod(size(DirList)) == 0)
-   SCI2Cerror('Incorrect DirList parameter.');
+   error(9999, 'Incorrect DirList parameter.');
 end
 
 if (prod(size(InFunName)) == 0)
-   SCI2Cerror('Incorrect InFunName parameter.');
+   error(9999, 'Incorrect InFunName parameter.');
 end
 
 // --- Generate the PathList. ---
@@ -45,12 +45,12 @@ ScilabFileName = listfiles(PathList);
 // --- Check on the number of .sci files found. ---
 if ((prod(size(ScilabFileName))) > 1)
    disp(ScilabFileName);
-   SCI2Cerror('Found more than one scilab file.');
+   error(9999, 'Found more than one scilab file.');
 end
 
 if ((prod(size(ScilabFileName))) < 1)
    disp(ScilabFileName);
-   SCI2Cerror('Scilab file ""'+InFunName+'.sci"", not found');
+   error(9999, 'Scilab file ""'+InFunName+'.sci"", not found');
 end
 
 endfunction

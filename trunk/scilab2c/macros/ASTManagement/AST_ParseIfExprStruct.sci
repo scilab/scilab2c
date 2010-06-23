@@ -76,7 +76,7 @@ elseif (ASTIfExpType=='elseif')
       flagendpop = 1;
    end
 else
-   SCI2CerrorFile('Unknown ASTIfExpType ""'+ASTIfExpType+'"".',ReportFileName);
+   error(9999, 'Unknown ASTIfExpType ""'+ASTIfExpType+'"".');
 end
 
 while (flagendpop == 0)

@@ -38,7 +38,7 @@ if STACKDEDUG == 1
    disp('Read AST Line: '+treeline);
 end
 if (SCI2Cstrncmps1size('Program',treeline) == %F)
-   SCI2CerrorFile('Expected ""Program"" label in the AST',ReportFileName);
+   error(9999, 'Expected ""Program"" label in the AST');
 end
 
 tline = mgetl(fidAST,1);
@@ -48,7 +48,7 @@ if STACKDEDUG == 1
    disp('Read AST Line: '+treeline);
 end
 if (SCI2Cstrncmps1size('Name   : ',treeline) == %F)
-   SCI2CerrorFile('Expected ""Name   : "" label in the AST',ReportFileName);
+   error(9999, 'Expected ""Name   : "" label in the AST');
 else
    ASTHeader.Name = stripblanks(part(treeline,length('Name   : ')+1:length(treeline)));
 end
@@ -60,7 +60,7 @@ if STACKDEDUG == 1
    disp('Read AST Line: '+treeline);
 end
 if (SCI2Cstrncmps1size('Outputs: ',treeline) == %F)
-   SCI2CerrorFile('Expected ""Outputs: "" label in the AST',ReportFileName);
+   error(9999, 'Expected ""Outputs: "" label in the AST');
 else
    ASTHeader.Outputs = stripblanks(part(treeline,length('Outputs: ')+1:length(treeline)));
 end
@@ -72,7 +72,7 @@ if STACKDEDUG == 1
    disp('Read AST Line: '+treeline);
 end
 if (SCI2Cstrncmps1size('Inputs : ',treeline) == %F)
-   SCI2CerrorFile('Expected ""Inputs : "" label in the AST',ReportFileName);
+   error(9999, 'Expected ""Inputs : "" label in the AST');
 else
    ASTHeader.Inputs = stripblanks(part(treeline,length('Inputs : ')+1:length(treeline)));
 end
@@ -84,7 +84,7 @@ if STACKDEDUG == 1
    disp('Read AST Line: '+treeline);
 end
 if (SCI2Cstrncmps1size('Statements ',treeline) == %F)
-   SCI2CerrorFile('Expected ""Statements "" label in the AST',ReportFileName);
+   error(9999, 'Expected ""Statements "" label in the AST');
 end
 
 endfunction

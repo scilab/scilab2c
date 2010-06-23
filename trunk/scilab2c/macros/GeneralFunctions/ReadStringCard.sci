@@ -52,7 +52,7 @@ clear requested_line dummy2
 
 if (flag_found == 0) then
    if (enableerror == 'y') then
-      SCI2Cerror([cardname,' not found']); 
+      error(9999, cardname+' not found'); 
    else
       warning([cardname,' not found']);
    end

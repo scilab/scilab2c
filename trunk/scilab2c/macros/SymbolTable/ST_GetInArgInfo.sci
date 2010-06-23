@@ -62,7 +62,7 @@ for cntinarg = 1:NInArg
          elseif (SharedInfo.DefaultPrecision == 'd')
             UpdatedInArg(cntinarg).Type = 'z'; // It is the default.
          else
-            SCI2Cerror('Unexpected value for SharedInfo.DefaultPrecision: ""'+SharedInfo.DefaultPrecision+'""');
+            error(9999, 'Unexpected value for SharedInfo.DefaultPrecision: ""'+SharedInfo.DefaultPrecision+'""');
          end            
       end
       if (tmpname == '%pi')
@@ -136,7 +136,7 @@ for cntinarg = 1:NInArg
          PrintStringInfo('SCI2CERROR: Before running the SCI2C translator, remember to run the code you are trying',ReportFileName,'both','y');
          PrintStringInfo('SCI2CERROR: to translate in order to check syntax errors.',ReportFileName,'both','y');
          PrintStringInfo(' ',ReportFileName,'both','y');
-         SCI2Cerror(' ');
+         error(9999, 'SCI2CERROR: Unknown symbol ""'+tmpname+'"".');
       end
       UpdatedInArg(cntinarg).Type      = TBType;
       UpdatedInArg(cntinarg).Size      = TBSize;
@@ -146,7 +146,7 @@ for cntinarg = 1:NInArg
       UpdatedInArg(cntinarg).Scope     = TBScope;
       
    else
-      SCI2Cerror('Unknown scope identifier ""'+tmpscope+'"" for variable ""'+tmpname+'"".');
+      error(9999, 'Unknown scope identifier ""'+tmpscope+'"" for variable ""'+tmpname+'"".');
    end
    // #RNU_RES_B
    PrintStringInfo('   Type:      '+UpdatedInArg(cntinarg).Type,FileInfo.Funct(nxtscifunnumber).ReportFileName,'file');

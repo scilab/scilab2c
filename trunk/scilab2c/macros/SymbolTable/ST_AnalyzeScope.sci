@@ -63,8 +63,8 @@ for cntout = 1:NOutArg
       PrintStringInfo('   ...not found in: '+SymbolTableFileName+'.',ReportFileName,'file','y');
       // #RNU_RES_E
    else
-      SCI2CerrorFile('Found a temp symbol in '+SymbolTableFileName+...
-         ' with the same name of the equal output argument ""'+TBName+'"".',ReportFileName);
+      error(9999, 'Found a temp symbol in '+SymbolTableFileName+...
+         ' with the same name of the equal output argument ""'+TBName+'"".');
    end
    
    // #RNU_RES_B
