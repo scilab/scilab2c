@@ -53,9 +53,9 @@ if ((SearchLevel == 0) & (LhsField == 'Lhs       :'))
    while(LhsField ~= 'EndEqual')
       NLhsArg = NLhsArg + 1;
       if (LhsField == '<EOL>')
-         SCI2Cerror('Found <EOL> before EndEqual');
+         error(9999, 'Found <EOL> before EndEqual');
       elseif (LhsField == 'EndProgram')
-         SCI2Cerror('Found EndProgram before EndEqual');
+         error(9999, 'Found EndProgram before EndEqual');
       end
       if (LhsField == 'Operation')
          // if (LhsField == 'Operator: ins')

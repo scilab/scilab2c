@@ -24,7 +24,7 @@ SCI2CNInArgCheck(argn(2),1,1);
 // --- Open the .sci file (write mode). ---
 [fidnumber,fiderror] = mopen(filename,'w');
 if (fiderror < 0)
-   SCI2Cerror(['Cannot open (in write mode): '+filename]);
+   error(9999, 'Cannot open (in write mode): '+filename);
 end
 
 endfunction

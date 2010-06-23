@@ -78,5 +78,5 @@ PrintStringInfo('SCI2CERROR: disp(cnt);',ReportFileName,'both','y');
 PrintStringInfo('SCI2CERROR: }',ReportFileName,'both','y');
 PrintStringInfo('SCI2CERROR: Of course it is not optimized C code.',ReportFileName,'both','y');
 PrintStringInfo(' ',ReportFileName,'both','y');
-SCI2Cerror(' ');
+SCI2Cerror(9999, 'SCI2CERROR: Cannot initialize a local or global variable with a variable value coming from a function or an operation.');
 endfunction

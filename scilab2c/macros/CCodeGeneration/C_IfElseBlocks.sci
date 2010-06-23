@@ -57,7 +57,7 @@ elseif (InOutStatements=='out')
    PrintStringInfo('   '+CCall,ReportFileName,'file','y');
    PrintStringInfo(C_IndentBlanks(IndentLevel)+CCall,CPass1FileName,'file','y');
 else
-   SCI2CerrorFile('Unknown setting for InOutStatements: '+InOutStatements'.',ReportFileName);
+   error(9999, 'Unknown setting for InOutStatements: '+InOutStatements+'.');
 end
 
 // #RNU_RES_B

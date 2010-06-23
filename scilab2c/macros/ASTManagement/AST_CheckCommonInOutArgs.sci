@@ -82,7 +82,7 @@ if (ncommonstrings > 0)
    PrintStringInfo('SCI2CERROR: // The previous line must be rewritten as:',ReportFileName,'both','y');
    PrintStringInfo('SCI2CERROR: function e = myfun(a,b,c,d) // Not Allowed',ReportFileName,'both','y');
    PrintStringInfo(' ',ReportFileName,'both','y');
-   SCI2Cerror(' ');
+   error(9999, 'SCI2CERROR: Found '+string(ncommonstrings)+' input/output 2-D arguments with the same name.');
 end
 
 endfunction

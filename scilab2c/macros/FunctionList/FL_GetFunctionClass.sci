@@ -38,13 +38,13 @@ if (meof(inannfid) == 0)
          // #RNU_RES_E
          FoundClass = 1;
       else
-         SCI2CerrorFile('Could not find ""'+SCI2CClassSpecifier+'"" in '+FunFileName+'.',ReportFileName);
+         error(9999, 'Could not find ""'+SCI2CClassSpecifier+'"" in '+FunFileName+'.');
       end
    end
 end
 mclose(inannfid);
 if (FoundClass == 0)
-   SCI2CerrorFile('Could not find ""'+SCI2CClassSpecifier+'"" specifier.',ReportFileName);
+   error(9999, 'Could not find ""'+SCI2CClassSpecifier+'"" specifier.');
 end
 
 // -------------------------------------------

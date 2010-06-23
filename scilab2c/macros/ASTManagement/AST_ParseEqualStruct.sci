@@ -60,9 +60,9 @@ while (LhsField ~= 'Lhs       :')
    [OutputArgumentNames(NOutArg),OutputArgumentScope(NOutArg)] = AST_ExtractNameAndScope(LhsField);
    LhsField = AST_PopASTStack();
    if (LhsField == 'Expression:')
-     SCI2Cerror('Found Expression: before Lhs');
+     error(9999, 'Found Expression: before Lhs');
    elseif (LhsField == 'Equal')
-     SCI2Cerror('Found Equal before Lhs');
+     error(9999, 'Found Equal before Lhs');
    end
 end
 OutputArgumentNames = SCI2Cflipud(OutputArgumentNames);
@@ -79,7 +79,7 @@ while (ExprField ~= 'Expression:')
    [InputArgumentNames(NInArg),InputArgumentScope(NInArg)] = AST_ExtractNameAndScope(ExprField);
    ExprField = AST_PopASTStack();
    if (ExprField == 'Equal')
-     SCI2Cerror('Found Equal before Lhs');
+     error(9999, 'Found Equal before Lhs');
    end
 end
 InputArgumentNames = SCI2Cflipud(InputArgumentNames);
@@ -92,7 +92,7 @@ InputArgumentScope = SCI2Cflipud(InputArgumentScope);
 //#RNU_RES_E
 FunctionName = AST_PopASTStack();
 if (FunctionName ~= 'Equal') then
-   SCI2Cerror('Problems with Equal, Expected Equal tag.');
+   error(9999, 'Problems with Equal, Expected Equal tag.');
 end
 FunctionName = 'OpEqual';
 
@@ -138,7 +138,7 @@ if (SharedInfo.Equal.Nins > 0)
       //#RNU_RES_E
    end
    if (NInArg ~= SharedInfo.Equal.Nins)
-     SCI2CerrorFile('Number of input arguments must be equal to number of ins functions.',ReportFileName);
+     error(9999, 'Number of input arguments must be equal to number of ins functions.');
    end
 else
    //#RNU_RES_B
@@ -161,7 +161,7 @@ else
       //#RNU_RES_E
    end
    if (NInArg ~= NOutArg)
-     SCI2CerrorFile('Number of input arguments must be equal to number of output arguments.',ReportFileName);
+     error(9999, 'Number of input arguments must be equal to number of output arguments.');
    end
 end
 

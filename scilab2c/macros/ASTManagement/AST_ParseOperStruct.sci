@@ -72,7 +72,7 @@ while (RhsField ~= 'Operands:')
    [InputArgumentNames(NInArg),InputArgumentScope(NInArg)] = AST_ExtractNameAndScope(RhsField);
    RhsField = AST_PopASTStack();
    if (RhsField == 'Operation')
-     SCI2Cerror('Found Operation before Rhs');
+     error(9999, 'Found Operation before Rhs');
    end
 end
 
@@ -90,7 +90,7 @@ InputArgumentScope = SCI2Cflipud(InputArgumentScope);
 //#RNU_RES_E
 OperationField = AST_PopASTStack();
 if (OperationField ~= 'Operation') then
-   SCI2Cerror('Problems with Operation, Expected Operation tag.');
+   error(9999, 'Problems with Operation, Expected Operation tag.');
 end
 
 // --------------------------------------------

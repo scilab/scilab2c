@@ -25,7 +25,7 @@ SCI2CNInArgCheck(argn(2),1,1);
 
 status_dir = mkdir(tmppath,tmpfname+tmpextension) ;
 if (status_dir == 0)
-   SCI2Cerror('Cannot create: '+OutDir);
+   error(9999, 'Cannot create: '+OutDir);
 end
 
 endfunction

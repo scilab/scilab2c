@@ -69,7 +69,7 @@ for counteroutput = 1:NOutArg
    elseif mtlb_strcmp(OutArg(counteroutput).Scope,'Global')
       SymbTableFileName = GlobalVarsFileName;
    else
-      SCI2Cerror('Unknown scope ""'+OutArg(counteroutput).Scope+'"" for symbol: '+OutArg(counteroutput).Name);
+      error(9999, 'Unknown scope ""'+OutArg(counteroutput).Scope+'"" for symbol: '+OutArg(counteroutput).Name);
    end
    // #RNU_RES_B
    PrintStringInfo('   Setting symbol ""'+OutArg(counteroutput).Name+'"" in '+SymbTableFileName+'.',ReportFileName,'file','y');
@@ -100,7 +100,8 @@ for counteroutput = 1:NOutArg
          PrintStringInfo('SCI2CERROR: Please check that you are not using variable ""'+OutArg(counteroutput).Name+'""',ReportFileName,'both','y');
          PrintStringInfo('SCI2CERROR: with different sizes and/or types.',ReportFileName,'both','y');
          PrintStringInfo(' ',ReportFileName,'both','y');
-         SCI2Cerror(' ');
+         error(9999, 'SCI2CERROR: Symbol Table Conflict. Trying to insert again symbol ""'+...
+               OutArg(counteroutput).Name+'"" with different settings');
       else
          // #RNU_RES_B
          // It's ok symbols do match.

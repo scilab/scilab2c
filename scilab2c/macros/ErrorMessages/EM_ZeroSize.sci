@@ -22,6 +22,6 @@ SCI2CNInArgCheck(argn(2),1,1);
 
 PrintStringInfo('SCI2CERROR: Cannot handle zero-size arrays.',ReportFileName,'both','y');
 PrintStringInfo(' ',ReportFileName,'both','y');
-SCI2Cerror(' ');
+error(9999, 'SCI2CERROR: Cannot handle zero-size arrays.');
 
 endfunction

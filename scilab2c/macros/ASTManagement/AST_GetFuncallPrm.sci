@@ -48,7 +48,7 @@ elseif (ASTFunType=='Operation')
 elseif (ASTFunType=='Equal')
    [FunctionName,InArg,NInArg,OutArg,NOutArg] = AST_ParseEqualStruct(FileInfo,SharedInfo);
 else
-   SCI2CerrorFile('Unknown Function type: '+ASTFunType+'.',ReportFileName);
+   error(9999, 'Unknown Function type: '+ASTFunType+'.');
 end
 
 endfunction

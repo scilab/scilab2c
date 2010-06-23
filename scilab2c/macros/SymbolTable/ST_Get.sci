@@ -31,7 +31,7 @@ SCI2CNInArgCheck(argn(2),2,2);
 // --------------------------
 [tmpnams,tmptyps,tmpdims,tmpvols]=listvarinfile(SymbolTableFileName);
 if (max(size(tmpnams)) > 1)
-    SCI2Cerror('More than one variable found in ""'+SymbolTableFileName+'"".');
+    error(9999, 'More than one variable found in ""'+SymbolTableFileName+'"".');
 end
 load(SymbolTableFileName,tmpnams);
 SCI2CSymbolTable = eval(tmpnams);
@@ -59,6 +59,6 @@ for countertable = 1:NEntries
 end
 
 if (TBFlagfound > 1)
-   SCI2Cerror('Symbol table conflict: found two symbols with the same name ""'+TBName+'"".');
+   error(9999, 'Symbol table conflict: found two symbols with the same name ""'+TBName+'"".');
 end
 endfunction

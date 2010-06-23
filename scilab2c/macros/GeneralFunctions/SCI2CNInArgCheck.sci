@@ -21,8 +21,6 @@ function SCI2CNInArgCheck(NInArgs,MinNArgs,MaxNArgs)
 // -----------------------------------------------------------------
 
 if ((NInArgs < MinNArgs) | (NInArgs > MaxNArgs))
-   SCI2Cerror('Incorrect number of input arguments.');
+   error(9999, 'Incorrect number of input arguments.');
 end
-
-
 endfunction

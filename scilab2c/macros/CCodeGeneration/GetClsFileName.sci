@@ -84,7 +84,7 @@ if (FlagFoundAnnFile == 0)
       PrintStringInfo('SCI2CERROR: an associated .sci or .ann file for function: '+FunName,ReportFileName,'both','y');
       PrintStringInfo(' ',ReportFileName,'both','y');
       // #RNU_RES_E
-      SCI2Cerror(' ');
+      error(9999, 'SCI2CERROR: Missing function annotation. Could not find an associated .sci or .ann file for function: '+FunName);
    end
    AnnFileName        = fullfile(FileInfo.USER2CLibSCIAnnFun,tmpannfilename);
    SCI2CClassName     = FunName;

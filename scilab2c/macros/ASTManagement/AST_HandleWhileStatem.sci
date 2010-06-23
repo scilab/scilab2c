@@ -86,8 +86,7 @@ if(SharedInfo.WhileExpr.CondVar == '')
       PrintStringInfo('SCI2CERROR: Expected a variable or number in the AST while expression.','','stdout','y');
       PrintStringInfo('SCI2CERROR: Report this error to http://forge.scilab.org/index.php/p/scilab2c/issues/.','','stdout','y');
       PrintStringInfo(' ',ReportFileName,'both','y');
-      SCI2Cerror(' ');
-      SCI2Cerror('Expected a conditional variable in the while expression');
+      error(9999, 'Expected a conditional variable in the while expression');
    end
 
    SharedInfo.WhileExpr.CondVar = ArgName;
@@ -98,7 +97,7 @@ if(SharedInfo.WhileExpr.CondVar == '')
    AST_PushASTStack(Pop1);
 
 elseif (SharedInfo.WhileExpr.DimCondVar > 0)
-   SCI2CerrorFile('Cannot manage while with matrix conditions',ReportFileName);
+   error(9999, 'Cannot manage while with matrix conditions');
 end
 SharedInfo = C_WhileExpression(FileInfo,SharedInfo);
 

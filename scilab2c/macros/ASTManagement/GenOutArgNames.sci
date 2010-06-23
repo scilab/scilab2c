@@ -49,7 +49,7 @@ if (NLhsArg > 0)
    PrintStringInfo('Using Equal Lhs names.',ReportFileName,'file','y');
    //#RNU_RES_E
    if (NLhsArg ~= NOutArg)
-      SCI2CerrorFile('NLhsArg='+string(NLhsArg)+' must be equal to NOutArg='+string(NOutArg)+'.',ReportFileName);
+      error(9999, 'NLhsArg='+string(NLhsArg)+' must be equal to NOutArg='+string(NOutArg)+'.');
    end
    for counteroutputargs = 1:NOutArg
       OutArg(counteroutputargs).Name=LhsArg(counteroutputargs).Name;

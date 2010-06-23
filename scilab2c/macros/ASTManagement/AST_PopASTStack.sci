@@ -26,7 +26,7 @@ global StackPosition;
 global STACKDEDUG;
 	
 if StackPosition == 1
-   SCI2Cerror('Stack empty. Cannot pop from stack.');
+   error(9999, 'Stack empty. Cannot pop from stack.');
 end
    
 stackelement = SCI2CSTACK(StackPosition,1);
