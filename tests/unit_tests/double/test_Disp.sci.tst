@@ -14,7 +14,7 @@
 
 // <-- JVM NOT MANDATORY -->
 
-//global SCI2CHOME;
+global SCI2CHOME;
 scilab2c(SCI2CHOME+"/tests/unit_tests/double/test_Disp.sci", TMPDIR);
 
 fd = mopen(TMPDIR+"/main.c");
