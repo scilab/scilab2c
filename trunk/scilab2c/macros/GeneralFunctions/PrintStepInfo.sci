@@ -2,7 +2,7 @@ function PrintStepInfo(inputstring,filename,outputtype,formattedstring)
 // function PrintStepInfo(inputstring,filename,outputtype,formattedstring)
 // -----------------------------------------------------------------
 // #RNU_RES_B
-// Prints a string by using a predefined format into a file or on 
+// Prints a string by using a predefined format into a file or on
 // the stdout.
 //
 // Input data:
@@ -44,28 +44,13 @@ if (length(filename) == 0)
    outputtype = 'stdout'; // Prints only on the stdout.
 end
 
-Nstars = length(inputstring);
-starstring = [];
-for counterstars = 1:Nstars
-   starstring = starstring+'*';
-end
 blankstring = ['         '];
 
 if ((outputtype=='both') | (outputtype=='stdout'))
-   // disp(' ')
-   // disp(' ')
-   disp(blankstring+'    '+starstring);
    disp(blankstring+'==> '+inputstring);
-   disp(blankstring+'    '+starstring);
-   // disp(' ')
 end
 
 if ((outputtype=='both') | (outputtype=='file'))
-   filenamefprintf(filename,'y',' ',formattedstring);
-   filenamefprintf(filename,'y',' ',formattedstring);
-   filenamefprintf(filename,'y',blankstring+'    '+starstring,formattedstring);
    filenamefprintf(filename,'y',blankstring+'==> '+inputstring,formattedstring);
-   filenamefprintf(filename,'y',blankstring+'    '+starstring,formattedstring);
-   filenamefprintf(filename,'y',' ',formattedstring);
 end
 endfunction
