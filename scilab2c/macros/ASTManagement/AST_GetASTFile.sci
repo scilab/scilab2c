@@ -40,8 +40,7 @@ load(FileInfo.SharedInfoDatFile,'SharedInfo');
 funname   = SharedInfo.NextSCIFunName;
 funnumber = SharedInfo.NextSCIFunNumber;
 
-PrintStepInfo('Generate the AST in '+FileInfo.Funct(funnumber).ASTFileName,...
-   FileInfo.GeneralReport,'both');
+PrintStepInfo('Generate the AST.', FileInfo.GeneralReport,'both');
 
 // --- Generation of the AST file. ---
 SciFile2ASTFile(FileInfo.Funct(funnumber).SCIFileName,...
