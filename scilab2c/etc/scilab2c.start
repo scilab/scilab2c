@@ -48,6 +48,7 @@ end
 
 global SCI2CHOME
 SCI2CHOME = root_tlbx;
+clear SCI2CHOME;
 
 // =============================================================================
 clear root_tlbx;
