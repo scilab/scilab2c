@@ -12,19 +12,26 @@
 
 #include "find.h"
 
-void cfinda(floatComplex* z, int size, float *out, int *indiceOut , int max) {
+void cfinda(floatComplex* z, int size, float *out, int max)
+{
   int i = 0;
-  indiceOut[1]=0;
-  
+  int j = 0;
+
   /* if out is empty */
   out[0]=-1;
-    
-  for (i = 0; i < size ; ++i) {
-    /*to avoid useless search if we only want to find the  max first founded value   */
-    if (indiceOut[1] == max  ) return ;
-    if (creals(z[i]) != 0 || cimags(z[i]) != 0) {
-	out[indiceOut[1]] = (float)(i+1);
-	indiceOut[1]++;
-    }
+
+  for (i = 0; i < size ; ++i)
+  {
+      /*to avoid useless search if we only want to find the  max first founded value   */
+      if (j == max)
+      {
+          return ;
+      }
+
+      if (creals(z[i]) != 0 || cimags(z[i]) != 0)
+      {
+          out[j] = (float)(i+1);
+          ++j;
+      }
   }
 }

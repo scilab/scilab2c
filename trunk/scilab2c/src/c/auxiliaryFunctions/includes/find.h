@@ -24,25 +24,25 @@ extern "C" {
 ** \brief Float Find function
 ** max is an integer giving the maximum number of indices to return. (use -1 to search them all)
 */
-EXTERN_AUXFUNCT void sfinda(float* x, int size, float *out, int *sizeOut,int max);
+EXTERN_AUXFUNCT void sfinda(float* x, int size, float *out, int max);
 
 /*
 ** \brief Double Find function
 ** max is an integer giving the maximum number of indices to return. (use -1 to search them all)
 */
-EXTERN_AUXFUNCT void dfinda(double*x, int size, double *out, int *sizeOut,int max);
+EXTERN_AUXFUNCT void dfinda(double*x, int size, double *out, int max);
 
 /*
 ** \brief Float Complex Find function
 ** max is an integer giving the maximum number of indices to return. (use -1 to search them all)
 */
-EXTERN_AUXFUNCT void cfinda(floatComplex* z, int size, float *out, int *sizeOut,int max);
+EXTERN_AUXFUNCT void cfinda(floatComplex* z, int size, float *out, int max);
 
 /*
 ** \brief Double Complex Find function
 ** max is an integer giving the maximum number of indices to return. (use -1 to search them all)
 */
-EXTERN_AUXFUNCT void zfinda(doubleComplex* z, int size, double *out, int *sizeOut,int max);
+EXTERN_AUXFUNCT void zfinda(doubleComplex* z, int size, double *out, int max);
 
 #ifdef  __cplusplus
 } /* extern "C" */
