@@ -1505,16 +1505,16 @@ PrintStringInfo('NIN=          1',ClassFileName,'file','y');
 PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(1)= ''1''',ClassFileName,'file','y');
-PrintStringInfo('OUT(1).SZ(2)= FA_SZ_RTMAX(FA_MUL(IN(1).SZ(1),IN(1).SZ(2)))',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= FA_MUL(IN(1).SZ(1),IN(1).SZ(2))',ClassFileName,'file','y');
 
 PrintStringInfo('NIN=          1',ClassFileName,'file','y');
 PrintStringInfo('NOUT=         2       ',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(1)= ''1''',ClassFileName,'file','y');
-PrintStringInfo('OUT(1).SZ(2)= FA_SZ_RTMAX(FA_MUL(IN(1).SZ(1),IN(1).SZ(2)))',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= FA_MAX(FA_MUL(IN(1).SZ(1),IN(1).SZ(2)),''1'')',ClassFileName,'file','y');
 PrintStringInfo('OUT(2).TP=    IN(1).TP',ClassFileName,'file','y');
 PrintStringInfo('OUT(2).SZ(1)= ''1''',ClassFileName,'file','y');
-PrintStringInfo('OUT(2).SZ(2)= FA_SZ_RTMAX(FA_MUL(IN(1).SZ(1),IN(1).SZ(2)))',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(2)= FA_MAX(FA_MUL(IN(1).SZ(1),IN(1).SZ(2)),''1'')',ClassFileName,'file','y');
 
 PrintStringInfo('NIN=          2',ClassFileName,'file','y');
 PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
