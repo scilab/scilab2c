@@ -68,7 +68,8 @@ for counterin = 1:NInArg
 end
 
 for counterout = 1:NOutArg
-   if(mtlb_strcmp(FunTypeAnnot,'FA_TP_USER'))
+
+   if(FunTypeAnnot == 'FA_TP_USER')
       UpdatedOutArg(counterout).Type   = FA_TP_USER(FunPrecSpecifier,DefaultPrecision);
    else
       UpdatedOutArg(counterout).Type   = eval(FunTypeAnnot(counterout));
@@ -97,8 +98,9 @@ for counterout = 1:NOutArg
    // This is a dynamic memory extension of a local variable and for the moment
    // we issue an error according to SCI2C specifications
    // #RNU_RES_E
+
    for iterOutputPosition=1:size(FunSizeAnnot, '*')
-     tmpeval = eval(FunSizeAnnot(counterout,iterOutputPosition));
+     tmpeval = eval(FunSizeAnnot(iterOutputPosition));
      if (IsNanSize(tmpeval))
        if SharedInfo.ForExpr.OnExec == 0
          EM_NanSize(ReportFileName);
