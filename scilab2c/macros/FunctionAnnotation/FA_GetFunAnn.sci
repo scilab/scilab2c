@@ -4,7 +4,7 @@ function [FunTypeAnnot,FunSizeAnnot] = ...
 //    FA_GetFunAnn(NInArg,NOutArg,FunName,FileInfo,SharedInfo)
 // -----------------------------------------------------------------
 // #RNU_RES_B
-// This function extracts the TYPE and SIZE annotations from the 
+// This function extracts the TYPE and SIZE annotations from the
 // input .ann file.
 // No blank lines are allowed between function annotations.
 //
@@ -65,7 +65,7 @@ while ((meof(inclsfid) == 0) & (FoundNIn == 0) & (FoundNOut == 0))
    check_string = stripblanks(mgetl(inclsfid,1));
    line_position = line_position + 1;
    if (~isempty(check_string))
-   
+
       // #RNU_RES_B
       // --- Search for the NIN annotation. ---
       // #RNU_RES_E
@@ -83,13 +83,13 @@ while ((meof(inclsfid) == 0) & (FoundNIn == 0) & (FoundNOut == 0))
             check_string = stripblanks(mgetl(inclsfid,1));
             line_position = line_position + 1;
             if (~isempty(check_string))
-            
+
                // #RNU_RES_B
                // --- Search for the NOUT annotation. ---
                // #RNU_RES_E
                if (SCI2Cstrncmps1size(SharedInfo.Annotations.FUNNOUT,check_string))
                   FUNNOUTAnnot = part(check_string,length(SharedInfo.Annotations.FUNNOUT)+1:length(check_string));
-                  
+
                   // #RNU_RES_B
                   // --- Check NOUT value. ---
                   // #RNU_RES_E
@@ -133,7 +133,7 @@ if (FoundNOut*FoundNIn == 0)
 else
    for cntout = 1:NOutArg
       SCI2C_nout=cntout; // Useful for eval.
-      
+
       // #RNU_RES_B
       // Read the Fun type annotation.
       // #RNU_RES_E
@@ -154,16 +154,16 @@ else
          PrintStringInfo('SCI2CERROR: Line '+string(line_position)+' Function type annotation not found in file: '+SCI2CClassFileName,ReportFileName,'both','y');
          PrintStringInfo(' ',ReportFileName,'both','y');
          error(9999, 'SCI2CERROR: Line '+string(line_position)+' Function type annotation not found in file: '+SCI2CClassFileName);
-      end      
+      end
 
       // #RNU_RES_B
       // --- Read the Fun size annotation. ---
       // #RNU_RES_E
       SCI2C_nelem = 0; // Useful for eval.
-      while(SCI2C_nelem < 2 | isempty(check_string) == %F)
+      while(SCI2C_nelem < 2 & isempty(check_string) == %F)
         SCI2C_nelem = SCI2C_nelem + 1
         line_position = line_position + 1;
-        if (isempty(check_string) == %F)
+      if (isempty(check_string) == %F)
           tmpannstring = eval(SharedInfo.Annotations.FUNSIZE);
           check_string = stripblanks(mgetl(inclsfid,1));
           if (SCI2Cstrncmps1size(tmpannstring,check_string))
