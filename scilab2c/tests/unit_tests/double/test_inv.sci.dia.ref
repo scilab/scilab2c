@@ -20,7 +20,7 @@ scilab2c(SCI2CHOME+"/tests/unit_tests/double/test_inv.sci", TMPDIR);
  
  -----------------------------------   
 Warning :
-matrix is close to singular or badly scaled. rcond =    4.5675D-41
+matrix is close to singular or badly scaled. rcond =    4.5748D-41
 
 Warning :
 matrix is close to singular or badly scaled. rcond =    1.1102D-17
@@ -32,50 +32,23 @@ matrix is close to singular or badly scaled. rcond =    1.1102D-17
  
  ------------------------------------------   
  
-              ***************************   
- 
           ==> SCI2C hArtes/POLIBA Tool!!!   
- 
-              ***************************   
  
  Removing directory: TMPDIR/SCI2CTmpResultsReports   
  
  Removing directory: TMPDIR   
  
-              **************************************   
- 
           ==> Initialize SCI2C and USER2C Libraries.   
- 
-              **************************************   
- 
-              ********************************   
  
           ==> Load SCI2C and USER2C Libraries.   
  
-              ********************************   
- 
-              ****************************************   
- 
           ==> Start translation of function "test_inv"   
- 
-              ****************************************   
 Warning: file 'TMPDIR/SCI2CTmpResultsReports/test_inv/test_inv_copy.sci' already opened in Scilab.
 Warning: file 'TMPDIR/SCI2CTmpResultsReports/test_inv/test_inv_copy.sci' already opened in Scilab.
  
-              ********************************************************* 
-      **********************                                            
- 
-          ==> Generate the AST in TMPDIR/SCI2CTmpResultsReports 
-      /test_inv/test_inv.ast                                            
- 
-              ********************************************************* 
-      **********************                                            
- 
-              ****************************************   
+          ==> Generate the AST.   
  
           ==> Generate C code in TMPDIR/main.c   
- 
-              ****************************************   
  
     /*SCI2C: ########################################################## 
       ########                                                          
@@ -173,35 +146,15 @@ Warning: file 'TMPDIR/SCI2CTmpResultsReports/test_inv/test_inv_copy.sci' already
       SCI2C: ########################################################## 
       ########*/                                                        
  
-              ***********************************************   
- 
           ==> Copying sources needed in TMPDIR/src/c/   
- 
-              ***********************************************   
- 
-              **************************************************   
  
           ==> Copying headers needed in TMPDIR/includes/   
  
-              **************************************************   
- 
-              *******************************************************   
- 
           ==> Copying interfaces needed in TMPDIR/interfaces/   
- 
-              *******************************************************   
- 
-              ******************************************   
  
           ==> Generating Builder TMPDIR/Makefile   
  
-              ******************************************   
- 
-              *************************************   
- 
           ==> Translation Successfully Completed!!!   
- 
-              *************************************   
 fd = mopen(TMPDIR+"/main.c");
 mgetl(fd)
  ans  =
