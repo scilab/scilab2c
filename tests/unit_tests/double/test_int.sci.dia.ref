@@ -26,50 +26,23 @@ scilab2c(SCI2CHOME+"/tests/unit_tests/double/test_int.sci", TMPDIR);
  
  ------------------------------------------   
  
-              ***************************   
- 
           ==> SCI2C hArtes/POLIBA Tool!!!   
- 
-              ***************************   
  
  Removing directory: TMPDIR/SCI2CTmpResultsReports   
  
  Removing directory: TMPDIR   
  
-              **************************************   
- 
           ==> Initialize SCI2C and USER2C Libraries.   
- 
-              **************************************   
- 
-              ********************************   
  
           ==> Load SCI2C and USER2C Libraries.   
  
-              ********************************   
- 
-              ****************************************   
- 
           ==> Start translation of function "test_int"   
- 
-              ****************************************   
 Warning: file 'TMPDIR/SCI2CTmpResultsReports/test_int/test_int_copy.sci' already opened in Scilab.
 Warning: file 'TMPDIR/SCI2CTmpResultsReports/test_int/test_int_copy.sci' already opened in Scilab.
  
-              ********************************************************* 
-      **********************                                            
- 
-          ==> Generate the AST in TMPDIR/SCI2CTmpResultsReports 
-      /test_int/test_int.ast                                            
- 
-              ********************************************************* 
-      **********************                                            
- 
-              ****************************************   
+          ==> Generate the AST.   
  
           ==> Generate C code in TMPDIR/main.c   
- 
-              ****************************************   
  
     /*SCI2C: ########################################################## 
       ########                                                          
@@ -167,35 +140,15 @@ Warning: file 'TMPDIR/SCI2CTmpResultsReports/test_int/test_int_copy.sci' already
       SCI2C: ########################################################## 
       ########*/                                                        
  
-              ***********************************************   
- 
           ==> Copying sources needed in TMPDIR/src/c/   
- 
-              ***********************************************   
- 
-              **************************************************   
  
           ==> Copying headers needed in TMPDIR/includes/   
  
-              **************************************************   
- 
-              *******************************************************   
- 
           ==> Copying interfaces needed in TMPDIR/interfaces/   
- 
-              *******************************************************   
- 
-              ******************************************   
  
           ==> Generating Builder TMPDIR/Makefile   
  
-              ******************************************   
- 
-              *************************************   
- 
           ==> Translation Successfully Completed!!!   
- 
-              *************************************   
 fd = mopen(TMPDIR+"/main.c");
 mgetl(fd)
  ans  =
