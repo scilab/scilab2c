@@ -436,11 +436,11 @@ Warning: file 'TMPDIR/SCI2CTmpResultsReports/test_OpRc/test_OpRc_copy.sci' alrea
       SCI2C: ########################################################## 
       ########*/                                                        
  
-          ==> Copying sources needed in TMPDIR/src/c/   
+          ==> Copying sources   
  
-          ==> Copying headers needed in TMPDIR/includes/   
+          ==> Copying headers   
  
-          ==> Copying interfaces needed in TMPDIR/interfaces/   
+          ==> Copying interfaces   
  
           ==> Generating Builder TMPDIR/Makefile   
  

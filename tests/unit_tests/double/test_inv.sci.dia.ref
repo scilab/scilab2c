@@ -20,7 +20,7 @@ scilab2c(SCI2CHOME+"/tests/unit_tests/double/test_inv.sci", TMPDIR);
  
  -----------------------------------   
 Warning :
-matrix is close to singular or badly scaled. rcond =    4.5748D-41
+matrix is close to singular or badly scaled. rcond =    1.8293D-38
 
 Warning :
 matrix is close to singular or badly scaled. rcond =    1.1102D-17
@@ -146,11 +146,11 @@ Warning: file 'TMPDIR/SCI2CTmpResultsReports/test_inv/test_inv_copy.sci' already
       SCI2C: ########################################################## 
       ########*/                                                        
  
-          ==> Copying sources needed in TMPDIR/src/c/   
+          ==> Copying sources   
  
-          ==> Copying headers needed in TMPDIR/includes/   
+          ==> Copying headers   
  
-          ==> Copying interfaces needed in TMPDIR/interfaces/   
+          ==> Copying interfaces   
  
           ==> Generating Builder TMPDIR/Makefile   
  

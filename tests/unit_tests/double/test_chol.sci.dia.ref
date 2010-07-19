@@ -32,7 +32,7 @@ scilab2c(SCI2CHOME+"/tests/unit_tests/double/test_chol.sci", TMPDIR);
     7.7459667    16.524729    28.401878    38.729833  
     0            2.9888682    8.9219947    13.382992  
     0            0            2.3940224    3.5910336  
-    0            0            0            0.0000008  
+    0            0            0            0.0000004  
  
  ------------------------------------------   
  
@@ -154,11 +154,11 @@ Warning: file 'TMPDIR/SCI2CTmpResultsReports/test_chol/test_chol_copy.sci' alrea
       SCI2C: ########################################################## 
       ########*/                                                        
  
-          ==> Copying sources needed in TMPDIR/src/c/   
+          ==> Copying sources   
  
-          ==> Copying headers needed in TMPDIR/includes/   
+          ==> Copying headers   
  
-          ==> Copying interfaces needed in TMPDIR/interfaces/   
+          ==> Copying interfaces   
  
           ==> Generating Builder TMPDIR/Makefile   
  
