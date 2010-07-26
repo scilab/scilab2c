@@ -601,7 +601,7 @@ mgetl(fd)
 !                                                                      !
 !*/                                                                    !
 !                                                                      !
-!SCI2Cint main()                                                       !
+!int main()                                                            !
 !                                                                      !
 !{                                                                     !
 !                                                                      !
@@ -619,37 +619,37 @@ mgetl(fd)
 !                                                                      !
 !   double __temp1[2 * 1];                                             !
 !                                                                      !
-!   SCI2Cint ____temp1Size[2] = {2, 1};;                               !
+!   int ____temp1Size[2] = {2, 1};;                                    !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp2[3 * 1];                                             !
 !                                                                      !
-!   SCI2Cint ____temp2Size[2] = {3, 1};;                               !
+!   int ____temp2Size[2] = {3, 1};;                                    !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double a[4 * 1];                                                   !
 !                                                                      !
-!   SCI2Cint __aSize[2] = {4, 1};;                                     !
+!   int __aSize[2] = {4, 1};;                                          !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double b[5 * 1];                                                   !
 !                                                                      !
-!   SCI2Cint __bSize[2] = {5, 1};;                                     !
+!   int __bSize[2] = {5, 1};;                                          !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double c[5 * 1];                                                   !
 !                                                                      !
-!   SCI2Cint __cSize[2] = {5, 1};;                                     !
+!   int __cSize[2] = {5, 1};;                                          !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double d[9 * 1];                                                   !
 !                                                                      !
-!   SCI2Cint __dSize[2] = {9, 1};;                                     !
+!   int __dSize[2] = {9, 1};;                                          !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -679,7 +679,7 @@ mgetl(fd)
 !                                                                      !
 !   doubleComplex __temp5[2 * 1];                                      !
 !                                                                      !
-!   SCI2Cint ____temp5Size[2] = {2, 1};;                               !
+!   int ____temp5Size[2] = {2, 1};;                                    !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -689,7 +689,7 @@ mgetl(fd)
 !                                                                      !
 !   doubleComplex __temp7[3 * 1];                                      !
 !                                                                      !
-!   SCI2Cint ____temp7Size[2] = {3, 1};;                               !
+!   int ____temp7Size[2] = {3, 1};;                                    !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -699,25 +699,25 @@ mgetl(fd)
 !                                                                      !
 !   doubleComplex e[4 * 1];                                            !
 !                                                                      !
-!   SCI2Cint __eSize[2] = {4, 1};;                                     !
+!   int __eSize[2] = {4, 1};;                                          !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex f[5 * 1];                                            !
 !                                                                      !
-!   SCI2Cint __fSize[2] = {5, 1};;                                     !
+!   int __fSize[2] = {5, 1};;                                          !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex g[5 * 1];                                            !
 !                                                                      !
-!   SCI2Cint __gSize[2] = {5, 1};;                                     !
+!   int __gSize[2] = {5, 1};;                                          !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex h[9 * 1];                                            !
 !                                                                      !
-!   SCI2Cint __hSize[2] = {9, 1};;                                     !
+!   int __hSize[2] = {9, 1};;                                          !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -739,25 +739,25 @@ mgetl(fd)
 !                                                                      !
 !   doubleComplex i[2 * 1];                                            !
 !                                                                      !
-!   SCI2Cint __iSize[2] = {2, 1};;                                     !
+!   int __iSize[2] = {2, 1};;                                          !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex j[2 * 1];                                            !
 !                                                                      !
-!   SCI2Cint __jSize[2] = {2, 1};;                                     !
+!   int __jSize[2] = {2, 1};;                                          !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex k[3 * 1];                                            !
 !                                                                      !
-!   SCI2Cint __kSize[2] = {3, 1};;                                     !
+!   int __kSize[2] = {3, 1};;                                          !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex l[3 * 1];                                            !
 !                                                                      !
-!   SCI2Cint __lSize[2] = {3, 1};;                                     !
+!   int __lSize[2] = {3, 1};;                                          !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -779,31 +779,31 @@ mgetl(fd)
 !                                                                      !
 !   double m[2 * 1];                                                   !
 !                                                                      !
-!   SCI2Cint __mSize[2] = {2, 1};;                                     !
+!   int __mSize[2] = {2, 1};;                                          !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex n[3 * 1];                                            !
 !                                                                      !
-!   SCI2Cint __nSize[2] = {3, 1};;                                     !
+!   int __nSize[2] = {3, 1};;                                          !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex o[3 * 1];                                            !
 !                                                                      !
-!   SCI2Cint __oSize[2] = {3, 1};;                                     !
+!   int __oSize[2] = {3, 1};;                                          !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex p[5 * 1];                                            !
 !                                                                      !
-!   SCI2Cint __pSize[2] = {5, 1};;                                     !
+!   int __pSize[2] = {5, 1};;                                          !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex q[5 * 1];                                            !
 !                                                                      !
-!   SCI2Cint __qSize[2] = {5, 1};;                                     !
+!   int __qSize[2] = {5, 1};;                                          !
 !                                                                      !
 !                                                                      !
 !                                                                      !

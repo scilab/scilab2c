@@ -615,7 +615,7 @@ mgetl(fd)
 !                                                                      !
 !*/                                                                    !
 !                                                                      !
-!SCI2Cint main()                                                       !
+!int main()                                                            !
 !                                                                      !
 !{                                                                     !
 !                                                                      !
@@ -641,7 +641,7 @@ mgetl(fd)
 !                                                                      !
 !   char __temp2[1*16] = {"*******1*******"};                          !
 !                                                                      !
-!   SCI2Cint ____temp2Size[2] = {1,16};                                !
+!   int ____temp2Size[2] = {1,16};                                     !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -651,25 +651,25 @@ mgetl(fd)
 !                                                                      !
 !   double __temp3[1 * 2];                                             !
 !                                                                      !
-!   SCI2Cint ____temp3Size[2] = {1, 2};;                               !
+!   int ____temp3Size[2] = {1, 2};;                                    !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp4[1 * 3];                                             !
 !                                                                      !
-!   SCI2Cint ____temp4Size[2] = {1, 3};;                               !
+!   int ____temp4Size[2] = {1, 3};;                                    !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp5[1 * 2];                                             !
 !                                                                      !
-!   SCI2Cint ____temp5Size[2] = {1, 2};;                               !
+!   int ____temp5Size[2] = {1, 2};;                                    !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp6[1 * 3];                                             !
 !                                                                      !
-!   SCI2Cint ____temp6Size[2] = {1, 3};;                               !
+!   int ____temp6Size[2] = {1, 3};;                                    !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -683,7 +683,7 @@ mgetl(fd)
 !                                                                      !
 !   char __temp8[1*16] = {"*******2*******"};                          !
 !                                                                      !
-!   SCI2Cint ____temp8Size[2] = {1,16};                                !
+!   int ____temp8Size[2] = {1,16};                                     !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -705,7 +705,7 @@ mgetl(fd)
 !                                                                      !
 !   char __temp11[1*16] = {"*******3*******"};                         !
 !                                                                      !
-!   SCI2Cint ____temp11Size[2] = {1,16};                               !
+!   int ____temp11Size[2] = {1,16};                                    !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -715,31 +715,31 @@ mgetl(fd)
 !                                                                      !
 !   double __temp12[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp12Size[2] = {1, 2};;                              !
+!   int ____temp12Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp13[1 * 3];                                            !
 !                                                                      !
-!   SCI2Cint ____temp13Size[2] = {1, 3};;                              !
+!   int ____temp13Size[2] = {1, 3};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp14[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp14Size[2] = {1, 2};;                              !
+!   int ____temp14Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp15[1 * 3];                                            !
 !                                                                      !
-!   SCI2Cint ____temp15Size[2] = {1, 3};;                              !
+!   int ____temp15Size[2] = {1, 3};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex __temp16[1 * 3];                                     !
 !                                                                      !
-!   SCI2Cint ____temp16Size[2] = {1, 3};;                              !
+!   int ____temp16Size[2] = {1, 3};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -753,7 +753,7 @@ mgetl(fd)
 !                                                                      !
 !   char __temp18[1*16] = {"*******4*******"};                         !
 !                                                                      !
-!   SCI2Cint ____temp18Size[2] = {1,16};                               !
+!   int ____temp18Size[2] = {1,16};                                    !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -763,67 +763,67 @@ mgetl(fd)
 !                                                                      !
 !   double __temp19[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp19Size[2] = {1, 2};;                              !
+!   int ____temp19Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp20[1 * 3];                                            !
 !                                                                      !
-!   SCI2Cint ____temp20Size[2] = {1, 3};;                              !
+!   int ____temp20Size[2] = {1, 3};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp21[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp21Size[2] = {1, 2};;                              !
+!   int ____temp21Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp22[1 * 3];                                            !
 !                                                                      !
-!   SCI2Cint ____temp22Size[2] = {1, 3};;                              !
+!   int ____temp22Size[2] = {1, 3};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp23[2 * 3];                                            !
 !                                                                      !
-!   SCI2Cint ____temp23Size[2] = {2, 3};;                              !
+!   int ____temp23Size[2] = {2, 3};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp24[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp24Size[2] = {1, 2};;                              !
+!   int ____temp24Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp25[1 * 3];                                            !
 !                                                                      !
-!   SCI2Cint ____temp25Size[2] = {1, 3};;                              !
+!   int ____temp25Size[2] = {1, 3};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp26[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp26Size[2] = {1, 2};;                              !
+!   int ____temp26Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp27[1 * 3];                                            !
 !                                                                      !
-!   SCI2Cint ____temp27Size[2] = {1, 3};;                              !
+!   int ____temp27Size[2] = {1, 3};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp28[2 * 3];                                            !
 !                                                                      !
-!   SCI2Cint ____temp28Size[2] = {2, 3};;                              !
+!   int ____temp28Size[2] = {2, 3};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp29[1 * 3];                                            !
 !                                                                      !
-!   SCI2Cint ____temp29Size[2] = {1, 3};;                              !
+!   int ____temp29Size[2] = {1, 3};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -833,7 +833,7 @@ mgetl(fd)
 !                                                                      !
 !   char __temp30[1*16] = {"*******5*******"};                         !
 !                                                                      !
-!   SCI2Cint ____temp30Size[2] = {1,16};                               !
+!   int ____temp30Size[2] = {1,16};                                    !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -843,67 +843,67 @@ mgetl(fd)
 !                                                                      !
 !   double __temp31[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp31Size[2] = {1, 2};;                              !
+!   int ____temp31Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp32[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp32Size[2] = {1, 2};;                              !
+!   int ____temp32Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp33[2 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp33Size[2] = {2, 2};;                              !
+!   int ____temp33Size[2] = {2, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp34[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp34Size[2] = {1, 2};;                              !
+!   int ____temp34Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp35[3 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp35Size[2] = {3, 2};;                              !
+!   int ____temp35Size[2] = {3, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp36[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp36Size[2] = {1, 2};;                              !
+!   int ____temp36Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp37[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp37Size[2] = {1, 2};;                              !
+!   int ____temp37Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp38[2 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp38Size[2] = {2, 2};;                              !
+!   int ____temp38Size[2] = {2, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp39[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp39Size[2] = {1, 2};;                              !
+!   int ____temp39Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp40[3 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp40Size[2] = {3, 2};;                              !
+!   int ____temp40Size[2] = {3, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp41[3 * 1];                                            !
 !                                                                      !
-!   SCI2Cint ____temp41Size[2] = {3, 1};;                              !
+!   int ____temp41Size[2] = {3, 1};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -913,7 +913,7 @@ mgetl(fd)
 !                                                                      !
 !   char __temp42[1*16] = {"*******6*******"};                         !
 !                                                                      !
-!   SCI2Cint ____temp42Size[2] = {1,16};                               !
+!   int ____temp42Size[2] = {1,16};                                    !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -939,7 +939,7 @@ mgetl(fd)
 !                                                                      !
 !   char __temp46[1*16] = {"*******7*******"};                         !
 !                                                                      !
-!   SCI2Cint ____temp46Size[2] = {1,16};                               !
+!   int ____temp46Size[2] = {1,16};                                    !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -961,25 +961,25 @@ mgetl(fd)
 !                                                                      !
 !   doubleComplex __temp50[1 * 2];                                     !
 !                                                                      !
-!   SCI2Cint ____temp50Size[2] = {1, 2};;                              !
+!   int ____temp50Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex __temp51[1 * 3];                                     !
 !                                                                      !
-!   SCI2Cint ____temp51Size[2] = {1, 3};;                              !
+!   int ____temp51Size[2] = {1, 3};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp52[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp52Size[2] = {1, 2};;                              !
+!   int ____temp52Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp53[1 * 3];                                            !
 !                                                                      !
-!   SCI2Cint ____temp53Size[2] = {1, 3};;                              !
+!   int ____temp53Size[2] = {1, 3};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -993,7 +993,7 @@ mgetl(fd)
 !                                                                      !
 !   char __temp55[1*16] = {"*******8*******"};                         !
 !                                                                      !
-!   SCI2Cint ____temp55Size[2] = {1,16};                               !
+!   int ____temp55Size[2] = {1,16};                                    !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -1023,7 +1023,7 @@ mgetl(fd)
 !                                                                      !
 !   char __temp60[1*16] = {"*******9*******"};                         !
 !                                                                      !
-!   SCI2Cint ____temp60Size[2] = {1,16};                               !
+!   int ____temp60Size[2] = {1,16};                                    !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -1045,31 +1045,31 @@ mgetl(fd)
 !                                                                      !
 !   doubleComplex __temp64[1 * 2];                                     !
 !                                                                      !
-!   SCI2Cint ____temp64Size[2] = {1, 2};;                              !
+!   int ____temp64Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex __temp65[1 * 3];                                     !
 !                                                                      !
-!   SCI2Cint ____temp65Size[2] = {1, 3};;                              !
+!   int ____temp65Size[2] = {1, 3};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp66[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp66Size[2] = {1, 2};;                              !
+!   int ____temp66Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp67[1 * 3];                                            !
 !                                                                      !
-!   SCI2Cint ____temp67Size[2] = {1, 3};;                              !
+!   int ____temp67Size[2] = {1, 3};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex __temp68[1 * 3];                                     !
 !                                                                      !
-!   SCI2Cint ____temp68Size[2] = {1, 3};;                              !
+!   int ____temp68Size[2] = {1, 3};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -1083,7 +1083,7 @@ mgetl(fd)
 !                                                                      !
 !   char __temp70[1*16] = {"******10*******"};                         !
 !                                                                      !
-!   SCI2Cint ____temp70Size[2] = {1,16};                               !
+!   int ____temp70Size[2] = {1,16};                                    !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -1093,73 +1093,73 @@ mgetl(fd)
 !                                                                      !
 !   double __temp71[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp71Size[2] = {1, 2};;                              !
+!   int ____temp71Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp72[1 * 3];                                            !
 !                                                                      !
-!   SCI2Cint ____temp72Size[2] = {1, 3};;                              !
+!   int ____temp72Size[2] = {1, 3};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp73[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp73Size[2] = {1, 2};;                              !
+!   int ____temp73Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp74[1 * 3];                                            !
 !                                                                      !
-!   SCI2Cint ____temp74Size[2] = {1, 3};;                              !
+!   int ____temp74Size[2] = {1, 3};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp75[2 * 3];                                            !
 !                                                                      !
-!   SCI2Cint ____temp75Size[2] = {2, 3};;                              !
+!   int ____temp75Size[2] = {2, 3};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex __temp76[2 * 3];                                     !
 !                                                                      !
-!   SCI2Cint ____temp76Size[2] = {2, 3};;                              !
+!   int ____temp76Size[2] = {2, 3};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp77[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp77Size[2] = {1, 2};;                              !
+!   int ____temp77Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp78[1 * 3];                                            !
 !                                                                      !
-!   SCI2Cint ____temp78Size[2] = {1, 3};;                              !
+!   int ____temp78Size[2] = {1, 3};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp79[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp79Size[2] = {1, 2};;                              !
+!   int ____temp79Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp80[1 * 3];                                            !
 !                                                                      !
-!   SCI2Cint ____temp80Size[2] = {1, 3};;                              !
+!   int ____temp80Size[2] = {1, 3};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp81[2 * 3];                                            !
 !                                                                      !
-!   SCI2Cint ____temp81Size[2] = {2, 3};;                              !
+!   int ____temp81Size[2] = {2, 3};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex __temp82[1 * 3];                                     !
 !                                                                      !
-!   SCI2Cint ____temp82Size[2] = {1, 3};;                              !
+!   int ____temp82Size[2] = {1, 3};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -1169,7 +1169,7 @@ mgetl(fd)
 !                                                                      !
 !   char __temp83[1*16] = {"******11*******"};                         !
 !                                                                      !
-!   SCI2Cint ____temp83Size[2] = {1,16};                               !
+!   int ____temp83Size[2] = {1,16};                                    !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -1179,73 +1179,73 @@ mgetl(fd)
 !                                                                      !
 !   double __temp84[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp84Size[2] = {1, 2};;                              !
+!   int ____temp84Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp85[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp85Size[2] = {1, 2};;                              !
+!   int ____temp85Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp86[2 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp86Size[2] = {2, 2};;                              !
+!   int ____temp86Size[2] = {2, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp87[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp87Size[2] = {1, 2};;                              !
+!   int ____temp87Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp88[3 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp88Size[2] = {3, 2};;                              !
+!   int ____temp88Size[2] = {3, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp89[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp89Size[2] = {1, 2};;                              !
+!   int ____temp89Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp90[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp90Size[2] = {1, 2};;                              !
+!   int ____temp90Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp91[2 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp91Size[2] = {2, 2};;                              !
+!   int ____temp91Size[2] = {2, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp92[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp92Size[2] = {1, 2};;                              !
+!   int ____temp92Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp93[3 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp93Size[2] = {3, 2};;                              !
+!   int ____temp93Size[2] = {3, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex __temp94[3 * 2];                                     !
 !                                                                      !
-!   SCI2Cint ____temp94Size[2] = {3, 2};;                              !
+!   int ____temp94Size[2] = {3, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex __temp95[3 * 1];                                     !
 !                                                                      !
-!   SCI2Cint ____temp95Size[2] = {3, 1};;                              !
+!   int ____temp95Size[2] = {3, 1};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -1255,109 +1255,109 @@ mgetl(fd)
 !                                                                      !
 !   double __temp96[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp96Size[2] = {1, 2};;                              !
+!   int ____temp96Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp97[1 * 3];                                            !
 !                                                                      !
-!   SCI2Cint ____temp97Size[2] = {1, 3};;                              !
+!   int ____temp97Size[2] = {1, 3};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp98[1 * 2];                                            !
 !                                                                      !
-!   SCI2Cint ____temp98Size[2] = {1, 2};;                              !
+!   int ____temp98Size[2] = {1, 2};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp99[1 * 3];                                            !
 !                                                                      !
-!   SCI2Cint ____temp99Size[2] = {1, 3};;                              !
+!   int ____temp99Size[2] = {1, 3};;                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp100[2 * 3];                                           !
 !                                                                      !
-!   SCI2Cint ____temp100Size[2] = {2, 3};;                             !
+!   int ____temp100Size[2] = {2, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp101[1 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp101Size[2] = {1, 2};;                             !
+!   int ____temp101Size[2] = {1, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp102[1 * 3];                                           !
 !                                                                      !
-!   SCI2Cint ____temp102Size[2] = {1, 3};;                             !
+!   int ____temp102Size[2] = {1, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp103[1 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp103Size[2] = {1, 2};;                             !
+!   int ____temp103Size[2] = {1, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp104[1 * 3];                                           !
 !                                                                      !
-!   SCI2Cint ____temp104Size[2] = {1, 3};;                             !
+!   int ____temp104Size[2] = {1, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp105[2 * 3];                                           !
 !                                                                      !
-!   SCI2Cint ____temp105Size[2] = {2, 3};;                             !
+!   int ____temp105Size[2] = {2, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp106[1 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp106Size[2] = {1, 2};;                             !
+!   int ____temp106Size[2] = {1, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp107[1 * 3];                                           !
 !                                                                      !
-!   SCI2Cint ____temp107Size[2] = {1, 3};;                             !
+!   int ____temp107Size[2] = {1, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp108[1 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp108Size[2] = {1, 2};;                             !
+!   int ____temp108Size[2] = {1, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp109[1 * 3];                                           !
 !                                                                      !
-!   SCI2Cint ____temp109Size[2] = {1, 3};;                             !
+!   int ____temp109Size[2] = {1, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp110[2 * 3];                                           !
 !                                                                      !
-!   SCI2Cint ____temp110Size[2] = {2, 3};;                             !
+!   int ____temp110Size[2] = {2, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex __temp111[2 * 3];                                    !
 !                                                                      !
-!   SCI2Cint ____temp111Size[2] = {2, 3};;                             !
+!   int ____temp111Size[2] = {2, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex __temp112[2 * 3];                                    !
 !                                                                      !
-!   SCI2Cint ____temp112Size[2] = {2, 3};;                             !
+!   int ____temp112Size[2] = {2, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex __temp113[1 * 3];                                    !
 !                                                                      !
-!   SCI2Cint ____temp113Size[2] = {1, 3};;                             !
+!   int ____temp113Size[2] = {1, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -1367,7 +1367,7 @@ mgetl(fd)
 !                                                                      !
 !   char __temp114[1*16] = {"******12*******"};                        !
 !                                                                      !
-!   SCI2Cint ____temp114Size[2] = {1,16};                              !
+!   int ____temp114Size[2] = {1,16};                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -1377,73 +1377,73 @@ mgetl(fd)
 !                                                                      !
 !   double __temp115[1 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp115Size[2] = {1, 2};;                             !
+!   int ____temp115Size[2] = {1, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp116[1 * 3];                                           !
 !                                                                      !
-!   SCI2Cint ____temp116Size[2] = {1, 3};;                             !
+!   int ____temp116Size[2] = {1, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp117[1 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp117Size[2] = {1, 2};;                             !
+!   int ____temp117Size[2] = {1, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp118[1 * 3];                                           !
 !                                                                      !
-!   SCI2Cint ____temp118Size[2] = {1, 3};;                             !
+!   int ____temp118Size[2] = {1, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp119[2 * 3];                                           !
 !                                                                      !
-!   SCI2Cint ____temp119Size[2] = {2, 3};;                             !
+!   int ____temp119Size[2] = {2, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp120[1 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp120Size[2] = {1, 2};;                             !
+!   int ____temp120Size[2] = {1, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp121[1 * 3];                                           !
 !                                                                      !
-!   SCI2Cint ____temp121Size[2] = {1, 3};;                             !
+!   int ____temp121Size[2] = {1, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp122[1 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp122Size[2] = {1, 2};;                             !
+!   int ____temp122Size[2] = {1, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp123[1 * 3];                                           !
 !                                                                      !
-!   SCI2Cint ____temp123Size[2] = {1, 3};;                             !
+!   int ____temp123Size[2] = {1, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp124[2 * 3];                                           !
 !                                                                      !
-!   SCI2Cint ____temp124Size[2] = {2, 3};;                             !
+!   int ____temp124Size[2] = {2, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex __temp125[2 * 3];                                    !
 !                                                                      !
-!   SCI2Cint ____temp125Size[2] = {2, 3};;                             !
+!   int ____temp125Size[2] = {2, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex __temp126[1 * 3];                                    !
 !                                                                      !
-!   SCI2Cint ____temp126Size[2] = {1, 3};;                             !
+!   int ____temp126Size[2] = {1, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -1453,7 +1453,7 @@ mgetl(fd)
 !                                                                      !
 !   char __temp127[1*16] = {"******13*******"};                        !
 !                                                                      !
-!   SCI2Cint ____temp127Size[2] = {1,16};                              !
+!   int ____temp127Size[2] = {1,16};                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -1463,73 +1463,73 @@ mgetl(fd)
 !                                                                      !
 !   double __temp128[1 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp128Size[2] = {1, 2};;                             !
+!   int ____temp128Size[2] = {1, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp129[1 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp129Size[2] = {1, 2};;                             !
+!   int ____temp129Size[2] = {1, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp130[2 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp130Size[2] = {2, 2};;                             !
+!   int ____temp130Size[2] = {2, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp131[1 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp131Size[2] = {1, 2};;                             !
+!   int ____temp131Size[2] = {1, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp132[3 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp132Size[2] = {3, 2};;                             !
+!   int ____temp132Size[2] = {3, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex __temp133[3 * 2];                                    !
 !                                                                      !
-!   SCI2Cint ____temp133Size[2] = {3, 2};;                             !
+!   int ____temp133Size[2] = {3, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp134[1 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp134Size[2] = {1, 2};;                             !
+!   int ____temp134Size[2] = {1, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp135[1 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp135Size[2] = {1, 2};;                             !
+!   int ____temp135Size[2] = {1, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp136[2 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp136Size[2] = {2, 2};;                             !
+!   int ____temp136Size[2] = {2, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp137[1 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp137Size[2] = {1, 2};;                             !
+!   int ____temp137Size[2] = {1, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp138[3 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp138Size[2] = {3, 2};;                             !
+!   int ____temp138Size[2] = {3, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex __temp139[3 * 1];                                    !
 !                                                                      !
-!   SCI2Cint ____temp139Size[2] = {3, 1};;                             !
+!   int ____temp139Size[2] = {3, 1};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -1539,7 +1539,7 @@ mgetl(fd)
 !                                                                      !
 !   char __temp140[1*16] = {"******14*******"};                        !
 !                                                                      !
-!   SCI2Cint ____temp140Size[2] = {1,16};                              !
+!   int ____temp140Size[2] = {1,16};                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -1549,79 +1549,79 @@ mgetl(fd)
 !                                                                      !
 !   double __temp141[1 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp141Size[2] = {1, 2};;                             !
+!   int ____temp141Size[2] = {1, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp142[1 * 3];                                           !
 !                                                                      !
-!   SCI2Cint ____temp142Size[2] = {1, 3};;                             !
+!   int ____temp142Size[2] = {1, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp143[1 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp143Size[2] = {1, 2};;                             !
+!   int ____temp143Size[2] = {1, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp144[1 * 3];                                           !
 !                                                                      !
-!   SCI2Cint ____temp144Size[2] = {1, 3};;                             !
+!   int ____temp144Size[2] = {1, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp145[2 * 3];                                           !
 !                                                                      !
-!   SCI2Cint ____temp145Size[2] = {2, 3};;                             !
+!   int ____temp145Size[2] = {2, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex __temp146[2 * 3];                                    !
 !                                                                      !
-!   SCI2Cint ____temp146Size[2] = {2, 3};;                             !
+!   int ____temp146Size[2] = {2, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp147[1 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp147Size[2] = {1, 2};;                             !
+!   int ____temp147Size[2] = {1, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp148[1 * 3];                                           !
 !                                                                      !
-!   SCI2Cint ____temp148Size[2] = {1, 3};;                             !
+!   int ____temp148Size[2] = {1, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp149[1 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp149Size[2] = {1, 2};;                             !
+!   int ____temp149Size[2] = {1, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp150[1 * 3];                                           !
 !                                                                      !
-!   SCI2Cint ____temp150Size[2] = {1, 3};;                             !
+!   int ____temp150Size[2] = {1, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp151[2 * 3];                                           !
 !                                                                      !
-!   SCI2Cint ____temp151Size[2] = {2, 3};;                             !
+!   int ____temp151Size[2] = {2, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex __temp152[2 * 3];                                    !
 !                                                                      !
-!   SCI2Cint ____temp152Size[2] = {2, 3};;                             !
+!   int ____temp152Size[2] = {2, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex __temp153[1 * 3];                                    !
 !                                                                      !
-!   SCI2Cint ____temp153Size[2] = {1, 3};;                             !
+!   int ____temp153Size[2] = {1, 3};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -1631,7 +1631,7 @@ mgetl(fd)
 !                                                                      !
 !   char __temp154[1*16] = {"******15*******"};                        !
 !                                                                      !
-!   SCI2Cint ____temp154Size[2] = {1,16};                              !
+!   int ____temp154Size[2] = {1,16};                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -1641,79 +1641,79 @@ mgetl(fd)
 !                                                                      !
 !   double __temp155[1 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp155Size[2] = {1, 2};;                             !
+!   int ____temp155Size[2] = {1, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp156[1 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp156Size[2] = {1, 2};;                             !
+!   int ____temp156Size[2] = {1, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp157[2 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp157Size[2] = {2, 2};;                             !
+!   int ____temp157Size[2] = {2, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp158[1 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp158Size[2] = {1, 2};;                             !
+!   int ____temp158Size[2] = {1, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp159[3 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp159Size[2] = {3, 2};;                             !
+!   int ____temp159Size[2] = {3, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex __temp160[3 * 2];                                    !
 !                                                                      !
-!   SCI2Cint ____temp160Size[2] = {3, 2};;                             !
+!   int ____temp160Size[2] = {3, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp161[1 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp161Size[2] = {1, 2};;                             !
+!   int ____temp161Size[2] = {1, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp162[1 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp162Size[2] = {1, 2};;                             !
+!   int ____temp162Size[2] = {1, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp163[2 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp163Size[2] = {2, 2};;                             !
+!   int ____temp163Size[2] = {2, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp164[1 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp164Size[2] = {1, 2};;                             !
+!   int ____temp164Size[2] = {1, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   double __temp165[3 * 2];                                           !
 !                                                                      !
-!   SCI2Cint ____temp165Size[2] = {3, 2};;                             !
+!   int ____temp165Size[2] = {3, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex __temp166[3 * 2];                                    !
 !                                                                      !
-!   SCI2Cint ____temp166Size[2] = {3, 2};;                             !
+!   int ____temp166Size[2] = {3, 2};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
 !   doubleComplex __temp167[3 * 1];                                    !
 !                                                                      !
-!   SCI2Cint ____temp167Size[2] = {3, 1};;                             !
+!   int ____temp167Size[2] = {3, 1};;                                  !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -1723,7 +1723,7 @@ mgetl(fd)
 !                                                                      !
 !   char __temp168[1*16] = {"******16*******"};                        !
 !                                                                      !
-!   SCI2Cint ____temp168Size[2] = {1,16};                              !
+!   int ____temp168Size[2] = {1,16};                                   !
 !                                                                      !
 !                                                                      !
 !                                                                      !
