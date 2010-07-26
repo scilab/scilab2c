@@ -229,7 +229,7 @@ mgetl(fd)
 !                                                                      !
 !*/                                                                    !
 !                                                                      !
-!SCI2Cint main()                                                       !
+!int main()                                                            !
 !                                                                      !
 !{                                                                     !
 !                                                                      !
@@ -267,7 +267,7 @@ mgetl(fd)
 !                                                                      !
 !   double __temp4[1 * 2];                                             !
 !                                                                      !
-!   SCI2Cint ____temp4Size[2] = {1, 2};;                               !
+!   int ____temp4Size[2] = {1, 2};;                                    !
 !                                                                      !
 !                                                                      !
 !                                                                      !
@@ -281,7 +281,7 @@ mgetl(fd)
 !                                                                      !
 !   doubleComplex __temp6[1 * 2];                                      !
 !                                                                      !
-!   SCI2Cint ____temp6Size[2] = {1, 2};;                               !
+!   int ____temp6Size[2] = {1, 2};;                                    !
 !                                                                      !
 !                                                                      !
 !                                                                      !
