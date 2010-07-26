@@ -178,7 +178,7 @@ if (FunInfo.CFunctionName == SharedInfo.CMainFunName)
    if (FlagCall == 1)
       error(9999, 'main function called in a source code!');
    else
-      CCall =CCall+'SCI2Cint ';
+      CCall =CCall+'int ';
    end
 else
    if (PosFirstOutScalar >= 1)
@@ -227,7 +227,7 @@ for counterin = 1:NInArg
       CCall = CCall+TmpInArgName+',';
    else
       if (FlagCall == 0)
-         CCall = CCall+TmpInArgType+'* '+TmpInArgName+', SCI2Cint* __'+TmpInArgName+'Size,';
+         CCall = CCall+TmpInArgType+'* '+TmpInArgName+', int* __'+TmpInArgName+'Size,';
       else
          CCall = CCall+TmpInArgName+',  '+TmpInArgSizeVar+',';
       end
@@ -267,13 +267,13 @@ for counterout = 1:NOutArg
          if (FlagCall == 0)
             CCall = CCall+TmpOutArgType+'* '+TmpOutArgName+',';
             if (OutArg(counterout).FindLike == 1)
-               CCall = CCall+'SCI2Cint* __'+TmpOutArgName+'Size'+',';
+               CCall = CCall+'int* __'+TmpOutArgName+'Size'+',';
             end
             // #RNU_RES_B
             //NUT prova a sostituire le variabili strutture con variabili dichiarate all'inizio del codice.
             // --- Declare the size of the output arguments. ---
             // #RNU_RES_E
-            outscalardeclaration = 'SCI2Cint __'+TmpOutArgName+'Size[2];';
+            outscalardeclaration = 'int __'+TmpOutArgName+'Size[2];';
             PrintStringInfo(outscalardeclaration,ReportFileName,'file','y');
             PrintStringInfo(C_IndentBlanks(1)+outscalardeclaration,CDeclarationFileName,'file','y');
             outscalardeclaration = '__'+TmpOutArgName+'Size[0] = '+(OutArg(counterout).Size(1))+';';
@@ -286,7 +286,7 @@ for counterout = 1:NOutArg
          else
             CCall = CCall+OutArg(counterout).Name+',';
             if (OutArg(counterout).FindLike == 1)
-               CCall = CCall+'(SCI2Cint* ) __'+TmpOutArgName+'Size'+',';
+               CCall = CCall+'(int* ) __'+TmpOutArgName+'Size'+',';
             end
          end
       end
