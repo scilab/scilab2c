@@ -30,7 +30,7 @@ elseif (ArgType == 'c')
 elseif (ArgType == 'z')
    OutC_Type = 'doubleComplex';
 elseif (ArgType == 'i')
-   OutC_Type = 'SCI2Cint';
+   OutC_Type = 'int';
 elseif (ArgType == 'g')
    OutC_Type = 'char';
 elseif (ArgType == 'f')
