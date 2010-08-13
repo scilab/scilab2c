@@ -1,7 +1,6 @@
 #ifndef __SCI2CLIB_H__
 #define __SCI2CLIB_H__
 
-#define SCI2Cint int
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
