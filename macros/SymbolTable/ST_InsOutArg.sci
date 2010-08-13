@@ -61,12 +61,11 @@ for counteroutput = 1:NOutArg
    PrintStringInfo('   Scope:     '+string(OutArg(counteroutput).Scope),ReportFileName,'file','y','n');
    PrintStringInfo(' ',ReportFileName,'file','y','n');
    // #RNU_RES_E
-   
-   if mtlb_strcmp(OutArg(counteroutput).Scope,'Temp')
+   if (OutArg(counteroutput).Scope == 'Temp')
       SymbTableFileName = TempVarsFileName;
-   elseif mtlb_strcmp(OutArg(counteroutput).Scope,'Local')
+   elseif (OutArg(counteroutput).Scope == 'Local')
       SymbTableFileName = LocalVarsFileName;
-   elseif mtlb_strcmp(OutArg(counteroutput).Scope,'Global')
+   elseif (OutArg(counteroutput).Scope == 'Global')
       SymbTableFileName = GlobalVarsFileName;
    else
       error(9999, 'Unknown scope ""'+OutArg(counteroutput).Scope+'"" for symbol: '+OutArg(counteroutput).Name);
@@ -74,7 +73,7 @@ for counteroutput = 1:NOutArg
    // #RNU_RES_B
    PrintStringInfo('   Setting symbol ""'+OutArg(counteroutput).Name+'"" in '+SymbTableFileName+'.',ReportFileName,'file','y');
    // #RNU_RES_E
-   
+
    // #RNU_RES_B
    // Check existence and conflicts in the symbol table.
    // Here we have four possibilities:
@@ -91,7 +90,7 @@ for counteroutput = 1:NOutArg
       OutArg(counteroutput).FindLike,...
       OutArg(counteroutput).Dimension,...
       SymbTableFileName,MatchRule);
-   
+
    if (TBFlagfound == 1)
       if (TBFlagEqualSymbols == 0)
          PrintStringInfo(' ',ReportFileName,'both','y');
@@ -113,7 +112,7 @@ for counteroutput = 1:NOutArg
          //RNU prima dopo delle size di una data variabile. Cosa succede se cambio la size anche nel caso di array e approccio
          //RNU di resize non attivo? L'unica cosa e' che molte size numeriche scompaiono e incomincio a creare numerose variabili
          //RNU con size simbolica.
-         
+
          // If the symbol is scalar we update its value if it is an array we update its size
          // only in case we are using the 'REALLOC_ALL_RESIZE_ALL' resize approach
          // #RNU_RES_E
@@ -182,7 +181,7 @@ for counteroutput = 1:NOutArg
       // #RNU_RES_E
       C_MemAllocOutTempVars(OutArg(counteroutput),1,CPass1FileName,CPass1FreeFileName,IndentLevelMalloc,ReportFileName,SharedInfo.ResizeApproach);
    end
-   
+
 end
 
 endfunction
