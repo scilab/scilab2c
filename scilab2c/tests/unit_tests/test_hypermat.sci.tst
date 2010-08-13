@@ -17,7 +17,6 @@
 global SCI2CHOME;
 scilab2c(SCI2CHOME+"/tests/unit_tests/test_hypermat.sci", TMPDIR);
 
-editor(TMPDIR + "/main.c");
-//fd = mopen(TMPDIR+"/main.c");
-//mgetl(fd)
-//mclose(fd);
+fd = mopen(TMPDIR+"/main.c");
+mgetl(fd)
+mclose(fd);
