@@ -48,7 +48,7 @@ DefaultPrecision = SharedInfo.DefaultPrecision;
 // ---------------------------
 // --- End Initialization. ---
 // ---------------------------
-if (mtlb_strcmp(FunTypeAnnot(1),''))
+if (FunTypeAnnot(1) == '')
    NOutArg = 0;
 else
    NOutArg = max(size(FunTypeAnnot));
@@ -75,8 +75,9 @@ for counterout = 1:NOutArg
       UpdatedOutArg(counterout).Type   = eval(FunTypeAnnot(counterout));
    end
    UpdatedOutArg(counterout).FindLike  = 0;
-   lengthFA_SZ_RTMAX = length('FA_SZ_RTMAX');
 
+   // This is just to remove the FA_SZ_RTMAX tag ???
+   lengthFA_SZ_RTMAX = length('FA_SZ_RTMAX');
    if (SCI2Cstrncmps1size('FA_SZ_RTMAX',FunSizeAnnot(counterout,1)))
       UpdatedOutArg(counterout).FindLike = 1;
       FunSizeAnnot(counterout,1) = part(FunSizeAnnot(counterout,1),lengthFA_SZ_RTMAX+1:length(FunSizeAnnot(counterout,1)));
