@@ -14,6 +14,7 @@
    IMPLEMENTED YET, SEE DRANDS.C
 */
 
+
 #ifndef __INT_SIZE_H__
 #define __INT_SIZE_H__
 
@@ -23,7 +24,7 @@
 
 #define c0sizes2(in,out)				out[0]=1.0f;out[1]=1.0f;
 
-#define z0sized2(in,out)				out[0]=1.0;out[1]=1.0;	
+#define z0sized2(in,out)				out[0]=1.0;out[1]=1.0;
 
 #define s2sizes2(in,size,out)				out[0]=size[0];out[1]=size[1];
 
@@ -65,7 +66,7 @@
 
 #define z2d0sized0(in1,size,in2)			(in2==1) ? size[0] : size[1]
 
-
+#define d2g2sized0(in1,size1,in2,size2)     dallsizea(size1, in2)
 #endif /* !__INT_SIZE_H__ */
 
 

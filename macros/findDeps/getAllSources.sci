@@ -61,6 +61,7 @@ function allSources = getAllSources()
       "src/c/auxiliaryFunctions/pythag/zpythags.c"
       "src/c/auxiliaryFunctions/pythag/cpythags.c"
       "src/c/auxiliaryFunctions/pythag/spythags.c"
+      "src/c/auxiliaryFunctions/size/dallsizea.c"
       "src/c/type/doubleComplex.c"
       "src/c/type/floatComplex.c"
       "src/c/matrixOperations/cat/dcata.c"

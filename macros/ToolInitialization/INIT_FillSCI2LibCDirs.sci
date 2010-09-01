@@ -1663,6 +1663,8 @@ PrintStringInfo('d2d0'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('c2s0'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('z2d0'+ArgSeparator+'d0',ClassFileName,'file','y');
 
+PrintStringInfo('d2g2'+ArgSeparator+'d0',ClassFileName,'file','y');
+
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'size'; // AS : Done  AS : Float_Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
