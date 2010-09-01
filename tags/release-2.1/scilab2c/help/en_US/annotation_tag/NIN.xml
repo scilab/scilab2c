@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   * Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+   * Copyright (C) DIGITEO - Bruno JOFRET
+   *
+   * This file is released into the public domain
+   *
+  -->
+<refentry version="5.0-subset Scilab" xml:id="scilab2c_tag_NIN" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:db="http://docbook.org/ns/docbook">
+  <info>
+    <pubdate>$LastChangedDate$</pubdate>
+  </info>
+
+  <refnamediv>
+    <refname>NIN annotation tag</refname>
+    <refpurpose>Scilab2C Function annotation : NIN</refpurpose>
+  </refnamediv>
+
+  <refsynopsisdiv>
+    <title>Calling Sequence</title>
+
+    <synopsis>
+      //SCI2C: NIN=    number
+    </synopsis>
+  </refsynopsisdiv>
+
+  <refsection>
+    <title>Parameters</title>
+    <variablelist>
+      <varlistentry>
+        <term>number</term>
+        <listitem>
+          <para>Specifies the number of input arguments</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+  </refsection>
+
+  <refsection>
+    <title>Description</title>
+    <para>This annotation must be placed before a user function to allow Scilab2C to convert it.</para>
+  </refsection>
+
+  <refsection>
+    <title>Examples</title>
+
+    <programlisting role="example"><![CDATA[
+//SCI2C: NIN= 0
+function helloWorld()
+  disp("Hello World !");
+emdfunction
+]]></programlisting>
+
+    <programlisting role="example"><![CDATA[
+//SCI2C: NIN= 1
+function displayArg(x)
+  disp("x");
+emdfunction
+]]>
+    </programlisting>
+
+    <programlisting role="example"><![CDATA[
+//SCI2C: NIN= 2
+function z=doAddition(x, y)
+  z = x + y;
+emdfunction
+]]>
+    </programlisting>
+
+</refsection>
+
+  <refsection>
+    <title>Authors</title>
+
+    <simplelist type="vert">
+      <member>Bruno JOFRET</member>
+      <member>Raffaele NUTRICATO</member>
+    </simplelist>
+  </refsection>
+</refentry>
