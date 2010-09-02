@@ -46,7 +46,7 @@
 
 #define s2finds2s2(in,size,out1,sizeOut1,out2,sizeOut2)			sfind2da(in,size[0],size[1],out1,sizeOut1,out2,sizeOut2,-1)
 
-#define d2findd2d2(in,size,out1,sizeOut1,out2,sizeOut2)			dfind2da(in,size[0],size[1],out1,sizeOut1,out2,sizeOut2,-1)
+#define d2findd2d2(in,size,out1,out2)                           dfind2da(in,size[0],size[1],out1,out2,-1)
 
 #define c2finds2s2(in,size,out1,sizeOut1,out2,sizeOut2)			cfind2da(in,size[0],size[1],out1,sizeOut1,out2,sizeOut2,-1)
 

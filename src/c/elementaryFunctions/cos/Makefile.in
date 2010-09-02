@@ -93,7 +93,8 @@ am__DEPENDENCIES_1 = $(top_builddir)/src/c/type/libDoubleComplex.la \
 	$(top_builddir)/src/c/elementaryFunctions/sqrt/libSqrt.la \
 	$(top_builddir)/src/c/auxiliaryFunctions/abs/libAbs.la \
 	$(top_builddir)/src/c/auxiliaryFunctions/pythag/libPythag.la \
-	$(top_builddir)/src/c/operations/multiplication/libMultiplication.la
+	$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
+	$(top_builddir)/src/c/matrixOperations/zeros/libMatrixZeros.la
 testDoubleCos_DEPENDENCIES = $(am__DEPENDENCIES_1)
 testDoubleCos_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(testDoubleCos_CFLAGS) \
@@ -283,6 +284,7 @@ check_LDADD = $(top_builddir)/src/c/type/libDoubleComplex.la \
 			$(top_builddir)/src/c/auxiliaryFunctions/abs/libAbs.la \
 			$(top_builddir)/src/c/auxiliaryFunctions/pythag/libPythag.la \
 			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/src/c/matrixOperations/zeros/libMatrixZeros.la \
 			@LIBMATH@
 
 

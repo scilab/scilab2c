@@ -30,7 +30,7 @@ EXTERN_AUXFUNCT void sfind2da(float* x, int rows, int columns, float* out1, int*
 ** \brief Double Find function
 ** max is an integer giving the maximum number of indices to return. (use -1 to search them all)
 */
-EXTERN_AUXFUNCT void dfind2da(double* x, int rows, int columns, double* out1, int* sizeOut1, double* out2, int* sizeOut2,int max);
+EXTERN_AUXFUNCT void dfind2da(double* x, int rows, int columns, double* out1, double* out2, int max);
 
 /*
 ** \brief Float Complex Find function

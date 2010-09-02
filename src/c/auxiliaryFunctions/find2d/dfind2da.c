@@ -12,25 +12,29 @@
 
 #include "find2d.h"
 
-void dfind2da(double* x, int rows, int columns, double* out1,int* indiceOut1, double* out2,int* indiceOut2,int max) {
-  int i = 0, j=0;
-  indiceOut1[1] = 0;
-  
-  /* if out are empties */
-  out1[0]=-1;
-  out2[0]=-1;
-  
-  for	(j = 0; j < columns ; ++j){
-  	 for (i = 0; i < rows ; ++i) {
+void dfind2da(double* x, int rows, int columns, double* out1, double* out2, int max) {
+    int i = 0, j=0, k = 0;
+
+    /* if out are empties */
+    out1[0]=-1;
+    out2[0]=-1;
+
+    for	(j = 0; j < columns ; ++j)
+    {
+        for (i = 0; i < rows ; ++i)
+        {
             /*to avoid useless search if we only want to find the  max first founded value   */
-            if (indiceOut1[1] == max  ) return ;
-	    if (x[j*rows+i] != 0) {
-	    	
-		out1[indiceOut1[1]] = (double)(i+1);
-		out2[indiceOut1[1]] = (double)(j+1);
-		indiceOut1[1]++;
-	    }
-	}
-  }
-  indiceOut2[1]=indiceOut1[1];
+            if (max == 0)
+            {
+                return;
+            }
+
+            if (x[j*rows+i] != 0)
+            {
+                out1[k] = (double)(i+1);
+                out2[k] = (double)(j+1);
+                k++;
+            }
+        }
+    }
 }

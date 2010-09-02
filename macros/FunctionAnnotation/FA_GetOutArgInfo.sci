@@ -100,8 +100,8 @@ for counterout = 1:NOutArg
    // we issue an error according to SCI2C specifications
    // #RNU_RES_E
 
-   for iterOutputPosition=1:size(FunSizeAnnot, '*')
-     tmpeval = eval(FunSizeAnnot(iterOutputPosition));
+   for iterOutputPosition=1:size(FunSizeAnnot, 'c')
+     tmpeval = eval(FunSizeAnnot(counterout, iterOutputPosition));
      if (IsNanSize(tmpeval))
        if SharedInfo.ForExpr.OnExec == 0
          EM_NanSize(ReportFileName);
