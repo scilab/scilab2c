@@ -1,8 +1,8 @@
 //SCI2C: DEFAULT_PRECISION= DOUBLE
 
-function mainfunction()
+function Moebius()
 
-//the program construct moebius 
+//the program construct moebius
 // and klein bottle surface from
 //http://www.metlin.org/mathematics/
 // topological-constructs/non-orientable-surfaces/
@@ -43,7 +43,7 @@ num_points = 50;
 
 //u = linspace (0, 2*(%pi), num_points);
 //v = linspace (0, 2*(%pi), num_points);
-step_u = (2*%pi)./num_points 
+step_u = (2*%pi)./num_points
 u = 0:step_u:2*%pi;
 v = u;
 
@@ -61,6 +61,6 @@ disp('z1(1:10)')
 disp(z1(1:10))
 // ENABLE/DISABLE PLOT
 // scf(1) ;surf(x1, y1, z1)
-    
+
 endfunction
 
