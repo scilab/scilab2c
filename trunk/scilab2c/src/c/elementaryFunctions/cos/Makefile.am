@@ -52,6 +52,7 @@ check_LDADD	=	$(top_builddir)/src/c/type/libDoubleComplex.la \
 			$(top_builddir)/src/c/auxiliaryFunctions/abs/libAbs.la \
 			$(top_builddir)/src/c/auxiliaryFunctions/pythag/libPythag.la \
 			$(top_builddir)/src/c/operations/multiplication/libMultiplication.la \
+			$(top_builddir)/src/c/matrixOperations/zeros/libMatrixZeros.la \
 			@LIBMATH@
 
 check_PROGRAMS	= 	testFloatCos testDoubleCos
