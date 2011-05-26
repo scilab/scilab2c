@@ -1,3 +1,8 @@
+2011-05-25  Allan CORNET
+
+	* Visual Studio 2010 C++ Pro/Express support
+	* x64 target added in VS solution
+
 2007-09-07  Bruno JOFRET  <bruno.jofret@inria.fr>
 
 	* src/auxiliaryFunctions/includes/rand.h :

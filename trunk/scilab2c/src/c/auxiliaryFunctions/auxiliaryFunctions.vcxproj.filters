@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\abs">
+      <UniqueIdentifier>{a20f4024-42d0-43f3-9f83-a9719b14699c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\conj">
+      <UniqueIdentifier>{a0b76aea-8f6d-4671-8f84-096e86ab5d0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\find">
+      <UniqueIdentifier>{0be62708-24dc-4ee0-b2c0-4cb62191c396}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\find2d">
+      <UniqueIdentifier>{b0d1ea94-0f26-46cf-b3e8-d44f6833dc2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\frexp">
+      <UniqueIdentifier>{b900d815-afa8-48e9-92c0-e1b53277942f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\isempty">
+      <UniqueIdentifier>{5901078e-0d30-4157-9789-03e80e3e277b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\isnan">
+      <UniqueIdentifier>{5332579b-316d-4830-9de8-bd72d0d56511}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\length">
+      <UniqueIdentifier>{39e0071f-0a03-4686-b2c2-da5ed82db0df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\pythag">
+      <UniqueIdentifier>{bdd2dc71-9612-4b61-9a60-c598c3f03b85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\rand">
+      <UniqueIdentifier>{f6035d57-7c08-48fb-bc55-e7c55c165edd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\type">
+      <UniqueIdentifier>{ea170338-a2c4-4dd6-aedb-998de767fedd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\size">
+      <UniqueIdentifier>{52b3f0d4-6f15-4e0e-90b7-3c3b0b42157e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sign">
+      <UniqueIdentifier>{f1a35ccf-dacf-497e-bd3d-c88534e42095}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="abs\cabsa.c">
+      <Filter>Source Files\abs</Filter>
+    </ClCompile>
+    <ClCompile Include="abs\cabss.c">
+      <Filter>Source Files\abs</Filter>
+    </ClCompile>
+    <ClCompile Include="abs\dabsa.c">
+      <Filter>Source Files\abs</Filter>
+    </ClCompile>
+    <ClCompile Include="abs\dabss.c">
+      <Filter>Source Files\abs</Filter>
+    </ClCompile>
+    <ClCompile Include="abs\sabsa.c">
+      <Filter>Source Files\abs</Filter>
+    </ClCompile>
+    <ClCompile Include="abs\sabss.c">
+      <Filter>Source Files\abs</Filter>
+    </ClCompile>
+    <ClCompile Include="abs\zabsa.c">
+      <Filter>Source Files\abs</Filter>
+    </ClCompile>
+    <ClCompile Include="abs\zabss.c">
+      <Filter>Source Files\abs</Filter>
+    </ClCompile>
+    <ClCompile Include="conj\cconja.c">
+      <Filter>Source Files\conj</Filter>
+    </ClCompile>
+    <ClCompile Include="conj\cconjs.c">
+      <Filter>Source Files\conj</Filter>
+    </ClCompile>
+    <ClCompile Include="conj\zconja.c">
+      <Filter>Source Files\conj</Filter>
+    </ClCompile>
+    <ClCompile Include="conj\zconjs.c">
+      <Filter>Source Files\conj</Filter>
+    </ClCompile>
+    <ClCompile Include="find\cfinda.c">
+      <Filter>Source Files\find</Filter>
+    </ClCompile>
+    <ClCompile Include="find\dfinda.c">
+      <Filter>Source Files\find</Filter>
+    </ClCompile>
+    <ClCompile Include="find\sfinda.c">
+      <Filter>Source Files\find</Filter>
+    </ClCompile>
+    <ClCompile Include="find\zfinda.c">
+      <Filter>Source Files\find</Filter>
+    </ClCompile>
+    <ClCompile Include="find2d\cfind2da.c">
+      <Filter>Source Files\find2d</Filter>
+    </ClCompile>
+    <ClCompile Include="find2d\dfind2da.c">
+      <Filter>Source Files\find2d</Filter>
+    </ClCompile>
+    <ClCompile Include="find2d\sfind2da.c">
+      <Filter>Source Files\find2d</Filter>
+    </ClCompile>
+    <ClCompile Include="find2d\zfind2da.c">
+      <Filter>Source Files\find2d</Filter>
+    </ClCompile>
+    <ClCompile Include="frexp\dfrexps.c">
+      <Filter>Source Files\frexp</Filter>
+    </ClCompile>
+    <ClCompile Include="frexp\sfrexps.c">
+      <Filter>Source Files\frexp</Filter>
+    </ClCompile>
+    <ClCompile Include="isnan\cisnana.c">
+      <Filter>Source Files\isnan</Filter>
+    </ClCompile>
+    <ClCompile Include="isnan\cisnans.c">
+      <Filter>Source Files\isnan</Filter>
+    </ClCompile>
+    <ClCompile Include="isnan\disnana.c">
+      <Filter>Source Files\isnan</Filter>
+    </ClCompile>
+    <ClCompile Include="isnan\disnans.c">
+      <Filter>Source Files\isnan</Filter>
+    </ClCompile>
+    <ClCompile Include="isnan\sisnana.c">
+      <Filter>Source Files\isnan</Filter>
+    </ClCompile>
+    <ClCompile Include="isnan\sisnans.c">
+      <Filter>Source Files\isnan</Filter>
+    </ClCompile>
+    <ClCompile Include="isnan\zisnana.c">
+      <Filter>Source Files\isnan</Filter>
+    </ClCompile>
+    <ClCompile Include="isnan\zisnans.c">
+      <Filter>Source Files\isnan</Filter>
+    </ClCompile>
+    <ClCompile Include="pythag\cpythags.c">
+      <Filter>Source Files\pythag</Filter>
+    </ClCompile>
+    <ClCompile Include="pythag\dpythags.c">
+      <Filter>Source Files\pythag</Filter>
+    </ClCompile>
+    <ClCompile Include="pythag\spythags.c">
+      <Filter>Source Files\pythag</Filter>
+    </ClCompile>
+    <ClCompile Include="pythag\zpythags.c">
+      <Filter>Source Files\pythag</Filter>
+    </ClCompile>
+    <ClCompile Include="rand\cranda.c">
+      <Filter>Source Files\rand</Filter>
+    </ClCompile>
+    <ClCompile Include="rand\crands.c">
+      <Filter>Source Files\rand</Filter>
+    </ClCompile>
+    <ClCompile Include="rand\dranda.c">
+      <Filter>Source Files\rand</Filter>
+    </ClCompile>
+    <ClCompile Include="rand\drands.c">
+      <Filter>Source Files\rand</Filter>
+    </ClCompile>
+    <ClCompile Include="rand\sranda.c">
+      <Filter>Source Files\rand</Filter>
+    </ClCompile>
+    <ClCompile Include="rand\srands.c">
+      <Filter>Source Files\rand</Filter>
+    </ClCompile>
+    <ClCompile Include="rand\zranda.c">
+      <Filter>Source Files\rand</Filter>
+    </ClCompile>
+    <ClCompile Include="rand\zrands.c">
+      <Filter>Source Files\rand</Filter>
+    </ClCompile>
+    <ClCompile Include="sign\csigna.c">
+      <Filter>Source Files\sign</Filter>
+    </ClCompile>
+    <ClCompile Include="sign\csigns.c">
+      <Filter>Source Files\sign</Filter>
+    </ClCompile>
+    <ClCompile Include="sign\dsigna.c">
+      <Filter>Source Files\sign</Filter>
+    </ClCompile>
+    <ClCompile Include="sign\dsigns.c">
+      <Filter>Source Files\sign</Filter>
+    </ClCompile>
+    <ClCompile Include="sign\ssigna.c">
+      <Filter>Source Files\sign</Filter>
+    </ClCompile>
+    <ClCompile Include="sign\ssigns.c">
+      <Filter>Source Files\sign</Filter>
+    </ClCompile>
+    <ClCompile Include="sign\zsigna.c">
+      <Filter>Source Files\sign</Filter>
+    </ClCompile>
+    <ClCompile Include="sign\zsigns.c">
+      <Filter>Source Files\sign</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="abs\Makefile.am">
+      <Filter>Source Files\abs</Filter>
+    </None>
+    <None Include="conj\Makefile.am">
+      <Filter>Source Files\conj</Filter>
+    </None>
+    <None Include="find\Makefile.am">
+      <Filter>Source Files\find</Filter>
+    </None>
+    <None Include="find2d\Makefile.am">
+      <Filter>Source Files\find2d</Filter>
+    </None>
+    <None Include="frexp\Makefile.am">
+      <Filter>Source Files\frexp</Filter>
+    </None>
+    <None Include="isnan\Makefile.am">
+      <Filter>Source Files\isnan</Filter>
+    </None>
+    <None Include="pythag\Makefile.am">
+      <Filter>Source Files\pythag</Filter>
+    </None>
+    <None Include="rand\Makefile.am">
+      <Filter>Source Files\rand</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="includes\abs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\conj.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\dynlib_auxiliaryfunctions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\find.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\find2d.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\frexp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\isempty.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\isnan.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\length.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\max.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\min.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\pythag.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\rand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\sign.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\size.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\type.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

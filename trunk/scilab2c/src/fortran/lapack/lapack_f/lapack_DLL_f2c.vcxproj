@@ -1,0 +1,837 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>lapack_f2c_DLL</ProjectName>
+    <ProjectGuid>{69296D00-0DE1-4F4B-B0CE-FE4F3CB43923}</ProjectGuid>
+    <RootNamespace>lapack_f2c_DLL</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="..\..\..\..\Visual-Studio-settings\f2c.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../f2c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>STRICT;__STDC__;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ObjectFileName>$(Configuration)/</ObjectFileName>
+      <ProgramDataBaseFileName>$(Configuration)/vc80.pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <PreLinkEvent>
+      <Message>Build Lapack.def file</Message>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalOptions>/fixed:no %(AdditionalOptions)</AdditionalOptions>
+      <OutputFile>$(SolutionDir)bin\lapack.dll</OutputFile>
+      <ModuleDefinitionFile>lapack.def</ModuleDefinitionFile>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <ImportLibrary>$(SolutionDir)bin\$(TargetName).lib</ImportLibrary>
+      <CLRUnmanagedCodeCheck>true</CLRUnmanagedCodeCheck>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../f2c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>STRICT;__STDC__;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ObjectFileName>$(Configuration)/</ObjectFileName>
+      <ProgramDataBaseFileName>$(Configuration)/vc80.pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <PreLinkEvent>
+      <Message>Build Lapack.def file</Message>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalOptions>/fixed:no %(AdditionalOptions)</AdditionalOptions>
+      <OutputFile>../../../bin/lapack.dll</OutputFile>
+      <ModuleDefinitionFile>lapack.def</ModuleDefinitionFile>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX64</TargetMachine>
+      <CLRUnmanagedCodeCheck>true</CLRUnmanagedCodeCheck>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <AdditionalIncludeDirectories>../../f2c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>STRICT;__STDC__;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ObjectFileName>$(Configuration)/</ObjectFileName>
+      <ProgramDataBaseFileName>$(Configuration)/vc80.pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <PreLinkEvent>
+      <Message>Build Lapack.def file</Message>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+    <Link>
+      <OutputFile>$(SolutionDir)bin\lapack.dll</OutputFile>
+      <ModuleDefinitionFile>lapack.def</ModuleDefinitionFile>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <ImportLibrary>$(SolutionDir)bin\$(TargetName).lib</ImportLibrary>
+      <CLRUnmanagedCodeCheck>true</CLRUnmanagedCodeCheck>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <AdditionalIncludeDirectories>../../f2c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>STRICT;__STDC__;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ObjectFileName>$(Configuration)/</ObjectFileName>
+      <ProgramDataBaseFileName>$(Configuration)/vc80.pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <PreLinkEvent>
+      <Message>Build Lapack.def file</Message>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+    <Link>
+      <OutputFile>../../../bin/lapack.dll</OutputFile>
+      <ModuleDefinitionFile>lapack.def</ModuleDefinitionFile>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX64</TargetMachine>
+      <CLRUnmanagedCodeCheck>true</CLRUnmanagedCodeCheck>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\dbdsqr.c" />
+    <ClCompile Include="..\dgebak.c" />
+    <ClCompile Include="..\dgebal.c" />
+    <ClCompile Include="..\dgebd2.c" />
+    <ClCompile Include="..\dgebrd.c" />
+    <ClCompile Include="..\dgecon.c" />
+    <ClCompile Include="..\dgeequ.c" />
+    <ClCompile Include="..\dgees.c" />
+    <ClCompile Include="..\dgeesx.c" />
+    <ClCompile Include="..\dgeev.c" />
+    <ClCompile Include="..\dgegs.c" />
+    <ClCompile Include="..\dgehd2.c" />
+    <ClCompile Include="..\dgehrd.c" />
+    <ClCompile Include="..\dgelq2.c" />
+    <ClCompile Include="..\dgelqf.c" />
+    <ClCompile Include="..\dgels.c" />
+    <ClCompile Include="..\dgelss.c" />
+    <ClCompile Include="..\dgelsx.c" />
+    <ClCompile Include="..\dgelsy.c" />
+    <ClCompile Include="..\dgeql2.c" />
+    <ClCompile Include="..\dgeqlf.c" />
+    <ClCompile Include="..\dgeqp3.c" />
+    <ClCompile Include="..\dgeqpf.c" />
+    <ClCompile Include="..\dgeqr2.c" />
+    <ClCompile Include="..\dgeqrf.c" />
+    <ClCompile Include="..\dgerfs.c" />
+    <ClCompile Include="..\dgerq2.c" />
+    <ClCompile Include="..\dgerqf.c" />
+    <ClCompile Include="..\dgesc2.c" />
+    <ClCompile Include="..\dgesv.c" />
+    <ClCompile Include="..\dgesvd.c" />
+    <ClCompile Include="..\dgesvx.c" />
+    <ClCompile Include="..\dgetc2.c" />
+    <ClCompile Include="..\dgetf2.c" />
+    <ClCompile Include="..\dgetrf.c" />
+    <ClCompile Include="..\dgetri.c" />
+    <ClCompile Include="..\dgetrs.c" />
+    <ClCompile Include="..\dggbak.c" />
+    <ClCompile Include="..\dggbal.c" />
+    <ClCompile Include="..\dgges.c" />
+    <ClCompile Include="..\dggev.c" />
+    <ClCompile Include="..\dgghrd.c" />
+    <ClCompile Include="..\dhgeqz.c" />
+    <ClCompile Include="..\dhseqr.c" />
+    <ClCompile Include="..\disnan.c" />
+    <ClCompile Include="..\dlabad.c" />
+    <ClCompile Include="..\dlabrd.c" />
+    <ClCompile Include="..\dlacn2.c" />
+    <ClCompile Include="..\dlacon.c" />
+    <ClCompile Include="..\dlacpy.c" />
+    <ClCompile Include="..\dladiv.c" />
+    <ClCompile Include="..\dlae2.c" />
+    <ClCompile Include="..\dlaev2.c" />
+    <ClCompile Include="..\dlaexc.c" />
+    <ClCompile Include="..\dlag2.c" />
+    <ClCompile Include="..\dlagv2.c" />
+    <ClCompile Include="..\dlahqr.c" />
+    <ClCompile Include="..\dlahr2.c" />
+    <ClCompile Include="..\dlahrd.c" />
+    <ClCompile Include="..\dlaic1.c" />
+    <ClCompile Include="..\dlaisnan.c" />
+    <ClCompile Include="..\dlaln2.c" />
+    <ClCompile Include="..\dlamch.c" />
+    <ClCompile Include="..\dlange.c" />
+    <ClCompile Include="..\dlanhs.c" />
+    <ClCompile Include="..\dlansp.c" />
+    <ClCompile Include="..\dlanst.c" />
+    <ClCompile Include="..\dlansy.c" />
+    <ClCompile Include="..\dlantr.c" />
+    <ClCompile Include="..\dlanv2.c" />
+    <ClCompile Include="..\dlapmt.c" />
+    <ClCompile Include="..\dlapy2.c" />
+    <ClCompile Include="..\dlapy3.c" />
+    <ClCompile Include="..\dlaqge.c" />
+    <ClCompile Include="..\dlaqp2.c" />
+    <ClCompile Include="..\dlaqps.c" />
+    <ClCompile Include="..\dlaqr0.c" />
+    <ClCompile Include="..\dlaqr1.c" />
+    <ClCompile Include="..\dlaqr2.c" />
+    <ClCompile Include="..\dlaqr3.c" />
+    <ClCompile Include="..\dlaqr4.c" />
+    <ClCompile Include="..\dlaqr5.c" />
+    <ClCompile Include="..\dlarf.c" />
+    <ClCompile Include="..\dlarfb.c" />
+    <ClCompile Include="..\dlarfg.c" />
+    <ClCompile Include="..\dlarft.c" />
+    <ClCompile Include="..\dlarfx.c" />
+    <ClCompile Include="..\dlartg.c" />
+    <ClCompile Include="..\dlarz.c" />
+    <ClCompile Include="..\dlarzb.c" />
+    <ClCompile Include="..\dlarzt.c" />
+    <ClCompile Include="..\dlas2.c" />
+    <ClCompile Include="..\dlascl.c" />
+    <ClCompile Include="..\dlaset.c" />
+    <ClCompile Include="..\dlasq1.c" />
+    <ClCompile Include="..\dlasq2.c" />
+    <ClCompile Include="..\dlasq3.c" />
+    <ClCompile Include="..\dlasq4.c" />
+    <ClCompile Include="..\dlasq5.c" />
+    <ClCompile Include="..\dlasq6.c" />
+    <ClCompile Include="..\dlasr.c" />
+    <ClCompile Include="..\dlasrt.c" />
+    <ClCompile Include="..\dlassq.c" />
+    <ClCompile Include="..\dlasv2.c" />
+    <ClCompile Include="..\dlaswp.c" />
+    <ClCompile Include="..\dlasy2.c" />
+    <ClCompile Include="..\dlasyf.c" />
+    <ClCompile Include="..\dlatdf.c" />
+    <ClCompile Include="..\dlatrd.c" />
+    <ClCompile Include="..\dlatrs.c" />
+    <ClCompile Include="..\dlatrz.c" />
+    <ClCompile Include="..\dlatzm.c" />
+    <ClCompile Include="..\dlazq3.c" />
+    <ClCompile Include="..\dlazq4.c" />
+    <ClCompile Include="..\dopgtr.c" />
+    <ClCompile Include="..\dorg2l.c" />
+    <ClCompile Include="..\dorg2r.c" />
+    <ClCompile Include="..\dorgbr.c" />
+    <ClCompile Include="..\dorghr.c" />
+    <ClCompile Include="..\dorgl2.c" />
+    <ClCompile Include="..\dorglq.c" />
+    <ClCompile Include="..\dorgql.c" />
+    <ClCompile Include="..\dorgqr.c" />
+    <ClCompile Include="..\dorgr2.c" />
+    <ClCompile Include="..\dorgrq.c" />
+    <ClCompile Include="..\dorgtr.c" />
+    <ClCompile Include="..\dorm2l.c" />
+    <ClCompile Include="..\dorm2r.c" />
+    <ClCompile Include="..\dormbr.c" />
+    <ClCompile Include="..\dormhr.c" />
+    <ClCompile Include="..\dorml2.c" />
+    <ClCompile Include="..\dormlq.c" />
+    <ClCompile Include="..\dormql.c" />
+    <ClCompile Include="..\dormqr.c" />
+    <ClCompile Include="..\dormr2.c" />
+    <ClCompile Include="..\dormr3.c" />
+    <ClCompile Include="..\dormrq.c" />
+    <ClCompile Include="..\dormrz.c" />
+    <ClCompile Include="..\dpocon.c" />
+    <ClCompile Include="..\dpotf2.c" />
+    <ClCompile Include="..\dpotrf.c" />
+    <ClCompile Include="..\dpotrs.c" />
+    <ClCompile Include="..\dpptrf.c" />
+    <ClCompile Include="..\drscl.c" />
+    <ClCompile Include="..\dspev.c" />
+    <ClCompile Include="..\dspgst.c" />
+    <ClCompile Include="..\dspgv.c" />
+    <ClCompile Include="..\dsptrd.c" />
+    <ClCompile Include="..\dsptrf.c" />
+    <ClCompile Include="..\dsteqr.c" />
+    <ClCompile Include="..\dsterf.c" />
+    <ClCompile Include="..\dsycon.c" />
+    <ClCompile Include="..\dsyev.c" />
+    <ClCompile Include="..\dsysv.c" />
+    <ClCompile Include="..\dsytd2.c" />
+    <ClCompile Include="..\dsytf2.c" />
+    <ClCompile Include="..\dsytrd.c" />
+    <ClCompile Include="..\dsytrf.c" />
+    <ClCompile Include="..\dsytri.c" />
+    <ClCompile Include="..\dsytrs.c" />
+    <ClCompile Include="..\dtgevc.c" />
+    <ClCompile Include="..\dtgex2.c" />
+    <ClCompile Include="..\dtgexc.c" />
+    <ClCompile Include="..\dtgsen.c" />
+    <ClCompile Include="..\dtgsy2.c" />
+    <ClCompile Include="..\dtgsyl.c" />
+    <ClCompile Include="..\dtrcon.c" />
+    <ClCompile Include="..\dtrevc.c" />
+    <ClCompile Include="..\dtrexc.c" />
+    <ClCompile Include="..\dtrsen.c" />
+    <ClCompile Include="..\dtrsyl.c" />
+    <ClCompile Include="..\dtrti2.c" />
+    <ClCompile Include="..\dtrtri.c" />
+    <ClCompile Include="..\dtrtrs.c" />
+    <ClCompile Include="..\dtzrqf.c" />
+    <ClCompile Include="..\dtzrzf.c" />
+    <ClCompile Include="..\dzsum1.c" />
+    <ClCompile Include="..\ieeeck.c" />
+    <ClCompile Include="..\ilaenv.c" />
+    <ClCompile Include="..\iparmq.c" />
+    <ClCompile Include="..\izmax1.c" />
+    <ClCompile Include="..\lsame.c" />
+    <ClCompile Include="..\slamch.c" />
+    <ClCompile Include="..\xerbla.c" />
+    <ClCompile Include="..\zbdsqr.c" />
+    <ClCompile Include="..\zdrot.c" />
+    <ClCompile Include="..\zdrscl.c" />
+    <ClCompile Include="..\zgebak.c" />
+    <ClCompile Include="..\zgebal.c" />
+    <ClCompile Include="..\zgebd2.c" />
+    <ClCompile Include="..\zgebrd.c" />
+    <ClCompile Include="..\zgecon.c" />
+    <ClCompile Include="..\zgees.c" />
+    <ClCompile Include="..\zgeev.c" />
+    <ClCompile Include="..\zgehd2.c" />
+    <ClCompile Include="..\zgehrd.c" />
+    <ClCompile Include="..\zgelq2.c" />
+    <ClCompile Include="..\zgelqf.c" />
+    <ClCompile Include="..\zgelsy.c" />
+    <ClCompile Include="..\zgeqp3.c" />
+    <ClCompile Include="..\zgeqpf.c" />
+    <ClCompile Include="..\zgeqr2.c" />
+    <ClCompile Include="..\zgeqrf.c" />
+    <ClCompile Include="..\zgesc2.c" />
+    <ClCompile Include="..\zgesvd.c" />
+    <ClCompile Include="..\zgetc2.c" />
+    <ClCompile Include="..\zgetf2.c" />
+    <ClCompile Include="..\zgetrf.c" />
+    <ClCompile Include="..\zgetri.c" />
+    <ClCompile Include="..\zgetrs.c" />
+    <ClCompile Include="..\zggbak.c" />
+    <ClCompile Include="..\zggbal.c" />
+    <ClCompile Include="..\zgges.c" />
+    <ClCompile Include="..\zggev.c" />
+    <ClCompile Include="..\zgghrd.c" />
+    <ClCompile Include="..\zheev.c" />
+    <ClCompile Include="..\zhetd2.c" />
+    <ClCompile Include="..\zhetrd.c" />
+    <ClCompile Include="..\zhgeqz.c" />
+    <ClCompile Include="..\zhseqr.c" />
+    <ClCompile Include="..\zlabrd.c" />
+    <ClCompile Include="..\zlacgv.c" />
+    <ClCompile Include="..\zlacn2.c" />
+    <ClCompile Include="..\zlacon.c" />
+    <ClCompile Include="..\zlacpy.c" />
+    <ClCompile Include="..\zladiv.c" />
+    <ClCompile Include="..\zlahqr.c" />
+    <ClCompile Include="..\zlahr2.c" />
+    <ClCompile Include="..\zlahrd.c" />
+    <ClCompile Include="..\zlaic1.c" />
+    <ClCompile Include="..\zlange.c" />
+    <ClCompile Include="..\zlanhe.c" />
+    <ClCompile Include="..\zlanhs.c" />
+    <ClCompile Include="..\zlaqp2.c" />
+    <ClCompile Include="..\zlaqps.c" />
+    <ClCompile Include="..\zlaqr0.c" />
+    <ClCompile Include="..\zlaqr1.c" />
+    <ClCompile Include="..\zlaqr2.c" />
+    <ClCompile Include="..\zlaqr3.c" />
+    <ClCompile Include="..\zlaqr4.c" />
+    <ClCompile Include="..\zlaqr5.c" />
+    <ClCompile Include="..\zlarf.c" />
+    <ClCompile Include="..\zlarfb.c" />
+    <ClCompile Include="..\zlarfg.c" />
+    <ClCompile Include="..\zlarft.c" />
+    <ClCompile Include="..\zlarfx.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Disabled</Optimization>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Disabled</Optimization>
+    </ClCompile>
+    <ClCompile Include="..\zlartg.c" />
+    <ClCompile Include="..\zlarz.c" />
+    <ClCompile Include="..\zlarzb.c" />
+    <ClCompile Include="..\zlarzt.c" />
+    <ClCompile Include="..\zlascl.c" />
+    <ClCompile Include="..\zlaset.c" />
+    <ClCompile Include="..\zlasr.c" />
+    <ClCompile Include="..\zlassq.c" />
+    <ClCompile Include="..\zlaswp.c" />
+    <ClCompile Include="..\zlatdf.c" />
+    <ClCompile Include="..\zlatrd.c" />
+    <ClCompile Include="..\zlatrs.c" />
+    <ClCompile Include="..\zlatrz.c" />
+    <ClCompile Include="..\zpotf2.c" />
+    <ClCompile Include="..\zpotrf.c" />
+    <ClCompile Include="..\zrot.c" />
+    <ClCompile Include="..\zsteqr.c" />
+    <ClCompile Include="..\ztgevc.c" />
+    <ClCompile Include="..\ztgex2.c" />
+    <ClCompile Include="..\ztgexc.c" />
+    <ClCompile Include="..\ztgsen.c" />
+    <ClCompile Include="..\ztgsy2.c" />
+    <ClCompile Include="..\ztgsyl.c" />
+    <ClCompile Include="..\ztrevc.c" />
+    <ClCompile Include="..\ztrexc.c" />
+    <ClCompile Include="..\ztrsen.c" />
+    <ClCompile Include="..\ztrsyl.c" />
+    <ClCompile Include="..\ztrti2.c" />
+    <ClCompile Include="..\ztrtri.c" />
+    <ClCompile Include="..\ztzrzf.c" />
+    <ClCompile Include="..\zung2l.c" />
+    <ClCompile Include="..\zung2r.c" />
+    <ClCompile Include="..\zungbr.c" />
+    <ClCompile Include="..\zunghr.c" />
+    <ClCompile Include="..\zungl2.c" />
+    <ClCompile Include="..\zunglq.c" />
+    <ClCompile Include="..\zungql.c" />
+    <ClCompile Include="..\zungqr.c" />
+    <ClCompile Include="..\zungtr.c" />
+    <ClCompile Include="..\zunm2r.c" />
+    <ClCompile Include="..\zunmbr.c" />
+    <ClCompile Include="..\zunml2.c" />
+    <ClCompile Include="..\zunmlq.c" />
+    <ClCompile Include="..\zunmqr.c" />
+    <ClCompile Include="..\zunmr3.c" />
+    <ClCompile Include="..\zunmrz.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <f2c_rule Include="..\dbdsqr.f" />
+    <f2c_rule Include="..\dgebak.f" />
+    <f2c_rule Include="..\dgebal.f" />
+    <f2c_rule Include="..\dgebd2.f" />
+    <f2c_rule Include="..\dgebrd.f" />
+    <f2c_rule Include="..\dgecon.f" />
+    <f2c_rule Include="..\dgeequ.f" />
+    <f2c_rule Include="..\dgees.f" />
+    <f2c_rule Include="..\dgeesx.f" />
+    <f2c_rule Include="..\dgeev.f" />
+    <f2c_rule Include="..\dgegs.f" />
+    <f2c_rule Include="..\dgehd2.f" />
+    <f2c_rule Include="..\dgehrd.f" />
+    <f2c_rule Include="..\dgelq2.f" />
+    <f2c_rule Include="..\dgelqf.f" />
+    <f2c_rule Include="..\dgels.f" />
+    <f2c_rule Include="..\dgelss.f" />
+    <f2c_rule Include="..\dgelsx.f" />
+    <f2c_rule Include="..\dgelsy.f" />
+    <f2c_rule Include="..\dgeql2.f" />
+    <f2c_rule Include="..\dgeqlf.f" />
+    <f2c_rule Include="..\dgeqp3.f" />
+    <f2c_rule Include="..\dgeqpf.f" />
+    <f2c_rule Include="..\dgeqr2.f" />
+    <f2c_rule Include="..\dgeqrf.f" />
+    <f2c_rule Include="..\dgerfs.f" />
+    <f2c_rule Include="..\dgerq2.f" />
+    <f2c_rule Include="..\dgerqf.f" />
+    <f2c_rule Include="..\dgesc2.f" />
+    <f2c_rule Include="..\dgesv.f" />
+    <f2c_rule Include="..\dgesvd.f" />
+    <f2c_rule Include="..\dgesvx.f" />
+    <f2c_rule Include="..\dgetc2.f" />
+    <f2c_rule Include="..\dgetf2.f" />
+    <f2c_rule Include="..\dgetrf.f" />
+    <f2c_rule Include="..\dgetri.f" />
+    <f2c_rule Include="..\dgetrs.f" />
+    <f2c_rule Include="..\dggbak.f" />
+    <f2c_rule Include="..\dggbal.f" />
+    <f2c_rule Include="..\dgges.f" />
+    <f2c_rule Include="..\dggev.f" />
+    <f2c_rule Include="..\dgghrd.f" />
+    <f2c_rule Include="..\dhgeqz.f" />
+    <f2c_rule Include="..\dhseqr.f" />
+    <f2c_rule Include="..\disnan.f" />
+    <f2c_rule Include="..\dlabad.f" />
+    <f2c_rule Include="..\dlabrd.f" />
+    <f2c_rule Include="..\dlacn2.f" />
+    <f2c_rule Include="..\dlacon.f" />
+    <f2c_rule Include="..\dlacpy.f" />
+    <f2c_rule Include="..\dladiv.f" />
+    <f2c_rule Include="..\dlae2.f" />
+    <f2c_rule Include="..\dlaev2.f" />
+    <f2c_rule Include="..\dlaexc.f" />
+    <f2c_rule Include="..\dlag2.f" />
+    <f2c_rule Include="..\dlagv2.f" />
+    <f2c_rule Include="..\dlahqr.f" />
+    <f2c_rule Include="..\dlahr2.f" />
+    <f2c_rule Include="..\dlahrd.f" />
+    <f2c_rule Include="..\dlaic1.f" />
+    <f2c_rule Include="..\dlaisnan.f" />
+    <f2c_rule Include="..\dlaln2.f" />
+    <f2c_rule Include="..\dlamch.f" />
+    <f2c_rule Include="..\dlange.f" />
+    <f2c_rule Include="..\dlanhs.f" />
+    <f2c_rule Include="..\dlansp.f" />
+    <f2c_rule Include="..\dlanst.f" />
+    <f2c_rule Include="..\dlansy.f" />
+    <f2c_rule Include="..\dlantr.f" />
+    <f2c_rule Include="..\dlanv2.f" />
+    <f2c_rule Include="..\dlapmt.f" />
+    <f2c_rule Include="..\dlapy2.f" />
+    <f2c_rule Include="..\dlapy3.f" />
+    <f2c_rule Include="..\dlaqge.f" />
+    <f2c_rule Include="..\dlaqp2.f" />
+    <f2c_rule Include="..\dlaqps.f" />
+    <f2c_rule Include="..\dlaqr0.f" />
+    <f2c_rule Include="..\dlaqr1.f" />
+    <f2c_rule Include="..\dlaqr2.f" />
+    <f2c_rule Include="..\dlaqr3.f" />
+    <f2c_rule Include="..\dlaqr4.f" />
+    <f2c_rule Include="..\dlaqr5.f" />
+    <f2c_rule Include="..\dlarf.f" />
+    <f2c_rule Include="..\dlarfb.f" />
+    <f2c_rule Include="..\dlarfg.f" />
+    <f2c_rule Include="..\dlarft.f" />
+    <f2c_rule Include="..\dlarfx.f" />
+    <f2c_rule Include="..\dlartg.f" />
+    <f2c_rule Include="..\dlarz.f" />
+    <f2c_rule Include="..\dlarzb.f" />
+    <f2c_rule Include="..\dlarzt.f" />
+    <f2c_rule Include="..\dlas2.f" />
+    <f2c_rule Include="..\dlascl.f" />
+    <f2c_rule Include="..\dlaset.f" />
+    <f2c_rule Include="..\dlasq1.f" />
+    <f2c_rule Include="..\dlasq2.f" />
+    <f2c_rule Include="..\dlasq3.f" />
+    <f2c_rule Include="..\dlasq4.f" />
+    <f2c_rule Include="..\dlasq5.f" />
+    <f2c_rule Include="..\dlasq6.f" />
+    <f2c_rule Include="..\dlasr.f" />
+    <f2c_rule Include="..\dlasrt.f" />
+    <f2c_rule Include="..\dlassq.f" />
+    <f2c_rule Include="..\dlasv2.f" />
+    <f2c_rule Include="..\dlaswp.f" />
+    <f2c_rule Include="..\dlasy2.f" />
+    <f2c_rule Include="..\dlasyf.f" />
+    <f2c_rule Include="..\dlatdf.f" />
+    <f2c_rule Include="..\dlatrd.f" />
+    <f2c_rule Include="..\dlatrs.f" />
+    <f2c_rule Include="..\dlatrz.f" />
+    <f2c_rule Include="..\dlatzm.f" />
+    <f2c_rule Include="..\dlazq3.f" />
+    <f2c_rule Include="..\dlazq4.f" />
+    <f2c_rule Include="..\dopgtr.f" />
+    <f2c_rule Include="..\dorg2l.f" />
+    <f2c_rule Include="..\dorg2r.f" />
+    <f2c_rule Include="..\dorgbr.f" />
+    <f2c_rule Include="..\dorghr.f" />
+    <f2c_rule Include="..\dorgl2.f" />
+    <f2c_rule Include="..\dorglq.f" />
+    <f2c_rule Include="..\dorgql.f" />
+    <f2c_rule Include="..\dorgqr.f" />
+    <f2c_rule Include="..\dorgr2.f" />
+    <f2c_rule Include="..\dorgrq.f" />
+    <f2c_rule Include="..\dorgtr.f" />
+    <f2c_rule Include="..\dorm2l.f" />
+    <f2c_rule Include="..\dorm2r.f" />
+    <f2c_rule Include="..\dormbr.f" />
+    <f2c_rule Include="..\dormhr.f" />
+    <f2c_rule Include="..\dorml2.f" />
+    <f2c_rule Include="..\dormlq.f" />
+    <f2c_rule Include="..\dormql.f" />
+    <f2c_rule Include="..\dormqr.f" />
+    <f2c_rule Include="..\dormr2.f" />
+    <f2c_rule Include="..\dormr3.f" />
+    <f2c_rule Include="..\dormrq.f" />
+    <f2c_rule Include="..\dormrz.f" />
+    <f2c_rule Include="..\dpocon.f" />
+    <f2c_rule Include="..\dpotf2.f" />
+    <f2c_rule Include="..\dpotrf.f" />
+    <f2c_rule Include="..\dpotrs.f" />
+    <f2c_rule Include="..\dpptrf.f" />
+    <f2c_rule Include="..\drscl.f" />
+    <f2c_rule Include="..\dspev.f" />
+    <f2c_rule Include="..\dspgst.f" />
+    <f2c_rule Include="..\dspgv.f" />
+    <f2c_rule Include="..\dsptrd.f" />
+    <f2c_rule Include="..\dsptrf.f" />
+    <f2c_rule Include="..\dsteqr.f" />
+    <f2c_rule Include="..\dsterf.f" />
+    <f2c_rule Include="..\dsycon.f" />
+    <f2c_rule Include="..\dsyev.f" />
+    <f2c_rule Include="..\dsysv.f" />
+    <f2c_rule Include="..\dsytd2.f" />
+    <f2c_rule Include="..\dsytf2.f" />
+    <f2c_rule Include="..\dsytrd.f" />
+    <f2c_rule Include="..\dsytrf.f" />
+    <f2c_rule Include="..\dsytri.f" />
+    <f2c_rule Include="..\dsytrs.f" />
+    <f2c_rule Include="..\dtgevc.f" />
+    <f2c_rule Include="..\dtgex2.f" />
+    <f2c_rule Include="..\dtgexc.f" />
+    <f2c_rule Include="..\dtgsen.f" />
+    <f2c_rule Include="..\dtgsy2.f" />
+    <f2c_rule Include="..\dtgsyl.f" />
+    <f2c_rule Include="..\dtrcon.f" />
+    <f2c_rule Include="..\dtrevc.f" />
+    <f2c_rule Include="..\dtrexc.f" />
+    <f2c_rule Include="..\dtrsen.f" />
+    <f2c_rule Include="..\dtrsyl.f" />
+    <f2c_rule Include="..\dtrti2.f" />
+    <f2c_rule Include="..\dtrtri.f" />
+    <f2c_rule Include="..\dtrtrs.f" />
+    <f2c_rule Include="..\dtzrqf.f" />
+    <f2c_rule Include="..\dtzrzf.f" />
+    <f2c_rule Include="..\dzsum1.f" />
+    <f2c_rule Include="..\ieeeck.f" />
+    <f2c_rule Include="..\ilaenv.f" />
+    <f2c_rule Include="..\iparmq.f" />
+    <f2c_rule Include="..\izmax1.f" />
+    <f2c_rule Include="..\lsame.f" />
+    <f2c_rule Include="..\slamch.f" />
+    <f2c_rule Include="..\xerbla.f" />
+    <f2c_rule Include="..\zbdsqr.f" />
+    <f2c_rule Include="..\zdrot.f" />
+    <f2c_rule Include="..\zdrscl.f" />
+    <f2c_rule Include="..\zgebak.f" />
+    <f2c_rule Include="..\zgebal.f" />
+    <f2c_rule Include="..\zgebd2.f" />
+    <f2c_rule Include="..\zgebrd.f" />
+    <f2c_rule Include="..\zgecon.f" />
+    <f2c_rule Include="..\zgees.f" />
+    <f2c_rule Include="..\zgeev.f" />
+    <f2c_rule Include="..\zgehd2.f" />
+    <f2c_rule Include="..\zgehrd.f" />
+    <f2c_rule Include="..\zgelq2.f" />
+    <f2c_rule Include="..\zgelqf.f" />
+    <f2c_rule Include="..\zgelsy.f" />
+    <f2c_rule Include="..\zgeqp3.f" />
+    <f2c_rule Include="..\zgeqpf.f" />
+    <f2c_rule Include="..\zgeqr2.f" />
+    <f2c_rule Include="..\zgeqrf.f" />
+    <f2c_rule Include="..\zgesc2.f" />
+    <f2c_rule Include="..\zgesvd.f" />
+    <f2c_rule Include="..\zgetc2.f" />
+    <f2c_rule Include="..\zgetf2.f" />
+    <f2c_rule Include="..\zgetrf.f" />
+    <f2c_rule Include="..\zgetri.f" />
+    <f2c_rule Include="..\zgetrs.f" />
+    <f2c_rule Include="..\zggbak.f" />
+    <f2c_rule Include="..\zggbal.f" />
+    <f2c_rule Include="..\zgges.f" />
+    <f2c_rule Include="..\zggev.f" />
+    <f2c_rule Include="..\zgghrd.f" />
+    <f2c_rule Include="..\zheev.f" />
+    <f2c_rule Include="..\zhetd2.f" />
+    <f2c_rule Include="..\zhetrd.f" />
+    <f2c_rule Include="..\zhgeqz.f" />
+    <f2c_rule Include="..\zhseqr.f" />
+    <f2c_rule Include="..\zlabrd.f" />
+    <f2c_rule Include="..\zlacgv.f" />
+    <f2c_rule Include="..\zlacn2.f" />
+    <f2c_rule Include="..\zlacon.f" />
+    <f2c_rule Include="..\zlacpy.f" />
+    <f2c_rule Include="..\zladiv.f" />
+    <f2c_rule Include="..\zlahqr.f" />
+    <f2c_rule Include="..\zlahr2.f" />
+    <f2c_rule Include="..\zlahrd.f" />
+    <f2c_rule Include="..\zlaic1.f" />
+    <f2c_rule Include="..\zlange.f" />
+    <f2c_rule Include="..\zlanhe.f" />
+    <f2c_rule Include="..\zlanhs.f" />
+    <f2c_rule Include="..\zlaqp2.f" />
+    <f2c_rule Include="..\zlaqps.f" />
+    <f2c_rule Include="..\zlaqr0.f" />
+    <f2c_rule Include="..\zlaqr1.f" />
+    <f2c_rule Include="..\zlaqr2.f" />
+    <f2c_rule Include="..\zlaqr3.f" />
+    <f2c_rule Include="..\zlaqr4.f" />
+    <f2c_rule Include="..\zlaqr5.f" />
+    <f2c_rule Include="..\zlarf.f" />
+    <f2c_rule Include="..\zlarfb.f" />
+    <f2c_rule Include="..\zlarfg.f" />
+    <f2c_rule Include="..\zlarft.f" />
+    <f2c_rule Include="..\zlarfx.f" />
+    <f2c_rule Include="..\zlartg.f" />
+    <f2c_rule Include="..\zlarz.f" />
+    <f2c_rule Include="..\zlarzb.f" />
+    <f2c_rule Include="..\zlarzt.f" />
+    <f2c_rule Include="..\zlascl.f" />
+    <f2c_rule Include="..\zlaset.f" />
+    <f2c_rule Include="..\zlasr.f" />
+    <f2c_rule Include="..\zlassq.f" />
+    <f2c_rule Include="..\zlaswp.f" />
+    <f2c_rule Include="..\zlatdf.f" />
+    <f2c_rule Include="..\zlatrd.f" />
+    <f2c_rule Include="..\zlatrs.f" />
+    <f2c_rule Include="..\zlatrz.f" />
+    <f2c_rule Include="..\zpotf2.f" />
+    <f2c_rule Include="..\zpotrf.f" />
+    <f2c_rule Include="..\zrot.f" />
+    <f2c_rule Include="..\zsteqr.f" />
+    <f2c_rule Include="..\ztgevc.f" />
+    <f2c_rule Include="..\ztgex2.f" />
+    <f2c_rule Include="..\ztgexc.f" />
+    <f2c_rule Include="..\ztgsen.f" />
+    <f2c_rule Include="..\ztgsy2.f" />
+    <f2c_rule Include="..\ztgsyl.f" />
+    <f2c_rule Include="..\ztrevc.f" />
+    <f2c_rule Include="..\ztrexc.f" />
+    <f2c_rule Include="..\ztrsen.f" />
+    <f2c_rule Include="..\ztrsyl.f" />
+    <f2c_rule Include="..\ztrti2.f" />
+    <f2c_rule Include="..\ztrtri.f" />
+    <f2c_rule Include="..\ztzrzf.f" />
+    <f2c_rule Include="..\zung2l.f" />
+    <f2c_rule Include="..\zung2r.f" />
+    <f2c_rule Include="..\zungbr.f" />
+    <f2c_rule Include="..\zunghr.f" />
+    <f2c_rule Include="..\zungl2.f" />
+    <f2c_rule Include="..\zunglq.f" />
+    <f2c_rule Include="..\zungql.f" />
+    <f2c_rule Include="..\zungqr.f" />
+    <f2c_rule Include="..\zungtr.f" />
+    <f2c_rule Include="..\zunm2r.f" />
+    <f2c_rule Include="..\zunmbr.f" />
+    <f2c_rule Include="..\zunml2.f" />
+    <f2c_rule Include="..\zunmlq.f" />
+    <f2c_rule Include="..\zunmqr.f" />
+    <f2c_rule Include="..\zunmr3.f" />
+    <f2c_rule Include="..\zunmrz.f" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\..\..\bin\libf2c.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Makefile.am" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\blas\blas_f\blasplus_DLL_f2c.vcxproj">
+      <Project>{78bd64ce-181d-4d3f-9254-5c4f55c1edc9}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\..\..\..\Visual-Studio-settings\f2c.targets" />
+  </ImportGroup>
+</Project>
