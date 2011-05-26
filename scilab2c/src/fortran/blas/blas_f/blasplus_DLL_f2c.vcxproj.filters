@@ -1,0 +1,463 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{1601b9fb-7d71-4db3-a10f-2ebf4e42eb41}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{00d1d9d7-fbdc-44d6-8833-2fe6c3202478}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{e894258f-c565-49f3-a686-3d4b79d703a9}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+    <Filter Include="Fortran Files">
+      <UniqueIdentifier>{f47cf0f8-ff06-42b4-86b2-ffa42424f976}</UniqueIdentifier>
+      <Extensions>*.f</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\dasum.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\daxpy.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dcabs1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dcopy.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ddot.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dgbmv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dgemm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dgemv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dger.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dnrm2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\drot.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\drotg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dsbmv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dscal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dspmv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dspr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dspr2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dswap.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dsymm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dsymv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dsyr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dsyr2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dsyr2k.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dsyrk.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dtbmv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dtbsv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dtpmv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dtpsv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dtrmm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dtrmv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dtrsm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dtrsv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dzasum.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dznrm2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\idamax.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\izamax.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lsame.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\xerbla.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zaxpy.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zcopy.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zdotc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zdotu.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zdscal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zgbmv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zgemm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zgemv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zgerc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zgeru.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zhbmv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zhemm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zhemv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zher.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zher2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zher2k.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zherk.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zhpmv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zhpr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zhpr2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zrotg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zscal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zswap.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zsymm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zsyr2k.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zsyrk.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ztbmv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ztbsv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ztpmv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ztpsv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ztrmm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ztrmv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ztrsm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ztrsv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <f2c_rule Include="..\dasum.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\daxpy.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dcabs1.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dcopy.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\ddot.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dgbmv.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dgemm.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dgemv.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dger.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dnrm2.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\drot.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\drotg.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dsbmv.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dscal.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dspmv.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dspr.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dspr2.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dswap.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dsymm.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dsymv.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dsyr.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dsyr2.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dsyr2k.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dsyrk.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dtbmv.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dtbsv.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dtpmv.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dtpsv.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dtrmm.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dtrmv.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dtrsm.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dtrsv.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dzasum.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\dznrm2.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\idamax.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\izamax.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\lsame.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\xerbla.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zaxpy.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zcopy.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zdotc.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zdotu.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zdscal.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zgbmv.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zgemm.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zgemv.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zgerc.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zgeru.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zhbmv.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zhemm.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zhemv.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zher.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zher2.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zher2k.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zherk.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zhpmv.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zhpr.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zhpr2.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zrotg.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zscal.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zswap.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zsymm.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zsyr2k.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\zsyrk.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\ztbmv.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\ztbsv.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\ztpmv.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\ztpsv.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\ztrmm.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\ztrmv.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\ztrsm.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+    <f2c_rule Include="..\ztrsv.f">
+      <Filter>Fortran Files</Filter>
+    </f2c_rule>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\..\..\bin\libf2c.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Makefile.am" />
+  </ItemGroup>
+</Project>

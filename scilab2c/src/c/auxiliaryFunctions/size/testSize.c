@@ -21,7 +21,7 @@ int ssizeaTest() {
   badArray[4] = 0.0f;
 
   printf(">> Floats \n");
-  assert(ssizea(goodArray, 5) == 5);
+   assert(ssizea(goodArray, 5) == 5);
   assert(ssizea(badArray, 5) == 5);
   return 0;
 }

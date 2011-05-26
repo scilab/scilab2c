@@ -1,0 +1,576 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\cat">
+      <UniqueIdentifier>{50669223-b754-4e72-9393-58022d4f7620}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\chol">
+      <UniqueIdentifier>{ff7a57b0-c6bc-43c3-8d86-36786e8fe9d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\determ">
+      <UniqueIdentifier>{dd4e5fd5-24a0-440a-bdf0-b6578a4b9be2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\division">
+      <UniqueIdentifier>{0c8faacf-3f59-484b-9bd3-d9ec25039ca0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\expm">
+      <UniqueIdentifier>{d27faf2b-2d32-434c-b4db-80c4090d283d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\eye">
+      <UniqueIdentifier>{75693e96-1cec-40f8-b111-eba4dfbbe311}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\fill">
+      <UniqueIdentifier>{da1a0d02-b218-44ad-898e-7b971205770d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\hilb">
+      <UniqueIdentifier>{6bb535d0-7b17-4940-bdfb-ff142424a6fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\infiniteNorm">
+      <UniqueIdentifier>{4eed3cb8-2d46-495f-bf5a-12a2c7f48361}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\inversion">
+      <UniqueIdentifier>{3216afe8-00b8-4910-99e1-885cebf71f18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\jmat">
+      <UniqueIdentifier>{bbed4850-0b3c-4f03-8a72-de19980d8bab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\logm">
+      <UniqueIdentifier>{6d360e1d-6db1-4a93-bbfe-38a15bcbcd75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\magnitude">
+      <UniqueIdentifier>{280aa00d-6dd5-4468-a6ab-88643dcbe4f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\multiplication">
+      <UniqueIdentifier>{0166b150-dcc9-40ac-b233-993d67fca2d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ones">
+      <UniqueIdentifier>{ff21e2a8-d2a4-4a19-b1ea-b7d1d3a8d2d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\pown">
+      <UniqueIdentifier>{78c5b505-dff8-483f-84ae-2a14c3cb4fe0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\spec">
+      <UniqueIdentifier>{6429efdd-0d73-49a9-8b3b-3ca1463bebde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\spec2">
+      <UniqueIdentifier>{0880c91a-9165-4b91-8457-9d008eed7217}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\squaredMagnitude">
+      <UniqueIdentifier>{a5b7de6e-4acf-4d8f-b93b-5c71afb35071}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\trace">
+      <UniqueIdentifier>{24575c01-f16e-4bdb-9cd0-febf8695e09a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\transpose">
+      <UniqueIdentifier>{c292263c-96bf-4106-92a6-d8de899c2bb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\zeros">
+      <UniqueIdentifier>{7155bd34-e1bf-4931-914c-7076b45a976e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dist">
+      <UniqueIdentifier>{873959cb-ab2f-47b4-aaf1-61e0804f3922}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="cat\ccata.c">
+      <Filter>Source Files\cat</Filter>
+    </ClCompile>
+    <ClCompile Include="cat\ccats.c">
+      <Filter>Source Files\cat</Filter>
+    </ClCompile>
+    <ClCompile Include="cat\dcata.c">
+      <Filter>Source Files\cat</Filter>
+    </ClCompile>
+    <ClCompile Include="cat\dcats.c">
+      <Filter>Source Files\cat</Filter>
+    </ClCompile>
+    <ClCompile Include="cat\scata.c">
+      <Filter>Source Files\cat</Filter>
+    </ClCompile>
+    <ClCompile Include="cat\scats.c">
+      <Filter>Source Files\cat</Filter>
+    </ClCompile>
+    <ClCompile Include="cat\zcata.c">
+      <Filter>Source Files\cat</Filter>
+    </ClCompile>
+    <ClCompile Include="cat\zcats.c">
+      <Filter>Source Files\cat</Filter>
+    </ClCompile>
+    <ClCompile Include="chol\cchola.c">
+      <Filter>Source Files\chol</Filter>
+    </ClCompile>
+    <ClCompile Include="chol\dchola.c">
+      <Filter>Source Files\chol</Filter>
+    </ClCompile>
+    <ClCompile Include="chol\dchols.c">
+      <Filter>Source Files\chol</Filter>
+    </ClCompile>
+    <ClCompile Include="chol\schola.c">
+      <Filter>Source Files\chol</Filter>
+    </ClCompile>
+    <ClCompile Include="chol\schols.c">
+      <Filter>Source Files\chol</Filter>
+    </ClCompile>
+    <ClCompile Include="chol\zchola.c">
+      <Filter>Source Files\chol</Filter>
+    </ClCompile>
+    <ClCompile Include="determ\cdeterma.c">
+      <Filter>Source Files\determ</Filter>
+    </ClCompile>
+    <ClCompile Include="determ\ddeterma.c">
+      <Filter>Source Files\determ</Filter>
+    </ClCompile>
+    <ClCompile Include="determ\sdeterma.c">
+      <Filter>Source Files\determ</Filter>
+    </ClCompile>
+    <ClCompile Include="determ\zdeterma.c">
+      <Filter>Source Files\determ</Filter>
+    </ClCompile>
+    <ClCompile Include="division\cldivma.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\crdivcsv.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\crdivma.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\crdivscv.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\crdivv.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\dldivma.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\drdivma.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\drdivv.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\sldivma.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\srdivma.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\srdivv.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\zldivma.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\zrdivdzv.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\zrdivma.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\zrdivv.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\zrdivzdv.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="expm\cexpma.c">
+      <Filter>Source Files\expm</Filter>
+    </ClCompile>
+    <ClCompile Include="expm\dexpma.c">
+      <Filter>Source Files\expm</Filter>
+    </ClCompile>
+    <ClCompile Include="expm\sexpma.c">
+      <Filter>Source Files\expm</Filter>
+    </ClCompile>
+    <ClCompile Include="expm\zexpma.c">
+      <Filter>Source Files\expm</Filter>
+    </ClCompile>
+    <ClCompile Include="eye\ceyea.c">
+      <Filter>Source Files\eye</Filter>
+    </ClCompile>
+    <ClCompile Include="eye\deyea.c">
+      <Filter>Source Files\eye</Filter>
+    </ClCompile>
+    <ClCompile Include="eye\seyea.c">
+      <Filter>Source Files\eye</Filter>
+    </ClCompile>
+    <ClCompile Include="eye\zeyea.c">
+      <Filter>Source Files\eye</Filter>
+    </ClCompile>
+    <ClCompile Include="fill\cfilla.c">
+      <Filter>Source Files\fill</Filter>
+    </ClCompile>
+    <ClCompile Include="fill\dfilla.c">
+      <Filter>Source Files\fill</Filter>
+    </ClCompile>
+    <ClCompile Include="fill\sfilla.c">
+      <Filter>Source Files\fill</Filter>
+    </ClCompile>
+    <ClCompile Include="fill\zfilla.c">
+      <Filter>Source Files\fill</Filter>
+    </ClCompile>
+    <ClCompile Include="hilb\dhilba.c">
+      <Filter>Source Files\hilb</Filter>
+    </ClCompile>
+    <ClCompile Include="hilb\shilba.c">
+      <Filter>Source Files\hilb</Filter>
+    </ClCompile>
+    <ClCompile Include="infiniteNorm\cinfnorma.c">
+      <Filter>Source Files\infiniteNorm</Filter>
+    </ClCompile>
+    <ClCompile Include="infiniteNorm\dinfnorma.c">
+      <Filter>Source Files\infiniteNorm</Filter>
+    </ClCompile>
+    <ClCompile Include="infiniteNorm\sinfnorma.c">
+      <Filter>Source Files\infiniteNorm</Filter>
+    </ClCompile>
+    <ClCompile Include="infiniteNorm\zinfnorma.c">
+      <Filter>Source Files\infiniteNorm</Filter>
+    </ClCompile>
+    <ClCompile Include="inversion\cinverma.c">
+      <Filter>Source Files\inversion</Filter>
+    </ClCompile>
+    <ClCompile Include="inversion\dinverma.c">
+      <Filter>Source Files\inversion</Filter>
+    </ClCompile>
+    <ClCompile Include="inversion\sinverma.c">
+      <Filter>Source Files\inversion</Filter>
+    </ClCompile>
+    <ClCompile Include="inversion\zinverma.c">
+      <Filter>Source Files\inversion</Filter>
+    </ClCompile>
+    <ClCompile Include="jmat\djmata.c">
+      <Filter>Source Files\jmat</Filter>
+    </ClCompile>
+    <ClCompile Include="jmat\sjmata.c">
+      <Filter>Source Files\jmat</Filter>
+    </ClCompile>
+    <ClCompile Include="logm\clogma.c">
+      <Filter>Source Files\logm</Filter>
+    </ClCompile>
+    <ClCompile Include="logm\dlogma.c">
+      <Filter>Source Files\logm</Filter>
+    </ClCompile>
+    <ClCompile Include="logm\slogma.c">
+      <Filter>Source Files\logm</Filter>
+    </ClCompile>
+    <ClCompile Include="logm\zlogma.c">
+      <Filter>Source Files\logm</Filter>
+    </ClCompile>
+    <ClCompile Include="magnitude\cmagna.c">
+      <Filter>Source Files\magnitude</Filter>
+    </ClCompile>
+    <ClCompile Include="magnitude\cmagns.c">
+      <Filter>Source Files\magnitude</Filter>
+    </ClCompile>
+    <ClCompile Include="magnitude\dmagna.c">
+      <Filter>Source Files\magnitude</Filter>
+    </ClCompile>
+    <ClCompile Include="magnitude\dmagns.c">
+      <Filter>Source Files\magnitude</Filter>
+    </ClCompile>
+    <ClCompile Include="magnitude\smagna.c">
+      <Filter>Source Files\magnitude</Filter>
+    </ClCompile>
+    <ClCompile Include="magnitude\smagns.c">
+      <Filter>Source Files\magnitude</Filter>
+    </ClCompile>
+    <ClCompile Include="magnitude\zmagna.c">
+      <Filter>Source Files\magnitude</Filter>
+    </ClCompile>
+    <ClCompile Include="magnitude\zmagns.c">
+      <Filter>Source Files\magnitude</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplication\cmulma.c">
+      <Filter>Source Files\multiplication</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplication\dmulma.c">
+      <Filter>Source Files\multiplication</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplication\smulma.c">
+      <Filter>Source Files\multiplication</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplication\zmulma.c">
+      <Filter>Source Files\multiplication</Filter>
+    </ClCompile>
+    <ClCompile Include="ones\conesa.c">
+      <Filter>Source Files\ones</Filter>
+    </ClCompile>
+    <ClCompile Include="ones\donesa.c">
+      <Filter>Source Files\ones</Filter>
+    </ClCompile>
+    <ClCompile Include="ones\sonesa.c">
+      <Filter>Source Files\ones</Filter>
+    </ClCompile>
+    <ClCompile Include="ones\zonesa.c">
+      <Filter>Source Files\ones</Filter>
+    </ClCompile>
+    <ClCompile Include="powm\cpowma.c">
+      <Filter>Source Files\pown</Filter>
+    </ClCompile>
+    <ClCompile Include="powm\dpowma.c">
+      <Filter>Source Files\pown</Filter>
+    </ClCompile>
+    <ClCompile Include="powm\spowma.c">
+      <Filter>Source Files\pown</Filter>
+    </ClCompile>
+    <ClCompile Include="powm\zpowma.c">
+      <Filter>Source Files\pown</Filter>
+    </ClCompile>
+    <ClCompile Include="spec\cspeca.c">
+      <Filter>Source Files\spec</Filter>
+    </ClCompile>
+    <ClCompile Include="spec\dspeca.c">
+      <Filter>Source Files\spec</Filter>
+    </ClCompile>
+    <ClCompile Include="spec\sspeca.c">
+      <Filter>Source Files\spec</Filter>
+    </ClCompile>
+    <ClCompile Include="spec\zspeca.c">
+      <Filter>Source Files\spec</Filter>
+    </ClCompile>
+    <ClCompile Include="spec2\cspec2a.c">
+      <Filter>Source Files\spec2</Filter>
+    </ClCompile>
+    <ClCompile Include="spec2\dspec2a.c">
+      <Filter>Source Files\spec2</Filter>
+    </ClCompile>
+    <ClCompile Include="spec2\sspec2a.c">
+      <Filter>Source Files\spec2</Filter>
+    </ClCompile>
+    <ClCompile Include="spec2\zspec2a.c">
+      <Filter>Source Files\spec2</Filter>
+    </ClCompile>
+    <ClCompile Include="squaredMagnitude\csquMagna.c">
+      <Filter>Source Files\squaredMagnitude</Filter>
+    </ClCompile>
+    <ClCompile Include="squaredMagnitude\csquMagns.c">
+      <Filter>Source Files\squaredMagnitude</Filter>
+    </ClCompile>
+    <ClCompile Include="squaredMagnitude\dsquMagna.c">
+      <Filter>Source Files\squaredMagnitude</Filter>
+    </ClCompile>
+    <ClCompile Include="squaredMagnitude\dsquMagns.c">
+      <Filter>Source Files\squaredMagnitude</Filter>
+    </ClCompile>
+    <ClCompile Include="squaredMagnitude\ssquMagna.c">
+      <Filter>Source Files\squaredMagnitude</Filter>
+    </ClCompile>
+    <ClCompile Include="squaredMagnitude\ssquMagns.c">
+      <Filter>Source Files\squaredMagnitude</Filter>
+    </ClCompile>
+    <ClCompile Include="squaredMagnitude\zsquMagna.c">
+      <Filter>Source Files\squaredMagnitude</Filter>
+    </ClCompile>
+    <ClCompile Include="squaredMagnitude\zsquMagns.c">
+      <Filter>Source Files\squaredMagnitude</Filter>
+    </ClCompile>
+    <ClCompile Include="trace\ctracea.c">
+      <Filter>Source Files\trace</Filter>
+    </ClCompile>
+    <ClCompile Include="trace\dtracea.c">
+      <Filter>Source Files\trace</Filter>
+    </ClCompile>
+    <ClCompile Include="trace\stracea.c">
+      <Filter>Source Files\trace</Filter>
+    </ClCompile>
+    <ClCompile Include="trace\ztracea.c">
+      <Filter>Source Files\trace</Filter>
+    </ClCompile>
+    <ClCompile Include="transpose\ctransposea.c">
+      <Filter>Source Files\transpose</Filter>
+    </ClCompile>
+    <ClCompile Include="transpose\dtransposea.c">
+      <Filter>Source Files\transpose</Filter>
+    </ClCompile>
+    <ClCompile Include="transpose\stransposea.c">
+      <Filter>Source Files\transpose</Filter>
+    </ClCompile>
+    <ClCompile Include="transpose\ztransposea.c">
+      <Filter>Source Files\transpose</Filter>
+    </ClCompile>
+    <ClCompile Include="zeros\czerosa.c">
+      <Filter>Source Files\zeros</Filter>
+    </ClCompile>
+    <ClCompile Include="zeros\dzerosa.c">
+      <Filter>Source Files\zeros</Filter>
+    </ClCompile>
+    <ClCompile Include="zeros\szerosa.c">
+      <Filter>Source Files\zeros</Filter>
+    </ClCompile>
+    <ClCompile Include="zeros\zzerosa.c">
+      <Filter>Source Files\zeros</Filter>
+    </ClCompile>
+    <ClCompile Include="dist\cdista.c">
+      <Filter>Source Files\dist</Filter>
+    </ClCompile>
+    <ClCompile Include="dist\cdists.c">
+      <Filter>Source Files\dist</Filter>
+    </ClCompile>
+    <ClCompile Include="dist\ddista.c">
+      <Filter>Source Files\dist</Filter>
+    </ClCompile>
+    <ClCompile Include="dist\ddists.c">
+      <Filter>Source Files\dist</Filter>
+    </ClCompile>
+    <ClCompile Include="dist\sdista.c">
+      <Filter>Source Files\dist</Filter>
+    </ClCompile>
+    <ClCompile Include="dist\sdists.c">
+      <Filter>Source Files\dist</Filter>
+    </ClCompile>
+    <ClCompile Include="dist\zdista.c">
+      <Filter>Source Files\dist</Filter>
+    </ClCompile>
+    <ClCompile Include="dist\zdists.c">
+      <Filter>Source Files\dist</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cat\Makefile.am">
+      <Filter>Source Files\cat</Filter>
+    </None>
+    <None Include="chol\Makefile.am">
+      <Filter>Source Files\chol</Filter>
+    </None>
+    <None Include="determ\Makefile.am">
+      <Filter>Source Files\determ</Filter>
+    </None>
+    <None Include="expm\Makefile.am">
+      <Filter>Source Files\expm</Filter>
+    </None>
+    <None Include="eye\Makefile.am">
+      <Filter>Source Files\eye</Filter>
+    </None>
+    <None Include="fill\Makefile.am">
+      <Filter>Source Files\fill</Filter>
+    </None>
+    <None Include="infiniteNorm\Makefile.am">
+      <Filter>Source Files\infiniteNorm</Filter>
+    </None>
+    <None Include="inversion\Makefile.am">
+      <Filter>Source Files\inversion</Filter>
+    </None>
+    <None Include="jmat\Makefile.am">
+      <Filter>Source Files\jmat</Filter>
+    </None>
+    <None Include="logm\Makefile.am">
+      <Filter>Source Files\logm</Filter>
+    </None>
+    <None Include="magnitude\Makefile.am">
+      <Filter>Source Files\magnitude</Filter>
+    </None>
+    <None Include="ones\Makefile.am">
+      <Filter>Source Files\ones</Filter>
+    </None>
+    <None Include="powm\Makefile.am">
+      <Filter>Source Files\pown</Filter>
+    </None>
+    <None Include="spec\Makefile.am">
+      <Filter>Source Files\spec</Filter>
+    </None>
+    <None Include="spec2\Makefile.am">
+      <Filter>Source Files\spec2</Filter>
+    </None>
+    <None Include="squaredMagnitude\Makefile.am">
+      <Filter>Source Files\squaredMagnitude</Filter>
+    </None>
+    <None Include="trace\Makefile.am">
+      <Filter>Source Files\trace</Filter>
+    </None>
+    <None Include="transpose\Makefile.am">
+      <Filter>Source Files\transpose</Filter>
+    </None>
+    <None Include="zeros\Makefile.am">
+      <Filter>Source Files\zeros</Filter>
+    </None>
+    <None Include="dist\Makefile.am">
+      <Filter>Source Files\dist</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="includes\cat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\chol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\determ.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\dist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\dynlib_matrixoperations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\eye.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\fill.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\infiniteNorm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\jmat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\logm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\matrixDivision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\matrixExponential.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\matrixInversion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\matrixMagnitude.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\matrixMultiplication.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\matrixPow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\matrixSquaredMagnitude.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\matrixTrace.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\matrixTranspose.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\ones.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\spec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\zeros.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\..\bin\lapack.lib" />
+    <Library Include="..\..\..\bin\blasplus.lib" />
+  </ItemGroup>
+</Project>
