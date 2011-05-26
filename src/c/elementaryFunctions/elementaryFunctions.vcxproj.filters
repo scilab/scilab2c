@@ -1,0 +1,857 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\acos">
+      <UniqueIdentifier>{4bee642b-618e-469b-abbb-eff706945f07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\acosh">
+      <UniqueIdentifier>{ce931ede-d037-4ced-b097-92fd8c44e069}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\asin">
+      <UniqueIdentifier>{a8546fc3-383f-4383-ab59-ad6b9f0319ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\asinh">
+      <UniqueIdentifier>{a788e4a0-a4b2-41bd-b10d-9cfeaca3390b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\atan">
+      <UniqueIdentifier>{d934660b-0e2a-44d6-a91e-9b777ba1e76a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\atan2">
+      <UniqueIdentifier>{0401cf0d-8c1d-4104-92b7-c2e740e3f5d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\atanh">
+      <UniqueIdentifier>{89eb0e32-9870-4ec7-ab20-71e89163d7be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ceil">
+      <UniqueIdentifier>{41ffb68f-186c-40d4-8ecb-5a209b6d9b08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\cos">
+      <UniqueIdentifier>{5b0722e6-d501-4970-8d47-3c1b7ae104eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\cosh">
+      <UniqueIdentifier>{b7e65ad6-ee23-4d3d-b67a-8188c23f6fee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\exp">
+      <UniqueIdentifier>{8d46a382-248e-4adc-8a5e-40b774a6c9d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\exp10">
+      <UniqueIdentifier>{efdcd1db-4220-4673-bdaf-a61ae5e52ea4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\fix">
+      <UniqueIdentifier>{ed1d39df-750e-4527-9044-38629af8526e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\floor">
+      <UniqueIdentifier>{193ec9fc-48c2-4348-9482-73ef57611c73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\int">
+      <UniqueIdentifier>{03cefff6-72be-41a3-bdec-cc72b7f3a9b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lnp1m1">
+      <UniqueIdentifier>{683da905-d30d-4c01-a338-b907b0be88e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\log">
+      <UniqueIdentifier>{d7fd467d-508c-4ed4-8434-d61218dffe7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\log1p">
+      <UniqueIdentifier>{266d09c3-4a01-4e53-a9cc-7885a75a7e10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\log10">
+      <UniqueIdentifier>{133460ee-f6d2-42ba-a012-ee666d0cf20f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\pow">
+      <UniqueIdentifier>{72dd8568-bd55-44b7-ac43-dadb2121a65b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\round">
+      <UniqueIdentifier>{7a1ea842-b75a-4359-9203-362b01b580de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sin">
+      <UniqueIdentifier>{ef365c2a-d020-4c72-b3d4-41d7faea88a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sinh">
+      <UniqueIdentifier>{dd4fce50-1f87-44a2-8d9d-94749d675564}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sqrt">
+      <UniqueIdentifier>{5cec6d7f-51e5-4028-9d7f-84674c7d83ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tan">
+      <UniqueIdentifier>{623a519d-2b90-41f1-819c-bedef22f3aeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tanh">
+      <UniqueIdentifier>{c2f3668b-9d41-4ccb-9871-f857d72c9e0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acos\cacosa.c">
+      <Filter>Source Files\acos</Filter>
+    </ClCompile>
+    <ClCompile Include="acos\cacoss.c">
+      <Filter>Source Files\acos</Filter>
+    </ClCompile>
+    <ClCompile Include="acos\dacosa.c">
+      <Filter>Source Files\acos</Filter>
+    </ClCompile>
+    <ClCompile Include="acos\dacoss.c">
+      <Filter>Source Files\acos</Filter>
+    </ClCompile>
+    <ClCompile Include="acos\sacosa.c">
+      <Filter>Source Files\acos</Filter>
+    </ClCompile>
+    <ClCompile Include="acos\sacoss.c">
+      <Filter>Source Files\acos</Filter>
+    </ClCompile>
+    <ClCompile Include="acos\zacosa.c">
+      <Filter>Source Files\acos</Filter>
+    </ClCompile>
+    <ClCompile Include="acos\zacoss.c">
+      <Filter>Source Files\acos</Filter>
+    </ClCompile>
+    <ClCompile Include="acosh\cacosha.c">
+      <Filter>Source Files\acosh</Filter>
+    </ClCompile>
+    <ClCompile Include="acosh\cacoshs.c">
+      <Filter>Source Files\acosh</Filter>
+    </ClCompile>
+    <ClCompile Include="acosh\dacosha.c">
+      <Filter>Source Files\acosh</Filter>
+    </ClCompile>
+    <ClCompile Include="acosh\dacoshs.c">
+      <Filter>Source Files\acosh</Filter>
+    </ClCompile>
+    <ClCompile Include="acosh\sacosha.c">
+      <Filter>Source Files\acosh</Filter>
+    </ClCompile>
+    <ClCompile Include="acosh\sacoshs.c">
+      <Filter>Source Files\acosh</Filter>
+    </ClCompile>
+    <ClCompile Include="acosh\zacosha.c">
+      <Filter>Source Files\acosh</Filter>
+    </ClCompile>
+    <ClCompile Include="acosh\zacoshs.c">
+      <Filter>Source Files\acosh</Filter>
+    </ClCompile>
+    <ClCompile Include="asin\casina.c">
+      <Filter>Source Files\asin</Filter>
+    </ClCompile>
+    <ClCompile Include="asin\casins.c">
+      <Filter>Source Files\asin</Filter>
+    </ClCompile>
+    <ClCompile Include="asin\dasina.c">
+      <Filter>Source Files\asin</Filter>
+    </ClCompile>
+    <ClCompile Include="asin\dasins.c">
+      <Filter>Source Files\asin</Filter>
+    </ClCompile>
+    <ClCompile Include="asin\sasina.c">
+      <Filter>Source Files\asin</Filter>
+    </ClCompile>
+    <ClCompile Include="asin\sasins.c">
+      <Filter>Source Files\asin</Filter>
+    </ClCompile>
+    <ClCompile Include="asin\zasina.c">
+      <Filter>Source Files\asin</Filter>
+    </ClCompile>
+    <ClCompile Include="asin\zasins.c">
+      <Filter>Source Files\asin</Filter>
+    </ClCompile>
+    <ClCompile Include="asinh\casinha.c">
+      <Filter>Source Files\asinh</Filter>
+    </ClCompile>
+    <ClCompile Include="asinh\casinhs.c">
+      <Filter>Source Files\asinh</Filter>
+    </ClCompile>
+    <ClCompile Include="asinh\dasinha.c">
+      <Filter>Source Files\asinh</Filter>
+    </ClCompile>
+    <ClCompile Include="asinh\dasinhs.c">
+      <Filter>Source Files\asinh</Filter>
+    </ClCompile>
+    <ClCompile Include="asinh\sasinha.c">
+      <Filter>Source Files\asinh</Filter>
+    </ClCompile>
+    <ClCompile Include="asinh\sasinhs.c">
+      <Filter>Source Files\asinh</Filter>
+    </ClCompile>
+    <ClCompile Include="asinh\zasinha.c">
+      <Filter>Source Files\asinh</Filter>
+    </ClCompile>
+    <ClCompile Include="asinh\zasinhs.c">
+      <Filter>Source Files\asinh</Filter>
+    </ClCompile>
+    <ClCompile Include="atan\catana.c">
+      <Filter>Source Files\atan</Filter>
+    </ClCompile>
+    <ClCompile Include="atan\catans.c">
+      <Filter>Source Files\atan</Filter>
+    </ClCompile>
+    <ClCompile Include="atan\datana.c">
+      <Filter>Source Files\atan</Filter>
+    </ClCompile>
+    <ClCompile Include="atan\datans.c">
+      <Filter>Source Files\atan</Filter>
+    </ClCompile>
+    <ClCompile Include="atan\satana.c">
+      <Filter>Source Files\atan</Filter>
+    </ClCompile>
+    <ClCompile Include="atan\satans.c">
+      <Filter>Source Files\atan</Filter>
+    </ClCompile>
+    <ClCompile Include="atan\zatana.c">
+      <Filter>Source Files\atan</Filter>
+    </ClCompile>
+    <ClCompile Include="atan\zatans.c">
+      <Filter>Source Files\atan</Filter>
+    </ClCompile>
+    <ClCompile Include="atan2\datan2a.c">
+      <Filter>Source Files\atan2</Filter>
+    </ClCompile>
+    <ClCompile Include="atan2\datan2s.c">
+      <Filter>Source Files\atan2</Filter>
+    </ClCompile>
+    <ClCompile Include="atan2\satan2a.c">
+      <Filter>Source Files\atan2</Filter>
+    </ClCompile>
+    <ClCompile Include="atan2\satan2s.c">
+      <Filter>Source Files\atan2</Filter>
+    </ClCompile>
+    <ClCompile Include="atanh\catanha.c">
+      <Filter>Source Files\atanh</Filter>
+    </ClCompile>
+    <ClCompile Include="atanh\catanhs.c">
+      <Filter>Source Files\atanh</Filter>
+    </ClCompile>
+    <ClCompile Include="atanh\datanha.c">
+      <Filter>Source Files\atanh</Filter>
+    </ClCompile>
+    <ClCompile Include="atanh\datanhs.c">
+      <Filter>Source Files\atanh</Filter>
+    </ClCompile>
+    <ClCompile Include="atanh\satanha.c">
+      <Filter>Source Files\atanh</Filter>
+    </ClCompile>
+    <ClCompile Include="atanh\satanhs.c">
+      <Filter>Source Files\atanh</Filter>
+    </ClCompile>
+    <ClCompile Include="atanh\zatanha.c">
+      <Filter>Source Files\atanh</Filter>
+    </ClCompile>
+    <ClCompile Include="atanh\zatanhs.c">
+      <Filter>Source Files\atanh</Filter>
+    </ClCompile>
+    <ClCompile Include="ceil\cceila.c">
+      <Filter>Source Files\ceil</Filter>
+    </ClCompile>
+    <ClCompile Include="ceil\cceils.c">
+      <Filter>Source Files\ceil</Filter>
+    </ClCompile>
+    <ClCompile Include="ceil\dceila.c">
+      <Filter>Source Files\ceil</Filter>
+    </ClCompile>
+    <ClCompile Include="ceil\dceils.c">
+      <Filter>Source Files\ceil</Filter>
+    </ClCompile>
+    <ClCompile Include="ceil\sceila.c">
+      <Filter>Source Files\ceil</Filter>
+    </ClCompile>
+    <ClCompile Include="ceil\sceils.c">
+      <Filter>Source Files\ceil</Filter>
+    </ClCompile>
+    <ClCompile Include="ceil\zceila.c">
+      <Filter>Source Files\ceil</Filter>
+    </ClCompile>
+    <ClCompile Include="ceil\zceils.c">
+      <Filter>Source Files\ceil</Filter>
+    </ClCompile>
+    <ClCompile Include="cos\ccosa.c">
+      <Filter>Source Files\cos</Filter>
+    </ClCompile>
+    <ClCompile Include="cos\ccoss.c">
+      <Filter>Source Files\cos</Filter>
+    </ClCompile>
+    <ClCompile Include="cos\dcosa.c">
+      <Filter>Source Files\cos</Filter>
+    </ClCompile>
+    <ClCompile Include="cos\dcoss.c">
+      <Filter>Source Files\cos</Filter>
+    </ClCompile>
+    <ClCompile Include="cos\scosa.c">
+      <Filter>Source Files\cos</Filter>
+    </ClCompile>
+    <ClCompile Include="cos\scoss.c">
+      <Filter>Source Files\cos</Filter>
+    </ClCompile>
+    <ClCompile Include="cos\zcosa.c">
+      <Filter>Source Files\cos</Filter>
+    </ClCompile>
+    <ClCompile Include="cos\zcoss.c">
+      <Filter>Source Files\cos</Filter>
+    </ClCompile>
+    <ClCompile Include="cosh\ccosha.c">
+      <Filter>Source Files\cosh</Filter>
+    </ClCompile>
+    <ClCompile Include="cosh\ccoshs.c">
+      <Filter>Source Files\cosh</Filter>
+    </ClCompile>
+    <ClCompile Include="cosh\dcosha.c">
+      <Filter>Source Files\cosh</Filter>
+    </ClCompile>
+    <ClCompile Include="cosh\dcoshs.c">
+      <Filter>Source Files\cosh</Filter>
+    </ClCompile>
+    <ClCompile Include="cosh\scosha.c">
+      <Filter>Source Files\cosh</Filter>
+    </ClCompile>
+    <ClCompile Include="cosh\scoshs.c">
+      <Filter>Source Files\cosh</Filter>
+    </ClCompile>
+    <ClCompile Include="cosh\zcosha.c">
+      <Filter>Source Files\cosh</Filter>
+    </ClCompile>
+    <ClCompile Include="cosh\zcoshs.c">
+      <Filter>Source Files\cosh</Filter>
+    </ClCompile>
+    <ClCompile Include="exp\cexpa.c">
+      <Filter>Source Files\exp</Filter>
+    </ClCompile>
+    <ClCompile Include="exp\cexps.c">
+      <Filter>Source Files\exp</Filter>
+    </ClCompile>
+    <ClCompile Include="exp\dexpa.c">
+      <Filter>Source Files\exp</Filter>
+    </ClCompile>
+    <ClCompile Include="exp\dexps.c">
+      <Filter>Source Files\exp</Filter>
+    </ClCompile>
+    <ClCompile Include="exp\sexpa.c">
+      <Filter>Source Files\exp</Filter>
+    </ClCompile>
+    <ClCompile Include="exp\sexps.c">
+      <Filter>Source Files\exp</Filter>
+    </ClCompile>
+    <ClCompile Include="exp\zexpa.c">
+      <Filter>Source Files\exp</Filter>
+    </ClCompile>
+    <ClCompile Include="exp\zexps.c">
+      <Filter>Source Files\exp</Filter>
+    </ClCompile>
+    <ClCompile Include="exp10\cexp10a.c">
+      <Filter>Source Files\exp10</Filter>
+    </ClCompile>
+    <ClCompile Include="exp10\cexp10s.c">
+      <Filter>Source Files\exp10</Filter>
+    </ClCompile>
+    <ClCompile Include="exp10\dexp10a.c">
+      <Filter>Source Files\exp10</Filter>
+    </ClCompile>
+    <ClCompile Include="exp10\dexp10s.c">
+      <Filter>Source Files\exp10</Filter>
+    </ClCompile>
+    <ClCompile Include="exp10\sexp10a.c">
+      <Filter>Source Files\exp10</Filter>
+    </ClCompile>
+    <ClCompile Include="exp10\sexp10s.c">
+      <Filter>Source Files\exp10</Filter>
+    </ClCompile>
+    <ClCompile Include="exp10\zexp10a.c">
+      <Filter>Source Files\exp10</Filter>
+    </ClCompile>
+    <ClCompile Include="exp10\zexp10s.c">
+      <Filter>Source Files\exp10</Filter>
+    </ClCompile>
+    <ClCompile Include="fix\cfixa.c">
+      <Filter>Source Files\fix</Filter>
+    </ClCompile>
+    <ClCompile Include="fix\cfixs.c">
+      <Filter>Source Files\fix</Filter>
+    </ClCompile>
+    <ClCompile Include="fix\dfixa.c">
+      <Filter>Source Files\fix</Filter>
+    </ClCompile>
+    <ClCompile Include="fix\dfixs.c">
+      <Filter>Source Files\fix</Filter>
+    </ClCompile>
+    <ClCompile Include="fix\sfixa.c">
+      <Filter>Source Files\fix</Filter>
+    </ClCompile>
+    <ClCompile Include="fix\sfixs.c">
+      <Filter>Source Files\fix</Filter>
+    </ClCompile>
+    <ClCompile Include="fix\zfixa.c">
+      <Filter>Source Files\fix</Filter>
+    </ClCompile>
+    <ClCompile Include="fix\zfixs.c">
+      <Filter>Source Files\fix</Filter>
+    </ClCompile>
+    <ClCompile Include="floor\cfloora.c">
+      <Filter>Source Files\floor</Filter>
+    </ClCompile>
+    <ClCompile Include="floor\cfloors.c">
+      <Filter>Source Files\floor</Filter>
+    </ClCompile>
+    <ClCompile Include="floor\dfloora.c">
+      <Filter>Source Files\floor</Filter>
+    </ClCompile>
+    <ClCompile Include="floor\dfloors.c">
+      <Filter>Source Files\floor</Filter>
+    </ClCompile>
+    <ClCompile Include="floor\sfloora.c">
+      <Filter>Source Files\floor</Filter>
+    </ClCompile>
+    <ClCompile Include="floor\sfloors.c">
+      <Filter>Source Files\floor</Filter>
+    </ClCompile>
+    <ClCompile Include="floor\zfloora.c">
+      <Filter>Source Files\floor</Filter>
+    </ClCompile>
+    <ClCompile Include="floor\zfloors.c">
+      <Filter>Source Files\floor</Filter>
+    </ClCompile>
+    <ClCompile Include="int\cinta.c">
+      <Filter>Source Files\int</Filter>
+    </ClCompile>
+    <ClCompile Include="int\cints.c">
+      <Filter>Source Files\int</Filter>
+    </ClCompile>
+    <ClCompile Include="int\dinta.c">
+      <Filter>Source Files\int</Filter>
+    </ClCompile>
+    <ClCompile Include="int\dints.c">
+      <Filter>Source Files\int</Filter>
+    </ClCompile>
+    <ClCompile Include="int\sinta.c">
+      <Filter>Source Files\int</Filter>
+    </ClCompile>
+    <ClCompile Include="int\sints.c">
+      <Filter>Source Files\int</Filter>
+    </ClCompile>
+    <ClCompile Include="int\zinta.c">
+      <Filter>Source Files\int</Filter>
+    </ClCompile>
+    <ClCompile Include="int\zints.c">
+      <Filter>Source Files\int</Filter>
+    </ClCompile>
+    <ClCompile Include="lnp1m1\dlnp1m1s.c">
+      <Filter>Source Files\lnp1m1</Filter>
+    </ClCompile>
+    <ClCompile Include="lnp1m1\slnp1m1s.c">
+      <Filter>Source Files\lnp1m1</Filter>
+    </ClCompile>
+    <ClCompile Include="log\cloga.c">
+      <Filter>Source Files\log</Filter>
+    </ClCompile>
+    <ClCompile Include="log\clogs.c">
+      <Filter>Source Files\log</Filter>
+    </ClCompile>
+    <ClCompile Include="log\dloga.c">
+      <Filter>Source Files\log</Filter>
+    </ClCompile>
+    <ClCompile Include="log\dlogs.c">
+      <Filter>Source Files\log</Filter>
+    </ClCompile>
+    <ClCompile Include="log\sloga.c">
+      <Filter>Source Files\log</Filter>
+    </ClCompile>
+    <ClCompile Include="log\slogs.c">
+      <Filter>Source Files\log</Filter>
+    </ClCompile>
+    <ClCompile Include="log\zloga.c">
+      <Filter>Source Files\log</Filter>
+    </ClCompile>
+    <ClCompile Include="log\zlogs.c">
+      <Filter>Source Files\log</Filter>
+    </ClCompile>
+    <ClCompile Include="log1p\clog1pa.c">
+      <Filter>Source Files\log1p</Filter>
+    </ClCompile>
+    <ClCompile Include="log1p\clog1ps.c">
+      <Filter>Source Files\log1p</Filter>
+    </ClCompile>
+    <ClCompile Include="log1p\dlog1pa.c">
+      <Filter>Source Files\log1p</Filter>
+    </ClCompile>
+    <ClCompile Include="log1p\dlog1ps.c">
+      <Filter>Source Files\log1p</Filter>
+    </ClCompile>
+    <ClCompile Include="log1p\slog1pa.c">
+      <Filter>Source Files\log1p</Filter>
+    </ClCompile>
+    <ClCompile Include="log1p\slog1ps.c">
+      <Filter>Source Files\log1p</Filter>
+    </ClCompile>
+    <ClCompile Include="log1p\zlog1pa.c">
+      <Filter>Source Files\log1p</Filter>
+    </ClCompile>
+    <ClCompile Include="log1p\zlog1ps.c">
+      <Filter>Source Files\log1p</Filter>
+    </ClCompile>
+    <ClCompile Include="log10\clog10a.c">
+      <Filter>Source Files\log10</Filter>
+    </ClCompile>
+    <ClCompile Include="log10\clog10s.c">
+      <Filter>Source Files\log10</Filter>
+    </ClCompile>
+    <ClCompile Include="log10\dlog10a.c">
+      <Filter>Source Files\log10</Filter>
+    </ClCompile>
+    <ClCompile Include="log10\dlog10s.c">
+      <Filter>Source Files\log10</Filter>
+    </ClCompile>
+    <ClCompile Include="log10\slog10a.c">
+      <Filter>Source Files\log10</Filter>
+    </ClCompile>
+    <ClCompile Include="log10\slog10s.c">
+      <Filter>Source Files\log10</Filter>
+    </ClCompile>
+    <ClCompile Include="log10\zlog10a.c">
+      <Filter>Source Files\log10</Filter>
+    </ClCompile>
+    <ClCompile Include="log10\zlog10s.c">
+      <Filter>Source Files\log10</Filter>
+    </ClCompile>
+    <ClCompile Include="pow\cpowa.c">
+      <Filter>Source Files\pow</Filter>
+    </ClCompile>
+    <ClCompile Include="pow\cpows.c">
+      <Filter>Source Files\pow</Filter>
+    </ClCompile>
+    <ClCompile Include="pow\dpowa.c">
+      <Filter>Source Files\pow</Filter>
+    </ClCompile>
+    <ClCompile Include="pow\dpows.c">
+      <Filter>Source Files\pow</Filter>
+    </ClCompile>
+    <ClCompile Include="pow\spowa.c">
+      <Filter>Source Files\pow</Filter>
+    </ClCompile>
+    <ClCompile Include="pow\spows.c">
+      <Filter>Source Files\pow</Filter>
+    </ClCompile>
+    <ClCompile Include="pow\zpowa.c">
+      <Filter>Source Files\pow</Filter>
+    </ClCompile>
+    <ClCompile Include="pow\zpows.c">
+      <Filter>Source Files\pow</Filter>
+    </ClCompile>
+    <ClCompile Include="round\crounda.c">
+      <Filter>Source Files\round</Filter>
+    </ClCompile>
+    <ClCompile Include="round\crounds.c">
+      <Filter>Source Files\round</Filter>
+    </ClCompile>
+    <ClCompile Include="round\drounda.c">
+      <Filter>Source Files\round</Filter>
+    </ClCompile>
+    <ClCompile Include="round\drounds.c">
+      <Filter>Source Files\round</Filter>
+    </ClCompile>
+    <ClCompile Include="round\srounda.c">
+      <Filter>Source Files\round</Filter>
+    </ClCompile>
+    <ClCompile Include="round\srounds.c">
+      <Filter>Source Files\round</Filter>
+    </ClCompile>
+    <ClCompile Include="round\zrounda.c">
+      <Filter>Source Files\round</Filter>
+    </ClCompile>
+    <ClCompile Include="round\zrounds.c">
+      <Filter>Source Files\round</Filter>
+    </ClCompile>
+    <ClCompile Include="sin\csina.c">
+      <Filter>Source Files\sin</Filter>
+    </ClCompile>
+    <ClCompile Include="sin\csins.c">
+      <Filter>Source Files\sin</Filter>
+    </ClCompile>
+    <ClCompile Include="sin\dsina.c">
+      <Filter>Source Files\sin</Filter>
+    </ClCompile>
+    <ClCompile Include="sin\dsins.c">
+      <Filter>Source Files\sin</Filter>
+    </ClCompile>
+    <ClCompile Include="sin\ssina.c">
+      <Filter>Source Files\sin</Filter>
+    </ClCompile>
+    <ClCompile Include="sin\ssins.c">
+      <Filter>Source Files\sin</Filter>
+    </ClCompile>
+    <ClCompile Include="sin\zsina.c">
+      <Filter>Source Files\sin</Filter>
+    </ClCompile>
+    <ClCompile Include="sin\zsins.c">
+      <Filter>Source Files\sin</Filter>
+    </ClCompile>
+    <ClCompile Include="sinh\csinha.c">
+      <Filter>Source Files\sinh</Filter>
+    </ClCompile>
+    <ClCompile Include="sinh\csinhs.c">
+      <Filter>Source Files\sinh</Filter>
+    </ClCompile>
+    <ClCompile Include="sinh\dsinha.c">
+      <Filter>Source Files\sinh</Filter>
+    </ClCompile>
+    <ClCompile Include="sinh\dsinhs.c">
+      <Filter>Source Files\sinh</Filter>
+    </ClCompile>
+    <ClCompile Include="sinh\ssinha.c">
+      <Filter>Source Files\sinh</Filter>
+    </ClCompile>
+    <ClCompile Include="sinh\ssinhs.c">
+      <Filter>Source Files\sinh</Filter>
+    </ClCompile>
+    <ClCompile Include="sinh\zsinha.c">
+      <Filter>Source Files\sinh</Filter>
+    </ClCompile>
+    <ClCompile Include="sinh\zsinhs.c">
+      <Filter>Source Files\sinh</Filter>
+    </ClCompile>
+    <ClCompile Include="sqrt\csqrta.c">
+      <Filter>Source Files\sqrt</Filter>
+    </ClCompile>
+    <ClCompile Include="sqrt\csqrts.c">
+      <Filter>Source Files\sqrt</Filter>
+    </ClCompile>
+    <ClCompile Include="sqrt\dsqrta.c">
+      <Filter>Source Files\sqrt</Filter>
+    </ClCompile>
+    <ClCompile Include="sqrt\dsqrts.c">
+      <Filter>Source Files\sqrt</Filter>
+    </ClCompile>
+    <ClCompile Include="sqrt\ssqrta.c">
+      <Filter>Source Files\sqrt</Filter>
+    </ClCompile>
+    <ClCompile Include="sqrt\ssqrts.c">
+      <Filter>Source Files\sqrt</Filter>
+    </ClCompile>
+    <ClCompile Include="sqrt\zsqrta.c">
+      <Filter>Source Files\sqrt</Filter>
+    </ClCompile>
+    <ClCompile Include="sqrt\zsqrts.c">
+      <Filter>Source Files\sqrt</Filter>
+    </ClCompile>
+    <ClCompile Include="tan\ctana.c">
+      <Filter>Source Files\tan</Filter>
+    </ClCompile>
+    <ClCompile Include="tan\ctans.c">
+      <Filter>Source Files\tan</Filter>
+    </ClCompile>
+    <ClCompile Include="tan\dtana.c">
+      <Filter>Source Files\tan</Filter>
+    </ClCompile>
+    <ClCompile Include="tan\dtans.c">
+      <Filter>Source Files\tan</Filter>
+    </ClCompile>
+    <ClCompile Include="tan\stana.c">
+      <Filter>Source Files\tan</Filter>
+    </ClCompile>
+    <ClCompile Include="tan\stans.c">
+      <Filter>Source Files\tan</Filter>
+    </ClCompile>
+    <ClCompile Include="tan\ztana.c">
+      <Filter>Source Files\tan</Filter>
+    </ClCompile>
+    <ClCompile Include="tan\ztans.c">
+      <Filter>Source Files\tan</Filter>
+    </ClCompile>
+    <ClCompile Include="tanh\ctanha.c">
+      <Filter>Source Files\tanh</Filter>
+    </ClCompile>
+    <ClCompile Include="tanh\ctanhs.c">
+      <Filter>Source Files\tanh</Filter>
+    </ClCompile>
+    <ClCompile Include="tanh\dtanha.c">
+      <Filter>Source Files\tanh</Filter>
+    </ClCompile>
+    <ClCompile Include="tanh\dtanhs.c">
+      <Filter>Source Files\tanh</Filter>
+    </ClCompile>
+    <ClCompile Include="tanh\stanha.c">
+      <Filter>Source Files\tanh</Filter>
+    </ClCompile>
+    <ClCompile Include="tanh\stanhs.c">
+      <Filter>Source Files\tanh</Filter>
+    </ClCompile>
+    <ClCompile Include="tanh\ztanha.c">
+      <Filter>Source Files\tanh</Filter>
+    </ClCompile>
+    <ClCompile Include="tanh\ztanhs.c">
+      <Filter>Source Files\tanh</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="acos\Makefile.am">
+      <Filter>Source Files\acos</Filter>
+    </None>
+    <None Include="acosh\Makefile.am">
+      <Filter>Source Files\acosh</Filter>
+    </None>
+    <None Include="asin\Makefile.am">
+      <Filter>Source Files\asin</Filter>
+    </None>
+    <None Include="asinh\Makefile.am">
+      <Filter>Source Files\asinh</Filter>
+    </None>
+    <None Include="atan\Makefile.am">
+      <Filter>Source Files\atan</Filter>
+    </None>
+    <None Include="atan2\Makefile.am">
+      <Filter>Source Files\atan2</Filter>
+    </None>
+    <None Include="atanh\Makefile.am">
+      <Filter>Source Files\atanh</Filter>
+    </None>
+    <None Include="ceil\Makefile.am">
+      <Filter>Source Files\ceil</Filter>
+    </None>
+    <None Include="cos\Makefile.am">
+      <Filter>Source Files\cos</Filter>
+    </None>
+    <None Include="cosh\Makefile.am">
+      <Filter>Source Files\cosh</Filter>
+    </None>
+    <None Include="exp\Makefile.am">
+      <Filter>Source Files\exp</Filter>
+    </None>
+    <None Include="exp10\Makefile.am">
+      <Filter>Source Files\exp10</Filter>
+    </None>
+    <None Include="fix\Makefile.am">
+      <Filter>Source Files\fix</Filter>
+    </None>
+    <None Include="floor\Makefile.am">
+      <Filter>Source Files\floor</Filter>
+    </None>
+    <None Include="int\Makefile.am">
+      <Filter>Source Files\int</Filter>
+    </None>
+    <None Include="lnp1m1\Makefile.am">
+      <Filter>Source Files\lnp1m1</Filter>
+    </None>
+    <None Include="log\Makefile.am">
+      <Filter>Source Files\log</Filter>
+    </None>
+    <None Include="log1p\Makefile.am">
+      <Filter>Source Files\log1p</Filter>
+    </None>
+    <None Include="log10\Makefile.am">
+      <Filter>Source Files\log10</Filter>
+    </None>
+    <None Include="pow\Makefile.am">
+      <Filter>Source Files\pow</Filter>
+    </None>
+    <None Include="round\Makefile.am">
+      <Filter>Source Files\round</Filter>
+    </None>
+    <None Include="sin\Makefile.am">
+      <Filter>Source Files\sin</Filter>
+    </None>
+    <None Include="sinh\Makefile.am">
+      <Filter>Source Files\sinh</Filter>
+    </None>
+    <None Include="sqrt\Makefile.am">
+      <Filter>Source Files\sqrt</Filter>
+    </None>
+    <None Include="tan\Makefile.am">
+      <Filter>Source Files\tan</Filter>
+    </None>
+    <None Include="tanh\Makefile.am">
+      <Filter>Source Files\tanh</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="includes\acos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\acosh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\asin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\asinh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\atan.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\atan2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\atanh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\ceil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\cos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\cosh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\dynlib_elementaryfunctions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\exp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\exp10.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\fix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\floor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\int.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\lnp1m1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\log10.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\log1p.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\pow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\round.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\sin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\sinh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\sqrt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\tan.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\tanh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\..\bin\lapack.lib" />
+  </ItemGroup>
+</Project>

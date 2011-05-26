@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\cepstrum">
+      <UniqueIdentifier>{ebc6c365-0c2d-4024-b959-0b6fa64246cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\conv">
+      <UniqueIdentifier>{00836675-12ac-47b7-9ac6-0196bb33333c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\conv2d">
+      <UniqueIdentifier>{4f72c2fb-c271-459e-8502-da2f7c962c68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\crossCorr">
+      <UniqueIdentifier>{1338e5a6-e007-4d3b-828b-b25eff140442}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\fft">
+      <UniqueIdentifier>{48ddaeb8-14d4-4c8e-868d-7e52f145304a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\fftshift">
+      <UniqueIdentifier>{97133a42-f4a2-47de-a3bf-e764b23ec51d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\hilbert">
+      <UniqueIdentifier>{116e0cb5-bcb1-4a9d-bd89-7b5098f5b149}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ifft">
+      <UniqueIdentifier>{1756fe63-6e90-4f05-88fa-f6fbb81d2ef1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lev">
+      <UniqueIdentifier>{3c3ce86a-8e15-4f1b-bc56-80a84d2d5c44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lpc2cep">
+      <UniqueIdentifier>{4c335f24-03ef-4a1f-b409-c18af44c5a53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\levin">
+      <UniqueIdentifier>{f54c4b75-354f-422d-ab7c-57697189b855}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="conv\cconva.c">
+      <Filter>Source Files\conv</Filter>
+    </ClCompile>
+    <ClCompile Include="conv\dconva.c">
+      <Filter>Source Files\conv</Filter>
+    </ClCompile>
+    <ClCompile Include="conv\sconva.c">
+      <Filter>Source Files\conv</Filter>
+    </ClCompile>
+    <ClCompile Include="conv\zconva.c">
+      <Filter>Source Files\conv</Filter>
+    </ClCompile>
+    <ClCompile Include="conv2d\cconv2da.c">
+      <Filter>Source Files\conv2d</Filter>
+    </ClCompile>
+    <ClCompile Include="conv2d\dconv2da.c">
+      <Filter>Source Files\conv2d</Filter>
+    </ClCompile>
+    <ClCompile Include="conv2d\sconv2da.c">
+      <Filter>Source Files\conv2d</Filter>
+    </ClCompile>
+    <ClCompile Include="conv2d\zconv2da.c">
+      <Filter>Source Files\conv2d</Filter>
+    </ClCompile>
+    <ClCompile Include="crossCorr\ccrossCorra.c">
+      <Filter>Source Files\crossCorr</Filter>
+    </ClCompile>
+    <ClCompile Include="crossCorr\dcrossCorra.c">
+      <Filter>Source Files\crossCorr</Filter>
+    </ClCompile>
+    <ClCompile Include="crossCorr\scrossCorra.c">
+      <Filter>Source Files\crossCorr</Filter>
+    </ClCompile>
+    <ClCompile Include="crossCorr\zcrossCorra.c">
+      <Filter>Source Files\crossCorr</Filter>
+    </ClCompile>
+    <ClCompile Include="fft\cfftma.c">
+      <Filter>Source Files\fft</Filter>
+    </ClCompile>
+    <ClCompile Include="fft\dfft2.c">
+      <Filter>Source Files\fft</Filter>
+    </ClCompile>
+    <ClCompile Include="fft\dfftbi.c">
+      <Filter>Source Files\fft</Filter>
+    </ClCompile>
+    <ClCompile Include="fft\dfftma.c">
+      <Filter>Source Files\fft</Filter>
+    </ClCompile>
+    <ClCompile Include="fft\dfftmx.c">
+      <Filter>Source Files\fft</Filter>
+    </ClCompile>
+    <ClCompile Include="fft\fft842.c">
+      <Filter>Source Files\fft</Filter>
+    </ClCompile>
+    <ClCompile Include="fft\r2tx.c">
+      <Filter>Source Files\fft</Filter>
+    </ClCompile>
+    <ClCompile Include="fft\r4tx.c">
+      <Filter>Source Files\fft</Filter>
+    </ClCompile>
+    <ClCompile Include="fft\r8tx.c">
+      <Filter>Source Files\fft</Filter>
+    </ClCompile>
+    <ClCompile Include="fft\sfftma.c">
+      <Filter>Source Files\fft</Filter>
+    </ClCompile>
+    <ClCompile Include="fft\zfftma.c">
+      <Filter>Source Files\fft</Filter>
+    </ClCompile>
+    <ClCompile Include="fftshift\ccolumnfftshifta.c">
+      <Filter>Source Files\fftshift</Filter>
+    </ClCompile>
+    <ClCompile Include="fftshift\cfftshifta.c">
+      <Filter>Source Files\fftshift</Filter>
+    </ClCompile>
+    <ClCompile Include="fftshift\crowfftshifta.c">
+      <Filter>Source Files\fftshift</Filter>
+    </ClCompile>
+    <ClCompile Include="fftshift\dcolumnfftshifta.c">
+      <Filter>Source Files\fftshift</Filter>
+    </ClCompile>
+    <ClCompile Include="fftshift\dfftshifta.c">
+      <Filter>Source Files\fftshift</Filter>
+    </ClCompile>
+    <ClCompile Include="fftshift\drowfftshifta.c">
+      <Filter>Source Files\fftshift</Filter>
+    </ClCompile>
+    <ClCompile Include="fftshift\scolumnfftshifta.c">
+      <Filter>Source Files\fftshift</Filter>
+    </ClCompile>
+    <ClCompile Include="fftshift\sfftshifta.c">
+      <Filter>Source Files\fftshift</Filter>
+    </ClCompile>
+    <ClCompile Include="fftshift\srowfftshifta.c">
+      <Filter>Source Files\fftshift</Filter>
+    </ClCompile>
+    <ClCompile Include="fftshift\zcolumnfftshifta.c">
+      <Filter>Source Files\fftshift</Filter>
+    </ClCompile>
+    <ClCompile Include="fftshift\zfftshifta.c">
+      <Filter>Source Files\fftshift</Filter>
+    </ClCompile>
+    <ClCompile Include="fftshift\zrowfftshifta.c">
+      <Filter>Source Files\fftshift</Filter>
+    </ClCompile>
+    <ClCompile Include="hilbert\dhilberta.c">
+      <Filter>Source Files\hilbert</Filter>
+    </ClCompile>
+    <ClCompile Include="hilbert\dhilberts.c">
+      <Filter>Source Files\hilbert</Filter>
+    </ClCompile>
+    <ClCompile Include="hilbert\shilberta.c">
+      <Filter>Source Files\hilbert</Filter>
+    </ClCompile>
+    <ClCompile Include="hilbert\shilberts.c">
+      <Filter>Source Files\hilbert</Filter>
+    </ClCompile>
+    <ClCompile Include="ifft\cifftma.c">
+      <Filter>Source Files\ifft</Filter>
+    </ClCompile>
+    <ClCompile Include="ifft\diffbi_lavraie.c">
+      <Filter>Source Files\ifft</Filter>
+    </ClCompile>
+    <ClCompile Include="ifft\difft2.c">
+      <Filter>Source Files\ifft</Filter>
+    </ClCompile>
+    <ClCompile Include="ifft\difftbi.c">
+      <Filter>Source Files\ifft</Filter>
+    </ClCompile>
+    <ClCompile Include="ifft\difftma.c">
+      <Filter>Source Files\ifft</Filter>
+    </ClCompile>
+    <ClCompile Include="ifft\difftmx.c">
+      <Filter>Source Files\ifft</Filter>
+    </ClCompile>
+    <ClCompile Include="ifft\ifft842.c">
+      <Filter>Source Files\ifft</Filter>
+    </ClCompile>
+    <ClCompile Include="ifft\ir2tx.c">
+      <Filter>Source Files\ifft</Filter>
+    </ClCompile>
+    <ClCompile Include="ifft\ir4tx.c">
+      <Filter>Source Files\ifft</Filter>
+    </ClCompile>
+    <ClCompile Include="ifft\ir8tx.c">
+      <Filter>Source Files\ifft</Filter>
+    </ClCompile>
+    <ClCompile Include="ifft\sifftma.c">
+      <Filter>Source Files\ifft</Filter>
+    </ClCompile>
+    <ClCompile Include="ifft\zifftma.c">
+      <Filter>Source Files\ifft</Filter>
+    </ClCompile>
+    <ClCompile Include="lev\cleva.c">
+      <Filter>Source Files\lev</Filter>
+    </ClCompile>
+    <ClCompile Include="lev\cleva2.c">
+      <Filter>Source Files\lev</Filter>
+    </ClCompile>
+    <ClCompile Include="lev\dleva.c">
+      <Filter>Source Files\lev</Filter>
+    </ClCompile>
+    <ClCompile Include="lev\dleva2.c">
+      <Filter>Source Files\lev</Filter>
+    </ClCompile>
+    <ClCompile Include="lev\sleva.c">
+      <Filter>Source Files\lev</Filter>
+    </ClCompile>
+    <ClCompile Include="lev\sleva2.c">
+      <Filter>Source Files\lev</Filter>
+    </ClCompile>
+    <ClCompile Include="lev\zleva.c">
+      <Filter>Source Files\lev</Filter>
+    </ClCompile>
+    <ClCompile Include="lev\zleva2.c">
+      <Filter>Source Files\lev</Filter>
+    </ClCompile>
+    <ClCompile Include="lpc2cep\clpc2cepa.c">
+      <Filter>Source Files\lpc2cep</Filter>
+    </ClCompile>
+    <ClCompile Include="lpc2cep\dlpc2cepa.c">
+      <Filter>Source Files\lpc2cep</Filter>
+    </ClCompile>
+    <ClCompile Include="lpc2cep\slpc2cepa.c">
+      <Filter>Source Files\lpc2cep</Filter>
+    </ClCompile>
+    <ClCompile Include="lpc2cep\zlpc2cepa.c">
+      <Filter>Source Files\lpc2cep</Filter>
+    </ClCompile>
+    <ClCompile Include="levin\dlevina.c">
+      <Filter>Source Files\levin</Filter>
+    </ClCompile>
+    <ClCompile Include="levin\levinUtils.c">
+      <Filter>Source Files\levin</Filter>
+    </ClCompile>
+    <ClCompile Include="levin\slevina.c">
+      <Filter>Source Files\levin</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="conv\Makefile.am">
+      <Filter>Source Files\conv</Filter>
+    </None>
+    <None Include="conv2d\Makefile.am">
+      <Filter>Source Files\conv2d</Filter>
+    </None>
+    <None Include="crossCorr\Makefile.am">
+      <Filter>Source Files\crossCorr</Filter>
+    </None>
+    <None Include="fft\Makefile.am">
+      <Filter>Source Files\fft</Filter>
+    </None>
+    <None Include="fftshift\Makefile.am">
+      <Filter>Source Files\fftshift</Filter>
+    </None>
+    <None Include="hilbert\Makefile.am">
+      <Filter>Source Files\hilbert</Filter>
+    </None>
+    <None Include="ifft\Makefile.am">
+      <Filter>Source Files\ifft</Filter>
+    </None>
+    <None Include="lev\Makefile.am">
+      <Filter>Source Files\lev</Filter>
+    </None>
+    <None Include="lpc2cep\Makefile.am">
+      <Filter>Source Files\lpc2cep</Filter>
+    </None>
+    <None Include="levin\Makefile.am">
+      <Filter>Source Files\levin</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="includes\conv.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\conv2d.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\crossCorr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\dynlib_signalprocessing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\fft.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\fftshift.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\hilbert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\ifft.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\lev.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\levin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\lpc2cep.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\..\bin\blasplus.lib" />
+  </ItemGroup>
+</Project>
