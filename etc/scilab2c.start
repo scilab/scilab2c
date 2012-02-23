@@ -45,6 +45,7 @@ if or(getscilabmode() == ["NW";"STD"]) then
    clear pathdemos ;
 end
 
+mprintf("\tVersion: "+getScilab2cVersion()+"\n");
 
 global SCI2CHOME
 SCI2CHOME = root_tlbx;
