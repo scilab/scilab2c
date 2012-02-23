@@ -127,7 +127,7 @@ error(msprintf(gettext("%s: Wrong number of input argument(s): %d expected.\n"),
 endfunction
 
 function BuildTool = getNativeBuildTool()
-  if MSDOS
+  if getos() == "Windows"
 	BuildTool = "nmake"
   else
 	BuildTool = "make"

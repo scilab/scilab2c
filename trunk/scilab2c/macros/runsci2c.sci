@@ -123,6 +123,13 @@ for i = 1:size(allInterfaces, "*")
   copyfile(allInterfaces(i), SCI2COutputPath+"/interfaces/");
 end
 
+// ------------------------------
+// --- Generate SCI2C Header. ---
+// ------------------------------
+// FIXME : Give the user the ability to set this prefix
+FunctionPrefix = "SCI2C";
+C_GenerateSCI2CHeader(SCI2COutputPath+"/includes/", FunctionPrefix);
+
 // --------------------------
 // --- Generate Makefile. ---
 // --------------------------
