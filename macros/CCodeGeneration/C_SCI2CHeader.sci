@@ -32,7 +32,7 @@ SCI2CNInArgCheck(argn(2),1,1);
 PrintStringInfo('/*',FileName,'file','y');
 PrintStringInfo('** ************************************************',FileName,'file','y');
 PrintStringInfo('** This file has been generated using',FileName,'file','y');
-PrintStringInfo('**      Scilab2C (Version 2.0)',FileName,'file','y');
+PrintStringInfo('**      Scilab2C (Version '+getScilab2cVersion()+')',FileName,'file','y');
 PrintStringInfo('**',FileName,'file','y');
 PrintStringInfo('** Please visit following links for more informations:',FileName,'file','y');
 PrintStringInfo('** Atoms Module: http://atoms.scilab.org/toolboxes/scilab2c',FileName,'file','y');
