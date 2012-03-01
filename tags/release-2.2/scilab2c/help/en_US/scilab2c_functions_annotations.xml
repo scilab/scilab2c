@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   * Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+   * Copyright (C) DIGITEO - Bruno JOFRET
+   *
+   * This file is released into the public domain
+   *
+  -->
+<refentry version="5.0-subset Scilab" xml:id="scilab2c_functions_annotations" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:db="http://docbook.org/ns/docbook">
+  <info>
+    <pubdate>$LastChangedDate$</pubdate>
+  </info>
+
+  <refnamediv>
+    <refname>Scilab2C Functions Annotations</refname>
+
+    <refpurpose>Scilab to C Converter : Functions Annotations How To</refpurpose>
+  </refnamediv>
+
+  <refsection>
+    <title>Description</title>
+    <para>
+      The annotation of every Scilab function is mandatory. Only the main function of the Scilab program you are translating doesn’t need any annotation.
+    </para>
+    <para>
+      The main function can not return any output argument and can not accept any input argument.
+    </para>
+    <para>
+      It is important to specify for each output argument of the Scilab function, its size and type in order to have the possibility to allocate the correct memory space at translation time.
+      When the size of the returned output can be estimated only at run time, as happens for find-like functions that return an output whose size is related to the condition tested by the function,
+      the user must be able to specify at least the maximum size that can be returned by the function.
+      If it is not possible then the function should dynamically allocate memory and so can not be translated by Sci2C.
+    </para>
+    <para>
+      Function annotation must specify:
+      <itemizedlist>
+        <listitem>the number of input arguments. (See <link linkend="scilab2c_tag_NIN">NIN tag</link>)</listitem>
+        <listitem>the number of output arguments. (See <link linkend="scilab2c_tag_NOUT">NOUT tag</link>)</listitem>
+        <listitem>the type and precision of each output argument. (See <link linkend="scilab2c_tag_TP">TP tag</link>)</listitem>
+        <listitem>the size of every output argument. (See <link linkend="scilab2c_tag_SZ">SZ tag</link>)</listitem>
+        <listitem>the default precision for the data declared in the function body.</listitem>
+      </itemizedlist>
+    </para>
+  </refsection>
+
+  <refsection>
+    <title>Simple Example</title>
+    <programlisting role="example"><![CDATA[
+//SCI2C: NIN= 1
+//SCI2C: NOUT= 2
+//SCI2C: OUT(1).TP= IN(1).TP
+//SCI2C: OUT(1).SZ(1)= IN(1).SZ(1)
+//SCI2C: OUT(1).SZ(2)= IN(1).SZ(2)
+//SCI2C: OUT(2).TP= IN(1).TP
+//SCI2C: OUT(2).SZ(1)= IN(1).SZ(1)
+//SCI2C: OUT(2).SZ(2)= IN(1).SZ(2)
+//SCI2C: DEFAULT_PRECISION= DOUBLE
+]]></programlisting>
+    This will declare a function with the following informations:
+    <itemizedlist>
+      <listitem>1 input argument.</listitem>
+      <listitem>2 output arguments.</listitem>
+      <listitem>first output argument has the same type than first input argument.</listitem>
+      <listitem>first output argument has the same width than first input argument.</listitem>
+      <listitem>first output argument has the same height than first input argument.</listitem>
+      <listitem>second output argument has the same type than first input argument.</listitem>
+      <listitem>second output argument has the same width than first input argument.</listitem>
+      <listitem>second output argument has the same height than first input argument.</listitem>
+    </itemizedlist>
+  </refsection>
+
+  <refsection>
+    <title>Simple Example</title>
+    <programlisting role="example"><![CDATA[
+NIN=          2
+NOUT=         2
+OUT(1).TP=    IN(1).TP
+OUT(1).SZ(1)= '1'
+OUT(1).SZ(2)= FA_MUL(IN(1).SZ(1),IN(1).SZ(2))
+OUT(2).TP=    IN(1).TP
+OUT(2).SZ(1)= '1'
+OUT(2).SZ(2)= FA_MUL(IN(1).SZ(1),IN(1).SZ(2))
+]]></programlisting>
+    This will declare a function with the following informations:
+    <itemizedlist>
+      <listitem>2 input arguments.</listitem>
+      <listitem>2 output arguments.</listitem>
+      <listitem>first output argument has the same type than first input argument.</listitem>
+      <listitem>first output argument is a row vetor.</listitem>
+      <listitem>first output argument's height is the product of the first input width by height.</listitem>
+      <listitem>second output argument has the same type than first input argument.</listitem>
+      <listitem>second output argument is a row vector.</listitem>
+      <listitem>second output argument's height is the product of the first input width by height.</listitem>
+    </itemizedlist>
+  </refsection>
+  <refsection>
+    <title>See Also</title>
+    <simplelist type="inline">
+      <member>
+        <link linkend="scilab2c_annotations">Sciab2C Annotations</link>,
+        <link linkend="scilab2c">Scilab2C Code Generator</link>
+      </member>
+    </simplelist>
+  </refsection>
+
+
+
+  <refsection>
+    <title>Authors</title>
+    <simplelist type="vert">
+      <member>Bruno JOFRET</member>
+      <member>Raffaele NUTRICATO</member>
+    </simplelist>
+  </refsection>
+</refentry>

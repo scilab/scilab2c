@@ -1,0 +1,496 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{39BC0138-6B50-492C-8570-06458772282B}</ProjectGuid>
+    <RootNamespace>RUN_TESTS</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)bin\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)bin\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PreBuildEvent>
+      <Command>$(SolutionDir)RUN_TESTS/run_tests.bat</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PreBuildEvent>
+      <Command>$(SolutionDir)RUN_TESTS/run_tests.bat</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PreBuildEvent>
+      <Command>$(SolutionDir)RUN_TESTS/run_tests.bat</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PreBuildEvent>
+      <Command>$(SolutionDir)RUN_TESTS/run_tests.bat</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\src\c\auxiliaryFunctions\abs\test_DoubleAbs\testDoubleAbs.vcxproj">
+      <Project>{5a8d4b59-ac5d-4ba0-a26f-17e740f35042}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\auxiliaryFunctions\abs\test_FloatAbs\testFloatAbs.vcxproj">
+      <Project>{4b5a02a3-c3ef-4a5c-b5a8-7264697d42b6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\auxiliaryFunctions\conj\test_Conj\testConj.vcxproj">
+      <Project>{cd5db834-234f-40a3-b551-dc895885e7b1}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\auxiliaryFunctions\find2d\test_Find2d\testFind2d.vcxproj">
+      <Project>{7361b40c-bcf5-442b-9116-7db5ad7456b0}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\auxiliaryFunctions\find\test_Find\testFind.vcxproj">
+      <Project>{d5110077-ca24-494b-87d0-451bd124cf70}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\auxiliaryFunctions\frexp\test_frexp\frexp.vcxproj">
+      <Project>{fdbbfb07-9e66-481e-aa45-3f3bd87cce77}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\auxiliaryFunctions\isempty\test_IsEmpty\testIsEmpty.vcxproj">
+      <Project>{cf43766b-febe-4e52-a7ca-7d0a9f5db982}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\auxiliaryFunctions\isnan\test_IsNan\testIsNan.vcxproj">
+      <Project>{18763bd3-2916-4d97-9633-5dac1a635edd}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\auxiliaryFunctions\length\test_Length\testLength.vcxproj">
+      <Project>{a4626e50-ddd7-44e1-83fc-05bf396af250}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\auxiliaryFunctions\pythag\test_Pythag\testPythag.vcxproj">
+      <Project>{10f6c306-fd81-45f3-936b-cdf8213a88e6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\auxiliaryFunctions\rand\test_Rand\testRand.vcxproj">
+      <Project>{31bbbdb6-9e46-4227-a8e3-9a1942dbd05e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\auxiliaryFunctions\sign\test_Sign\testSign.vcxproj">
+      <Project>{eebfac09-8bd7-4254-9316-57c1907d827e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\auxiliaryFunctions\size\test_Size\testSize.vcxproj">
+      <Project>{5d4b1991-549d-48ed-a5f6-cb17f15b72c8}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\auxiliaryFunctions\type\test_Type\testType.vcxproj">
+      <Project>{8eb05c91-9405-4af4-88b4-a6b227409bfb}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\elementaryFunctions\acosh\test_doubleacosh\test_doubleacosh.vcxproj">
+      <Project>{5805527c-6a77-40a9-8ef6-414b0269b50e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\elementaryFunctions\acosh\test_FloatAcosh\testFloatAcosh.vcxproj">
+      <Project>{24015124-a47c-406f-850b-09e95dbbf573}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\elementaryFunctions\acos\test_cplxacos\test_cplxacos.vcxproj">
+      <Project>{20afe4d5-ce52-4cce-adab-87442079bc0b}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\elementaryFunctions\acos\test_realsacos\testrealsacos.vcxproj">
+      <Project>{0556427d-6d88-4a12-9eb3-7f551d6f1fa4}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\implicitList\test_DoubleImplicitList\testDoubleImplicitList.vcxproj">
+      <Project>{15d96388-c17c-4085-991f-9003e0ce9c6a}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\implicitList\test_FloatImplicitList\testFloatImplicitList.vcxproj">
+      <Project>{93cf027e-c286-4f61-a9d6-de3c899c5e77}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\cat\test_DoubleMatrixConcatenation\testDoubleMatrixConcatenation.vcxproj">
+      <Project>{7f36a592-b667-43a4-b3c3-66636f2decb8}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\cat\test_FloatMatrixConcatenation\testFloatMatrixConcatenation.vcxproj">
+      <Project>{b9413124-1841-4373-bfe2-ae6c78f24731}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\chol\test_DoubleChol\testDoubleChol.vcxproj">
+      <Project>{2b2d70a6-f2db-4160-972c-9ecfa0b0699a}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\chol\test_FloatChol\testFloatChol.vcxproj">
+      <Project>{c5ba0b86-b432-4ef6-95de-75c026994f4f}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\determ\test_DoubleDeterm\testDoubleDeterm.vcxproj">
+      <Project>{7f13c8ae-27ac-43b4-8c1e-263c5a4c9942}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\determ\test_DoubleDist\testDoubleDist.vcxproj">
+      <Project>{3f1c1c41-424e-4e23-8990-aeb55196376d}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\determ\test_FloatDeterm\testFloatDeterm.vcxproj">
+      <Project>{204a5126-03b1-4e9d-8cc1-cca9f64bd081}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\dist\test_FloatDist\testFloatDist.vcxproj">
+      <Project>{3902cf74-70d4-4fa4-aa53-71643b94bab9}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\division\test_MatrixLDivision\testMatrixLDivision.vcxproj">
+      <Project>{b1f2a8ce-764a-4d51-aabd-998d48783894}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\division\test_MatrixRDivision\testMatrixRDivision.vcxproj">
+      <Project>{33833932-6973-483b-b0d1-b3cc800bdff5}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\expm\test_MatrixExponential\testMatrixExponential.vcxproj">
+      <Project>{1a4ddf0e-cf14-43ff-bba3-6928ef6d1072}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\eye\test_MatrixEye\testMatrixEye.vcxproj">
+      <Project>{4f99e000-ac7d-4c3b-80c5-5a5a64d5757f}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\fill\test_DoubleFill\testDoubleFill.vcxproj">
+      <Project>{903b0194-f1a9-4302-ac3d-7e88e0406e26}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\fill\test_FloatFill\testFloatFill.vcxproj">
+      <Project>{054c79a1-a607-496b-96ce-6f0bb404f754}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\hilb\test_Hilbert\testHilbert.vcxproj">
+      <Project>{f7747e9b-a57f-43d2-8c1f-1f77c670b406}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\infiniteNorm\test_MatrixInfiniteNorm\testMatrixInfiniteNorm.vcxproj">
+      <Project>{43bf5e9a-3456-45fe-9def-9e962b4d4e3d}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\inversion\test_MatrixInversion\testMatrixInversion.vcxproj">
+      <Project>{44d3efb8-a861-41c4-bbcd-18470fa0d5ac}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\jmat\test_Jmat\testJmat.vcxproj">
+      <Project>{04980e4a-fd92-4d44-8eb6-6f643a4ed9b3}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\logm\test_DoubleLogm\testDoubleLogm.vcxproj">
+      <Project>{df3336e6-f783-4577-b014-75d0e0377b3e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\logm\test_FloatLogm\testFloatLogm.vcxproj">
+      <Project>{bafd5fa4-3d99-48ff-bbfd-5017207870e7}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\magnitude\test_DoubleMagnitude\testDoubleMagnitude.vcxproj">
+      <Project>{818553d4-0def-4bbe-a43a-45611dd84580}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\magnitude\test_FloatMagnitude\testFloatMagnitude.vcxproj">
+      <Project>{1e12c5a2-edf1-47bb-a2ef-60a288dc278d}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\multiplication\test_DoubleMatrixMultiplication\testDoubleMatrixMultiplication.vcxproj">
+      <Project>{c4fbeb3f-d766-4c74-9377-7d4434a2fc6c}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\multiplication\test_FloatMatrixMultiplication\testFloatMatrixMultiplication.vcxproj">
+      <Project>{4ce33021-55f3-46cc-a548-a151d07b24cf}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\ones\test_MatrixOnes\testMatrixOnes.vcxproj">
+      <Project>{d21bd764-eec6-4474-9d4b-808ef2217cc4}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\powm\test_DoublePowm\testDoublePowm.vcxproj">
+      <Project>{d83a0994-57a0-4c17-89df-ede84450c202}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\powm\test_FloatPowm\testFloatPowm.vcxproj">
+      <Project>{8594acb2-d3c8-4d3a-b905-794354a8a0cc}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\spec2\test_DoubleSpec2\testDoubleSpec2.vcxproj">
+      <Project>{fd0a4495-c372-41ef-b8ef-0a0939da6c1e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\spec2\test_FloatSpec2\testFloatSpec2.vcxproj">
+      <Project>{e20d0bc2-b28a-412c-9715-5b93b319a4a3}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\spec\test_DoubleSpec\testDoubleSpec.vcxproj">
+      <Project>{651b0e61-1047-4575-be31-d9cb28062cba}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\spec\test_FloatSpec\testFloatSpec.vcxproj">
+      <Project>{b7bef8a2-3e42-4fa3-94a7-22618594057d}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\squaredMagnitude\test_DoubleSquaredMagnitude\testDoubleSquaredMagnitude.vcxproj">
+      <Project>{16744340-9ddc-4cc6-ac7d-a25de89a3f5d}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\squaredMagnitude\test_FloatSquaredMagnitude\testFloatSquaredMagnitude.vcxproj">
+      <Project>{6dbadd0b-c4c1-48cf-95ea-6cf7272a0391}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\trace\test_MatrixTrace\testMatrixTrace.vcxproj">
+      <Project>{21e5e59a-7e4e-4f65-9042-9c67c713d51c}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\transpose\test_MatrixTranspose\testMatrixTranspose.vcxproj">
+      <Project>{8d483b26-a264-4ba6-bb6a-36306bcfa8e3}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\matrixOperations\zeros\test_MatrixZeros\testMatrixZeros.vcxproj">
+      <Project>{d55bc043-1853-4e4c-a8a8-2756682e4b23}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\operations\addition\test_Addition\testAddition.vcxproj">
+      <Project>{59f5b75c-7fcc-4b07-a5d0-c39d5757204b}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\operations\division\test_LDivision\testLDivision.vcxproj">
+      <Project>{7a424759-5962-4ae5-abb6-0b94ddd21f61}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\operations\division\test_RDivision\testRDivision.vcxproj">
+      <Project>{bf995e6f-88c9-4175-9ee3-ecb3d270aea6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\operations\multiplication\test_Multiplication\testMultiplication.vcxproj">
+      <Project>{769e26c1-e337-4878-b604-8be33323f5ff}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\operations\subtraction\test_Subtraction\testSubtraction.vcxproj">
+      <Project>{f0da7501-84cb-4641-9dda-da084736b7d4}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\signalProcessing\conv2d\test_DoubleConv2d\testDoubleConv2d.vcxproj">
+      <Project>{c46c7cde-9d38-42e5-9dba-3e7306033450}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\signalProcessing\conv2d\test_FloatConv2d\testFloatConv2d.vcxproj">
+      <Project>{26170083-8042-4e04-bfe3-b553a5a8d481}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\signalProcessing\conv\test_DoubleConv\testDoubleConv.vcxproj">
+      <Project>{0ed6e2d7-b50d-4a17-a34b-440a7307e747}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\signalProcessing\conv\test_FloatConv\testFloatConv.vcxproj">
+      <Project>{5a0d9a72-fa85-41f8-a605-a2b31961b01c}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\signalProcessing\crossCorr\test_DoubleCrossCorr\testDoubleCrossCorr.vcxproj">
+      <Project>{9cf61ef1-2ff6-4dc2-a6ee-00c2288732bd}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\signalProcessing\crossCorr\test_FloatCrossCorr\testFloatCrossCorr.vcxproj">
+      <Project>{0f19a6a2-2ee2-4e39-8a4c-2f898d4186cf}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\signalProcessing\fftshift\test_DoubleFftShift\testDoubleFftShift.vcxproj">
+      <Project>{1ea7e165-a87c-49ea-90cb-2aecd5fed605}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\signalProcessing\fftshift\test_FloatFftShift\testFloatFftShift.vcxproj">
+      <Project>{cf3e80f1-a0b6-465b-9285-11753e84b7f4}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\signalProcessing\fft\test_DoubleFft\testDoubleFft.vcxproj">
+      <Project>{dbd206e6-f7f2-4c00-83f0-2aaab90a6c72}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\signalProcessing\fft\test_FloatFft\testFloatFft.vcxproj">
+      <Project>{ede2f70a-e2a0-45b6-a9c7-e3e62409af95}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\signalProcessing\fft\test_MatFft\testMatFft.vcxproj">
+      <Project>{a7a46527-b5f9-4b92-9c46-2416e2432314}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\signalProcessing\hilbert\test_Hilbert\testHilbert.vcxproj">
+      <Project>{ae37524c-2ebb-4eae-93b9-ae9c89323b1e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\signalProcessing\ifft\test_DoubleIfft\testDoubleIfft.vcxproj">
+      <Project>{633b36b2-af28-4ef8-a236-021aa1ecf18a}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\signalProcessing\ifft\test_FloatIfft\testFloatIfft.vcxproj">
+      <Project>{3545dd4a-7de1-4db8-a28f-bbca0278ba57}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\signalProcessing\ifft\test_MatIfft\testMatIfft.vcxproj">
+      <Project>{2f903f45-a053-47f8-bea7-2490dea6c9c5}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\signalProcessing\levin\test_DoubleLevin\testDoubleLevin.vcxproj">
+      <Project>{caa51066-e3ac-4fe7-a330-d946a7ad6026}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\signalProcessing\levin\test_FloatLevin\testFloatLevin.vcxproj">
+      <Project>{fcd4f6f6-b226-4cc8-a9bd-432c36def855}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\signalProcessing\lev\test_DoubleLev\testDoubleLev.vcxproj">
+      <Project>{bd0b9c19-fdc9-46ab-bcdb-384b4967b7a2}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\signalProcessing\lev\test_FloatLev\testFloatLev.vcxproj">
+      <Project>{81145727-fb2b-4cd6-b5ac-3f2146f93d5f}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\signalProcessing\lpc2cep\test_DoubleLpc2cep\testDoubleLpc2cep.vcxproj">
+      <Project>{edf4f58c-2776-49a0-9f2d-cae9a8979ce1}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\signalProcessing\lpc2cep\test_FloatLpc2cep\testFloatLpc2cep.vcxproj">
+      <Project>{f37fac6d-8c48-4f25-8e8d-ab0bf1a8641f}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\statisticsFunctions\max\test_DoubleMax\testDoubleMax.vcxproj">
+      <Project>{020991c0-9640-4097-b697-d514f08aa74c}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\statisticsFunctions\max\test_FloatMax\testFloatMax.vcxproj">
+      <Project>{0e4ec2a2-badc-48c8-af56-d1437094887a}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\statisticsFunctions\mean\test_DoubleMean\testDoubleMean.vcxproj">
+      <Project>{3c4d1eb3-7d2a-4aae-9b4c-3a0c18cba156}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\statisticsFunctions\mean\test_FloatMean\testFloatMean.vcxproj">
+      <Project>{acf6bdb6-c931-400d-a1ed-0b053a19f7ee}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\statisticsFunctions\min\test_DoubleMin\testDoubleMin.vcxproj">
+      <Project>{9678e693-3459-4d6f-9017-ea3e28a58ac7}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\statisticsFunctions\min\test_FloatMin\testFloatMin.vcxproj">
+      <Project>{0a156c36-89d5-485e-bb8e-c7536a1da566}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\statisticsFunctions\prod\test_DoubleProd\testDoubleProd.vcxproj">
+      <Project>{322f871e-3349-4993-bc87-cafaa6b6f72c}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\statisticsFunctions\prod\test_FloatProd\testFloatProd.vcxproj">
+      <Project>{b80645fe-03d0-4bc8-8dae-032a58cf4e57}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\statisticsFunctions\sum\test_DoubleSum\testDoubleSum.vcxproj">
+      <Project>{f2a81cdc-2581-481f-b63d-3d2079b264c2}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\statisticsFunctions\sum\test_FloatSum\testFloatSum.vcxproj">
+      <Project>{450c8334-ba46-43db-81ba-7bedbb346126}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\statisticsFunctions\variance\test_DoubleVarianceNono\testDoubleVarianceNono.vcxproj">
+      <Project>{ccd3f89c-a278-457d-bfd6-adeef4860e07}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\statisticsFunctions\variance\test_DoubleVariance\testDoubleVariance.vcxproj">
+      <Project>{774783e0-2443-42db-aa48-04730e59b396}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\statisticsFunctions\variance\test_FloatVarianceNono\testFloatVarianceNono.vcxproj">
+      <Project>{def1a42f-599b-4b1d-ab11-202e86670021}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\statisticsFunctions\variance\test_FloatVariance\testFloatVariance.vcxproj">
+      <Project>{53f78e7f-3024-4999-be70-f4a242357809}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\string\disp\test_Disp\testDisp.vcxproj">
+      <Project>{432917e4-f042-47b2-bf43-0c376883a7e6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\string\string\test_String\testString.vcxproj">
+      <Project>{df010f03-718d-4cef-bd03-5e2c9c47613d}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\type\test_doubleComplex\test_doubleComplex.vcxproj">
+      <Project>{dbb1b4e8-e9d0-44e5-8aa6-4ecf1aaa1d0f}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\src\c\type\test_floatComplex\test_floatComplex.vcxproj">
+      <Project>{a6ebf2f9-c100-453f-a0d1-1649dcf557ec}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

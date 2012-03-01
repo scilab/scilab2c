@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\max">
+      <UniqueIdentifier>{97915945-ecc0-4347-9836-9b85df72c2bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\mean">
+      <UniqueIdentifier>{ea434b72-a4a9-430e-adc3-b8596209f07a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\min">
+      <UniqueIdentifier>{5cf34c99-e4b3-4905-8380-36c5db366c34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\prod">
+      <UniqueIdentifier>{2cb4b69b-5118-4f1c-b1a0-30efd61cac2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sum">
+      <UniqueIdentifier>{fedd49a4-6978-4994-94cd-2d6735b650f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\variance">
+      <UniqueIdentifier>{8748e141-260a-4ec0-9659-0cd159a4b76d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\meanf">
+      <UniqueIdentifier>{a93cd659-6a20-4db5-ac4d-0e66fb3bfa8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="max\dcolumnmaxa.c">
+      <Filter>Source Files\max</Filter>
+    </ClCompile>
+    <ClCompile Include="max\dmaxa.c">
+      <Filter>Source Files\max</Filter>
+    </ClCompile>
+    <ClCompile Include="max\drowmaxa.c">
+      <Filter>Source Files\max</Filter>
+    </ClCompile>
+    <ClCompile Include="max\scolumnmaxa.c">
+      <Filter>Source Files\max</Filter>
+    </ClCompile>
+    <ClCompile Include="max\smaxa.c">
+      <Filter>Source Files\max</Filter>
+    </ClCompile>
+    <ClCompile Include="max\srowmaxa.c">
+      <Filter>Source Files\max</Filter>
+    </ClCompile>
+    <ClCompile Include="mean\ccolumnmeana.c">
+      <Filter>Source Files\mean</Filter>
+    </ClCompile>
+    <ClCompile Include="mean\cmeana.c">
+      <Filter>Source Files\mean</Filter>
+    </ClCompile>
+    <ClCompile Include="mean\crowmeana.c">
+      <Filter>Source Files\mean</Filter>
+    </ClCompile>
+    <ClCompile Include="mean\dcolumnmeana.c">
+      <Filter>Source Files\mean</Filter>
+    </ClCompile>
+    <ClCompile Include="mean\dmeana.c">
+      <Filter>Source Files\mean</Filter>
+    </ClCompile>
+    <ClCompile Include="mean\drowmeana.c">
+      <Filter>Source Files\mean</Filter>
+    </ClCompile>
+    <ClCompile Include="mean\scolumnmeana.c">
+      <Filter>Source Files\mean</Filter>
+    </ClCompile>
+    <ClCompile Include="mean\smeana.c">
+      <Filter>Source Files\mean</Filter>
+    </ClCompile>
+    <ClCompile Include="mean\srowmeana.c">
+      <Filter>Source Files\mean</Filter>
+    </ClCompile>
+    <ClCompile Include="mean\zcolumnmeana.c">
+      <Filter>Source Files\mean</Filter>
+    </ClCompile>
+    <ClCompile Include="mean\zmeana.c">
+      <Filter>Source Files\mean</Filter>
+    </ClCompile>
+    <ClCompile Include="mean\zrowmeana.c">
+      <Filter>Source Files\mean</Filter>
+    </ClCompile>
+    <ClCompile Include="min\dcolumnmina.c">
+      <Filter>Source Files\min</Filter>
+    </ClCompile>
+    <ClCompile Include="min\dmina.c">
+      <Filter>Source Files\min</Filter>
+    </ClCompile>
+    <ClCompile Include="min\drowmina.c">
+      <Filter>Source Files\min</Filter>
+    </ClCompile>
+    <ClCompile Include="min\scolumnmina.c">
+      <Filter>Source Files\min</Filter>
+    </ClCompile>
+    <ClCompile Include="min\smina.c">
+      <Filter>Source Files\min</Filter>
+    </ClCompile>
+    <ClCompile Include="min\srowmina.c">
+      <Filter>Source Files\min</Filter>
+    </ClCompile>
+    <ClCompile Include="prod\ccolumnproda.c">
+      <Filter>Source Files\prod</Filter>
+    </ClCompile>
+    <ClCompile Include="prod\cproda.c">
+      <Filter>Source Files\prod</Filter>
+    </ClCompile>
+    <ClCompile Include="prod\crowproda.c">
+      <Filter>Source Files\prod</Filter>
+    </ClCompile>
+    <ClCompile Include="prod\dcolumnproda.c">
+      <Filter>Source Files\prod</Filter>
+    </ClCompile>
+    <ClCompile Include="prod\dproda.c">
+      <Filter>Source Files\prod</Filter>
+    </ClCompile>
+    <ClCompile Include="prod\drowproda.c">
+      <Filter>Source Files\prod</Filter>
+    </ClCompile>
+    <ClCompile Include="prod\scolumnproda.c">
+      <Filter>Source Files\prod</Filter>
+    </ClCompile>
+    <ClCompile Include="prod\sproda.c">
+      <Filter>Source Files\prod</Filter>
+    </ClCompile>
+    <ClCompile Include="prod\srowproda.c">
+      <Filter>Source Files\prod</Filter>
+    </ClCompile>
+    <ClCompile Include="prod\zcolumnproda.c">
+      <Filter>Source Files\prod</Filter>
+    </ClCompile>
+    <ClCompile Include="prod\zproda.c">
+      <Filter>Source Files\prod</Filter>
+    </ClCompile>
+    <ClCompile Include="prod\zrowproda.c">
+      <Filter>Source Files\prod</Filter>
+    </ClCompile>
+    <ClCompile Include="sum\ccolumnsuma.c">
+      <Filter>Source Files\sum</Filter>
+    </ClCompile>
+    <ClCompile Include="sum\crowsuma.c">
+      <Filter>Source Files\sum</Filter>
+    </ClCompile>
+    <ClCompile Include="sum\csuma.c">
+      <Filter>Source Files\sum</Filter>
+    </ClCompile>
+    <ClCompile Include="sum\dcolumnsuma.c">
+      <Filter>Source Files\sum</Filter>
+    </ClCompile>
+    <ClCompile Include="sum\drowsuma.c">
+      <Filter>Source Files\sum</Filter>
+    </ClCompile>
+    <ClCompile Include="sum\dsuma.c">
+      <Filter>Source Files\sum</Filter>
+    </ClCompile>
+    <ClCompile Include="sum\scolumnsuma.c">
+      <Filter>Source Files\sum</Filter>
+    </ClCompile>
+    <ClCompile Include="sum\srowsuma.c">
+      <Filter>Source Files\sum</Filter>
+    </ClCompile>
+    <ClCompile Include="sum\ssuma.c">
+      <Filter>Source Files\sum</Filter>
+    </ClCompile>
+    <ClCompile Include="sum\zcolumnsuma.c">
+      <Filter>Source Files\sum</Filter>
+    </ClCompile>
+    <ClCompile Include="sum\zrowsuma.c">
+      <Filter>Source Files\sum</Filter>
+    </ClCompile>
+    <ClCompile Include="sum\zsuma.c">
+      <Filter>Source Files\sum</Filter>
+    </ClCompile>
+    <ClCompile Include="variance\ccolumnvariancea.c">
+      <Filter>Source Files\variance</Filter>
+    </ClCompile>
+    <ClCompile Include="variance\crowvariancea.c">
+      <Filter>Source Files\variance</Filter>
+    </ClCompile>
+    <ClCompile Include="variance\cvariancea.c">
+      <Filter>Source Files\variance</Filter>
+    </ClCompile>
+    <ClCompile Include="variance\dcolumnvariancea.c">
+      <Filter>Source Files\variance</Filter>
+    </ClCompile>
+    <ClCompile Include="variance\drowvariancea.c">
+      <Filter>Source Files\variance</Filter>
+    </ClCompile>
+    <ClCompile Include="variance\dvariancea.c">
+      <Filter>Source Files\variance</Filter>
+    </ClCompile>
+    <ClCompile Include="variance\scolumnvariancea.c">
+      <Filter>Source Files\variance</Filter>
+    </ClCompile>
+    <ClCompile Include="variance\srowvariancea.c">
+      <Filter>Source Files\variance</Filter>
+    </ClCompile>
+    <ClCompile Include="variance\svariancea.c">
+      <Filter>Source Files\variance</Filter>
+    </ClCompile>
+    <ClCompile Include="variance\zcolumnvariancea.c">
+      <Filter>Source Files\variance</Filter>
+    </ClCompile>
+    <ClCompile Include="variance\zrowvariancea.c">
+      <Filter>Source Files\variance</Filter>
+    </ClCompile>
+    <ClCompile Include="variance\zvariancea.c">
+      <Filter>Source Files\variance</Filter>
+    </ClCompile>
+    <ClCompile Include="meanf\ccolumnmeanfa.c">
+      <Filter>Source Files\meanf</Filter>
+    </ClCompile>
+    <ClCompile Include="meanf\cmeanfa.c">
+      <Filter>Source Files\meanf</Filter>
+    </ClCompile>
+    <ClCompile Include="meanf\cmeanfcs.c">
+      <Filter>Source Files\meanf</Filter>
+    </ClCompile>
+    <ClCompile Include="meanf\cmeanfsc.c">
+      <Filter>Source Files\meanf</Filter>
+    </ClCompile>
+    <ClCompile Include="meanf\crowmeanfa.c">
+      <Filter>Source Files\meanf</Filter>
+    </ClCompile>
+    <ClCompile Include="meanf\dcolumnmeanfa.c">
+      <Filter>Source Files\meanf</Filter>
+    </ClCompile>
+    <ClCompile Include="meanf\dmeanfa.c">
+      <Filter>Source Files\meanf</Filter>
+    </ClCompile>
+    <ClCompile Include="meanf\drowmeanfa.c">
+      <Filter>Source Files\meanf</Filter>
+    </ClCompile>
+    <ClCompile Include="meanf\scolumnmeanfa.c">
+      <Filter>Source Files\meanf</Filter>
+    </ClCompile>
+    <ClCompile Include="meanf\smeanfa.c">
+      <Filter>Source Files\meanf</Filter>
+    </ClCompile>
+    <ClCompile Include="meanf\srowmeanfa.c">
+      <Filter>Source Files\meanf</Filter>
+    </ClCompile>
+    <ClCompile Include="meanf\zcolumnmeanfa.c">
+      <Filter>Source Files\meanf</Filter>
+    </ClCompile>
+    <ClCompile Include="meanf\zmeanfa.c">
+      <Filter>Source Files\meanf</Filter>
+    </ClCompile>
+    <ClCompile Include="meanf\zmeanfdz.c">
+      <Filter>Source Files\meanf</Filter>
+    </ClCompile>
+    <ClCompile Include="meanf\zmeanfzd.c">
+      <Filter>Source Files\meanf</Filter>
+    </ClCompile>
+    <ClCompile Include="meanf\zrowmeanfa.c">
+      <Filter>Source Files\meanf</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="max\Makefile.am">
+      <Filter>Source Files\max</Filter>
+    </None>
+    <None Include="mean\Makefile.am">
+      <Filter>Source Files\mean</Filter>
+    </None>
+    <None Include="min\Makefile.am">
+      <Filter>Source Files\min</Filter>
+    </None>
+    <None Include="prod\Makefile.am">
+      <Filter>Source Files\prod</Filter>
+    </None>
+    <None Include="sum\Makefile.am">
+      <Filter>Source Files\sum</Filter>
+    </None>
+    <None Include="variance\Makefile.am">
+      <Filter>Source Files\variance</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="includes\dynlib_statisticsfunctions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\mean.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\prod.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\statMax.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\statMin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\sum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\variance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
