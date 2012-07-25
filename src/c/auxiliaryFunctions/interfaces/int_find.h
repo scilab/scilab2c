@@ -64,33 +64,33 @@
 
 #define s2s0finds2(in1,size,in2,out)			{\
  int temp_out_indice[2] = {0} ;\
- sfinda(in1,size[0]*size[1],out,temp_out_indice,in2);\
+ sfinda(in1,size[0]*size[1],out,in2);\
  }
 
 #define d2d0findd2(in1,size,in2,out)			{\
  int temp_out_indice[2] = {0} ;\
- dfinda(in1,size[0]*size[1],out,temp_out_indice,in2);\
+ dfinda(in1,size[0]*size[1],out,in2);\
  }
 
 #define c2s0finds2(in1,size,in2,out)			{\
  int temp_out_indice[2] = {0} ;\
- cfinda(in1,size[0]*size[1],out,temp_out_indice,in2);\
+ cfinda(in1,size[0]*size[1],out,in2);\
  }
 
 #define z2d0findd2(in1,size,in2,out)			{\
  int temp_out_indice[2] = {0} ;\
- zfinda(in1,size[0]*size[1],out,temp_out_indice,in2);\
+ zfinda(in1,size[0]*size[1],out,in2);\
  }
 
 /* 2 inputs, 2 outputs */
 
-#define s0s0finds0s0(in1,in2,out2)				s0finds0s0(in1,out2)
+#define s0s0finds0s0(in1,in2,out1,out2)				s0finds0s0(in1,out1,out2)
 
-#define d0d0findd0d0(in1,in2,out2)				d0findd0d0(in1,out2)
+#define d0d0findd0d0(in1,in2,out1,out2)				d0findd0d0(in1,out1,out2)
 
-#define c0s0finds0s0(in1,in2,out2)				c0finds0s0(in1,out2)
+#define c0s0finds0s0(in1,in2,out1,out2)				c0finds0s0(in1,out1,out2)
 
-#define z0d0findd0d0(in1,in2,out2)				z0findd0d0(in1,out2)
+#define z0d0findd0d0(in1,in2,out1,out2)				z0findd0d0(in1,out1,out2)
 
 
 /*FIXME : prototypes are wrong*/
