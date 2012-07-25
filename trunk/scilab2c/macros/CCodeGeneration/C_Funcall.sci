@@ -195,7 +195,12 @@ else
 end
 
 
-CCall = CCall+CFunName+'(';
+if CFunName == "main"
+  CCall = CCall + CFunName + "(";
+else
+  CCall = CCall+"SCI2C("+CFunName+")(";
+end
+
 // #RNU_RES_B
 PrintStringInfo('   C call after output scalar args check: '+CCall,ReportFileName,'file','y');
 // #RNU_RES_E
