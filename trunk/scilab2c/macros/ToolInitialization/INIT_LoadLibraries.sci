@@ -42,7 +42,7 @@ PrintStepInfo('Load SCI2C and USER2C Libraries.',FileInfo.GeneralReport,'both');
 // ----------------------------------
 SCI2CAvailableC                  = [];
 USER2CAvailableC                 = [];
-Converted                        = []; 
+Converted                        = [];
 ToBeConverted(1).SCIFunctionName = SharedInfo.NextSCIFunName;
 ToBeConverted(1).CFunctionName   = SharedInfo.NextCFunName;
 
@@ -55,10 +55,10 @@ ToBeConverted(1).CFunctionName   = SharedInfo.NextCFunName;
 
 // --- Save .dat files. ---
 Available = SCI2CAvailableC;
-save(FileInfo.FunctionList.SCI2CAvailableCDat,Available); 
+save(FileInfo.FunctionList.SCI2CAvailableCDat, "Available");
 Available = USER2CAvailableC;
-save(FileInfo.FunctionList.USER2CAvailableCDat,Available); 
-save(FileInfo.FunctionList.ConvertedDat,Converted); 
-save(FileInfo.FunctionList.ToBeConvertedDat,ToBeConverted); 
+save(FileInfo.FunctionList.USER2CAvailableCDat, "Available");
+save(FileInfo.FunctionList.ConvertedDat, "Converted");
+save(FileInfo.FunctionList.ToBeConvertedDat, "ToBeConverted");
 
 endfunction

@@ -54,8 +54,8 @@ if (SharedInfo.NFilesToTranslate >= 1)
    ToBeConverted(1) = [];
    FlagContinueTranslation = 1;
    SharedInfo.NextSCIFunName   = ToBeConverted(1).SCIFunctionName;
-   SharedInfo.NextCFunName     = ToBeConverted(1).CFunctionName; 
-   SharedInfo.NextSCIFunNumber = SharedInfo.NextSCIFunNumber + 1;  
+   SharedInfo.NextCFunName     = ToBeConverted(1).CFunctionName;
+   SharedInfo.NextSCIFunNumber = SharedInfo.NextSCIFunNumber + 1;
    [FlagFound,SharedInfo.NextSCIFileName] = ...
       SCI2CFindFile(FileInfo.UserSciFilesPaths,SharedInfo.NextSCIFunName+'.sci');
    if (FlagFound == 0)
@@ -71,11 +71,11 @@ end
 // --- Save section. ---
 // ---------------------
 // --- Save Shared Info Structure. ---
-save(FileInfo.SharedInfoDatFile,SharedInfo);
+save(FileInfo.SharedInfoDatFile, "SharedInfo");
 clear SharedInfo
 
 // --- Save ToBeConverted .dat file. ---
-save(FileInfo.FunctionList.ToBeConvertedDat,ToBeConverted);
+save(FileInfo.FunctionList.ToBeConvertedDat, "ToBeConverted");
 clear ToBeConverted
 
 clear FileInfo
