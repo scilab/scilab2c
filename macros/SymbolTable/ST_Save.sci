@@ -30,13 +30,13 @@ end
 // Identifies the Table name and save it into the .dat file.
 if (mtlb_strcmp(tmpnams,'GlobalVars'))
    GlobalVars = SCI2CSymbolTable;
-   save(SymbolTableFileName,GlobalVars);
+   save(SymbolTableFileName, "GlobalVars");
 elseif (mtlb_strcmp(tmpnams,'LocalVars'))
    LocalVars = SCI2CSymbolTable;
-   save(SymbolTableFileName,LocalVars);
+   save(SymbolTableFileName, "LocalVars");
 elseif (mtlb_strcmp(tmpnams,'TempVars'))
    TempVars = SCI2CSymbolTable;
-   save(SymbolTableFileName,TempVars);
+   save(SymbolTableFileName, "TempVars");
 else
    SCI2Cerror('Unknow table: ""'+tmpnams+'"".');
 end

@@ -67,7 +67,7 @@ FunInfo.OutArg              = OutArg;
 FunInfo.NOutArg             = NOutArg;
 FunInfo.PosFirstOutScalar   = PosFirstOutScalar;
 FunInfo.LibTypeInfo         = LibTypeInfo;
-save(fullfile(FunInfoDatDir,CFunName+'.dat'),FunInfo);
+save(fullfile(FunInfoDatDir,CFunName+'.dat'), "FunInfo");
 clear FunInfo
 
 endfunction

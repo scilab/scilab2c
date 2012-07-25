@@ -50,7 +50,7 @@ SciFile2ASTFile(FileInfo.Funct(funnumber).SCIFileName,...
 // --- Save section. ---
 // ---------------------
 // --- Save File Info Structure. ---
-// save(FileInfoDatFile,FileInfo);
+// save(FileInfoDatFile, "FileInfo");
 // -------------------------
 // --- End save section. ---
 // -------------------------
