@@ -2,7 +2,7 @@ function AST2Ccode(FileInfoDatFile)
 // function AST2Ccode(FileInfoDatFile)
 // -----------------------------------------------------------------
 // Read the AST and call the corresponding handlers.
-// 
+//
 // Input data:
 // //NUT: add description here
 //
@@ -46,7 +46,7 @@ ReportFileName  = FileInfo.Funct(nxtscifunnumber).ReportFileName;
 // ---------------------------------
 // --- Parameter Initialization. ---
 // ---------------------------------
-global SCI2CSTACK 
+global SCI2CSTACK
 SCI2CSTACK = ['EMPTYSTACK'];
 
 global StackPosition;
@@ -92,7 +92,7 @@ AST_PushASTStack('Dummy');
 AST_PushASTStack('Dummy');
 AST_PushASTStack('Dummy');
 AST_PushASTStack('Dummy');
-//NUT: Se ne tolgo qualcuno ottengo errori 
+//NUT: Se ne tolgo qualcuno ottengo errori
 // ----------------------------
 // --- End Parse AST header. ---
 // ----------------------------
@@ -104,7 +104,7 @@ AST_PushASTStack('Dummy');
          SharedInfo.WorkAreaUsedBytes  = OrigWorkAreaUsedBytes;
          SharedInfo.UsedTempScalarVars = OrigUsedTempScalarVars;
          //NUT: put here a manageeol so that you can have all the save and load you want.
-         SharedInfo.ASTReader.UsedTempVars = 0;        
+         SharedInfo.ASTReader.UsedTempVars = 0;
 
 // ----------------------------------
 // --- Main loop to read the AST. ---
@@ -121,34 +121,34 @@ while ~meof(fidAST)
    if STACKDEDUG == 1
       disp('Read AST Line: '+treeline);
    end
-   
+
    // Analyze line.
    select treeline
-   
+
       // ------------------
       // --- Functions. ---
       // ------------------
       //NUT: qui puoi anche aggiunger piu' case per specificare meglio la struttura della funcall
       //NUT: i case aggiunti ovviamente faranno solo il push della treeline.
-      case 'EndOperation' then 
+      case 'EndOperation' then
          [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,'Operation');
       case 'EndFuncall' then
          [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,'Funcall');
-         
+
       // --------------
       // --- Equal. ---
       // --------------
-      case 'EndEqual' then 
+      case 'EndEqual' then
       //NUT: prima di lanciare l'analisi della equal puoi mettere degli argomenti dummy
       //NUT: per fare in modo di coprire le ins, anche se ci puo' essere qualche rischio quando
       //NUT: ho miste ins e variabili, per esempio [c(1,1), a] = twooutfun();
       //NUT: in questo caso solo una delle due equal va scartata.
          [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,'Equal');
          SharedInfo = INIT_SharedInfoEqual(SharedInfo);
-      case 'Equal' then 
-         SharedInfo.Equal.Enabled = 1; // 1 means enabled -> we are inside an equal AST block.      
+      case 'Equal' then
+         SharedInfo.Equal.Enabled = 1; // 1 means enabled -> we are inside an equal AST block.
          AST_PushASTStack(treeline);
-      case 'Lhs       :' then 
+      case 'Lhs       :' then
          SharedInfo.Equal.Lhs = 1; // 1 means that we are inside the Lhs block of the Equal
          [EqualInArgName,EqualInArgScope,EqualNInArg] = AST_ReadEqualRhsNames(FileInfo,SharedInfo);
          SharedInfo.Equal.NInArg = EqualNInArg;
@@ -184,34 +184,34 @@ while ~meof(fidAST)
          AST_HandleEOL(FileInfo,SharedInfo); //NUT: si potrebbe differenziare comment da EOL
       case '<EOL>' then
          AST_HandleEOL(FileInfo,SharedInfo);
-         
+
       // -----------------
       // --- Epilogue. ---
       // -----------------
       case 'EndProgram'
          SharedInfo = AST_HandleEndProgram(FileInfo,SharedInfo);
-         //NUT: per essere precisi si puo' pensare di mettere un check 
+         //NUT: per essere precisi si puo' pensare di mettere un check
          //NUT: alla fine dell'albero per accertarsi che c'e' end program li' dove ce lo aspettiamo
-         
+
       // ------------
       // --- For. ---
       // ------------
-      case 'For' then 
+      case 'For' then
          SharedInfo.For.Level = SharedInfo.For.Level + 1;
          FileInfo = AST_HandleFor(FileInfo,SharedInfo);
       case 'ForExpression:'
-         AST_PushASTStack(treeline);     
+         AST_PushASTStack(treeline);
          SharedInfo.ForExpr.OnExec = SharedInfo.ForExpr.OnExec + 1;
       case 'ForStatements:'
          [FileInfo,SharedInfo] = AST_HandleForStatem(FileInfo,SharedInfo);
-      case 'EndFor' then 
+      case 'EndFor' then
          SharedInfo = AST_HandleEndFor(FileInfo,SharedInfo);
-         SharedInfo.For.Level = SharedInfo.For.Level - 1;         
+         SharedInfo.For.Level = SharedInfo.For.Level - 1;
 
       // --------------
       // --- While. ---
       // --------------
-      case 'While' then 
+      case 'While' then
          AST_PushASTStack(treeline);
          SharedInfo.While.Level = SharedInfo.While.Level + 1;
       case 'WhileExpression:'
@@ -219,14 +219,14 @@ while ~meof(fidAST)
          [FileInfo,SharedInfo] = AST_HandleWhileExpr(FileInfo,SharedInfo);
       case 'WhileStatements:'
          [FileInfo,SharedInfo] = AST_HandleWhileStatem(FileInfo,SharedInfo);
-      case 'EndWhile' then 
+      case 'EndWhile' then
          SharedInfo = AST_HandleEndWhile(FileInfo,SharedInfo);
          SharedInfo.While.Level = SharedInfo.While.Level - 1;
-         
+
       // ----------------
       // --- Default. ---
       // ----------------
-      else 
+      else
          AST_PushASTStack(treeline);
    end
 end
@@ -239,7 +239,7 @@ mclose(fidAST);
 // --- Save section. ---
 // ---------------------
 // --- Save Shared Info Structure. ---
-save(SharedInfoDatFile,SharedInfo);
+save(SharedInfoDatFile, "SharedInfo");
 // -------------------------
 // --- End save section. ---
 // -------------------------

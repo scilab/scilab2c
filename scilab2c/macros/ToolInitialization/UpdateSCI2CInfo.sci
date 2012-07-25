@@ -185,17 +185,17 @@ SharedInfo.ResizeApproach = FA_GetResizeApproach(FileInfo.Funct(funnumber).SCICo
 // --- Save section. ---
 // ---------------------
 // --- Save File Info Structure. ---
-save(FileInfoDatFile,FileInfo);
+save(FileInfoDatFile, "FileInfo");
 
 // --- Save File Info Structure. ---
-save(FileInfo.SharedInfoDatFile,SharedInfo);
+save(FileInfo.SharedInfoDatFile, "SharedInfo");
 
 // --- Save Local/Temp Vars. ---
-save(FileInfo.Funct(funnumber).LocalVarFileName,LocalVars);
-save(FileInfo.Funct(funnumber).TempVarFileName,TempVars);
+save(FileInfo.Funct(funnumber).LocalVarFileName, "LocalVars");
+save(FileInfo.Funct(funnumber).TempVarFileName, "TempVars");
 
 // --- Save Converted .dat file. ---
-save(FileInfo.FunctionList.ConvertedDat,Converted);
+save(FileInfo.FunctionList.ConvertedDat, "Converted");
 // -------------------------
 // --- End save section. ---
 // -------------------------

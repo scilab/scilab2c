@@ -91,7 +91,7 @@ PrintStepInfo('SCI2C hArtes/POLIBA Tool!!!',FileInfo.GeneralReport,'file');
 // --- Initialize GlobalVars. ---
 // ------------------------------
 GlobalVars = [];
-save(FileInfo.GlobalVarFileName,GlobalVars);
+save(FileInfo.GlobalVarFileName, "GlobalVars");
 
 // ----------------------------------
 // --- Initialize Main .dat file. ---
@@ -119,7 +119,7 @@ FunInfo.OutArg(1).Size(2)   = '';
 FunInfo.OutArg(1).Dimension = '';
 FunInfo.PosFirstOutScalar   = 0;
 FunInfo.LibTypeInfo         = 'USER2C';
-save(fullfile(FileInfo.FunctionList.FunInfoDatDir,FunInfo.CFunctionName+'.dat'),FunInfo);
+save(fullfile(FileInfo.FunctionList.FunInfoDatDir,FunInfo.CFunctionName+'.dat'), "FunInfo");
 clear FunInfo
 
 // -------------------------------------
@@ -130,14 +130,14 @@ clear ASTStack
 ASTStack.SCI2CSTACK    = 'EMPTYSTACK';
 ASTStack.StackPosition = 1;
 ASTStack.STACKDEDUG    = 0;
-save(FileInfo.ASTStackDataFile,ASTStack);
+save(FileInfo.ASTStackDataFile, "ASTStack");
 clear ASTStack
 
 // ---------------------------------------------
 // --- Generate new versions of SCI2C files. ---
 // ---------------------------------------------
-save(FileInfo.FileInfoDatFile,FileInfo);
-save(FileInfo.SharedInfoDatFile,SharedInfo);
+save(FileInfo.FileInfoDatFile, "FileInfo");
+save(FileInfo.SharedInfoDatFile, "SharedInfo");
 FileInfoDatFile = FileInfo.FileInfoDatFile;
 SharedInfoDatFile = FileInfo.SharedInfoDatFile;
 

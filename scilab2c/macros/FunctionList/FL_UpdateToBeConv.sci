@@ -30,8 +30,8 @@ nxtscifunnumber = SharedInfo.NextSCIFunNumber;
 ReportFileName      = FileInfo.Funct(nxtscifunnumber).ReportFileName;
 SCI2CAvailableCDat  = FileInfo.FunctionList.SCI2CAvailableCDat;
 USER2CAvailableCDat = FileInfo.FunctionList.USER2CAvailableCDat;
-ConvertedDat        = FileInfo.FunctionList.ConvertedDat; 
-ToBeConvertedDat    = FileInfo.FunctionList.ToBeConvertedDat; 
+ConvertedDat        = FileInfo.FunctionList.ConvertedDat;
+ToBeConvertedDat    = FileInfo.FunctionList.ToBeConvertedDat;
 FunInfoDatDir       = FileInfo.FunctionList.FunInfoDatDir;
 
 // #RNU_RES_B
@@ -47,7 +47,7 @@ PrintStringInfo('   C Function Name: '+CFunName,ReportFileName,'file','y');
 // --------------------------------------------------
 // --- Manage anticipated exit from the function. ---
 // --------------------------------------------------
-//NUT: questo codice e' identico quasi a quello della CFunCall, si pu0 pensare di 
+//NUT: questo codice e' identico quasi a quello della CFunCall, si pu0 pensare di
 //NUT: di fare un'unica funzione.
 // #RNU_RES_E
 
@@ -97,14 +97,14 @@ if (flagexist  == %F)
    // --- Add C function to the "ToBeConverted" function list. ---
    // #RNU_RES_E
    load(ToBeConvertedDat,'ToBeConverted');
-   
+
    NToConvP1 = size(ToBeConverted,1)+1;
    ToBeConverted(NToConvP1).SCIFunctionName = ASTFunName;
    ToBeConverted(NToConvP1).CFunctionName   = CFunName;
-   
-   save(ToBeConvertedDat,ToBeConverted);
+
+   save(ToBeConvertedDat, "ToBeConverted");
    SharedInfo.NFilesToTranslate = SharedInfo.NFilesToTranslate + 1;
-   
+
    // #RNU_RES_B
    // --- Generate C Function dat file. ---
    PrintStringInfo('   Add C Function ""'+CFunName+'"" to: '+ToBeConvertedDat,ReportFileName,'file','y');
