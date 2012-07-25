@@ -41,5 +41,4 @@ for tmpcnt = 1:NOutArg
       CFunName = CFunName+OutArg(tmpcnt).Type+SCI2Cstring(OutArg(tmpcnt).Dimension);
    end
 end
-
 endfunction
