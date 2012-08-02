@@ -11,5 +11,5 @@
 //
 
 function version=getScilab2cVersion()
-    version = "2.2"
+    version = "2.3"
 endfunction
