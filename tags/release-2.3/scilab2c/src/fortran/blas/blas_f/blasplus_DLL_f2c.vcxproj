@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>blasplus_f2c_DLL</ProjectName>
+    <ProjectGuid>{78BD64CE-181D-4D3F-9254-5C4F55C1EDC9}</ProjectGuid>
+    <RootNamespace>blas_f2c</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="..\..\..\..\Visual-Studio-settings\f2c.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../f2c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>STRICT;__STDC__;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ObjectFileName>$(Configuration)/</ObjectFileName>
+      <ProgramDataBaseFileName>$(Configuration)/vc80.pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/fixed:no %(AdditionalOptions)</AdditionalOptions>
+      <OutputFile>$(SolutionDir)bin\blasplus.dll</OutputFile>
+      <ModuleDefinitionFile>blasplusAtlas.def</ModuleDefinitionFile>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <ImportLibrary>$(SolutionDir)bin\blasplus.lib</ImportLibrary>
+      <CLRUnmanagedCodeCheck>true</CLRUnmanagedCodeCheck>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../f2c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>STRICT;__STDC__;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ObjectFileName>$(Configuration)/</ObjectFileName>
+      <ProgramDataBaseFileName>$(Configuration)/vc80.pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/fixed:no %(AdditionalOptions)</AdditionalOptions>
+      <OutputFile>../../../bin/blasplus.dll</OutputFile>
+      <ModuleDefinitionFile>blasplusAtlas.def</ModuleDefinitionFile>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <ImportLibrary>../../../bin/blasplus.lib</ImportLibrary>
+      <TargetMachine>MachineX64</TargetMachine>
+      <CLRUnmanagedCodeCheck>true</CLRUnmanagedCodeCheck>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <AdditionalIncludeDirectories>../../f2c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>STRICT;__STDC__;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ObjectFileName>$(Configuration)/</ObjectFileName>
+      <ProgramDataBaseFileName>$(Configuration)/vc80.pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(SolutionDir)bin\blasplus.dll</OutputFile>
+      <ModuleDefinitionFile>blasplusAtlas.def</ModuleDefinitionFile>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <ImportLibrary>$(SolutionDir)bin\blasplus.lib</ImportLibrary>
+      <CLRUnmanagedCodeCheck>true</CLRUnmanagedCodeCheck>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <AdditionalIncludeDirectories>../../f2c;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>STRICT;__STDC__;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ObjectFileName>$(Configuration)/</ObjectFileName>
+      <ProgramDataBaseFileName>$(Configuration)/vc80.pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <OutputFile>../../../bin/blasplus.dll</OutputFile>
+      <ModuleDefinitionFile>blasplusAtlas.def</ModuleDefinitionFile>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <ImportLibrary>../../../bin/blasplus.lib</ImportLibrary>
+      <TargetMachine>MachineX64</TargetMachine>
+      <CLRUnmanagedCodeCheck>true</CLRUnmanagedCodeCheck>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\dasum.c" />
+    <ClCompile Include="..\daxpy.c" />
+    <ClCompile Include="..\dcabs1.c" />
+    <ClCompile Include="..\dcopy.c" />
+    <ClCompile Include="..\ddot.c" />
+    <ClCompile Include="..\dgbmv.c" />
+    <ClCompile Include="..\dgemm.c" />
+    <ClCompile Include="..\dgemv.c" />
+    <ClCompile Include="..\dger.c" />
+    <ClCompile Include="..\dnrm2.c" />
+    <ClCompile Include="..\drot.c" />
+    <ClCompile Include="..\drotg.c" />
+    <ClCompile Include="..\dsbmv.c" />
+    <ClCompile Include="..\dscal.c" />
+    <ClCompile Include="..\dspmv.c" />
+    <ClCompile Include="..\dspr.c" />
+    <ClCompile Include="..\dspr2.c" />
+    <ClCompile Include="..\dswap.c" />
+    <ClCompile Include="..\dsymm.c" />
+    <ClCompile Include="..\dsymv.c" />
+    <ClCompile Include="..\dsyr.c" />
+    <ClCompile Include="..\dsyr2.c" />
+    <ClCompile Include="..\dsyr2k.c" />
+    <ClCompile Include="..\dsyrk.c" />
+    <ClCompile Include="..\dtbmv.c" />
+    <ClCompile Include="..\dtbsv.c" />
+    <ClCompile Include="..\dtpmv.c" />
+    <ClCompile Include="..\dtpsv.c" />
+    <ClCompile Include="..\dtrmm.c" />
+    <ClCompile Include="..\dtrmv.c" />
+    <ClCompile Include="..\dtrsm.c" />
+    <ClCompile Include="..\dtrsv.c" />
+    <ClCompile Include="..\dzasum.c" />
+    <ClCompile Include="..\dznrm2.c" />
+    <ClCompile Include="..\idamax.c" />
+    <ClCompile Include="..\izamax.c" />
+    <ClCompile Include="..\lsame.c" />
+    <ClCompile Include="..\xerbla.c" />
+    <ClCompile Include="..\zaxpy.c" />
+    <ClCompile Include="..\zcopy.c" />
+    <ClCompile Include="..\zdotc.c" />
+    <ClCompile Include="..\zdotu.c" />
+    <ClCompile Include="..\zdscal.c" />
+    <ClCompile Include="..\zgbmv.c" />
+    <ClCompile Include="..\zgemm.c" />
+    <ClCompile Include="..\zgemv.c" />
+    <ClCompile Include="..\zgerc.c" />
+    <ClCompile Include="..\zgeru.c" />
+    <ClCompile Include="..\zhbmv.c" />
+    <ClCompile Include="..\zhemm.c" />
+    <ClCompile Include="..\zhemv.c" />
+    <ClCompile Include="..\zher.c" />
+    <ClCompile Include="..\zher2.c" />
+    <ClCompile Include="..\zher2k.c" />
+    <ClCompile Include="..\zherk.c" />
+    <ClCompile Include="..\zhpmv.c" />
+    <ClCompile Include="..\zhpr.c" />
+    <ClCompile Include="..\zhpr2.c" />
+    <ClCompile Include="..\zrotg.c" />
+    <ClCompile Include="..\zscal.c" />
+    <ClCompile Include="..\zswap.c" />
+    <ClCompile Include="..\zsymm.c" />
+    <ClCompile Include="..\zsyr2k.c" />
+    <ClCompile Include="..\zsyrk.c" />
+    <ClCompile Include="..\ztbmv.c" />
+    <ClCompile Include="..\ztbsv.c" />
+    <ClCompile Include="..\ztpmv.c" />
+    <ClCompile Include="..\ztpsv.c" />
+    <ClCompile Include="..\ztrmm.c" />
+    <ClCompile Include="..\ztrmv.c" />
+    <ClCompile Include="..\ztrsm.c" />
+    <ClCompile Include="..\ztrsv.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <f2c_rule Include="..\dasum.f" />
+    <f2c_rule Include="..\daxpy.f" />
+    <f2c_rule Include="..\dcabs1.f" />
+    <f2c_rule Include="..\dcopy.f" />
+    <f2c_rule Include="..\ddot.f" />
+    <f2c_rule Include="..\dgbmv.f" />
+    <f2c_rule Include="..\dgemm.f" />
+    <f2c_rule Include="..\dgemv.f" />
+    <f2c_rule Include="..\dger.f" />
+    <f2c_rule Include="..\dnrm2.f" />
+    <f2c_rule Include="..\drot.f" />
+    <f2c_rule Include="..\drotg.f" />
+    <f2c_rule Include="..\dsbmv.f" />
+    <f2c_rule Include="..\dscal.f" />
+    <f2c_rule Include="..\dspmv.f" />
+    <f2c_rule Include="..\dspr.f" />
+    <f2c_rule Include="..\dspr2.f" />
+    <f2c_rule Include="..\dswap.f" />
+    <f2c_rule Include="..\dsymm.f" />
+    <f2c_rule Include="..\dsymv.f" />
+    <f2c_rule Include="..\dsyr.f" />
+    <f2c_rule Include="..\dsyr2.f" />
+    <f2c_rule Include="..\dsyr2k.f" />
+    <f2c_rule Include="..\dsyrk.f" />
+    <f2c_rule Include="..\dtbmv.f" />
+    <f2c_rule Include="..\dtbsv.f" />
+    <f2c_rule Include="..\dtpmv.f" />
+    <f2c_rule Include="..\dtpsv.f" />
+    <f2c_rule Include="..\dtrmm.f" />
+    <f2c_rule Include="..\dtrmv.f" />
+    <f2c_rule Include="..\dtrsm.f" />
+    <f2c_rule Include="..\dtrsv.f" />
+    <f2c_rule Include="..\dzasum.f" />
+    <f2c_rule Include="..\dznrm2.f" />
+    <f2c_rule Include="..\idamax.f" />
+    <f2c_rule Include="..\izamax.f" />
+    <f2c_rule Include="..\lsame.f" />
+    <f2c_rule Include="..\xerbla.f" />
+    <f2c_rule Include="..\zaxpy.f" />
+    <f2c_rule Include="..\zcopy.f" />
+    <f2c_rule Include="..\zdotc.f" />
+    <f2c_rule Include="..\zdotu.f" />
+    <f2c_rule Include="..\zdscal.f" />
+    <f2c_rule Include="..\zgbmv.f" />
+    <f2c_rule Include="..\zgemm.f" />
+    <f2c_rule Include="..\zgemv.f" />
+    <f2c_rule Include="..\zgerc.f" />
+    <f2c_rule Include="..\zgeru.f" />
+    <f2c_rule Include="..\zhbmv.f" />
+    <f2c_rule Include="..\zhemm.f" />
+    <f2c_rule Include="..\zhemv.f" />
+    <f2c_rule Include="..\zher.f" />
+    <f2c_rule Include="..\zher2.f" />
+    <f2c_rule Include="..\zher2k.f" />
+    <f2c_rule Include="..\zherk.f" />
+    <f2c_rule Include="..\zhpmv.f" />
+    <f2c_rule Include="..\zhpr.f" />
+    <f2c_rule Include="..\zhpr2.f" />
+    <f2c_rule Include="..\zrotg.f" />
+    <f2c_rule Include="..\zscal.f" />
+    <f2c_rule Include="..\zswap.f" />
+    <f2c_rule Include="..\zsymm.f" />
+    <f2c_rule Include="..\zsyr2k.f" />
+    <f2c_rule Include="..\zsyrk.f" />
+    <f2c_rule Include="..\ztbmv.f" />
+    <f2c_rule Include="..\ztbsv.f" />
+    <f2c_rule Include="..\ztpmv.f" />
+    <f2c_rule Include="..\ztpsv.f" />
+    <f2c_rule Include="..\ztrmm.f" />
+    <f2c_rule Include="..\ztrmv.f" />
+    <f2c_rule Include="..\ztrsm.f" />
+    <f2c_rule Include="..\ztrsv.f" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\..\..\bin\libf2c.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Makefile.am" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\..\..\..\Visual-Studio-settings\f2c.targets" />
+  </ImportGroup>
+</Project>
