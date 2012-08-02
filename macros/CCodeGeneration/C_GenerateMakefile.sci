@@ -39,19 +39,14 @@ PrintStringInfo('# -----------------------',FileInfo.MakefileFilename,'file','y'
 PrintStringInfo('# --- DIRECTORIES AND FILES ---',FileInfo.MakefileFilename,'file','y');
 
 makecsrcdir  = pathconvert('src/c', %f, %f, 'u');
-// makecsrcdir  = FileInfo.CStyleSCI2CMainDir+'\CFiles\sci2ccode';
 makehsrcdir  = pathconvert('includes', %f, %f, 'u');
-// makehsrcdir  = FileInfo.CStyleSCI2CMainDir+'\CFiles\sci2cincludes';
 makeisrcdir  = pathconvert('interfaces', %f, %f, 'u');
-// makeisrcdir  = FileInfo.CStyleSCI2CMainDir+'\CFiles\sci2cinterfaces';
 makesci2cdir = FileInfo.CStyleOutCCCodeDir;
-// makesci2cdir = FileInfo.CStyleOutCCCodeDir;
 
 
 PrintStringInfo('CSRCDIR     = '+makecsrcdir,FileInfo.MakefileFilename,'file','y','y');
 PrintStringInfo('HSRCDIR     = '+makehsrcdir,FileInfo.MakefileFilename,'file','y','y');
 PrintStringInfo('ISRCDIR     = '+makeisrcdir,FileInfo.MakefileFilename,'file','y','y');
-//PrintStringInfo('SCI2CDIR    = '+makesci2cdir,FileInfo.MakefileFilename,'file','y','y');
 PrintStringInfo('SCI2CDIR    = .',FileInfo.MakefileFilename,'file','y','y');
 
 // Compiler definition
@@ -113,22 +108,5 @@ PrintStringInfo('\t@echo "" ""',FileInfo.MakefileFilename,'file','y','y');
 if getos() == 'Windows' then
   C_GenerateMakefile_msvc(FileInfo,SharedInfo);
 end
-
-
-// -------------------------------
-// --- Open template makefile. ---
-// -------------------------------
-//fidfile = SCI2COpenFileRead(FileInfo.MakefileTemplate);
-
-// -------------------
-// --- Read lines. ---
-// -------------------
-//tmpline = mgetl(fidfile,1);
-//while (meof(fidfile) == 0)
-// PrintStringInfo(tmpline,FileInfo.MakefileFilename,'file','y');
-//  tmpline = mgetl(fidfile,1);
-//end
-
-//mclose(fidfile);
 
 endfunction
