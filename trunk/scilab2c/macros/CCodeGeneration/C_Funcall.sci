@@ -195,11 +195,13 @@ else
 end
 
 
-if CFunName == "main"
+// FIXME : Wrap library function call with prefixed name
+
+//if CFunName == "main"
   CCall = CCall + CFunName + "(";
-else
-  CCall = CCall+"SCI2C("+CFunName+")(";
-end
+//else
+//  CCall = CCall+"SCI2C("+CFunName+")(";
+//end
 
 // #RNU_RES_B
 PrintStringInfo('   C call after output scalar args check: '+CCall,ReportFileName,'file','y');

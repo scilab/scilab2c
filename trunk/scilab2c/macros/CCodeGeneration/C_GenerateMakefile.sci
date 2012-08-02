@@ -56,7 +56,8 @@ PrintStringInfo('SCI2CDIR    = .',FileInfo.MakefileFilename,'file','y','y');
 
 // Compiler definition
 PrintStringInfo('CC     = gcc',FileInfo.MakefileFilename,'file','y','y');
-PrintStringInfo('CFLAGS = -Wall -pedantic -I $(HSRCDIR) -I $(ISRCDIR) -lm',FileInfo.MakefileFilename,'file','y','y');
+PrintStringInfo('CFLAGS = -Wall -pedantic -I $(HSRCDIR) -I $(ISRCDIR)',FileInfo.MakefileFilename,'file','y','y');
+PrintStringInfo('LDFLAGS = -lblas -llapack -lm',FileInfo.MakefileFilename,'file','y','y');
 
 // Binary definition
 PrintStringInfo('EXEFILENAME = mytest.exe',FileInfo.MakefileFilename,'file','y','y');
@@ -85,7 +86,7 @@ PrintStringInfo('\t@echo "" ""',FileInfo.MakefileFilename,'file','y','y');
 PrintStringInfo('\t@echo ""============================""',FileInfo.MakefileFilename,'file','y','y');
 PrintStringInfo('\t@echo ""Generation of the executable""',FileInfo.MakefileFilename,'file','y','y');
 PrintStringInfo('\t@echo ""============================""',FileInfo.MakefileFilename,'file','y','y');
-PrintStringInfo('\t$(CC) $(CFLAGS) $(OBJ) *.c -llapack -lblas -o $(EXEFILE)',FileInfo.MakefileFilename,'file','y','y');
+PrintStringInfo('\t$(CC) $(CFLAGS) $(OBJ) *.c $(LDFLAGS) -o $(EXEFILE)',FileInfo.MakefileFilename,'file','y','y');
 PrintStringInfo('\t@echo "" ""',FileInfo.MakefileFilename,'file','y','y');
 PrintStringInfo('\t@echo ""==============""',FileInfo.MakefileFilename,'file','y','y');
 PrintStringInfo('\t@echo ""Executing code""',FileInfo.MakefileFilename,'file','y','y');
