@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\addition">
+      <UniqueIdentifier>{5bf6d8f9-a891-4633-ab01-1917a8568b07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\division">
+      <UniqueIdentifier>{e2c901d3-8372-4f6e-995c-7f2b8575b714}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\multiplication">
+      <UniqueIdentifier>{de7eeee0-7229-49fd-8574-2a884714f7e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\subtraction">
+      <UniqueIdentifier>{4d5826f7-7eae-49c0-bd15-419c2c8a1cef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="addition\cadda.c">
+      <Filter>Source Files\addition</Filter>
+    </ClCompile>
+    <ClCompile Include="addition\cadds.c">
+      <Filter>Source Files\addition</Filter>
+    </ClCompile>
+    <ClCompile Include="addition\dadda.c">
+      <Filter>Source Files\addition</Filter>
+    </ClCompile>
+    <ClCompile Include="addition\dadds.c">
+      <Filter>Source Files\addition</Filter>
+    </ClCompile>
+    <ClCompile Include="addition\sadda.c">
+      <Filter>Source Files\addition</Filter>
+    </ClCompile>
+    <ClCompile Include="addition\sadds.c">
+      <Filter>Source Files\addition</Filter>
+    </ClCompile>
+    <ClCompile Include="addition\zadda.c">
+      <Filter>Source Files\addition</Filter>
+    </ClCompile>
+    <ClCompile Include="addition\zadds.c">
+      <Filter>Source Files\addition</Filter>
+    </ClCompile>
+    <ClCompile Include="division\cldiva.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\cldivs.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\crdiva.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\crdivs.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\dldiva.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\dldivs.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\drdiva.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\drdivs.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\sldiva.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\sldivs.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\srdiva.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\srdivs.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\zldiva.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\zldivs.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\zrdiva.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="division\zrdivs.c">
+      <Filter>Source Files\division</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplication\cmula.c">
+      <Filter>Source Files\multiplication</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplication\cmulcsv.c">
+      <Filter>Source Files\multiplication</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplication\cmuls.c">
+      <Filter>Source Files\multiplication</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplication\cmulscv.c">
+      <Filter>Source Files\multiplication</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplication\cmulv.c">
+      <Filter>Source Files\multiplication</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplication\dmula.c">
+      <Filter>Source Files\multiplication</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplication\dmuls.c">
+      <Filter>Source Files\multiplication</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplication\dmulv.c">
+      <Filter>Source Files\multiplication</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplication\smula.c">
+      <Filter>Source Files\multiplication</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplication\smuls.c">
+      <Filter>Source Files\multiplication</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplication\smulv.c">
+      <Filter>Source Files\multiplication</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplication\zmula.c">
+      <Filter>Source Files\multiplication</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplication\zmuldzv.c">
+      <Filter>Source Files\multiplication</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplication\zmuls.c">
+      <Filter>Source Files\multiplication</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplication\zmulv.c">
+      <Filter>Source Files\multiplication</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplication\zmulzdv.c">
+      <Filter>Source Files\multiplication</Filter>
+    </ClCompile>
+    <ClCompile Include="subtraction\cdiffa.c">
+      <Filter>Source Files\subtraction</Filter>
+    </ClCompile>
+    <ClCompile Include="subtraction\cdiffs.c">
+      <Filter>Source Files\subtraction</Filter>
+    </ClCompile>
+    <ClCompile Include="subtraction\ddiffa.c">
+      <Filter>Source Files\subtraction</Filter>
+    </ClCompile>
+    <ClCompile Include="subtraction\ddiffs.c">
+      <Filter>Source Files\subtraction</Filter>
+    </ClCompile>
+    <ClCompile Include="subtraction\sdiffa.c">
+      <Filter>Source Files\subtraction</Filter>
+    </ClCompile>
+    <ClCompile Include="subtraction\sdiffs.c">
+      <Filter>Source Files\subtraction</Filter>
+    </ClCompile>
+    <ClCompile Include="subtraction\zdiffa.c">
+      <Filter>Source Files\subtraction</Filter>
+    </ClCompile>
+    <ClCompile Include="subtraction\zdiffs.c">
+      <Filter>Source Files\subtraction</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="addition\Makefile.am">
+      <Filter>Source Files\addition</Filter>
+    </None>
+    <None Include="division\Makefile.am">
+      <Filter>Source Files\division</Filter>
+    </None>
+    <None Include="subtraction\Makefile.am">
+      <Filter>Source Files\subtraction</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="includes\addition.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\division.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\dynlib_operations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\multiplication.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\subtraction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
