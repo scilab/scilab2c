@@ -56,7 +56,7 @@ SharedInfo.NFilesToTranslate = 1;
 
 // --- Annotations. ---
 SharedInfo.Annotations.GBLVAR   = 'global';
-SharedInfo.Annotations.DataPrec = {'int','float','double'};
+SharedInfo.Annotations.DataPrec = {'uint8','int8','uint16','int16','int','float','double'};
 SharedInfo.Annotations.FUNNIN   = 'NIN=';
 SharedInfo.Annotations.FUNNOUT  = 'NOUT=';
 SharedInfo.Annotations.FUNTYPE  = '''OUT(''+string(SCI2C_nout)+'').TP='''; // Type includes also precision.

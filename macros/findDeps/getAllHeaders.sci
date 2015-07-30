@@ -37,6 +37,7 @@ function allHeaders = getAllHeaders()
       "src/c/type/doubleComplex.h"
       "src/c/type/dynlib_type.h"
       "src/c/type/floatComplex.h"
+      "src/c/type/types.h"
       "src/c/matrixOperations/includes/cat.h"
       "src/c/matrixOperations/includes/hilb.h"
       "src/c/matrixOperations/includes/eye.h"

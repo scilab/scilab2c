@@ -35,6 +35,14 @@ elseif (ArgType == 'g')
    OutC_Type = 'char';
 elseif (ArgType == 'f')
    OutC_Type = 'SCI2CFILEID';
+elseif (ArgType == 'u8')
+   OutC_Type = 'uint8';
+elseif (ArgType == 'i8')
+   OutC_Type = 'int8';
+elseif (ArgType == 'u16')
+   OutC_Type = 'uint16';
+elseif (ArgType == 'i16')
+   OutC_Type = 'int16';
 else
    error(9999, 'Unknown Argument Type: ""'+ArgType+'"".');
 end
