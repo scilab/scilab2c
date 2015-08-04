@@ -25,6 +25,14 @@
 
 #define z0OpMinusz0(in)					DoubleComplex(-zreals(in), -zimags(in))
 
+#define u80OpMinusu80(in)				-(int8)in
+
+#define i80OpMinusi80(in)				-in
+
+#define u160OpMinusu160(in)				-(int16)in
+
+#define i160OpMinusi160(in)				-in
+
 /* - Matrix */
 
 #define s2OpMinuss2(in, size, out)			{int i=0; \
@@ -43,6 +51,19 @@
     for (i=0;i<size[0]*size[1];i++) out[i] = DoubleComplex(-zreals(in[i]), -zimags(in[i])); \
   }
 
+#define u82OpMinusu82(in, size, out)			{int i=0; \
+    for (i=0;i<size[0]*size[1];i++) out[i] = -(int8)in[i];		  \
+  }
+
+
+#define u82OpMinusu82(in, size, out)			{int i=0; \
+    for (i=0;i<size[0]*size[1];i++) out[i] = -in[i];		  \
+  }
+
+
+#define u162OpMinusu162(in, size, out)			{int i=0; \
+    for (i=0;i<size[0]*size[1];i++) out[i] = -(int16)in[i];		  \
+  }
 
 /* Scalar - Scalar */
 
@@ -61,6 +82,14 @@
 #define d0z0OpMinusz0(in1,in2)				zdiffs(DoubleComplex(in1,0),in2)
 
 #define z0d0OpMinusz0(in1,in2)				zdiffs(in1,DoubleComplex(in2,0))
+
+#define u80u80OpMinusu80(in1,in2)			u8diffs(in1,in2)
+
+#define i80i80OpMinusi80(in1,in2)			i8diffs(in1,in2)
+
+#define u160u160OpMinusu160(in1,in2)			u16diffs(in1,in2)
+
+#define i160i160OpMinusi160(in1,in2)			i16diffs(in1,in2)
 
 /* Matrix - Scalar */
 
@@ -99,6 +128,25 @@
   }
 
 
+#define u82u80OpMinusu82(in1,size,in2,out)		{int i=0;	\
+    for (i=0;i<size[0]*size[1];i++) out[i]=in1[i]-in2;		\
+  }
+
+
+#define i82i80OpMinusi82(in1,size,in2,out)		{int i=0;	\
+    for (i=0;i<size[0]*size[1];i++) out[i]=in1[i]-in2;		\
+  }
+
+
+#define u162u160OpMinusu162(in1,size,in2,out)		{int i=0;	\
+    for (i=0;i<size[0]*size[1];i++) out[i]=in1[i]-in2;		\
+  }
+
+
+#define i162i160OpMinusi162(in1,size,in2,out)		{int i=0;	\
+    for (i=0;i<size[0]*size[1];i++) out[i]=in1[i]-in2;		\
+  }
+
 /* Scalar - Matrix */
 
 
@@ -136,6 +184,22 @@
   }
 
 
+#define u80u82OpMinusu82(in1,in2,size,out)		{int i=0;	\
+    for (i=0;i<size[0]*size[1];i++) out[i]=in1-in2[i];		\
+  }
+
+
+#define i80i82OpMinusi82(in1,in2,size,out)		{int i=0;	\
+    for (i=0;i<size[0]*size[1];i++) out[i]=in1-in2[i];		\
+  }
+
+#define u160u162OpMinusu162(in1,in2,size,out)		{int i=0;	\
+    for (i=0;i<size[0]*size[1];i++) out[i]=in1-in2[i];		\
+  }
+
+#define i160i162OpMinusi162(in1,in2,size,out)		{int i=0;	\
+    for (i=0;i<size[0]*size[1];i++) out[i]=in1-in2[i];		\
+  }
 
 /* Matrix - Matrix */
 
@@ -167,7 +231,12 @@
     for (i=0;i<size1[0]*size2[1];i++) out[i]=zdiffs(in1[i],DoubleComplex(in2[i],0)); \
   }
 
+#define u82u82OpMinusu82(in1,size1,in2,size2,out)		u8diffa(in1, size1[0]*size1[1], in2, size2[0]*size2[1], out)
 
+#define i82i82OpMinusi82(in1,size1,in2,size2,out)		i8diffa(in1, size1[0]*size1[1], in2, size2[0]*size2[1], out)
 
+#define u162u162OpMinusu162(in1,size1,in2,size2,out)		u16diffa(in1, size1[0]*size1[1], in2, size2[0]*size2[1], out)
+
+#define i162i162OpMinusu162(in1,size1,in2,size2,out)		i16diffa(in1, size1[0]*size1[1], in2, size2[0]*size2[1], out)
 
 #endif /* !__INT_OPMINUS_H__ */

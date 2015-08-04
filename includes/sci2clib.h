@@ -174,6 +174,19 @@
 /* interfacing tanh */
 #include "tanh.h"
 #include "int_tanh.h"
+/* interfacing uint8 */
+#include "uint8.h"
+#include "int_uint8.h"
+/* interfacing int8 */
+#include "int8.h"
+#include "int_int8.h"
+/* interfacing uint16 */
+#include "uint16.h"
+#include "int_uint16.h"
+/* interfacing int16 */
+#include "int16.h"
+#include "int_int16.h"
+
 
 /* IMPLICIT LISTS */
 /* interfacing implicitList/OpColon */

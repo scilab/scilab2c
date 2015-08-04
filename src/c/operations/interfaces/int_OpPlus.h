@@ -34,7 +34,13 @@
 
 #define z0d0OpPlusz0(in1,in2)				zadds(in1,DoubleComplex(in2,0))
 
+#define u80u80OpPlusu80(in1,in2)			u8adds(in1,in2)
 
+#define i80i80OpPlusi80(in1,in2)			i8adds(in1,in2)
+
+#define u160u160OpPlusu160(in1,in2)			u16adds(in1,in2)
+
+#define i160i160OpPlusi160(in1,in2)			i16adds(in1,in2)
 
 /* Matrix + Scalar */
 
@@ -68,6 +74,21 @@
 								for (i=0;i<size[0]*size[1];i++) out[i]=zadds(DoubleComplex(in1[i],0),in2);\
 								}
 
+#define u82u80OpPlusu82(in1,size,in2,out)		{int i=0;\
+								for (i=0;i<size[0]*size[1];i++) out[i]=in1[i]+in2;\
+								}
+
+#define i82i80OpPlusi82(in1,size,in2,out)		{int i=0;\
+								for (i=0;i<size[0]*size[1];i++) out[i]=in1[i]+in2;\
+								}
+
+#define u162u160OpPlusu162(in1,size,in2,out)		{int i=0;\
+								for (i=0;i<size[0]*size[1];i++) out[i]=in1[i]+in2;\
+								}
+
+#define i162i160OpPlusi162(in1,size,in2,out)		{int i=0;\
+								for (i=0;i<size[0]*size[1];i++) out[i]=in1[i]+in2;\
+								}
 
 /* Scalar + Matrix */
 
@@ -101,7 +122,21 @@
 								for (i=0;i<size[0]*size[1];i++) out[i]=zadds(in1,DoubleComplex(in2[i],0));\
 								}
 								
+#define u80u82OpPlusu82(in1,in2,size,out)		{int i=0;\
+								for (i=0;i<size[0]*size[1];i++) out[i]=in1+in2[i];\
+								}
 
+#define i80i82OpPlusi82(in1,in2,size,out)		{int i=0;\
+								for (i=0;i<size[0]*size[1];i++) out[i]=in1+in2[i];\
+								}
+
+#define u160u162OpPlusu162(in1,in2,size,out)		{int i=0;\
+								for (i=0;i<size[0]*size[1];i++) out[i]=in1+in2[i];\
+								}
+
+#define i160i162OpPlusi162(in1,in2,size,out)		{int i=0;\
+								for (i=0;i<size[0]*size[1];i++) out[i]=in1+in2[i];\
+								}
 
 /* Matrix + Matrix */
 
@@ -132,7 +167,13 @@
 									for (i=0;i<size1[0]*size2[1];i++) out[i]=zadds(in1[i],DoubleComplex(in2[i],0));\
 									}
 
+#define u82u82OpPlusu82(in1,size1,in2,size2,out)	u8adda(in1, size1[0]*size1[1], in2, size2[0]*size2[1], out)
 
+#define i82i82OpPlusi82(in1,size1,in2,size2,out)	i8adda(in1, size1[0]*size1[1], in2, size2[0]*size2[1], out)
+
+#define u162u162OpPlusu162(in1,size1,in2,size2,out)	u16adda(in1, size1[0]*size1[1], in2, size2[0]*size2[1], out)
+
+#define i162i162OpPlusu162(in1,size1,in2,size2,out)	i16adda(in1, size1[0]*size1[1], in2, size2[0]*size2[1], out)
 /* Strings */
 /* RNU: size1[1]-1 -> "-1" because '\0' of the first string must be removed. */
 #define g2g2OpPlusg2(in1,size1,in2,size2,out)		{int i = 0, j = 0;	\

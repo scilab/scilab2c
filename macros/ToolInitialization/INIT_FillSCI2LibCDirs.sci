@@ -1698,7 +1698,6 @@ PrintStringInfo('i80i80'+ArgSeparator+'i80',ClassFileName,'file','y');
 PrintStringInfo('u160u160'+ArgSeparator+'u160',ClassFileName,'file','y');
 PrintStringInfo('i160i160'+ArgSeparator+'i160',ClassFileName,'file','y');
 
-
 PrintStringInfo('s2s0'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d2d0'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('s2c0'+ArgSeparator+'c2',ClassFileName,'file','y');

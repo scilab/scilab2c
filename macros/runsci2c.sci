@@ -36,6 +36,7 @@ function runsci2c(UserScilabMainFile, UserSciFilesPaths, SCI2COutputPath, Runmod
 // --- Input Parameters. ---
 // -------------------------
 RunSci2CMainDir = pwd();
+disp(RunSci2CMainDir);
 // -----------------------------
 // --- End input Parameters. ---
 // -----------------------------
