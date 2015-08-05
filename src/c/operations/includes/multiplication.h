@@ -16,6 +16,7 @@
 #include "dynlib_operations.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
+#include "types.h"
 
 #ifdef  __cplusplus
 extern "C" {
@@ -139,6 +140,75 @@ EXTERN_OPERATIONS doubleComplex zmulv(doubleComplex *in1, doubleComplex *in2, in
 EXTERN_OPERATIONS doubleComplex zmulzdv(doubleComplex *in1, double *in2, int size2);
 
 EXTERN_OPERATIONS doubleComplex zmuldzv(double *in1, doubleComplex *in2, int size2);
+
+/*
+** \brief Compute a multiplication with uint8.
+** \param in1 : input uint8.
+** \param in2 : input uint8.
+** \return : in1 * in 2 = in1 .* in2.
+*/
+EXTERN_OPERATIONS uint8	u8muls(uint8 in1, uint8 in2);
+
+/*
+** \brief Compute a multiplication for uint8 arrays.
+** \param in1 : input array.
+** \param in2 : input array.
+** \param size : size of in2 array.
+** \return : scalar that contains the multiplication of the two vectors = in1 .* in2.
+*/
+EXTERN_OPERATIONS uint8 u8mulv(uint8 *in1,  uint8 *in2, int size2);
+
+/*
+** \brief Compute a multiplication with int8.
+** \param in1 : input int8.
+** \param in2 : input int8.
+** \return : in1 * in 2 = in1 .* in2.
+*/
+EXTERN_OPERATIONS int8	i8muls(int8 in1, int8 in2);
+
+/*
+** \brief Compute a multiplication for int8 arrays.
+** \param in1 : input array.
+** \param in2 : input array.
+** \param size : size of in2 array.
+** \return : scalar that contains the multiplication of the two vectors = in1 .* in2.
+*/
+EXTERN_OPERATIONS int8 i8mulv(int8 *in1,  int8 *in2, int size2);
+
+/*
+** \brief Compute a multiplication with uint16.
+** \param in1 : input uint16.
+** \param in2 : input uint16.
+** \return : in1 * in 2 = in1 .* in2.
+*/
+EXTERN_OPERATIONS uint16 u16muls(uint16 in1, uint16 in2);
+
+/*
+** \brief Compute a multiplication for uint16 arrays.
+** \param in1 : input array.
+** \param in2 : input array.
+** \param size : size of in2 array.
+** \return : scalar that contains the multiplication of the two vectors = in1 .* in2.
+*/
+EXTERN_OPERATIONS uint16 u16mulv(uint16 *in1,  uint16 *in2, int size2);
+
+/*
+** \brief Compute a multiplication with int16.
+** \param in1 : input int16.
+** \param in2 : input int16.
+** \return : in1 * in 2 = in1 .* in2.
+*/
+EXTERN_OPERATIONS int16 i16muls(int16 in1, int16 in2);
+
+/*
+** \brief Compute a multiplication for int16 arrays.
+** \param in1 : input array.
+** \param in2 : input array.
+** \param size : size of in2 array.
+** \return : scalar that contains the multiplication of the two vectors = in1 .* in2.
+*/
+EXTERN_OPERATIONS int16 i16mulv(int16 *in1,  int16 *in2, int size2);
+
 
 #ifdef  __cplusplus
 } /* extern "C" */

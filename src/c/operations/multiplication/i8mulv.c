@@ -13,10 +13,10 @@
 
 #include "multiplication.h"
 
-i8 i8mulv(i8* in1, i8* in2, i16 size)
+int8 i8mulv(int8* in1, int8* in2, int size)
 {
-  i8 out = 0;
-  u16 i = 0;
+  int8 out = 0;
+  int i = 0;
   
   for (i = 0 ; i < size ; ++i)
     {

@@ -14,6 +14,6 @@
 #include "multiplication.h"
 #include "types.h"
 
-i16 i16muls(i16 in1, i16 in2){
+int16 i16muls(int16 in1, int16 in2){
 	return in1*in2;
 }

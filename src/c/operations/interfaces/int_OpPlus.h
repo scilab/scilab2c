@@ -173,7 +173,7 @@
 
 #define u162u162OpPlusu162(in1,size1,in2,size2,out)	u16adda(in1, size1[0]*size1[1], in2, size2[0]*size2[1], out)
 
-#define i162i162OpPlusu162(in1,size1,in2,size2,out)	i16adda(in1, size1[0]*size1[1], in2, size2[0]*size2[1], out)
+#define i162i162OpPlusi162(in1,size1,in2,size2,out)	i16adda(in1, size1[0]*size1[1], in2, size2[0]*size2[1], out)
 /* Strings */
 /* RNU: size1[1]-1 -> "-1" because '\0' of the first string must be removed. */
 #define g2g2OpPlusg2(in1,size1,in2,size2,out)		{int i = 0, j = 0;	\

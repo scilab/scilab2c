@@ -15,12 +15,12 @@
 #ifndef __INT_INT16_H__
 #define __INT_INT16_H__
 
-#define s0int16u80(in)			sint16s(in)
+#define s0int16i160(in)			sint16s(in)
 
-#define d0int16u80(in)			dint16s(in)
+#define d0int16i160(in)			dint16s(in)
 
-#define s2int16u82(in,size,out)		sint16a(in, size[0]*size[1], out)
+#define s2int16i162(in,size,out)	sint16a(in, size[0]*size[1], out)
 
-#define d2int16u82(in,size,out)		dint16a(in, size[0]*size[1], out)
+#define d2int16i162(in,size,out)	dint16a(in, size[0]*size[1], out)
 
 #endif /* !__INT_INT8_H__ */

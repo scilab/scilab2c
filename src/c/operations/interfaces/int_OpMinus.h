@@ -56,7 +56,7 @@
   }
 
 
-#define u82OpMinusu82(in, size, out)			{int i=0; \
+#define i82OpMinusi82(in, size, out)			{int i=0; \
     for (i=0;i<size[0]*size[1];i++) out[i] = -in[i];		  \
   }
 
@@ -64,6 +64,12 @@
 #define u162OpMinusu162(in, size, out)			{int i=0; \
     for (i=0;i<size[0]*size[1];i++) out[i] = -(int16)in[i];		  \
   }
+
+
+#define i162OpMinui162(in, size, out)			{int i=0; \
+    for (i=0;i<size[0]*size[1];i++) out[i] = -(int16)in[i];		  \
+  }
+
 
 /* Scalar - Scalar */
 
@@ -237,6 +243,6 @@
 
 #define u162u162OpMinusu162(in1,size1,in2,size2,out)		u16diffa(in1, size1[0]*size1[1], in2, size2[0]*size2[1], out)
 
-#define i162i162OpMinusu162(in1,size1,in2,size2,out)		i16diffa(in1, size1[0]*size1[1], in2, size2[0]*size2[1], out)
+#define i162i162OpMinusi162(in1,size1,in2,size2,out)		i16diffa(in1, size1[0]*size1[1], in2, size2[0]*size2[1], out)
 
 #endif /* !__INT_OPMINUS_H__ */

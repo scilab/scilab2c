@@ -13,10 +13,10 @@
 
 #include "multiplication.h"
 
-u16 u16mulv(u16* in1, u16* in2, u16 size)
+uint16 u16mulv(uint16* in1, uint16* in2, int size)
 {
-  u16 out = 0;
-  u16 i = 0;
+  uint16 out = 0;
+  int i = 0;
   
   for (i = 0 ; i < size ; ++i)
     {

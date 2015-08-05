@@ -16,6 +16,7 @@
 #include "dynlib_operations.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
+#include "types.h"
 
 #ifdef  __cplusplus
 extern "C" {
@@ -102,6 +103,38 @@ EXTERN_OPERATIONS doubleComplex zrdivs (doubleComplex in1, doubleComplex in2);
 EXTERN_OPERATIONS void zrdiva(doubleComplex* in1, doubleComplex* in2, int size, doubleComplex* out );
 
 /*
+** \brief Compute a right division for uint8.
+** \param in1 : input uint8.
+** \param in2 : input uint8.
+** \return in1 / in2 = in1 ./ in2.
+*/
+EXTERN_OPERATIONS uint8 u8rdivs (uint8 in1, uint8 in2);
+
+/*
+** \brief Compute a right division for int8.
+** \param in1 : input int8.
+** \param in2 : input int8.
+** \return in1 / in2 = in1 ./ in2.
+*/
+EXTERN_OPERATIONS int8 i8rdivs (int8 in1, int8 in2);
+
+/*
+** \brief Compute a right division for uint16.
+** \param in1 : input uint16.
+** \param in2 : input uint16.
+** \return in1 / in2 = in1 ./ in2.
+*/
+EXTERN_OPERATIONS uint16 u16rdivs (uint16 in1, uint16 in2);
+
+/*
+** \brief Compute a right division for int16.
+** \param in1 : input int16.
+** \param in2 : input int16.
+** \return in1 / in2 = in1 ./ in2.
+*/
+EXTERN_OPERATIONS int16 i16rdivs (int16 in1, int16 in2);
+
+/*
 ** LEFT DIVISION
 */
 
@@ -172,6 +205,40 @@ EXTERN_OPERATIONS doubleComplex zldivs (doubleComplex in1, doubleComplex in2);
 ** \param out : array that contains the division in1 .\ in2.
 */
 EXTERN_OPERATIONS void zldiva(doubleComplex* in1, doubleComplex* in2, int size, doubleComplex* out );
+
+/*
+** \brief Compute a right division for uint8.
+** \param in1 : input uint8.
+** \param in2 : input uint8.
+** \return in1 / in2 = in1 ./ in2.
+*/
+EXTERN_OPERATIONS uint8 u8ldivs (uint8 in1, uint8 in2);
+
+/*
+** \brief Compute a right division for int8.
+** \param in1 : input int8.
+** \param in2 : input int8.
+** \return in1 / in2 = in1 ./ in2.
+*/
+EXTERN_OPERATIONS int8 i8ldivs (int8 in1, int8 in2);
+
+/*
+** \brief Compute a right division for uint16.
+** \param in1 : input uint16.
+** \param in2 : input uint16.
+** \return in1 / in2 = in1 ./ in2.
+*/
+EXTERN_OPERATIONS uint16 u16ldivs (uint16 in1, uint16 in2);
+
+/*
+** \brief Compute a right division for int16.
+** \param in1 : input int16.
+** \param in2 : input int16.
+** \return in1 / in2 = in1 ./ in2.
+*/
+EXTERN_OPERATIONS int16 i16ldivs (int16 in1, int16 in2);
+
+
 
 #ifdef  __cplusplus
 } /* extern "C" */

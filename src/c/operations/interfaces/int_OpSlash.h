@@ -33,6 +33,13 @@
 
 #define z0d0OpSlashz0(in1,in2)				zrdivs(in1,DoubleComplex(in2,0))
 
+#define u80u80OpSlashu80(in1,in2)			u8rdivs(in1,in2)
+
+#define i80i80OpSlashi80(in1,in2)			i8rdivs(in1,in2)
+
+#define u160u160OpSlashu160(in1,in2)			u16rdivs(in1,in2)
+
+#define i160i160OpSlashi160(in1,in2)			i16rdivs(in1,in2)
 
 /* Scalar / Matrix */
 
@@ -76,6 +83,17 @@
 									dinverma(in2,temp,size[0]);\
 									for (i=0;i<size[0]*size[1];i++) out[i]=zmuls(in1,DoubleComplex(temp[i],0));}
 
+#define u80u82OpSlashu82(in1,in2,size,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=in1/in2[i];}
+
+#define i80i82OpSlashi82(in1,in2,size,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=in1/in2[i];}
+
+#define u160u162OpSlashu162(in1,in2,size,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=in1/in2[i];}
+
+#define i160i162OpSlashi162(in1,in2,size,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=in1/in2[i];}
 
 /* Matrix / Scalar */
 
@@ -110,8 +128,17 @@
 #define z2d0OpSlashz2(in1,size,in2,out)			z2z0OpSlashz2(in1,size,DoubleComplex(in2,0),out)
 			
 
+#define u82u80OpSlashu82(in1,size,in2,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=in1[i]/in2;}
 
+#define i82i80OpSlashi82(in1,size,in2,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=in1[i]/in2;}
 
+#define u162u160OpSlashu162(in1,size,in2,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=in1[i]/in2;}
+
+#define i162i160OpSlashi162(in1,size,in2,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=in1[i]/in2;}
 
 /* Matrix / Matrix */
 

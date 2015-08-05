@@ -11,17 +11,9 @@
  */
 
 
-#include "multiplication.h"
+#include "division.h" 
 
-int16 i16mulv(int16* in1, int16* in2, int size)
-{
-  int16 out = 0;
-  int i = 0;
-  
-  for (i = 0 ; i < size ; ++i)
-    {
-      out += i16muls(in1[i], in2[i]);
-    }
-
-  return out;
+ 
+uint16 u16ldivs (uint16 in1, uint16 in2){
+	return in2/in1;
 }

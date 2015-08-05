@@ -15,12 +15,12 @@
 #ifndef __INT_INT8_H__
 #define __INT_INT8_H__
 
-#define s0int8u80(in)			sint8s(in)
+#define s0int8i80(in)			sint8s(in)
 
-#define d0int8u80(in)			dint8s(in)
+#define d0int8i80(in)			dint8s(in)
 
-#define s2int8u82(in,size,out)		sint8a(in, size[0]*size[1], out)
+#define s2int8i82(in,size,out)		sint8a(in, size[0]*size[1], out)
 
-#define d2int8u82(in,size,out)		dint8a(in, size[0]*size[1], out)
+#define d2int8i82(in,size,out)		dint8a(in, size[0]*size[1], out)
 
 #endif /* !__INT_INT8_H__ */

@@ -14,6 +14,6 @@
 #include "multiplication.h"
 #include "types.h"
 
-u80 u8muls(u80 in1, u80 in2){
+uint8 u8muls(uint8 in1, uint8 in2){
 	return in1*in2;
 }
