@@ -25,6 +25,14 @@
 
 #define z0dispd0(in)			zdisps(in)
 
+#define u80dispd0(in)			u8disps(in)
+
+#define i80dispd0(in)			i8disps(in)
+
+#define u160dispd0(in)			u16disps(in)
+
+#define i160dispd0(in)			i16disps(in)
+
 #define s2dispd0(in,size)		sdispa(in,size[0],size[1])
 
 #define d2dispd0(in,size)		ddispa(in,size[0],size[1])
@@ -32,6 +40,14 @@
 #define c2dispd0(in,size)		cdispa(in,size[0],size[1])
 
 #define z2dispd0(in,size)		zdispa(in,size[0],size[1])
+
+#define u82dispd0(in,size)		u8dispa(in,size[0],size[1])
+
+#define i82dispd0(in,size)		i8dispa(in,size[0],size[1])
+
+#define u162dispd0(in,size)		u16dispa(in,size[0],size[1])
+
+#define i162dispd0(in,size)		i16dispa(in,size[0],size[1])
 
 #define d3dispd0(in,size)       ddisph(in,size[0],size[1],size[2])
 

@@ -112,7 +112,7 @@
 #define u160u162OpStaru162(in1,in2,size,out)			{int i=0;\
 									for (i=0;i<size[0]*size[1];i++) out[i]=in1*in2[i];}
 
-#define i160162OpStari162(in1,in2,size,out)			{int i=0;\
+#define i160i162OpStari162(in1,in2,size,out)			{int i=0;\
 									for (i=0;i<size[0]*size[1];i++) out[i]=in1*in2[i];}
 
 /* Matrix * Scalar */
@@ -156,7 +156,7 @@
 #define u162u160OpStaru162(in1,size,in2,out)			{int i=0;\
 									for (i=0;i<size[0]*size[1];i++) out[i]=in1[i]*in2;}
 
-#define i162160OpStari162(in1,size,in2,out)			{int i=0;\
+#define i162i160OpStari162(in1,size,in2,out)			{int i=0;\
 									for (i=0;i<size[0]*size[1];i++) out[i]=in1[i]*in2;}
 
 

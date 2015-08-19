@@ -107,6 +107,7 @@ function allInterfaces = getAllInterfaces()
       "src/c/operations/interfaces/int_OpExt.h"
       "src/c/operations/interfaces/int_OpIns.h"
       "src/c/string/interfaces/int_disp.h"
+      "src/c/string/interfaces/int_string.h"
       "src/c/signalProcessing/interfaces/int_ifft.h"
       "src/c/signalProcessing/interfaces/int_lpc2cep.h"
       "src/c/signalProcessing/interfaces/int_cepstrum.h"

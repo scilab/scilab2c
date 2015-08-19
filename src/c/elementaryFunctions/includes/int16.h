@@ -27,11 +27,23 @@ extern "C" {
 
 EXTERN_ELEMFUNCT int16	sint16s(float in);
 
-EXTERN_ELEMFUNCT int16	dint816s(double in);
+EXTERN_ELEMFUNCT int16	dint16s(double in);
+
+EXTERN_ELEMFUNCT int16	u8int16s(uint8 in);
+
+EXTERN_ELEMFUNCT int16	i8int16s(int8 in);
+
+EXTERN_ELEMFUNCT int16	u16int16s(uint16 in);
 
 EXTERN_ELEMFUNCT void	sint16a(float* in, int size, int16* out);
 
 EXTERN_ELEMFUNCT void	dint16a(double* in, int size, int16* out);
+
+EXTERN_ELEMFUNCT void	u8int16a(uint8* in, int size, int16* out);
+
+EXTERN_ELEMFUNCT void	i8int16a(int8* in, int size, int16* out);
+
+EXTERN_ELEMFUNCT void	u16int16a(uint16* in, int size, int16* out);
 
 #ifdef  __cplusplus
 } /* extern "C" */

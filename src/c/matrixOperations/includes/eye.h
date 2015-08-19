@@ -16,6 +16,7 @@
 #include "dynlib_matrixoperations.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
+#include "ones.h"
 
 #ifdef  __cplusplus
 extern "C" {
@@ -42,6 +43,26 @@ extern "C" {
 #define zeyes(in)		DoubleComplex(1, 0)
 
 /*
+** \brief create a Uint8 Eye value
+*/
+#define u8eyes(in)		(uint8)1
+
+/*
+** \brief create a int8 Eye value
+*/
+#define i8eyes(in)		(int8)1
+
+/*
+** \brief create a Uint16 Eye value
+*/
+#define u16eyes(in)		(uint16)1
+
+/*
+** \brief create a int16 Eye value
+*/
+#define i16eyes(in)		(int16)1
+
+/*
 ** \brief create a float Eye matrix
 */
 EXTERN_MATOPS void seyea(float* in, int _iRows, int _iCols);
@@ -60,6 +81,26 @@ EXTERN_MATOPS void ceyea(floatComplex* in, int _iRows, int _iCols);
 ** \brief create a Double complex Eye matrix
 */
 EXTERN_MATOPS void zeyea(doubleComplex* in, int _iRows, int _iCols);
+
+/*
+** \brief create a uint8 Eye matrix
+*/
+EXTERN_MATOPS void u8eyea(uint8* in, int _iRows, int _iCols);
+
+/*
+** \brief create a int8 Eye matrix
+*/
+EXTERN_MATOPS void i8eyea(int8* in, int _iRows, int _iCols);
+
+/*
+** \brief create a uint16 Eye matrix
+*/
+EXTERN_MATOPS void u16eyea(uint16* in, int _iRows, int _iCols);
+
+/*
+** \brief create a int16 Eye matrix
+*/
+EXTERN_MATOPS void i16eyea(int16* in, int _iRows, int _iCols);
 
 #ifdef  __cplusplus
 } /* extern "C" */

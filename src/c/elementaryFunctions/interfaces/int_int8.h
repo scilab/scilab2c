@@ -19,8 +19,20 @@
 
 #define d0int8i80(in)			dint8s(in)
 
+#define u80int8i80(in)			u8int8s(in)
+
+#define u160int8i80(in)			u16int8s(in)
+
+#define i160int8i80(in)			i16int8s(in)
+
 #define s2int8i82(in,size,out)		sint8a(in, size[0]*size[1], out)
 
 #define d2int8i82(in,size,out)		dint8a(in, size[0]*size[1], out)
+
+#define u82int8i82(in,size,out)		u8int8a(in, size[0]*size[1], out)
+
+#define u162int8i82(in,size,out)	u16int8a(in, size[0]*size[1], out)
+
+#define i162int8i82(in,size,out)	i16int8a(in, size[0]*size[1], out)
 
 #endif /* !__INT_INT8_H__ */

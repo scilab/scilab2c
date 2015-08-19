@@ -23,6 +23,14 @@
 
 #define z0expz0(in)			zexps(in)
 
+#define u80exps0(in)			u8exps(in)
+
+#define i80exps0(in)			i8exps(in)
+
+#define u160exps0(in)			u16exps(in)
+
+#define i160exps0(in)			i16exps(in)
+
 #define s2exps2(in,size,out)		sexpa(in, size[0]*size[1], out)
 
 #define d2expd2(in,size,out)		dexpa(in, size[0]*size[1], out)
@@ -30,5 +38,13 @@
 #define c2expc2(in,size,out)		cexpa(in, size[0]*size[1], out)
 
 #define z2expz2(in,size,out)		zexpa(in, size[0]*size[1], out)
+
+#define u82exps2(in,size,out)		u8expa(in, size[0]*size[1], out)
+
+#define i82exps2(in,size,out)		i8expa(in, size[0]*size[1], out)
+
+#define u162exps2(in,size,out)		u16expa(in, size[0]*size[1], out)
+
+#define i162exps2(in,size,out)		i16expa(in, size[0]*size[1], out)
 
 #endif /* !__INT_EXP_H__ */

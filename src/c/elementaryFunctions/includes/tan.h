@@ -16,6 +16,7 @@
 #include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
+#include "types.h"
 
 #ifdef  __cplusplus
 extern "C" {
@@ -49,6 +50,31 @@ EXTERN_ELEMFUNCT floatComplex	ctans(floatComplex in);
 EXTERN_ELEMFUNCT doubleComplex	ztans(doubleComplex in);
 
 /*
+** \brief Uint8 Tangeant function
+** \param in : input value.
+*/
+EXTERN_ELEMFUNCT float		u8tans(uint8 in);
+
+/*
+** \brief Int8 Tangeant function
+** \param in : input value.
+*/
+EXTERN_ELEMFUNCT float		i8tans(int8 in);
+
+/*
+** \brief Uint16 Tangeant function
+** \param in : input value.
+*/
+EXTERN_ELEMFUNCT float		u16tans(uint16 in);
+
+/*
+** \brief Int16 Tangeant function
+** \param in : input value.
+*/
+EXTERN_ELEMFUNCT float		i16tans(int16 in);
+
+
+/*
 ** \brief Float Matrix Tangeant function
 ** \param in : input array value.
 ** \param out : input array value.
@@ -79,6 +105,39 @@ EXTERN_ELEMFUNCT void		ctana(floatComplex* in, int size, floatComplex* out);
 ** \param size : the size of in and out arrays.
 */
 EXTERN_ELEMFUNCT void		ztana(doubleComplex* in, int size, doubleComplex* out);
+
+/*
+** \brief Uint8 Matrix Tangeant function
+** \param in : input array value.
+** \param out : input array value.
+** \param size : the size of in and out arrays.
+*/
+EXTERN_ELEMFUNCT void		u8tana(uint8* in, int size, float* out);
+
+/*
+** \brief Int8 Matrix Tangeant function
+** \param in : input array value.
+** \param out : input array value.
+** \param size : the size of in and out arrays.
+*/
+EXTERN_ELEMFUNCT void		i8tana(int8* in, int size, float* out);
+
+/*
+** \brief Uint16 Matrix Tangeant function
+** \param in : input array value.
+** \param out : input array value.
+** \param size : the size of in and out arrays.
+*/
+EXTERN_ELEMFUNCT void		u16tana(uint16* in, int size, float* out);
+
+/*
+** \brief Int16 Matrix Tangeant function
+** \param in : input array value.
+** \param out : input array value.
+** \param size : the size of in and out arrays.
+*/
+EXTERN_ELEMFUNCT void		i16tana(int16* in, int size, float* out);
+
 
 #ifdef  __cplusplus
 } /* extern "C" */

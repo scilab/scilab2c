@@ -51,7 +51,7 @@ PrintStringInfo('SCI2CDIR    = .',FileInfo.MakefileFilename,'file','y','y');
 
 // Compiler definition
 PrintStringInfo('CC     = gcc',FileInfo.MakefileFilename,'file','y','y');
-PrintStringInfo('CFLAGS = -Wall -pedantic -I $(HSRCDIR) -I $(ISRCDIR)',FileInfo.MakefileFilename,'file','y','y');
+PrintStringInfo('CFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR)',FileInfo.MakefileFilename,'file','y','y');
 PrintStringInfo('LDFLAGS = -lblas -llapack -lm',FileInfo.MakefileFilename,'file','y','y');
 
 // Binary definition

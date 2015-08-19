@@ -23,6 +23,14 @@
 
 #define z0invz0(in)				zrdivs(DoubleComplex(1,0),in)
 
+#define u80invs0(in)				1.0f/(float)in
+
+#define i80invs0(in)				1.0f/(float)in
+
+#define u160invs0(in)				1.0f/(float)in
+
+#define i160invs0(in)				1.0f/(float)in
+
 #define s2invs2(in,size,out)		sinverma(in, out, size[0])
 
 #define d2invd2(in,size,out)		dinverma(in, out, size[0])
@@ -30,5 +38,13 @@
 #define c2invc2(in,size,out)		cinverma(in, out, size[0])
 
 #define z2invz2(in,size,out)		zinverma(in, out, size[0])
+
+#define u82invs2(in,size,out)		u8inverma(in, out, size[0])
+
+#define i82invs2(in,size,out)		i8inverma(in, out, size[0])
+
+#define u162invs2(in,size,out)		u16inverma(in, out, size[0])
+
+#define i162invs2(in,size,out)		i16inverma(in, out, size[0])
 
 #endif /* !__INT_INV_H__ */

@@ -23,6 +23,14 @@
 
 #define z0sinhz0(in)			zsinhs(in)
 
+#define u80sinhs0(in)			u8sinhs(in)
+
+#define i80sinhs0(in)			i8sinhs(in)
+
+#define u160sinhs0(in)			u16sinhs(in)
+
+#define i160sinhs0(in)			i16sinhs(in)
+
 #define s2sinhs2(in,size,out)		ssinha(in, size[0]*size[1], out)
 
 #define d2sinhd2(in,size,out)		dsinha(in, size[0]*size[1], out)
@@ -30,5 +38,13 @@
 #define c2sinhc2(in,size,out)		csinha(in, size[0]*size[1], out)
 
 #define z2sinhz2(in,size,out)		zsinha(in, size[0]*size[1], out)
+
+#define u82sinhs2(in,size,out)		u8sinha(in, size[0]*size[1], out)
+
+#define i82sinhs2(in,size,out)		i8sinha(in, size[0]*size[1], out)
+
+#define u162sinhs2(in,size,out)		u16sinha(in, size[0]*size[1], out)
+
+#define i162sinhs2(in,size,out)		i16sinha(in, size[0]*size[1], out)
 
 #endif /* !__INT_SINH_H__ */

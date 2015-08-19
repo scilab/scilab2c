@@ -23,6 +23,14 @@
 
 #define z0signz0(in)			zsigns(in)
 
+#define u80signi80(in)			u8signs(in)
+
+#define i80signi80(in)			i8signs(in)
+
+#define u160signi160(in)		u16signs(in)
+
+#define i160signi160(in)		i16signs(in)
+
 #define s2signs2(in,size,out)		ssigna(in, size[0]*size[1], out)
 
 #define d2signd2(in,size,out)		dsigna(in, size[0]*size[1], out)
@@ -30,5 +38,13 @@
 #define c2signc2(in,size,out)		csigna(in, size[0]*size[1], out)
 
 #define z2signz2(in,size,out)		zsigna(in, size[0]*size[1], out)
+
+#define u82signi82(in,size,out)		u8signa(in, size[0]*size[1], out)
+
+#define i82signi82(in,size,out)		i8signa(in, size[0]*size[1], out)
+
+#define u162signi162(in,size,out)	u16signa(in, size[0]*size[1], out)
+
+#define i162signi162(in,size,out)	i16signa(in, size[0]*size[1], out)
 
 #endif /* !__INT_SIGN_H__ */

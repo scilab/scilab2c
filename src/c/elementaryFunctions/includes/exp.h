@@ -16,6 +16,7 @@
 #include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
+#include "types.h"
 
 
 #ifdef  __cplusplus
@@ -50,6 +51,30 @@ EXTERN_ELEMFUNCT floatComplex	cexps(floatComplex in);
 EXTERN_ELEMFUNCT doubleComplex	zexps(doubleComplex in);
 
 /*
+** \brief Uint8 Exponential function
+** \param in : input value.
+*/
+EXTERN_ELEMFUNCT float		u8exps(uint8 in);
+
+/*
+** \brief Int8 Exponential function
+** \param in : input value.
+*/
+EXTERN_ELEMFUNCT float		i8exps(int8 in);
+
+/*
+** \brief Uint16 Exponential function
+** \param in : input value.
+*/
+EXTERN_ELEMFUNCT float		u16exps(uint16 in);
+
+/*
+** \brief Int16 Exponential function
+** \param in : input value.
+*/
+EXTERN_ELEMFUNCT float		i16exps(int16 in);
+
+/*
 ** \brief Float Matrix Exponential function
 ** \param in : input array value.
 ** \param out : output array value.
@@ -80,6 +105,39 @@ EXTERN_ELEMFUNCT void		cexpa(floatComplex* in, int size, floatComplex* out);
 ** \param size : the size of in and out arrays.
 */
 EXTERN_ELEMFUNCT void		zexpa(doubleComplex* in, int size, doubleComplex* out);
+
+/*
+** \brief Uint8 Matrix Exponential function
+** \param in : input array value.
+** \param out : output array value.
+** \param size : the size of in and out arrays.
+*/
+EXTERN_ELEMFUNCT void		u8expa(uint8* in, int size, float* out);
+
+/*
+** \brief Int8 Matrix Exponential function
+** \param in : input array value.
+** \param out : output array value.
+** \param size : the size of in and out arrays.
+*/
+EXTERN_ELEMFUNCT void		i8expa(int8* in, int size, float* out);
+
+/*
+** \brief Uint16 Matrix Exponential function
+** \param in : input array value.
+** \param out : output array value.
+** \param size : the size of in and out arrays.
+*/
+EXTERN_ELEMFUNCT void		u16expa(uint16* in, int size, float* out);
+
+/*
+** \brief Int16 Matrix Exponential function
+** \param in : input array value.
+** \param out : output array value.
+** \param size : the size of in and out arrays.
+*/
+EXTERN_ELEMFUNCT void		i16expa(int16* in, int size, float* out);
+
 
 #ifdef  __cplusplus
 } /* extern "C" */

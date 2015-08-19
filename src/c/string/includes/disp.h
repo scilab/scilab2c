@@ -19,6 +19,7 @@
 #include "dynlib_string.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
+#include "types.h"
 
 #ifdef  __cplusplus
 extern "C" {
@@ -42,6 +43,27 @@ EXTERN_STRING double cdisps (floatComplex in);
 ** \brief display of a double complex
 */
 EXTERN_STRING double zdisps (doubleComplex in);
+
+/*
+** \brief display of a uint8 scalar 
+*/
+EXTERN_STRING double u8disps (uint8 in);
+
+/*
+** \brief display of a int8 scalar 
+*/
+EXTERN_STRING double i8disps (int8 in);
+
+/*
+** \brief display of a uint16 scalar 
+*/
+EXTERN_STRING double u16disps (uint16 in);
+
+/*
+** \brief display of a int16 scalar 
+*/
+EXTERN_STRING double i16disps (int16 in);
+
 
 /*
 ** \brief display of a float scalar array
@@ -71,7 +93,34 @@ EXTERN_STRING double cdispa (floatComplex* in, int rows, int columns);
 */
 EXTERN_STRING double zdispa (doubleComplex* in, int rows, int columns);
 
-    
+/*
+** \brief display of a uint8 scalar array
+** \param in the uint8 scalar array to display
+** \param size the size of the array
+*/
+EXTERN_STRING double u8dispa (uint8* in, int rows, int columns);
+
+/*
+** \brief display of a int8 scalar array
+** \param in the int8 scalar array to display
+** \param size the size of the array
+*/
+EXTERN_STRING double i8dispa (int8* in, int rows, int columns);
+
+/*
+** \brief display of a uint16 scalar array
+** \param in the uint16 scalar array to display
+** \param size the size of the array
+*/
+EXTERN_STRING double u16dispa (uint16* in, int rows, int columns);
+
+/*
+** \brief display of a int16 scalar array
+** \param in the int16 scalar array to display
+** \param size the size of the array
+*/
+EXTERN_STRING double i16dispa (int16* in, int rows, int columns);
+
 EXTERN_STRING double ddisph (double *in, int rows, int cols, int levels);
 
 EXTERN_STRING double g2dispd0(char *array,int* tmparraysize);

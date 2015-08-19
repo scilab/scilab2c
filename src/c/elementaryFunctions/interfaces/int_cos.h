@@ -23,6 +23,14 @@
 
 #define z0cosz0(in)			zcoss(in)
 
+#define u80coss0(in)			u8coss(in)
+
+#define i80coss0(in)			i8coss(in)
+
+#define u160coss0(in)			u16coss(in)
+
+#define i160coss0(in)			i16coss(in)
+
 #define s2coss2(in,size,out)		scosa(in, size[0]*size[1], out)
 
 #define d2cosd2(in,size,out)		dcosa(in, size[0]*size[1], out)
@@ -30,5 +38,13 @@
 #define c2cosc2(in,size,out)		ccosa(in, size[0]*size[1], out)
 
 #define z2cosz2(in,size,out)		zcosa(in, size[0]*size[1], out)
+
+#define u82coss2(in,size,out)		u8cosa(in, size[0]*size[1], out)
+
+#define i82coss2(in,size,out)		i8cosa(in, size[0]*size[1], out)
+
+#define u162coss2(in,size,out)		u16cosa(in, size[0]*size[1], out)
+
+#define i162coss2(in,size,out)		i16cosa(in, size[0]*size[1], out)
 
 #endif /* !__INT_COS_H__ */

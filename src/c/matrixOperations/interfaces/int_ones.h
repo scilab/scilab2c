@@ -20,7 +20,13 @@
 
 #define onesd0()			1
 
+#define onesu80()			(uint8)1
 
+#define onesi80()			(int8)1
+
+#define onesu160()			(uint16)1
+
+#define onesi160()			(int16)1
 
 #define s0oness0(in)			soness(in)
 
@@ -30,16 +36,37 @@
 
 #define z0onesz0(in)			zoness(in)
 
+#define u80onesu80(in)			u8oness(in)
+
+#define i80onesi80(in)			i8oness(in)
+
+#define u160onesu160(in)		u16oness(in)
+
+#define i160onesi160(in)		i16oness(in)
 
 #define s0s0oness0(in1,in2)			1.0f
 
 #define d0d0onesd0(in,in2)			1
 
+#define u80u80onesu80(in1,in2)			(uint8)1
+
+#define i80i80onesi80(in1,in2)			(int8)1
+
+#define u160u160onesu160(in1,in2)		(uint16)1
+
+#define i160i160onesi160(in1,in2)		(int16)1
 
 #define s0s0oness2(in1,in2,out)	sonesa(out, in1, in2)	
 
 #define d0d0onesd2(in1,in2,out)	donesa(out, in1, in2)					
 
+#define u80u80onesu82(in1,in2,out)	u8onesa(out, in1, in2)	
+
+#define i80i80onesi82(in1,in2,out)	i8onesa(out, in1, in2)	
+
+#define u160u160onesu82(in1,in2,out)	u16onesa(out, in1, in2)	
+
+#define i160i160onesi162(in1,in2,out)	i16onesa(out, in1, in2)	
 
 #define s2oness2(in,size,out)		sonesa(out, size[0], size[1])
 
@@ -49,5 +76,12 @@
 
 #define z2onesz2(in,size,out)		zonesa(out, size[0], size[1])
 
+#define u82onesu82(in,size,out)		u8onesa(out, size[0], size[1])
+
+#define i82onesi82(in,size,out)		i8onesa(out, size[0], size[1])
+
+#define u162onesu162(in,size,out)	u16onesa(out, size[0], size[1])
+
+#define i162onesi162(in,size,out)	i16onesa(out, size[0], size[1])
 
 #endif /* !__INT_ONES_H__ */

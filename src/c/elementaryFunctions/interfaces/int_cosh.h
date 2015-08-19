@@ -23,6 +23,14 @@
 
 #define z0coshz0(in)			zcoshs(in)
 
+#define u80coshs0(in)			u8coshs(in)
+
+#define i80coshs0(in)			i8coshs(in)
+
+#define u160coshs0(in)			u16coshs(in)
+
+#define i160coshs0(in)			i16coshs(in)
+
 #define s2coshs2(in,size,out)		scosha(in, size[0]*size[1], out)
 
 #define d2coshd2(in,size,out)		dcosha(in, size[0]*size[1], out)
@@ -30,5 +38,13 @@
 #define c2coshc2(in,size,out)		ccosha(in, size[0]*size[1], out)
 
 #define z2coshz2(in,size,out)		zcosha(in, size[0]*size[1], out)
+
+#define u82coshs2(in,size,out)		u8cosha(in, size[0]*size[1], out)
+
+#define i82coshs2(in,size,out)		i8cosha(in, size[0]*size[1], out)
+
+#define u162coshs2(in,size,out)		u16cosha(in, size[0]*size[1], out)
+
+#define i162coshs2(in,size,out)		i16cosha(in, size[0]*size[1], out)
 
 #endif /* !__INT_COSH_H__ */

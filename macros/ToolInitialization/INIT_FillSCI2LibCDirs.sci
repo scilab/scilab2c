@@ -191,19 +191,11 @@ PrintStringInfo('s0'+ArgSeparator+'c0',ClassFileName,'file','y');
 PrintStringInfo('d0'+ArgSeparator+'c0',ClassFileName,'file','y');
 PrintStringInfo('c0'+ArgSeparator+'c0',ClassFileName,'file','y');
 PrintStringInfo('z0'+ArgSeparator+'c0',ClassFileName,'file','y');
-PrintStringInfo('u80'+ArgSeparator+'c0',ClassFileName,'file','y');
-PrintStringInfo('i80'+ArgSeparator+'c0',ClassFileName,'file','y');
-PrintStringInfo('u160'+ArgSeparator+'c0',ClassFileName,'file','y');
-PrintStringInfo('i160'+ArgSeparator+'c0',ClassFileName,'file','y');
 
 PrintStringInfo('s2'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('d2'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('c2'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('z2'+ArgSeparator+'c2',ClassFileName,'file','y');
-PrintStringInfo('u82'+ArgSeparator+'c2',ClassFileName,'file','y');
-PrintStringInfo('i82'+ArgSeparator+'c2',ClassFileName,'file','y');
-PrintStringInfo('u162'+ArgSeparator+'c2',ClassFileName,'file','y');
-PrintStringInfo('i162'+ArgSeparator+'c2',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'floatcomplex';
@@ -234,19 +226,12 @@ PrintStringInfo('s0'+ArgSeparator+'z0',ClassFileName,'file','y');
 PrintStringInfo('d0'+ArgSeparator+'z0',ClassFileName,'file','y');
 PrintStringInfo('c0'+ArgSeparator+'z0',ClassFileName,'file','y');
 PrintStringInfo('z0'+ArgSeparator+'z0',ClassFileName,'file','y');
-PrintStringInfo('u80'+ArgSeparator+'z0',ClassFileName,'file','y');
-PrintStringInfo('i80'+ArgSeparator+'z0',ClassFileName,'file','y');
-PrintStringInfo('u160'+ArgSeparator+'z0',ClassFileName,'file','y');
-PrintStringInfo('i160'+ArgSeparator+'z0',ClassFileName,'file','y');
 
 PrintStringInfo('s2'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('d2'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('c2'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('z2'+ArgSeparator+'z2',ClassFileName,'file','y');
-PrintStringInfo('u82'+ArgSeparator+'z2',ClassFileName,'file','y');
-PrintStringInfo('i82'+ArgSeparator+'z2',ClassFileName,'file','y');
-PrintStringInfo('u162'+ArgSeparator+'z2',ClassFileName,'file','y');
-PrintStringInfo('i162'+ArgSeparator+'z2',ClassFileName,'file','y');
+
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'doublecomplex';
@@ -422,7 +407,7 @@ PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
 ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
 PrintStringInfo('NIN=          1',ClassFileName,'file','y');
 PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
-PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    FA_TP_USER',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
 
@@ -432,19 +417,19 @@ PrintStringInfo('s0'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('d0'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('c0'+ArgSeparator+'c0',ClassFileName,'file','y');
 PrintStringInfo('z0'+ArgSeparator+'z0',ClassFileName,'file','y');
-PrintStringInfo('u80'+ArgSeparator+'u80',ClassFileName,'file','y');
-PrintStringInfo('i80'+ArgSeparator+'i80',ClassFileName,'file','y');
-PrintStringInfo('u160'+ArgSeparator+'u160',ClassFileName,'file','y');
-PrintStringInfo('i160'+ArgSeparator+'i160',ClassFileName,'file','y');
+PrintStringInfo('u80'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('i80'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('u160'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('i160'+ArgSeparator+'s0',ClassFileName,'file','y');
 
 PrintStringInfo('s2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('c2'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('z2'+ArgSeparator+'z2',ClassFileName,'file','y');
-PrintStringInfo('u82'+ArgSeparator+'u82',ClassFileName,'file','y');
-PrintStringInfo('i82'+ArgSeparator+'i82',ClassFileName,'file','y');
-PrintStringInfo('u162'+ArgSeparator+'u162',ClassFileName,'file','y');
-PrintStringInfo('i162'+ArgSeparator+'i162',ClassFileName,'file','y');
+PrintStringInfo('u82'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('i82'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('u162'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('i162'+ArgSeparator+'s2',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'sin'; //BJ : Done AS : Float_Done
@@ -523,17 +508,7 @@ PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file',
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
-FunctionName = 'OpLogNot'; //BJ : Done AS : Float_Done
-PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
-INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
-INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
-
 FunctionName = 'SCI2Cresize';
-PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
-INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
-INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
-
-FunctionName = 'sign'; //BJ : Done AS : Float_Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
@@ -542,6 +517,81 @@ FunctionName = 'chol'; //BJ : Done AS : Float_Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+// ------------------
+// --- Class OpLogNot
+// ------------------
+ClassName = 'OpLogNot';
+
+// --- Class Annotation. ---
+PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
+ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
+PrintStringInfo('NIN=          1',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+
+// --- Function List Class. ---
+ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+PrintStringInfo('s0'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('d0'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('c0'+ArgSeparator+'c0',ClassFileName,'file','y');
+PrintStringInfo('z0'+ArgSeparator+'z0',ClassFileName,'file','y');
+PrintStringInfo('u80'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('i80'+ArgSeparator+'i80',ClassFileName,'file','y');
+PrintStringInfo('u160'+ArgSeparator+'u160',ClassFileName,'file','y');
+PrintStringInfo('i160'+ArgSeparator+'i160',ClassFileName,'file','y');
+
+PrintStringInfo('s2'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('d2'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('c2'+ArgSeparator+'c2',ClassFileName,'file','y');
+PrintStringInfo('z2'+ArgSeparator+'z2',ClassFileName,'file','y');
+PrintStringInfo('u82'+ArgSeparator+'u82',ClassFileName,'file','y');
+PrintStringInfo('i82'+ArgSeparator+'i82',ClassFileName,'file','y');
+PrintStringInfo('u162'+ArgSeparator+'u162',ClassFileName,'file','y');
+PrintStringInfo('i162'+ArgSeparator+'i162',ClassFileName,'file','y');
+
+FunctionName = 'OpLogNot'; //BJ : Done AS : Float_Done
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+
+// ------------------
+// --- Class Sign ---
+// ------------------
+ClassName = 'Sign';
+
+// --- Class Annotation. ---
+PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
+ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
+PrintStringInfo('NIN=          1',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    FA_TP_USER',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+
+// --- Function List Class. ---
+ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+PrintStringInfo('s0'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('d0'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('c0'+ArgSeparator+'c0',ClassFileName,'file','y');
+PrintStringInfo('z0'+ArgSeparator+'z0',ClassFileName,'file','y');
+PrintStringInfo('u80'+ArgSeparator+'i80',ClassFileName,'file','y');
+PrintStringInfo('i80'+ArgSeparator+'i80',ClassFileName,'file','y');
+PrintStringInfo('u160'+ArgSeparator+'i160',ClassFileName,'file','y');
+PrintStringInfo('i160'+ArgSeparator+'i160',ClassFileName,'file','y');
+
+PrintStringInfo('s2'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('d2'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('c2'+ArgSeparator+'c2',ClassFileName,'file','y');
+PrintStringInfo('z2'+ArgSeparator+'z2',ClassFileName,'file','y');
+PrintStringInfo('u82'+ArgSeparator+'i82',ClassFileName,'file','y');
+PrintStringInfo('i82'+ArgSeparator+'i82',ClassFileName,'file','y');
+PrintStringInfo('u162'+ArgSeparator+'i162',ClassFileName,'file','y');
+PrintStringInfo('i162'+ArgSeparator+'i162',ClassFileName,'file','y');
+
 
 // -------------------
 // --- Class Atan. ---
@@ -569,19 +619,19 @@ PrintStringInfo('s0'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('d0'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('c0'+ArgSeparator+'c0',ClassFileName,'file','y');
 PrintStringInfo('z0'+ArgSeparator+'z0',ClassFileName,'file','y');
-PrintStringInfo('u80'+ArgSeparator+'u80',ClassFileName,'file','y');
-PrintStringInfo('i80'+ArgSeparator+'i80',ClassFileName,'file','y');
-PrintStringInfo('u160'+ArgSeparator+'u160',ClassFileName,'file','y');
-PrintStringInfo('i160'+ArgSeparator+'i160',ClassFileName,'file','y');
+PrintStringInfo('u80'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('i80'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('u160'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('i160'+ArgSeparator+'s0',ClassFileName,'file','y');
 
 PrintStringInfo('s2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('c2'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('z2'+ArgSeparator+'z2',ClassFileName,'file','y');
-PrintStringInfo('u82'+ArgSeparator+'u82',ClassFileName,'file','y');
-PrintStringInfo('i82'+ArgSeparator+'i82',ClassFileName,'file','y');
-PrintStringInfo('u162'+ArgSeparator+'u162',ClassFileName,'file','y');
-PrintStringInfo('i162'+ArgSeparator+'i162',ClassFileName,'file','y');
+PrintStringInfo('u82'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('i82'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('u162'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('i162'+ArgSeparator+'s2',ClassFileName,'file','y');
 
 PrintStringInfo('s0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('d0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
@@ -591,6 +641,11 @@ PrintStringInfo('s2s2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d2d2'+ArgSeparator+'d2',ClassFileName,'file','y');
 // PrintStringInfo('c2c2'+ArgSeparator+'c2',ClassFileName,'file','y');
 // PrintStringInfo('z2z2'+ArgSeparator+'z2',ClassFileName,'file','y');
+PrintStringInfo('u82u82'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('i82i82'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('u162u162'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('i162i162'+ArgSeparator+'s2',ClassFileName,'file','y');
+
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'atan'; //BJ : atan AS : Float_Done
@@ -623,11 +678,11 @@ PrintStringInfo('d0'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('d0'+ArgSeparator+'z0',ClassFileName,'file','y');
 PrintStringInfo('c0'+ArgSeparator+'c0',ClassFileName,'file','y');
 PrintStringInfo('z0'+ArgSeparator+'z0',ClassFileName,'file','y');
-PrintStringInfo('u80'+ArgSeparator+'u80',ClassFileName,'file','y');
-PrintStringInfo('i80'+ArgSeparator+'i80',ClassFileName,'file','y');
+PrintStringInfo('u80'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('i80'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('i80'+ArgSeparator+'c0',ClassFileName,'file','y');
-PrintStringInfo('u160'+ArgSeparator+'u160',ClassFileName,'file','y');
-PrintStringInfo('i160'+ArgSeparator+'i160',ClassFileName,'file','y');
+PrintStringInfo('u160'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('i160'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('i160'+ArgSeparator+'c0',ClassFileName,'file','y');
 
 PrintStringInfo('s2'+ArgSeparator+'s2',ClassFileName,'file','y');
@@ -636,11 +691,11 @@ PrintStringInfo('d2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('d2'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('c2'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('z2'+ArgSeparator+'z2',ClassFileName,'file','y');
-PrintStringInfo('u82'+ArgSeparator+'u82',ClassFileName,'file','y');
-PrintStringInfo('i82'+ArgSeparator+'i82',ClassFileName,'file','y');
+PrintStringInfo('u82'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('i82'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('i82'+ArgSeparator+'c2',ClassFileName,'file','y');
-PrintStringInfo('u162'+ArgSeparator+'u162',ClassFileName,'file','y');
-PrintStringInfo('i162'+ArgSeparator+'i162',ClassFileName,'file','y');
+PrintStringInfo('u162'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('i162'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('i162'+ArgSeparator+'c2',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
@@ -775,7 +830,7 @@ PrintStringInfo('i80i80'+ArgSeparator+'i82',ClassFileName,'file','y');
 PrintStringInfo('u160u160'+ArgSeparator+'u160',ClassFileName,'file','y');
 PrintStringInfo('u160u160'+ArgSeparator+'u162',ClassFileName,'file','y');
 PrintStringInfo('i160i160'+ArgSeparator+'i160',ClassFileName,'file','y');
-PrintStringInfo('i160i160'+ArgSeparator+'i12',ClassFileName,'file','y');
+PrintStringInfo('i160i160'+ArgSeparator+'i162',ClassFileName,'file','y');
 
 PrintStringInfo('d0d0d0'+ArgSeparator+'d3',ClassFileName,'file','y');
 
@@ -2550,12 +2605,20 @@ PrintStringInfo('d0'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('c0'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('z0'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('g0'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('u80'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('i80'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('u160'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('i160'+ArgSeparator+'d0',ClassFileName,'file','y');
 
 PrintStringInfo('s2'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('d2'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('c2'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('z2'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('g2'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('u82'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('i82'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('u162'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('i162'+ArgSeparator+'d0',ClassFileName,'file','y');
 
 PrintStringInfo('d3'+ArgSeparator+'d0',ClassFileName,'file','y');
 
@@ -2564,6 +2627,47 @@ FunctionName = 'disp'; // AS : Done  AS : Float_Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+// -------------------
+// --- Class String ---
+// -------------------
+ClassName = 'String';
+
+// --- Class Annotation. ---
+PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
+ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
+PrintStringInfo('NIN=          1',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         0',ClassFileName,'file','y');
+
+// --- Function List Class. ---
+ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+PrintStringInfo('s0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('d0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('c0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('z0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('g0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('u80'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('i80'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('u160'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('i160'+ArgSeparator,ClassFileName,'file','y');
+
+PrintStringInfo('s2'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('d2'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('c2'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('z2'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('g2'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('u82'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('i82'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('u162'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('i162'+ArgSeparator,ClassFileName,'file','y');
+
+
+// --- Annotation Function And Function List Function. ---
+FunctionName = 'string'; // AS : Done  AS : Float_Done
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
 
 // ----------------------
 // --- Class OpEqual. ---
