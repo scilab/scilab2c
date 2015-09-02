@@ -64,7 +64,7 @@
 
 #define i80i80onesi82(in1,in2,out)	i8onesa(out, in1, in2)	
 
-#define u160u160onesu82(in1,in2,out)	u16onesa(out, in1, in2)	
+#define u160u160onesu162(in1,in2,out)	u16onesa(out, in1, in2)	
 
 #define i160i160onesi162(in1,in2,out)	i16onesa(out, in1, in2)	
 

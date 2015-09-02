@@ -23,6 +23,14 @@
 
 #define z0fixz0(in)			zfixs(in)
 
+#define u80fixu80(in)			u8fixs(in)
+
+#define i80fixi80(in)			i8fixs(in)
+
+#define u160fixu160(in)			u16fixs(in)
+
+#define i160fixi160(in)			i16fixs(in)
+
 #define s2fixs2(in,size,out)		sfixa(in, size[0]*size[1], out)
 
 #define d2fixd2(in,size,out)		dfixa(in, size[0]*size[1], out)
@@ -30,5 +38,13 @@
 #define c2fixc2(in,size,out)		cfixa(in, size[0]*size[1], out)
 
 #define z2fixz2(in,size,out)		zfixa(in, size[0]*size[1], out)
+
+#define u82fixu82(in,size,out)		u8fixa(in, size[0]*size[1], out)
+
+#define i82fixi82(in,size,out)		i8fixa(in, size[0]*size[1], out)
+
+#define u162fixu162(in,size,out)	u16fixa(in, size[0]*size[1], out)
+
+#define i162fixi162(in,size,out)	i16fixa(in, size[0]*size[1], out)
 
 #endif /* !__INT_FIX_H__ */

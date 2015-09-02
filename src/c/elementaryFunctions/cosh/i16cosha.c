@@ -1,6 +1,6 @@
 /*
  *  Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
- *  Copyright (C) 2008-2008 - INRIA - Bruno JOFRET
+ *  Copyright (C) 2006-2008 - INRIA - Bruno JOFRET
  *
  *  This file must be used under the terms of the CeCILL.
  *  This source file is licensed as described in the file COPYING, which
@@ -10,17 +10,11 @@
  *
  */
 
-/*
-//         cosh(z) = 0.5 (exp(|z|) + exp(-|z|))
-//                 = 0.5 ( y + 1/y ) with y = exp(|z|)
-*/
-
-#include <math.h>
 #include "cosh.h"
-#include "exp.h"
-#include "abs.h"
 
-float		i16coshs(int16 x) {
-  float y = i16exps(i16abss(x));
-  return (0.5f * (y + 1.0f / y));
+void i16cosha(int16* x, int size, int16* y) {
+  int i = 0;
+  for (i = 0; i < size; ++i) {
+    y[i] = i16coshs(x[i]);
+  }
 }

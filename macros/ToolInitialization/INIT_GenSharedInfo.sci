@@ -1,4 +1,4 @@
-function SharedInfo = INIT_GenSharedInfo(RunMode,UserScilabMainFile,TotTempScalarVars,EnableTempVarsReuse,Sci2CLibMainHeaderFName,CopySciCodeIntoCCode)
+function SharedInfo = INIT_GenSharedInfo(RunMode,UserScilabMainFile,TotTempScalarVars,EnableTempVarsReuse,Sci2CLibMainHeaderFName,CopySciCodeIntoCCode,OutputFormat)
 // function SharedInfo = INIT_GenSharedInfo(WorkingDir,OutCCCodeDir,UserSciFilesPaths,...
 //    RunMode,UserScilabMainFile,TotTempScalarVars,EnableTempVarsReuse,Sci2CLibMainHeaderFName)
 // -----------------------------------------------------------------
@@ -115,4 +115,10 @@ SharedInfo.Extension.FuncListClasses     = '.lcls';  // Stands for list class
 // --- Resize Approach. ---
 // ------------------------
 SharedInfo.ResizeApproach = 'NO_RESIZE'; // 'NO_RESIZE', 'RESIZE_ALL', 'RESIZE_TEMP', 'RESIZE_LOCAL', 'RESIZE_GLOBAL', 'REALLOC_ALL_RESIZE_ALL'
+
+//-------------------------
+//--- Output format -------
+//-------------------------
+SharedInfo.OutputFormat = OutputFormat;
+
 endfunction

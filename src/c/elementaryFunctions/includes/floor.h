@@ -16,6 +16,7 @@
 #include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
+#include "types.h"
 
 #ifdef  __cplusplus
 extern "C" {
@@ -32,6 +33,14 @@ EXTERN_ELEMFUNCT floatComplex cfloors(floatComplex in);
 
 EXTERN_ELEMFUNCT doubleComplex zfloors(doubleComplex in);
 
+EXTERN_ELEMFUNCT uint8	u8floors(uint8 in);
+
+EXTERN_ELEMFUNCT int8	i8floors(int8 in);
+
+EXTERN_ELEMFUNCT uint16	u16floors(uint16 in);
+
+EXTERN_ELEMFUNCT int16	i16floors(int16 in);
+
 EXTERN_ELEMFUNCT void	sfloora(float* in, int size, float* out);
 
 EXTERN_ELEMFUNCT void	dfloora(double* in, int size, double* out);
@@ -39,6 +48,14 @@ EXTERN_ELEMFUNCT void	dfloora(double* in, int size, double* out);
 EXTERN_ELEMFUNCT void	cfloora(floatComplex* in, int size, floatComplex* out);
 
 EXTERN_ELEMFUNCT void	zfloora(doubleComplex* in, int size, doubleComplex* out);
+
+EXTERN_ELEMFUNCT void	u8floora(uint8* in, int size, uint8* out);
+
+EXTERN_ELEMFUNCT void	i8floora(int8* in, int size, int8* out);
+
+EXTERN_ELEMFUNCT void	u16floora(uint16* in, int size, uint16* out);
+
+EXTERN_ELEMFUNCT void	i16floora(int16* in, int size, int16* out);
 
 #ifdef  __cplusplus
 } /* extern "C" */

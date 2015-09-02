@@ -1,4 +1,4 @@
-function runsci2c(UserScilabMainFile, UserSciFilesPaths, SCI2COutputPath, Runmode, BuildTool)
+function runsci2c(UserScilabMainFile, UserSciFilesPaths, SCI2COutputPath, Runmode, BuildTool, OutputFormat)
 // function runsci2c(SCI2CInputPrmFile)
 // -----------------------------------------------------------------
 // ===         hArtes/PoliBa/GAP SCI2C tool                      ===
@@ -51,7 +51,7 @@ disp(RunSci2CMainDir);
 
 // --- Initialize the SCI2C tool directories and files. ---
 [FileInfoDatFile,SharedInfoDatFile] = INIT_SCI2C(UserScilabMainFile, ...
-						 UserSciFilesPaths, SCI2COutputPath, RunMode);
+						 UserSciFilesPaths, SCI2COutputPath, RunMode, OutputFormat);
 
 // -- Load FileInfo and SharedInfo
 load(SharedInfoDatFile,'SharedInfo');
