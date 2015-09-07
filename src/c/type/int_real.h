@@ -23,6 +23,14 @@
 
 #define z0reald0(in)			zreals(in)
 
+#define u80realu80(in)			in
+
+#define i80reali80(in)			in
+
+#define u160realu160(in)		in
+
+#define i160reali160(in)		in
+
 #define s2reals2(in,size,out)		{int i;\
 						for (i=0;i<size[0]*size[1];i++) out[i]=in[i];\
 						}
@@ -34,5 +42,20 @@
 #define c2reals2(in,size,out)		creala(in, size[0]*size[1],out)
 
 #define z2reald2(in,size,out)		zreala(in, size[0]*size[1],out)
+
+#define u82realu82(in,size,out)		{int i;\
+						for (i=0;i<size[0]*size[1];i++) out[i]=in[i];\
+						}
+
+#define i82reali82(in,size,out)		{int i;\
+						for (i=0;i<size[0]*size[1];i++) out[i]=in[i];\
+						}
+#define u162realu162(in,size,out)	{int i;\
+						for (i=0;i<size[0]*size[1];i++) out[i]=in[i];\
+						}
+
+#define i162reali162(in,size,out)	{int i;\
+						for (i=0;i<size[0]*size[1];i++) out[i]=in[i];\
+						}
 
 #endif /* !__INT_REAL_H__ */

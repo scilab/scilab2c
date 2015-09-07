@@ -22,6 +22,10 @@
 #define d0d0OpLogNed0(in1,in2)	 (double)  !(in1 == in2)
 #define c0c0OpLogNes0(in1,in2) 	 (float)  !((creals(in1) == creals(in2)) && (cimags(in1) == cimags(in2)))
 #define z0z0OpLogNed0(in1,in2) 	 (double)  !((zreals(in1) == zreals(in2)) && (zimags(in1) == zimags(in2)))
+#define u80u80OpLogNeu80(in1,in2)	 (uint8)  !(in1 == in2)
+#define i80i80OpLogNei80(in1,in2)	 (int8)  !(in1 == in2)
+#define u160u160OpLogNeu160(in1,in2)	 (uint16)  !(in1 == in2)
+#define i160i160OpLogNei160(in1,in2)	 (int16)  !(in1 == in2)
 
 #define s0c0OpLogNes0(in1,in2)	(float) !((in1==creals(in2)) && (0==cimags(in2)))
 #define d0z0OpLogNed0(in1,in2)	(double) !((in1==zreals(in2)) && (0==zimags(in2)))
@@ -55,7 +59,21 @@
 								for (i=0;i<size[0]*size[1];i++) out[i]=(double)!((in1[i]==zreals(in2))&&(zimags(in2)==0));\
 								}
 
+#define u82u80OpLogNeu82(in1,size,in2,out) 	{int i;\
+							for (i=0;i<size[0]*size[1];i++) out[i]=(uint8)!(in1[i]==in2);\
+							}
 
+#define i82i80OpLogNei82(in1,size,in2,out) 	{int i;\
+							for (i=0;i<size[0]*size[1];i++) out[i]=(int8)!(in1[i]==in2);\
+							}
+
+#define u162u160OpLogNeu162(in1,size,in2,out) 	{int i;\
+							for (i=0;i<size[0]*size[1];i++) out[i]=(uint16)!(in1[i]==in2);\
+							}
+
+#define i162i160OpLogNei162(in1,size,in2,out) 	{int i;\
+							for (i=0;i<size[0]*size[1];i++) out[i]=(int16)!(in1[i]==in2);\
+							}
 
 #define  s0s2OpLogNes2(in1,in2,inSize,out) 	s2s0OpLogNes2(in2,inSize,in1,out)
 #define  c0s2OpLogNes2(in1,in2,inSize,out)  	s2c0OpLogNes2(in2,inSize,in1,out)
@@ -65,6 +83,10 @@
 #define  c0c2OpLogNes2(in1,in2,inSize,out)  	c2c0OpLogNes2(in2,inSize,in1,out)
 #define  d0z2OpLogNed2(in1,in2,inSize,out)  	z2d0OpLogNed2(in2,inSize,in1,out)
 #define  z0z2OpLogNed2(in1,in2,inSize,out) 	z2z0OpLogNed2(in2,inSize,in1,out)
+#define  u80u82OpLogNeu82(in1,in2,inSize,out) 	u82u80OpLogNeu82(in2,inSize,in1,out)
+#define  i80i82OpLogNei82(in1,in2,inSize,out) 	i82i80OpLogNei82(in2,inSize,in1,out)
+#define  u160u162OpLogNeu162(in1,in2,inSize,out) 	u162u160OpLogNeu162(in2,inSize,in1,out)
+#define  i160i162OpLogNei162(in1,in2,inSize,out) 	i162i160OpLogNei162(in2,inSize,in1,out)
 
 /* we must have size1=size2 */
 
@@ -94,5 +116,21 @@
 					
 #define  c2s2OpLogNes2(in1,size1,in2,size2,out)		s2c2OpLogNes2(in2,size2,in1,size1,out)	
 #define  z2d2OpLogNed2(in1,size1,in2,size2,out)		d2z2OpLogNed2(in2,size2,in1,size1,out)
+
+#define  u82u82OpLogNeu82(in1,size1,in2,size2,out)	{int i;\
+								for (i=0;i<size1[0]*size2[1];i++)	out[i]=(uint8)!(in1[i]==in2[i]);\
+								}
+
+#define  i82i82OpLogNei82(in1,size1,in2,size2,out)	{int i;\
+								for (i=0;i<size1[0]*size2[1];i++)	out[i]=(int8)!(in1[i]==in2[i]);\
+								}
+
+#define  u162u162OpLogNeu162(in1,size1,in2,size2,out)	{int i;\
+								for (i=0;i<size1[0]*size2[1];i++)	out[i]=(uint16)!(in1[i]==in2[i]);\
+								}
+
+#define  i162i162OpLogNei162(in1,size1,in2,size2,out)	{int i;\
+								for (i=0;i<size1[0]*size2[1];i++)	out[i]=(int16)!(in1[i]==in2[i]);\
+								}
 
 #endif /* !__OPLOGNE_H__ */

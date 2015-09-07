@@ -23,6 +23,14 @@
 
 #define z0roundz0(in)			zrounds(in)
 
+#define u80roundu80(in)			u8rounds(in)
+
+#define i80roundi80(in)			i8rounds(in)
+
+#define u160roundu160(in)		u16rounds(in)
+
+#define i160roundi160(in)		i16rounds(in)
+
 #define s2rounds2(in,size,out)		srounda(in, size[0]*size[1], out)
 
 #define d2roundd2(in,size,out)		drounda(in, size[0]*size[1], out)
@@ -30,5 +38,13 @@
 #define c2roundc2(in,size,out)		crounda(in, size[0]*size[1], out)
 
 #define z2roundz2(in,size,out)		zrounda(in, size[0]*size[1], out)
+
+#define u82roundu82(in,size,out)	u8rounda(in, size[0]*size[1], out)
+
+#define i82roundi82(in,size,out)	i8rounda(in, size[0]*size[1], out)
+
+#define u162roundu162(in,size,out)	u16rounda(in, size[0]*size[1], out)
+
+#define i162roundi162(in,size,out)	i16rounda(in, size[0]*size[1], out)
 
 #endif /* !__INT_ROUND_H__ */

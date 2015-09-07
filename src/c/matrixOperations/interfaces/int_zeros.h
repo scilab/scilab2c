@@ -61,13 +61,13 @@
 
 #define d0d0zerosd2(in1,in2,out)		dzerosa(out, in1, in2)					
 
-#define u80u80zeross2(in1,in2,out)		u80zerosa(out, in1, in2)	
+#define u80u80zerosu82(in1,in2,out)		u8zerosa(out, in1, in2)	
 
-#define i80i80zeross2(in1,in2,out)		i80zerosa(out, in1, in2)	
+#define i80i80zerosi82(in1,in2,out)		i8zerosa(out, in1, in2)	
 
-#define u160u160zeross2(in1,in2,out)		u160zerosa(out, in1, in2)	
+#define u160u160zerosu162(in1,in2,out)		u16zerosa(out, in1, in2)	
 
-#define i160i160zeross2(in1,in2,out)		i160zerosa(out, in1, in2)	
+#define i160i160zerosi162(in1,in2,out)		i16zerosa(out, in1, in2)	
 
 #define s2zeross2(in,size,out)		szerosa(out, size[0], size[1])
 

@@ -124,5 +124,10 @@ function allHeaders = getAllHeaders()
       "src/c/signalProcessing/includes/dynlib_signalprocessing.h"
       "src/c/signalProcessing/includes/crossCorr.h"
       "src/c/implicitList/dynlib_implicitlist.h"
-      "src/c/implicitList/implicitList.h"];
+      "src/c/implicitList/implicitList.h"
+      "src/c/scilab-arduino/includes/cmd_digital_out.h"
+      "src/c/scilab-arduino/includes/cmd_digital_in.h"
+      "src/c/scilab-arduino/includes/cmd_analog_out.h"
+      "src/c/scilab-arduino/includes/cmd_analog_in.h"
+      "src/c/scilab-arduino/includes/sleep.h"];
 endfunction

@@ -112,7 +112,7 @@ EXTERN_ELEMFUNCT void		zcosha(doubleComplex* in, int size, doubleComplex* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-EXTERN_ELEMFUNCT void		u8cosha(uint8* in, int size, float* out);
+EXTERN_ELEMFUNCT void		u8cosha(uint8* in, int size, uint8* out);
 
 /*
 ** \brief Int8 Matrix Cosine function
@@ -120,7 +120,7 @@ EXTERN_ELEMFUNCT void		u8cosha(uint8* in, int size, float* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-EXTERN_ELEMFUNCT void		i8cosha(int8* in, int size, float* out);
+EXTERN_ELEMFUNCT void		i8cosha(int8* in, int size, int8* out);
 
 /*
 ** \brief Uint16 Matrix Cosine function
@@ -128,7 +128,7 @@ EXTERN_ELEMFUNCT void		i8cosha(int8* in, int size, float* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-EXTERN_ELEMFUNCT void		u16cosha(uint16* in, int size, float* out);
+EXTERN_ELEMFUNCT void		u16cosha(uint16* in, int size, uint16* out);
 
 /*
 ** \brief Int16 Matrix Cosine function
@@ -136,7 +136,7 @@ EXTERN_ELEMFUNCT void		u16cosha(uint16* in, int size, float* out);
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-EXTERN_ELEMFUNCT void		i16cosha(int16* in, int size, float* out);
+EXTERN_ELEMFUNCT void		i16cosha(int16* in, int size, int16* out);
 
 
 #ifdef  __cplusplus

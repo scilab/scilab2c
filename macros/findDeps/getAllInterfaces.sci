@@ -118,5 +118,10 @@ function allInterfaces = getAllInterfaces()
       "src/c/signalProcessing/interfaces/int_fftshift.h"
       "src/c/signalProcessing/interfaces/int_fft.h"
       "src/c/signalProcessing/interfaces/int_lev.h"
-      "src/c/implicitList/int_OpColon.h"];
+      "src/c/implicitList/int_OpColon.h"
+      "src/c/scilab-arduino/interfaces/int_cmd_digital_out.h"
+      "src/c/scilab-arduino/interfaces/int_cmd_digital_in.h"
+      "src/c/scilab-arduino/interfaces/int_cmd_analog_out.h"
+      "src/c/scilab-arduino/interfaces/int_analog_in.h"
+      "src/c/scilab-arduino/interfaces/int_sleep.h"];
 endfunction
