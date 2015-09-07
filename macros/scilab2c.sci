@@ -34,8 +34,7 @@ function scilab2c(varargin)
     CCodeOutputDir = varargin(2);
     UserSciFilesPaths = [];
     RunMode = 'All';
-    BuildTool = getNativeBuildTool();
-    OutputFormat = 'StandAlone';
+	BuildTool = getNativeBuildTool();
     //
 // scilab2c(UserScilabMainFile, CCodeOutputDir, UserSciFilesPaths)
 //
@@ -54,8 +53,7 @@ function scilab2c(varargin)
       UserSciFilesPaths = varargin(3);
     end
     RunMode = "All";
-    BuildTool = getNativeBuildTool();
-    OutputFormat = 'StandAlone';
+	BuildTool = getNativeBuildTool();
 	//
 // scilab2c(UserScilabMainFile, CCodeOutputDir, UserSciFilesPaths, RunMode)
 //
@@ -78,9 +76,7 @@ function scilab2c(varargin)
       UserSciFilesPaths = varargin(3);
     end
     RunMode = varargin(4);
-    BuildTool = getNativeBuildTool();
-    OutputFormat = 'StandAlone';
-
+	BuildTool = getNativeBuildTool();
    case 5
 	for i = 1:4
       if typeof(varargin(i)) <> "string"
@@ -104,34 +100,7 @@ function scilab2c(varargin)
       UserSciFilesPaths = varargin(3);
     end
     RunMode = varargin(4);
-    BuildTool = varargin(5);
-    OutputFormat = 'StandAlone';
-
-   case 6
-	for i = 1:4
-      if typeof(varargin(i)) <> "string"
-		error(msprintf(gettext("%s: Wrong type for input argument #%d: String expected.\n"),"scilab2c",i));
-		return
-      end
-    end
-    if varargin(4) <> "All" & varargin(4) <> "Translate" & varargin(4) <> "GenLibraryStructure"
-	  error(msprintf(gettext("%s: argument #%d must be: ""All"", ""Translate"" or ""GenLibraryStructure"".\n"),"scilab2c",4));
-      return
-    end
-	if varargin(5) <> "make" & varargin(5) <> "nmake"
-	  error(msprintf(gettext("%s: argument #%d must be: ""make"" or ""nmake"".\n"),"scilab2c",5));
-      return
-    end
-	UserScilabMainFile = varargin(1);
-    CCodeOutputDir = varargin(2);
-    if varargin(3) == ""
-      UserSciFilesPaths = [];
-    else
-      UserSciFilesPaths = varargin(3);
-    end
-    RunMode = varargin(4);
-    BuildTool = varargin(5);
-    OutputFormat = varargin(6);
+	BuildTool = varargin(5);
   else
 //
 // Calling scilab2c with more than understood values
@@ -152,7 +121,7 @@ error(msprintf(gettext("%s: Wrong number of input argument(s): %d expected.\n"),
   end
   if (userchoice == 1)
 // --- LAUNCH SCI2C ---
-	runsci2c(UserScilabMainFile, UserSciFilesPaths, CCodeOutputDir, RunMode, BuildTool, OutputFormat);
+	runsci2c(UserScilabMainFile, UserSciFilesPaths, CCodeOutputDir, RunMode, BuildTool);
   end
 
 endfunction
