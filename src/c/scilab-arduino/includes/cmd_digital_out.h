@@ -20,7 +20,7 @@
 extern "C" {
 #endif
 	
-void u8cmd_digital_ins(uint8 board_no, uint8 pin, uint8 value);
+uint8 u8cmd_digital_outs(uint8 board_no, uint8 pin, uint8 value);
 
 #ifdef  __cplusplus
 } /* extern "C" */

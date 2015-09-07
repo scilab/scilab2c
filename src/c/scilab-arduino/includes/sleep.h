@@ -9,12 +9,21 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
+ 
+ 
+#ifndef __SLEEP_H__
+#define __SLEEP_H__
+ 
+#include "types.h"
 
-#include "cmd_digital_out.h"
+#ifdef  __cplusplus
+extern "C" {
+#endif
+	
+uint8 u16sleeps(uint16 delay_ms);
 
-uint8 u8cmd_digital_outs(uint8 board_no, uint8 pin, uint8 value)
-{
-    digitalWrite(pin,value);
-    return 0;
-}
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
 
+#endif /* __CMD_DIGITAL_OUT_H__ */

@@ -10,11 +10,11 @@
  *
  */
 
-#include "cmd_digital_out.h"
+#include "sleep.h"
 
-uint8 u8cmd_digital_outs(uint8 board_no, uint8 pin, uint8 value)
+uint8 u16sleeps(uint16 delay_ms)
 {
-    digitalWrite(pin,value);
+    delay(delay_ms);
     return 0;
 }
 

@@ -329,4 +329,8 @@
 
 #include "types.h"
 
+/*Scilab-arduino toolbox*/
+#include "int_cmd_digital_out.h"
+#include "cmd_digital_out.h"
+
 #endif /* !__SCI2CLIB_H__ */

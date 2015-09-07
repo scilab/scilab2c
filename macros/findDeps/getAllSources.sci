@@ -815,5 +815,9 @@ function allSources = getAllSources()
       "src/c/implicitList/dimplicitLists.c"
       "src/c/implicitList/cimplicitLists.c"
       "src/c/implicitList/simplicitLists.c" 
-      "src/c/scialb-arduino/cmd_digital_out/u8cmd_digital_outs.c"];
+      "src/c/scilab-arduino/cmd_digital_out/u8cmd_digital_outs.c"
+      "src/c/scilab-arduino/cmd_digital_in/u8cmd_digital_ins.c"
+      "src/c/scilab-arduino/cmd_analog_out/u8cmd_analog_outs.c"
+      "src/c/scilab-arduino/cmd_analog_in/u8cmd_analog_ins.c"
+      "src/c/scilab-arduino/sleep/u16sleeps.c"];
 endfunction

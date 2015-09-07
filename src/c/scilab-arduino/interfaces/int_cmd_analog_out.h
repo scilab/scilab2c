@@ -9,12 +9,22 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
+ 
+ 
+#ifndef __INT_CMD_ANALOG_OUT_H__
+#define __INT_CMD_ANALOG_OUT_H__
+ 
+#include "types.h"
 
-#include "cmd_digital_out.h"
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
-uint8 u8cmd_digital_outs(uint8 board_no, uint8 pin, uint8 value)
-{
-    digitalWrite(pin,value);
-    return 0;
-}
+#define d0d0d0cmd_digital_outu80(in1,in2,in3) u8cmd_analog_outs((uint8)in1,\
+						(uint8)in2,(uint8)in3)	
 
+#ifdef  __cplusplus
+} /* extern "C" */
+#endif
+
+#endif /* __INT_CMD_DIGITAL_OUT_H__ */

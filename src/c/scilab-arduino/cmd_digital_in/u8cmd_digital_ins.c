@@ -10,11 +10,10 @@
  *
  */
 
-#include "cmd_digital_out.h"
+#include "cmd_digital_in.h"
 
-uint8 u8cmd_digital_outs(uint8 board_no, uint8 pin, uint8 value)
+uint8 u8cmd_digital_ins(uint8 board_no, uint8 pin)
 {
-    digitalWrite(pin,value);
-    return 0;
+    return((uint8)digitalRead(pin));
 }
 

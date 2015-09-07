@@ -45,13 +45,13 @@
 
 #define z0d0OpLogOrd0(in1, in2)		Bool2Double((zreals(in1) != 0.0 || zimags(in1) != 0.0) && in2 != 0.0)
 
-#define u80u80OpLogAndu80(in1, in2)		Bool2Uint8(in1 != 0 || in2 != 0)
+#define u80u80OpLogOru80(in1, in2)		Bool2Uint8(in1 != 0 || in2 != 0)
 
-#define i80i80OpLogAndi80(in1, in2)		Bool2Int8(in1 != 0 || in2 != 0)
+#define i80i80OpLogOri80(in1, in2)		Bool2Int8(in1 != 0 || in2 != 0)
 
-#define u160u160OpLogAndu160(in1, in2)		Bool2Uint16(in1 != 0 || in2 != 0)
+#define u160u160OpLogOru160(in1, in2)		Bool2Uint16(in1 != 0 || in2 != 0)
 
-#define i160i160OpLogAndi160(in1, in2)		Bool2Int16(in1 != 0 || in2 != 0)
+#define i160i160OpLogOri160(in1, in2)		Bool2Int16(in1 != 0 || in2 != 0)
 
 /*matrix or scalar */
 
@@ -79,16 +79,16 @@
 #define z2d0OpLogOrd2(in1, size1, in2, out)	{int i  = 0 ;\
                                          for (i = 0 ; i < size1[0]*size1[1] ; i++ ) out[i] =  Bool2Double((zreals(in1[i]) != 0.0 || zimags(in1[i]) != 0.0) && in2 != 0.0);}
 
-#define i82i80OpLogAndi82(in1, size1, in2, out)	{int i  = 0 ;\
+#define i82i80OpLogOri82(in1, size1, in2, out)	{int i  = 0 ;\
                                                   for (i = 0 ; i < size1[0]*size1[1] ; i++ ) out[i] =  Bool2Int8(in1[i] != 0 || in2 != 0);}
 
-#define u82u80OpLogAndu82(in1, size1, in2, out)	{int i  = 0 ;\
+#define u82u80OpLogOru82(in1, size1, in2, out)	{int i  = 0 ;\
                                                   for (i = 0 ; i < size1[0]*size1[1] ; i++ ) out[i] =  Bool2Uint8(in1[i] != 0 || in2 != 0);}
 
-#define u162u160OpLogAndu162(in1, size1, in2, out)	{int i  = 0 ;\
+#define u162u160OpLogOru162(in1, size1, in2, out)	{int i  = 0 ;\
                                                   for (i = 0 ; i < size1[0]*size1[1] ; i++ ) out[i] =  Bool2Uint16(in1[i] != 0 || in2 != 0);}
 
-#define i162i160OpLogAndi162(in1, size1, in2, out)	{int i  = 0 ;\
+#define i162i160OpLogOri162(in1, size1, in2, out)	{int i  = 0 ;\
                                                   for (i = 0 ; i < size1[0]*size1[1] ; i++ ) out[i] =  Bool2Int16(in1[i] != 0 || in2 != 0);}
 
 
@@ -118,16 +118,16 @@
 #define z0d2OpLogOrd2(in1, in2, size2, out)	{int i  = 0 ;\
                                          for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Double((zreals(in1) != 0.2 || zimags(in1) != 0.2) && in2[i] != 0.2);}
 
-#define u80u82OpLogAndu82(in1, in2, size2, out)	{int i  = 0 ;\
+#define u80u82OpLogOru82(in1, in2, size2, out)	{int i  = 0 ;\
                                                  for (i = 0 ;  i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Uint8(in1 != 0 || in2[i] != 0);}
 
-#define i80i82OpLogAndi82(in1, in2, size2, out)	{int i  = 0 ;\
+#define i80i82OpLogOri82(in1, in2, size2, out)	{int i  = 0 ;\
                                                  for (i = 0 ;  i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Int8(in1 != 0 || in2[i] != 0);}
 
-#define u160u162OpLogAndu162(in1, in2, size2, out)	{int i  = 0 ;\
+#define u160u162OpLogOru162(in1, in2, size2, out)	{int i  = 0 ;\
                                                  for (i = 0 ;  i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Uint16(in1 != 0 || in2[i] != 0);}
 
-#define i160i162OpLogAndi162(in1, in2, size2, out)	{int i  = 0 ;\
+#define i160i162OpLogOri162(in1, in2, size2, out)	{int i  = 0 ;\
                                                  for (i = 0 ;  i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Int16(in1 != 0 || in2[i] != 0);}
 
 /*matrix or matrix */
@@ -156,16 +156,16 @@
 #define z2d2OpLogOrd2(in1, size1, in2, size2, out)	{int i  = 0 ;\
                                          for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Double((zreals(in1[i]) != 0.2 || zimags(in1[i]) != 0.2) && in2[i] != 0.2);}
 
-#define u82u82OpLogAndu82(in1, size1, in2, size2, out)	{int i  = 0 ;\
+#define u82u82OpLogOru82(in1, size1, in2, size2, out)	{int i  = 0 ;\
                                                  for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Uint8(in1[i] != 0 || in2[i] != 0);}
 
-#define i82i82OpLogAndi82(in1, size1, in2, size2, out)	{int i  = 0 ;\
+#define i82i82OpLogOri82(in1, size1, in2, size2, out)	{int i  = 0 ;\
                                                  for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Int8(in1[i] != 0 || in2[i] != 0);}
 
-#define u162u162OpLogAndu162(in1, size1, in2, size2, out)	{int i  = 0 ;\
+#define u162u162OpLogOru162(in1, size1, in2, size2, out)	{int i  = 0 ;\
                                                  for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Uint16(in1[i] != 0 || in2[i] != 0);}
 
-#define i162i162OpLogAndi162(in1, size1, in2, size2, out)	{int i  = 0 ;\
+#define i162i162OpLogOri162(in1, size1, in2, size2, out)	{int i  = 0 ;\
                                                  for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Int16(in1[i] != 0 || in2[i] != 0);}
 
 #endif /* !__INT_OPLOGOR_H__ */
