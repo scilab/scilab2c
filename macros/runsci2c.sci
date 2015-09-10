@@ -1,4 +1,4 @@
-function runsci2c(UserScilabMainFile, UserSciFilesPaths, SCI2COutputPath, Runmode, BuildTool)
+function runsci2c(UserScilabMainFile, UserSciFilesPaths, SCI2COutputPath, Runmode, BuildTool,OutFormat)
 // function runsci2c(SCI2CInputPrmFile)
 // -----------------------------------------------------------------
 // ===         hArtes/PoliBa/GAP SCI2C tool                      ===
@@ -51,7 +51,7 @@ disp(RunSci2CMainDir);
 
 // --- Initialize the SCI2C tool directories and files. ---
 [FileInfoDatFile,SharedInfoDatFile] = INIT_SCI2C(UserScilabMainFile, ...
-						 UserSciFilesPaths, SCI2COutputPath, RunMode);
+						 UserSciFilesPaths, SCI2COutputPath, RunMode, OutFormat);
 
 // -- Load FileInfo and SharedInfo
 load(SharedInfoDatFile,'SharedInfo');
@@ -124,6 +124,37 @@ for i = 1:size(allInterfaces, "*")
   copyfile(allInterfaces(i), SCI2COutputPath+"/interfaces/");
 end
 
+
+// --------------------------
+// --- Generate Makefile. ---
+// --------------------------
+//If output format is chosen as 'Arduino', then copy makefile for arduino from
+//default folder, else generate makefile for standalone c code
+
+if (OutFormat == 'Arduino')
+   mkdir(SCI2COutputPath+"/arduino/");
+   mkdir(SCI2COutputPath+"/arduino/sci2c_arduino");
+   //Copy arduino makefile
+   arduinoFiles = SCI2CHOME + "/" + getArduinoFiles();
+   PrintStepInfo('Copying arduino files', FileInfo.GeneralReport,'both');
+   for i = 1:size(arduinoFiles, "*")
+       // DEBUG only
+       //disp("Copying "+arduinoFiles(i)+" in "+SCI2COutputPath+"/arduino/sci2carduino");
+       copyfile(arduinoFiles(i), SCI2COutputPath+"/arduino/sci2c_arduino/");
+   end
+
+else
+
+   if BuildTool == "make"
+     C_GenerateMakefile(FileInfo,SharedInfo);
+   end
+   if BuildTool == "nmake"
+      copyBlasLapackLibs(FileInfo,SharedInfo);
+      C_GenerateMakefile_msvc(FileInfo,SharedInfo);
+   end
+end
+
+
 // ------------------------------
 // --- Generate SCI2C Header. ---
 // ------------------------------
@@ -131,16 +162,7 @@ end
 FunctionPrefix = "SCI2C";
 C_GenerateSCI2CHeader(SCI2COutputPath+"/includes/", FunctionPrefix);
 
-// --------------------------
-// --- Generate Makefile. ---
-// --------------------------
-if BuildTool == "make"
-  C_GenerateMakefile(FileInfo,SharedInfo);
-end
-if BuildTool == "nmake"
-  copyBlasLapackLibs(FileInfo,SharedInfo);
-  C_GenerateMakefile_msvc(FileInfo,SharedInfo);
-end
+
 
 // -----------------
 // --- Epilogue. ---
@@ -150,6 +172,8 @@ if (RunMode == 'All' | RunMode == 'Translate')
 elseif (RunMode == 'GenLibraryStructure')
    PrintStepInfo('Library Structure Successfully Created!!!',FileInfo.GeneralReport,'both');
 end
+
+
 endfunction
 
 

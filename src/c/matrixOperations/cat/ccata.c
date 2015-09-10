@@ -26,7 +26,7 @@ void		crowcata(floatComplex *in1, int lines1, int columns1, floatComplex *in2, i
     {
       for (j = 0 ; j < lines1 ; ++j)
 	{
-	  out[i*(lines1 + lines2) + j] = in1[i*lines1 + j];
+	  //out[i*(lines1 + lines2) + j] = in1[i*lines1 + j];
 	}
        for (j = 0 ; j < lines2 ; ++j)
 	{

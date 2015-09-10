@@ -54,6 +54,17 @@ elseif or(get(gcbo, "tag")==["runradioall","runradiotranslate","runradiogenlib"]
 
   set(gcbo, "value", 1);
 
+
+// --- Output format option ---
+
+elseif or(get(gcbo, "tag")==["outformatradiostalone","outformatradioarduino"]) then
+
+  set(findobj("tag", "outformatradiostalone"), "value", 0);
+  set(findobj("tag", "outformatradioarduino"), "value", 0);
+
+  set(gcbo, "value", 1);
+
+
 //
 // --- Copy Scilab code into C option ---
 //
@@ -100,6 +111,12 @@ elseif get(gcbo, "tag")=="convertbtn" then
     RunMode = "GenLibraryStructure";
   end
 
+  if get(findobj("tag", "outformatradiostalone"), "value") == 1 then
+    OutFormat = "StandAlone";
+  elseif get(findobj("tag", "outformatradioarduino"), "value") == 1 then
+    OutFormat = "Arduino";
+  end
+
   CopySciCodeIntoCCode = get(findobj("tag", "sciintocradioyes"), "value") == 1;
 
   if get(findobj("tag", "buildtoolradiowin"), "value") == 1 then
@@ -118,7 +135,7 @@ elseif get(gcbo, "tag")=="convertbtn" then
 //  mprintf("RunMode = {%s}\n", RunMode);
 //  mprintf("CopySciCodeIntoCCode = {%d}\n", bool2s(CopySciCodeIntoCCode));
 //  mprintf("NativeBuild = {%s}\n", NativeBuild);
-  scilab2c(UserScilabMainFile, UserSciCodeMainDir, UserSciFilesPaths, RunMode, NativeBuild);
+  scilab2c(UserScilabMainFile, UserSciCodeMainDir, UserSciFilesPaths, RunMode, NativeBuild,OutFormat);
 //
 // --- sci2c help ---
 //
