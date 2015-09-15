@@ -1375,6 +1375,15 @@ PrintStringInfo('z2d2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('d2z2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('s2c2'+ArgSeparator+'s2',ClassFileName,'file','y');
 
+PrintStringInfo('u80d0'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('i80d0'+ArgSeparator+'i80',ClassFileName,'file','y');
+PrintStringInfo('u160d0'+ArgSeparator+'u160',ClassFileName,'file','y');
+PrintStringInfo('i160d0'+ArgSeparator+'i160',ClassFileName,'file','y');
+
+PrintStringInfo('d0u80'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('d0i80'+ArgSeparator+'i80',ClassFileName,'file','y');
+PrintStringInfo('d0u160'+ArgSeparator+'u160',ClassFileName,'file','y');
+PrintStringInfo('d0i160'+ArgSeparator+'i160',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'OpLogEq'; // BJ : Done AS : Float_Done
@@ -3769,6 +3778,7 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('d0d0d0'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('d0d0u80'+ArgSeparator+'u80',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'cmd_digital_out'; 

@@ -31,6 +31,15 @@
 #define c0s0OpLogEqs0(in1,in2)	s0c0OpLogEqs0(in2,in1)
 #define z0d0OpLogEqd0(in1,in2)	d0z0OpLogEqd0(in2,in1)
 
+#define u80d0OpLogEqu80(in1,in2)	 (uint8)  (in1 == (uint8)in2)
+#define i80d0OpLogEqi80(in1,in2)	 (int8)  (in1 == (int8)in2)
+#define u160d0OpLogEqu160(in1,in2)	 (uint16)  (in1 == (uint16)in2)
+#define i160d0OpLogEqi160(in1,in2)	 (int16)  (in1 == (int16)in2)
+
+#define d0u80OpLogEqu80(in1,in2)	 (uint8)  ((uint8)in1 == in2)
+#define d0i80OpLogEqi80(in1,in2)	 (int8)  ((int8)in1 == in2)
+#define d0u160OpLogEqu160(in1,in2)	 (uint16)  ((uint16)in1 == in2)
+#define d0i160OpLogEqi160(in1,in2)	 (int16)  ((int16)in1 == in2)
 
 
 #define s2s0OpLogEqs2(in1,size,in2,out) 	{int i;\

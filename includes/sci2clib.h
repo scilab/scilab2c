@@ -332,8 +332,12 @@
 /*Scilab-arduino toolbox*/
 #include "int_cmd_digital_out.h"
 #include "cmd_digital_out.h"
+#include "int_cmd_digital_in.h"
+#include "cmd_digital_in.h"
 #include "int_cmd_analog_out.h"
 #include "cmd_analog_out.h"
+#include "int_cmd_analog_in.h"
+#include "cmd_analog_in.h"
 #include "int_sleep.h"
 #include "sleep.h"
 
