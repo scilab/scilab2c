@@ -59,8 +59,10 @@ PrintStringInfo('EXEFILENAME = mytest.exe',FileInfo.MakefileFilename,'file','y',
 PrintStringInfo('EXEFILE = $(SCI2CDIR)/$(EXEFILENAME)', FileInfo.MakefileFilename,'file','y','y');
 
 // Sources
+//Check the output format selected and insert files according to it
+outformat = SharedInfo.OutFormat;
 PrintStringInfo('SRC = \\', FileInfo.MakefileFilename,'file','y','y');
-allSources = getAllSources();
+allSources = getAllSources(outformat);
 nbSources = size(allSources);
 for i = 1:(nbSources(1) - 1)
   [tmppath,tmpfile,tmpext] = fileparts(allSources(i));

@@ -10,8 +10,9 @@
 //
 //
 
-function allInterfaces = getAllInterfaces()
-  allInterfaces = [
+function allInterfaces = getAllInterfaces(OutFormat)
+  //Interface files common to all types of output format
+  Standalone_interfaces = [
       "src/c/auxiliaryFunctions/interfaces/int_rand.h"
       "src/c/auxiliaryFunctions/interfaces/int_sign.h"
       "src/c/auxiliaryFunctions/interfaces/int_size.h"
@@ -118,10 +119,20 @@ function allInterfaces = getAllInterfaces()
       "src/c/signalProcessing/interfaces/int_fftshift.h"
       "src/c/signalProcessing/interfaces/int_fft.h"
       "src/c/signalProcessing/interfaces/int_lev.h"
-      "src/c/implicitList/int_OpColon.h"
+      "src/c/implicitList/int_OpColon.h"];
+
+  //Interface files required for "Arduino" output
+  Arduino_interfaces = [
       "src/c/scilab-arduino/interfaces/int_cmd_digital_out.h"
       "src/c/scilab-arduino/interfaces/int_cmd_digital_in.h"
       "src/c/scilab-arduino/interfaces/int_cmd_analog_out.h"
       "src/c/scilab-arduino/interfaces/int_cmd_analog_in.h"
       "src/c/scilab-arduino/interfaces/int_sleep.h"];
+
+  if OutFormat == "StandAlone"
+  allInterfaces = Standalone_interfaces;
+  elseif OutFormat == "Arduino"
+  allInterfaces = cat(1,Standalone_interfaces, Arduino_interfaces);
+  end
+
 endfunction

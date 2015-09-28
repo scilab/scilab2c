@@ -91,9 +91,10 @@ end
 // --- Copy library files. ---
 // ---------------------------
 global SCI2CHOME
-allSources = SCI2CHOME + "/" + getAllSources();
-allHeaders = SCI2CHOME + "/" +getAllHeaders();
-allInterfaces = SCI2CHOME + "/" + getAllInterfaces();
+
+allSources = SCI2CHOME + "/" + getAllSources(OutFormat);
+allHeaders = SCI2CHOME + "/" +getAllHeaders(OutFormat);
+allInterfaces = SCI2CHOME + "/" + getAllInterfaces(OutFormat);
 
 mkdir(SCI2COutputPath+"/src/");
 mkdir(SCI2COutputPath+"/src/c/");

@@ -10,8 +10,9 @@
 //
 //
 
-function allSources = getAllSources()
-  allSources = [ "src/c/auxiliaryFunctions/abs/sabsa.c"
+function allSources = getAllSources(OutFormat)
+  //Files common to types of output format
+  Standalone_files = [ "src/c/auxiliaryFunctions/abs/sabsa.c"
       "src/c/auxiliaryFunctions/abs/sabss.c"
       "src/c/auxiliaryFunctions/abs/zabsa.c"
       "src/c/auxiliaryFunctions/abs/zabss.c"
@@ -814,10 +815,18 @@ function allSources = getAllSources()
       "src/c/implicitList/zimplicitLists.c"
       "src/c/implicitList/dimplicitLists.c"
       "src/c/implicitList/cimplicitLists.c"
-      "src/c/implicitList/simplicitLists.c" 
-      "src/c/scilab-arduino/cmd_digital_out/u8cmd_digital_outs.c"
+      "src/c/implicitList/simplicitLists.c" ];
+
+  //Files to be inserted only if output format selected is 'Arduino'.
+  Arduino_files = ["src/c/scilab-arduino/cmd_digital_out/u8cmd_digital_outs.c"
       "src/c/scilab-arduino/cmd_digital_in/u8cmd_digital_ins.c"
       "src/c/scilab-arduino/cmd_analog_out/u8cmd_analog_outs.c"
       "src/c/scilab-arduino/cmd_analog_in/u8cmd_analog_ins.c"
       "src/c/scilab-arduino/sleep/u16sleeps.c"];
+  if OutFormat == "StandAlone"
+  allSources = Standalone_files;
+  elseif OutFormat == "Arduino"
+  allSources = cat(1,Standalone_files, Arduino_files);
+  end
+
 endfunction

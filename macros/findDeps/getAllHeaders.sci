@@ -10,8 +10,10 @@
 //
 //
 
-function allHeaders = getAllHeaders()
-  allHeaders = [
+function allHeaders = getAllHeaders(OutFormat)
+
+  //Header files common to all types of output format.
+  Standalone_headers = [
       "includes/blas.h"
       "includes/lapack.h"
       "includes/constant.h"
@@ -124,10 +126,20 @@ function allHeaders = getAllHeaders()
       "src/c/signalProcessing/includes/dynlib_signalprocessing.h"
       "src/c/signalProcessing/includes/crossCorr.h"
       "src/c/implicitList/dynlib_implicitlist.h"
-      "src/c/implicitList/implicitList.h"
+      "src/c/implicitList/implicitList.h"];
+
+  //Header files required for "Arduino" output
+  Arduino_headers = [
       "src/c/scilab-arduino/includes/cmd_digital_out.h"
       "src/c/scilab-arduino/includes/cmd_digital_in.h"
       "src/c/scilab-arduino/includes/cmd_analog_out.h"
       "src/c/scilab-arduino/includes/cmd_analog_in.h"
       "src/c/scilab-arduino/includes/sleep.h"];
+
+  if OutFormat == "StandAlone"
+  allHeaders = Standalone_headers;
+  elseif OutFormat == "Arduino"
+  allHeaders = cat(1,Standalone_headers, Arduino_headers);
+  end
+
 endfunction
