@@ -13,7 +13,6 @@
 #include <math.h>
 #include "pow.h"
 
-double dpows(double x, double p) 
-{
+int8 i8pows(int8 x, int8 p) {
   return  pow(x, p);
 }

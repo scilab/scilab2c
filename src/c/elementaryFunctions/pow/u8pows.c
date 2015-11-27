@@ -13,7 +13,7 @@
 #include <math.h>
 #include "pow.h"
 
-double dpows(double x, double p) 
+uint8 u8pows(uint8 x, uint8 p) 
 {
   return  pow(x, p);
 }

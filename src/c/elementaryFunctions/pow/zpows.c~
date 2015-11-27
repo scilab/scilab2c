@@ -14,7 +14,7 @@
 #include "log.h"
 #include "exp.h"
 
-doubleComplex zpows(doubleComplex z, doubleComplex power) {
+doubleComplex		zpows(doubleComplex z, doubleComplex power) {
   /*Cas z=0 */
   if ( (zreals(z)==0) && (zimags(z)==0) ){
   	/* Cas 0^0 */

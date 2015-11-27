@@ -10,10 +10,16 @@
  *
  */
 
-#include <math.h>
 #include "pow.h"
 
-double dpows(double x, double p) 
-{
-  return  pow(x, p);
+void i16powa(int16* x, int size, int16* power, int16 *out) {
+	/* 
+	Computes Scilab x.^power
+	Computes power element by element 
+	x and power must have same size 
+	*/
+  int i = 0;
+  for (i = 0; i < size; ++i) {
+    out[i] = i16pows(x[i], power[i]);
+  }
 }
