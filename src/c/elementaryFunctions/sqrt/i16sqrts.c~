@@ -13,6 +13,6 @@
 #include <math.h>
 #include "sqrt.h"
 
-double dsqrts(double in){
+int16 i16sqrts(int16 in){
     return sqrt(in);
 }
