@@ -12,13 +12,14 @@
 #include "statMax.h"
 //#include "max.h"
 
-float smaxa(float *in, int size) {
-  float out = in[0];
+int8 i8maxa(int8 *in, int size) {
+  int8 out = in[0];
   int i = 0;
 
   for (i = 1; i < size; ++i)
     {
-      if (in[i]>out) out = in[i];
+      if (in[i]>out) 
+        out = (int8)in[i];
     }
   return out;
 

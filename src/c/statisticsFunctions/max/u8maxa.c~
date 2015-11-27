@@ -9,16 +9,18 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
+
 #include "statMax.h"
 //#include "max.h"
 
-float smaxa(float *in, int size) {
-  float out = in[0];
+uint8 u8maxa(uint8 *in, int size) {
+  uint8 out = in[0];
   int i = 0;
 
   for (i = 1; i < size; ++i)
     {
-      if (in[i]>out) out = in[i];
+      if (in[i]>out) 
+        out = (uint8)in[i];
     }
   return out;
 

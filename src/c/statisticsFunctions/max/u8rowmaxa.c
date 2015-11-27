@@ -12,14 +12,17 @@
 #include "statMax.h"
 //#include "max.h"
 
-float smaxa(float *in, int size) {
-  float out = in[0];
-  int i = 0;
+void u8rowmaxa(uint8 *in, int rows, int columns, uint8* out) {
+  int i = 0, j = 0;
+ 
 
-  for (i = 1; i < size; ++i)
-    {
-      if (in[i]>out) out = in[i];
+  for (i = 0; i < columns; i++) 
+     {
+	  out[i]=(uint8)in[0];
+	  for (j = 0 ; j < rows ; j++)
+             {
+     		 if (in[j]>out[i])
+                   out[i] = (uint8)in[j];
+             }
     }
-  return out;
-
 }

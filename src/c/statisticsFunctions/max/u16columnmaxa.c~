@@ -9,17 +9,20 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
+
 #include "statMax.h"
+
 //#include "max.h"
 
-float smaxa(float *in, int size) {
-  float out = in[0];
-  int i = 0;
+void u16columnmaxa(uint16 *in, int rows, int columns, uint16* out) {
+  int i = 0, j = 0;
+  
 
-  for (i = 1; i < size; ++i)
-    {
-      if (in[i]>out) out = in[i];
+  for (i = 0; i < rows; i++) {
+	  out[i]=(uint16)in[i];
+	  for (j=0;j<columns;j++)
+      		if (in[i+j*rows]>out[i]) 
+                   out[i] = (uint16)in[i+j*rows];
     }
-  return out;
 
 }
