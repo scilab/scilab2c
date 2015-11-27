@@ -44,6 +44,8 @@
 
 #define z0sqrtz0(in)		zsqrts(in)
 
+
+
 #define s2sqrts2(in,size,out)		ssqrta(in, size[0]*size[1], out)
 
 #define s2sqrtc2(in,size,out)		csqrta(FloatComplexMatrix(in,0), size[0]*size[1], out)
@@ -55,5 +57,8 @@
 #define c2sqrtc2(in,size,out)		csqrta(in, size[0]*size[1], out)
 
 #define z2sqrtz2(in,size,out)		zsqrta(in, size[0]*size[1], out)
+
+
+
 
 #endif /* !__INT_SQRT_H__ */
