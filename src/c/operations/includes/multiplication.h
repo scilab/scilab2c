@@ -142,6 +142,15 @@ EXTERN_OPERATIONS doubleComplex zmulzdv(doubleComplex *in1, double *in2, int siz
 EXTERN_OPERATIONS doubleComplex zmuldzv(double *in1, doubleComplex *in2, int size2);
 
 /*
+** \brief Compute a multiplication element ways for uint8.
+** \param in1 : input array.
+** \param in2 : input array.
+** \param size : size of in2 array.
+** \param out : array that contains the multiplication  = in1 .* in2.
+*/
+EXTERN_OPERATIONS void	u8mula(uint8 *in1, uint8 *in2, int size,uint8 * out);
+
+/*
 ** \brief Compute a multiplication with uint8.
 ** \param in1 : input uint8.
 ** \param in2 : input uint8.
@@ -157,6 +166,15 @@ EXTERN_OPERATIONS uint8	u8muls(uint8 in1, uint8 in2);
 ** \return : scalar that contains the multiplication of the two vectors = in1 .* in2.
 */
 EXTERN_OPERATIONS uint8 u8mulv(uint8 *in1,  uint8 *in2, int size2);
+
+/*
+** \brief Compute a multiplication element ways for int8.
+** \param in1 : input array.
+** \param in2 : input array.
+** \param size : size of in2 array.
+** \param out : array that contains the multiplication  = in1 .* in2.
+*/
+EXTERN_OPERATIONS void	i8mula(int8 *in1, int8 *in2, int size,int8 * out);
 
 /*
 ** \brief Compute a multiplication with int8.
@@ -176,6 +194,15 @@ EXTERN_OPERATIONS int8	i8muls(int8 in1, int8 in2);
 EXTERN_OPERATIONS int8 i8mulv(int8 *in1,  int8 *in2, int size2);
 
 /*
+** \brief Compute a multiplication element ways for uint16.
+** \param in1 : input array.
+** \param in2 : input array.
+** \param size : size of in2 array.
+** \param out : array that contains the multiplication  = in1 .* in2.
+*/
+EXTERN_OPERATIONS void	u16mula(uint16 *in1, uint16 *in2, int size,uint16 * out);
+
+/*
 ** \brief Compute a multiplication with uint16.
 ** \param in1 : input uint16.
 ** \param in2 : input uint16.
@@ -191,6 +218,15 @@ EXTERN_OPERATIONS uint16 u16muls(uint16 in1, uint16 in2);
 ** \return : scalar that contains the multiplication of the two vectors = in1 .* in2.
 */
 EXTERN_OPERATIONS uint16 u16mulv(uint16 *in1,  uint16 *in2, int size2);
+
+/*
+** \brief Compute a multiplication element ways for int16.
+** \param in1 : input array.
+** \param in2 : input array.
+** \param size : size of in2 array.
+** \param out : array that contains the multiplication  = in1 .* in2.
+*/
+EXTERN_OPERATIONS void	i16mula(int16 *in1, int16 *in2, int size,int16 * out);
 
 /*
 ** \brief Compute a multiplication with int16.
