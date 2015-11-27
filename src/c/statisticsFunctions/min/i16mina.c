@@ -12,13 +12,15 @@
 
 #include "statMin.h"
 
-void dcolumnmina(double *in, int rows, int columns, double* out) {
-  int i = 0, j = 0;
+int16 i16mina(int16 *in, int size) {
+  int16 out = in[0];
+  int i = 0;
 
-  for (i = 0; i < rows; i++) {
-	  out[i]=in[i*columns];
-	  for (j=0;j<columns;j++)
-      		if (in[i+j*rows]<out[i]) out[i] = in[i+j*rows];
+  for (i = 1; i < size; ++i)
+    {
+      if (in[i]<out) 
+         out = (int16)in[i];
     }
+  return out;
 
 }

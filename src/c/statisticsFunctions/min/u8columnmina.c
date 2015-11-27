@@ -12,13 +12,14 @@
 
 #include "statMin.h"
 
-void dcolumnmina(double *in, int rows, int columns, double* out) {
+void u8columnmina(uint8 *in, int rows, int columns, uint8* out) {
   int i = 0, j = 0;
 
   for (i = 0; i < rows; i++) {
-	  out[i]=in[i*columns];
+	  out[i]=(uint8)in[i*columns];
 	  for (j=0;j<columns;j++)
-      		if (in[i+j*rows]<out[i]) out[i] = in[i+j*rows];
+      		if (in[i+j*rows]<out[i]) 
+                   out[i] = (uint8)in[i+j*rows];
     }
 
 }
