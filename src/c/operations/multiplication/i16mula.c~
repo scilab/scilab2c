@@ -13,10 +13,9 @@
 
 #include "multiplication.h"
 
-void dmula(double* in1, double* in2, int size, double* out){
+void i16mula(int16* in1, int16* in2, int size, int16* out){
 	int i=0;
-	for (i=0;i<size;i++)
-        {
-		out[i]=dmuls(in1[i],in2[i]);
+	for (i=0;i<size;i++){
+		out[i]=i16muls(in1[i],in2[i]);
 	}
 }
