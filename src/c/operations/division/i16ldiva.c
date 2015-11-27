@@ -13,10 +13,9 @@
 
 #include "division.h"  
 
-void cldiva (floatComplex* in1, floatComplex* in2, int size, floatComplex* out ){
+void i16ldiva (int16* in1, int16* in2, int size, int16* out ){
 	int i=0;
-	for (i=0;i<size;i++)
-        {
-		out[i]=cldivs(in1[i],in2[i]);
+	for (i=0;i<size;i++){
+		out[i]=i16ldivs(in1[i],in2[i]);
 	}
 }
