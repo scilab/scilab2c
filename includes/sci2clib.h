@@ -330,6 +330,7 @@
 #include "types.h"
 
 /*Scilab-arduino toolbox*/
+#ifdef ARDUINO
 #include "int_cmd_digital_out.h"
 #include "cmd_digital_out.h"
 #include "int_cmd_digital_in.h"
@@ -340,5 +341,15 @@
 #include "cmd_analog_in.h"
 #include "int_sleep.h"
 #include "sleep.h"
+#endif
+
+/*AVR*/
+#ifdef AVR
+#include "int_AVRPeripheralGPIO.h"
+#include "AVRPeripheralGPIO.h"
+#include "int_AVRPeripheralADC.h"
+#include "AVRPeripheralADC.h"
+
+#endif
 
 #endif /* !__SCI2CLIB_H__ */

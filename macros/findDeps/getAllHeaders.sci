@@ -136,10 +136,17 @@ function allHeaders = getAllHeaders(OutFormat)
       "src/c/scilab-arduino/includes/cmd_analog_in.h"
       "src/c/scilab-arduino/includes/sleep.h"];
 
+  AVR_headers = [
+      "src/c/hardware/avr/includes/AVRPeripheralGPIO.h"
+      "src/c/hardware/avr/includes/AVRPeripheralADC.h"
+	    ]; 
+
   if OutFormat == "StandAlone"
   allHeaders = Standalone_headers;
   elseif OutFormat == "Arduino"
   allHeaders = cat(1,Standalone_headers, Arduino_headers);
+  elseif OutFormat == "AVR"
+  allHeaders = cat(1,Standalone_headers, AVR_headers);
   end
 
 endfunction

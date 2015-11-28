@@ -143,9 +143,9 @@ error(msprintf(gettext("%s: Wrong number of input argument(s): %d expected.\n"),
 
 
 // --- LAUNCH USER SCI CODE TO TEST IT BEFORE TRANSLATING IT!!! ---
-  if OutFormat == "StandAlone"
-  runscicode(UserScilabMainFile, UserSciFilesPaths);
-  end
+//  if OutFormat == "StandAlone"
+//  runscicode(UserScilabMainFile, UserSciFilesPaths);
+//  end
 // --- ASK USER FOR CONTINUATION. ---
 
   // Do not open confirmation box if we are not in STD mode.
@@ -156,7 +156,7 @@ error(msprintf(gettext("%s: Wrong number of input argument(s): %d expected.\n"),
   end
   if (userchoice == 1)
 // --- LAUNCH SCI2C ---
-	runsci2c(UserScilabMainFile, UserSciFilesPaths, CCodeOutputDir, RunMode, BuildTool,OutFormat);
+	runsci2c(UserScilabMainFile, UserSciFilesPaths, CCodeOutputDir, RunMode, BuildTool,'AVR');
   end
 
 endfunction

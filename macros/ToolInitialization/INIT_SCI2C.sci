@@ -144,6 +144,12 @@ SharedInfoDatFile = FileInfo.SharedInfoDatFile;
 global anscounter; //NUT: just to fix problem with ans variables.
 anscounter = 0;
 
+//--------------------------------------------
+//---Hardware related initialisation----------
+//--------------------------------------------
+PeripheralList = list();
+save(FileInfo.PeripheralInitListFile, 'PeripheralList');
+
 endfunction
 // #RNU_RES_B
 //NUT: quando genero il c della funzione utente devo anche generare il corrispondente file delle includes.

@@ -3885,6 +3885,62 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,E
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
 
+//------------------------------------
+//---Functions for AVR ---------------
+//------------------------------------
+
+
+//------------------------------------
+//---- Class AVRDigitalSetup ---------
+//------------------------------------
+ClassName = 'AVRDigitalSetup';
+
+// --- Class Annotation. ---
+PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
+ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
+PrintStringInfo('NIN=          3',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    ''u8''',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= ''1''',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
+
+// --- Function List Class. ---
+ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+PrintStringInfo('d0d0d0'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('d0d0u80'+ArgSeparator+'u80',ClassFileName,'file','y');
+
+// --- Annotation Function And Function List Function. ---
+FunctionName = 'AVRDigitalSetup'; 
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+//------------------------------------
+//---- Class AVRDigitalOut -----------
+//------------------------------------
+ClassName = 'AVRDigitalOut';
+
+// --- Class Annotation. ---
+PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
+ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
+PrintStringInfo('NIN=          3',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    ''u8''',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= ''1''',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
+
+// --- Function List Class. ---
+ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+PrintStringInfo('d0d0d0'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('d0d0u80'+ArgSeparator+'u80',ClassFileName,'file','y');
+
+// --- Annotation Function And Function List Function. ---
+FunctionName = 'AVRDigitalOut'; 
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+
 // ////////////////////////////////////////////
 // /////PARTE INTRODOTTA DA ALBERTO MOREA
 // /////////////////////////////////////////////

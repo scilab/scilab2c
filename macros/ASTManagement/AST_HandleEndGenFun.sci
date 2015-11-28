@@ -40,12 +40,13 @@ SCI2CNInArgCheck(argn(2),3,3);
 // -----------------------
 // --- Initialization. ---
 // -----------------------
-nxtscifunname       = SharedInfo.NextSCIFunName;
-nxtscifunnumber     = SharedInfo.NextSCIFunNumber;
-ReportFileName      = FileInfo.Funct(nxtscifunnumber).ReportFileName;
-Pass1HeaderFileName = FileInfo.Funct(nxtscifunnumber).Pass1HeaderFileName;
-FunInfoDatDir       = FileInfo.FunctionList.FunInfoDatDir;
-CGblDeclarFileName   = FileInfo.Funct(nxtscifunnumber).CGblDeclarFileName;
+nxtscifunname          = SharedInfo.NextSCIFunName;
+nxtscifunnumber        = SharedInfo.NextSCIFunNumber;
+ReportFileName         = FileInfo.Funct(nxtscifunnumber).ReportFileName;
+Pass1HeaderFileName    = FileInfo.Funct(nxtscifunnumber).Pass1HeaderFileName;
+FunInfoDatDir          = FileInfo.FunctionList.FunInfoDatDir;
+CGblDeclarFileName     = FileInfo.Funct(nxtscifunnumber).CGblDeclarFileName;
+PeripheralInitListFile = FileInfo.PeripheralInitListFile;
 
 Flag_FunAlreadyCalled = 0;
 // #RNU_RES_B
@@ -101,6 +102,11 @@ elseif (ASTFunName == 'global')
       PrintStringInfo(' ',ReportFileName,'both','y');
       error(9999, 'SCI2CERROR: Unexpected number of output arguments for global function.');
    end
+//elseif(IsAVRSupportFunction(ASTFunName))
+   //Get the peripheral from function name and input arguements, insert it in 
+   //list of used peripherals.
+  // PeripheralUsed=GetPeripheral(ASTFunName,InArg);
+  // InsertPeripheralInList(PeripheralUsed,PeripheralInitListFile);
 end
 
 // #RNU_RES_B

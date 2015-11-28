@@ -129,10 +129,18 @@ function allInterfaces = getAllInterfaces(OutFormat)
       "src/c/scilab-arduino/interfaces/int_cmd_analog_in.h"
       "src/c/scilab-arduino/interfaces/int_sleep.h"];
 
+  //Interface files required for "AVR" output
+  AVR_interfaces = [
+      "src/c/hardware/avr/interfaces/int_AVRPeripheralGPIO.h"
+      "src/c/hardware/avr/interfaces/int_AVRPeripheralADC.h"
+	];
+
   if OutFormat == "StandAlone"
   allInterfaces = Standalone_interfaces;
   elseif OutFormat == "Arduino"
   allInterfaces = cat(1,Standalone_interfaces, Arduino_interfaces);
+  elseif OutFormat == "AVR"
+  allInterfaces = cat(1,Standalone_interfaces, AVR_interfaces);
   end
 
 endfunction

@@ -823,10 +823,24 @@ function allSources = getAllSources(OutFormat)
       "src/c/scilab-arduino/cmd_analog_out/u8cmd_analog_outs.c"
       "src/c/scilab-arduino/cmd_analog_in/u8cmd_analog_ins.c"
       "src/c/scilab-arduino/sleep/u16sleeps.c"];
+
+  //Files to be inserted only if output format selected is 'AVR'.
+  AVR_files = [
+      "src/c/hardware/avr/gpio/u8AVRDigitalSetups.c"
+      "src/c/hardware/avr/gpio/u8AVRDigitalOuts.c"
+      "src/c/hardware/avr/gpio/u8AVRDigitalIns.c"
+      "src/c/hardware/avr/adc/u8AVRADCSetups.c"
+      "src/c/hardware/avr/adc/u8AVRReadADCs.c"
+	  "src/c/scilab-arduino/sleep/u16sleeps.c"
+         ];
+
+
   if OutFormat == "StandAlone"
   allSources = Standalone_files;
   elseif OutFormat == "Arduino"
   allSources = cat(1,Standalone_files, Arduino_files);
+  elseif OutFormat == "AVR"
+  allSources = cat(1,Standalone_files, AVR_files);
   end
 
 endfunction
