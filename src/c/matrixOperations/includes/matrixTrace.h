@@ -16,6 +16,7 @@
 #include "dynlib_matrixoperations.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
+#include "types.h"
 
 #ifdef  __cplusplus
 extern "C" {
@@ -62,6 +63,44 @@ EXTERN_MATOPS floatComplex ctracea ( floatComplex* in ,int lines ) ;
 ** \param out : double complex containing the trace.
 */
 EXTERN_MATOPS doubleComplex ztracea ( doubleComplex* in ,int lines ) ;
+
+
+/*
+** \brief Compute the trace of a uint8  matrix.
+** \param in : input array.
+** \param lines : number of lines  
+** \param out : uint8 containing the trace.
+*/
+EXTERN_MATOPS uint8 u8tracea ( uint8* in ,int lines ) ;
+
+
+/*
+** \brief Compute the trace of a uint16  matrix.
+** \param in : input array.
+** \param lines : number of lines  
+** \param out : uint16 containing the trace.
+*/
+EXTERN_MATOPS uint16 u16tracea ( uint16* in ,int lines ) ;
+
+
+/*
+** \brief Compute the trace of a int8  matrix.
+** \param in : input array.
+** \param lines : number of lines  
+** \param out : int8 containing the trace.
+*/
+EXTERN_MATOPS int8 i8tracea ( int8* in ,int lines ) ;
+
+
+/*
+** \brief Compute the trace of a int16  matrix.
+** \param in : input array.
+** \param lines : number of lines  
+** \param out : int16 containing the trace.
+*/
+EXTERN_MATOPS int16 i16tracea ( int16* in ,int lines ) ;
+
+
 
 #ifdef  __cplusplus
 } /* extern "C" */

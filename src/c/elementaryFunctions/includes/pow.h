@@ -27,6 +27,14 @@ EXTERN_ELEMFUNCT floatComplex	cpows(floatComplex value, floatComplex expand);
 
 EXTERN_ELEMFUNCT doubleComplex	zpows(doubleComplex value, doubleComplex expand);
 
+EXTERN_ELEMFUNCT uint8		u8pows(uint8 value, uint8 expand);
+
+EXTERN_ELEMFUNCT uint16		u16pows(uint16 value, uint16 expand);
+
+EXTERN_ELEMFUNCT int8	        i8pows(int8 value, int8 expand);
+
+EXTERN_ELEMFUNCT int16		i16pows(int16 value, int16 expand);
+
 EXTERN_ELEMFUNCT void		spowa(float *value, int size, float* expand, float *out);
 
 EXTERN_ELEMFUNCT void		dpowa(double *value, int size, double* expand, double *out);
@@ -34,6 +42,14 @@ EXTERN_ELEMFUNCT void		dpowa(double *value, int size, double* expand, double *ou
 EXTERN_ELEMFUNCT void		cpowa(floatComplex *value, int size, floatComplex* expand, floatComplex *out);
 
 EXTERN_ELEMFUNCT void		zpowa(doubleComplex *value, int size, doubleComplex* expand, doubleComplex *out);
+
+EXTERN_ELEMFUNCT void		u8powa(uint8 *value, int size, uint8* expand, uint8 *out);
+
+EXTERN_ELEMFUNCT void		u16powa(uint16 *value, int size, uint16* expand, uint16 *out);
+
+EXTERN_ELEMFUNCT void		i8powa(int8 *value, int size, int8* expand, int8 *out);
+
+EXTERN_ELEMFUNCT void		i16powa(int16 *value, int size, int16* expand, int16 *out);
 
 #ifdef  __cplusplus
 } /* extern "C" */

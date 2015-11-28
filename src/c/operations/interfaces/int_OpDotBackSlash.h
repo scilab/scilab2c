@@ -25,6 +25,14 @@
 
 #define z0z0OpDotBackSlashz0(in1,in2)				zldivs(in1,in2)
 
+#define u80u80OpDotBackSlashu80(in1,in2)                        u8ldivs(in1,in2)
+
+#define u160u160OpDotBackSlashu160(in1,in2)                     u16ldivs(in1,in2)
+
+#define i80i80OpDotBackSlashi80(in1,in2)                        i8ldivs(in1,in2)
+
+#define i160i160OpDotBackSlashi160(in1,in2)                     i16ldivs(in1,in2)
+
 #define s0c0OpDotBackSlashc0(in1,in2)				cldivs(FloatComplex(in1,0),in2)
 
 #define c0s0OpDotBackSlashc0(in1,in2)				cldivs(in1,FloatComplex(in2,0))
@@ -47,6 +55,19 @@
 
 #define z0z2OpDotBackSlashz2(in1,in2,size,out)			{int i;\
 										for(i=0;i<size[0]*size[1];i++) out[i]= zldivs(in1,in2[i]);}
+
+#define u80u82OpDotBackSlashu82(in1,in2,size,out)		{int i;\
+										for(i=0;i<size[0]*size[1];i++) out[i]= u8ldivs(in1,in2[i]);}
+
+#define u160u162OpDotBackSlashu162(in1,in2,size,out)		{int i;\
+										for(i=0;i<size[0]*size[1];i++) out[i]= u16ldivs(in1,in2[i]);}
+
+#define i80i82OpDotBackSlashi82(in1,in2,size,out)		{int i;\
+										for(i=0;i<size[0]*size[1];i++) out[i]= i8ldivs(in1,in2[i]);}
+
+#define i160i162OpDotBackSlashi162(in1,in2,size,out)		{int i;\
+										for(i=0;i<size[0]*size[1];i++) out[i]= i16ldivs(in1,in2[i]);}
+
 
 #define s0c2OpDotBackSlashc2(in1,in2,size,out)			c0c2OpDotBackSlashc2(FloatComplex(in1,0),in2,size,out)
 
@@ -73,6 +94,20 @@
 #define z2z0OpDotBackSlashz2(in1,size,in2,out)			{int i;\
 										for(i=0;i<size[0]*size[1];i++) out[i]= zldivs(in1[i],in2);}
 
+#define u82u80OpDotBackSlashu82(in1,size,in2,out)		{int i;\
+										for(i=0;i<size[0]*size[1];i++) out[i]= u8ldivs(in1[i],in2);}
+
+#define u162u160OpDotBackSlashu162(in1,size,in2,out)		{int i;\
+										for(i=0;i<size[0]*size[1];i++) out[i]= u16ldivs(in1[i],in2);}
+
+#define i82i80OpDotBackSlashi82(in1,size,in2,out)		{int i;\
+										for(i=0;i<size[0]*size[1];i++) out[i]= i8ldivs(in1[i],in2);}
+
+#define i162i160OpDotBackSlashi162(in1,size,in2,out)		{int i;\
+										for(i=0;i<size[0]*size[1];i++) out[i]= i16ldivs(in1[i],in2);}
+
+
+
 #define s2c0OpDotBackSlashc2(in1,size,in2,out)			{int i;\
 										for(i=0;i<size[0]*size[1];i++) out[i]= cldivs(FloatComplex(in1[i],0),in2);}
 
@@ -90,6 +125,15 @@
 #define d2d2OpDotBackSlashd2(in1,size1,in2,size2,out)		dldiva(in1,in2,size2[0]*size2[1],out)
 
 #define c2c2OpDotBackSlashc2(in1,size1,in2,size2,out)		cldiva(in1,in2,size2[0]*size2[1],out)
+
+#define u82u82OpDotBackSlashu82(in1,size1,in2,size2,out)	u8ldiva(in1,in2,size2[0]*size2[1],out)
+
+#define u162u162OpDotBackSlashu162(in1,size1,in2,size2,out)        u16ldiva(in1,in2,size2[0]*size2[1],out)
+
+#define i82i82OpDotBackSlashi82(in1,size1,in2,size2,out)           i8ldiva(in1,in2,size2[0]*size2[1],out)
+
+#define i162i162OpDotBackSlashi162(in1,size1,in2,size2,out)         i16ldiva(in1,in2,size2[0]*size2[1],out)
+
 
 #define c2s2OpDotBackSlashc2(in1,size1,in2,size2,out)		{int i;\
 										for(i=0;i<size1[0]*size2[1];i++) out[i]= cldivs(in1[i],FloatComplex(in2[i], 0));}

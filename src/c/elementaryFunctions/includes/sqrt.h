@@ -16,6 +16,7 @@
 #include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
+#include "types.h"
 
 #ifdef  __cplusplus
 extern "C" {
@@ -48,13 +49,14 @@ EXTERN_ELEMFUNCT floatComplex	csqrts(floatComplex in);
 */
 EXTERN_ELEMFUNCT doubleComplex	zsqrts(doubleComplex in);
 
+
 /*
 ** \brief Float Matrix Square Root function
 ** \param in : input array value.
 ** \param out : output array value.
 ** \param size : the size of in and out arrays.
 */
-EXTERN_ELEMFUNCT void		ssqrta(float* in, int size, float* out);
+EXTERN_ELEMFUNCT void           ssqrta(float* in, int size, float* out);
 
 /*
 ** \brief Double Matrix Square Root function
@@ -79,6 +81,10 @@ EXTERN_ELEMFUNCT void		csqrta(floatComplex* in, int size, floatComplex* out);
 ** \param size : the size of in and out arrays.
 */
 EXTERN_ELEMFUNCT void		zsqrta(doubleComplex* in, int size, doubleComplex* out);
+
+
+
+
 
 #ifdef  __cplusplus
 } /* extern "C" */

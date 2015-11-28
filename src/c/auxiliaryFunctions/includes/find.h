@@ -16,6 +16,7 @@
 #include "dynlib_auxiliaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
+#include "types.h"
 
 #ifdef  __cplusplus
 extern "C" {
@@ -43,6 +44,32 @@ EXTERN_AUXFUNCT void cfinda(floatComplex* z, int size, float *out, int max);
 ** max is an integer giving the maximum number of indices to return. (use -1 to search them all)
 */
 EXTERN_AUXFUNCT void zfinda(doubleComplex* z, int size, double *out, int max);
+
+/*
+** \brief uint8 Find function
+** max is an integer giving the maximum number of indices to return. (use -1 to search them all)
+*/
+EXTERN_AUXFUNCT void u8finda(uint8 *x, int size, uint8 *out, int max);
+
+/*
+** \brief uint16 Find function
+** max is an integer giving the maximum number of indices to return. (use -1 to search them all)
+*/
+EXTERN_AUXFUNCT void u16finda(uint16 *x, int size, uint16 *out, int max);
+
+/*
+** \brief int8 Find function
+** max is an integer giving the maximum number of indices to return. (use -1 to search them all)
+*/
+EXTERN_AUXFUNCT void i8finda(int8 *x, int size, int8 *out, int max);
+
+/*
+** \brief int16 Find function
+** max is an integer giving the maximum number of indices to return. (use -1 to search them all)
+*/
+EXTERN_AUXFUNCT void i16finda(int16 *x, int size, int16 *out, int max);
+
+
 
 #ifdef  __cplusplus
 } /* extern "C" */

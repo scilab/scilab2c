@@ -684,6 +684,7 @@ PrintStringInfo('u160'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('i160'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('i160'+ArgSeparator+'c0',ClassFileName,'file','y');
 
+
 PrintStringInfo('s2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('s2'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('d2'+ArgSeparator+'d2',ClassFileName,'file','y');
@@ -696,6 +697,7 @@ PrintStringInfo('i82'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('u162'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('i162'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('i162'+ArgSeparator+'c2',ClassFileName,'file','y');
+
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'asin'; //BJ : Works but not able to generate all cases , AS : same for float
@@ -908,7 +910,7 @@ PrintStringInfo('s2s0'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d2d0'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('c2s0'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('z2d0'+ArgSeparator+'z2',ClassFileName,'file','y');
-PrintStringInfo('u80u80'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('u80d0'+ArgSeparator+'u80',ClassFileName,'file','y');
 PrintStringInfo('u82u80'+ArgSeparator+'u80',ClassFileName,'file','y');
 PrintStringInfo('u82u80'+ArgSeparator+'u82',ClassFileName,'file','y');
 PrintStringInfo('i80i80'+ArgSeparator+'i80',ClassFileName,'file','y');
@@ -920,8 +922,6 @@ PrintStringInfo('u162u160'+ArgSeparator+'u162',ClassFileName,'file','y');
 PrintStringInfo('i160i160'+ArgSeparator+'i160',ClassFileName,'file','y');
 PrintStringInfo('i162i160'+ArgSeparator+'i160',ClassFileName,'file','y');
 PrintStringInfo('i162i160'+ArgSeparator+'i162',ClassFileName,'file','y');
-
-
 PrintStringInfo('s0g2'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('d0g2'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('c0g2'+ArgSeparator+'c0',ClassFileName,'file','y');
@@ -982,6 +982,7 @@ ClassName = 'Max';
 
 
 // --- Class Annotation. ---
+disp("Inside Max Function");
 PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
 ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
 PrintStringInfo('NIN=          1',ClassFileName,'file','y');
@@ -992,9 +993,20 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 
 PrintStringInfo('NIN=          2',ClassFileName,'file','y');
 PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+disp("Going to FA_TP_MAX");
 PrintStringInfo('OUT(1).TP=    FA_TP_MAX(IN(1).TP,IN(2).TP)',ClassFileName,'file','y');
+disp("Going to FA_SZ_1");
 PrintStringInfo('OUT(1).SZ(1)= FA_SZ_1(FA_SZ_OPPLUS(IN(1).SZ,IN(2).SZ,IN(1).TP,IN(2).TP))',ClassFileName,'file','y');
+disp("Going to FA_SZ_2");
 PrintStringInfo('OUT(1).SZ(2)= FA_SZ_2(FA_SZ_OPPLUS(IN(1).SZ,IN(2).SZ,IN(1).TP,IN(2).TP))',ClassFileName,'file','y');
+disp("Outside of FA_SZ_2");
+
+
+//PrintStringInfo('NIN=          2',ClassFileName,'file','y');
+//PrintStringInfo('NOUT=         1',ClassFileName,'file','y');
+//PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+//PrintStringInfo('OUT(1).SZ(1)= FA_SZ_SEL1(IN(1).SZ(1),IN(2).VAL)',ClassFileName,'file','y');
+//PrintStringInfo('OUT(1).SZ(2)= FA_SZ_SEL2(IN(1).SZ(2),IN(2).VAL)',ClassFileName,'file','y');
 
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
@@ -1006,6 +1018,11 @@ PrintStringInfo('u80'+ArgSeparator+'u80',ClassFileName,'file','y');
 PrintStringInfo('i80'+ArgSeparator+'i80',ClassFileName,'file','y');
 PrintStringInfo('u160'+ArgSeparator+'u160',ClassFileName,'file','y');
 PrintStringInfo('i160'+ArgSeparator+'i160',ClassFileName,'file','y');
+PrintStringInfo('u82'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('i82'+ArgSeparator+'i80',ClassFileName,'file','y');
+PrintStringInfo('u162'+ArgSeparator+'u160',ClassFileName,'file','y');
+PrintStringInfo('i162'+ArgSeparator+'i160',ClassFileName,'file','y');
+
 
 PrintStringInfo('s0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('s2s0'+ArgSeparator+'s2',ClassFileName,'file','y');
@@ -1037,12 +1054,27 @@ PrintStringInfo('i162i160'+ArgSeparator+'i162',ClassFileName,'file','y');
 PrintStringInfo('i160i162'+ArgSeparator+'i162',ClassFileName,'file','y');
 PrintStringInfo('i162i162'+ArgSeparator+'i162',ClassFileName,'file','y');
 
+PrintStringInfo('s0g2'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('s2g2'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('d0g2'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('d2g2'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('u80g2'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('u82g2'+ArgSeparator+'u82',ClassFileName,'file','y');
+PrintStringInfo('i80g2'+ArgSeparator+'i80',ClassFileName,'file','y');
+PrintStringInfo('i82g2'+ArgSeparator+'i82',ClassFileName,'file','y');
+PrintStringInfo('u160g2'+ArgSeparator+'u160',ClassFileName,'file','y');
+PrintStringInfo('u162g2'+ArgSeparator+'u162',ClassFileName,'file','y');
+PrintStringInfo('i160g2'+ArgSeparator+'i160',ClassFileName,'file','y');
+PrintStringInfo('i162g2'+ArgSeparator+'i162',ClassFileName,'file','y');
+
 FunctionName = 'max'; // BJ : Done AS : Float_Done
 		      // WARNING : Complex case will never be
                       // WARNING : max(x, 2) <=> max(x, 2 * ones(x)) nothing to do with 'r' nor 'c'
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+
 
 FunctionName = 'min'; // BJ : Done AS : Float_Done
 		      // WARNING : Complex case will never be
@@ -1124,6 +1156,10 @@ ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('s0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('d0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('c0c0'+ArgSeparator+'c0',ClassFileName,'file','y');
+PrintStringInfo('u80u80'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('u160u160'+ArgSeparator+'u160',ClassFileName,'file','y');
+PrintStringInfo('i80i80'+ArgSeparator+'i80',ClassFileName,'file','y');
+PrintStringInfo('i160i60'+ArgSeparator+'i160',ClassFileName,'file','y');
 PrintStringInfo('s0c0'+ArgSeparator+'c0',ClassFileName,'file','y');
 PrintStringInfo('c0s0'+ArgSeparator+'c0',ClassFileName,'file','y');
 PrintStringInfo('z0z0'+ArgSeparator+'z0',ClassFileName,'file','y');
@@ -1133,6 +1169,10 @@ PrintStringInfo('z0d0'+ArgSeparator+'z0',ClassFileName,'file','y');
 PrintStringInfo('s2s0'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d2d0'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('c2c0'+ArgSeparator+'c2',ClassFileName,'file','y');
+PrintStringInfo('u82u80'+ArgSeparator+'u82',ClassFileName,'file','y');
+PrintStringInfo('u162u160'+ArgSeparator+'u162',ClassFileName,'file','y');
+PrintStringInfo('i82i80'+ArgSeparator+'i82',ClassFileName,'file','y');
+PrintStringInfo('i162i160'+ArgSeparator+'i162',ClassFileName,'file','y');
 PrintStringInfo('s2c0'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('c2s0'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('z2z0'+ArgSeparator+'z2',ClassFileName,'file','y');
@@ -1142,6 +1182,10 @@ PrintStringInfo('d2z0'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('s0s2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d0d2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('c0c2'+ArgSeparator+'c2',ClassFileName,'file','y');
+PrintStringInfo('u80u82'+ArgSeparator+'u82',ClassFileName,'file','y');
+PrintStringInfo('u160u162'+ArgSeparator+'u162',ClassFileName,'file','y');
+PrintStringInfo('i80i82'+ArgSeparator+'i82',ClassFileName,'file','y');
+PrintStringInfo('i160i162'+ArgSeparator+'i162',ClassFileName,'file','y');
 PrintStringInfo('s0c2'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('c0s2'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('z0z2'+ArgSeparator+'z2',ClassFileName,'file','y');
@@ -1151,6 +1195,10 @@ PrintStringInfo('z0d2'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('s2s2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d2d2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('c2c2'+ArgSeparator+'c2',ClassFileName,'file','y');
+PrintStringInfo('u82u82'+ArgSeparator+'u82',ClassFileName,'file','y');
+PrintStringInfo('u162u162'+ArgSeparator+'u162',ClassFileName,'file','y');
+PrintStringInfo('i82i82'+ArgSeparator+'i82',ClassFileName,'file','y');
+PrintStringInfo('i162i162'+ArgSeparator+'i162',ClassFileName,'file','y');
 PrintStringInfo('s2c2'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('c2s2'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('z2z2'+ArgSeparator+'z2',ClassFileName,'file','y');
@@ -1234,6 +1282,10 @@ PrintStringInfo('s2c0'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('d2z0'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('c2s0'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('z2d0'+ArgSeparator+'z2',ClassFileName,'file','y');
+PrintStringInfo('u82d0'+ArgSeparator+'u82',ClassFileName,'file','y');
+PrintStringInfo('u162d0'+ArgSeparator+'u162',ClassFileName,'file','y');
+PrintStringInfo('i82d0'+ArgSeparator+'i82',ClassFileName,'file','y');
+PrintStringInfo('i162d0'+ArgSeparator+'i162',ClassFileName,'file','y');
 
 PrintStringInfo('s0c2'+ArgSeparator+'c2',ClassFileName,'file','y');
 PrintStringInfo('d0z2'+ArgSeparator+'z2',ClassFileName,'file','y');
@@ -2115,21 +2167,47 @@ PrintStringInfo('s0'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('d0'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('s2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d2'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('u80'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('u160'+ArgSeparator+'u160',ClassFileName,'file','y');
+PrintStringInfo('i80'+ArgSeparator+'i80',ClassFileName,'file','y');
+PrintStringInfo('i160'+ArgSeparator+'i160',ClassFileName,'file','y');
+PrintStringInfo('u82'+ArgSeparator+'u82',ClassFileName,'file','y');
+PrintStringInfo('u162'+ArgSeparator+'u162',ClassFileName,'file','y');
+PrintStringInfo('i82'+ArgSeparator+'i82',ClassFileName,'file','y');
+PrintStringInfo('i162'+ArgSeparator+'i162',ClassFileName,'file','y');
 
 PrintStringInfo('s0'+ArgSeparator+'s0s0',ClassFileName,'file','y');
 PrintStringInfo('d0'+ArgSeparator+'d0d0',ClassFileName,'file','y');
 PrintStringInfo('s2'+ArgSeparator+'s2s2',ClassFileName,'file','y');
 PrintStringInfo('d2'+ArgSeparator+'d2d2',ClassFileName,'file','y');
+PrintStringInfo('u80'+ArgSeparator+'u80u80',ClassFileName,'file','y');
+PrintStringInfo('u160'+ArgSeparator+'u160u160',ClassFileName,'file','y');
+PrintStringInfo('i80'+ArgSeparator+'i80i80',ClassFileName,'file','y');
+PrintStringInfo('i160'+ArgSeparator+'i60i60',ClassFileName,'file','y');
 
 PrintStringInfo('s0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('s2s0'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('d2d0'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('u80u80'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('u82u80'+ArgSeparator+'u82',ClassFileName,'file','y');
+PrintStringInfo('u160u160'+ArgSeparator+'u160',ClassFileName,'file','y');
+PrintStringInfo('u162u160'+ArgSeparator+'u162',ClassFileName,'file','y');
+PrintStringInfo('i80i80'+ArgSeparator+'i80',ClassFileName,'file','y');
+PrintStringInfo('i82i80'+ArgSeparator+'i82',ClassFileName,'file','y');
+PrintStringInfo('i160i160'+ArgSeparator+'i160',ClassFileName,'file','y');
+PrintStringInfo('i162i160'+ArgSeparator+'i162',ClassFileName,'file','y');
+
 
 PrintStringInfo('s0s0'+ArgSeparator+'s0s0',ClassFileName,'file','y');
 PrintStringInfo('s2s0'+ArgSeparator+'s2s2',ClassFileName,'file','y');
 PrintStringInfo('d0d0'+ArgSeparator+'d0d0',ClassFileName,'file','y');
 PrintStringInfo('d2d0'+ArgSeparator+'d2d2',ClassFileName,'file','y');
+PrintStringInfo('u80u80'+ArgSeparator+'u80u80',ClassFileName,'file','y');
+PrintStringInfo('u160u160'+ArgSeparator+'u160u160',ClassFileName,'file','y');
+PrintStringInfo('i80i80'+ArgSeparator+'i80i80',ClassFileName,'file','y');
+PrintStringInfo('i160i60'+ArgSeparator+'i60i60',ClassFileName,'file','y');
+
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'find'; // AS : Done  AS : Float_Done
@@ -3513,6 +3591,24 @@ PrintStringInfo('d0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('d0d2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('d2d0'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('d2d2'+ArgSeparator+'d2',ClassFileName,'file','y');
+
+PrintStringInfo('u80u80'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('u80u82'+ArgSeparator+'u82',ClassFileName,'file','y');
+PrintStringInfo('u82u80'+ArgSeparator+'u82',ClassFileName,'file','y');
+PrintStringInfo('u82u82'+ArgSeparator+'u82',ClassFileName,'file','y');
+PrintStringInfo('u160u160'+ArgSeparator+'u160',ClassFileName,'file','y');
+PrintStringInfo('u160u162'+ArgSeparator+'u162',ClassFileName,'file','y');
+PrintStringInfo('u162u160'+ArgSeparator+'u162',ClassFileName,'file','y');
+PrintStringInfo('u162u162'+ArgSeparator+'u162',ClassFileName,'file','y');
+PrintStringInfo('i80i80'+ArgSeparator+'i80',ClassFileName,'file','y');
+PrintStringInfo('i80i82'+ArgSeparator+'i82',ClassFileName,'file','y');
+PrintStringInfo('i82i80'+ArgSeparator+'i82',ClassFileName,'file','y');
+PrintStringInfo('i82i82'+ArgSeparator+'i82',ClassFileName,'file','y');
+PrintStringInfo('i160i160'+ArgSeparator+'i160',ClassFileName,'file','y');
+PrintStringInfo('i160i162'+ArgSeparator+'i162',ClassFileName,'file','y');
+PrintStringInfo('i162i160'+ArgSeparator+'i162',ClassFileName,'file','y');
+PrintStringInfo('i162i162'+ArgSeparator+'i162',ClassFileName,'file','y');
+
 
 PrintStringInfo('s0c0'+ArgSeparator+'c0',ClassFileName,'file','y');
 PrintStringInfo('c0s0'+ArgSeparator+'c0',ClassFileName,'file','y');
