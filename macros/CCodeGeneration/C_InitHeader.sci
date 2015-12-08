@@ -19,7 +19,7 @@ function C_InitHeader(C_Prototype,HeaderFileName,Sci2CLibMainHeaderFName,OutForm
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-SCI2CNInArgCheck(argn(2),3,3);
+SCI2CNInArgCheck(argn(2),4,4);
 
 // -----------------------
 // --- Initialization. ---

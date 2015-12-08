@@ -120,8 +120,8 @@ function scilab2c(varargin)
 	  error(msprintf(gettext("%s: argument #%d must be: ""make"" or ""nmake"".\n"),"scilab2c",5));
       return
     end
-    if varargin(6) <> "StandAlone" & varargin(6) <> "Arduino"
-	  error(msprintf(gettext("%s: argument #%d must be: ""StandAlone"" or ""Arduino"".\n"),"scilab2c",5));
+    if varargin(6) <> "StandAlone" & varargin(6) <> "Arduino" & varargin(6) <> "AVR"
+	  error(msprintf(gettext("%s: argument #%d must be: ""StandAlone"" or ""Arduino"" or ""AVR"".\n"),"scilab2c",5));
       return
     end
     UserScilabMainFile = varargin(1);
@@ -143,20 +143,24 @@ error(msprintf(gettext("%s: Wrong number of input argument(s): %d expected.\n"),
 
 
 // --- LAUNCH USER SCI CODE TO TEST IT BEFORE TRANSLATING IT!!! ---
-//  if OutFormat == "StandAlone"
-//  runscicode(UserScilabMainFile, UserSciFilesPaths);
-//  end
-// --- ASK USER FOR CONTINUATION. ---
+// If OutFormat choosen is 'Standalone' then only execute the code, otherwise directly start conversion.  
+  if OutFormat == "StandAlone"
+  runscicode(UserScilabMainFile, UserSciFilesPaths);
+  
+ // --- ASK USER FOR CONTINUATION. ---
 
   // Do not open confirmation box if we are not in STD mode.
-  if(getscilabmode() == "STD")
-    userchoice = messagebox("Exection Succesfull. Start translation ?", "modal", "info", ["Yes" "No"])
+	  if(getscilabmode() == "STD")
+		userchoice = messagebox("Exection Succesfull. Start translation ?", "modal", "info", ["Yes" "No"])
+	  else
+		userchoice = 1
+	  end
   else
-    userchoice = 1
+	userchoice = 1;
   end
   if (userchoice == 1)
 // --- LAUNCH SCI2C ---
-	runsci2c(UserScilabMainFile, UserSciFilesPaths, CCodeOutputDir, RunMode, BuildTool,'AVR');
+	runsci2c(UserScilabMainFile, UserSciFilesPaths, CCodeOutputDir, RunMode, BuildTool,OutFormat);
   end
 
 endfunction

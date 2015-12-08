@@ -105,7 +105,7 @@ mkdir(SCI2COutputPath+"/interfaces/");
 PrintStepInfo('Copying sources', FileInfo.GeneralReport,'both');
 for i = 1:size(allSources, "*")
   // DEBUG only
-  disp("Copying "+allSources(i)+" in "+SCI2COutputPath+"/src/c/");
+  //disp("Copying "+allSources(i)+" in "+SCI2COutputPath+"/src/c/");
   copyfile(allSources(i), SCI2COutputPath+"/src/c/");
 end
 
@@ -113,7 +113,7 @@ end
 PrintStepInfo('Copying headers', FileInfo.GeneralReport,'both');
 for i = 1:size(allHeaders, "*")
   // DEBUG only
-  disp("Copying "+allHeaders(i)+" in "+SCI2COutputPath+"/includes/");
+  //disp("Copying "+allHeaders(i)+" in "+SCI2COutputPath+"/includes/");
   copyfile(allHeaders(i), SCI2COutputPath+"/includes/");
 end
 
@@ -121,7 +121,7 @@ end
 PrintStepInfo('Copying interfaces', FileInfo.GeneralReport,'both');
 for i = 1:size(allInterfaces, "*")
   // DEBUG only
-  disp("Copying "+allInterfaces(i)+" in "+SCI2COutputPath+"/interfaces/");
+  //disp("Copying "+allInterfaces(i)+" in "+SCI2COutputPath+"/interfaces/");
   copyfile(allInterfaces(i), SCI2COutputPath+"/interfaces/");
 end
 

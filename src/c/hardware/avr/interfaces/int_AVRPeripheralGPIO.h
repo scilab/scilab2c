@@ -17,7 +17,7 @@ extern "C" {
 #define d0d0d0AVRDigitalSetupu80(in1,in2,in3) u8AVRDigitalSetups((uint8) in1,\
                                                   (uint8) in2, (uint8) in3);
 
-#define d0d0AVRDigitalOutu80(in1,in2) u8AVRDigitalIns((uint8) in1,\
+#define d0d0AVRDigitalInu80(in1,in2) u8AVRDigitalIns((uint8) in1,\
                                                   (uint8) in2);
 
 #define d0d0d0AVRDigitalOutu80(in1,in2,in3) u8AVRDigitalOuts((uint8) in1,\

@@ -1,6 +1,6 @@
-getAllSources
-getAllHeaders
-getAllInterfaces
 Scilab2CDeps
 findDeps
+getAllHeaders
+getAllInterfaces
+getAllSources
 getArduinoFiles

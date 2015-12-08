@@ -1,5 +1,8 @@
+AVRADCSetup
+AVRDigitalIn
 AVRDigitalOut
 AVRDigitalSetup
+AVRReadADC
 GetAVRSupportFunctions
 GetPeripheral
 InsertPeripheralInList
