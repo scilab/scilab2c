@@ -330,7 +330,7 @@
 #include "types.h"
 
 /*Scilab-arduino toolbox*/
-#ifdef ARDUINO
+#ifdef Arduino1
 #include "int_cmd_digital_out.h"
 #include "cmd_digital_out.h"
 #include "int_cmd_digital_in.h"
@@ -344,12 +344,13 @@
 #endif
 
 /*AVR*/
-#ifdef AVR
+#ifdef AVR1
 #include "int_AVRPeripheralGPIO.h"
 #include "AVRPeripheralGPIO.h"
 #include "int_AVRPeripheralADC.h"
 #include "AVRPeripheralADC.h"
-
+#include "int_AVRUtil.h"
+#include "AVRUtil.h"
 #endif
 
 #endif /* !__SCI2CLIB_H__ */

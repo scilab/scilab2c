@@ -831,7 +831,7 @@ function allSources = getAllSources(OutFormat)
       "src/c/hardware/avr/gpio/u8AVRDigitalIns.c"
       "src/c/hardware/avr/adc/u8AVRADCSetups.c"
       "src/c/hardware/avr/adc/u8AVRReadADCs.c"
-	  "src/c/scilab-arduino/sleep/u16sleeps.c"
+	  "src/c/hardware/avr/util/u16AVRSleeps.c"
          ];
 
 

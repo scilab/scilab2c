@@ -139,6 +139,7 @@ function allHeaders = getAllHeaders(OutFormat)
   AVR_headers = [
       "src/c/hardware/avr/includes/AVRPeripheralGPIO.h"
       "src/c/hardware/avr/includes/AVRPeripheralADC.h"
+      "src/c/hardware/avr/includes/AVRUtil.h"
 	    ]; 
 
   if OutFormat == "StandAlone"
