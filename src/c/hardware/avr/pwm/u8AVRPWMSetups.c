@@ -48,6 +48,12 @@ uint8 u8AVRPWMSetups(uint8 timer, uint8 prescalar, uint8 waveform_mode, uint8 ou
 		case 1:
 				break;
 		case 2:
+				TCCR2|= (prescalar & 0x07);  //Select clock source
+				//Select waveform generation mode
+				TCCR2|= ((waveform_mode & 0x04) << 4);  
+				//Select compare output mode
+				TCCR2 |= ((output_mode & 0x01) << 3);  //WGM0
+				TCCR2 |= ((output_mode & 0x02) << 6);  //WGM1
 				break;
 	}	    
 

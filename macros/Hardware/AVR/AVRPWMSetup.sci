@@ -2,7 +2,7 @@ function AVRPWMSetup(timer, prescalar, waveform_mode, output_mode)
 // Function to initialise PWM of AVR
 //
 // Calling Sequence
-//     AVRSetupADC(timer, prescalar, waveform_mode, output_mode)
+//     AVRPWMSetup(timer, prescalar, waveform_mode, output_mode)
 //
 // Parameters
 //     timer: timer to be used for PWM generation (0,1,2)

@@ -2,8 +2,11 @@ AVRADCSetup
 AVRDigitalIn
 AVRDigitalOut
 AVRDigitalSetup
+AVRGetTimerValue
+AVRPWMSetDuty
 AVRPWMSetup
 AVRReadADC
+AVRTimerSetup
 GetAVRSupportFunctions
 GetPeripheral
 InsertPeripheralInList

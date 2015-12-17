@@ -822,6 +822,8 @@ function allSources = getAllSources(OutFormat)
       "src/c/scilab-arduino/cmd_digital_in/u8cmd_digital_ins.c"
       "src/c/scilab-arduino/cmd_analog_out/u8cmd_analog_outs.c"
       "src/c/scilab-arduino/cmd_analog_in/u8cmd_analog_ins.c"
+      "src/c/scilab-arduino/cmd_dcmotor_setup/u8cmd_dcmotor_setups.c"
+      "src/c/scilab-arduino/cmd_dcmotor_run/u8cmd_dcmotor_runs.c"
       "src/c/scilab-arduino/sleep/u16sleeps.c"];
 
   //Files to be inserted only if output format selected is 'AVR'.
@@ -831,6 +833,8 @@ function allSources = getAllSources(OutFormat)
       "src/c/hardware/avr/gpio/u8AVRDigitalIns.c"
       "src/c/hardware/avr/adc/u8AVRADCSetups.c"
       "src/c/hardware/avr/adc/u8AVRReadADCs.c"
+      "src/c/hardware/avr/pwm/u8AVRPWMSetups.c"
+      "src/c/hardware/avr/pwm/u8AVRPWMSetDutys.c"
 	  "src/c/hardware/avr/util/u16AVRSleeps.c"
          ];
 

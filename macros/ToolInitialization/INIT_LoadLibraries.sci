@@ -49,7 +49,7 @@ ToBeConverted(1).CFunctionName   = SharedInfo.NextCFunName;
 // --- Read the list of library functions available. ---
 [SCI2CAvailableC,SCI2CNElem] = FL_ExtractFuncList(FileInfo.SCI2CLibCFLFun,FileInfo.SCI2CLibCFLCls,...
    SharedInfo.Annotations.FUNCLASS,SharedInfo.Extension.FuncListClasses,FileInfo.GeneralReport);
-
+//disp (SCI2CAvailable);
 [USER2CAvailableC,USER2CNElem] = FL_ExtractFuncList(FileInfo.USER2CLibCFLFun,FileInfo.USER2CLibCFLCls,...
    SharedInfo.Annotations.FUNCLASS,SharedInfo.Extension.FuncListClasses,FileInfo.GeneralReport);
 
