@@ -20,7 +20,8 @@ sci2c_GenFunctionslib    = lib(pathmacros + "GeneralFunctions"   + filesep());
 sci2c_SymbolTablelib     = lib(pathmacros + "SymbolTable"        + filesep());
 sci2c_ToolInitlib        = lib(pathmacros + "ToolInitialization" + filesep());
 sci2c_finDeps            = lib(pathmacros + "findDeps"           + filesep());
-sci2c_AVRlib		 = lib(pathmacros + "Hardware\AVR"       + filesep());
+sci2c_AVRlib		 	 = lib(pathmacros + "Hardware\AVR"       + filesep());
+sci2c_ScilabArduinolib	 = lib(pathmacros + "Scilab-Arduino"     + filesep());
 clear pathmacros;
 
 // Load and add help chapter

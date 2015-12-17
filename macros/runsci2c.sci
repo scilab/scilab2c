@@ -133,12 +133,15 @@ end
 //default folder, else generate makefile for standalone c code
 
 if (OutFormat == 'Arduino')
+
+   GenerateSetupFunction(FileInfo);
    mkdir(SCI2COutputPath+"/arduino/");
    mkdir(SCI2COutputPath+"/arduino/sci2c_arduino");
    //Copy arduino makefile
    arduinoFiles = SCI2CHOME + "/" + getArduinoFiles();
    PrintStepInfo('Copying arduino files', FileInfo.GeneralReport,'both');
-   for i = 1:size(arduinoFiles, "*")
+   copyfile(arduinoFiles(1), SCI2COutputPath);
+   for i = 2:size(arduinoFiles, "*")
        // DEBUG only
        //disp("Copying "+arduinoFiles(i)+" in "+SCI2COutputPath+"/arduino/sci2carduino");
        copyfile(arduinoFiles(i), SCI2COutputPath+"/arduino/sci2c_arduino/");

@@ -2,6 +2,7 @@ AVRADCSetup
 AVRDigitalIn
 AVRDigitalOut
 AVRDigitalSetup
+AVRPWMSetDuty
 AVRPWMSetup
 AVRReadADC
 GetAVRSupportFunctions
