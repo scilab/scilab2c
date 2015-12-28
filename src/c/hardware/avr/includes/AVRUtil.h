@@ -13,10 +13,10 @@
 extern "C" {
 #endif
 
-#include "Types.h"
-#include "avr/util.h"
+#include "types.h"
+#include "util/delay.h"
 
-uint8 U16AVRSleeps (uint16 delay);
+uint8 u16AVRSleeps (uint16 delay);
 
 #ifdef  __cplusplus
 } /* extern "C" */

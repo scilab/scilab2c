@@ -2,7 +2,7 @@ function AVRADCSetup(prescalar,adc_ref)
 // Function to initialise ADC of AVR
 //
 // Calling Sequence
-//     AVRSetupADC(uint8 prescalar, uint8 adc_ref)
+//     AVRADCSetup(uint8 prescalar, uint8 adc_ref)
 //
 // Parameters
 //     prescalar: prescalar to be used for generating ADC clock (0-7)

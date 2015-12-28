@@ -113,5 +113,5 @@ FileInfo.MakefileFilename   = fullfile(FileInfo.CStyleOutCCCodeDir,'Makefile');
 //----Hardware related-----
 //-------------------------
 FileInfo.PeripheralInitListFile      = fullfile(FileInfo.WorkingDir,'PeripheralInit.dat');
-
+FileInfo.SetupListFile				 = fullfile(FileInfo.WorkingDir,'SetupList.dat');
 endfunction

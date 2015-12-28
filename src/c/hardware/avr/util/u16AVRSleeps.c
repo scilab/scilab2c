@@ -6,9 +6,9 @@
 
 #include "AVRUtil.h"
 
-uint8 U16AVRSleeps (uint16 delay)
+uint8 u16AVRSleeps (uint16 delay)
 {
   _delay_ms(delay);
 
- retrun 0;
+ return 0;
 }

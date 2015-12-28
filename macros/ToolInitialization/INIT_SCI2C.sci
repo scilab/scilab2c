@@ -147,8 +147,13 @@ anscounter = 0;
 //--------------------------------------------
 //---Hardware related initialisation----------
 //--------------------------------------------
-PeripheralList = list();
-save(FileInfo.PeripheralInitListFile, 'PeripheralList');
+if (OutFormat == 'AVR')
+	PeripheralList = list();
+	save(FileInfo.PeripheralInitListFile, 'PeripheralList');
+elseif (OutFormat == 'Arduino')
+    SetupList = list();
+    save(FileInfo.SetupListFile, 'SetupList');
+end
 
 endfunction
 // #RNU_RES_B

@@ -49,6 +49,7 @@ C_FinalizeCode(FileInfo,SharedInfo);
 // --- Identify the next function to translate. ---
 // ------------------------------------------------
 SharedInfo.NFilesToTranslate = SharedInfo.NFilesToTranslate - 1;
+
 if (SharedInfo.NFilesToTranslate >= 1)
    // Remove the translated C function from the ToBeConverted list
    ToBeConverted(1) = [];

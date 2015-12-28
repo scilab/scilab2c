@@ -1,11 +1,13 @@
 #include "Arduino.h"
 #include <loop_arduino.h>
+#include <setup_arduino.h>
 
 void setup()
 {
     //Please write appropriate setup functions here.
+	setup_arduino();
 }
-int i = 0;
+
 void loop()
 {
   loop_arduino();
