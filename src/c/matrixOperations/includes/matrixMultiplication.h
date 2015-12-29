@@ -16,6 +16,7 @@
 #include "dynlib_matrixoperations.h"
 #include "multiplication.h"
 #include "addition.h"
+#include "types.h"
 
 #ifdef  __cplusplus
 extern "C" {
@@ -83,6 +84,64 @@ EXTERN_MATOPS void	cmulma(floatComplex *in1, int lines1, int columns1,
 EXTERN_MATOPS void	zmulma(doubleComplex *in1, int lines1, int columns1,
 	       doubleComplex *in2, int lines2, int columns2,
 	       doubleComplex *out);
+
+/*
+** \brief Compute a multiplication for uint8 matrixes.
+** \param in1 : input matrix.
+** \param lines1 : lines of in1 matrix.
+** \param columns1 : columns of in1 matrix.
+** \param in2 : input arry.
+** \param lines2 : lines of in2 matrix.
+** \param columns2 : columns of in2 matrix.
+** \param out : Matrix that contains the multiplication in1 * in2.
+*/
+EXTERN_MATOPS void	u8mulma(uint8 *in1, int lines1, int columns1,
+	       uint8 *in2, int lines2, int columns2,
+	       uint8 *out);
+
+/*
+** \brief Compute a multiplication for uint16 matrixes.
+** \param in1 : input matrix.
+** \param lines1 : lines of in1 matrix.
+** \param columns1 : columns of in1 matrix.
+** \param in2 : input arry.
+** \param lines2 : lines of in2 matrix.
+** \param columns2 : columns of in2 matrix.
+** \param out : Matrix that contains the multiplication in1 * in2.
+*/
+EXTERN_MATOPS void	u16mulma(uint16 *in1, int lines1, int columns1,
+	       uint16 *in2, int lines2, int columns2,
+	       uint16 *out);
+
+/*
+** \brief Compute a multiplication for int8 matrixes.
+** \param in1 : input matrix.
+** \param lines1 : lines of in1 matrix.
+** \param columns1 : columns of in1 matrix.
+** \param in2 : input arry.
+** \param lines2 : lines of in2 matrix.
+** \param columns2 : columns of in2 matrix.
+** \param out : Matrix that contains the multiplication in1 * in2.
+*/
+EXTERN_MATOPS void	i8mulma(int8 *in1, int lines1, int columns1,
+	       int8 *in2, int lines2, int columns2,
+	       int8 *out);
+
+/*
+** \brief Compute a multiplication for int16 matrixes.
+** \param in1 : input matrix.
+** \param lines1 : lines of in1 matrix.
+** \param columns1 : columns of in1 matrix.
+** \param in2 : input arry.
+** \param lines2 : lines of in2 matrix.
+** \param columns2 : columns of in2 matrix.
+** \param out : Matrix that contains the multiplication in1 * in2.
+*/
+EXTERN_MATOPS void	i16mulma(int16 *in1, int lines1, int columns1,
+	       int16 *in2, int lines2, int columns2,
+	       int16 *out);
+
+
 
 #ifdef  __cplusplus
 } /* extern "C" */
