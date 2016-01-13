@@ -12,7 +12,7 @@
 
 #ifndef __CAT_H__
 #define __CAT_H__
-
+#include "types.h"
 #include "dynlib_matrixoperations.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
@@ -97,6 +97,63 @@ EXTERN_MATOPS void		ccolumncata(floatComplex *in1, int lines1, int columns1, flo
 */
 EXTERN_MATOPS void		zrowcata(doubleComplex *in1, int lines1, int columns1, doubleComplex *in2, int lines2, int columns2, doubleComplex* out);
 EXTERN_MATOPS void		zcolumncata(doubleComplex *in1, int lines1, int columns1, doubleComplex *in2, int lines2, int columns2, doubleComplex* out);
+
+/*
+** \brief Concat uint8 arrays
+** \param in1 the uint8 array to process
+** \param lines1
+** \param columns1
+** \param in2 the uint8  array to process to concat
+** \param lines2
+** \param columns2
+** \param out the concatenation
+*/
+
+EXTERN_MATOPS void u8rowcata(uint8 *in1, int lines1, int columns1, uint8 *in2, int lines2, int columns2, uint8* out);
+EXTERN_MATOPS void u8columncata(uint8 *in1, int lines1, int columns1, uint8 *in2, int lines2, int columns2, uint8* out);
+
+/*
+** \brief Concat uint16 arrays
+** \param in1 the uint16 array to process
+** \param lines1
+** \param columns1
+** \param in2 the uint16  array to process to concat
+** \param lines2
+** \param columns2
+** \param out the concatenation
+*/
+
+EXTERN_MATOPS void u16rowcata(uint16 *in1, int lines1, int columns1, uint16 *in2, int lines2, int columns2, uint16* out);
+EXTERN_MATOPS void u16columncata(uint16 *in1, int lines1, int columns1, uint16 *in2, int lines2, int columns2, uint16* out);
+
+
+/*
+** \brief Concat int8 arrays
+** \param in1 the int8 array to process
+** \param lines1
+** \param columns1
+** \param in2 the int8  array to process to concat
+** \param lines2
+** \param columns2
+** \param out the concatenation
+*/
+
+EXTERN_MATOPS void i8rowcata(int8 *in1, int lines1, int columns1, int8 *in2, int lines2, int columns2, int8* out);
+EXTERN_MATOPS void i8columncata(int8 *in1, int lines1, int columns1, int8 *in2, int lines2, int columns2, int8* out);
+
+/*
+** \brief Concat int16 arrays
+** \param in1 the int16 array to process
+** \param lines1
+** \param columns1
+** \param in2 the int16  array to process to concat
+** \param lines2
+** \param columns2
+** \param out the concatenation
+*/
+
+EXTERN_MATOPS void i16rowcata(int16 *in1, int lines1, int columns1, int16 *in2, int lines2, int columns2, int16* out);
+EXTERN_MATOPS void i16columncata(int16 *in1, int lines1, int columns1, int16 *in2, int lines2, int columns2, int16* out);
 
 #ifdef  __cplusplus
 } /* extern "C" */
