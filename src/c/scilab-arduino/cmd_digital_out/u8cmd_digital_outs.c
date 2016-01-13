@@ -12,6 +12,7 @@
 
 #include "cmd_digital_out.h"
 
+
 uint8 u8cmd_digital_outs(uint8 board_no, uint8 pin, uint8 value)
 {
     digitalWrite(pin,value);

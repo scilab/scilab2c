@@ -134,7 +134,7 @@ function allInterfaces = getAllInterfaces(OutFormat)
   AVR_interfaces = [
       "src/c/hardware/avr/interfaces/int_AVRPeripheralGPIO.h"
       "src/c/hardware/avr/interfaces/int_AVRPeripheralADC.h"
-      "src/c/hardware/avr/interfaces/int_AVRPeripheralADC.h"
+      "src/c/hardware/avr/interfaces/int_AVRPeripheralPWM.h"
       "src/c/hardware/avr/interfaces/int_AVRUtil.h"
 	];
 

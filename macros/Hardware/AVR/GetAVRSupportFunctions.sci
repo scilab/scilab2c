@@ -11,6 +11,15 @@ function AVRSupportFunctions = GetAVRSupportFunctions()
 // Author: Siddhesh Wani  
 // -----------------------------------------------------------------
 
-AVRSupportFunctions = ["AVRDigitalOut"];
+AVRSupportFunctions = [
+						"AVRADCSetup"
+						"AVRDigitalIn"
+						"AVRDigitalOut"
+						"AVRDigitalSetup"
+						"AVRGetTimerValue"
+						"AVRPWMSetDuty"
+						"AVRPWMSetup"
+						"AVRReadADC"
+						"AVRTimerSetup"];
 
 endfunction

@@ -1,8 +1,7 @@
-function AVRTimerSetup(timer, prescalar)
-// Function to set the prescalar for timer.
+// Function to setup timer on AVR
 //
 // Calling Sequence
-//     AVRTimerSetup(timer, prescalar)
+//     u8AVRTimerSetups(timer, prescalar)
 //
 // Parameters
 //     timer: timer to be set up (0,1,2)
@@ -16,16 +15,28 @@ function AVRTimerSetup(timer, prescalar)
 //     and requirement.
 //
 //
-// Examples
-//     AVRTimerSetup(0,1)   //Timer 0 with no scaling
-//
-// See also
-//     AVRGetTimerValue
-//
 // Authors
 //     Siddhesh Wani
 //
 
-// This is curretly dummy function. It provides no functionality but is required 
-// for providing support for generating C code for AVR.
-endfunction
+
+#include "AVRPeripheralTimer.h"
+
+
+uint8 u8AVRTimerSetups(uint8 timer,uint8 prescalar)
+{
+    switch(timer)
+	{
+		case 0:
+				TCCR0|= (prescalar & 0x07);  //Select clock source
+				break;
+		case 1:
+				break;
+		case 2:
+				TCCR2|= (prescalar & 0x07);  //Select clock source
+				break;
+	}	    
+
+	return 0;
+}
+
