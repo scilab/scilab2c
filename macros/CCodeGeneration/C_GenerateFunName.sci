@@ -23,22 +23,30 @@ function CFunName = C_GenerateFunName(FunctionName,InArg,NInArg,OutArg,NOutArg)
 // ------------------------------
 SCI2CNInArgCheck(argn(2),5,5);
 CFunName = '';
+if(IsAVRSupportFunction(FunctionName))
+//If current function is an AVR function, then function name can be just plain 
+//function name without any input/output arguments types
 
-for tmpcnt = 1:NInArg
-   if (InArg(tmpcnt).Dimension == 1)
-      CFunName = CFunName+InArg(tmpcnt).Type+'2';
-   else
-      CFunName = CFunName+InArg(tmpcnt).Type+SCI2Cstring(InArg(tmpcnt).Dimension);
-   end
-end
+	CFunName = CFunName+FunctionName;
 
-CFunName = CFunName+FunctionName;
+else
 
-for tmpcnt = 1:NOutArg
-   if (OutArg(tmpcnt).Dimension == 1)
-      CFunName = CFunName+OutArg(tmpcnt).Type+'2';
-   else
-      CFunName = CFunName+OutArg(tmpcnt).Type+SCI2Cstring(OutArg(tmpcnt).Dimension);
-   end
+	for tmpcnt = 1:NInArg
+	   if (InArg(tmpcnt).Dimension == 1)
+		  CFunName = CFunName+InArg(tmpcnt).Type+'2';
+	   else
+		  CFunName = CFunName+InArg(tmpcnt).Type+SCI2Cstring(InArg(tmpcnt).Dimension);
+	   end
+	end
+
+	CFunName = CFunName+FunctionName;
+
+	for tmpcnt = 1:NOutArg
+	   if (OutArg(tmpcnt).Dimension == 1)
+		  CFunName = CFunName+OutArg(tmpcnt).Type+'2';
+	   else
+		  CFunName = CFunName+OutArg(tmpcnt).Type+SCI2Cstring(OutArg(tmpcnt).Dimension);
+	   end
+	end
 end
 endfunction

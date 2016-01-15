@@ -4,7 +4,7 @@ SetupListFile = FileInfo.SetupListFile;
 
 load(SetupListFile,'SetupList');
 
-SetupArduinoFile = fullfile(FileInfo.CStyleOutCCCodeDir,'setup_arduino.c');
+SetupArduinoFile = fullfile(FileInfo.CStyleOutCCCodeDir,'setup_arduino.cpp');
 C_SCI2CHeader(SetupArduinoFile);
 
 PrintStringInfo('#include ""setup_arduino.h""',SetupArduinoFile,'file','y');

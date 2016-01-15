@@ -17,7 +17,7 @@ extern "C" {
 //Function prototypes
 uint8 u8AVRPWMSetups(uint8 timer, uint8 prescalar, uint8 waveform_mode, uint8 output_mode);
 
-uint8 u8AVRPWMSetDuty(uint8 timer, uint8 duty);
+uint8 u8AVRPWMSetDutys(uint8 timer, uint8 duty);
 
 
 #ifdef  __cplusplus
