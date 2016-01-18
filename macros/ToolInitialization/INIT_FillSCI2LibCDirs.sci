@@ -4418,8 +4418,8 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
-PrintStringInfo('d0d0d0d0'+ArgSeparator+'u80',ClassFileName,'file','y');
-
+//PrintStringInfo('d0d0d0d0'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo(''+ArgSeparator+'',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'AVRPWMSetup'; 
@@ -4443,8 +4443,8 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
-PrintStringInfo('d0d0'+ArgSeparator+'u80',ClassFileName,'file','y');
-
+//PrintStringInfo('d0d0'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo(''+ArgSeparator+'',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'AVRPWMSetDuty'; 

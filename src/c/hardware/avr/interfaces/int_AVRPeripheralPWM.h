@@ -14,10 +14,10 @@
 extern "C" {
 #endif
 
-#define d0d0d0d0AVRPWMSetupu80(in1,in2) u8AVRPWMSetups((uint8) in1,\
+#define AVRPWMSetup(in1,in2,in3,in4) u8AVRPWMSetups((uint8) in1,\
                                          (uint8) in2, (uint8) in3, (uint8) in4);
 
-#define d0d0AVRPWMSetDuty(in1,in2) u8AVRPWMSetDutys((uint8) in1, (uint8) in2);
+#define AVRPWMSetDuty(in1,in2) u8AVRPWMSetDutys((uint8) in1, (uint8) in2);
 
 #ifdef  __cplusplus
 } /* extern "C" */

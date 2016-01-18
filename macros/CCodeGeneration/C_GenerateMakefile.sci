@@ -1,3 +1,5 @@
+//Removed 4 lines code from end that causes ot generate the Makefile.mak file that is not needed with cygwin
+//Changed at line 52
 function C_GenerateMakefile(FileInfo,SharedInfo)
 // function C_GenerateMakefile(FileInfo,SharedInfo)
 // -----------------------------------------------------------------
@@ -49,11 +51,19 @@ PrintStringInfo('HSRCDIR     = '+makehsrcdir,FileInfo.MakefileFilename,'file','y
 PrintStringInfo('ISRCDIR     = '+makeisrcdir,FileInfo.MakefileFilename,'file','y','y');
 PrintStringInfo('SCI2CDIR    = .',FileInfo.MakefileFilename,'file','y','y');
 
-// Compiler definition
-PrintStringInfo('CC     = gcc',FileInfo.MakefileFilename,'file','y','y');
-PrintStringInfo('CFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR)',FileInfo.MakefileFilename,'file','y','y');
-PrintStringInfo('LDFLAGS = -lblas -llapack -lm',FileInfo.MakefileFilename,'file','y','y');
+if getos() == 'Windows' then   
 
+    // Compiler definition
+    PrintStringInfo('CC     = gcc',FileInfo.MakefileFilename,'file','y','y');
+    PrintStringInfo('CFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR)',FileInfo.MakefileFilename,'file','y','y');
+    PrintStringInfo('LDFLAGS = -L./ -lblasplus -llapack -lm',FileInfo.MakefileFilename,'file','y','y');   //Added -L./ and -lblasplus(previously it was -lblas)
+    
+else 
+     // Compiler definition
+    PrintStringInfo('CC     = gcc',FileInfo.MakefileFilename,'file','y','y');
+    PrintStringInfo('CFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR)',FileInfo.MakefileFilename,'file','y','y');
+    PrintStringInfo('LDFLAGS = -lblas -llapack -lm',FileInfo.MakefileFilename,'file','y','y');
+end
 // Binary definition
 PrintStringInfo('EXEFILENAME = mytest.exe',FileInfo.MakefileFilename,'file','y','y');
 PrintStringInfo('EXEFILE = $(SCI2CDIR)/$(EXEFILENAME)', FileInfo.MakefileFilename,'file','y','y');
@@ -107,8 +117,6 @@ PrintStringInfo('\t@echo ""==========================""',FileInfo.MakefileFilena
 PrintStringInfo('\trm -rf $(EXEFILE)',FileInfo.MakefileFilename,'file','y','y');
 PrintStringInfo('\t@echo "" ""',FileInfo.MakefileFilename,'file','y','y');
 
-if getos() == 'Windows' then
-  C_GenerateMakefile_msvc(FileInfo,SharedInfo);
-end
+
 
 endfunction

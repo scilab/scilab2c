@@ -14,10 +14,10 @@
 extern "C" {
 #endif
 
-#define d0d0AVRADCSetupu80(in1,in2) u8AVRADCSetups((uint8) in1,\
+#define AVRADCSetup(in1,in2) u8AVRADCSetups((uint8) in1,\
                                                   (uint8) in2);
 
-#define d0AVRReadADCu160(in1) u8AVRReadADCs((uint8) in1);
+#define AVRReadADC(in1) u8AVRReadADCs((uint8) in1);
 
 #ifdef  __cplusplus
 } /* extern "C" */

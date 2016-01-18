@@ -61,7 +61,12 @@ FileInfo.Funct(funnumber).PfxP1WhileEpilFileName = fullfile(FileInfo.WorkingDir,
 FileInfo.Funct(funnumber).CPass1FreeFileName     = fullfile(FileInfo.WorkingDir,funname,SharedInfo.NextCFunName+'_pass1free.c');
 FileInfo.Funct(funnumber).CPass2FileName         = fullfile(FileInfo.WorkingDir,funname,SharedInfo.NextCFunName+'_pass2.c');
 FileInfo.Funct(funnumber).Pass1HeaderFileName    = fullfile(FileInfo.WorkingDir,funname,SharedInfo.NextCFunName+'.h');
-FileInfo.Funct(funnumber).FinalCFileName         = fullfile(FileInfo.OutCCCodeDir,SharedInfo.NextCFunName+'.c');
+if (SharedInfo.OutFormat == 'Arduino')
+//In case of "Arduino" target, *.cpp files should be generated, not *.c files.
+	FileInfo.Funct(funnumber).FinalCFileName         = fullfile(FileInfo.OutCCCodeDir,SharedInfo.NextCFunName+'.cpp');
+else
+	FileInfo.Funct(funnumber).FinalCFileName         = fullfile(FileInfo.OutCCCodeDir,SharedInfo.NextCFunName+'.c');
+end
 FileInfo.Funct(funnumber).FinalHeaderFileName    = fullfile(FileInfo.OutCCCodeDir,SharedInfo.NextCFunName+'.h');
 FileInfo.Funct(funnumber).CInitVarsFileName      = fullfile(FileInfo.WorkingDir,funname,SharedInfo.NextCFunName+'_initvars.c');
 FileInfo.Funct(funnumber).CDeclarationFileName   = fullfile(FileInfo.WorkingDir,funname,SharedInfo.NextCFunName+'_declarations.c');
