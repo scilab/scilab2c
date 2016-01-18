@@ -134,8 +134,11 @@ function allHeaders = getAllHeaders(OutFormat)
       "src/c/scilab-arduino/includes/cmd_digital_in.h"
       "src/c/scilab-arduino/includes/cmd_analog_out.h"
       "src/c/scilab-arduino/includes/cmd_analog_in.h"
-	  "src/c/scilab-arduino/includes/cmd_dcmotor_setup.h"
-	  "src/c/scilab-arduino/includes/cmd_dcmotor_run.h"
+      "src/c/scilab-arduino/includes/cmd_dcmotor_setup.h"
+      "src/c/scilab-arduino/includes/cmd_dcmotor_run.h"
+      "src/c/scilab-arduino/includes/cmd_servo_attach.h"
+      "src/c/scilab-arduino/includes/cmd_servo_detach.h"
+      "src/c/scilab-arduino/includes/cmd_servo_move.h"
       "src/c/scilab-arduino/includes/sleep.h"];
 
   AVR_headers = [

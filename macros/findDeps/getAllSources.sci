@@ -44,6 +44,14 @@ function allSources = getAllSources(OutFormat)
       "src/c/auxiliaryFunctions/rand/zrands.c"
       "src/c/auxiliaryFunctions/rand/cranda.c"
       "src/c/auxiliaryFunctions/rand/crands.c"
+      "src/c/auxiliaryFunctions/rand/u8randa.c"
+      "src/c/auxiliaryFunctions/rand/u8rands.c"
+      "src/c/auxiliaryFunctions/rand/u16randa.c"
+      "src/c/auxiliaryFunctions/rand/u16rands.c"
+      "src/c/auxiliaryFunctions/rand/i8randa.c"
+      "src/c/auxiliaryFunctions/rand/i8rands.c"
+      "src/c/auxiliaryFunctions/rand/i16randa.c"
+      "src/c/auxiliaryFunctions/rand/i16rands.c"
       "src/c/auxiliaryFunctions/sign/csigna.c"
       "src/c/auxiliaryFunctions/sign/csigns.c"
       "src/c/auxiliaryFunctions/sign/dsigna.c"
@@ -844,6 +852,9 @@ function allSources = getAllSources(OutFormat)
       "src/c/scilab-arduino/cmd_analog_in/u8cmd_analog_ins.c"
       "src/c/scilab-arduino/cmd_dcmotor_setup/u8cmd_dcmotor_setups.c"
       "src/c/scilab-arduino/cmd_dcmotor_run/u8cmd_dcmotor_runs.c"
+      "src/c/scilab-arduino/cmd_servo_attach/u8cmd_servo_attach.cpp"
+      "src/c/scilab-arduino/cmd_servo_detach/u8cmd_servo_detach.cpp"
+      "src/c/scilab-arduino/cmd_servo_move/u8cmd_servo_move.cpp"
       "src/c/scilab-arduino/sleep/u16sleeps.c"];
 
   //Files to be inserted only if output format selected is 'AVR'.

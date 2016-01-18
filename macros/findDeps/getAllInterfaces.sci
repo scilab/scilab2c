@@ -129,6 +129,7 @@ function allInterfaces = getAllInterfaces(OutFormat)
       "src/c/scilab-arduino/interfaces/int_cmd_analog_out.h"
       "src/c/scilab-arduino/interfaces/int_cmd_analog_in.h"
       "src/c/scilab-arduino/interfaces/int_cmd_dcmotor.h"
+      "src/c/scilab-arduino/interfaces/int_cmd_servo.h"
       "src/c/scilab-arduino/interfaces/int_sleep.h"];
 
   //Interface files required for "AVR" output

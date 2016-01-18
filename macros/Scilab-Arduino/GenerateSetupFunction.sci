@@ -1,9 +1,7 @@
 function GenerateSetupFunction(FileInfo)
 
 SetupListFile = FileInfo.SetupListFile;
-
 load(SetupListFile,'SetupList');
-
 SetupArduinoFile = fullfile(FileInfo.CStyleOutCCCodeDir,'setup_arduino.c');
 C_SCI2CHeader(SetupArduinoFile);
 
@@ -13,7 +11,6 @@ PrintStringInfo('int setup_arduino()',SetupArduinoFile,'file','y');
 PrintStringInfo('{',SetupArduinoFile,'file','y');
 
 nelements=size(SetupList);
-
 for i=1:nelements
 	funcall = '    ';
 	funcall = funcall + SetupList(i)(1);
