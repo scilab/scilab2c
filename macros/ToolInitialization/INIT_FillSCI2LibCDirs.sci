@@ -557,6 +557,157 @@ PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file',
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
+
+
+
+
+// -------------------
+// --- Class bitand. ---
+// -------------------
+ClassName = 'bitand';
+
+// --- Class Annotation. ---
+PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
+ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
+PrintStringInfo('NIN=          1',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+
+PrintStringInfo('NIN=          2',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+
+// --- Function List Class. ---
+ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+
+
+PrintStringInfo('u80u80'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('u82u82'+ArgSeparator+'u82',ClassFileName,'file','y');
+PrintStringInfo('u160u160'+ArgSeparator+'u160',ClassFileName,'file','y');
+PrintStringInfo('u162u162'+ArgSeparator+'u162',ClassFileName,'file','y');
+
+
+// --- Annotation Function And Function List Function. ---
+FunctionName = 'bitand';
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+// --- Annotation Function And Function List Function. ---
+FunctionName = 'bitor';
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+// --- Annotation Function And Function List Function. ---
+FunctionName = 'bitxor';
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+
+
+
+// -------------------
+// --- Class bitcmp. ---
+// -------------------
+ClassName = 'bitcmp';
+
+// --- Class Annotation. ---
+PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
+ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
+PrintStringInfo('NIN=          1',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+
+PrintStringInfo('NIN=          2',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+
+// --- Function List Class. ---
+ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+
+
+PrintStringInfo('u80d0'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('u82d0'+ArgSeparator+'u82',ClassFileName,'file','y');
+PrintStringInfo('u160d0'+ArgSeparator+'u160',ClassFileName,'file','y');
+PrintStringInfo('u162d0'+ArgSeparator+'u162',ClassFileName,'file','y');
+
+// --- Annotation Function And Function List Function. ---
+FunctionName = 'bitcmp';
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+// -------------------
+// --- Class bitset. ---
+// -------------------
+ClassName = 'bitset';
+
+// --- Class Annotation. ---
+PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
+ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
+
+PrintStringInfo('NIN=          3',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+
+// --- Function List Class. ---
+ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+
+
+PrintStringInfo('u80d0d0'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('u160d0d0'+ArgSeparator+'u160',ClassFileName,'file','y');
+
+// --- Annotation Function And Function List Function. ---
+FunctionName = 'bitset';
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+
+
+// -------------------
+// --- Class bitget. ---
+// -------------------
+ClassName = 'bitget';
+
+// --- Class Annotation. ---
+PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
+ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
+
+PrintStringInfo('NIN=          2',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+
+// --- Function List Class. ---
+ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+
+
+PrintStringInfo('u80d0'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('u160d0'+ArgSeparator+'u160',ClassFileName,'file','y');
+
+// --- Annotation Function And Function List Function. ---
+FunctionName = 'bitget';
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+
+
+
 // ------------------
 // --- Class Sign ---
 // ------------------
@@ -976,6 +1127,7 @@ PrintStringInfo('d0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('c0c0'+ArgSeparator+'c0',ClassFileName,'file','y');
 PrintStringInfo('c0s0'+ArgSeparator+'c0',ClassFileName,'file','y');
 PrintStringInfo('z0d0'+ArgSeparator+'z0',ClassFileName,'file','y');
+
 PrintStringInfo('s2s0'+ArgSeparator+'s0',ClassFileName,'file','y'); //* possible ? */
 PrintStringInfo('d2d0'+ArgSeparator+'d0',ClassFileName,'file','y'); //* possible ? */
 PrintStringInfo('c2s0'+ArgSeparator+'c0',ClassFileName,'file','y'); //* possible ? */
@@ -2061,6 +2213,7 @@ PrintStringInfo('i162i162'+ArgSeparator+'i162',ClassFileName,'file','y');
 
 
 // --- Annotation Function And Function List Function. ---
+
 FunctionName = 'OpMinus'; // AS : Done  AS : Float_Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
@@ -3761,6 +3914,7 @@ PrintStringInfo('d2d0'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('d2d2'+ArgSeparator+'d2',ClassFileName,'file','y');
 
 PrintStringInfo('u80u80'+ArgSeparator+'u80',ClassFileName,'file','y');
+
 PrintStringInfo('u80u82'+ArgSeparator+'u82',ClassFileName,'file','y');
 PrintStringInfo('u82u80'+ArgSeparator+'u82',ClassFileName,'file','y');
 PrintStringInfo('u82u82'+ArgSeparator+'u82',ClassFileName,'file','y');
