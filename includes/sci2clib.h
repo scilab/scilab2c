@@ -187,6 +187,30 @@
 #include "int16.h"
 #include "int_int16.h"
 
+/*interfacing bitand */
+#include "bitand.h"
+#include "int_bitand.h"
+
+/*interfacing bitor */
+#include "bitor.h"
+#include "int_bitor.h"
+
+/*interfacing bitxor */
+#include "bitxor.h"
+#include "int_bitxor.h"
+
+/*interfacing bitcmp */
+#include "bitcmp.h"
+#include "int_bitcmp.h"
+
+/*interfacing bitset */
+#include "bitset.h"
+#include "int_bitset.h"
+
+/*interfacing bitget */
+#include "bitget.h"
+#include "int_bitget.h"
+
 
 /* IMPLICIT LISTS */
 /* interfacing implicitList/OpColon */
@@ -329,6 +353,12 @@
 
 #include "types.h"
 
+/* STRING*?
+/* interface for String */
+#include "int_string.h"
+/*include for string */
+#include "str.h"
+
 /*Scilab-arduino toolbox*/
 #ifdef Arduino1
 #include "int_cmd_digital_out.h"
@@ -344,6 +374,10 @@
 #include "cmd_dcmotor_setup.h"
 #include "int_sleep.h"
 #include "sleep.h"
+#include "cmd_servo_attach.h"
+#include "cmd_servo_detach.h"
+#include "cmd_servo_move.h"
+#include "int_cmd_servo.h"
 #endif
 
 /*AVR*/

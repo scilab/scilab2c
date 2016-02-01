@@ -77,6 +77,12 @@ function allInterfaces = getAllInterfaces(Target)
       "src/c/elementaryFunctions/interfaces/int_asin.h"
       "src/c/elementaryFunctions/interfaces/int_atan.h"
       "src/c/elementaryFunctions/interfaces/int_ceil.h"
+      "src/c/elementaryFunctions/interfaces/int_bitand.h"
+      "src/c/elementaryFunctions/interfaces/int_bitor.h"
+      "src/c/elementaryFunctions/interfaces/int_bitxor.h"
+      "src/c/elementaryFunctions/interfaces/int_bitcmp.h" 
+      "src/c/elementaryFunctions/interfaces/int_bitset.h" 
+      "src/c/elementaryFunctions/interfaces/int_bitget.h" 
       "src/c/elementaryFunctions/interfaces/int_cosh.h"
       "src/c/elementaryFunctions/interfaces/int_uint8.h"
       "src/c/elementaryFunctions/interfaces/int_int8.h"
@@ -129,6 +135,7 @@ function allInterfaces = getAllInterfaces(Target)
       "src/c/scilab-arduino/interfaces/int_cmd_analog_out.h"
       "src/c/scilab-arduino/interfaces/int_cmd_analog_in.h"
       "src/c/scilab-arduino/interfaces/int_cmd_dcmotor.h"
+      "src/c/scilab-arduino/interfaces/int_cmd_servo.h"
       "src/c/scilab-arduino/interfaces/int_sleep.h"];
 
   //Interface files required for "AVR" output

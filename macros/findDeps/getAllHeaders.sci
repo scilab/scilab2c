@@ -87,6 +87,12 @@ function allHeaders = getAllHeaders(Target)
       "src/c/elementaryFunctions/includes/lnp1m1.h"
       "src/c/elementaryFunctions/includes/tanh.h"
       "src/c/elementaryFunctions/includes/sqrt.h"
+      "src/c/elementaryFunctions/includes/bitand.h"
+      "src/c/elementaryFunctions/includes/bitor.h"
+      "src/c/elementaryFunctions/includes/bitxor.h"
+      "src/c/elementaryFunctions/includes/bitcmp.h"
+      "src/c/elementaryFunctions/includes/bitset.h"
+      "src/c/elementaryFunctions/includes/bitget.h"
       "src/c/elementaryFunctions/includes/asinh.h"
       "src/c/elementaryFunctions/includes/atan2.h"
       "src/c/elementaryFunctions/includes/atanh.h"
@@ -134,8 +140,11 @@ function allHeaders = getAllHeaders(Target)
       "src/c/scilab-arduino/includes/cmd_digital_in.h"
       "src/c/scilab-arduino/includes/cmd_analog_out.h"
       "src/c/scilab-arduino/includes/cmd_analog_in.h"
-	  "src/c/scilab-arduino/includes/cmd_dcmotor_setup.h"
-	  "src/c/scilab-arduino/includes/cmd_dcmotor_run.h"
+      "src/c/scilab-arduino/includes/cmd_dcmotor_setup.h"
+      "src/c/scilab-arduino/includes/cmd_dcmotor_run.h"
+      "src/c/scilab-arduino/includes/cmd_servo_attach.h"
+      "src/c/scilab-arduino/includes/cmd_servo_detach.h"
+      "src/c/scilab-arduino/includes/cmd_servo_move.h"
       "src/c/scilab-arduino/includes/sleep.h"];
 
   AVR_headers = [

@@ -17,6 +17,7 @@
 #include "dynlib_auxiliaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
+#include "types.h"
 
 #ifdef  __cplusplus
 extern "C" {
@@ -46,6 +47,35 @@ EXTERN_AUXFUNCT floatComplex	crands(void);
  **/
 EXTERN_AUXFUNCT doubleComplex	zrands(void);
 
+
+/**
+ ** \brief uint8 Rand function
+ ** \return A random double.
+ **/
+EXTERN_AUXFUNCT double		u8rands(void);
+
+
+/**
+ ** \brief uint16 Rand function
+ ** \return A random double.
+ **/
+EXTERN_AUXFUNCT double		u16rands(void);
+
+
+/**
+ ** \brief int8 Rand function
+ ** \return A random double.
+ **/
+EXTERN_AUXFUNCT double		i8rands(void);
+
+
+/**
+ ** \brief int16 Rand function
+ ** \return A random double.
+ **/
+EXTERN_AUXFUNCT double		i16rands(void);
+
+
 /**
  ** \brief Float Array Rand function
  ** \return A random float array.
@@ -69,6 +99,32 @@ EXTERN_AUXFUNCT void		cranda(floatComplex *out, int size);
  ** \return A random double complex array.
  **/
 EXTERN_AUXFUNCT void		zranda(doubleComplex *out, int size);
+
+/**
+ ** \brief uint8 Array Rand function
+ ** \return A random double array.
+ **/
+EXTERN_AUXFUNCT void		u8randa(double *out, int size);
+
+/**
+ ** \brief uint16 Array Rand function
+ ** \return A random double array.
+ **/
+EXTERN_AUXFUNCT void		u16randa(double *out, int size);
+
+
+/**
+ ** \brief int8 Array Rand function
+ ** \return A random double array.
+ **/
+EXTERN_AUXFUNCT void		i8randa(double *out, int size);
+
+/**
+ ** \brief int16 Array Rand function
+ ** \return A random double array.
+ **/
+EXTERN_AUXFUNCT void		i16randa(double *out, int size);
+
 
 #ifdef  __cplusplus
 } /* extern "C" */
