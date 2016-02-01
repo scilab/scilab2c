@@ -1,4 +1,4 @@
-function runsci2c(UserScilabMainFile, UserSciFilesPaths, SCI2COutputPath, Runmode, BuildTool,OutFormat)
+function runsci2c(UserScilabMainFile, UserSciFilesPaths, SCI2COutputPath, Runmode, BuildTool,Target)
 // function runsci2c(SCI2CInputPrmFile)
 // -----------------------------------------------------------------
 // ===         hArtes/PoliBa/GAP SCI2C tool                      ===
@@ -51,7 +51,7 @@ disp(RunSci2CMainDir);
 
 // --- Initialize the SCI2C tool directories and files. ---
 [FileInfoDatFile,SharedInfoDatFile] = INIT_SCI2C(UserScilabMainFile, ...
-						 UserSciFilesPaths, SCI2COutputPath, RunMode, OutFormat);
+						 UserSciFilesPaths, SCI2COutputPath, RunMode, Target);
 
 // -- Load FileInfo and SharedInfo
 load(SharedInfoDatFile,'SharedInfo');
@@ -92,14 +92,16 @@ end
 // ---------------------------
 global SCI2CHOME
 
-allSources = SCI2CHOME + "/" + getAllSources(OutFormat);
-allHeaders = SCI2CHOME + "/" +getAllHeaders(OutFormat);
-allInterfaces = SCI2CHOME + "/" + getAllInterfaces(OutFormat);
+allSources = SCI2CHOME + "/" + getAllSources(Target);
+allHeaders = SCI2CHOME + "/" +getAllHeaders(Target);
+allInterfaces = SCI2CHOME + "/" + getAllInterfaces(Target);
+allLibraries = SCI2CHOME + "/" + getAllLibraries(Target);
 
 mkdir(SCI2COutputPath+"/src/");
 mkdir(SCI2COutputPath+"/src/c/");
 mkdir(SCI2COutputPath+"/includes/");
 mkdir(SCI2COutputPath+"/interfaces/");
+mkdir(SCI2COutputPath+"/libraries/");
 
 // -- Sources
 PrintStepInfo('Copying sources', FileInfo.GeneralReport,'both');
@@ -125,6 +127,13 @@ for i = 1:size(allInterfaces, "*")
   copyfile(allInterfaces(i), SCI2COutputPath+"/interfaces/");
 end
 
+// -- Libraries
+PrintStepInfo('Copying libraries', FileInfo.GeneralReport,'both');
+for i = 1:size(allLibraries, "*")
+  // DEBUG only
+  //disp("Copying "+allInterfaces(i)+" in "+SCI2COutputPath+"/interfaces/");
+  copyfile(allLibraries(i), SCI2COutputPath+"/libraries/");
+end
 
 // --------------------------
 // --- Generate Makefile. ---
@@ -132,7 +141,7 @@ end
 //If output format is chosen as 'Arduino', then copy makefile for arduino from
 //default folder, else generate makefile for standalone c code
 
-if (OutFormat == 'Arduino')
+if (Target == 'Arduino')
 
    GenerateSetupFunction(FileInfo);
    mkdir(SCI2COutputPath+"/arduino/");

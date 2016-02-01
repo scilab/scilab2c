@@ -57,12 +57,12 @@ elseif or(get(gcbo, "tag")==["runradioall","runradiotranslate","runradiogenlib"]
 
 // --- Output format option ---
 
-elseif or(get(gcbo, "tag")==["outformatradiostalone","outformatradioarduino","outformatradioavr"]) then
+elseif or(get(gcbo, "tag")==["outformatradiostalone","outformatradioarduino","outformatradioavr","outformatradiorpi"]) then
 
   set(findobj("tag", "outformatradiostalone"), "value", 0);
   set(findobj("tag", "outformatradioarduino"), "value", 0);
   set(findobj("tag", "outformatradioavr"), "value", 0);
-
+  set(findobj("tag", "outformatradiorpi"), "value", 0);
   set(gcbo, "value", 1);
 
 
@@ -113,11 +113,13 @@ elseif get(gcbo, "tag")=="convertbtn" then
   end
 
   if get(findobj("tag", "outformatradiostalone"), "value") == 1 then
-    OutFormat = "StandAlone";
+    Target = "StandAlone";
   elseif get(findobj("tag", "outformatradioarduino"), "value") == 1 then
-    OutFormat = "Arduino";
+    Target = "Arduino";
   elseif get(findobj("tag", "outformatradioavr"), "value") == 1 then
-    OutFormat = "AVR";
+    Target = "AVR";
+  elseif get(findobj("tag", "outformatradiorpi"), "value") == 1 then
+    Target = "RPi";
   end
 
   CopySciCodeIntoCCode = get(findobj("tag", "sciintocradioyes"), "value") == 1;
@@ -138,7 +140,7 @@ elseif get(gcbo, "tag")=="convertbtn" then
 //  mprintf("RunMode = {%s}\n", RunMode);
 //  mprintf("CopySciCodeIntoCCode = {%d}\n", bool2s(CopySciCodeIntoCCode));
 //  mprintf("NativeBuild = {%s}\n", NativeBuild);
-  scilab2c(UserScilabMainFile, UserSciCodeMainDir, UserSciFilesPaths, RunMode, NativeBuild,OutFormat);
+  scilab2c(UserScilabMainFile, UserSciCodeMainDir, UserSciFilesPaths, RunMode, NativeBuild,Target);
 //
 // --- sci2c help ---
 //

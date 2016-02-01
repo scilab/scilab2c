@@ -10,7 +10,7 @@
 //
 //
 
-function allInterfaces = getAllInterfaces(OutFormat)
+function allInterfaces = getAllInterfaces(Target)
   //Interface files common to all types of output format
   Standalone_interfaces = [
       "src/c/auxiliaryFunctions/interfaces/int_rand.h"
@@ -139,12 +139,20 @@ function allInterfaces = getAllInterfaces(OutFormat)
       "src/c/hardware/avr/interfaces/int_AVRUtil.h"
 	];
 
-  if OutFormat == "StandAlone"
+  RPI_interfaces = [
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralDigital.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralUtil.h"
+
+]; 
+
+  if Target == "StandAlone"
   allInterfaces = Standalone_interfaces;
-  elseif OutFormat == "Arduino"
+  elseif Target == "Arduino"
   allInterfaces = cat(1,Standalone_interfaces, Arduino_interfaces);
-  elseif OutFormat == "AVR"
+  elseif Target == "AVR"
   allInterfaces = cat(1,Standalone_interfaces, AVR_interfaces);
+  elseif Target == "RPi"
+  allInterfaces = cat(1,Standalone_interfaces, RPI_interfaces);
   end
 
 endfunction

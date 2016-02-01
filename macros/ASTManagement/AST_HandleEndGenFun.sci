@@ -46,9 +46,9 @@ ReportFileName         = FileInfo.Funct(nxtscifunnumber).ReportFileName;
 Pass1HeaderFileName    = FileInfo.Funct(nxtscifunnumber).Pass1HeaderFileName;
 FunInfoDatDir          = FileInfo.FunctionList.FunInfoDatDir;
 CGblDeclarFileName     = FileInfo.Funct(nxtscifunnumber).CGblDeclarFileName;
-if(SharedInfo.OutFormat == 'AVR')
+if(SharedInfo.Target == 'AVR')
 	PeripheralInitListFile = FileInfo.PeripheralInitListFile;
-elseif (SharedInfo.OutFormat == 'Arduino')
+elseif (SharedInfo.Target == 'Arduino')
     SetupListFile = FileInfo.SetupListFile;
 end 
 

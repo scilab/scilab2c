@@ -26,6 +26,8 @@ SCI2CNInArgCheck(argn(2),2,2);
 // -----------------------
 PrintStepInfo('Generating Builder '+FileInfo.MakefileFilename,...
    FileInfo.GeneralReport,'both');
+
+target = SharedInfo.Target;
 // ---------------------------
 // --- End Initialization. ---
 // ---------------------------
@@ -41,28 +43,37 @@ PrintStringInfo('# --- DIRECTORIES AND FILES ---',FileInfo.MakefileFilename,'fil
 makecsrcdir  = pathconvert('src/c', %f, %f, 'u');
 makehsrcdir  = pathconvert('includes', %f, %f, 'u');
 makeisrcdir  = pathconvert('interfaces', %f, %f, 'u');
+makelibdir   = pathconvert('libraries', %f, %f, 'u');
 makesci2cdir = FileInfo.CStyleOutCCCodeDir;
 
 
 PrintStringInfo('CSRCDIR     = '+makecsrcdir,FileInfo.MakefileFilename,'file','y','y');
 PrintStringInfo('HSRCDIR     = '+makehsrcdir,FileInfo.MakefileFilename,'file','y','y');
 PrintStringInfo('ISRCDIR     = '+makeisrcdir,FileInfo.MakefileFilename,'file','y','y');
+PrintStringInfo('LIBDIR     = '+makelibdir,FileInfo.MakefileFilename,'file','y','y');
 PrintStringInfo('SCI2CDIR    = .',FileInfo.MakefileFilename,'file','y','y');
 
 // Compiler definition
-PrintStringInfo('CC     = gcc',FileInfo.MakefileFilename,'file','y','y');
-PrintStringInfo('CFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR)',FileInfo.MakefileFilename,'file','y','y');
-PrintStringInfo('LDFLAGS = -lblas -llapack -lm',FileInfo.MakefileFilename,'file','y','y');
-
+if (target == 'RPi')
+	PrintStringInfo('CC     = arm-linux-gnueabihf-gcc ',FileInfo.MakefileFilename,'file','y','y');
+else
+	PrintStringInfo('CC     = gcc',FileInfo.MakefileFilename,'file','y','y');
+end 
+PrintStringInfo('CFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR) -L $(LIBDIR)',FileInfo.MakefileFilename,'file','y','y');
+if (target == 'RPi')
+	PrintStringInfo('LDFLAGS = -llapack -lrefblas -lgfortran -lm -lbcm2835',FileInfo.MakefileFilename,'file','y','y');
+else
+	PrintStringInfo('LDFLAGS = -lblas -llapack -lm ',FileInfo.MakefileFilename,'file','y','y');
+end
 // Binary definition
 PrintStringInfo('EXEFILENAME = mytest.exe',FileInfo.MakefileFilename,'file','y','y');
 PrintStringInfo('EXEFILE = $(SCI2CDIR)/$(EXEFILENAME)', FileInfo.MakefileFilename,'file','y','y');
 
 // Sources
 //Check the output format selected and insert files according to it
-outformat = SharedInfo.OutFormat;
+target = SharedInfo.Target;
 PrintStringInfo('SRC = \\', FileInfo.MakefileFilename,'file','y','y');
-allSources = getAllSources(outformat);
+allSources = getAllSources(target);
 nbSources = size(allSources);
 for i = 1:(nbSources(1) - 1)
   [tmppath,tmpfile,tmpext] = fileparts(allSources(i));

@@ -21,6 +21,7 @@ sci2c_SymbolTablelib     = lib(pathmacros + "SymbolTable"        + filesep());
 sci2c_ToolInitlib        = lib(pathmacros + "ToolInitialization" + filesep());
 sci2c_finDeps            = lib(pathmacros + "findDeps"           + filesep());
 sci2c_AVRlib		 	 = lib(pathmacros + "Hardware\AVR"       + filesep());
+sci2c_RPilib		 	 = lib(pathmacros + "Hardware\RasberryPi"+ filesep());
 sci2c_ScilabArduinolib	 = lib(pathmacros + "Scilab-Arduino"     + filesep());
 clear pathmacros;
 

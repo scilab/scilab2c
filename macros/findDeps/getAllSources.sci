@@ -10,7 +10,7 @@
 //
 //
 
-function allSources = getAllSources(OutFormat)
+function allSources = getAllSources(Target)
   //Files common to types of output format
   Standalone_files = [ "src/c/auxiliaryFunctions/abs/sabsa.c"
       "src/c/auxiliaryFunctions/abs/sabss.c"
@@ -858,13 +858,23 @@ function allSources = getAllSources(OutFormat)
 	  "src/c/hardware/avr/util/u16AVRSleeps.c"
          ];
 
+  RPI_files = [
+      "src/c/hardware/rasberrypi/gpio/u8RPIDigitalSetups.c"
+      "src/c/hardware/rasberrypi/gpio/u8RPIDigitalOuts.c"
+      "src/c/hardware/rasberrypi/gpio/u8RPIDigitalIns.c"
+      "src/c/hardware/rasberrypi/util/u16RPIDelayMillis.c"
+      "src/c/hardware/rasberrypi/util/u16RPIDelayMicros.c"
 
-  if OutFormat == "StandAlone"
+];
+
+  if Target == "StandAlone"
   allSources = Standalone_files;
-  elseif OutFormat == "Arduino"
+  elseif Target == "Arduino"
   allSources = cat(1,Standalone_files, Arduino_files);
-  elseif OutFormat == "AVR"
+  elseif Target == "AVR"
   allSources = cat(1,Standalone_files, AVR_files);
+  elseif Target == "RPi"
+  allSources = cat(1,Standalone_files, RPI_files);
   end
 
 endfunction

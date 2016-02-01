@@ -1,4 +1,4 @@
-function SharedInfo = INIT_GenSharedInfo(RunMode,UserScilabMainFile,TotTempScalarVars,EnableTempVarsReuse,Sci2CLibMainHeaderFName,CopySciCodeIntoCCode,OutFormat)
+function SharedInfo = INIT_GenSharedInfo(RunMode,UserScilabMainFile,TotTempScalarVars,EnableTempVarsReuse,Sci2CLibMainHeaderFName,CopySciCodeIntoCCode,Target)
 // function SharedInfo = INIT_GenSharedInfo(WorkingDir,OutCCCodeDir,UserSciFilesPaths,...
 //    RunMode,UserScilabMainFile,TotTempScalarVars,EnableTempVarsReuse,Sci2CLibMainHeaderFName)
 // -----------------------------------------------------------------
@@ -47,7 +47,7 @@ SharedInfo.Sci2CLibMainHeaderFName = pathconvert(Sci2CLibMainHeaderFName, %f, %f
 SharedInfo.NextSCIFileName  = UserScilabMainFile;
 [scipath,funname,sciext]    = fileparts(UserScilabMainFile);
 SharedInfo.SCIMainFunName   = funname;
-if (OutFormat == 'Arduino')
+if (Target == 'Arduino')
    SharedInfo.CMainFunName     = 'loop_arduino';
 else
    SharedInfo.CMainFunName     = 'main';
@@ -120,6 +120,6 @@ SharedInfo.Extension.FuncListClasses     = '.lcls';  // Stands for list class
 // ------------------------
 SharedInfo.ResizeApproach = 'NO_RESIZE'; // 'NO_RESIZE', 'RESIZE_ALL', 'RESIZE_TEMP', 'RESIZE_LOCAL', 'RESIZE_GLOBAL', 'REALLOC_ALL_RESIZE_ALL'
 
-SharedInfo.OutFormat = OutFormat;
+SharedInfo.Target = Target;
 
 endfunction
