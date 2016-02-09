@@ -35,7 +35,7 @@ CDeclarationFileName = FileInfo.Funct(nxtscifunnumber).CDeclarationFileName;
 CInitVarsFileName    = FileInfo.Funct(nxtscifunnumber).CInitVarsFileName;
 IndentLevel          = SharedInfo.NIndent;
 CCall                = '';
-OutFormat            = SharedInfo.OutFormat;
+Target	             = SharedInfo.Target;
 // --- Extract Function Info. ---
 FunctionName      = FunInfo.SCIFunctionName;
 CFunName          = FunInfo.CFunctionName;
@@ -371,7 +371,7 @@ else
    if (FlagCall == 0)
       // Add prototype to the header file
 
-     C_InitHeader(CCall+';',HeaderFileName,SharedInfo.Sci2CLibMainHeaderFName,OutFormat);
+     C_InitHeader(CCall+';',HeaderFileName,SharedInfo.Sci2CLibMainHeaderFName,Target);
 
       // Add { at the beginning of the function.
       PrintStringInfo('   {',ReportFileName,'file','y');

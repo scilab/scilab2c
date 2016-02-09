@@ -396,4 +396,11 @@
 #include "AVRUtil.h"
 #endif
 
+/*RPi*/
+#ifdef RPi1
+#include "int_RPIPeripheralDigital.h"
+#include "RPIPeripheralDigital.h"
+#include "int_RPIPeripheralUtil.h"
+#include "RPIPeripheralUtil.h"
+#endif
 #endif /* !__SCI2CLIB_H__ */

@@ -35,7 +35,7 @@ function scilab2c(varargin)
     UserSciFilesPaths = [];
     RunMode = 'All';
     BuildTool = getNativeBuildTool();
-    OutFormat = "StandAlone"
+    Target = "StandAlone"
     //
 // scilab2c(UserScilabMainFile, CCodeOutputDir, UserSciFilesPaths)
 //
@@ -55,7 +55,7 @@ function scilab2c(varargin)
     end
     RunMode = "All";
     BuildTool = getNativeBuildTool();
-    OutFormat = "StandAlone"
+    Target = "StandAlone"
 	//
 // scilab2c(UserScilabMainFile, CCodeOutputDir, UserSciFilesPaths, RunMode)
 //
@@ -79,7 +79,7 @@ function scilab2c(varargin)
     end
     RunMode = varargin(4);
     BuildTool = getNativeBuildTool();
-    OutFormat = "StandAlone"
+    Target = "StandAlone"
    case 5
 	for i = 1:4
       if typeof(varargin(i)) <> "string"
@@ -104,7 +104,7 @@ function scilab2c(varargin)
     end
     RunMode = varargin(4);
     BuildTool = varargin(5);
-    OutFormat = "StandAlone"
+    Target = "StandAlone"
    case 6
       for i = 1:4
       if typeof(varargin(i)) <> "string"
@@ -120,7 +120,7 @@ function scilab2c(varargin)
 	  error(msprintf(gettext("%s: argument #%d must be: ""make"" or ""nmake"".\n"),"scilab2c",5));
       return
     end
-    if varargin(6) <> "StandAlone" & varargin(6) <> "Arduino" & varargin(6) <> "AVR"
+    if varargin(6) <> "StandAlone" & varargin(6) <> "Arduino" & varargin(6) <> "AVR" & varargin(6) <> "RPi"
 	  error(msprintf(gettext("%s: argument #%d must be: ""StandAlone"" or ""Arduino"" or ""AVR"".\n"),"scilab2c",5));
       return
     end
@@ -133,7 +133,7 @@ function scilab2c(varargin)
     end
     RunMode = varargin(4);
     BuildTool = varargin(5);
-    OutFormat = varargin(6);
+    Target = varargin(6);
   else
 //
 // Calling scilab2c with more than understood values
@@ -143,8 +143,8 @@ error(msprintf(gettext("%s: Wrong number of input argument(s): %d expected.\n"),
 
 
 // --- LAUNCH USER SCI CODE TO TEST IT BEFORE TRANSLATING IT!!! ---
-// If OutFormat choosen is 'Standalone' then only execute the code, otherwise directly start conversion.  
-  if OutFormat == "StandAlone"
+// If Target choosen is 'Standalone' then only execute the code, otherwise directly start conversion.  
+  if Target == "StandAlone"
   runscicode(UserScilabMainFile, UserSciFilesPaths);
   
  // --- ASK USER FOR CONTINUATION. ---
@@ -160,7 +160,7 @@ error(msprintf(gettext("%s: Wrong number of input argument(s): %d expected.\n"),
   end
   if (userchoice == 1)
 // --- LAUNCH SCI2C ---
-	runsci2c(UserScilabMainFile, UserSciFilesPaths, CCodeOutputDir, RunMode, BuildTool,OutFormat);
+	runsci2c(UserScilabMainFile, UserSciFilesPaths, CCodeOutputDir, RunMode, BuildTool,Target);
   end
 
 endfunction

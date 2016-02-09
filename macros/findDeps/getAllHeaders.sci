@@ -10,7 +10,7 @@
 //
 //
 
-function allHeaders = getAllHeaders(OutFormat)
+function allHeaders = getAllHeaders(Target)
 
   //Header files common to all types of output format.
   Standalone_headers = [
@@ -155,12 +155,20 @@ function allHeaders = getAllHeaders(OutFormat)
       "src/c/hardware/avr/includes/AVRUtil.h"
 	    ]; 
 
-  if OutFormat == "StandAlone"
+  RPi_headers = [
+      "includes/bcm2835.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralDigital.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralUtil.h"
+		];
+
+  if Target == "StandAlone"
   allHeaders = Standalone_headers;
-  elseif OutFormat == "Arduino"
+  elseif Target == "Arduino"
   allHeaders = cat(1,Standalone_headers, Arduino_headers);
-  elseif OutFormat == "AVR"
+  elseif Target == "AVR"
   allHeaders = cat(1,Standalone_headers, AVR_headers);
+  elseif Target == "RPi"
+  allHeaders = cat(1,Standalone_headers, RPi_headers);
   end
 
 endfunction

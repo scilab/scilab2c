@@ -23,9 +23,9 @@ function CFunName = C_GenerateFunName(FunctionName,InArg,NInArg,OutArg,NOutArg)
 // ------------------------------
 SCI2CNInArgCheck(argn(2),5,5);
 CFunName = '';
-if(IsAVRSupportFunction(FunctionName))
-//If current function is an AVR function, then function name can be just plain 
-//function name without any input/output arguments types
+if((IsAVRSupportFunction(FunctionName)) | (IsRPISupportFunction(FunctionName)))
+//If current function is an AVR or RPi function, then function name can be just 
+//plain function name without any input/output arguments types
 
 	CFunName = CFunName+FunctionName;
 

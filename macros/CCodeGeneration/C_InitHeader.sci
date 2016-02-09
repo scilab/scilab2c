@@ -1,4 +1,4 @@
-function C_InitHeader(C_Prototype,HeaderFileName,Sci2CLibMainHeaderFName,OutFormat)
+function C_InitHeader(C_Prototype,HeaderFileName,Sci2CLibMainHeaderFName,Target)
 // function C_InitHeader(C_Prototype,HeaderFileName,Sci2CLibMainHeaderFName)
 // -----------------------------------------------------------------
 // //NUT: add description here
@@ -38,7 +38,7 @@ PrintStringInfo('** ------------------- ',HeaderFileName,'file','y');
 PrintStringInfo('** ----- Target ------ ',HeaderFileName,'file','y');
 PrintStringInfo('** ------------------- ',HeaderFileName,'file','y');
 PrintStringInfo('*/',HeaderFileName,'file','y');
-PrintStringInfo('# define ' + OutFormat + '1 1' ,HeaderFileName,'file','y');
+PrintStringInfo('# define ' + Target + '1 1' ,HeaderFileName,'file','y');
 PrintStringInfo('/*',HeaderFileName,'file','y');
 PrintStringInfo('** ----------------------- ',HeaderFileName,'file','y');
 PrintStringInfo('** --- SCI2C Includes. --- ',HeaderFileName,'file','y');

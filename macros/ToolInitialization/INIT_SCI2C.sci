@@ -1,5 +1,5 @@
 function [FileInfoDatFile,SharedInfoDatFile] = ...
-    INIT_SCI2C(UserScilabMainFile, UserSciFilesPaths, SCI2COutputDir, RunMode,OutFormat)
+    INIT_SCI2C(UserScilabMainFile, UserSciFilesPaths, SCI2COutputDir, RunMode,Target)
 // function [FileInfoDatFile,SharedInfoDatFile] = INIT_SCI2C(SCI2CInputPrmFile)
 // -----------------------------------------------------------------
 // #RNU_RES_B
@@ -68,7 +68,7 @@ OutCCCodeDir = SCI2CResultDir;
 
 //-- FIXME : MainLibHeader and Verbose mode are (?) configurable
 SharedInfo = INIT_GenSharedInfo(RunMode,UserScilabMainFile, ...
-				TotTempScalarVars,EnableTempVarsReuse,"sci2clib.h", %t,OutFormat);
+				TotTempScalarVars,EnableTempVarsReuse,"sci2clib.h", %t,Target);
 
 // ----------------------------
 // --- Initialize FileInfo. ---
@@ -149,10 +149,10 @@ anscounter = 0;
 //--------------------------------------------
 //---Hardware related initialisation----------
 //--------------------------------------------
-if (OutFormat == 'AVR')
+if (Target == 'AVR')
 	PeripheralList = list();
 	save(FileInfo.PeripheralInitListFile, 'PeripheralList');
-elseif (OutFormat == 'Arduino')
+elseif (Target == 'Arduino')
     SetupList = list();
     save(FileInfo.SetupListFile, 'SetupList');
 end
