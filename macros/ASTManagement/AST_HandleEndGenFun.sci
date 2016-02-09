@@ -209,7 +209,7 @@ global STACKDEDUG
 		  if ((InArg(cntin).Dimension > 0))
 		      // if ((InArg(cntin).Dimension > 0) & (InArg(cntin).Scope ~= 'Global'))
 		     InArg(cntin).Size(1) = '__'+InArg(cntin).Name+'Size[0]';
-		     InArg(cntin).Size(2) = '__'+InArg(cntin).Name+'Size[1]';
+		     InArg(cntin).Size(2) = '__'+InArg(cntin).Name+'Size[1]';s
 		  end
 		  //#RNUREM_MERNU vedi se la seguente fa casino l'ho aggiunta in modo che agia=ones(1,3) sia generata come realloc ma non ho verificato.
 		  tmpscope = InArg(cntin).Scope;
@@ -356,7 +356,8 @@ global STACKDEDUG
 	//#RNU_RES_E
 
 	CFunName = C_GenerateFunName(ASTFunName,InArg,NInArg,OutArg,NOutArg);
-	//#RNU_RES_B
+    
+  	//#RNU_RES_B
 	PrintStringInfo('   C Function Name: '+CFunName,ReportFileName,'file','y');
 	if(IsArduinoFunction(ASTFunName))
 		if(IsArduinoSetupFunction(ASTFunName))

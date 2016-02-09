@@ -24,7 +24,7 @@ SCI2CNInArgCheck(argn(2),1,1);
 // --- Open the .sci file (read only). ---
 [fidnumber,fiderror] = mopen(filename,'r'); 
 if (fiderror < 0)
-   SCI2Cerror(['Cannot open (in read mode): '+filename]);
+   error(['Cannot open (in read mode): '+filename]);
 end
 
 endfunction

@@ -1,9 +1,0 @@
-/* Scilab2C FOSSEE IITB */
-
-#include "bitand.h"
-
-double dbitands(double x,double y)
-{
-    return ((int)x & (int)y);
-
-}

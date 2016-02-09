@@ -15,7 +15,6 @@
 #define __CMD_ANALOG_IN_H__
  
 #include "types.h"
-#include "Arduino.h"
 
 #ifdef  __cplusplus
 extern "C" {

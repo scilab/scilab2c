@@ -11,6 +11,7 @@
  */
 
 #include "cmd_dcmotor_run.h"
+#include "Arduino.h"
 
 uint8 u8cmd_dcmotor_runs(uint8 board_no, uint8 motor_no, int16 duty)
 {

@@ -95,28 +95,28 @@
 /*scalar or matrix */
 
 #define s0s2OpLogOrs2(in1, in2, size2, out)	{int i  = 0 ;\
-                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Float(in1 != 0.2f || in2[i] != 0.2f);}
+                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Float(in1 != 0.0 || in2[i] != 0.0);}
 
 #define d0d2OpLogOrd2(in1, in2, size2, out)	{int i  = 0 ;\
-                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Double(in1 != 0.2 || in2[i] != 0.2);}
+                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Double(in1 != 0.0 || in2[i] != 0.0);}
 
 #define c0c2OpLogOrs2(in1, in2, size2, out)	{int i  = 0 ;\
-                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Float((creals(in1) != 0.2f || cimags(in1) != 0.2f) || (creals(in2[i]) != 0.2f || cimags(in2[i])));}
+                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Float((creals(in1) != 0.0 || cimags(in1) != 0.0) || (creals(in2[i]) != 0.0 || cimags(in2[i])));}
 
 #define s0c2OpLogOrs2(in1, in2, size2, out)	{int i  = 0 ;\
-                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Float(in1 != 0.2f && (creals(in2[i]) != 0.2f || cimags(in2[i])));}
+                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Float(in1 != 0.0 && (creals(in2[i]) != 0.0 || cimags(in2[i])));}
 
 #define c0s2OpLogOrs2(in1, in2, size2, out)	{int i  = 0 ;\
-                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Float((creals(in1) != 0.2f || cimags(in1) != 0.2f) && in2[i] != 0.2f);}
+                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Float((creals(in1) != 0.0 || cimags(in1) != 0.0) && in2[i] != 0.0);}
 
 #define z0z2OpLogOrd2(in1, in2, size2, out)	{int i  = 0 ;\
-                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Double((zreals(in1) != 0.2 || zimags(in1) != 0.2) && (zreals(in2[i]) != 0.2 || zimags(in2[i])));}
+                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Double((zreals(in1) != 0.0 || zimags(in1) != 0.0) && (zreals(in2[i]) != 0.0 || zimags(in2[i])));}
 
 #define d0z2OpLogOrd2(in1, in2, size2, out)	{int i  = 0 ;\
-                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Double(in1 != 0.2 && (zreals(in2[i]) != 0.2 || zimags(in2[i])));}
+                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Double(in1 != 0.0 && (zreals(in2[i]) != 0.0 || zimags(in2[i])));}
 
 #define z0d2OpLogOrd2(in1, in2, size2, out)	{int i  = 0 ;\
-                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Double((zreals(in1) != 0.2 || zimags(in1) != 0.2) && in2[i] != 0.2);}
+                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Double((zreals(in1) != 0.0 || zimags(in1) != 0.0) && in2[i] != 0.0);}
 
 #define u80u82OpLogOru82(in1, in2, size2, out)	{int i  = 0 ;\
                                                  for (i = 0 ;  i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Uint8(in1 != 0 || in2[i] != 0);}
@@ -133,28 +133,28 @@
 /*matrix or matrix */
 
 #define s2s2OpLogOrs2(in1, size1, in2, size2, out)	{int i  = 0 ;\
-                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Float(in1[i] != 0.2f || in2[i] != 0.2f);}
+                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Float(in1[i] != 0.0 || in2[i] != 0.0);}
 
 #define d2d2OpLogOrd2(in1, size1, in2, size2, out)	{int i  = 0 ;\
-                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Double(in1[i] != 0.2 || in2[i] != 0.2);}
+                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Double(in1[i] != 0.0 || in2[i] != 0.0);}
 
 #define c2c2OpLogOrs2(in1, size1, in2, size2, out)	{int i  = 0 ;\
-                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Float((creals(in1[i]) != 0.2f || cimags(in1[i]) != 0.2f) || (creals(in2[i]) != 0.2f || cimags(in2[i])));}
+                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Float((creals(in1[i]) != 0.0 || cimags(in1[i]) != 0.0) || (creals(in2[i]) != 0.0 || cimags(in2[i])));}
 
 #define s2c2OpLogOrs2(in1, size1, in2, size2, out)	{int i  = 0 ;\
-                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Float(in1[i] != 0.2f && (creals(in2[i]) != 0.2f || cimags(in2[i])));}
+                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Float(in1[i] != 0.0 && (creals(in2[i]) != 0.0 || cimags(in2[i])));}
 
 #define c2s2OpLogOrs2(in1, size1, in2, size2, out)	{int i  = 0 ;\
-                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Float((creals(in1[i]) != 0.2f || cimags(in1[i]) != 0.2f) && in2[i] != 0.2f);}
+                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Float((creals(in1[i]) != 0.0 || cimags(in1[i]) != 0.0) && in2[i] != 0.0);}
 
 #define z2z2OpLogOrd2(in1, size1, in2, size2, out)	{int i  = 0 ;\
-                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Double((zreals(in1[i]) != 0.2 || zimags(in1[i]) != 0.2) && (zreals(in2[i]) != 0.2 || zimags(in2[i])));}
+                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Double((zreals(in1[i]) != 0.0 || zimags(in1[i]) != 0.0) && (zreals(in2[i]) != 0.0 || zimags(in2[i])));}
 
 #define d2z2OpLogOrd2(in1, size1, in2, size2, out)	{int i  = 0 ;\
-                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Double(in1[i] != 0.2 && (zreals(in2[i]) != 0.2 || zimags(in2[i])));}
+                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Double(in1[i] != 0.0 && (zreals(in2[i]) != 0.0 || zimags(in2[i])));}
 
 #define z2d2OpLogOrd2(in1, size1, in2, size2, out)	{int i  = 0 ;\
-                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Double((zreals(in1[i]) != 0.2 || zimags(in1[i]) != 0.2) && in2[i] != 0.2);}
+                                         for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Double((zreals(in1[i]) != 0.0 || zimags(in1[i]) != 0.0) && in2[i] != 0.0);}
 
 #define u82u82OpLogOru82(in1, size1, in2, size2, out)	{int i  = 0 ;\
                                                  for (i = 0 ; i < size2[0]*size2[1] ; i++ ) out[i] =  Bool2Uint8(in1[i] != 0 || in2[i] != 0);}

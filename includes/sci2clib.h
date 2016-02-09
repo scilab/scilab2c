@@ -296,6 +296,10 @@
 #include "zeros.h"
 #include "int_zeros.h"
 
+/* interfacing diag */
+#include "diag.h"
+#include "int_diag.h"
+
 
 
 /* SIGNAL PROCESSING */

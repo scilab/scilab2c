@@ -63,6 +63,7 @@ function allHeaders = getAllHeaders(OutFormat)
       "src/c/matrixOperations/includes/matrixTranspose.h"
       "src/c/matrixOperations/includes/determ.h"
       "src/c/matrixOperations/includes/matrixMultiplication.h"
+      "src/c/matrixOperations/includes/diag.h"
       "src/c/elementaryFunctions/includes/cos.h"
       "src/c/elementaryFunctions/includes/fix.h"
       "src/c/elementaryFunctions/includes/exp.h"

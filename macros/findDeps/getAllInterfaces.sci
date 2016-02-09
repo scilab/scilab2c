@@ -51,6 +51,7 @@ function allInterfaces = getAllInterfaces(OutFormat)
       "src/c/matrixOperations/interfaces/int_dist.h"
       "src/c/matrixOperations/interfaces/int_fill.h"
       "src/c/matrixOperations/interfaces/int_expm.h"
+      "src/c/matrixOperations/interfaces/int_diag.h"
       "src/c/elementaryFunctions/interfaces/int_asinh.h"
       "src/c/elementaryFunctions/interfaces/int_atanh.h"
       "src/c/elementaryFunctions/interfaces/int_sinh.h"
