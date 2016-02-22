@@ -68,7 +68,7 @@ EXTERN_MATOPS void i8diagexa(int8* in,int row,int column,int insert_pos,int8* ou
 
 EXTERN_MATOPS int8 i8diagexs(int8* in,int row,int column,int extract_pos);
 
-EXTERN_MATOPS int16 i16diags(int8 in );
+EXTERN_MATOPS int16 i16diags(int16 in );
 
 EXTERN_MATOPS void i16diaga(int16 in, int size,int insert_post,int16 *out);
 
