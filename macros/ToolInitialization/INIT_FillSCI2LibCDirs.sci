@@ -1074,6 +1074,39 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,E
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
 
+// --------------------
+// --- Class linspace. ---
+// --------------------
+ClassName = 'linspace';
+
+// --- Class Annotation. ---
+PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
+ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
+
+PrintStringInfo('NIN=          3',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1',ClassFileName,'file','y');
+
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+//PrintStringInfo('OUT(1).SZ(1)= ''1''',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= FA_SZ_LINSPACE_ROW(IN(1).SZ)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(3).VAL',ClassFileName,'file','y');
+
+
+// ---Function List Class.----
+ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+
+
+PrintStringInfo('d0d0d0'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('d2d2d0'+ArgSeparator+'d2',ClassFileName,'file','y');
+
+
+// --- Annotation Function And Function List Function. ---
+FunctionName = 'linspace'; // BJ : Done AS : Float_Done
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+
 
 //---------------------
 //-----Class Rand.------
@@ -3702,6 +3735,7 @@ ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('s0'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('d0'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('c0'+ArgSeparator+'c0',ClassFileName,'file','y');
+
 PrintStringInfo('z0'+ArgSeparator+'z0',ClassFileName,'file','y');
 
 PrintStringInfo('s2'+ArgSeparator+'s2',ClassFileName,'file','y');
@@ -3847,6 +3881,7 @@ PrintStringInfo('OUT(1).TP=    FA_TP_MAX(IN(1).TP,IN(2).TP)',ClassFileName,'file
 PrintStringInfo('OUT(1).SZ(1)= ''1''',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(2)= IN(2).VAL',ClassFileName,'file','y');
 PrintStringInfo('NIN=          2',ClassFileName,'file','y');
+
 PrintStringInfo('NOUT=         2',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).TP=    FA_TP_MAX(IN(1).TP,IN(2).TP)',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(1)= ''1''',ClassFileName,'file','y');
@@ -4805,6 +4840,7 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 
 // // For every  sci2c function library class  we reported
 // // the domains , annotations only for the class-leader
+
 
 // //  Example    [y1,y2]=Fun(x1,x2,x3) : scilab library  function call
 

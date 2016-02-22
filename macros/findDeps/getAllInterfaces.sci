@@ -84,6 +84,7 @@ function allInterfaces = getAllInterfaces(Target)
       "src/c/elementaryFunctions/interfaces/int_bitcmp.h" 
       "src/c/elementaryFunctions/interfaces/int_bitset.h" 
       "src/c/elementaryFunctions/interfaces/int_bitget.h" 
+      "src/c/elementaryFunctions/interfaces/int_linspace.h" 
       "src/c/elementaryFunctions/interfaces/int_cosh.h"
       "src/c/elementaryFunctions/interfaces/int_uint8.h"
       "src/c/elementaryFunctions/interfaces/int_int8.h"

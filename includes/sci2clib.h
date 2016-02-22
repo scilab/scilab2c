@@ -212,6 +212,11 @@
 #include "int_bitget.h"
 
 
+/*interfacing linspace */
+#include "linspace.h"
+#include "int_linspace.h"
+
+
 /* IMPLICIT LISTS */
 /* interfacing implicitList/OpColon */
 #include "implicitList.h"

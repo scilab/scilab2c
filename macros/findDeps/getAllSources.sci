@@ -620,6 +620,8 @@ function allSources = getAllSources(Target)
       "src/c/elementaryFunctions/bitset/u16bitsets.c"
       "src/c/elementaryFunctions/bitget/u8bitgets.c"
       "src/c/elementaryFunctions/bitget/u16bitgets.c"
+      "src/c/elementaryFunctions/linspace/dlinspaces.c"
+      "src/c/elementaryFunctions/linspace/dlinspacea.c"
       "src/c/statisticsFunctions/max/dmaxa.c"
       "src/c/statisticsFunctions/max/smaxa.c"
       "src/c/statisticsFunctions/max/srowmaxa.c"
