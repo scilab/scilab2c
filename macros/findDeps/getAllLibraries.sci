@@ -12,6 +12,9 @@ function allLibraries = getAllLibraries(Target)
 
   if Target == "RPi"
   allLibraries = RPi_libs;
+ else 
+  allLibraries = [];   
   end
+
 
 endfunction
