@@ -1075,7 +1075,7 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 
 
 // --------------------
-// --- Class linspace. ---
+// --- Class linspace & logspace ---
 // --------------------
 ClassName = 'linspace';
 
@@ -1102,6 +1102,11 @@ PrintStringInfo('d2d2d0'+ArgSeparator+'d2',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'linspace'; // BJ : Done AS : Float_Done
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+FunctionName = 'logspace'; // BJ : Done AS : Float_Done
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
@@ -4509,6 +4514,7 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,Ex
 
 //------------------------------------
 //---- Class Sleep -------------------
+
 //------------------------------------
 ClassName = 'sleep';
 

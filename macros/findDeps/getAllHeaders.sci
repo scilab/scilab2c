@@ -95,6 +95,7 @@ function allHeaders = getAllHeaders(Target)
       "src/c/elementaryFunctions/includes/bitset.h"
       "src/c/elementaryFunctions/includes/bitget.h"
       "src/c/elementaryFunctions/includes/linspace.h"
+      "src/c/elementaryFunctions/includes/logspace.h"
       "src/c/elementaryFunctions/includes/asinh.h"
       "src/c/elementaryFunctions/includes/atan2.h"
       "src/c/elementaryFunctions/includes/atanh.h"

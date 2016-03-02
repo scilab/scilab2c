@@ -216,6 +216,10 @@
 #include "linspace.h"
 #include "int_linspace.h"
 
+/*interfacing logspace */
+#include "logspace.h"
+#include "int_logspace.h"
+
 
 /* IMPLICIT LISTS */
 /* interfacing implicitList/OpColon */

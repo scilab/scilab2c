@@ -622,6 +622,8 @@ function allSources = getAllSources(Target)
       "src/c/elementaryFunctions/bitget/u16bitgets.c"
       "src/c/elementaryFunctions/linspace/dlinspaces.c"
       "src/c/elementaryFunctions/linspace/dlinspacea.c"
+      "src/c/elementaryFunctions/logspace/dlogspaces.c"
+      "src/c/elementaryFunctions/logspace/dlogspacea.c"
       "src/c/statisticsFunctions/max/dmaxa.c"
       "src/c/statisticsFunctions/max/smaxa.c"
       "src/c/statisticsFunctions/max/srowmaxa.c"
