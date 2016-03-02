@@ -11,6 +11,7 @@
  */
 
 #include "cmd_analog_in.h"
+#include "Arduino.h"
 
 uint16 u8cmd_analog_ins(uint8 board_no, uint8 pin)
 {

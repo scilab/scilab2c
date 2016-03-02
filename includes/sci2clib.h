@@ -212,6 +212,15 @@
 #include "int_bitget.h"
 
 
+/*interfacing linspace */
+#include "linspace.h"
+#include "int_linspace.h"
+
+/*interfacing logspace */
+#include "logspace.h"
+#include "int_logspace.h"
+
+
 /* IMPLICIT LISTS */
 /* interfacing implicitList/OpColon */
 #include "implicitList.h"
@@ -295,6 +304,10 @@
 /* interfacing zeros */
 #include "zeros.h"
 #include "int_zeros.h"
+
+/* interfacing diag */
+#include "diag.h"
+#include "int_diag.h"
 
 
 

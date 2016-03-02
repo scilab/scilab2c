@@ -11,6 +11,7 @@
  */
 
 #include "cmd_dcmotor_setup.h"
+#include "Arduino.h"
 
 uint8 dcm_pin_1[4], dcm_pin_2[4], dcm_mode[4];
 
@@ -18,7 +19,7 @@ uint8 u8cmd_dcmotor_setups(uint8 board_no, uint8 driver_type, uint8 motor_no,\
 							uint8 pin_1, uint8 pin_2)
 {
     dcm_pin_1[motor_no] = pin_1;
-	dcm_pin_2[motor_no] = pin_2;
+    dcm_pin_2[motor_no] = pin_2;
     dcm_mode[motor_no] = driver_type;
 
 	//Initialise pins

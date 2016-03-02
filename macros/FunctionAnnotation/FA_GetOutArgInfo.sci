@@ -27,6 +27,8 @@ SCI2CNInArgCheck(argn(2),9,9);
 // -----------------------
 // --- Initialization. ---
 // -----------------------
+
+
 UpdatedOutArg   = OutArg;
 for cntin = 1:NInArg
    IN(cntin).TP    = InArg(cntin).Type;

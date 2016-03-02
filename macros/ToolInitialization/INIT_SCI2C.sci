@@ -74,6 +74,8 @@ SharedInfo = INIT_GenSharedInfo(RunMode,UserScilabMainFile, ...
 // --- Initialize FileInfo. ---
 // ----------------------------
 FileInfo = INIT_GenFileInfo(WorkingDir,OutCCCodeDir,UserSciFilesPaths);
+
+
 PrintStepInfo('SCI2C hArtes/POLIBA Tool!!!',FileInfo.GeneralReport,'stdout');
 
 // ----------------------------------------------------

@@ -60,6 +60,7 @@ STACKDEDUG = 0; // 1 -> Every Pop and Push operation on the stack, the stack con
 
 ASTFileName = FileInfo.Funct(nxtscifunnumber).ASTFileName;
 
+
 // -----------------------
 // --- Initialization. ---
 // -----------------------
