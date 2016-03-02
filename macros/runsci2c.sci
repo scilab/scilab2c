@@ -107,7 +107,7 @@ mkdir(SCI2COutputPath+"/libraries/");
 PrintStepInfo('Copying sources', FileInfo.GeneralReport,'both');
 for i = 1:size(allSources, "*")
   // DEBUG only
-  //disp("Copying "+allSources(i)+" in "+SCI2COutputPath+"/src/c/");
+  disp("Copying "+allSources(i)+" in "+SCI2COutputPath+"/src/c/");
   copyfile(allSources(i), SCI2COutputPath+"/src/c/");
 end
 

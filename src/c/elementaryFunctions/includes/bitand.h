@@ -22,17 +22,16 @@ Bit Operation of 12 and 25
   00001000  = 8 (In decimal)
 */
 
-EXTERN_ELEMFUNCT uint8 u8bitands(uint8 in1,uint8 in2);
+uint8 u8bitands(uint8 in1,uint8 in2);
 
-EXTERN_ELEMFUNCT void u8bitanda(uint8* in1,uint8* in2,int size,uint8* out);
+void u8bitanda(uint8* in1,uint8* in2,int size,uint8* out);
 
-EXTERN_ELEMFUNCT uint16 u16bitands(uint16 in1,uint16 in2);
+uint16 u16bitands(uint16 in1,uint16 in2);
 
-EXTERN_ELEMFUNCT void u16bitanda(uint16* in1,uint16* in2,int size,uint16* out);
+void u16bitanda(uint16* in1,uint16* in2,int size,uint16* out);
 
 
 #ifdef __cplusplus
-
 } /*extern "C" */
 #endif
 

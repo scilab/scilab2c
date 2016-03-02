@@ -374,10 +374,10 @@
 #include "cmd_dcmotor_setup.h"
 #include "int_sleep.h"
 #include "sleep.h"
-#include "cmd_servo_attach.h"
-#include "cmd_servo_detach.h"
-#include "cmd_servo_move.h"
-#include "int_cmd_servo.h"
+//#include "cmd_servo_attach.h"
+//#include "cmd_servo_detach.h"
+//#include "cmd_servo_move.h"
+//#include "int_cmd_servo.h"
 #endif
 
 /*AVR*/

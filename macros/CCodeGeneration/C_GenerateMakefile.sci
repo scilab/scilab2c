@@ -56,25 +56,26 @@ PrintStringInfo('LIBDIR     = '+makelibdir,FileInfo.MakefileFilename,'file','y',
 PrintStringInfo('SCI2CDIR    = .',FileInfo.MakefileFilename,'file','y','y');
 
 if getos() == 'Windows' then   
-
-    // Compiler definition
-if (target == 'RPi')
-	PrintStringInfo('CC     = arm-linux-gnueabihf-gcc ',FileInfo.MakefileFilename,'file','y','y');
-else
-	PrintStringInfo('CC     = gcc',FileInfo.MakefileFilename,'file','y','y');
-end 
-PrintStringInfo('CFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR) -L $(LIBDIR)',FileInfo.MakefileFilename,'file','y','y');
-if (target == 'RPi')
-	PrintStringInfo('LDFLAGS = -llapack -lrefblas -lgfortran -lm -lbcm2835',FileInfo.MakefileFilename,'file','y','y');
-else
-	PrintStringInfo('LDFLAGS = -lblas -llapack -lm ',FileInfo.MakefileFilename,'file','y','y');
-end
-else 
+  
      // Compiler definition
-    PrintStringInfo('CC     = gcc',FileInfo.MakefileFilename,'file','y','y');
-    PrintStringInfo('CFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR)',FileInfo.MakefileFilename,'file','y','y');
-    PrintStringInfo('LDFLAGS = -lblas -llapack -lm',FileInfo.MakefileFilename,'file','y','y');
+     PrintStringInfo('CC     = gcc',FileInfo.MakefileFilename,'file','y','y');
+     PrintStringInfo('CFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR)',FileInfo.MakefileFilename,'file','y','y');
+     PrintStringInfo('LDFLAGS = -L./ -lblasplus -llapack -lm',FileInfo.MakefileFilename,'file','y','y');   //Added -L./ and -lblasplus(previously it was -lblas)
+     
+else 
+	if (target == 'RPi')
+		PrintStringInfo('CC     = arm-linux-gnueabihf-gcc ',FileInfo.MakefileFilename,'file','y','y');
+	else
+		PrintStringInfo('CC     = gcc',FileInfo.MakefileFilename,'file','y','y');
+	end 
+	PrintStringInfo('CFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR) -L $(LIBDIR)',FileInfo.MakefileFilename,'file','y','y');
+	if (target == 'RPi')
+		PrintStringInfo('LDFLAGS = -llapack -lrefblas -lgfortran -lm -lbcm2835',FileInfo.MakefileFilename,'file','y','y');
+	else
+		PrintStringInfo('LDFLAGS = -lblas -llapack -lm ',FileInfo.MakefileFilename,'file','y','y');
+	end
 end
+
 // Binary definition
 PrintStringInfo('EXEFILENAME = mytest.exe',FileInfo.MakefileFilename,'file','y','y');
 PrintStringInfo('EXEFILE = $(SCI2CDIR)/$(EXEFILENAME)', FileInfo.MakefileFilename,'file','y','y');
