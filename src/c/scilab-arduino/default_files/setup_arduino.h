@@ -24,6 +24,7 @@
 ** --- SCI2C Includes. --- 
 ** ----------------------- 
 */
+#include "Arduino.h"
 #include "sci2clib.h"
 /*
 ** --------------------------- 

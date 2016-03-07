@@ -129,7 +129,8 @@ function allInterfaces = getAllInterfaces(Target)
       "src/c/signalProcessing/interfaces/int_fftshift.h"
       "src/c/signalProcessing/interfaces/int_fft.h"
       "src/c/signalProcessing/interfaces/int_lev.h"
-      "src/c/implicitList/int_OpColon.h"];
+      "src/c/implicitList/int_OpColon.h"
+      "src/c/differential_calculus/interfaces/int_ode.h"];
 
   //Interface files required for "Arduino" output
   Arduino_interfaces = [

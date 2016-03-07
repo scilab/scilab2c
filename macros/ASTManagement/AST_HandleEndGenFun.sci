@@ -193,6 +193,12 @@ global STACKDEDUG
 		     FileInfo.GlobalVarFileName);
 	   end
 	else
+		//Change the scope of function name from variable to string, 
+		//as it is passed as string to C function. Also enter this function
+		//in conversion list also.
+		if(ASTFunName == 'ode')
+			InArg(4).Scope = 'String';
+		end
 	   [InArg,SharedInfo] = ST_GetInArgInfo(InArg,NInArg,FileInfo,SharedInfo);
 	end
 

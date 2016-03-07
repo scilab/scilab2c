@@ -8,7 +8,7 @@
 #include "dynlib_elementaryfunctions.h"
 #include "types.h"
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 /* bitor returns the logical OR operation

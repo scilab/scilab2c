@@ -4559,8 +4559,9 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
-PrintStringInfo('d0d0d0'+ArgSeparator+'u80',ClassFileName,'file','y');
-PrintStringInfo('d0d0u80'+ArgSeparator+'u80',ClassFileName,'file','y');
+//PrintStringInfo('d0d0d0'+ArgSeparator+'u80',ClassFileName,'file','y');
+//PrintStringInfo('d0d0u80'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo(''+ArgSeparator+'',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'AVRDigitalSetup'; 
@@ -4585,8 +4586,9 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 
-PrintStringInfo('d0d0d0'+ArgSeparator+'u80',ClassFileName,'file','y');
-PrintStringInfo('d0d0u80'+ArgSeparator+'u80',ClassFileName,'file','y');
+//PrintStringInfo('d0d0d0'+ArgSeparator+'u80',ClassFileName,'file','y');
+//PrintStringInfo('d0d0u80'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo(''+ArgSeparator+'',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'AVRDigitalOut'; 
@@ -4610,8 +4612,9 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
-PrintStringInfo('d0d0'+ArgSeparator+'u80',ClassFileName,'file','y');
-PrintStringInfo('d0u80'+ArgSeparator+'u80',ClassFileName,'file','y');
+//PrintStringInfo('d0d0'+ArgSeparator+'u80',ClassFileName,'file','y');
+//PrintStringInfo('d0u80'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo(''+ArgSeparator+'',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'AVRDigitalIn'; 
@@ -4637,8 +4640,8 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
-PrintStringInfo('d0d0'+ArgSeparator+'u80',ClassFileName,'file','y');
-
+//PrintStringInfo('d0d0'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo(''+ArgSeparator+'',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'AVRADCSetup'; 
@@ -4662,8 +4665,8 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
-PrintStringInfo('d0'+ArgSeparator+'u160',ClassFileName,'file','y');
-
+//PrintStringInfo('d0'+ArgSeparator+'u160',ClassFileName,'file','y');
+PrintStringInfo(''+ArgSeparator+'',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'AVRReadADC'; 
@@ -4827,6 +4830,41 @@ PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file',
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
+//------------------------------------
+//---- Class ODE ---------------------
+//------------------------------------
+ClassName = 'ODE';
+
+// --- Class Annotation. ---
+PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
+ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
+
+//Arguements specified: initial value, start time, time vector, ode function
+PrintStringInfo('NIN=         4',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(3).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(3).SZ(2)',ClassFileName,'file','y');
+
+//Arguements specified: initial value, start time, end time, ode function
+PrintStringInfo('NIN=         4',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(3).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(3).SZ(2)',ClassFileName,'file','y');
+
+// --- Function List Class. ---
+ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+PrintStringInfo('d0d0d2g2'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('d0d0d0g2'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('d2d0d2g2'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('d2d0d0g2'+ArgSeparator+'d0',ClassFileName,'file','y');
+
+// --- Annotation Function And Function List Function. ---
+FunctionName = 'ode'; 
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
 // ////////////////////////////////////////////
 // /////PARTE INTRODOTTA DA ALBERTO MOREA
