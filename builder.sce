@@ -18,7 +18,7 @@ catch
 end;
 // ====================================================================
 if ~with_module('development_tools') then
-  error(msprintf(gettext('%s module not installed."),'development_tools'));
+  error(msprintf(gettext("%s module not installed."),"development_tools"));
 end
 // ====================================================================
 TOOLBOX_NAME = 'scilab2c';
