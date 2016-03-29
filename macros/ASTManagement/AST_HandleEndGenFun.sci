@@ -193,11 +193,15 @@ global STACKDEDUG
 		     FileInfo.GlobalVarFileName);
 	   end
 	else
-		//Change the scope of function name from variable to string, 
-		//as it is passed as string to C function. Also enter this function
-		//in conversion list also.
+		//If a function is passed as input argument, Change the scope of function name from variable to string, 
+		//as it is passed as string to C function. Also enter this function in conversion list also.
 		if(ASTFunName == 'ode')
-			InArg(4).Scope = 'String';
+			disp(NInArg)
+			if NInArg == 4 
+				InArg(4).Scope = 'String';
+				ODEFunName = InArg(4).Name; 
+				disp(ODEFunName)
+			end	
 		end
 	   [InArg,SharedInfo] = ST_GetInArgInfo(InArg,NInArg,FileInfo,SharedInfo);
 	end
@@ -469,4 +473,12 @@ global STACKDEDUG
 	//NUT: e' piu' ordinato.
 	//#RNU_RES_E
 
+	//If current function being converted is 'ode', call 'scilab2c' again to convert
+	//function containing differential equations. It is passed as one of the input
+	//arguements to 'ode'.
+	if ASTFunName == 'ode' then
+		temp = ODEFunName + '.sci'
+		scilab2c( '/home/siddhesh/Documents/Scilab/ODE/ODE_test/try_ode.sci', FileInfo.OutCCCodeDir, FileInfo.UserSciFilesPaths,'FunCall','make','AVR')	
+	end
+	
 endfunction

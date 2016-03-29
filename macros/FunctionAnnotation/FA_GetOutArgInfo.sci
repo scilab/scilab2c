@@ -46,17 +46,18 @@ for cntin = 1:NInArg
    end
 end
 DefaultPrecision = SharedInfo.DefaultPrecision;
-
 // ---------------------------
 // --- End Initialization. ---
 // ---------------------------
 if (FunTypeAnnot(1) == '')
    NOutArg = 0;
+   
 else
    NOutArg = max(size(FunTypeAnnot));
 end
 
 flagfindlike = 0;
+
 for counterin = 1:NInArg
    if (InArg(counterin).FindLike == 1 | InArg(counterin).FindLike == -1)
       // #RNU_RES_B
@@ -68,9 +69,8 @@ for counterin = 1:NInArg
       flagfindlike = -1;
    end
 end
-
 for counterout = 1:NOutArg
-
+    
    if(FunTypeAnnot == 'FA_TP_USER')
       UpdatedOutArg(counterout).Type   = FA_TP_USER(FunPrecSpecifier,DefaultPrecision);
    else

@@ -95,7 +95,6 @@ else
    NOutArg = size(OutNames,1);
 end
 
-
 //#RNU_RES_B
 // -------------------------------------
 // --- Load the C function dat file. ---
@@ -108,6 +107,16 @@ load(fullfile(FileInfo.FunctionList.FunInfoDatDir,SharedInfo.NextCFunName+'.dat'
 SharedInfo.CurrentFunInfo = FunInfo;
 clear FunInfo
 
+//Required if single file is being translated and has input/outputs
+if(SharedInfo.RunMode == "FunCall")
+[FunTypeAnnot,FunSizeAnnot] = FA_GetFunAnn(NInArg,NOutArg,FunctionName,FileInfo,SharedInfo);
+   if((nxtscifunname == SharedInfo.SCIMainFunName))
+      SharedInfo.CurrentFunInfo.FunTypeAnnot = FunTypeAnnot;
+      SharedInfo.CurrentFunInfo.FunSizeAnnot = FunSizeAnnot;
+   end
+   disp(SharedInfo.CurrentFunInfo.FunSizeAnnot)
+   disp(SharedInfo.CurrentFunInfo.FunTypeAnnot)   
+end
 //#RNU_RES_B
 // -----------------------------------------------------------------------------
 // --- Check coherence between In/Out names and In/Out Arg structure loaded. ---
@@ -119,13 +128,15 @@ else
    NInArgDat = 0;
 end
 
-if (NInArgDat == NInArg)
+
+if ((NInArgDat == NInArg)|(nxtscifunname == SharedInfo.SCIMainFunName)) 
    for tmpcnt = 1:NInArg
       SharedInfo.CurrentFunInfo.InArg(tmpcnt).Name = InNames(tmpcnt);
       if (SharedInfo.CurrentFunInfo.InArg(tmpcnt).Dimension == 0)
          SharedInfo.CurrentFunInfo.InArg(tmpcnt).Size(1) = '1';
          SharedInfo.CurrentFunInfo.InArg(tmpcnt).Size(2) = '1';
          SharedInfo.CurrentFunInfo.InArg(tmpcnt).Value   = %nan;
+         SharedInfo.CurrentFunInfo.InArg(tmpcnt).FindLike = 0;
       else
          //#RNU_RES_B
          //NUT: using approach 1: Setting for input and output arguments symbolic sizes.
@@ -133,14 +144,14 @@ if (NInArgDat == NInArg)
          SharedInfo.CurrentFunInfo.InArg(tmpcnt).Size(1) = '__'+SharedInfo.CurrentFunInfo.InArg(tmpcnt).Name+'Size[0]';
          SharedInfo.CurrentFunInfo.InArg(tmpcnt).Size(2) = '__'+SharedInfo.CurrentFunInfo.InArg(tmpcnt).Name+'Size[1]';
          SharedInfo.CurrentFunInfo.InArg(tmpcnt).Value   = %nan;
+         SharedInfo.CurrentFunInfo.InArg(tmpcnt).FindLike = 0;
       end
    end
 else
    error(9999, 'Number of input arguments specified in AST is different from the number specified in .dat file.');
 end
 
-
-if (SharedInfo.CurrentFunInfo.NOutArg == NOutArg)
+if ((SharedInfo.CurrentFunInfo.NOutArg == NOutArg)|(nxtscifunname == SharedInfo.SCIMainFunName))
    for tmpcnt = 1:NOutArg
       SharedInfo.CurrentFunInfo.OutArg(tmpcnt).Name = OutNames(tmpcnt);
    end
@@ -160,7 +171,6 @@ SharedInfo.CurrentFunInfo.OutArg = ...
    SharedInfo,...
    SharedInfo.CurrentFunInfo.FunPrecSpecifier,...
    SharedInfo.CurrentFunInfo.FunTypeAnnot,SharedInfo.CurrentFunInfo.FunSizeAnnot,ReportFileName);
-
 //#RNU_RES_B
 // -------------------------------------------------------------------------
 // --- Stores InArg structure into the temporary variables symbol table. ---
@@ -206,7 +216,6 @@ for tmpcnt = 1:NOutArg
    
    PrintStringInfo('   Setting symbol ""'+SharedInfo.CurrentFunInfo.OutArg(tmpcnt).Name+'"" in '+SymbTableFileName+'.',ReportFileName,'file','y');
    //#RNU_RES_E
-
    ST_Set(SharedInfo.CurrentFunInfo.OutArg(tmpcnt).Name,...
       SharedInfo.CurrentFunInfo.OutArg(tmpcnt).Type,...
       SharedInfo.CurrentFunInfo.OutArg(tmpcnt).Size,...

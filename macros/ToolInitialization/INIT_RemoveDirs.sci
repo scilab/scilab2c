@@ -62,7 +62,9 @@ elseif (SharedInfoRunMode == 'Translate')
       rmdir(FileInfo.OutCCCodeDir,'s');
    else
       SCI2Cerror('Cannot continue, because you don''t want to delete: '+FileInfo.OutCCCodeDir);
-   end
+   end   
+elseif (SharedInfoRunMode == 'FunCall')   
+   //Do nothing
 else
    disp('Unknown RunMode: ""'+SharedInfoRunMode+'"".');
    disp('Please check RunMode parameter in the SCI2CInputParameters.sce file');

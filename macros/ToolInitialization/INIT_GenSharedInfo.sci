@@ -49,6 +49,8 @@ SharedInfo.NextSCIFileName  = UserScilabMainFile;
 SharedInfo.SCIMainFunName   = funname;
 if (Target == 'Arduino')
    SharedInfo.CMainFunName     = 'loop_arduino';
+elseif (RunMode == 'Translate')
+   SharedInfo.CMainFunName     = funname;
 else
    SharedInfo.CMainFunName     = 'main';
 end
@@ -67,6 +69,10 @@ SharedInfo.Annotations.FUNTYPE  = '''OUT(''+string(SCI2C_nout)+'').TP='''; // Ty
 SharedInfo.Annotations.FUNSIZE  = '''OUT(''+string(SCI2C_nout)+'').SZ(''+string(SCI2C_nelem)+'')= ''';
 SharedInfo.Annotations.FUNCLASS = 'CLASS: ';
 SharedInfo.Annotations.USERFUN  = '//SCI2C: ';
+SharedInfo.Annotations.INTYPE  = '''IN(''+string(SCI2C_nout)+'').TP='''; // Type includes also precision.
+SharedInfo.Annotations.INSIZE  = '''IN(''+string(SCI2C_nout)+'').SZ(''+string(SCI2C_nelem)+'')= ''';
+
+
 // #RNU_RES_B
 // Note when you execute the following code:
    // SCI2C_nout=1;

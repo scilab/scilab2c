@@ -34,7 +34,6 @@ TBFlagEqualSymbols = 0;
 // --- Find symbol (If exists). ---
 [TBFlagfound,tmpType,tmpSize,tmpValue,tmpFindLike,tmpDimension] = ...
    ST_Get(TBName,SymbolTableFileName);
-
 if (TBFlagfound == 1)
    if (tmpType == 'GBLToBeDefined')
       TBFlagfound = 2;
