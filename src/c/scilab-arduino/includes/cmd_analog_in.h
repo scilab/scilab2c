@@ -26,4 +26,4 @@ uint16 u8cmd_analog_ins(uint8 board_no, uint8 pin);
 } /* extern "C" */
 #endif
 
-#endif /* __CMD_DIGITAL_IN_H__ */
+#endif /* __CMD_ANALOG_IN_H__ */

@@ -196,14 +196,15 @@ global STACKDEDUG
 		//If a function is passed as input argument, Change the scope of function name from variable to string, 
 		//as it is passed as string to C function. Also enter this function in conversion list also.
 		if(ASTFunName == 'ode')
-			disp(NInArg)
 			if NInArg == 4 
 				InArg(4).Scope = 'String';
 				ODEFunName = InArg(4).Name; 
-				disp(ODEFunName)
 			end	
 		end
 	   [InArg,SharedInfo] = ST_GetInArgInfo(InArg,NInArg,FileInfo,SharedInfo);
+	   if(ASTFunName == 'ode')
+	   	disp(InArg(4).Name);
+		end
 	end
 
 	// #RNU_RES_B
@@ -356,6 +357,19 @@ global STACKDEDUG
 	else
 	   ST_InsOutArg(OutArg,NOutArg,FileInfo,SharedInfo,'all');
 	end
+	if ASTFunName == 'ode' then
+		ODE_InArg(1) = InArg(3)
+		ODE_InArg(2) = InArg(1)
+		ODE_OutArg(1) = OutArg(1)
+		ODE_CFunName = C_GenerateFunName(ODEFunName,ODE_InArg,2,ODE_OutArg,1);
+		
+		[FunFound, FunType, FunSize, FunValue, FunFindLike, FunDimension] = ...
+		ST_Get(InArg(4).Name,FileInfo.GlobalVarFileName);
+		disp(FunFound);
+		//ST_Del(InArg(4).Name,FileInfo.GlobalVarFileName);
+		//ST_Set(ODE_CFunName, FunType, FunSize, FunValue, FunFindLike, FunDimension);
+	end
+
 	//#RNUREM_ME NUT: per risparmiare tempo di esecuzione puoi mettere delle if sulle funzioni che devono
 	//#RNUREM_ME NUT: essere skippate.
 
@@ -425,6 +439,7 @@ global STACKDEDUG
 	//NUT: il problema della d0d0OpEqual dovrebbe essere legato al fatto che cerco di fare la opequal legata alla ins...
 	//NUT: devo evitare di scriveral dentro la lsista delle funzioni da tradurre.
 	//#RNU_RES_E
+	
 	SharedInfo = FL_UpdateToBeConv(ASTFunName,CFunName,FunPrecSpecifier,FunTypeAnnot,FunSizeAnnot,InArg,NInArg,OutArg,NOutArg,FileInfo,SharedInfo);
 
 	//#RNU_RES_B
@@ -473,12 +488,15 @@ global STACKDEDUG
 	//NUT: e' piu' ordinato.
 	//#RNU_RES_E
 
-	//If current function being converted is 'ode', call 'scilab2c' again to convert
-	//function containing differential equations. It is passed as one of the input
-	//arguements to 'ode'.
+	//If current function being converted is 'ode', insert function containing
+	//in list of functions to be converted
 	if ASTFunName == 'ode' then
-		temp = ODEFunName + '.sci'
-		scilab2c( '/home/siddhesh/Documents/Scilab/ODE/ODE_test/try_ode.sci', FileInfo.OutCCCodeDir, FileInfo.UserSciFilesPaths,'FunCall','make','AVR')	
+		//ODE_InArg(1) = InArg(3)
+		//ODE_InArg(2) = InArg(1)
+		//ODE_OutArg(1) = OutArg(1)
+		//ODE_CFunName = C_GenerateFunName(ODEFunName,ODE_InArg,2,ODE_OutArg,1);
+		GenCFunDatFiles(ODEFunName,%t,FunTypeAnnot,['IN(2).SZ(1)' 'IN(2).SZ(2)'],ODE_InArg,2,ODE_OutArg,1,ODE_CFunName,LibTypeInfo,FunInfoDatDir);
+		SharedInfo = FL_UpdateToBeConv(ODEFunName,ODE_CFunName,%t,FunTypeAnnot,FunSizeAnnot,ODE_InArg,2,ODE_OutArg,1,FileInfo,SharedInfo);
 	end
 	
 endfunction

@@ -304,12 +304,21 @@
 /* interfacing zeros */
 #include "zeros.h"
 #include "int_zeros.h"
-
 /* interfacing diag */
 #include "diag.h"
 #include "int_diag.h"
-
-
+/*interfacing cumsum*/
+#include "int_cumsum.h"
+#include "cumsum.h"
+/*interfacing cumprod*/
+#include "int_cumprod.h"
+#include "cumprod.h"
+/*interfacing triu*/
+#include "int_triu.h"
+#include "triu.h"
+/*interfacing tril*/
+#include "int_tril.h"
+#include "tril.h"
 
 /* SIGNAL PROCESSING */
 /* interfacing convol */
@@ -371,6 +380,10 @@
 #include "int_string.h"
 /*include for string */
 #include "str.h"
+
+/*ODE functions*/
+//#include "ode.h"
+//#include "int_ode.h"
 
 /*Scilab-arduino toolbox*/
 #ifdef Arduino1

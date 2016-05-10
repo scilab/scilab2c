@@ -114,8 +114,6 @@ if(SharedInfo.RunMode == "FunCall")
       SharedInfo.CurrentFunInfo.FunTypeAnnot = FunTypeAnnot;
       SharedInfo.CurrentFunInfo.FunSizeAnnot = FunSizeAnnot;
    end
-   disp(SharedInfo.CurrentFunInfo.FunSizeAnnot)
-   disp(SharedInfo.CurrentFunInfo.FunTypeAnnot)   
 end
 //#RNU_RES_B
 // -----------------------------------------------------------------------------

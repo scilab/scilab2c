@@ -90,96 +90,93 @@ end
 // ---------------------------
 // --- Copy library files. ---
 // ---------------------------
-if(RunMode <> "FunCall")
+if (RunMode <> 'FunCall')
+global SCI2CHOME
 
-  global SCI2CHOME
+allSources = SCI2CHOME + "/" + getAllSources(Target);
+allHeaders = SCI2CHOME + "/" +getAllHeaders(Target);
+allInterfaces = SCI2CHOME + "/" + getAllInterfaces(Target);
+allLibraries = SCI2CHOME + "/" + getAllLibraries(Target);
 
-  allSources = SCI2CHOME + "/" + getAllSources(Target);
-  allHeaders = SCI2CHOME + "/" +getAllHeaders(Target);
-  allInterfaces = SCI2CHOME + "/" + getAllInterfaces(Target);
-  allLibraries = SCI2CHOME + "/" + getAllLibraries(Target);
+mkdir(SCI2COutputPath+"/src/");
+mkdir(SCI2COutputPath+"/src/c/");
+mkdir(SCI2COutputPath+"/includes/");
+mkdir(SCI2COutputPath+"/interfaces/");
+mkdir(SCI2COutputPath+"/libraries/");
 
-  mkdir(SCI2COutputPath+"/src/");
-  mkdir(SCI2COutputPath+"/src/c/");
-  mkdir(SCI2COutputPath+"/includes/");
-  mkdir(SCI2COutputPath+"/interfaces/");
-  mkdir(SCI2COutputPath+"/libraries/");
+// -- Sources
+PrintStepInfo('Copying sources', FileInfo.GeneralReport,'both');
+for i = 1:size(allSources, "*")
+  // DEBUG only
+  //disp("Copying "+allSources(i)+" in "+SCI2COutputPath+"/src/c/");
+  copyfile(allSources(i), SCI2COutputPath+"/src/c/");
+end
 
-  // -- Sources
-  PrintStepInfo('Copying sources', FileInfo.GeneralReport,'both');
-  for i = 1:size(allSources, "*")
-    // DEBUG only
-    //disp("Copying "+allSources(i)+" in "+SCI2COutputPath+"/src/c/");
-    copyfile(allSources(i), SCI2COutputPath+"/src/c/");
-  end
+// -- Includes
+PrintStepInfo('Copying headers', FileInfo.GeneralReport,'both');
+for i = 1:size(allHeaders, "*")
+  // DEBUG only
+  //disp("Copying "+allHeaders(i)+" in "+SCI2COutputPath+"/includes/");
+  copyfile(allHeaders(i), SCI2COutputPath+"/includes/");
+end
 
-  // -- Includes
-  PrintStepInfo('Copying headers', FileInfo.GeneralReport,'both');
-  for i = 1:size(allHeaders, "*")
-    // DEBUG only
-    //disp("Copying "+allHeaders(i)+" in "+SCI2COutputPath+"/includes/");
-    copyfile(allHeaders(i), SCI2COutputPath+"/includes/");
-  end
+// -- Interfaces
+PrintStepInfo('Copying interfaces', FileInfo.GeneralReport,'both');
+for i = 1:size(allInterfaces, "*")
+  // DEBUG only
+  //disp("Copying "+allInterfaces(i)+" in "+SCI2COutputPath+"/interfaces/");
+  copyfile(allInterfaces(i), SCI2COutputPath+"/interfaces/");
+end
 
-  // -- Interfaces
-  PrintStepInfo('Copying interfaces', FileInfo.GeneralReport,'both');
-  for i = 1:size(allInterfaces, "*")
-    // DEBUG only
-    //disp("Copying "+allInterfaces(i)+" in "+SCI2COutputPath+"/interfaces/");
-    copyfile(allInterfaces(i), SCI2COutputPath+"/interfaces/");
-  end
+// -- Libraries
+PrintStepInfo('Copying libraries', FileInfo.GeneralReport,'both');
+for i = 1:size(allLibraries, "*")
+  // DEBUG only
+  //disp("Copying "+allInterfaces(i)+" in "+SCI2COutputPath+"/interfaces/");
+  copyfile(allLibraries(i), SCI2COutputPath+"/libraries/");
+end
 
-  // -- Libraries
-  PrintStepInfo('Copying libraries', FileInfo.GeneralReport,'both');
-  for i = 1:size(allLibraries, "*")
-    // DEBUG only
-    //disp("Copying "+allInterfaces(i)+" in "+SCI2COutputPath+"/interfaces/");
-    copyfile(allLibraries(i), SCI2COutputPath+"/libraries/");
-  end
+// --------------------------
+// --- Generate Makefile. ---
+// --------------------------
+//If output format is chosen as 'Arduino', then copy makefile for arduino from
+//default folder, else generate makefile for standalone c code
 
-  // --------------------------
-  // --- Generate Makefile. ---
-  // --------------------------
-  //If output format is chosen as 'Arduino', then copy makefile for arduino from
-  //default folder, else generate makefile for standalone c code
+if (Target == 'Arduino')
 
-  if (Target == 'Arduino')
+   GenerateSetupFunction(FileInfo);
+   mkdir(SCI2COutputPath+"/arduino/");
+   mkdir(SCI2COutputPath+"/arduino/sci2c_arduino");
+   //Copy arduino makefile
+   arduinoFiles = SCI2CHOME + "/" + getArduinoFiles();
+   PrintStepInfo('Copying arduino files', FileInfo.GeneralReport,'both');
+   copyfile(arduinoFiles(1), SCI2COutputPath);
+   for i = 2:size(arduinoFiles, "*")
+       // DEBUG only
+       //disp("Copying "+arduinoFiles(i)+" in "+SCI2COutputPath+"/arduino/sci2carduino");
+       copyfile(arduinoFiles(i), SCI2COutputPath+"/arduino/sci2c_arduino/");
+   end
 
-     GenerateSetupFunction(FileInfo);
-     mkdir(SCI2COutputPath+"/arduino/");
-     mkdir(SCI2COutputPath+"/arduino/sci2c_arduino");
-     //Copy arduino makefile
-     arduinoFiles = SCI2CHOME + "/" + getArduinoFiles();
-     PrintStepInfo('Copying arduino files', FileInfo.GeneralReport,'both');
-     copyfile(arduinoFiles(1), SCI2COutputPath);
-     for i = 2:size(arduinoFiles, "*")
-         // DEBUG only
-         //disp("Copying "+arduinoFiles(i)+" in "+SCI2COutputPath+"/arduino/sci2carduino");
-         copyfile(arduinoFiles(i), SCI2COutputPath+"/arduino/sci2c_arduino/");
-     end
+else
 
-  else
-
-     if BuildTool == "make"
-       C_GenerateMakefile(FileInfo,SharedInfo);
-       copyBlasLapackLibs(FileInfo,SharedInfo);   //Previously .dll files and blas,lapack library not creating for cygwin  by additing this works fine
-     end
-     if BuildTool == "nmake"
-        copyBlasLapackLibs(FileInfo,SharedInfo);
-        C_GenerateMakefile_msvc(FileInfo,SharedInfo);
-     end
-  end
+   if BuildTool == "make"
+     C_GenerateMakefile(FileInfo,SharedInfo);
+     copyBlasLapackLibs(FileInfo,SharedInfo);   //Previously .dll files and blas,lapack library not creating for cygwin  by additing this works fine
+   end
+   if BuildTool == "nmake"
+      copyBlasLapackLibs(FileInfo,SharedInfo);
+      C_GenerateMakefile_msvc(FileInfo,SharedInfo);
+   end
+end
 
 
-  // ------------------------------
-  // --- Generate SCI2C Header. ---
-  // ------------------------------
-  // FIXME : Give the user the ability to set this prefix
-  FunctionPrefix = "SCI2C";
-  C_GenerateSCI2CHeader(SCI2COutputPath+"/includes/", FunctionPrefix);
-
-end // RunMode <> FunCall
-
+// ------------------------------
+// --- Generate SCI2C Header. ---
+// ------------------------------
+// FIXME : Give the user the ability to set this prefix
+FunctionPrefix = "SCI2C";
+C_GenerateSCI2CHeader(SCI2COutputPath+"/includes/", FunctionPrefix);
+end
 // -----------------
 // --- Epilogue. ---
 // -----------------

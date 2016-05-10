@@ -64,6 +64,10 @@ function allHeaders = getAllHeaders(Target)
       "src/c/matrixOperations/includes/determ.h"
       "src/c/matrixOperations/includes/matrixMultiplication.h"
       "src/c/matrixOperations/includes/diag.h"
+      "src/c/matrixOperations/includes/cumsum.h"
+      "src/c/matrixOperations/includes/cumprod.h"
+      "src/c/matrixOperations/includes/triu.h"
+      "src/c/matrixOperations/includes/tril.h"
       "src/c/elementaryFunctions/includes/cos.h"
       "src/c/elementaryFunctions/includes/fix.h"
       "src/c/elementaryFunctions/includes/exp.h"
@@ -146,9 +150,9 @@ function allHeaders = getAllHeaders(Target)
       "src/c/scilab-arduino/includes/cmd_analog_in.h"
       "src/c/scilab-arduino/includes/cmd_dcmotor_setup.h"
       "src/c/scilab-arduino/includes/cmd_dcmotor_run.h"
-//      "src/c/scilab-arduino/includes/cmd_servo_attach.h"
-//      "src/c/scilab-arduino/includes/cmd_servo_detach.h"
-//      "src/c/scilab-arduino/includes/cmd_servo_move.h"
+      "src/c/scilab-arduino/includes/cmd_servo_attach.h"
+      "src/c/scilab-arduino/includes/cmd_servo_detach.h"
+      "src/c/scilab-arduino/includes/cmd_servo_move.h"
       "src/c/scilab-arduino/includes/sleep.h"];
 
   AVR_headers = [

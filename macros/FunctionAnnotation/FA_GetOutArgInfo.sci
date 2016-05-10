@@ -101,7 +101,7 @@ for counterout = 1:NOutArg
    // This is a dynamic memory extension of a local variable and for the moment
    // we issue an error according to SCI2C specifications
    // #RNU_RES_E
-
+   //disp(FunSizeAnnot)
    for iterOutputPosition=1:size(FunSizeAnnot, 'c')
      tmpeval = eval(FunSizeAnnot(counterout, iterOutputPosition));
      if (IsNanSize(tmpeval))
