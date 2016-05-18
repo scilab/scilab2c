@@ -68,6 +68,8 @@ function allHeaders = getAllHeaders(Target)
       "src/c/matrixOperations/includes/cumprod.h"
       "src/c/matrixOperations/includes/triu.h"
       "src/c/matrixOperations/includes/tril.h"
+      "src/c/matrixOperations/includes/kron.h"
+      "src/c/matrixOperations/includes/flipdim.h"
       "src/c/elementaryFunctions/includes/cos.h"
       "src/c/elementaryFunctions/includes/fix.h"
       "src/c/elementaryFunctions/includes/exp.h"

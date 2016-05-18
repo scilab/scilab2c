@@ -56,6 +56,8 @@ function allInterfaces = getAllInterfaces(Target)
       "src/c/matrixOperations/interfaces/int_cumprod.h"
       "src/c/matrixOperations/interfaces/int_triu.h"
       "src/c/matrixOperations/interfaces/int_tril.h"
+      "src/c/matrixOperations/interfaces/int_kron.h"
+      "src/c/matrixOperations/interfaces/int_flipdim.h"
       "src/c/elementaryFunctions/interfaces/int_asinh.h"
       "src/c/elementaryFunctions/interfaces/int_atanh.h"
       "src/c/elementaryFunctions/interfaces/int_sinh.h"

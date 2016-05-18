@@ -4990,6 +4990,134 @@ PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file',
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
+//------------------------------------
+//---- Class KRON --------------------
+//------------------------------------
+ClassName = 'KRON';
+
+// --- Class Annotation. ---
+PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
+ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
+
+//Arguements specified: initial value, start time, time vector, ode function
+PrintStringInfo('NIN=         2',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= FA_MUL(IN(1).SZ(1),IN(2).SZ(1))',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= FA_MUL(IN(1).SZ(2),IN(2).SZ(2))',ClassFileName,'file','y');
+
+ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+PrintStringInfo('d0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('s0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
+
+PrintStringInfo('d2d0'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('s2s0'+ArgSeparator+'s2',ClassFileName,'file','y');
+
+PrintStringInfo('d0d2'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('s0s2'+ArgSeparator+'s2',ClassFileName,'file','y');
+
+PrintStringInfo('d2d2'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('s2s2'+ArgSeparator+'s2',ClassFileName,'file','y');
+
+// --- Annotation Function And Function List Function. ---
+FunctionName = 'kron'; 
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+//------------------------------------
+//---- Class FLIPDIM -----------------
+//------------------------------------
+ClassName = 'FLIPDIM';
+
+// --- Class Annotation. ---
+PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
+ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
+
+//Arguements specified: initial value, start time, time vector, ode function
+PrintStringInfo('NIN=         2',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+
+PrintStringInfo('NIN=         3',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+
+ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+PrintStringInfo('d0d0'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('s0s0'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('u80u80'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('i80i80'+ArgSeparator+'i80',ClassFileName,'file','y');
+PrintStringInfo('u160u160'+ArgSeparator+'u160',ClassFileName,'file','y');
+PrintStringInfo('i160i160'+ArgSeparator+'i160',ClassFileName,'file','y');
+
+PrintStringInfo('d2d0'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('s2s0'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('u82u80'+ArgSeparator+'u82',ClassFileName,'file','y');
+PrintStringInfo('i82i80'+ArgSeparator+'i82',ClassFileName,'file','y');
+PrintStringInfo('u162u160'+ArgSeparator+'u162',ClassFileName,'file','y');
+PrintStringInfo('i162i160'+ArgSeparator+'i162',ClassFileName,'file','y');
+PrintStringInfo('u82d0'+ArgSeparator+'u82',ClassFileName,'file','y');
+PrintStringInfo('i82d0'+ArgSeparator+'i82',ClassFileName,'file','y');
+PrintStringInfo('u162d0'+ArgSeparator+'u162',ClassFileName,'file','y');
+PrintStringInfo('i162d0'+ArgSeparator+'i162',ClassFileName,'file','y');
+
+PrintStringInfo('d2d0d0'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('s2s0d0'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('u82u80u80'+ArgSeparator+'u82',ClassFileName,'file','y');
+PrintStringInfo('i82i80u80'+ArgSeparator+'i82',ClassFileName,'file','y');
+PrintStringInfo('u162u160u160'+ArgSeparator+'u162',ClassFileName,'file','y');
+PrintStringInfo('i162i160i160'+ArgSeparator+'i162',ClassFileName,'file','y');
+PrintStringInfo('u82d0d0'+ArgSeparator+'u82',ClassFileName,'file','y');
+PrintStringInfo('i82d0d0'+ArgSeparator+'i82',ClassFileName,'file','y');
+PrintStringInfo('u162d0d0'+ArgSeparator+'u162',ClassFileName,'file','y');
+PrintStringInfo('i162d0d0'+ArgSeparator+'i162',ClassFileName,'file','y');
+
+// --- Annotation Function And Function List Function. ---
+FunctionName = 'flipdim'; 
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+//------------------------------------
+//---- Class PERMUTE -----------------
+//------------------------------------
+ClassName = 'PERMUTE';
+
+// --- Class Annotation. ---
+PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
+ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
+
+//Arguements specified: initial value, start time, time vector, ode function
+PrintStringInfo('NIN=         2',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+
+ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+PrintStringInfo('d2d2'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('s0s2'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('u80u82'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('i80i82'+ArgSeparator+'i80',ClassFileName,'file','y');
+PrintStringInfo('u160u162'+ArgSeparator+'u160',ClassFileName,'file','y');
+PrintStringInfo('i160i162'+ArgSeparator+'i160',ClassFileName,'file','y');
+PrintStringInfo('s0d2'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('u80d2'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('i80d2'+ArgSeparator+'i80',ClassFileName,'file','y');
+PrintStringInfo('u160d2'+ArgSeparator+'u160',ClassFileName,'file','y');
+PrintStringInfo('i160d2'+ArgSeparator+'i160',ClassFileName,'file','y');
+
+// --- Annotation Function And Function List Function. ---
+FunctionName = 'permute'; 
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
 // ////////////////////////////////////////////
 // /////PARTE INTRODOTTA DA ALBERTO MOREA
 // /////////////////////////////////////////////

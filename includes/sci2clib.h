@@ -319,6 +319,12 @@
 /*interfacing tril*/
 #include "int_tril.h"
 #include "tril.h"
+/*interfacing kron*/
+#include "int_kron.h"
+#include "kron.h"
+/*interfacing flipdim*/
+#include "int_flipdim.h"
+#include "flipdim.h"
 
 /* SIGNAL PROCESSING */
 /* interfacing convol */
