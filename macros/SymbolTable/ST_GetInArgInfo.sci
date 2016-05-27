@@ -1,4 +1,4 @@
-function [UpdatedInArg,SharedInfo] = ST_GetInArgInfo(InArg,NInArg,FileInfo,SharedInfo)
+function [UpdatedInArg,SharedInfo] = ST_GetInArgInfo(InArg,NInArg,FileInfo,SharedInfo,ASTFunName)
 // function UpdatedInArg = ST_GetInArgInfo(InArg,NInArg,FileInfo,SharedInfo)
 // -----------------------------------------------------------------
 // #RNU_RES_B
@@ -26,7 +26,7 @@ function [UpdatedInArg,SharedInfo] = ST_GetInArgInfo(InArg,NInArg,FileInfo,Share
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-SCI2CNInArgCheck(argn(2),4,4);
+SCI2CNInArgCheck(argn(2),5,5);
 
 // -----------------------
 // --- Initialization. ---
@@ -115,7 +115,7 @@ for cntinarg = 1:NInArg
       UpdatedInArg(cntinarg).Size(2)   = string(length(tmpname)+1); //+1 = (\0)
       UpdatedInArg(cntinarg).Value     = '""'+tmpname+'""';
       UpdatedInArg(cntinarg).FindLike  = 0;
-      UpdatedInArg(cntinarg).Dimension = 2; //NUT: in future releases you can set this field to 1.
+      UpdatedInArg(cntinarg).Dimension = 2; //Keep it zero to avoid extra argument 'funcnameSize'.
       UpdatedInArg(cntinarg).Scope     = 'Temp';
       
       // #RNU_RES_B
@@ -130,21 +130,36 @@ for cntinarg = 1:NInArg
       // #RNU_RES_E
       [TBFlagfound,TBType,TBSize,TBValue,TBFindLike,TBDimension,TBScope] = ST_GetSymbolInfo(tmpname,FileInfo,SharedInfo);
       if (TBFlagfound == 0)
-         PrintStringInfo(' ',ReportFileName,'both','y');
-         PrintStringInfo('SCI2CERROR: Unknown symbol ""'+tmpname+'"".',ReportFileName,'both','y');
-         PrintStringInfo('SCI2CERROR: Be sure to initialize every symbol you are using.',ReportFileName,'both','y');
-         PrintStringInfo('SCI2CERROR: Before running the SCI2C translator, remember to run the code you are trying',ReportFileName,'both','y');
-         PrintStringInfo('SCI2CERROR: to translate in order to check syntax errors.',ReportFileName,'both','y');
-         PrintStringInfo(' ',ReportFileName,'both','y');
-         error(9999, 'SCI2CERROR: Unknown symbol ""'+tmpname+'"".');
+            if(ASTFunName == 'ode')
+               if(NInArg == 4 & cntinarg == 4)  
+               //incase of 4 arguments, fourth argument is function name
+                  UpdatedInArg(cntinarg).Name      = tmpname; // Change the name.
+                  UpdatedInArg(cntinarg).Type      = 'f'; //it is a function name
+                  UpdatedInArg(cntinarg).Size(1)   = '1'; 
+                  UpdatedInArg(cntinarg).Size(2)   = '1'; //+1 = (\0)
+                  UpdatedInArg(cntinarg).Value     = '&'+tmpname;
+                  UpdatedInArg(cntinarg).FindLike  = 0;
+                  UpdatedInArg(cntinarg).Dimension = 0; //NUT: in future releases you can set this field to 1.
+                  UpdatedInArg(cntinarg).Scope     = 'Temp';
+                  ST_InsOutArg(UpdatedInArg(cntinarg),1,FileInfo,SharedInfo,'all');
+               end
+            else
+               PrintStringInfo(' ',ReportFileName,'both','y');
+               PrintStringInfo('SCI2CERROR: Unknown symbol ""'+tmpname+'"".',ReportFileName,'both','y');
+               PrintStringInfo('SCI2CERROR: Be sure to initialize every symbol you are using.',ReportFileName,'both','y');
+               PrintStringInfo('SCI2CERROR: Before running the SCI2C translator, remember to run the code you are trying',ReportFileName,'both','y');
+               PrintStringInfo('SCI2CERROR: to translate in order to check syntax errors.',ReportFileName,'both','y');
+               PrintStringInfo(' ',ReportFileName,'both','y');
+               error(9999, 'SCI2CERROR: Unknown symbol ""'+tmpname+'"".');
+            end
+      else
+         UpdatedInArg(cntinarg).Type      = TBType;
+         UpdatedInArg(cntinarg).Size      = TBSize;
+         UpdatedInArg(cntinarg).Value     = TBValue;
+         UpdatedInArg(cntinarg).FindLike  = TBFindLike;
+         UpdatedInArg(cntinarg).Dimension = TBDimension;
+         UpdatedInArg(cntinarg).Scope     = TBScope;
       end
-      UpdatedInArg(cntinarg).Type      = TBType;
-      UpdatedInArg(cntinarg).Size      = TBSize;
-      UpdatedInArg(cntinarg).Value     = TBValue;
-      UpdatedInArg(cntinarg).FindLike  = TBFindLike;
-      UpdatedInArg(cntinarg).Dimension = TBDimension;
-      UpdatedInArg(cntinarg).Scope     = TBScope;
-      
    else
       error(9999, 'Unknown scope identifier ""'+tmpscope+'"" for variable ""'+tmpname+'"".');
    end

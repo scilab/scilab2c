@@ -126,6 +126,9 @@ SharedInfo.Extension.FuncListClasses     = '.lcls';  // Stands for list class
 // ------------------------
 SharedInfo.ResizeApproach = 'NO_RESIZE'; // 'NO_RESIZE', 'RESIZE_ALL', 'RESIZE_TEMP', 'RESIZE_LOCAL', 'RESIZE_GLOBAL', 'REALLOC_ALL_RESIZE_ALL'
 
-SharedInfo.Target = Target;
+SharedInfo.Target = Target; // Specifies code generation target.
+
+SharedInfo.ODElist = list(); //Maintains list of ode functions being used in code
+						// to add their header files to main function.
 
 endfunction

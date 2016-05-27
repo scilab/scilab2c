@@ -75,6 +75,10 @@ else
 		PrintStringInfo('LDFLAGS = -lblas -llapack -lm ',FileInfo.MakefileFilename,'file','y','y');
 	end
 end
+//If ode function is used, add libgsl.
+if(size(SharedInfo.ODElist) <> 0)
+	PrintStringInfo('LDFLAGS += -lgsl',FileInfo.MakefileFilename,'file','y','y');
+end
 
 // Binary definition
 PrintStringInfo('EXEFILENAME = mytest.exe',FileInfo.MakefileFilename,'file','y','y');

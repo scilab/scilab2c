@@ -388,8 +388,8 @@
 #include "str.h"
 
 /*ODE functions*/
-//#include "ode.h"
-//#include "int_ode.h"
+#include "ode.h"
+#include "int_ode.h"
 
 /*Scilab-arduino toolbox*/
 #ifdef Arduino1

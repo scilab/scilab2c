@@ -953,9 +953,9 @@ function allSources = getAllSources(Target)
       "src/c/implicitList/zimplicitLists.c"
       "src/c/implicitList/dimplicitLists.c"
       "src/c/implicitList/cimplicitLists.c"
-      "src/c/implicitList/simplicitLists.c"];
-      //"src/c/differential_calculus/ode/dodes.c"
-      //"src/c/differential_calculus/ode/doded.c"];
+      "src/c/implicitList/simplicitLists.c"
+      "src/c/differential_calculus/ode/dodes.c"
+      "src/c/differential_calculus/ode/dodea.c"];
 
   //Files to be inserted only if output format selected is 'Arduino'.
   Arduino_files = ["src/c/scilab-arduino/cmd_digital_out/u8cmd_digital_outs.c"

@@ -14,4 +14,4 @@ typedef signed char         int8;
 typedef signed short        int16;
 typedef signed int          int32;
 
-#endif  //_TYPES_H
+#endif  /*_TYPES_H*/

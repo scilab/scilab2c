@@ -23,14 +23,14 @@ function CFunName = C_GenerateFunName(FunctionName,InArg,NInArg,OutArg,NOutArg)
 // ------------------------------
 SCI2CNInArgCheck(argn(2),5,5);
 CFunName = '';
-if((IsAVRSupportFunction(FunctionName)) | (IsRPISupportFunction(FunctionName)))
+if((IsAVRSupportFunction(FunctionName)) | (IsRPISupportFunction(FunctionName)) | ... 
+	(mtlb_strcmp(part(FunctionName,1:5),'odefn') == %T))
 //If current function is an AVR or RPi function, then function name can be just 
 //plain function name without any input/output arguments types
 
 	CFunName = CFunName+FunctionName;
 
 else
-
 	for tmpcnt = 1:NInArg
 	   if (InArg(tmpcnt).Dimension == 1)
 		  CFunName = CFunName+InArg(tmpcnt).Type+'2';
@@ -48,5 +48,6 @@ else
 		  CFunName = CFunName+OutArg(tmpcnt).Type+SCI2Cstring(OutArg(tmpcnt).Dimension);
 	   end
 	end
+
 end
 endfunction

@@ -73,6 +73,24 @@ PrintStringInfo('** ----------------- ',FinalCFileName,'file','y');
 PrintStringInfo('*/',FinalCFileName,'file','y');
 PrintStringInfo('#include ""'+tmphdrname+tmphdrext+'""',...
    FinalCFileName,'file','y');
+//If current file is main C file, include header files corresponding to ODE
+//functions, if any.
+if(SharedInfo.NextSCIFunName == SharedInfo.SCIMainFunName)
+	if(size(SharedInfo.ODElist) <> 0)  //check if list is empty
+		//If not empty, add those header files here.
+		for cntlist = 1:size(SharedInfo.ODElist)
+			PrintStringInfo('#include ""'+SharedInfo.ODElist(cntlist)+'.h""',...
+		   		FinalCFileName,'file','y');
+		end
+
+	end	
+end	
+
+//If current function contains ODEs, add gsl/gsl_errno.h.
+if (mtlb_strcmp(part(SharedInfo.CurrentFunInfo.CFunctionName,1:5),'odefn') == %T)
+	PrintStringInfo('#include <gsl/gsl_errno.h>',...
+		   		FinalCFileName,'file','y');
+end
 PrintStringInfo('/*',FinalCFileName,'file','y');
 PrintStringInfo('** --------------------- ',FinalCFileName,'file','y');
 PrintStringInfo('** --- End Includes. --- ',FinalCFileName,'file','y');

@@ -74,7 +74,7 @@ INIT_LoadLibraries(FileInfoDatFile);
 // ----------------------------------
 // --- Perform SCI2C Translation. ---
 // ----------------------------------
-if (RunMode == 'All' | RunMode == 'Translate' | RunMode == "FunCall")
+if (RunMode == 'All' | RunMode == 'Translate')
    FlagContinueTranslation = 1;
    while(FlagContinueTranslation == 1)
       UpdateSCI2CInfo(FileInfoDatFile);
@@ -85,12 +85,11 @@ if (RunMode == 'All' | RunMode == 'Translate' | RunMode == "FunCall")
    end
 end
 
-
-
+load(SharedInfoDatFile,'SharedInfo');
 // ---------------------------
 // --- Copy library files. ---
 // ---------------------------
-if (RunMode <> 'FunCall')
+
 global SCI2CHOME
 
 allSources = SCI2CHOME + "/" + getAllSources(Target);
@@ -176,7 +175,7 @@ end
 // FIXME : Give the user the ability to set this prefix
 FunctionPrefix = "SCI2C";
 C_GenerateSCI2CHeader(SCI2COutputPath+"/includes/", FunctionPrefix);
-end
+
 // -----------------
 // --- Epilogue. ---
 // -----------------

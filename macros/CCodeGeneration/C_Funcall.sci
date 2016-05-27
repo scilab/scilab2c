@@ -180,6 +180,9 @@ if (FunInfo.CFunctionName == SharedInfo.CMainFunName)
    else
       CCall =CCall+'int ';
    end
+elseif (mtlb_strcmp(part(CFunName,1:5),'odefn') == %T)
+   //Return type of function containing ODEs must be int.
+   CCall = CCall + 'int ';
 else
    if (PosFirstOutScalar >= 1)
       if (FlagCall == 1)
@@ -207,39 +210,84 @@ end
 PrintStringInfo('   C call after output scalar args check: '+CCall,ReportFileName,'file','y');
 // #RNU_RES_E
 clear counterin
-for counterin = 1:NInArg
+if(mtlb_strcmp(part(CFunName,1:5),'odefn') == %F)
+   for counterin = 1:NInArg
 
-   if (InArg(counterin).Type == 'g' & InArg(counterin).Scope == 'String')
-      TmpInArgName = '""'+InArg(counterin).Name+'""';
-   elseif (InArg(counterin).Type == 'z' & (InArg(counterin).Scope == 'Number'))
-      TmpInArgName = 'DoubleComplex('+SCI2Cstring(real(InArg(counterin).Value))+','+SCI2Cstring(imag(InArg(counterin).Value))+')';
-   elseif (InArg(counterin).Type == 'c' & (InArg(counterin).Scope == 'Number'))
-      TmpInArgName = 'FloatComplex('+SCI2Cstring(real(InArg(counterin).Value))+','+SCI2Cstring(imag(InArg(counterin).Value))+')';
-   else
-      TmpInArgName = InArg(counterin).Name;
-   end
-
-   TmpInArgType = C_Type(InArg(counterin).Type);
-
-   //if (FunctionName == 'OpEqual')
-   //      TmpInArgSizeVar = '__'+OutArg(counterin).Name+'Size';
-   // else
-   TmpInArgSizeVar = '__'+InArg(counterin).Name+'Size';
-   //end
-
-   if (InArg(counterin).Dimension == 0)
-      if (FlagCall == 0)
-         CCall = CCall+TmpInArgType+' ';
-      end
-      CCall = CCall+TmpInArgName+',';
-   else
-      if (FlagCall == 0)
-         CCall = CCall+TmpInArgType+'* '+TmpInArgName+', int* __'+TmpInArgName+'Size,';
+      if (InArg(counterin).Type == 'g' & InArg(counterin).Scope == 'String')
+         TmpInArgName = '""'+InArg(counterin).Name+'""';
+      elseif (InArg(counterin).Type == 'z' & (InArg(counterin).Scope == 'Number'))
+         TmpInArgName = 'DoubleComplex('+SCI2Cstring(real(InArg(counterin).Value))+','+SCI2Cstring(imag(InArg(counterin).Value))+')';
+      elseif (InArg(counterin).Type == 'c' & (InArg(counterin).Scope == 'Number'))
+         TmpInArgName = 'FloatComplex('+SCI2Cstring(real(InArg(counterin).Value))+','+SCI2Cstring(imag(InArg(counterin).Value))+')';
       else
-         CCall = CCall+TmpInArgName+',  '+TmpInArgSizeVar+',';
+         TmpInArgName = InArg(counterin).Name;
+      end
+
+      TmpInArgType = C_Type(InArg(counterin).Type);
+
+      //if (FunctionName == 'OpEqual')
+      //      TmpInArgSizeVar = '__'+OutArg(counterin).Name+'Size';
+      // else
+      TmpInArgSizeVar = '__'+InArg(counterin).Name+'Size';
+      //end
+
+      if (InArg(counterin).Dimension == 0)
+         if (FlagCall == 0)
+            CCall = CCall+TmpInArgType+' ';
+         end
+         CCall = CCall+TmpInArgName+',';
+      else
+         if (FlagCall == 0)
+            CCall = CCall+TmpInArgType+'* '+TmpInArgName+', int* __'+TmpInArgName+'Size,';
+         else
+            CCall = CCall+TmpInArgName+',  '+TmpInArgSizeVar+',';
+         end
       end
    end
+else
+   //If current function contains 'odefn' at the beginning, then it contains
+   //differnetial equations and its function call need to be differnt than 
+   //other function call. GSL library being used for solving ODEs, requires 
+   //function containing odes in specific format which is differnt than generated
+   //above.
+   for counterin = 1:NInArg
+
+      if(counterin <> 3)   //Skip third argument
+         if (InArg(counterin).Type == 'g' & InArg(counterin).Scope == 'String')
+            TmpInArgName = '""'+InArg(counterin).Name+'""';
+         elseif (InArg(counterin).Type == 'z' & (InArg(counterin).Scope == 'Number'))
+            TmpInArgName = 'DoubleComplex('+SCI2Cstring(real(InArg(counterin).Value))+','+SCI2Cstring(imag(InArg(counterin).Value))+')';
+         elseif (InArg(counterin).Type == 'c' & (InArg(counterin).Scope == 'Number'))
+            TmpInArgName = 'FloatComplex('+SCI2Cstring(real(InArg(counterin).Value))+','+SCI2Cstring(imag(InArg(counterin).Value))+')';
+         else
+            TmpInArgName = InArg(counterin).Name;
+         end
+
+         TmpInArgType = C_Type(InArg(counterin).Type);
+
+         //if (FunctionName == 'OpEqual')
+         //      TmpInArgSizeVar = '__'+OutArg(counterin).Name+'Size';
+         // else
+         TmpInArgSizeVar = '__'+InArg(counterin).Name+'Size';
+         //end
+
+         if (InArg(counterin).Dimension == 0)
+            if (FlagCall == 0)
+               CCall = CCall+TmpInArgType+' ';
+            end
+            CCall = CCall+TmpInArgName+',';
+         else
+            if (FlagCall == 0)
+               CCall = CCall+TmpInArgType+'* '+TmpInArgName+', ';//int* __'+TmpInArgName+'Size,';
+            else
+               CCall = CCall+TmpInArgName+',  ';//+TmpInArgSizeVar+',';
+            end
+         end
+      end
+   end
+
 end
+   
 // #RNU_RES_B
 PrintStringInfo('   C call after input args analysis: '+CCall,ReportFileName,'file','y');
 // #RNU_RES_E
@@ -308,6 +356,11 @@ if (part(CCall,length(CCall):length(CCall)) == ',')
    CCall = part(CCall,1:length(CCall)-1);
 end
 
+//__ysize is added to input arguments at last to comply with form required by GSL
+if(mtlb_strcmp(part(CFunName,1:5),'odefn') == %T)
+   CCall = CCall + ',  int* '+TmpInArgSizeVar;
+end
+
 CCall = CCall+')';
 if (FlagCall == 1)
    CCall = CCall+';';
@@ -352,8 +405,12 @@ if mtlb_strcmp(FunctionName,'return')
    PrintStringInfo('   return function of the AST is skipped.',ReportFileName,'file','y');
    //RN provo a non skippare e a mettere la return.
    // #RNU_RES_E
+   
    if (SharedInfo.CurrentFunInfo.CFunctionName == SharedInfo.CMainFunName)
       CCall = CCall+'return(0);';
+   elseif (mtlb_strcmp(part(SharedInfo.CurrentFunInfo.CFunctionName,1:5),'odefn') == %T)
+   //For GSL library, function containing ODEs must return GSL_SUCCESS
+      CCall = CCall + 'return GSL_SUCCESS;'   
    else
       if (SharedInfo.CurrentFunInfo.PosFirstOutScalar > 0)
          CCall = CCall+'return('+SharedInfo.CurrentFunInfo.OutArg(SharedInfo.CurrentFunInfo.PosFirstOutScalar).Name+');'
