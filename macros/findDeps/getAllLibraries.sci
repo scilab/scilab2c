@@ -8,6 +8,7 @@ function allLibraries = getAllLibraries(Target)
       "src/c/hardware/rasberrypi/libraries/librefblas.a"
       "src/c/hardware/rasberrypi/libraries/liblapack.a"
       "src/c/hardware/rasberrypi/libraries/libgfortran.a"
+      "src/c/hardware/rasberrypi/libraries/libgsl.a"
 		];
 
   if Target == "RPi"
@@ -15,6 +16,5 @@ function allLibraries = getAllLibraries(Target)
   else
   allLibraries = [];
   end
-
 
 endfunction

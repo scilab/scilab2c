@@ -34,7 +34,7 @@ elseif (ArgType == 'i')
 elseif (ArgType == 'g')
    OutC_Type = 'char';
 elseif (ArgType == 'f')
-   OutC_Type = 'SCI2CFILEID';
+   OutC_Type = 'FILE *';
 elseif (ArgType == 'u8')
    OutC_Type = 'uint8';
 elseif (ArgType == 'i8')
@@ -43,6 +43,9 @@ elseif (ArgType == 'u16')
    OutC_Type = 'uint16';
 elseif (ArgType == 'i16')
    OutC_Type = 'int16';
+elseif (ArgType == 'fn') //This type introduced for ODE function,
+   // as it's one of the inout argument is  name of the other function 
+   OutC_Type = '';
 else
    error(9999, 'Unknown Argument Type: ""'+ArgType+'"".');
 end

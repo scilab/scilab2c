@@ -142,7 +142,8 @@ function allHeaders = getAllHeaders(Target)
       "src/c/signalProcessing/includes/crossCorr.h"
       "src/c/implicitList/dynlib_implicitlist.h"
       "src/c/implicitList/implicitList.h"
-      "src/c/differential_calculus/includes/ode.h"];
+      "src/c/differential_calculus/includes/ode.h"
+      "src/c/Files/includes/files.h"];
 
   //Header files required for "Arduino" output
   Arduino_headers = [

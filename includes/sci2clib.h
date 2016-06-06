@@ -391,6 +391,10 @@
 #include "ode.h"
 #include "int_ode.h"
 
+/*Functions related to file handling*/
+#include "files.h"
+#include "int_files.h"
+
 /*Scilab-arduino toolbox*/
 #ifdef Arduino1
 #include "int_cmd_digital_out.h"

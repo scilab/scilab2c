@@ -10,7 +10,7 @@
  Email: toolbox@scilab.in
 */
 
-//Function for solving ODEs using GSL library
+/*Function for solving ODEs using GSL library*/
 
 #include "ode.h"
 #include "types.h"
@@ -20,21 +20,39 @@
 
 
 void dodea(double *initial_value, double start_time, double end_time, \
-			char *ode_function, double nequs, double eps_abs, double eps_rel, \
-			double step_size, int *params, double *out)
+			int (*ode_function), char *solver_type, double nequs, double eps_abs, \
+			double eps_rel, double step_size, int *params, double *out)
 {
 	double t = start_time;
-	//Initialise output to initial state
+	gsl_odeiv2_step_type *step_type;
+
+	/*Initialise output to initial state*/
 	int counter = 0;
 	for (counter = 0; counter<nequs;counter++)
 	{
 		out[counter] = initial_value[counter];
 	}
 
-	//Setup ODE related parameters
-	gsl_odeiv2_system sys = {ode_function, NULL, 2, params};
+	/*Setup ODE related parameters*/
+	gsl_odeiv2_system sys = {ode_function, NULL, nequs, params};
 
-	gsl_odeiv2_step    *s = gsl_odeiv2_step_alloc (gsl_odeiv2_step_rkf45, nequs);
+	/*Select step solver*/
+	if (solver_type == "adams")
+		step_type = gsl_odeiv2_step_msadams;
+	if (solver_type == "stiff")
+		step_type = gsl_odeiv2_step_msbdf;
+	if (solver_type == "rk")
+		step_type = gsl_odeiv2_step_rk4;
+	if (solver_type == "rkf")
+		step_type = gsl_odeiv2_step_rkf45;
+	if (solver_type == "root")
+		step_type = gsl_odeiv2_step_rkck;
+	if (solver_type == "discrete")
+		step_type = gsl_odeiv2_step_rk8pd;
+	else 
+		step_type = gsl_odeiv2_step_rkf45;
+		
+	gsl_odeiv2_step    *s = gsl_odeiv2_step_alloc (step_type, nequs);
   	gsl_odeiv2_control *c = gsl_odeiv2_control_y_new (eps_abs, eps_rel);
   	gsl_odeiv2_evolve  *e = gsl_odeiv2_evolve_alloc (nequs);
   

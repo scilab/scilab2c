@@ -92,7 +92,7 @@ if (ArgStruct.Dimension > 0)
     Cdeclaration(2) = Cdeclaration(2)+';';
   end
 else
-  if (ArgStruct.Type == 'f')
+  if (ArgStruct.Type == 'fn')
     //do nothing. This is a function name. Will be declared in header file.
   else
     if (FlagExt == 1)

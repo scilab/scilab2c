@@ -1,14 +1,15 @@
-// Copyright (C) 2016 - IIT Bombay - FOSSEE
-//
-// This file must be used under the terms of the CeCILL.
-// This source file is licensed as described in the file COPYING, which
-// you should have received as part of this distribution.  The terms
-// are also available at
-// http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
-// Author: Siddhesh Wani
-// Organization: FOSSEE, IIT Bombay
-// Email: toolbox@scilab.in
+/* Copyright (C) 2016 - IIT Bombay - FOSSEE
 
+ This file must be used under the terms of the CeCILL.
+ This source file is licensed as described in the file COPYING, which
+ you should have received as part of this distribution.  The terms
+ are also available at
+ http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+ Author: Siddhesh Wani
+ Organization: FOSSEE, IIT Bombay
+ Email: toolbox@scilab.in
+*/
+ 
 
 #ifndef __TRIU_H__
 #define __TRIU_H__
@@ -16,7 +17,7 @@
 #include "types.h"
 
 #ifdef  __cplusplus
-#extern "C" {
+extern "C" {
 #endif
 
 void dtriua (double *in, int row, int column, double diag, double *out);
@@ -27,7 +28,7 @@ void i8triua (int8 *in, int row, int column, double diag, int8 *out);
 void i16triua (int16 *in, int row, int column, double diag, int16 *out);
 
 #ifdef  __cplusplus
-#} /* extern "C" */
+} /* extern "C" */
 #endif
 
 #endif /*__TRIU_H__*/

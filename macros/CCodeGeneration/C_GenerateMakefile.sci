@@ -90,10 +90,19 @@ target = SharedInfo.Target;
 PrintStringInfo('SRC = \\', FileInfo.MakefileFilename,'file','y','y');
 allSources = getAllSources(target);
 nbSources = size(allSources);
+
 for i = 1:(nbSources(1) - 1)
   [tmppath,tmpfile,tmpext] = fileparts(allSources(i));
-  PrintStringInfo('    $(CSRCDIR)/'+tmpfile+tmpext+' \\', FileInfo.MakefileFilename,'file','y','y');
+  
+  if(~isempty(strstr(allSources(i),'ode')))
+    if(size(SharedInfo.ODElist) <> 0)
+       PrintStringInfo('    $(CSRCDIR)/'+tmpfile+tmpext+' \\', FileInfo.MakefileFilename,'file','y','y');
+    end
+  else
+    PrintStringInfo('    $(CSRCDIR)/'+tmpfile+tmpext+' \\', FileInfo.MakefileFilename,'file','y','y');
+  end
 end
+
 [tmppath,tmpfile,tmpext] = fileparts(allSources(nbSources(1)));
 PrintStringInfo('    $(CSRCDIR)/'+tmpfile+tmpext, FileInfo.MakefileFilename,'file','y','y');
 

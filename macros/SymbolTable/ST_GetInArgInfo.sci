@@ -134,7 +134,18 @@ for cntinarg = 1:NInArg
                if(NInArg == 4 & cntinarg == 4)  
                //incase of 4 arguments, fourth argument is function name
                   UpdatedInArg(cntinarg).Name      = tmpname; // Change the name.
-                  UpdatedInArg(cntinarg).Type      = 'f'; //it is a function name
+                  UpdatedInArg(cntinarg).Type      = 'fn'; //it is a function name
+                  UpdatedInArg(cntinarg).Size(1)   = '1'; 
+                  UpdatedInArg(cntinarg).Size(2)   = '1'; //+1 = (\0)
+                  UpdatedInArg(cntinarg).Value     = '&'+tmpname;
+                  UpdatedInArg(cntinarg).FindLike  = 0;
+                  UpdatedInArg(cntinarg).Dimension = 0; //NUT: in future releases you can set this field to 1.
+                  UpdatedInArg(cntinarg).Scope     = 'Temp';
+                  ST_InsOutArg(UpdatedInArg(cntinarg),1,FileInfo,SharedInfo,'all');
+               elseif (NInArg == 5 & cntinarg == 5) then
+                  //incase of 5 arguments, fifth argument is function name
+                  UpdatedInArg(cntinarg).Name      = tmpname; // Change the name.
+                  UpdatedInArg(cntinarg).Type      = 'fn'; //it is a function name
                   UpdatedInArg(cntinarg).Size(1)   = '1'; 
                   UpdatedInArg(cntinarg).Size(2)   = '1'; //+1 = (\0)
                   UpdatedInArg(cntinarg).Value     = '&'+tmpname;

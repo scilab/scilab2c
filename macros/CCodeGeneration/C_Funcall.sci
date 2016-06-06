@@ -222,7 +222,7 @@ if(mtlb_strcmp(part(CFunName,1:5),'odefn') == %F)
       else
          TmpInArgName = InArg(counterin).Name;
       end
-
+      
       TmpInArgType = C_Type(InArg(counterin).Type);
 
       //if (FunctionName == 'OpEqual')
@@ -251,8 +251,8 @@ else
    //function containing odes in specific format which is differnt than generated
    //above.
    for counterin = 1:NInArg
-
-      if(counterin <> 3)   //Skip third argument
+      
+      //if((NInArg == 4 & counterin <> 3) | (NInArg == 5 & counterin <> 4))   //Skip third argument
          if (InArg(counterin).Type == 'g' & InArg(counterin).Scope == 'String')
             TmpInArgName = '""'+InArg(counterin).Name+'""';
          elseif (InArg(counterin).Type == 'z' & (InArg(counterin).Scope == 'Number'))
@@ -262,7 +262,7 @@ else
          else
             TmpInArgName = InArg(counterin).Name;
          end
-
+         
          TmpInArgType = C_Type(InArg(counterin).Type);
 
          //if (FunctionName == 'OpEqual')
@@ -283,7 +283,7 @@ else
                CCall = CCall+TmpInArgName+',  ';//+TmpInArgSizeVar+',';
             end
          end
-      end
+      //end
    end
 
 end

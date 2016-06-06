@@ -955,7 +955,21 @@ function allSources = getAllSources(Target)
       "src/c/implicitList/cimplicitLists.c"
       "src/c/implicitList/simplicitLists.c"
       "src/c/differential_calculus/ode/dodes.c"
-      "src/c/differential_calculus/ode/dodea.c"];
+      "src/c/differential_calculus/ode/dodea.c"
+      "src/c/Files/mopen/mopen.c"
+      "src/c/Files/mclose/mclose.c"
+      "src/c/Files/mput/dmputs.c"
+      "src/c/Files/mput/smputs.c"
+      "src/c/Files/mput/u8mputs.c"
+      "src/c/Files/mput/i8mputs.c"
+      "src/c/Files/mput/u16mputs.c"
+      "src/c/Files/mput/i16mputs.c"
+      "src/c/Files/mput/dmputa.c"
+      "src/c/Files/mput/smputa.c"
+      "src/c/Files/mput/u8mputa.c"
+      "src/c/Files/mput/i8mputa.c"
+      "src/c/Files/mput/u16mputa.c"
+      "src/c/Files/mput/i16mputa.c"];
 
   //Files to be inserted only if output format selected is 'Arduino'.
   Arduino_files = ["src/c/scilab-arduino/cmd_digital_out/u8cmd_digital_outs.c"

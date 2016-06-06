@@ -3352,10 +3352,27 @@ PrintStringInfo('s0g2f0'+ArgSeparator,ClassFileName,'file','y');
 PrintStringInfo('s2g2f0'+ArgSeparator,ClassFileName,'file','y');
 PrintStringInfo('d0g2f0'+ArgSeparator,ClassFileName,'file','y');
 PrintStringInfo('d2g2f0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('u80g2f0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('u82g2f0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('i80g2f0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('i82g2f0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('u160g2f0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('u162g2f0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('i160g2f0'+ArgSeparator,ClassFileName,'file','y');
+PrintStringInfo('i162g2f0'+ArgSeparator,ClassFileName,'file','y');
+
 PrintStringInfo('s0g2f0'+ArgSeparator+'i0',ClassFileName,'file','y'); //NUT la mput e' strana
 PrintStringInfo('s2g2f0'+ArgSeparator+'i0',ClassFileName,'file','y');
 PrintStringInfo('d0g2f0'+ArgSeparator+'i0',ClassFileName,'file','y');
 PrintStringInfo('d2g2f0'+ArgSeparator+'i0',ClassFileName,'file','y');
+PrintStringInfo('u80g2f0'+ArgSeparator+'i0',ClassFileName,'file','y');
+PrintStringInfo('u82g2f0'+ArgSeparator+'i0',ClassFileName,'file','y');
+PrintStringInfo('i80g2f0'+ArgSeparator+'i0',ClassFileName,'file','y');
+PrintStringInfo('i82g2f0'+ArgSeparator+'i0',ClassFileName,'file','y');
+PrintStringInfo('u160g2f0'+ArgSeparator+'i0',ClassFileName,'file','y');
+PrintStringInfo('u162g2f0'+ArgSeparator+'i0',ClassFileName,'file','y');
+PrintStringInfo('i160g2f0'+ArgSeparator+'i0',ClassFileName,'file','y');
+PrintStringInfo('i162g2f0'+ArgSeparator+'i0',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'mput';
@@ -4853,12 +4870,30 @@ PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(1)= IN(3).SZ(1)',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(2)= IN(3).SZ(2)',ClassFileName,'file','y');
 
+//Arguements specified: solver type, initial value, start time, end time, ode function
+PrintStringInfo('NIN=         5',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(2).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= ''1''',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= FA_MUL(IN(2).SZ(2),IN(4).SZ(2))',ClassFileName,'file','y');
+
+//Arguements specified: solver type, initial value, start time, end time, ode function
+PrintStringInfo('NIN=         5',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(2).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(4).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(4).SZ(2)',ClassFileName,'file','y');
+
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
-PrintStringInfo('d0d0d2g2'+ArgSeparator+'d2',ClassFileName,'file','y');
-PrintStringInfo('d0d0d0g2'+ArgSeparator+'d0',ClassFileName,'file','y');
-PrintStringInfo('d2d0d2g2'+ArgSeparator+'d2',ClassFileName,'file','y');
-PrintStringInfo('d2d0d0f0'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('d0d0d0fn0'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('d2d0d0fn0'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('d0d02fn0'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('d2d0d2fn0'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('g2d0d0d0fn0'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('g2d2d0d0fn0'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('g2d0d02fn0'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('g2d2d0d2fn0'+ArgSeparator+'d2',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'ode'; 
