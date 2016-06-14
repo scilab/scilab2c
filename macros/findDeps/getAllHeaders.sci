@@ -70,6 +70,7 @@ function allHeaders = getAllHeaders(Target)
       "src/c/matrixOperations/includes/tril.h"
       "src/c/matrixOperations/includes/kron.h"
       "src/c/matrixOperations/includes/flipdim.h"
+      "src/c/matrixOperations/includes/norm.h"
       "src/c/elementaryFunctions/includes/cos.h"
       "src/c/elementaryFunctions/includes/fix.h"
       "src/c/elementaryFunctions/includes/exp.h"
@@ -143,6 +144,7 @@ function allHeaders = getAllHeaders(Target)
       "src/c/implicitList/dynlib_implicitlist.h"
       "src/c/implicitList/implicitList.h"
       "src/c/differential_calculus/includes/ode.h"
+      "src/c/differential_calculus/includes/diffc.h"
       "src/c/Files/includes/files.h"];
 
   //Header files required for "Arduino" output

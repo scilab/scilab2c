@@ -57,6 +57,7 @@ taglength(cnttag) = length(tagname(cnttag));
 
 fieldlength  = length(ASTField);
 
+
 //NUT: il seguente codice e' poco elegante.
 if (SCI2Cstrncmps1size(tagname(1),ASTField))
    // Here we can have:
@@ -65,24 +66,36 @@ if (SCI2Cstrncmps1size(tagname(1),ASTField))
    // Number_d: it means double real type.
    // Number_c: it means float complex type.
    // Number_z: it means double complex type.
-   ArgName = stripblanks(part(ASTField,taglength(1)+3:fieldlength));
-   ArgScope = stripblanks(part(ASTField,1:taglength(1)+1));
+  
+   // If ArgName is i, make it string
+   if(mtlb_strcmp(ASTField,"Number_x: i") == %T)
+      ArgName = stripblanks(part(ASTField,taglength(1)+3:fieldlength));
+      ArgScope = 'String';
+   else   
+      ArgName = stripblanks(part(ASTField,taglength(1)+3:fieldlength));
+      ArgScope = stripblanks(part(ASTField,1:taglength(1)+1));
+   end
 elseif (SCI2Cstrncmps1size(tagname(2),ASTField))
    ArgName = stripblanks(part(ASTField,taglength(2)+1:fieldlength));
    ArgName = part(ArgName,2:length(ArgName)-1); // I remove also the first and the last " 
    ArgScope = 'String';
+  
 elseif (SCI2Cstrncmps1size(tagname(3),ASTField))
    ArgName  = stripblanks(part(ASTField,taglength(3)+1:fieldlength));
    ArgScope = 'Variable';
+   
 elseif (SCI2Cstrncmps1size(tagname(4),ASTField))
    ArgName  = stripblanks(part(ASTField,taglength(4)+1:fieldlength));
    ArgScope = 'Global';
+   
 elseif (SCI2Cstrncmps1size(tagname(5),ASTField))
    ArgName  = stripblanks(part(ASTField,taglength(5)+1:fieldlength));
    ArgScope = 'Local';
+   
 elseif (SCI2Cstrncmps1size(tagname(6),ASTField))
    ArgName  = stripblanks(part(ASTField,taglength(6)+1:fieldlength));
    ArgScope = 'Temp';
+   
 elseif (SCI2Cstrncmps1size(tagname(7),ASTField))
    ArgName  = '<empty>';
    ArgScope = 'None';

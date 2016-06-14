@@ -325,6 +325,9 @@
 /*interfacing flipdim*/
 #include "int_flipdim.h"
 #include "flipdim.h"
+/*interfacing norm*/
+#include "int_norm.h"
+#include "norm.h"
 
 /* SIGNAL PROCESSING */
 /* interfacing convol */
@@ -390,6 +393,10 @@
 /*ODE functions*/
 #include "ode.h"
 #include "int_ode.h"
+
+/*Diff function*/
+#include "diffc.h"
+#include "int_diffc.h"
 
 /*Functions related to file handling*/
 #include "files.h"

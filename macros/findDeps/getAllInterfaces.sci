@@ -59,6 +59,7 @@ function allInterfaces = getAllInterfaces(Target)
       "src/c/matrixOperations/interfaces/int_kron.h"
       "src/c/matrixOperations/interfaces/int_flipdim.h"
       "src/c/matrixOperations/interfaces/int_permute.h"
+      "src/c/matrixOperations/interfaces/int_norm.h"
       "src/c/elementaryFunctions/interfaces/int_asinh.h"
       "src/c/elementaryFunctions/interfaces/int_atanh.h"
       "src/c/elementaryFunctions/interfaces/int_sinh.h"
@@ -138,6 +139,7 @@ function allInterfaces = getAllInterfaces(Target)
       "src/c/signalProcessing/interfaces/int_lev.h"
       "src/c/implicitList/int_OpColon.h"
       "src/c/differential_calculus/interfaces/int_ode.h"
+      "src/c/differential_calculus/interfaces/int_diffc.h"
       "src/c/Files/interfaces/int_files.h"];
 
   //Interface files required for "Arduino" output
