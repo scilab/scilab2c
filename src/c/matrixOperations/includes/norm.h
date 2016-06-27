@@ -21,9 +21,9 @@ double dnormv (double *in, int size, int norm);
 
 double dnorma (double *in, int row, int col, int norm);
 
-float dnormv (float *in, int size, int norm);
+float snormv (float *in, int size, int norm);
 
-float dnorma (float *in, int row, int col, int norm);
+float snorma (float *in, int row, int col, int norm);
 
 #ifdef  __cplusplus 
 } /* extern "C" */

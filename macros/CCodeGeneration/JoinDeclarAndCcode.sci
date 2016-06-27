@@ -145,6 +145,11 @@ PrintStringInfo('** ---------------',CPass2FileName,'file','y');
 PrintStringInfo('** --- C code. ---',CPass2FileName,'file','y');
 PrintStringInfo('** ---------------',CPass2FileName,'file','y');
 PrintStringInfo('*/',CPass2FileName,'file','y');
+
+if(SharedInfo.Target == "RPi")
+   //Add bcm2835_init() function as it is required
+   PrintStringInfo('bcm2835_init();',CPass2FileName,'file','y');   
+end   
 // --- Copy the remaining part of V1 in V2. ---
 while (~meof(CPass1V1FileFid))
    // #RNU_RES_B

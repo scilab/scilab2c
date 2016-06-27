@@ -10,35 +10,31 @@
  Email: toolbox@scilab.in
 */
 
-/* Function to setup digital pins. 
-
- Calling Sequence
-     u8RPI_DigitalSetup(pin,direction)
-
- Parameters
-     pin : pin of RPi to be used 
-     direction : direction to be set for pin (0 -> INPUT, 1 -> OUTPUT)
-
- Description
-     There are few pins available on RPi as Gpio or digital io. These pins can be used as digital output or input. Pin name must be provided from list provided. Please refer '' for complete list of pins. Direction can be 0 or 1 depending upon desired function (Input/output)
- Examples
-     RPI_DigitalSetup(RPI_GPIO_P1_03,0) //Sets pin 3 of header P1 as input
-
- See also
-     RPI_DigitalIn RPI_DigitalOut
+/* Function to setup digital pins 
+	direction = 1 -> output
 */
 
 #include "types.h"
 #include "RPIPeripheralDigital.h"
 
+
+/*This array maps pin numbers on RPi board, with actual physical pin numbers
+on processor, required by BCM2835 library*/
+int phy_pin[] = {0, 0, 2, 0, 3, 0, 4, 14, 0, 15,  		/*Pin 1 to 10*/
+				17, 18, 27, 0, 22, 23, 0, 24, 10, 0,  	/*Pin 11 to 20*/
+				9, 25, 11, 8, 0, 7 };					/*Pin 21 to 26*/
+
+/*pin is reduced by one as arrayiindex starts from 0 and pin no starts from 1*/
 uint8 u8RPIDigitalSetups(uint8 pin, uint8 direction)
 {
 	if(direction == 1) //Pin to be used as output
 	{
-    	bcm2835_gpio_fsel(pin, BCM2835_GPIO_FSEL_OUTP);
+    	bcm2835_gpio_fsel(phy_pin[pin-1], BCM2835_GPIO_FSEL_OUTP);
 	}
 	else
 	{
-		bcm2835_gpio_fsel(pin, BCM2835_GPIO_FSEL_INPT);
+		bcm2835_gpio_fsel(phy_pin[pin-1], BCM2835_GPIO_FSEL_INPT);
 	}
+
+	return 0;
 }

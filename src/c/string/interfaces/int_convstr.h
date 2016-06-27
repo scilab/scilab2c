@@ -1,4 +1,4 @@
-/* Copyright (C) 2016 - IIT Bombay - FOSSEE
+ /* Copyright (C) 2016 - IIT Bombay - FOSSEE
 
  This file must be used under the terms of the CeCILL.
  This source file is licensed as described in the file COPYING, which
@@ -8,17 +8,18 @@
  Author: Siddhesh Wani
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
-*/
+ */
+#ifndef __INT_CONVSTR_H__
+#define __INT_CONVSTR_H__
 
-/* Function to read the state of the gpio pin */
+ #ifdef  __cplusplus
+ extern "C" {
+ #endif
 
-#include "types.h"
-#include "RPIPeripheralDigital.h"
+#define g0constrg0(in, size)	gconstrs(in)
 
-/*pin is reduced by one as array index starts from 0 and pin no starts from 1*/
-uint8 u8RPIDigitalIns(uint8 pin)
-{
-	uint8 state = 0;
-	state = bcm2835_gpio_lev(phy_pin[pin-1]);
-	return (state);
-}
+ #ifdef  __cplusplus
+ } /* extern "C" */
+ #endif
+
+#endif /*__INT_CONVSTR_H__*/

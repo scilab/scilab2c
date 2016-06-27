@@ -120,11 +120,12 @@ PrintStringInfo('\t@echo ""Generation of the executable""',FileInfo.MakefileFile
 PrintStringInfo('\t@echo ""============================""',FileInfo.MakefileFilename,'file','y','y');
 PrintStringInfo('\t$(CC) $(CFLAGS) $(OBJ) *.c $(LDFLAGS) -o $(EXEFILE)',FileInfo.MakefileFilename,'file','y','y');
 PrintStringInfo('\t@echo "" ""',FileInfo.MakefileFilename,'file','y','y');
-PrintStringInfo('\t@echo ""==============""',FileInfo.MakefileFilename,'file','y','y');
-PrintStringInfo('\t@echo ""Executing code""',FileInfo.MakefileFilename,'file','y','y');
-PrintStringInfo('\t@echo ""==============""',FileInfo.MakefileFilename,'file','y','y');
-PrintStringInfo('\t$(EXEFILE)',FileInfo.MakefileFilename,'file','y','y');
-
+if(target == "StandAlone")
+  PrintStringInfo('\t@echo ""==============""',FileInfo.MakefileFilename,'file','y','y');
+  PrintStringInfo('\t@echo ""Executing code""',FileInfo.MakefileFilename,'file','y','y');
+  PrintStringInfo('\t@echo ""==============""',FileInfo.MakefileFilename,'file','y','y');
+  PrintStringInfo('\t$(EXEFILE)',FileInfo.MakefileFilename,'file','y','y');
+end
 PrintStringInfo('clean:',FileInfo.MakefileFilename,'file','y','y');
 PrintStringInfo('\t@echo "" ""',FileInfo.MakefileFilename,'file','y','y');
 PrintStringInfo('\t@echo ""=============================""',FileInfo.MakefileFilename,'file','y','y');

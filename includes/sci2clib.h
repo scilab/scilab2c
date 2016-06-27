@@ -402,6 +402,10 @@
 #include "files.h"
 #include "int_files.h"
 
+/*Functions related to strings*/
+#include "convstr.h"
+#include "int_convstr.h"
+
 /*Scilab-arduino toolbox*/
 #ifdef Arduino1
 #include "int_cmd_digital_out.h"

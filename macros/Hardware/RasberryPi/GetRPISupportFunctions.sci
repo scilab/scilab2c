@@ -1,4 +1,4 @@
-function AVRSupportFunctions = GetRPISupportFunctions()
+function RPiSupportFunctions = GetRPISupportFunctions()
 // -----------------------------------------------------------------
 // Get list of RPI peripherals supported 
 //
@@ -11,7 +11,7 @@ function AVRSupportFunctions = GetRPISupportFunctions()
 // Author: Siddhesh Wani  
 // -----------------------------------------------------------------
 
-AVRSupportFunctions = [
+RPiSupportFunctions = [
 						"RPI_DigitalIn"
 						"RPI_DigitalOut"
 						"RPI_DigitalSetup"

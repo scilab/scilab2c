@@ -145,7 +145,8 @@ function allHeaders = getAllHeaders(Target)
       "src/c/implicitList/implicitList.h"
       "src/c/differential_calculus/includes/ode.h"
       "src/c/differential_calculus/includes/diffc.h"
-      "src/c/Files/includes/files.h"];
+      "src/c/Files/includes/files.h"
+      "src/c/string/includes/convstr.h"];
 
   //Header files required for "Arduino" output
   Arduino_headers = [
@@ -155,9 +156,9 @@ function allHeaders = getAllHeaders(Target)
       "src/c/scilab-arduino/includes/cmd_analog_in.h"
       "src/c/scilab-arduino/includes/cmd_dcmotor_setup.h"
       "src/c/scilab-arduino/includes/cmd_dcmotor_run.h"
-      "src/c/scilab-arduino/includes/cmd_servo_attach.h"
-      "src/c/scilab-arduino/includes/cmd_servo_detach.h"
-      "src/c/scilab-arduino/includes/cmd_servo_move.h"
+      //"src/c/scilab-arduino/includes/cmd_servo_attach.h"
+      //"src/c/scilab-arduino/includes/cmd_servo_detach.h"
+      //"src/c/scilab-arduino/includes/cmd_servo_move.h"
       "src/c/scilab-arduino/includes/sleep.h"];
 
   AVR_headers = [

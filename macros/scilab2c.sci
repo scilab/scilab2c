@@ -121,7 +121,7 @@ function scilab2c(varargin)
       return
     end
     if varargin(6) <> "StandAlone" & varargin(6) <> "Arduino" & varargin(6) <> "AVR" & varargin(6) <> "RPi"
-	  error(msprintf(gettext("%s: argument #%d must be: ""StandAlone"" or ""Arduino"" or ""AVR"".\n"),"scilab2c",5));
+	  error(msprintf(gettext("%s: argument #%d must be: ""StandAlone"" or ""Arduino"" or ""AVR"" or ""RPi"".\n"),"scilab2c",5));
       return
     end
     UserScilabMainFile = varargin(1);
@@ -144,7 +144,7 @@ error(msprintf(gettext("%s: Wrong number of input argument(s): %d expected.\n"),
 
 // --- LAUNCH USER SCI CODE TO TEST IT BEFORE TRANSLATING IT!!! ---
 // If Target choosen is 'Standalone' then only execute the code, otherwise directly start conversion.  
-  if Target == "StandAlone"
+  if ((Target == "StandAlone") | (Target == "RPi"))
   runscicode(UserScilabMainFile, UserSciFilesPaths);
   
  // --- ASK USER FOR CONTINUATION. ---

@@ -22,7 +22,7 @@ extern "C" {
 
 #define RPI_DigitalSetup(in1,in2) u8RPIDigitalSetups((uint8) in1, (uint8) in2);
 
-#define RPI_DigitalIn(in1,in2) u8RPIDigitalIns((uint8) in1);
+#define RPI_DigitalIn(in1) u8RPIDigitalIns((uint8) in1);
 
 #define RPI_DigitalOut(in1,in2) u8RPIDigitalOuts((uint8) in1, (uint8) in2);
 

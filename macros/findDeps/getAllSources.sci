@@ -974,7 +974,8 @@ function allSources = getAllSources(Target)
       "src/c/Files/mput/u8mputa.c"
       "src/c/Files/mput/i8mputa.c"
       "src/c/Files/mput/u16mputa.c"
-      "src/c/Files/mput/i16mputa.c"];
+      "src/c/Files/mput/i16mputa.c"
+      "src/c/string/convstr/gconvstrs.c"];
 
   //Files to be inserted only if output format selected is 'Arduino'.
   Arduino_files = ["src/c/scilab-arduino/cmd_digital_out/u8cmd_digital_outs.c"
@@ -983,9 +984,9 @@ function allSources = getAllSources(Target)
       "src/c/scilab-arduino/cmd_analog_in/u8cmd_analog_ins.c"
       "src/c/scilab-arduino/cmd_dcmotor_setup/u8cmd_dcmotor_setups.c"
       "src/c/scilab-arduino/cmd_dcmotor_run/u8cmd_dcmotor_runs.c"
-      "src/c/scilab-arduino/cmd_servo_attach/u8cmd_servo_attach.cpp"
-      "src/c/scilab-arduino/cmd_servo_detach/u8cmd_servo_detach.cpp"
-      "src/c/scilab-arduino/cmd_servo_move/u8cmd_servo_move.cpp"
+      //"src/c/scilab-arduino/cmd_servo_attach/u8cmd_servo_attach.cpp"
+      //"src/c/scilab-arduino/cmd_servo_detach/u8cmd_servo_detach.cpp"
+      //"src/c/scilab-arduino/cmd_servo_move/u8cmd_servo_move.cpp"
       "src/c/scilab-arduino/sleep/u16sleeps.c"];
 
   //Files to be inserted only if output format selected is 'AVR'.
