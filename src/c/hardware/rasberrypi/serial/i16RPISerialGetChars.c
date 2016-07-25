@@ -10,22 +10,18 @@
  Email: toolbox@scilab.in
 */
 
-
-#ifndef __INT_RPIPERIPHERALUTIL_H__
-#define __INT_RPIPERIPHERALUTIL_H__
-
+/* Function to read character from spcified serial port (file descriptor). 
+   This function will block execution for 10 secs if no character is available,
+   and will return -1 in that case*/
+     
 #include "types.h"
-#include "RPIPeripheralUtil.h"
+#include "RPIPeripheralSerial.h"
 
-#ifdef  __cplusplus
-extern "C" {
-#endif
+int16 i16RPISerialGetChars(int fd)
+{
+	int data = 0;
+	
+	data = serialGetchar(fd);
 
-#define RPI_DelayMicro(in1) u16RPIDelayMicros((uint16) in1);
-#define RPI_DelayMilli(in1) u16RPIDelayMillis((uint16) in1);
-
-#ifdef  __cplusplus
-} /* extern "C" */
-#endif
-
-#endif /* !__RPIPERIPHERALUTIL_H__ */
+	return data;
+} 

@@ -19,6 +19,6 @@
 uint8 u8RPIDigitalIns(uint8 pin)
 {
 	uint8 state = 0;
-	state = bcm2835_gpio_lev(phy_pin[pin-1]);
+	state = digitalRead(phy_pin[pin-1]);
 	return (state);
 }

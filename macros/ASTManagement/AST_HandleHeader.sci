@@ -120,8 +120,13 @@ end
 // --- Check coherence between In/Out names and In/Out Arg structure loaded. ---
 // -----------------------------------------------------------------------------
 //#RNU_RES_E
-if (length(SharedInfo.CurrentFunInfo.InArg(1).Name) > 0)
-   NInArgDat = size(SharedInfo.CurrentFunInfo.InArg,1);
+if (~isempty(SharedInfo.CurrentFunInfo.InArg))
+   
+   if (length(SharedInfo.CurrentFunInfo.InArg(1).Name) > 0)
+      NInArgDat = size(SharedInfo.CurrentFunInfo.InArg,1);
+   else
+      NInArgDat = 0;
+   end
 else
    NInArgDat = 0;
 end

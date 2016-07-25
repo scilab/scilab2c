@@ -441,9 +441,16 @@
 
 /*RPi*/
 #ifdef RPi1
+#include "wiringPi.h"
 #include "int_RPIPeripheralDigital.h"
 #include "RPIPeripheralDigital.h"
-#include "int_RPIPeripheralUtil.h"
-#include "RPIPeripheralUtil.h"
+#include "int_RPIPeripheralTiming.h"
+#include "RPIPeripheralTiming.h"
+#include "int_RPIPeripheralSerial.h"
+#include "RPIPeripheralSerial.h"
+#include "int_RPIPeripheralThreading.h"
+#include "RPIPeripheralThreading.h"
+#include "int_RPIPeripheralPinISR.h"
+#include "RPIPeripheralPinISR.h"
 #endif
 #endif /* !__SCI2CLIB_H__ */

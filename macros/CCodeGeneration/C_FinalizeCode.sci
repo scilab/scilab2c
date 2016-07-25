@@ -76,10 +76,10 @@ PrintStringInfo('#include ""'+tmphdrname+tmphdrext+'""',...
 //If current file is main C file, include header files corresponding to ODE
 //functions, if any.
 if(SharedInfo.NextSCIFunName == SharedInfo.SCIMainFunName)
-	if(size(SharedInfo.ODElist) <> 0)  //check if list is empty
+	if(size(SharedInfo.Includelist) <> 0)  //check if list is empty
 		//If not empty, add those header files here.
-		for cntlist = 1:size(SharedInfo.ODElist)
-			PrintStringInfo('#include ""'+SharedInfo.ODElist(cntlist)+'.h""',...
+		for cntlist = 1:size(SharedInfo.Includelist)
+			PrintStringInfo('#include ""'+SharedInfo.Includelist(cntlist)+'.h""',...
 		   		FinalCFileName,'file','y');
 		end
 

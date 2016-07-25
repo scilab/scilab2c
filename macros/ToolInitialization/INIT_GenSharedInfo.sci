@@ -128,7 +128,7 @@ SharedInfo.ResizeApproach = 'NO_RESIZE'; // 'NO_RESIZE', 'RESIZE_ALL', 'RESIZE_T
 
 SharedInfo.Target = Target; // Specifies code generation target.
 
-SharedInfo.ODElist = list(); //Maintains list of ode functions being used in code
-						// to add their header files to main function.
+SharedInfo.Includelist = list(); //Maintains list of functions being used in code
+								// to add their header files to main function.
 
 endfunction

@@ -24,10 +24,13 @@ function CFunName = C_GenerateFunName(FunctionName,InArg,NInArg,OutArg,NOutArg)
 SCI2CNInArgCheck(argn(2),5,5);
 CFunName = '';
 if((IsAVRSupportFunction(FunctionName)) | (IsRPISupportFunction(FunctionName)) | ... 
-	(mtlb_strcmp(part(FunctionName,1:5),'odefn') == %T))
+	(mtlb_strcmp(part(FunctionName,1:5),'odefn') == %T) |...
+	(mtlb_strcmp(part(FunctionName,1:9),'PI_thread') == %T)| ...
+	(mtlb_strcmp(part(FunctionName,1:4),'ISR_') == %T))
 //If current function is an AVR or RPi function, then function name can be just 
 //plain function name without any input/output arguments types
-
+//Slimilarly for functions conataining ode functions and functions to be called in
+//separate thread in RPi
 	CFunName = CFunName+FunctionName;
 
 else

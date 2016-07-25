@@ -108,11 +108,6 @@ global STACKDEDUG
 		  PrintStringInfo(' ',ReportFileName,'both','y');
 		  error(9999, 'SCI2CERROR: Unexpected number of output arguments for global function.');
 	   end
-	//elseif(IsAVRSupportFunction(ASTFunName))
-	   //Get the peripheral from function name and input arguements, insert it in 
-	   //list of used peripherals.
-	  // PeripheralUsed=GetPeripheral(ASTFunName,InArg);
-	  // InsertPeripheralInList(PeripheralUsed,PeripheralInitListFile);
 	end
 
 	// #RNU_RES_B
@@ -194,23 +189,30 @@ global STACKDEDUG
 		     FileInfo.GlobalVarFileName);
 	   end
 	else
-		//If a function is passed as input argument, Change the scope of function name from variable to string, 
-		//as it is passed as string to C function. Also enter this function in conversion list also.
 		if(ASTFunName == 'ode')
+			//Differnt handling of ode function is required as one of its input
+			// is a name of a function
 			if NInArg == 4 
-				//InArg(4).Scope = 'String';
 				ODEFunName = InArg(4).Name;
 				InArg(4).Name = 'odefn'+ InArg(4).Name
 				//To differentiate functions containing differential equations,
 				//'odefn' is added at the beginning of the function name.  
-				SharedInfo.ODElist($+1) = InArg(4).Name; 
+				SharedInfo.Includelist($+1) = InArg(4).Name; 
 				//Add ode function in list. this will be used to add corresponding
 				//header file in main function.
 			elseif NInArg == 5 
 				ODEFunName = InArg(5).Name;
 				InArg(5).Name = 'odefn'+ InArg(5).Name
-				SharedInfo.ODElist($+1) = InArg(5).Name; 
+				SharedInfo.Includelist($+1) = InArg(5).Name; 
 			end	
+		elseif(ASTFunName == 'RPI_ThreadCreate')
+			PI_thread_FunName = InArg(1).Name;
+			InArg(1).Name = 'PI_thread_'+PI_thread_FunName;
+			SharedInfo.Includelist($+1) = InArg(1).Name;
+		elseif(ASTFunName == 'RPI_PinISR')
+			PI_ISR_FunName = InArg(3).Name;
+			InArg(3).Name = 'ISR_'+PI_ISR_FunName;
+			SharedInfo.Includelist($+1) = InArg(3).Name;
 		end
 	   [InArg,SharedInfo] = ST_GetInArgInfo(InArg,NInArg,FileInfo,SharedInfo,ASTFunName);
 	   
@@ -513,6 +515,18 @@ global STACKDEDUG
 		//ODE_CFunName = C_GenerateFunName(ODEFunName,ODE_InArg,2,ODE_OutArg,1);
 		GenCFunDatFiles(ODEFunName,%t,FunTypeAnnot,['IN(2).SZ(1)' 'IN(2).SZ(2)'],ODE_InArg,2,ODE_OutArg,1,ODE_CFunName,LibTypeInfo,FunInfoDatDir);
 		SharedInfo = FL_UpdateToBeConv(ODEFunName,ODE_CFunName,%t,FunTypeAnnot,FunSizeAnnot,ODE_InArg,2,ODE_OutArg,1,FileInfo,SharedInfo);
+	elseif ASTFunName == 'RPI_ThreadCreate' then
+		temp_InArg = InArg;
+		temp_InArg(1).Name = ""
+		PI_thread_CFunName = C_GenerateFunName(InArg(1).Name,temp_InArg,0,%t,0);
+		GenCFunDatFiles(PI_thread_FunName,%t,[],%t,temp_InArg,0,%t,0,PI_thread_CFunName,LibTypeInfo,FunInfoDatDir);
+		SharedInfo = FL_UpdateToBeConv(PI_thread_FunName,PI_thread_CFunName,%t,FunTypeAnnot,[],%t,0,%t,0,FileInfo,SharedInfo);
+	elseif ASTFunName == 'RPI_PinISR' then
+		temp_InArg = InArg;
+		temp_InArg(1).Name = ""
+		PI_ISR_CFunName = C_GenerateFunName(InArg(3).Name,temp_InArg,0,%t,0);
+		GenCFunDatFiles(PI_ISR_FunName,%t,[],%t,temp_InArg,0,%t,0,PI_ISR_CFunName,LibTypeInfo,FunInfoDatDir);
+		SharedInfo = FL_UpdateToBeConv(PI_ISR_FunName,PI_ISR_CFunName,%t,FunTypeAnnot,[],%t,0,%t,0,FileInfo,SharedInfo);
 	end
 	
 endfunction

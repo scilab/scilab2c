@@ -5,3 +5,13 @@ RPI_DelayMilli
 RPI_DigitalIn
 RPI_DigitalOut
 RPI_DigitalSetup
+RPI_GetMicros
+RPI_GetMillis
+RPI_PinISR
+RPI_SerialClose
+RPI_SerialFlush
+RPI_SerialGetChar
+RPI_SerialSendChar
+RPI_SerialSendData
+RPI_SerialSetup
+u16RPISerialDataAvail

@@ -43,6 +43,10 @@ elseif (ArgType == 'u16')
    OutC_Type = 'uint16';
 elseif (ArgType == 'i16')
    OutC_Type = 'int16';
+elseif (ArgType == 'u32')
+   OutC_Type = 'uint32';
+elseif (ArgType == 'i32')
+   OutC_Type = 'int32';
 elseif (ArgType == 'fn') //This type introduced for ODE function,
    // as it's one of the inout argument is  name of the other function 
    OutC_Type = '';

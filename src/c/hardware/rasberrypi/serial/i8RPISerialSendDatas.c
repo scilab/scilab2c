@@ -10,23 +10,14 @@
  Email: toolbox@scilab.in
 */
 
-/* This file declares functions and constants related to rasberrypi*/
-
-#ifndef __RPIPERIPHERALUTIL_H__
-#define __RPIPERIPHERALUTIL_H__
-
-#ifdef  __cplusplus
-extern "C" {
-#endif
-
+/* Function to send signed 8-bit byte on specified serial port. */
+     
 #include "types.h"
-#include "bcm2835.h"
+#include "RPIPeripheralSerial.h"
 
-uint8 u16RPIDelayMillis(uint16 time);
-uint8 u16RPIDelayMicros(uint16 time);
+uint8 i8RPISerialSendDatas(int fd, int8 data)
+{
+	serialPutchar(fd, (uint8) data);
 
-#ifdef  __cplusplus
-} /* extern "C" */
-#endif
-
-#endif  /*__RPIPERIPHERALUTIL_H__*/
+	return 0;
+} 

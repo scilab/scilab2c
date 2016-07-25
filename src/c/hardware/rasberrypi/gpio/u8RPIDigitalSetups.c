@@ -12,28 +12,29 @@
 
 /* Function to setup digital pins 
 	direction = 1 -> output
+	direction = 0 -> input
 */
 
 #include "types.h"
 #include "RPIPeripheralDigital.h"
 
 
-/*This array maps pin numbers on RPi board, with actual physical pin numbers
-on processor, required by BCM2835 library*/
-int phy_pin[] = {0, 0, 2, 0, 3, 0, 4, 14, 0, 15,  		/*Pin 1 to 10*/
-				17, 18, 27, 0, 22, 23, 0, 24, 10, 0,  	/*Pin 11 to 20*/
-				9, 25, 11, 8, 0, 7 };					/*Pin 21 to 26*/
+/*This array maps pin numbers on RPi board, with pin numbers corrsponding
+to WiringPi library*/
+int phy_pin[] = {17, 17, 8, 17, 9, 17, 7, 15, 17, 16,  	/*Pin 1 to 10*/
+				0, 1, 2, 17, 3, 4, 17, 5, 12, 17, 	 	/*Pin 11 to 20*/
+				13, 6, 14, 10, 17, 11 };				/*Pin 21 to 26*/
 
 /*pin is reduced by one as arrayiindex starts from 0 and pin no starts from 1*/
 uint8 u8RPIDigitalSetups(uint8 pin, uint8 direction)
 {
 	if(direction == 1) //Pin to be used as output
 	{
-    	bcm2835_gpio_fsel(phy_pin[pin-1], BCM2835_GPIO_FSEL_OUTP);
+    	pinMode(phy_pin[pin-1], OUTPUT);
 	}
 	else
 	{
-		bcm2835_gpio_fsel(phy_pin[pin-1], BCM2835_GPIO_FSEL_INPT);
+	    pinMode(phy_pin[pin-1], INPUT);
 	}
 
 	return 0;

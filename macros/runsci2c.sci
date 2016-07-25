@@ -116,8 +116,10 @@ for i = 1:size(allSources, "*")
   //disp("Copying "+allSources(i)+" in "+SCI2COutputPath+"/src/c/");
   //Copy ode related functions only if 'ode' function is used.
   if(~isempty(strstr(allSources(i),'ode')))
-    if(size(SharedInfo.ODElist) <> 0)
-       copyfile(allSources(i), SCI2COutputPath+"/src/c/");
+    if(size(SharedInfo.Includelist) <> 0)
+        if((mtlb_strcmp(part(SharedInfo.Includelist(1),1:5),'odefn') == %T))
+          copyfile(allSources(i), SCI2COutputPath+"/src/c/");
+        end
     end
   else
     copyfile(allSources(i), SCI2COutputPath+"/src/c/");      

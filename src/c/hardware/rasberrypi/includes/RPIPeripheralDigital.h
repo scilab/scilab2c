@@ -21,7 +21,7 @@ extern "C" {
 
 
 #include "types.h"
-#include "bcm2835.h"
+#include "wiringPi.h"
 
 extern int phy_pin[];
 

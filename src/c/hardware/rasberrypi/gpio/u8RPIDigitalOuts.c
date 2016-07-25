@@ -16,11 +16,11 @@
 #include "types.h"
 #include "RPIPeripheralDigital.h"
 
-/*pin is reduced by one as arrayiindex starts from 0 and pin no starts from 1*/
+/*pin is reduced by one as array index starts from 0 and pin no starts from 1*/
 uint8 u8RPIDigitalOuts(uint8 pin, uint8 state)
 {
 	if (state == 0)  //low output
-		bcm2835_gpio_clr(phy_pin[pin-1]);
+		digitalWrite(phy_pin[pin-1], LOW);
 	if (state == 1)  //high output
-		bcm2835_gpio_set(phy_pin[pin-1]);
+		digitalWrite(phy_pin[pin-1], HIGH);
 }

@@ -169,9 +169,13 @@ function allHeaders = getAllHeaders(Target)
 	    ]; 
 
   RPi_headers = [
-      "includes/bcm2835.h"
+      "src/c/hardware/rasberrypi/libraries/wiringPi/wiringPi.h"
+      "src/c/hardware/rasberrypi/libraries/wiringPi/wiringSerial.h"
       "src/c/hardware/rasberrypi/includes/RPIPeripheralDigital.h"
-      "src/c/hardware/rasberrypi/includes/RPIPeripheralUtil.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralTiming.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralSerial.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralThreading.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralPinISR.h"
 		];
 
   if Target == "StandAlone"

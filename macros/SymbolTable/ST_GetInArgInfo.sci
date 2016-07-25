@@ -154,7 +154,27 @@ for cntinarg = 1:NInArg
                   UpdatedInArg(cntinarg).Scope     = 'Temp';
                   ST_InsOutArg(UpdatedInArg(cntinarg),1,FileInfo,SharedInfo,'all');
                end
-            else
+            elseif (ASTFunName == 'RPI_ThreadCreate')
+               UpdatedInArg(cntinarg).Name      = tmpname; // Change the name.
+               UpdatedInArg(cntinarg).Type      = 'fn'; //it is a function name
+               UpdatedInArg(cntinarg).Size(1)   = '1'; 
+               UpdatedInArg(cntinarg).Size(2)   = '1'; //+1 = (\0)
+               UpdatedInArg(cntinarg).Value     = '&'+tmpname;
+               UpdatedInArg(cntinarg).FindLike  = 0;
+               UpdatedInArg(cntinarg).Dimension = 0; //NUT: in future releases you can set this field to 1.
+               UpdatedInArg(cntinarg).Scope     = 'Temp';
+               ST_InsOutArg(UpdatedInArg(cntinarg),1,FileInfo,SharedInfo,'all');
+            elseif (ASTFunName == 'RPI_PinISR')
+               UpdatedInArg(cntinarg).Name      = tmpname; // Change the name.
+               UpdatedInArg(cntinarg).Type      = 'fn'; //it is a function name
+               UpdatedInArg(cntinarg).Size(1)   = '1'; 
+               UpdatedInArg(cntinarg).Size(2)   = '1'; //+1 = (\0)
+               UpdatedInArg(cntinarg).Value     = '&'+tmpname;
+               UpdatedInArg(cntinarg).FindLike  = 0;
+               UpdatedInArg(cntinarg).Dimension = 0; //NUT: in future releases you can set this field to 1.
+               UpdatedInArg(cntinarg).Scope     = 'Temp';
+               ST_InsOutArg(UpdatedInArg(cntinarg),1,FileInfo,SharedInfo,'all');
+            else   
                PrintStringInfo(' ',ReportFileName,'both','y');
                PrintStringInfo('SCI2CERROR: Unknown symbol ""'+tmpname+'"".',ReportFileName,'both','y');
                PrintStringInfo('SCI2CERROR: Be sure to initialize every symbol you are using.',ReportFileName,'both','y');

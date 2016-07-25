@@ -70,14 +70,16 @@ else
 	end 
 	PrintStringInfo('CFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR) -L $(LIBDIR)',FileInfo.MakefileFilename,'file','y','y');
 	if (target == 'RPi')
-		PrintStringInfo('LDFLAGS = -llapack -lrefblas -lgfortran -lm -lbcm2835',FileInfo.MakefileFilename,'file','y','y');
+		PrintStringInfo('LDFLAGS = -llapack -lrefblas -lgfortran -lm -lwiringPi',FileInfo.MakefileFilename,'file','y','y');
 	else
 		PrintStringInfo('LDFLAGS = -lblas -llapack -lm ',FileInfo.MakefileFilename,'file','y','y');
 	end
 end
 //If ode function is used, add libgsl.
-if(size(SharedInfo.ODElist) <> 0)
+if(size(SharedInfo.Includelist) <> 0)
+  if((mtlb_strcmp(part(SharedInfo.Includelist(1),1:5),'odefn') == %T))
 	PrintStringInfo('LDFLAGS += -lgsl',FileInfo.MakefileFilename,'file','y','y');
+  end
 end
 
 // Binary definition
@@ -95,8 +97,10 @@ for i = 1:(nbSources(1) - 1)
   [tmppath,tmpfile,tmpext] = fileparts(allSources(i));
   
   if(~isempty(strstr(allSources(i),'ode')))
-    if(size(SharedInfo.ODElist) <> 0)
-       PrintStringInfo('    $(CSRCDIR)/'+tmpfile+tmpext+' \\', FileInfo.MakefileFilename,'file','y','y');
+    if(size(SharedInfo.Includelist) <> 0)
+        if((mtlb_strcmp(part(SharedInfo.Includelist(1),1:5),'odefn') == %T))
+          PrintStringInfo('    $(CSRCDIR)/'+tmpfile+tmpext+' \\', FileInfo.MakefileFilename,'file','y','y');
+        end
     end
   else
     PrintStringInfo('    $(CSRCDIR)/'+tmpfile+tmpext+' \\', FileInfo.MakefileFilename,'file','y','y');

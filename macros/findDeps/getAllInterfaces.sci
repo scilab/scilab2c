@@ -163,9 +163,11 @@ function allInterfaces = getAllInterfaces(Target)
 
   RPI_interfaces = [
       "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralDigital.h"
-      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralUtil.h"
-
-]; 
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralTiming.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralSerial.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralThreading.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralPinISR.h"
+      ]; 
 
   if Target == "StandAlone"
   allInterfaces = Standalone_interfaces;
