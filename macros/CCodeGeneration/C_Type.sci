@@ -50,6 +50,8 @@ elseif (ArgType == 'i32')
 elseif (ArgType == 'fn') //This type introduced for ODE function,
    // as it's one of the inout argument is  name of the other function 
    OutC_Type = '';
+elseif (ArgType ==  'im')
+   OutC_Type = 'IplImage*'
 else
    error(9999, 'Unknown Argument Type: ""'+ArgType+'"".');
 end

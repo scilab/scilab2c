@@ -65,15 +65,14 @@ if getos() == 'Windows' then
 else 
 	if (target == 'RPi')
 		PrintStringInfo('CC     = arm-linux-gnueabihf-gcc ',FileInfo.MakefileFilename,'file','y','y');
-	else
+	  PrintStringInfo('CFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR) -L $(LIBDIR)',FileInfo.MakefileFilename,'file','y','y');
+    PrintStringInfo('LDFLAGS = -llapack -lrefblas -lgfortran -lm -lwiringPi',FileInfo.MakefileFilename,'file','y','y');
+  else
 		PrintStringInfo('CC     = gcc',FileInfo.MakefileFilename,'file','y','y');
-	end 
-	PrintStringInfo('CFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR) -L $(LIBDIR)',FileInfo.MakefileFilename,'file','y','y');
-	if (target == 'RPi')
-		PrintStringInfo('LDFLAGS = -llapack -lrefblas -lgfortran -lm -lwiringPi',FileInfo.MakefileFilename,'file','y','y');
-	else
-		PrintStringInfo('LDFLAGS = -lblas -llapack -lm ',FileInfo.MakefileFilename,'file','y','y');
-	end
+    PrintStringInfo('CFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR) -L $(LIBDIR)',FileInfo.MakefileFilename,'file','y','y');
+	  PrintStringInfo('LDFLAGS = -lblas -llapack -lm ',FileInfo.MakefileFilename,'file','y','y');
+  end 
+	
 end
 //If ode function is used, add libgsl.
 if(size(SharedInfo.Includelist) <> 0)
@@ -82,21 +81,26 @@ if(size(SharedInfo.Includelist) <> 0)
   end
 end
 
+if(SharedInfo.OpenCVUsed == %T)
+  PrintStringInfo('LDFLAGS += `pkg-config --libs opencv`',FileInfo.MakefileFilename,'file','y','y');
+  PrintStringInfo('CFLAGS += `pkg-config --cflags opencv`',FileInfo.MakefileFilename,'file','y','y');
+end
+
 // Binary definition
-PrintStringInfo('EXEFILENAME = mytest.exe',FileInfo.MakefileFilename,'file','y','y');
+PrintStringInfo('EXEFILENAME = '+SharedInfo.SCIMainFunName,FileInfo.MakefileFilename,'file','y','y');
 PrintStringInfo('EXEFILE = $(SCI2CDIR)/$(EXEFILENAME)', FileInfo.MakefileFilename,'file','y','y');
 
 // Sources
 //Check the output format selected and insert files according to it
 target = SharedInfo.Target;
 PrintStringInfo('SRC = \\', FileInfo.MakefileFilename,'file','y','y');
-allSources = getAllSources(target);
+allSources = getAllSources(SharedInfo);
 nbSources = size(allSources);
 
 for i = 1:(nbSources(1) - 1)
   [tmppath,tmpfile,tmpext] = fileparts(allSources(i));
   
-  if(~isempty(strstr(allSources(i),'ode')))
+  if(~isempty(strstr(allSources(i),'dode')))
     if(size(SharedInfo.Includelist) <> 0)
         if((mtlb_strcmp(part(SharedInfo.Includelist(1),1:5),'odefn') == %T))
           PrintStringInfo('    $(CSRCDIR)/'+tmpfile+tmpext+' \\', FileInfo.MakefileFilename,'file','y','y');

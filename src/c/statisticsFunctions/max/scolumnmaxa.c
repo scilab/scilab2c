@@ -11,7 +11,6 @@
  */
 
 #include "statMax.h"
-//#include "max.h"
 
 void scolumnmaxa(float *in, int rows, int columns, float* out) {
   int i = 0, j = 0;

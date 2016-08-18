@@ -18,7 +18,7 @@ void skrona (float *in1, int row1, int col1, float *in2, int row2, \
 			int col2, float *out)
 {
 	int row1_count, col1_count,row2_count, col2_count;
-	int row = row1*row2, col = col1*col2;
+	int row = row1*row2;
 	int temp = 0;
 
 	for(col1_count = 0;col1_count < col1; col1_count++)

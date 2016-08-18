@@ -12,8 +12,7 @@
 
 #ifndef __STAT_MIN_H__
 #define __STAT_MIN_H__
-//#ifndef __MIN_H__
-//#define __MIN_H__
+
 #include "dynlib_statisticsfunctions.h"
 #include "types.h"
 

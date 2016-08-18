@@ -23,6 +23,8 @@ sci2c_finDeps            = lib(pathmacros + "findDeps"           + filesep());
 sci2c_AVRlib		 	 = lib(pathmacros + "Hardware\AVR"       + filesep());
 sci2c_RPilib		 	 = lib(pathmacros + "Hardware\RasberryPi"+ filesep());
 sci2c_ScilabArduinolib	 = lib(pathmacros + "Scilab-Arduino"     + filesep());
+sci2c_CVCorelib	     	 = lib(pathmacros + "ImageProcessing\core" + filesep());
+sci2c_CVHighguilib    	 = lib(pathmacros + "ImageProcessing\highgui" + filesep());
 clear pathmacros;
 
 // Load and add help chapter

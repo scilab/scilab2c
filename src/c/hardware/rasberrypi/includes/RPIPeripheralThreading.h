@@ -19,7 +19,7 @@
 extern "C" {
 #endif
 
-uint16 RPIThreadCreate(void (*threadFunction));
+uint16 RPIThreadCreate(void *(*threadFunction)(void));
 
 #ifdef  __cplusplus 
 } /* extern "C" */

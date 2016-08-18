@@ -11,7 +11,7 @@
 ** \param out : Matrix that contains the multiplication in1 * in2.
 */
 
-// dgemm function of lapack library does not support uint8,uint16,int8 and int16 datatype so removed
+/* dgemm function of lapack library does not support uint8,uint16,int8 and int16 datatype so removed*/
 
 #include "matrixMultiplication.h"
 

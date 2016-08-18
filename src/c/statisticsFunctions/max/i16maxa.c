@@ -11,7 +11,7 @@
  */
 
 #include "statMax.h"
-//#include "max.h"
+
 int16 i16maxa(int16 *in, int size) {
   int16 out = in[0];
   int i = 0;

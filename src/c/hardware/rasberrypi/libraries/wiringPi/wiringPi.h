@@ -24,17 +24,17 @@
 #ifndef	__WIRING_PI_H__
 #define	__WIRING_PI_H__
 
-// C doesn't have true/false by default and I can never remember which
-//	way round they are, so ...
-
+/* C doesn't have true/false by default and I can never remember which
+	way round they are, so ...
+*/
 #ifndef	TRUE
 #  define	TRUE	(1==1)
 #  define	FALSE	(!TRUE)
 #endif
 
-// Handy defines
+/* Handy defines*/
 
-// wiringPi modes
+/* wiringPi modes*/
 
 #define	WPI_MODE_PINS		 0
 #define	WPI_MODE_GPIO		 1
@@ -43,7 +43,7 @@
 #define	WPI_MODE_PIFACE		 4
 #define	WPI_MODE_UNINITIALISED	-1
 
-// Pin modes
+/* Pin modes*/
 
 #define	INPUT			 0
 #define	OUTPUT			 1
@@ -56,27 +56,27 @@
 #define	LOW			 0
 #define	HIGH			 1
 
-// Pull up/down/none
+/* Pull up/down/none*/
 
 #define	PUD_OFF			 0
 #define	PUD_DOWN		 1
 #define	PUD_UP			 2
 
-// PWM
+/* PWM*/
 
 #define	PWM_MODE_MS		0
 #define	PWM_MODE_BAL		1
 
-// Interrupt levels
+/*Interrupt levels*/
 
 #define	INT_EDGE_SETUP		0
 #define	INT_EDGE_FALLING	1
 #define	INT_EDGE_RISING		2
 #define	INT_EDGE_BOTH		3
 
-// Pi model types and version numbers
-//	Intended for the GPIO program Use at your own risk.
-
+/*Pi model types and version numbers
+	Intended for the GPIO program Use at your own risk.
+*/
 #define	PI_MODEL_A		0
 #define	PI_MODEL_B		1
 #define	PI_MODEL_AP		2
@@ -104,36 +104,36 @@ extern const char *piMakerNames    [16] ;
 extern const int   piMemorySize    [ 8] ;
 
 
-//	Intended for the GPIO program Use at your own risk.
+/*	Intended for the GPIO program Use at your own risk.*/
 
-// Threads
+/* Threads*/
 
 #define	PI_THREAD(X)	void *X (void *dummy)
 
-// Failure modes
+/* Failure modes*/
 
 #define	WPI_FATAL	(1==1)
 #define	WPI_ALMOST	(1==2)
 
 
-// wiringPiNodeStruct:
-//	This describes additional device nodes in the extended wiringPi
-//	2.0 scheme of things.
-//	It's a simple linked list for now, but will hopefully migrate to 
-//	a binary tree for efficiency reasons - but then again, the chances
-//	of more than 1 or 2 devices being added are fairly slim, so who
-//	knows....
-
+/*wiringPiNodeStruct:
+	This describes additional device nodes in the extended wiringPi
+	2.0 scheme of things.
+	It's a simple linked list for now, but will hopefully migrate to 
+	a binary tree for efficiency reasons - but then again, the chances
+	of more than 1 or 2 devices being added are fairly slim, so who
+	knows....
+*/
 struct wiringPiNodeStruct
 {
   int     pinBase ;
   int     pinMax ;
 
-  int          fd ;	// Node specific
-  unsigned int data0 ;	//  ditto
-  unsigned int data1 ;	//  ditto
-  unsigned int data2 ;	//  ditto
-  unsigned int data3 ;	//  ditto
+  int          fd ;	/* Node specific*/
+  unsigned int data0 ;	/*  ditto*/
+  unsigned int data1 ;	/*  ditto*/
+  unsigned int data2 ;	/*  ditto*/
+  unsigned int data3 ;	/*  ditto*/
 
   void   (*pinMode)         (struct wiringPiNodeStruct *node, int pin, int mode) ;
   void   (*pullUpDnControl) (struct wiringPiNodeStruct *node, int pin, int mode) ;
@@ -149,21 +149,21 @@ struct wiringPiNodeStruct
 extern struct wiringPiNodeStruct *wiringPiNodes ;
 
 
-// Function prototypes
-//	c++ wrappers thanks to a comment by Nick Lott
-//	(and others on the Raspberry Pi forums)
-
+/*Function prototypes
+	c++ wrappers thanks to a comment by Nick Lott
+	(and others on the Raspberry Pi forums)
+*/
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-// Data
+/* Data*/
 
-// Internal
+/* Internal*/
 
 extern int wiringPiFailure (int fatal, const char *message, ...) ;
 
-// Core wiringPi functions
+/* Core wiringPi functions*/
 
 extern struct wiringPiNodeStruct *wiringPiFindNode (int pin) ;
 extern struct wiringPiNodeStruct *wiringPiNewNode  (int pinBase, int numPins) ;
@@ -182,13 +182,13 @@ extern void pwmWrite            (int pin, int value) ;
 extern int  analogRead          (int pin) ;
 extern void analogWrite         (int pin, int value) ;
 
-// PiFace specifics 
-//	(Deprecated)
+/* PiFace specifics 
+	(Deprecated)*/
 
 extern int  wiringPiSetupPiFace (void) ;
-extern int  wiringPiSetupPiFaceForGpioProg (void) ;	// Don't use this - for gpio program only
+extern int  wiringPiSetupPiFaceForGpioProg (void) ;	/* Don't use this - for gpio program only*/
 
-// On-Board Raspberry Pi hardware specific stuff
+/* On-Board Raspberry Pi hardware specific stuff*/
 
 extern          int  piBoardRev          (void) ;
 extern          void piBoardId           (int *model, int *rev, int *mem, int *maker, int *overVolted) ;
@@ -204,23 +204,23 @@ extern          void pwmSetRange         (unsigned int range) ;
 extern          void pwmSetClock         (int divisor) ;
 extern          void gpioClockSet        (int pin, int freq) ;
 
-// Interrupts
-//	(Also Pi hardware specific)
+/* Interrupts
+	(Also Pi hardware specific)*/
 
 extern int  waitForInterrupt    (int pin, int mS) ;
 extern int  wiringPiISR         (int pin, int mode, void (*function)(void)) ;
 
-// Threads
+/* Threads*/
 
 extern int  piThreadCreate      (void *(*fn)(void *)) ;
 extern void piLock              (int key) ;
 extern void piUnlock            (int key) ;
 
-// Schedulling priority
+/* Schedulling priority*/
 
 extern int piHiPri (const int pri) ;
 
-// Extras from arduino land
+/* Extras from arduino land*/
 
 extern void         delay             (unsigned int howLong) ;
 extern void         delayMicroseconds (unsigned int howLong) ;

@@ -11,7 +11,7 @@
  */
 
 #include "statMax.h"
-//#include "max.h"
+
 void drowmaxa(double *in, int rows, int columns, double* out) {
   int i = 0, j = 0;
     for (i = 0; i < columns; i++)

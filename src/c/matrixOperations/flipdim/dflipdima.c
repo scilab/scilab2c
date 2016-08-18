@@ -1,22 +1,23 @@
-// Copyright (C) 2016 - IIT Bombay - FOSSEE
-//
-// This file must be used under the terms of the CeCILL.
-// This source file is licensed as described in the file COPYING, which
-// you should have received as part of this distribution.  The terms
-// are also available at
-// http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
-// Author: Siddhesh Wani
-// Organization: FOSSEE, IIT Bombay
-// Email: toolbox@scilab.in
+/* Copyright (C) 2016 - IIT Bombay - FOSSEE
 
-//Function flips the input matrix along given dimension
+ This file must be used under the terms of the CeCILL.
+ This source file is licensed as described in the file COPYING, which
+ you should have received as part of this distribution.  The terms
+ are also available at
+ http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+ Author: Siddhesh Wani
+ Organization: FOSSEE, IIT Bombay
+ Email: toolbox@scilab.in
+*/
+ 
+/*Function flips the input matrix along given dimension*/
 
 #include "flipdim.h"
 
 void dflipdima (double *in, int row, int col, int dim, int blk_size, double *out)
 {
 	int col_count = 0, row_count = 0, blk_count = 0, count = 0;
-	if(dim == 1) //flip rows
+	if(dim == 1) /*flip rows*/
 	{
 		if(blk_size == 1)
 		{
@@ -28,7 +29,7 @@ void dflipdima (double *in, int row, int col, int dim, int blk_size, double *out
 				}
 			}
 		}
-		else //block size is more than 1
+		else /*block size is more than 1*/
 		{
 			for(col_count = 0; col_count < col; col_count++)
 			{
@@ -47,7 +48,7 @@ void dflipdima (double *in, int row, int col, int dim, int blk_size, double *out
 			
 		}
 	}
-	else if(dim == 2) //flip columns
+	else if(dim == 2) /*flip columns*/
 	{
 		if(blk_size == 1)
 		{

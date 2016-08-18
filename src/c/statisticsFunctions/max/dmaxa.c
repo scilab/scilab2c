@@ -11,7 +11,7 @@
  */
 
 #include "statMax.h"
-//#include "max.h"
+
 double dmaxa(double *in, int size) {
   double out = in[0];
   int i = 0;

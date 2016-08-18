@@ -10,7 +10,8 @@
 //
 //
 
-function allInterfaces = getAllInterfaces(Target)
+function allInterfaces = getAllInterfaces(SharedInfo)
+      Target = SharedInfo.Target;
   //Interface files common to all types of output format
   Standalone_interfaces = [
       "src/c/auxiliaryFunctions/interfaces/int_rand.h"
@@ -167,7 +168,12 @@ function allInterfaces = getAllInterfaces(Target)
       "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralSerial.h"
       "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralThreading.h"
       "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralPinISR.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralPWM.h"
       ]; 
+
+  OpenCV_interfaces = [
+      "src/c/imageProcessing/interfaces/int_cvcore.h"
+      "src/c/imageProcessing/interfaces/int_cvhighgui.h"];
 
   if Target == "StandAlone"
   allInterfaces = Standalone_interfaces;
@@ -177,6 +183,10 @@ function allInterfaces = getAllInterfaces(Target)
   allInterfaces = cat(1,Standalone_interfaces, AVR_interfaces);
   elseif Target == "RPi"
   allInterfaces = cat(1,Standalone_interfaces, RPI_interfaces);
+  end
+
+  if (SharedInfo.OpenCVUsed == %T)
+      allInterfaces = cat(1,allInterfaces,OpenCV_interfaces)
   end
 
 endfunction

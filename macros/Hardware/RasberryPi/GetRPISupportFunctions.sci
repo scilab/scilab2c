@@ -26,6 +26,10 @@ RPiSupportFunctions = [
 						"RPI_SerialGetChar"
 						"RPI_ThreadCreate"
 						"RPI_PinISR"
+						"RPI_HardPWMWrite"
+						"RPI_HardPWMSetRange"
+						"RPI_HardPWMSetClock"
+						"RPI_HardPWMSetMode"
 						];
 
 //Note: "RPI_SerialSendData" is removed since distinction between input data 

@@ -17,7 +17,7 @@
 extern "C" {
 #endif
 
-int16 i16RPIPinISRs(uint8 pin, uint8 edgetype, void (*ISRFunction));
+int16 i16RPIPinISRs(uint8 pin, uint8 edgetype, void (*ISRFunction)(void));
 
 #ifdef  __cplusplus 
 } /* extern "C" */

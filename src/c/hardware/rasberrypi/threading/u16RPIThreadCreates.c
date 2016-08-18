@@ -15,7 +15,7 @@
 #include "types.h"
 #include "RPIPeripheralThreading.h"
 
-uint16 RPIThreadCreate(void (*threadFunction))
+uint16 RPIThreadCreate(void *(*threadFunction)(void))
 {
 	int status;
 	status = piThreadCreate (threadFunction);

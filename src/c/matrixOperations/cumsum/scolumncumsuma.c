@@ -19,13 +19,13 @@ void scolumncumsuma(float *in1, int row, int column, float *out)
 {
 	int row_cnt, col_cnt = 0;
 	
-	//Assign elements in first column as it is
+	/*Assign elements in first column as it is*/
 	for(row_cnt = 0; row_cnt < row; row_cnt++)
 	{
 		out[row_cnt] = in1[row_cnt];
 	}
 
-	//For second column onwards
+	/*For second column onwards*/
 	for (row_cnt = 0; row_cnt < row; row_cnt++)
 	{
 		for ( col_cnt = 1; col_cnt < column; col_cnt++)

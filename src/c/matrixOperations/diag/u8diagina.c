@@ -11,7 +11,7 @@
  */
 
 #include "diag.h"
-#include<stdlib.h>  // Used for Absolute value of insert_post
+
 void u8diagina(uint8 *in, int _row,int _column,int insert_post,uint8 *out)
 {
      int i, j;

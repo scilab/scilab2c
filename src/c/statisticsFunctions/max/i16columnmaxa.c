@@ -11,7 +11,7 @@
  */
 
 #include "statMax.h"
-//#include "max.h"
+
 void i16columnmaxa(int16 *in, int rows, int columns, int16* out) {
   int i = 0, j = 0;
 

@@ -10,7 +10,7 @@
  *
  */
 #include "statMax.h"
-//#include "max.h"
+
 
 void u8columnmaxa(uint8 *in, int rows, int columns, uint8* out) {
   int i = 0, j = 0;

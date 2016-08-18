@@ -27,7 +27,7 @@ uint8 sRPISerialSendDatas(int fd, float data)
 
 	for(count=0; count<sizeof(float); count++)
 	{
-		//Send lsb first
+		/*Send lsb first*/
 		serialPutchar(fd, (uint8) in_data.bytes[count]);	
 	}
 	

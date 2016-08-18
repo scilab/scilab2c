@@ -1,7 +1,7 @@
 function typeout = FA_TP_INT16()
 // function typeout = FA_TP_INT16()
 // -----------------------------------------------------------------
-// Returns the "uint8" type specifier 
+// Returns the "int16" type specifier 
 // for Function Annotations.
 //
 // Input data:

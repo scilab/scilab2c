@@ -6,7 +6,8 @@ function RPI_DigitalSetup(pin, direction)
 //
 // Parameters
 //     pin : pin of RPi to be used 
-//     direction : direction to be set for pin (0 -> INPUT, 1 -> OUTPUT)
+//     direction : direction to be set for pin 
+//					0 -> INPUT, 1 -> OUTPUT, 2->PWM Output
 //
 // Description
 //     There are few pins available on RPi as Gpio or digital io. These pins can be used as digital output or input. Pin name must be provided from list provided. Please refer '' for complete list of pins. Direction can be 0 or 1 depending upon desired function (Input/output)

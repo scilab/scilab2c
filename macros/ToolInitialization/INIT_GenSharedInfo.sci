@@ -62,7 +62,7 @@ SharedInfo.NFilesToTranslate = 1;
 
 // --- Annotations. ---
 SharedInfo.Annotations.GBLVAR   = 'global';
-SharedInfo.Annotations.DataPrec = {'uint8','int8','uint16','int16','int','float','double'};
+SharedInfo.Annotations.DataPrec = {'uint8','int8','uint16','int16','int','float','double','IplImage'};
 SharedInfo.Annotations.FUNNIN   = 'NIN=';
 SharedInfo.Annotations.FUNNOUT  = 'NOUT=';
 SharedInfo.Annotations.FUNTYPE  = '''OUT(''+string(SCI2C_nout)+'').TP='''; // Type includes also precision.
@@ -130,5 +130,6 @@ SharedInfo.Target = Target; // Specifies code generation target.
 
 SharedInfo.Includelist = list(); //Maintains list of functions being used in code
 								// to add their header files to main function.
+SharedInfo.OpenCVUsed = %F; 	// Specifies if opencv library is used or not
 
 endfunction

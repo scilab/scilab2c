@@ -10,8 +10,6 @@
  *
  */
 #include "statMax.h"
-//#include <stdlib.h>
-//#include "max.h"
 
 void u16rowmaxa(uint16 *in, int rows, int columns, uint16* out) {
   int i = 0, j = 0;

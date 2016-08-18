@@ -7,6 +7,10 @@ RPI_DigitalOut
 RPI_DigitalSetup
 RPI_GetMicros
 RPI_GetMillis
+RPI_HardPWMSetClock
+RPI_HardPWMSetMode
+RPI_HardPWMSetRange
+RPI_HardPWMWrite
 RPI_PinISR
 RPI_SerialClose
 RPI_SerialFlush

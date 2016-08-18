@@ -15,7 +15,8 @@
 
 #include "dynlib_matrixoperations.h"
 #include "types.h"
-
+#include <stdlib.h>
+ 
 #ifdef  __cplusplus
 extern "C" {
 #endif

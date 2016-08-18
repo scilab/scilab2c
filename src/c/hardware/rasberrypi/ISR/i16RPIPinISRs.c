@@ -16,7 +16,7 @@
 #include "RPIPeripheralPinISR.h"
 #include "RPIPeripheralDigital.h"
 
-int16 i16RPIPinISRs(uint8 pin, uint8 edgetype, void (*ISRFunction))
+int16 i16RPIPinISRs(uint8 pin, uint8 edgetype, void (*ISRFunction)(void))
 {
 	int status;
 	status = wiringPiISR((int)phy_pin[pin-1], (int) edgetype, ISRFunction);

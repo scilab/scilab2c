@@ -72,6 +72,9 @@ global STACKDEDUG
 //NUT: verifica se ASTFunType e' veramente importante
 // #RNU_RES_E
 [ASTFunName,InArg,NInArg,OutArg,NOutArg] = AST_GetFuncallPrm(FileInfo,SharedInfo,ASTFunType);
+	if(mtlb_strcmp(part(ASTFunName,1:2),'CV') == %T)
+		SharedInfo.OpenCVUsed = %T;
+	end
 
 	if (ASTFunName == 'OpIns')
 	   SharedInfo.SkipNextEqual = 1;

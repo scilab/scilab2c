@@ -18,5 +18,6 @@
 uint8 u16RPIDelayMicros(uint16 time)
 {
 	delayMicroseconds(time);
+	return 0;
 }
 

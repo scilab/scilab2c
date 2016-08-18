@@ -92,11 +92,11 @@ load(SharedInfoDatFile,'SharedInfo');
 
 global SCI2CHOME
 
-allSources = SCI2CHOME + "/" + getAllSources(Target);
-allHeaders = SCI2CHOME + "/" +getAllHeaders(Target);
-allInterfaces = SCI2CHOME + "/" + getAllInterfaces(Target);
-if(~isempty(getAllLibraries(Target)))
-  allLibraries = SCI2CHOME + "/" + getAllLibraries(Target);
+allSources = SCI2CHOME + "/" + getAllSources(SharedInfo);
+allHeaders = SCI2CHOME + "/" +getAllHeaders(SharedInfo);
+allInterfaces = SCI2CHOME + "/" + getAllInterfaces(SharedInfo);
+if(~isempty(getAllLibraries(SharedInfo)))
+  allLibraries = SCI2CHOME + "/" + getAllLibraries(SharedInfo);
 else
   allLibraries = ''
 end
@@ -115,7 +115,7 @@ for i = 1:size(allSources, "*")
   // DEBUG only
   //disp("Copying "+allSources(i)+" in "+SCI2COutputPath+"/src/c/");
   //Copy ode related functions only if 'ode' function is used.
-  if(~isempty(strstr(allSources(i),'ode')))
+  if(~isempty(strstr(allSources(i),'dode')))
     if(size(SharedInfo.Includelist) <> 0)
         if((mtlb_strcmp(part(SharedInfo.Includelist(1),1:5),'odefn') == %T))
           copyfile(allSources(i), SCI2COutputPath+"/src/c/");

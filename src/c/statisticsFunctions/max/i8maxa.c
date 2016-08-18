@@ -10,7 +10,6 @@
  *
  */
 #include "statMax.h"
-//#include "max.h"
 
 int8 i8maxa(int8 *in, int size) {
   int8 out = in[0];

@@ -2,7 +2,7 @@ function data = RPI_SerialGetChar(fd)
 // Function to read data from specified serial port 
 //
 // Calling Sequence
-//	   RPI_SerialGetCharfd)
+//	   RPI_SerialGetChar(fd)
 //
 // Parameters
 //	   fd: file descriptor returned when serial port was opened

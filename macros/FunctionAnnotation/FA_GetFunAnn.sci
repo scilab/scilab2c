@@ -131,7 +131,6 @@ if (FoundNOut*FoundNIn == 0)
   PrintStringInfo(' ',ReportFileName,'both','y');
   error(9999, 'SCI2CERROR: Incorrect function annotation.');
 else
-
   // In case we are reading to much informations
   readNewLine = %t;
 

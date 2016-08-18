@@ -7,7 +7,7 @@ void dlinspacea(double *low_limit,int _row,double *up_limit,double range_num,dou
 {
    int i,j,k;
    double temp;
-   float step_iterate[_row];  // for each row the spacing between two values is different.
+   float step_iterate[_row];  /* for each row the spacing between two values is different.*/
    for(i=0;i<_row;i++)
    {
     
@@ -16,7 +16,7 @@ void dlinspacea(double *low_limit,int _row,double *up_limit,double range_num,dou
    }
    for(j=0;j < _row;j++)
    {
-     out[j] = low_limit[j];  // For every row first element is the first value of low_limit array
+     out[j] = low_limit[j];  /* For every row first element is the first value of low_limit array*/
      temp = low_limit[j];
      for(k=1;k < (double)range_num;k++ )
       {
@@ -24,7 +24,7 @@ void dlinspacea(double *low_limit,int _row,double *up_limit,double range_num,dou
           temp = out[(_row*k)+j];
           if(k == (double)range_num-1 )
          {
-            out[(_row*k)+j] = (double)up_limit[j];  // Last value of output is equal to first value of up_limit array
+            out[(_row*k)+j] = (double)up_limit[j];  /* Last value of output is equal to first value of up_limit array*/
          }  
 
       }

@@ -17,7 +17,7 @@
 
 uint8 i16RPISerialSendDatas(int fd, int16 data)
 {
-	//Send lsb first
+	/*Send lsb first*/
 	serialPutchar(fd, (uint8) data);
 	serialPutchar(fd, (uint8) (data>>8));
 

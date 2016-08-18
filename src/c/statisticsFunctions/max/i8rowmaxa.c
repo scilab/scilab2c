@@ -11,7 +11,6 @@
  */
 
 #include "statMax.h"
-//#include "max.h"
 
 void i8rowmaxa(int8 *in, int rows, int columns, int8* out) {
   int i = 0, j = 0;

@@ -10,7 +10,9 @@
 //
 //
 
-function allSources = getAllSources(Target)
+function allSources = getAllSources(SharedInfo)
+      Target = SharedInfo.Target;
+
   //Files common to types of output format
   Standalone_files = [ "src/c/auxiliaryFunctions/abs/sabsa.c"
       "src/c/auxiliaryFunctions/abs/sabss.c"
@@ -1029,8 +1031,17 @@ function allSources = getAllSources(Target)
       "src/c/hardware/rasberrypi/serial/i16RPISerialGetChars.c"
       "src/c/hardware/rasberrypi/serial/u8RPISerialFlushs.c"
       "src/c/hardware/rasberrypi/threading/u16RPIThreadCreates.c"
+      "src/c/hardware/rasberrypi/pwm/u8RPIHardPWMWrites.c"
+      "src/c/hardware/rasberrypi/pwm/u8RPIHardPWMSetRanges.c"
+      "src/c/hardware/rasberrypi/pwm/u8RPIHardPWMSetModes.c"
+      "src/c/hardware/rasberrypi/pwm/u8RPIHardPWMSetClocks.c"
       "src/c/hardware/rasberrypi/ISR/i16RPIPinISRs.c"
       ];
+
+  OpenCV_files = [
+      "src/c/imageProcessing/cvcore/imcvCreateImages.c"
+      "src/c/imageProcessing/cvhighgui/imcvLoadImages.c"
+      "src/c/imageProcessing/cvhighgui/imcvShowImages.c"];    
 
   if Target == "StandAlone"
   allSources = Standalone_files;
@@ -1041,5 +1052,10 @@ function allSources = getAllSources(Target)
   elseif Target == "RPi"
   allSources = cat(1,Standalone_files, RPI_files);
   end
+
+  if (SharedInfo.OpenCVUsed == %T)
+      allSources = cat(1,allSources,OpenCV_files);
+  end
+
 
 endfunction

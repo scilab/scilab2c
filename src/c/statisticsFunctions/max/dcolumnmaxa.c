@@ -11,7 +11,6 @@
  */
 
 #include "statMax.h"
-//#include "max.h"
 
 void dcolumnmaxa(double *in, int rows, int columns, double* out) {
   int i = 0, j = 0;

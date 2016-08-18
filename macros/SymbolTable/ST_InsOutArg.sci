@@ -94,7 +94,8 @@ for counteroutput = 1:NOutArg
    if (TBFlagfound == 1)
       if (TBFlagEqualSymbols == 0)
          PrintStringInfo(' ',ReportFileName,'both','y');
-         PrintStringInfo('SCI2CERROR: Symbol Table Conflict. Trying to insert again symbol ""'+...
+         PrintStringIn
+         fo('SCI2CERROR: Symbol Table Conflict. Trying to insert again symbol ""'+...
                          OutArg(counteroutput).Name+'"" with different settings',ReportFileName,'both','y');
          PrintStringInfo('SCI2CERROR: Please check that you are not using variable ""'+OutArg(counteroutput).Name+'""',ReportFileName,'both','y');
          PrintStringInfo('SCI2CERROR: with different sizes and/or types.',ReportFileName,'both','y');
@@ -125,6 +126,13 @@ for counteroutput = 1:NOutArg
                OutArg(counteroutput).Dimension,...
                SymbTableFileName);
          end
+
+         // IndentLevelDeclaration = 1; //NUT: per ora lo forzo sempre a 1
+         // IndentLevelMalloc      = SharedInfo.NIndent;
+         // FlagExt = 0;
+         // C_GenDeclarations(OutArg(counteroutput),CDeclarationFileName,IndentLevelDeclaration,ReportFileName,FlagExt,SharedInfo.ResizeApproach);
+      
+
       end
    elseif (TBFlagfound == 2)
       // #RNU_RES_B

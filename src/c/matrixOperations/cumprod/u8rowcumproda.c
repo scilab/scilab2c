@@ -19,12 +19,12 @@ void u8rowcumproda(uint8 *in1, int row, int column, uint8 *out)
 {
 	int row_cnt, col_cnt = 0;
 	
-	//assign elements in first row as it is
+	/*assign elements in first row as it is*/
 	for (col_cnt = 0; col_cnt < column; col_cnt++)
 	{
 		out[col_cnt*row] = in1[col_cnt*row];
 	}	
-	//For second row onwards
+	/*For second row onwards*/
 	for (col_cnt = 0; col_cnt < column; col_cnt++)
 	{
 		for ( row_cnt = 1; row_cnt < row; row_cnt++)

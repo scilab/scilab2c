@@ -17,6 +17,9 @@
 #include "floatComplex.h"
 #include "doubleComplex.h"
 #include "types.h"
+#include "floor.h"
+#include "ceil.h" 
+
 
 #ifdef  __cplusplus
 extern "C" {

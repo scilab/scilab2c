@@ -12,8 +12,7 @@
 
 #ifndef __STAT_MAX_H__
 #define __STAT_MAX_H__
-//#ifndef __MAX_H__
-//#define __MAX_H__
+
 #include "dynlib_statisticsfunctions.h"
 #include "types.h"
 

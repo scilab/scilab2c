@@ -87,6 +87,8 @@ else
       defaultprecision = 'u16';
    elseif (tmpprecision == 'INT16')
       defaultprecision = 'i16';
+   elseif (tmpprecision == 'CVIMAGE') 
+      defaultprecision = 'IplImage'      
    
    end
 end

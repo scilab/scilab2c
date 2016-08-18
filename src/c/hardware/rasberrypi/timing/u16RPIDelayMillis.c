@@ -20,6 +20,6 @@
 uint8 u16RPIDelayMillis(uint16 time)
 {
 	delay(time);
-
+	return 0;
 }
 

@@ -28,14 +28,13 @@ int phy_pin[] = {17, 17, 8, 17, 9, 17, 7, 15, 17, 16,  	/*Pin 1 to 10*/
 /*pin is reduced by one as arrayiindex starts from 0 and pin no starts from 1*/
 uint8 u8RPIDigitalSetups(uint8 pin, uint8 direction)
 {
-	if(direction == 1) //Pin to be used as output
-	{
-    	pinMode(phy_pin[pin-1], OUTPUT);
-	}
+	if(direction == 1) /*Pin to be used as output*/
+	   	pinMode(phy_pin[pin-1], OUTPUT);
+	else if(direction == 2)
+	   	pinMode(phy_pin[pin-1], PWM_OUTPUT);	
 	else
-	{
 	    pinMode(phy_pin[pin-1], INPUT);
-	}
+	
 
 	return 0;
 }

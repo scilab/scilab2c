@@ -10,7 +10,7 @@
  *
  */
 #include "statMax.h"
-//#include "max.h"
+
 
 float smaxa(float *in, int size) {
   float out = in[0];

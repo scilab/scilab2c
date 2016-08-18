@@ -10,7 +10,6 @@
  *
  */
 #include "statMax.h"
-//#include "max.h"
 
 uint16 u16maxa(uint16 *in, int size) {
   uint16 out = in[0];

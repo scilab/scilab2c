@@ -35,41 +35,41 @@
 
 #define u80u80OpStaru80(in1,in2)			u8muls(in1, in2)
 
-//#define u80u80OpStaru160(in1,in2)			(uint16)(in1 * in2)
+#define u80u80OpStaru160(in1,in2)			(uint16)(in1 * in2)
 
-//#define u80i80OpStari80(in1,in2)			(int8)(in1 * in2)
+#define u80i80OpStari80(in1,in2)			(int8)(in1 * in2)
 
-//#define u80i80OpStari160(in1,in2)			(int16)(in1 * in2)
+#define u80i80OpStari160(in1,in2)			(int16)(in1 * in2)
 
-//#define u80u160OpStaru160(in1,in2)			(uint16)(in1 * in2)
+#define u80u160OpStaru160(in1,in2)			(uint16)(in1 * in2)
 
-//#define u80i160OpStari160(in1,in2)			(int16)(in1 * in2)
+#define u80i160OpStari160(in1,in2)			(int16)(in1 * in2)
 
-//#define i80u80OpStari80(in1,in2)			(int8)(in1 * in2)
+#define i80u80OpStari80(in1,in2)			(int8)(in1 * in2)
 
-//#define i80u80OpStari160(in1,in2)			(int16)(in1 * in2)
+#define i80u80OpStari160(in1,in2)			(int16)(in1 * in2)
 
 #define i80i80OpStari80(in1,in2)			(int8)(in1 , in2)
 
-//#define i80i80OpStari160(in1,in2)			(int16)(in1 * in2)
+#define i80i80OpStari160(in1,in2)			(int16)(in1 * in2)
 
-//#define i80u160OpStari160(in1,in2)			(int16)(in1 * in2)
+#define i80u160OpStari160(in1,in2)			(int16)(in1 * in2)
 
-//#define i80i160OpStari160(in1,in2)			(int16)(in1 * in2)
+#define i80i160OpStari160(in1,in2)			(int16)(in1 * in2)
 
-//#define u160u80OpStaru160(in1,in2)			(uint16)(in1 * in2)
+#define u160u80OpStaru160(in1,in2)			(uint16)(in1 * in2)
 
-//#define u160i80OpStari160(in1,in2)			(int16)(in1 * in2)
+#define u160i80OpStari160(in1,in2)			(int16)(in1 * in2)
 
 #define u160u160OpStaru160(in1,in2)			u16muls(in1 , in2)
 
-//#define u160i160OpStari160(in1,in2)			(int16)(in1 * in2)
+#define u160i160OpStari160(in1,in2)			(int16)(in1 * in2)
 
-//#define i160u80OpStari160(in1,in2)			(int16)(in1 * in2)
+#define i160u80OpStari160(in1,in2)			(int16)(in1 * in2)
 
-//#define i160i80OpStari160(in1,in2)			(int16)(in1 * in2)
+#define i160i80OpStari160(in1,in2)			(int16)(in1 * in2)
 
-//#define i160u160OpStari160(in1,in2)			(int16)(in1 * in2)
+#define i160u160OpStari160(in1,in2)			(int16)(in1 * in2)
 
 #define i160i160OpStari160(in1,in2)			i16muls(in1 , in2)
 

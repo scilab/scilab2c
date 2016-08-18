@@ -28,7 +28,7 @@ uint8 dRPISerialSendDatas(int fd, double data)
 
 	for(count=0; count<sizeof(double); count++)
 	{
-		//Send lsb first
+		/*Send lsb first*/
 		serialPutchar(fd, (uint8) in_data.bytes[count]);	
 	}
 	

@@ -11,7 +11,7 @@
  */
 
 #include "diag.h"
-#include<stdlib.h>  // Used for Absolute value of insert_post
+
 void u16diaga(uint16 in, int size,int insert_post,uint16 *out)
 {
     

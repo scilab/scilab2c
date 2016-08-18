@@ -10,7 +10,7 @@
  *
  */
 #include "statMax.h"
-//#include "max.h"
+
 
 void srowmaxa(float *in, int rows, int columns, float* out) {
   int i = 0, j = 0;

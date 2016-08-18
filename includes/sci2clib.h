@@ -384,7 +384,7 @@
 
 #include "types.h"
 
-/* STRING*?
+/* STRING*/
 /* interface for String */
 #include "int_string.h"
 /*include for string */
@@ -406,6 +406,12 @@
 #include "convstr.h"
 #include "int_convstr.h"
 
+/*Functions related to opencv*/
+#include "cvcore.h"
+#include "int_cvcore.h"
+#include "cvhighgui.h"
+#include "int_cvhighgui.h"
+
 /*Scilab-arduino toolbox*/
 #ifdef Arduino1
 #include "int_cmd_digital_out.h"
@@ -421,10 +427,11 @@
 #include "cmd_dcmotor_setup.h"
 #include "int_sleep.h"
 #include "sleep.h"
-//#include "cmd_servo_attach.h"
-//#include "cmd_servo_detach.h"
-//#include "cmd_servo_move.h"
-//#include "int_cmd_servo.h"
+/*#include "cmd_servo_attach.h"
+#include "cmd_servo_detach.h"
+#include "cmd_servo_move.h"
+#include "int_cmd_servo.h"
+*/
 #endif
 
 /*AVR*/
@@ -452,5 +459,7 @@
 #include "RPIPeripheralThreading.h"
 #include "int_RPIPeripheralPinISR.h"
 #include "RPIPeripheralPinISR.h"
+#include "int_RPIPeripheralPWM.h"
+#include "RPIPeripheralPWM.h"
 #endif
 #endif /* !__SCI2CLIB_H__ */

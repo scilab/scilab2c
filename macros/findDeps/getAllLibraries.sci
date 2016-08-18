@@ -1,6 +1,5 @@
-
-function allLibraries = getAllLibraries(Target)
-
+function allLibraries = getAllLibraries(SharedInfo)
+  Target = SharedInfo.Target;
   //Library files required for "RasberryPi" target
   RPi_libs = [
       "src/c/hardware/rasberrypi/libraries/wiringPi/libwiringPi.so"

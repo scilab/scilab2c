@@ -10,7 +10,8 @@
 //
 //
 
-function allHeaders = getAllHeaders(Target)
+function allHeaders = getAllHeaders(SharedInfo)
+      Target = SharedInfo.Target;
 
   //Header files common to all types of output format.
   Standalone_headers = [
@@ -176,7 +177,12 @@ function allHeaders = getAllHeaders(Target)
       "src/c/hardware/rasberrypi/includes/RPIPeripheralSerial.h"
       "src/c/hardware/rasberrypi/includes/RPIPeripheralThreading.h"
       "src/c/hardware/rasberrypi/includes/RPIPeripheralPinISR.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralPWM.h"
 		];
+
+  OpenCV_headers = [
+      "src/c/imageProcessing/includes/cvcore.h"
+      "src/c/imageProcessing/includes/cvhighgui.h"];          
 
   if Target == "StandAlone"
   allHeaders = Standalone_headers;
@@ -186,6 +192,10 @@ function allHeaders = getAllHeaders(Target)
   allHeaders = cat(1,Standalone_headers, AVR_headers);
   elseif Target == "RPi"
   allHeaders = cat(1,Standalone_headers, RPi_headers);
+  end
+
+  if (SharedInfo.OpenCVUsed == %T)
+      allHeaders = cat(1,allHeaders,OpenCV_headers);
   end
 
 endfunction
