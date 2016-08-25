@@ -19,7 +19,7 @@
 IplImage* imcvCreateImages(int width, int height, char *bit_depth, uint8 no_of_ch)
 {
 	CvSize imageSize = cvSize (width,height);
-	IplImage *img = NULL;
+	IplImage* img = NULL;
 	if (strcmp(bit_depth,"IPL_DEPTH_1U") == 0)
 		img = cvCreateImage(imageSize,IPL_DEPTH_1U,no_of_ch);
 	else if (strcmp(bit_depth,"IPL_DEPTH_8U") == 0)

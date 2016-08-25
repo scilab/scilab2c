@@ -9,8 +9,9 @@
 // Organization: FOSSEE, IIT Bombay
 // Email: toolbox@scilab.in
 
-OpencvDirs = [ "core", ...
-				"highgui"];
+OpencvDirs = [ 	"core", ...
+				"highgui", ...
+				"imgproc"];
 
 
  current_path = get_absolute_file_path("buildmacros.sce");
@@ -23,8 +24,3 @@ OpencvDirs = [ "core", ...
 end
 
 clear current_path;
-
-tbx_build_macros(TOOLBOX_NAME, get_absolute_file_path('buildmacros.sce'));
-
-clear tbx_build_macros;
-

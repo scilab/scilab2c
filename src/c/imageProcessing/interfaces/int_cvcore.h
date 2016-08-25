@@ -19,11 +19,12 @@ extern "C" {
 
 
 #include "types.h"
-
+#include "cvcore.h"
 
 #define d0d0g2d0CV_CreateImageim0(width,height,depth,depth_size,no_of_ch) \
 				imcvCreateImages(width,height,depth,no_of_ch)
 
+#define im0CV_GetImgSized2(img,imgsize) imcvGetImgSizes(img,imgsize)
 #ifdef  __cplusplus
 } /* extern "C" */
 #endif

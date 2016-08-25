@@ -19,7 +19,7 @@ extern "C" {
 
 
 #include "types.h"
-#include "opencv2/highgui.hpp"
+#include "opencv2/highgui/highgui.hpp"
 
 #define g2d0CV_LoadImageim0(filename,name_size,loadtype) imcvLoadImages(filename,loadtype)
 #define g2im0CV_ShowImageu80(winname,win_size,img) imcvShowImages(winname,img)

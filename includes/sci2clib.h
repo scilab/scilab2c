@@ -411,6 +411,8 @@
 #include "int_cvcore.h"
 #include "cvhighgui.h"
 #include "int_cvhighgui.h"
+#include "cvimgproc.h"
+#include "int_cvimgproc.h"
 
 /*Scilab-arduino toolbox*/
 #ifdef Arduino1

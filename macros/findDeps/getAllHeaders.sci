@@ -182,7 +182,8 @@ function allHeaders = getAllHeaders(SharedInfo)
 
   OpenCV_headers = [
       "src/c/imageProcessing/includes/cvcore.h"
-      "src/c/imageProcessing/includes/cvhighgui.h"];          
+      "src/c/imageProcessing/includes/cvhighgui.h"
+      "src/c/imageProcessing/includes/cvimgproc.h"];
 
   if Target == "StandAlone"
   allHeaders = Standalone_headers;

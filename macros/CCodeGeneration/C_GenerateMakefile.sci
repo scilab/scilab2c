@@ -66,11 +66,21 @@ else
 	if (target == 'RPi')
 		PrintStringInfo('CC     = arm-linux-gnueabihf-gcc ',FileInfo.MakefileFilename,'file','y','y');
 	  PrintStringInfo('CFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR) -L $(LIBDIR)',FileInfo.MakefileFilename,'file','y','y');
-    PrintStringInfo('LDFLAGS = -llapack -lrefblas -lgfortran -lm -lwiringPi',FileInfo.MakefileFilename,'file','y','y');
+    PrintStringInfo('LDFLAGS = -llapack -lrefblas -lgfortran -lwiringPi',FileInfo.MakefileFilename,'file','y','y');
+    if(SharedInfo.OpenCVUsed == %T)
+      PrintStringInfo('LDFLAGS += -lopencv_calib3d -lopencv_contrib -lopencv_core -lopencv_features2d -lopencv_flann',FileInfo.MakefileFilename,'file','y','y');
+      PrintStringInfo('LDFLAGS += -lopencv_gpu -lopencv_highgui -lopencv_imgproc -lopencv_legacy -lopencv_ml',FileInfo.MakefileFilename,'file','y','y');
+      PrintStringInfo('LDFLAGS += -lopencv_nonfree -lopencv_objdetect -lopencv_ocl -lopencv_photo -lopencv_stitching',FileInfo.MakefileFilename,'file','y','y');
+      PrintStringInfo('LDFLAGS += -lopencv_superres -lopencv_ts -lopencv_video -lopencv_videostab -lrt -lpthread -lm -ldl', FileInfo.MakefileFilename,'file','y','y');
+    end
   else
 		PrintStringInfo('CC     = gcc',FileInfo.MakefileFilename,'file','y','y');
     PrintStringInfo('CFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR) -L $(LIBDIR)',FileInfo.MakefileFilename,'file','y','y');
 	  PrintStringInfo('LDFLAGS = -lblas -llapack -lm ',FileInfo.MakefileFilename,'file','y','y');
+    if(SharedInfo.OpenCVUsed == %T)
+      PrintStringInfo('LDFLAGS += `pkg-config --libs opencv`',FileInfo.MakefileFilename,'file','y','y');
+      PrintStringInfo('CFLAGS += `pkg-config --cflags opencv`',FileInfo.MakefileFilename,'file','y','y');
+    end
   end 
 	
 end
@@ -79,11 +89,6 @@ if(size(SharedInfo.Includelist) <> 0)
   if((mtlb_strcmp(part(SharedInfo.Includelist(1),1:5),'odefn') == %T))
 	PrintStringInfo('LDFLAGS += -lgsl',FileInfo.MakefileFilename,'file','y','y');
   end
-end
-
-if(SharedInfo.OpenCVUsed == %T)
-  PrintStringInfo('LDFLAGS += `pkg-config --libs opencv`',FileInfo.MakefileFilename,'file','y','y');
-  PrintStringInfo('CFLAGS += `pkg-config --cflags opencv`',FileInfo.MakefileFilename,'file','y','y');
 end
 
 // Binary definition

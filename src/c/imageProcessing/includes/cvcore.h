@@ -22,7 +22,7 @@ extern "C" {
 #include "opencv2/core/core.hpp"
 
 IplImage* imcvCreateImages(int width, int height, char *bit_depth, uint8 no_of_ch);
-
+void imcvGetImgSizes(IplImage* src, double* imgsize);
 #ifdef  __cplusplus
 } /* extern "C" */
 #endif

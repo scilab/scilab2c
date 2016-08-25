@@ -20,7 +20,7 @@ extern "C" {
 
 #include "types.h"
 #include "opencv2/core/core.hpp"
-#include "opencv2/highgui.hpp"
+#include "opencv2/highgui/highgui.hpp"
 
 IplImage* imcvLoadImages(char *filename, uint8 opentype);
 uint8 imcvShowImages(char *winname, IplImage* img);

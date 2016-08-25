@@ -13,7 +13,7 @@ function img = CV_CreateImage(width,height,bit_depth,no_of_channels)
 //		This function can be used to create opencv image object. For more info
 //	    about bit depth and channels,please refer to OpenCV documentation 
 // Examples
-//		CV_CreateImage([320 240], "8U", 1)	//to create image of the size 320*240
+//		CV_CreateImage([320 240], "IPL_DEPTH_8U", 1)	//to create image of the size 320*240
 //		pixels with 8 bit unsigned each pixels and gray scale image  
 //
 // See also
