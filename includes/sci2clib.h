@@ -1,55 +1,22 @@
 #ifndef __SCI2CLIB_H__
 #define __SCI2CLIB_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-/* #include "SCI2CMacroInterface.h"
- */
-/* #include "notFound.h"
- */
-/* #include "doubleComplex.h"
- */
-/* #include "floatComplex.h"
- */
-/* #include "RealToComplex.h"
- */
-/* #include "OpEqual.h"
- */
-/* #include "OpIns.h"
- */
-/* #include "OpExt.h"
- */
-/* #include "FileManagement.h"
- */
-/* #include "OpLogNe.h"
- */
-/* #include "OpLogGt.h"
- */
-/* #include "OpLogLt.h"
- */
-/* #include "OpLogGe.h"
- */
-/* #include "OpLogLe.h"
- */
-/* #include "OpLogEq.h"
- */
-/* #include "OpLogOr.h"
- */
-/* #include "OpLogAnd.h"
- */
-/* #include "OpLogNot.h"
- */
-/* #include "ConvertPrecision.h" */
-
+	
 /* CONSTANT */
 #include "constant.h"
 
 /* LIB */
-/* interfacing lapack */
-#include "lapack.h"
 /* interfacing blas */
 #include "blas.h"
+/* interfacing lapack */
+#include "lapack.h"
 
 /* AUXILIARY FUNCTIONS */
 
@@ -407,13 +374,13 @@
 #include "int_convstr.h"
 
 /*Functions related to opencv*/
-#include "cvcore.h"
-#include "int_cvcore.h"
-#include "cvhighgui.h"
-#include "int_cvhighgui.h"
-#include "cvimgproc.h"
-#include "int_cvimgproc.h"
-
+/*#include "cvcore.hpp"
+#include "int_cvcore.hpp"
+#include "cvhighgui.hpp"
+#include "int_cvhighgui.hpp"
+#include "cvimgproc.hpp"
+#include "int_cvimgproc.hpp"
+*/
 /*Scilab-arduino toolbox*/
 #ifdef Arduino1
 #include "int_cmd_digital_out.h"
@@ -464,4 +431,18 @@
 #include "int_RPIPeripheralPWM.h"
 #include "RPIPeripheralPWM.h"
 #endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#include "cvcore.hpp"
+#include "int_cvcore.hpp"
+#include "cvhighgui.hpp"
+#include "int_cvhighgui.hpp"
+#include "cvimgproc.hpp"
+#include "int_cvimgproc.hpp"
+
 #endif /* !__SCI2CLIB_H__ */
+
+

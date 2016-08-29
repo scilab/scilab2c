@@ -9,25 +9,25 @@
 // Organization: FOSSEE, IIT Bombay
 // Email: toolbox@scilab.in
 
-function cvtimg = CV_CvtColor(srcimg,code)
-// function to convert image from one colorspace to other colorspace
+function cvtimg = CV_Threshold(srcimg,threshold,max_value,thresh_type)
+// function to threshold input image
 //
 // Calling Sequence
-//     CV_CvtColor(srcimg,code)
+//     dst = CV_Threshold(srcimg,code,threshold,max_value,thresh_type)
 //
 // Parameters
-//     srcimg: source image to be converted
-//	   dstimg: destination image in which to store converted image
-//	   code: String specifying conversion type. Same as defined in OpenCV
-//			for eg. 'CV_RGB2GRAY' for conversion from RGB image to grayscale image
-//	   dstCn: no of channels in destination image (0 by default)
-//
+//     	srcimg: source image to be converted
+//	   	threshold: threshold value
+//		max_value: maximum value to be used with THRESH_BINARY and THRESH_BINARY_INV
+//		thresh_type: Type for threshold. It can one of the following:
+//					THRESH_BINARY, THRESH_BINARY_INV, THRESH_TRUNC,
+//					THRESH_TOZERO, THRESH_TOZERO_INV
 // Description
 //		This function can be used for converting an image to other colorspace.
 //		Refer OpenCV documentation for list of available conversions
 // Examples
 //		img = CV_LoadImage('~/test.jpg',0)
-//		dst = CV_CvtColor(img,'CV_RGB2GRAY')
+//		dst = CV_Threshold(img,100,255,'THRESH_BINARY')
 //
 // See also
 //     CV_LoadImage CV_CreateImage

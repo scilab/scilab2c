@@ -1039,11 +1039,12 @@ function allSources = getAllSources(SharedInfo)
       ];
 
   OpenCV_files = [
-      "src/c/imageProcessing/cvcore/imcvCreateImages.c"
-      "src/c/imageProcessing/cvcore/imcvGetImgSizes.c"
-      "src/c/imageProcessing/cvhighgui/imcvLoadImages.c"
-      "src/c/imageProcessing/cvhighgui/imcvShowImages.c"
-      "src/c/imageProcessing/cvimgproc/imcvCvtColors.c"];    
+      "src/c/imageProcessing/cvcore/imcvCreateImages.cpp"
+      "src/c/imageProcessing/cvcore/imcvGetImgSizes.cpp"
+      "src/c/imageProcessing/cvhighgui/imcvLoadImages.cpp"
+      "src/c/imageProcessing/cvhighgui/imcvShowImages.cpp"
+      "src/c/imageProcessing/cvimgproc/imcvCvtColors.cpp"
+      "src/c/imageProcessing/cvimgproc/imcvThresholds.cpp"];    
 
   if Target == "StandAlone"
   allSources = Standalone_files;

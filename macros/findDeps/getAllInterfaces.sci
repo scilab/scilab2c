@@ -172,9 +172,9 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       ]; 
 
   OpenCV_interfaces = [
-      "src/c/imageProcessing/interfaces/int_cvcore.h"
-      "src/c/imageProcessing/interfaces/int_cvhighgui.h"
-      "src/c/imageProcessing/interfaces/int_cvimgproc.h"];
+      "src/c/imageProcessing/interfaces/int_cvcore.hpp"
+      "src/c/imageProcessing/interfaces/int_cvhighgui.hpp"
+      "src/c/imageProcessing/interfaces/int_cvimgproc.hpp"];
 
   if Target == "StandAlone"
   allInterfaces = Standalone_interfaces;
