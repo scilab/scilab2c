@@ -1,4 +1,4 @@
- /* Copyright (C) 2016 - IIT Bombay - FOSSEE
+/* Copyright (C) 2016 - IIT Bombay - FOSSEE
 
  This file must be used under the terms of the CeCILL.
  This source file is licensed as described in the file COPYING, which
@@ -8,21 +8,24 @@
  Author: Siddhesh Wani
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
- */
-#ifndef __RPIPERIPHERALTHREADING_H__
-#define __RPIPERIPHERALTHREADING_H__
+*/
+
+/* Function to adaptive threshold a gray scale image*/
 
 #include "types.h"
-#include "wiringPi.h" 
+#include "cvcore.hpp"
+#include "cvimgproc.hpp"
 
-#ifdef  __cplusplus
-extern "C" {
-#endif
 
-uint16 RPIThreadCreate(void *(*threadFunction)(void*));
+using namespace cv;
 
-#ifdef  __cplusplus 
-} /* extern "C" */
-#endif
+Mat imcvMedianBlurs(Mat src, double ksize)
+{
 
-#endif /*__RPIPERIPHERALTHREADING_H__*/
+	/*Mat dst(src.rows, src.cols, src.type());*/
+	Mat dst = src.clone();
+
+	medianBlur(src,dst,(int)ksize);
+		
+	return dst;
+}

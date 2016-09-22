@@ -22,8 +22,17 @@ using namespace cv;
 Mat imcvThresholds(Mat src, double t_value, double maxvalue, char* type)
 {
 	Mat dst(src.rows, src.cols, src.type());
+
 	if(strcmp(type,"THRESH_BINARY") == 0)
 		threshold(src,dst,t_value,maxvalue,THRESH_BINARY);
+	if(strcmp(type,"THRESH_BINARY_INV") == 0)
+		threshold(src,dst,t_value,maxvalue,THRESH_BINARY_INV);
+	if(strcmp(type,"THRESH_TRUNC") == 0)
+		threshold(src,dst,t_value,maxvalue,THRESH_TRUNC);
+	if(strcmp(type,"THRESH_TOZERO") == 0)
+		threshold(src,dst,t_value,maxvalue,THRESH_TOZERO);
+	if(strcmp(type,"THRESH_TOZERO_INV") == 0)
+		threshold(src,dst,t_value,maxvalue,THRESH_TOZERO_INV);
 
 	return dst;
 }

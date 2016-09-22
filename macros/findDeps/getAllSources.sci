@@ -1044,7 +1044,16 @@ function allSources = getAllSources(SharedInfo)
       "src/c/imageProcessing/cvhighgui/imcvLoadImages.cpp"
       "src/c/imageProcessing/cvhighgui/imcvShowImages.cpp"
       "src/c/imageProcessing/cvimgproc/imcvCvtColors.cpp"
-      "src/c/imageProcessing/cvimgproc/imcvThresholds.cpp"];    
+      "src/c/imageProcessing/cvimgproc/imcvThresholds.cpp"
+      "src/c/imageProcessing/cvimgproc/imcvAdaptThresholds.cpp"
+      "src/c/imageProcessing/cvimgproc/imcvDistanceTransforms.cpp"
+      "src/c/imageProcessing/cvimgproc/imcvBlurs.cpp"
+      "src/c/imageProcessing/cvimgproc/imcvGaussianBlurs.cpp"
+      "src/c/imageProcessing/cvimgproc/imcvMedianBlurs.cpp"
+      "src/c/imageProcessing/cvimgproc/imcvErode.cpp"
+      "src/c/imageProcessing/cvimgproc/imcvDilate.cpp"
+      "src/c/imageProcessing/cvimgproc/imcvCanny.cpp"
+      "src/c/imageProcessing/cvimgproc/imcvCornerHarris.cpp"];
 
   if Target == "StandAlone"
   allSources = Standalone_files;

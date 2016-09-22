@@ -20,8 +20,8 @@
 
 //#define g2d0CV_LoadImageim0(filename,name_size,loadtype) imcvLoadImages(filename,loadtype)
 #define g2d0CV_LoadImagemt0(filename,name_size,loadtype) imread(filename,loadtype)
-#define g2mt0CV_ShowImageu80(winname,win_size,img) imshow(winname,img)
-#define mt0CV_ShowImageu80(img) imshow("",img) 
+#define g2mt0CV_ShowImageu80(winname,win_size,img) imcvShowImages(winname,img)
+#define mt0CV_ShowImageu80(img) imcvShowImages("",img) 
 #define d0CV_WaitKeyu80(delay) cvWaitKey(delay)
 #define g2mt0CV_SaveImageu80(filename,name_size,img) imwrite(filename,img)	
 
