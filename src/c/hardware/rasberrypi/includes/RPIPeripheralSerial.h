@@ -20,27 +20,27 @@ extern "C" {
 #endif
 
 int u8RPISerialSetups(char* port, int baudrate);
-uint8 u8RPISerialCloses(int fd);
+void u8RPISerialCloses(int fd);
 
-uint8 u8RPISerialSendChars(int fd, uint8 data);
-uint8 u8RPISerialSendDatas(int fd, uint8 data);
-uint8 i8RPISerialSendDatas(int fd, int8 data);
-uint8 u16RPISerialSendDatas(int fd, uint16 data);
-uint8 i16RPISerialSendDatas(int fd, int16 data);
-uint8 sRPISerialSendDatas(int fd, float data);
-uint8 dRPISerialSendDatas(int fd, double data);
-uint8 u8RPISerialSendDataa(int fd, uint8* data, int size);
-uint8 i8RPISerialSendDataa(int fd, int8* data, int size);
-uint8 u16RPISerialSendDataa(int fd, uint16* data, int size);
-uint8 i16RPISerialSendDataa(int fd, int16* data, int size);
-uint8 sRPISerialSendDataa(int fd, float* data, int size);
-uint8 dRPISerialSendDataa(int fd, double* data, int size);
-uint8 gRPISerialSendDatas(int fd, uint8* data, int size);
+void u8RPISerialSendChars(int fd, uint8 data);
+void u8RPISerialSendDatas(int fd, uint8 data);
+void i8RPISerialSendDatas(int fd, int8 data);
+void u16RPISerialSendDatas(int fd, uint16 data);
+void i16RPISerialSendDatas(int fd, int16 data);
+void sRPISerialSendDatas(int fd, float data);
+void dRPISerialSendDatas(int fd, double data);
+void u8RPISerialSendDataa(int fd, void* data, int size);
+void i8RPISerialSendDataa(int fd, int8* data, int size);
+void u16RPISerialSendDataa(int fd, uint16* data, int size);
+void i16RPISerialSendDataa(int fd, int16* data, int size);
+void sRPISerialSendDataa(int fd, float* data, int size);
+void dRPISerialSendDataa(int fd, double* data, int size);
+void gRPISerialSendDatas(int fd, void* data, int size);
 
 int16 i16RPISerialDataAvails(int fd);
 int16 i16RPISerialGetChars(int fd);
 
-uint8 u8RPISerialFlushs(int fd);
+void u8RPISerialFlushs(int fd);
 
 #ifdef  __cplusplus 
 } /* extern "C" */

@@ -25,7 +25,7 @@
 #include "AVRPeripheralGPIO.h"
 
 
-uint8 u8AVRDigitalSetups(uint8 port,uint8 pin,uint8 direction)
+void u8AVRDigitalSetups(uint8 port,uint8 pin,uint8 direction)
 {
     
     if (direction == INPUT)
@@ -66,6 +66,5 @@ uint8 u8AVRDigitalSetups(uint8 port,uint8 pin,uint8 direction)
 	    DDRD = DDRD | (1<<pin);
    	}
     }
-return 0;
 }
 

@@ -22,8 +22,8 @@ extern "C" {
 #include "types.h"
 #include "wiringPi.h"
 
-uint8 u16RPIDelayMillis(uint16 time);
-uint8 u16RPIDelayMicros(uint16 time);
+void u16RPIDelayMillis(uint16 time);
+void u16RPIDelayMicros(uint16 time);
 uint32 u32RPIGetMillis();
 uint32 u32RPIGetMicros();
 

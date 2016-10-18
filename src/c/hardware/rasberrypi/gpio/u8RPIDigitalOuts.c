@@ -17,12 +17,10 @@
 #include "RPIPeripheralDigital.h"
 
 /*pin is reduced by one as array index starts from 0 and pin no starts from 1*/
-uint8 u8RPIDigitalOuts(uint8 pin, uint8 state)
+void u8RPIDigitalOuts(uint8 pin, uint8 state)
 {
 	if (state == 0)  /*low output*/
 		digitalWrite(phy_pin[pin-1], LOW);
 	if (state == 1)  /*high output*/
 		digitalWrite(phy_pin[pin-1], HIGH);
-
-	return 0;
 }

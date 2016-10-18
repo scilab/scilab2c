@@ -15,9 +15,7 @@
 #include "types.h"
 #include "RPIPeripheralSerial.h"
 
-uint8 u8RPISerialSendChars(int fd, uint8 data)
+void u8RPISerialSendChars(int fd, uint8 data)
 {
 	serialPutchar(fd, data);
-
-	return 0;
 } 

@@ -17,9 +17,9 @@
 #include "types.h"
 #include "RPIPeripheralTiming.h"
 
-uint8 u16RPIDelayMillis(uint16 time)
+void u16RPIDelayMillis(uint16 time)
 {
 	delay(time);
-	return 0;
+	
 }
 

@@ -33,7 +33,7 @@
 #include "AVRPeripheralPWM.h"
 
 
-uint8 u8AVRPWMSetups(uint8 timer, uint8 prescalar, uint8 waveform_mode, uint8 output_mode)
+void u8AVRPWMSetups(uint8 timer, uint8 prescalar, uint8 waveform_mode, uint8 output_mode)
 {
 	switch(timer)
 	{
@@ -56,7 +56,5 @@ uint8 u8AVRPWMSetups(uint8 timer, uint8 prescalar, uint8 waveform_mode, uint8 ou
 				TCCR2 |= ((output_mode & 0x02) << 6);  //WGM1
 				break;
 	}	    
-
-	return 0;
 }
 

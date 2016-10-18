@@ -22,7 +22,7 @@ extern "C" {
 
 extern uint8 dcm_pin_1[4], dcm_pin_2[4], dcm_mode[4];
 	
-uint8 u8cmd_dc_motor_runs(uint8 board_no, uint8 motor_no, int16 duty);
+void u8cmd_dc_motor_runs(uint8 board_no, uint8 motor_no, int16 duty);
 
 #ifdef  __cplusplus
 } /* extern "C" */

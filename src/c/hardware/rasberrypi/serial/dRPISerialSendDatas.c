@@ -15,7 +15,7 @@
 #include "types.h"
 #include "RPIPeripheralSerial.h"
 
-uint8 dRPISerialSendDatas(int fd, double data)
+void dRPISerialSendDatas(int fd, double data)
 {
 	uint8 count;
 
@@ -32,5 +32,4 @@ uint8 dRPISerialSendDatas(int fd, double data)
 		serialPutchar(fd, (uint8) in_data.bytes[count]);	
 	}
 	
-	return 0;
 } 

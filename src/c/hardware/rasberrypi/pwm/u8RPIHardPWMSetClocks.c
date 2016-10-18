@@ -19,9 +19,9 @@
 #include "types.h"
 #include "RPIPeripheralPWM.h"
 
-uint8 u8RPIHardPWMSetClocks(uint16 clk_divisor) 
+void u8RPIHardPWMSetClocks(uint16 clk_divisor) 
 {
 	pwmSetClock(clk_divisor);
 	
-	return 0;
+	
 } 

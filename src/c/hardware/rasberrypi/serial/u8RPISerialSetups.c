@@ -15,7 +15,7 @@
 #include "types.h"
 #include "RPIPeripheralSerial.h"
 
-int u8RPISerialSetups(char* port, int baudrate)
+int u16RPISerialSetups(char* port, int baudrate)
 {
 	int fd; 
 

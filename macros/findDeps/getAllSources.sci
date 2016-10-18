@@ -1011,7 +1011,7 @@ function allSources = getAllSources(SharedInfo)
       "src/c/hardware/rasberrypi/timing/u16RPIDelayMicros.c"
       "src/c/hardware/rasberrypi/timing/u32RPIGetMillis.c"
       "src/c/hardware/rasberrypi/timing/u32RPIGetMicros.c"
-      "src/c/hardware/rasberrypi/serial/u8RPISerialSetups.c"
+      "src/c/hardware/rasberrypi/serial/u16RPISerialSetups.c"
       "src/c/hardware/rasberrypi/serial/u8RPISerialCloses.c"
       "src/c/hardware/rasberrypi/serial/u8RPISerialSendChars.c"
       "src/c/hardware/rasberrypi/serial/u8RPISerialSendDatas.c"
@@ -1041,8 +1041,6 @@ function allSources = getAllSources(SharedInfo)
   OpenCV_files = [
       "src/c/imageProcessing/cvcore/imcvCreateImages.cpp"
       "src/c/imageProcessing/cvcore/imcvGetImgSizes.cpp"
-      "src/c/imageProcessing/cvhighgui/imcvLoadImages.cpp"
-      "src/c/imageProcessing/cvhighgui/imcvShowImages.cpp"
       "src/c/imageProcessing/cvimgproc/imcvCvtColors.cpp"
       "src/c/imageProcessing/cvimgproc/imcvThresholds.cpp"
       "src/c/imageProcessing/cvimgproc/imcvAdaptThresholds.cpp"

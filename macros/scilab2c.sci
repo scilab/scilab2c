@@ -65,8 +65,8 @@ function scilab2c(varargin)
 		return
       end
     end
-    if varargin(4) <> "All" & varargin(4) <> "Translate" & varargin(4) <> "GenLibraryStructure" & varargin(4) <> "FunCall" 
-	  error(msprintf(gettext("%s: argument #%d must be: ""All"", ""Translate"",""GenLibraryStructure"" or ""FunCall"".\n"),"scilab2c",4));
+    if varargin(4) <> "All" & varargin(4) <> "Translate" & varargin(4) <> "GenLibraryStructure" 
+	  error(msprintf(gettext("%s: argument #%d must be: ""All"", ""Translate"",""GenLibraryStructure"".\n"),"scilab2c",4));
       return
     end
     UserScilabMainFile = varargin(1);

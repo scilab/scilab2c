@@ -72,6 +72,7 @@ global STACKDEDUG
 //NUT: verifica se ASTFunType e' veramente importante
 // #RNU_RES_E
 [ASTFunName,InArg,NInArg,OutArg,NOutArg] = AST_GetFuncallPrm(FileInfo,SharedInfo,ASTFunType);
+NOutArg_mod = NOutArg
 	if(mtlb_strcmp(part(ASTFunName,1:2),'CV') == %T)
 		SharedInfo.OpenCVUsed = %T;
 	end
@@ -118,13 +119,14 @@ global STACKDEDUG
 	// --- Read the function annotations. ---
 	// --------------------------------------
 	// #RNU_RES_E
+	
 	if (ASTFunName == 'OpEqual')
 	   FunTypeAnnot = '';
 	   FunSizeAnnot = '';
 	else
-	   [FunTypeAnnot,FunSizeAnnot] = FA_GetFunAnn(NInArg,NOutArg,ASTFunName,FileInfo,SharedInfo);
+	   [FunTypeAnnot,FunSizeAnnot,NOutArg_mod] = FA_GetFunAnn(NInArg,NOutArg,ASTFunName,FileInfo,SharedInfo);
 	end
-
+	
 	// #RNU_RES_B
 	// -------------------------------------------------------------------------------------------
 	// --- Search for Equal Lhs and precision specifier to be applied to the current function. ---
@@ -310,7 +312,7 @@ global STACKDEDUG
 	else
 	   OutArg = FA_GetOutArgInfo(InArg,NInArg,OutArg,NOutArg,SharedInfo,FunPrecSpecifier,FunTypeAnnot,FunSizeAnnot,ReportFileName);
 	end
-
+	
 	// #RNU_RES_B
 	// --- Generate the names for the output arguments. ---
 	// Update of OutArg.Name and OutArg.Scope fields.
@@ -324,7 +326,21 @@ global STACKDEDUG
 	else
 	   [OutArg,SharedInfo] = GenOutArgNames(ASTFunName,InArg,NInArg,OutArg,NOutArg,LhsArg,NLhsArg,FileInfo,SharedInfo);
 	end
-
+	
+	if ((ASTFunName == 'uint8') & (NInArg == 1) & (InArg(1).Dimension == 0) & (InArg(1).Scope == 'Number'))
+		OutArg(1).Value = InArg(1).Value;
+		SharedInfo.SkipNextFun = 1;
+	elseif ((ASTFunName == 'int8') & (NInArg == 1) & (InArg(1).Dimension == 0) & (InArg(1).Scope == 'Number'))
+		OutArg(1).Value = InArg(1).Value;
+		SharedInfo.SkipNextFun = 1;
+	elseif ((ASTFunName == 'uint16') & (NInArg == 1) & (InArg(1).Dimension == 0) & (InArg(1).Scope == 'Number'))
+		OutArg(1).Value = InArg(1).Value;
+		SharedInfo.SkipNextFun = 1;
+	elseif ((ASTFunName == 'int16') & (NInArg == 1) & (InArg(1).Dimension == 0) & (InArg(1).Scope == 'Number'))
+		OutArg(1).Value = InArg(1).Value;
+		SharedInfo.SkipNextFun = 1;
+	end
+	
 	// #RNU_RES_B
 	// --- Push in the AST stack the Output arguments. ---
 	// #RNU_RES_E
@@ -340,6 +356,7 @@ global STACKDEDUG
 	   end
 	end
 
+	
 	// #RNU_RES_B
 	//NUT: verificare se si puo' accorpare qualcosa qui sotto
 	//RN: non capisco come mai analizzo lo scope dopo che faccio il push nello stack dove lo utilizzo!!!
@@ -360,6 +377,7 @@ global STACKDEDUG
 
 	//#RNUREM_ME --- Store the while condition variable (if any). ---
 	SharedInfo = GetWhileCondVariable(OutArg,NOutArg,ASTFunName,FileInfo,SharedInfo);
+    
 
 	//#RNUREM_ME --- Update Symbol Table with output arguments. ---
 	if ((ASTFunName == 'OpMinus') & (NInArg == 1) & (InArg(1).Dimension == 0) & (InArg(1).Scope == 'Number'))
@@ -399,8 +417,8 @@ global STACKDEDUG
 	// --- Generate the C name of the function. ---
 	// --------------------------------------------
 	//#RNU_RES_E
-
-	CFunName = C_GenerateFunName(ASTFunName,InArg,NInArg,OutArg,NOutArg);
+	//disp(OutArg,InArg,ASTFunName)
+	CFunName = C_GenerateFunName(ASTFunName,InArg,NInArg,OutArg,NOutArg_mod);
     
   	//#RNU_RES_B
 	PrintStringInfo('   C Function Name: '+CFunName,ReportFileName,'file','y');
@@ -448,7 +466,7 @@ global STACKDEDUG
 	//NUT: magari posso fare una funzione che inserisce solo i campi diversi e fa un check su quelli che
 	//NUT: dovrebbero essere identici.
 	//#RNU_RES_E
-	GenCFunDatFiles(ASTFunName,FunPrecSpecifier,FunTypeAnnot,FunSizeAnnot,InArg,NInArg,OutArg,NOutArg,CFunName,LibTypeInfo,FunInfoDatDir);
+	GenCFunDatFiles(ASTFunName,FunPrecSpecifier,FunTypeAnnot,FunSizeAnnot,InArg,NInArg,OutArg,NOutArg_mod,CFunName,LibTypeInfo,FunInfoDatDir);
 
 	//#RNU_RES_B
 	// -----------------------------------

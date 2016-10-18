@@ -18,8 +18,8 @@
 #include "types.h"
 #include "RPIPeripheralPWM.h"
 
-uint8 u8RPIHardPWMSetRanges(uint16 value)
+void u8RPIHardPWMSetRanges(uint16 value)
 {
 	pwmSetRange(value);
-	return 0;
+	
 } 

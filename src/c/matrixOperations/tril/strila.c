@@ -12,7 +12,7 @@
  
 /*Function to extract lower triagular entries from given matrix*/
 
-#include "triu.h"
+#include "tril.h"
 
 void strila (float *in, int row, int column, double diag, float *out)
 {

@@ -15,9 +15,7 @@
 #include "types.h"
 #include "RPIPeripheralSerial.h"
 
-uint8 u8RPISerialFlushs(int fd)
+void u8RPISerialFlushs(int fd)
 {
 	serialFlush(fd);
-
-	return 0;
 } 

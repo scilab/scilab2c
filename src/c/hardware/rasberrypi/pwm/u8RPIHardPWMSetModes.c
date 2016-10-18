@@ -18,11 +18,11 @@
 #include "types.h"
 #include "RPIPeripheralPWM.h"
 
-uint8 u8RPIHardPWMSetModes(uint8 mode)
+void u8RPIHardPWMSetModes(uint8 mode)
 {
 	if (mode == 1)  /*mark/space mode*/
 		pwmSetMode(PWM_MODE_MS);
 	else
 		pwmSetMode(PWM_MODE_BAL);
-	return 0;
+	
 } 

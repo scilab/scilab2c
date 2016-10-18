@@ -14,7 +14,7 @@ extern "C" {
 
 extern Servo servo1,servo2;
 	
-uint8 u8cmd_servo_attach(uint8 h, uint8 servo_no );
+void u8cmd_servo_attach(uint8 h, uint8 servo_no );
 
 #ifdef  __cplusplus
 } /* extern "C" */

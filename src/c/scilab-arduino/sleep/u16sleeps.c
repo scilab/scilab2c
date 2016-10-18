@@ -12,9 +12,8 @@
 
 #include "sleep.h"
 
-uint8 u16sleeps(uint16 delay_ms)
+void u16sleeps(uint16 delay_ms)
 {
     delay(delay_ms);
-    return 0;
 }
 

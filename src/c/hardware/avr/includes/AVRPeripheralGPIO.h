@@ -32,11 +32,11 @@ extern "C" {
 #define HIGH 1
 
 //Function prototypes
-uint8 u8AVRDigitalSetups(uint8 port,uint8 pin,uint8 direction);
+void u8AVRDigitalSetups(uint8 port,uint8 pin,uint8 direction);
 
 uint8 u8AVRDigitalIns(uint8 port,uint8 pin);
 
-uint8 u8AVRDigitalOuts(uint8 port,uint8 pin,uint8 state);
+void u8AVRDigitalOuts(uint8 port,uint8 pin,uint8 state);
 
 #ifdef  __cplusplus
 } /* extern "C" */

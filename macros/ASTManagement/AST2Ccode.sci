@@ -152,6 +152,11 @@ while ~meof(fidAST)
       case 'Lhs       :' then
          SharedInfo.Equal.Lhs = 1; // 1 means that we are inside the Lhs block of the Equal
          [EqualInArgName,EqualInArgScope,EqualNInArg] = AST_ReadEqualRhsNames(FileInfo,SharedInfo);
+         
+         lengthNumber = length('Number_');
+         if (part(EqualInArgScope,1:lengthNumber) == 'Number_')
+            SharedInfo.SkipNextEqual = 1
+         end
          SharedInfo.Equal.NInArg = EqualNInArg;
          for tmpcnt = 1:SharedInfo.Equal.NInArg
             SharedInfo.Equal.InArg(tmpcnt).Name = EqualInArgName(tmpcnt);

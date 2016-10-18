@@ -25,7 +25,7 @@
 
 #include "AVRPeripheralGPIO.h"
 
-uint8 u8AVRDigitalOuts(uint8 port,uint8 pin,uint8 state)
+void u8AVRDigitalOuts(uint8 port,uint8 pin,uint8 state)
 {
     if(state == LOW)
     {/*Make output pin high*/
@@ -65,5 +65,4 @@ uint8 u8AVRDigitalOuts(uint8 port,uint8 pin,uint8 state)
 	    PORTD = PORTD | (1<<pin);
 	}
     }
-return 0;
 }

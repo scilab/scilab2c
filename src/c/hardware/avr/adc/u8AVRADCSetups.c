@@ -26,7 +26,7 @@
 #include "AVRPeripheralADC.h"
 
 
-uint8 u8AVRADCSetups(uint8 prescalar, uint8 adc_ref)
+void u8AVRADCSetups(uint8 prescalar, uint8 adc_ref)
 {
     /*Set the prescalar value*/
     ADCSRA |= (prescalar & 0x07);
@@ -37,6 +37,5 @@ uint8 u8AVRADCSetups(uint8 prescalar, uint8 adc_ref)
     /*Enable ADC hardware. Set ADEN bit*/
     ADCSRA |= (1<<7); 	
 
-    return 0;
 }
 

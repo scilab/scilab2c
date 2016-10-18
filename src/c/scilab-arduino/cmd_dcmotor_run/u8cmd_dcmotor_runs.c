@@ -13,7 +13,7 @@
 #include "cmd_dcmotor_run.h"
 #include "Arduino.h"
 
-uint8 u8cmd_dcmotor_runs(uint8 board_no, uint8 motor_no, int16 duty)
+void u8cmd_dcmotor_runs(uint8 board_no, uint8 motor_no, int16 duty)
 {
 	uint8 direction = 1;
     if(duty >= 0) 
@@ -55,6 +55,5 @@ uint8 u8cmd_dcmotor_runs(uint8 board_no, uint8 motor_no, int16 duty)
 		}
 	}
 
-    return 0;
 }
 

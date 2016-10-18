@@ -15,9 +15,7 @@
 #include "types.h"
 #include "RPIPeripheralSerial.h"
 
-uint8 u8RPISerialCloses(int fd)
+void u8RPISerialCloses(int fd)
 {
 	serialClose (fd);
-
-	return 0;
 } 

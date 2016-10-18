@@ -20,7 +20,7 @@
 extern "C" {
 #endif
 
-#define d0sleepu80(in1) u16sleeps((uint16)in1)	
+#define d0sleep(in1) u16sleeps((uint16)in1)	
 
 #ifdef  __cplusplus
 } /* extern "C" */

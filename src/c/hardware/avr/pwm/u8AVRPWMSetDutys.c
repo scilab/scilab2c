@@ -19,7 +19,7 @@
 
 #include "AVRPeripheralPWM.h"
 
-uint8 u8AVRPWMSetDutys(uint8 timer, uint8 duty)
+void u8AVRPWMSetDutys(uint8 timer, uint8 duty)
 {
 	uint8 duty_value=0;
 

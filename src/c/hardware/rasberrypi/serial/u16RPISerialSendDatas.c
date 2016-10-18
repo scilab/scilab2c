@@ -15,11 +15,9 @@
 #include "types.h"
 #include "RPIPeripheralSerial.h"
 
-uint8 u16RPISerialSendDatas(int fd, uint16 data)
+void u16RPISerialSendDatas(int fd, uint16 data)
 {
 	/*Send lsb first*/
 	serialPutchar(fd, (uint8) data);
 	serialPutchar(fd, (uint8) (data>>8));
-
-	return 0;
 } 

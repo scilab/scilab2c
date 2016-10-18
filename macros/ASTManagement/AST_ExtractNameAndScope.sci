@@ -75,6 +75,7 @@ if (SCI2Cstrncmps1size(tagname(1),ASTField))
       ArgName = stripblanks(part(ASTField,taglength(1)+3:fieldlength));
       ArgScope = stripblanks(part(ASTField,1:taglength(1)+1));
    end
+   
 elseif (SCI2Cstrncmps1size(tagname(2),ASTField))
    ArgName = stripblanks(part(ASTField,taglength(2)+1:fieldlength));
    ArgName = part(ArgName,2:length(ArgName)-1); // I remove also the first and the last " 

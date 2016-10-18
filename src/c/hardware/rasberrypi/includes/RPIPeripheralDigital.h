@@ -25,8 +25,8 @@ extern "C" {
 
 extern int phy_pin[];
 
-uint8 u8RPIDigitalSetups(uint8 pin, uint8 direction);
-uint8 u8RPIDigitalOuts(uint8 pin, uint8 state);
+void u8RPIDigitalSetups(uint8 pin, uint8 direction);
+void u8RPIDigitalOuts(uint8 pin, uint8 state);
 uint8 u8RPIDigitalIns(uint8 pin);
 
 #ifdef  __cplusplus

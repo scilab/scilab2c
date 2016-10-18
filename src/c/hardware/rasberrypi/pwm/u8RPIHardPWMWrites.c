@@ -19,8 +19,8 @@
 #include "RPIPeripheralPWM.h"
 #include "RPIPeripheralDigital.h"
 
-uint8 u8RPIHardPWMWrites(uint8 pin, uint16 value)
+void u8RPIHardPWMWrites(uint8 pin, uint16 value)
 {
 	pwmWrite((int)phy_pin[pin-1], value);
-	return 0;
+	
 } 

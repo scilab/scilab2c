@@ -13,9 +13,9 @@
 #include "cmd_analog_out.h"
 #include "Arduino.h"
 
-uint8 u8cmd_analog_outs(uint8 board_no, uint8 pin, uint8 value)
+void u8cmd_analog_outs(uint8 board_no, uint8 pin, uint8 value)
 {
     analogWrite(pin,value);
-    return 0;
+    
 }
 

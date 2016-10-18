@@ -15,7 +15,7 @@
 #include "types.h"
 #include "RPIPeripheralSerial.h"
 
-uint8 i16RPISerialSendDataa(int fd, int16* data, int size)
+void i16RPISerialSendDataa(int fd, int16* data, int size)
 {
 	int count = 0;
 
@@ -24,6 +24,4 @@ uint8 i16RPISerialSendDataa(int fd, int16* data, int size)
 		i16RPISerialSendDatas(fd, data[count]);
 	}
 	
-
-	return 0;
 } 

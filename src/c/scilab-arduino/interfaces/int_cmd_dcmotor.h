@@ -20,15 +20,15 @@
 extern "C" {
 #endif
 
-#define d0d0d0d0d0cmd_dcmotor_setupu80(in1,in2,in3,in4,in5)\
+#define d0d0d0d0d0cmd_dcmotor_setup(in1,in2,in3,in4,in5)\
 			u8cmd_dcmotor_setups((uint8)in1,(uint8)in2,(uint8)in3,\
 			(uint8)in4,(uint8)in5)
 
-#define d0d0d0cmd_dcmotor_runu80(in1,in2,in3) u8cmd_dcmotor_runs((uint8)in1,\
+#define d0d0d0cmd_dcmotor_run(in1,in2,in3) u8cmd_dcmotor_runs((uint8)in1,\
 				(uint8)in2, (int16)in3);	
 
 
-#define d0d0u160cmd_dcmotor_runu80(in1,in2,in3) u8cmd_dcmotor_runs((uint8)in1,\
+#define d0d0u160cmd_dcmotor_run(in1,in2,in3) u8cmd_dcmotor_runs((uint8)in1,\
 				(uint8)in2, (int16)in3);	
 
 

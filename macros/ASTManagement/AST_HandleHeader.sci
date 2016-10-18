@@ -107,14 +107,6 @@ load(fullfile(FileInfo.FunctionList.FunInfoDatDir,SharedInfo.NextCFunName+'.dat'
 SharedInfo.CurrentFunInfo = FunInfo;
 clear FunInfo
 
-//Required if single file is being translated and has input/outputs
-if(SharedInfo.RunMode == "FunCall")
-[FunTypeAnnot,FunSizeAnnot] = FA_GetFunAnn(NInArg,NOutArg,FunctionName,FileInfo,SharedInfo);
-   if((nxtscifunname == SharedInfo.SCIMainFunName))
-      SharedInfo.CurrentFunInfo.FunTypeAnnot = FunTypeAnnot;
-      SharedInfo.CurrentFunInfo.FunSizeAnnot = FunSizeAnnot;
-   end
-end
 //#RNU_RES_B
 // -----------------------------------------------------------------------------
 // --- Check coherence between In/Out names and In/Out Arg structure loaded. ---

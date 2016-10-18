@@ -19,10 +19,10 @@
 extern "C" {
 #endif
 
-uint8 u8RPIHardPWMWrites(uint8 pin, uint16 value);
-uint8 u8RPIHardPWMSetRanges(uint16 value);
-uint8 u8RPIHardPWMSetModes(uint8 mode);
-uint8 u8RPIHardPWMSetClocks(uint16 clk_divisor);
+void u8RPIHardPWMWrites(uint8 pin, uint16 value);
+void u8RPIHardPWMSetRanges(uint16 value);
+void u8RPIHardPWMSetModes(uint8 mode);
+void u8RPIHardPWMSetClocks(uint16 clk_divisor);
 
 #ifdef  __cplusplus 
 } /* extern "C" */

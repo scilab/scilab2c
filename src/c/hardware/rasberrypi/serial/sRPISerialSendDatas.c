@@ -15,7 +15,7 @@
 #include "types.h"
 #include "RPIPeripheralSerial.h"
 
-uint8 sRPISerialSendDatas(int fd, float data)
+void sRPISerialSendDatas(int fd, float data)
 {
 	uint8 count;
 
@@ -31,5 +31,4 @@ uint8 sRPISerialSendDatas(int fd, float data)
 		serialPutchar(fd, (uint8) in_data.bytes[count]);	
 	}
 	
-	return 0;
 } 

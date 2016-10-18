@@ -15,7 +15,7 @@ extern "C" {
 #endif
 
 //Function prototypes
-uint8 u8AVRADCSetups(uint8 prescalar, uint8 adc_ref);
+void u8AVRADCSetups(uint8 prescalar, uint8 adc_ref);
 
 uint16 u8AVRReadADCs(uint8 channel);
 

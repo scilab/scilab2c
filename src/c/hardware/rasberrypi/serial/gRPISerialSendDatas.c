@@ -15,7 +15,7 @@
 #include "types.h"
 #include "RPIPeripheralSerial.h"
 
-uint8 gRPISerialSendDatas(int fd, uint8* data, int size)
+void gRPISerialSendDatas(int fd, uint8* data, int size)
 {
 	int count = 0;
 
@@ -24,5 +24,4 @@ uint8 gRPISerialSendDatas(int fd, uint8* data, int size)
 		serialPutchar(fd, data[count]);	
 	}
 	
-	return 0;
 } 

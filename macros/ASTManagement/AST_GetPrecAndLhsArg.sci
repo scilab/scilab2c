@@ -57,7 +57,8 @@ end
 // --- Check Last Function Condition and update LhsArg info. ---
 // -------------------------------------------------------------
 // #RNU_RES_E
-if (ASTFunType~='Equal')
+if ((ASTFunType~='Equal')& (NOutArg ~= 0))
+   //If NOutArg = 0, bypass.
    // #RNU_RES_B
    PrintStringInfo(' ',ReportFileName,'file','y');
    PrintStringInfo('   Checking presence of Equal after the current function...',ReportFileName,'file','y');
@@ -68,7 +69,6 @@ else
    LhsArgScope = '';
    NLhsArg = 0;
 end
-
 // --- Generate the LhsArg structure. ---
 LhsArg = [];
 for cntarg = 1:NLhsArg

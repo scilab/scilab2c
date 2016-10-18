@@ -47,7 +47,7 @@ UpdatedInArg = InArg;
 
 for cntinarg = 1:NInArg
    tmpname = InArg(cntinarg).Name; 
-   tmpscope = InArg(cntinarg).Scope; 
+   tmpscope = InArg(cntinarg).Scope;
    lengthNumber = length('Number_');
    if (part(tmpscope,1:lengthNumber) == 'Number_')
       // #RNU_RES_B

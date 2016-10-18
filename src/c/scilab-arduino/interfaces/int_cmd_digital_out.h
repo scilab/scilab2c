@@ -20,11 +20,11 @@
 extern "C" {
 #endif
 
-#define d0d0d0cmd_digital_outu80(in1,in2,in3) u8cmd_digital_outs((uint8)in1,\
+#define d0d0d0cmd_digital_out(in1,in2,in3) u8cmd_digital_outs((uint8)in1,\
 						(uint8)in2,(uint8)in3)	
 
 //Required when input from one pin is directed to other output pin.
-#define d0d0u80cmd_digital_outu80(in1,in2,in3) u8cmd_digital_outs((uint8)in1,\
+#define d0d0u80cmd_digital_out(in1,in2,in3) u8cmd_digital_outs((uint8)in1,\
 						(uint8)in2, (uint8)in3)	
 
 

@@ -19,7 +19,7 @@
 extern "C" {
 #endif
 	
-uint8 u16sleeps(uint16 delay_ms);
+void u16sleeps(uint16 delay_ms);
 
 #ifdef  __cplusplus
 } /* extern "C" */

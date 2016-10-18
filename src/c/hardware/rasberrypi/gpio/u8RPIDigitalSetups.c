@@ -26,7 +26,7 @@ int phy_pin[] = {17, 17, 8, 17, 9, 17, 7, 15, 17, 16,  	/*Pin 1 to 10*/
 				13, 6, 14, 10, 17, 11 };				/*Pin 21 to 26*/
 
 /*pin is reduced by one as arrayiindex starts from 0 and pin no starts from 1*/
-uint8 u8RPIDigitalSetups(uint8 pin, uint8 direction)
+void u8RPIDigitalSetups(uint8 pin, uint8 direction)
 {
 	if(direction == 1) /*Pin to be used as output*/
 	   	pinMode(phy_pin[pin-1], OUTPUT);
@@ -35,6 +35,4 @@ uint8 u8RPIDigitalSetups(uint8 pin, uint8 direction)
 	else
 	    pinMode(phy_pin[pin-1], INPUT);
 	
-
-	return 0;
 }
