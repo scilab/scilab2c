@@ -45,14 +45,22 @@ PrintStringInfo('Generating the final C code in:'+FinalCFileName,...
 // ---------------------------------
 // --- Finalize the header file. ---
 // ---------------------------------
+if(SharedInfo.OpenCVUsed)
+	PrintStringInfo('#include ""cvcore.hpp""',Pass1HeaderFileName,'file','y');
+	PrintStringInfo('#include ""int_cvcore.hpp""',Pass1HeaderFileName,'file','y');
+	PrintStringInfo('#include ""cvhighgui.hpp""',Pass1HeaderFileName,'file','y');
+	PrintStringInfo('#include ""int_cvhighgui.hpp""',Pass1HeaderFileName,'file','y');
+	PrintStringInfo('#include ""cvimgproc.hpp""',Pass1HeaderFileName,'file','y');
+	PrintStringInfo('#include ""int_cvimgproc.hpp""',Pass1HeaderFileName,'file','y');	
+end
 PrintStringInfo('/*',Pass1HeaderFileName,'file','y');
 PrintStringInfo('** ---------------------------- ',Pass1HeaderFileName,'file','y');
 PrintStringInfo('** --- End USER2C Includes. --- ',Pass1HeaderFileName,'file','y');
 PrintStringInfo('** ---------------------------- ',Pass1HeaderFileName,'file','y');
 PrintStringInfo('*/',Pass1HeaderFileName,'file','y');
-PrintStringInfo('#ifdef  __cplusplus',Pass1HeaderFileName,'file','y');
-PrintStringInfo('} /* extern ""C"" */',Pass1HeaderFileName,'file','y');
-PrintStringInfo('#endif',Pass1HeaderFileName,'file','y');
+//PrintStringInfo('#ifdef  __cplusplus',Pass1HeaderFileName,'file','y');
+//PrintStringInfo('} /* extern ""C"" */',Pass1HeaderFileName,'file','y');
+//PrintStringInfo('#endif',Pass1HeaderFileName,'file','y');
 PrintStringInfo('#endif',Pass1HeaderFileName,'file','y');
 // -------------------------------------
 // --- End Finalize the header file. ---

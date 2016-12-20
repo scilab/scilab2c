@@ -1,4 +1,4 @@
-function C_InitHeader(C_Prototype,HeaderFileName,Sci2CLibMainHeaderFName,Target)
+function C_InitHeader(C_Prototype,HeaderFileName,Sci2CLibMainHeaderFName,Target,OpenCVUsed)
 // function C_InitHeader(C_Prototype,HeaderFileName,Sci2CLibMainHeaderFName)
 // -----------------------------------------------------------------
 // //NUT: add description here
@@ -19,7 +19,7 @@ function C_InitHeader(C_Prototype,HeaderFileName,Sci2CLibMainHeaderFName,Target)
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-SCI2CNInArgCheck(argn(2),4,4);
+SCI2CNInArgCheck(argn(2),5,5);
 
 // -----------------------
 // --- Initialization. ---
@@ -38,7 +38,7 @@ PrintStringInfo('** ------------------- ',HeaderFileName,'file','y');
 PrintStringInfo('** ----- Target ------ ',HeaderFileName,'file','y');
 PrintStringInfo('** ------------------- ',HeaderFileName,'file','y');
 PrintStringInfo('*/',HeaderFileName,'file','y');
-PrintStringInfo('# define ' + Target + '1 1' ,HeaderFileName,'file','y');
+PrintStringInfo('#define ' + Target + '1 1' ,HeaderFileName,'file','y');
 PrintStringInfo('/*',HeaderFileName,'file','y');
 PrintStringInfo('** ----------------------- ',HeaderFileName,'file','y');
 PrintStringInfo('** --- SCI2C Includes. --- ',HeaderFileName,'file','y');
@@ -52,9 +52,9 @@ PrintStringInfo('** --------------------------- ',HeaderFileName,'file','y');
 PrintStringInfo('*/',HeaderFileName,'file','y');
 PrintStringInfo(' ',HeaderFileName,'file','y');
 PrintStringInfo(' ',HeaderFileName,'file','y');
-PrintStringInfo('#ifdef  __cplusplus',HeaderFileName,'file','y');
-PrintStringInfo('extern ""C"" {',HeaderFileName,'file','y');
-PrintStringInfo('#endif',HeaderFileName,'file','y');
+//PrintStringInfo('#ifdef  __cplusplus',HeaderFileName,'file','y');
+//PrintStringInfo('extern ""C"" {',HeaderFileName,'file','y');
+//PrintStringInfo('#endif',HeaderFileName,'file','y');
 PrintStringInfo('/*',HeaderFileName,'file','y');
 PrintStringInfo('** ------------------- ',HeaderFileName,'file','y');
 PrintStringInfo('** --- Prototypes. --- ',HeaderFileName,'file','y');

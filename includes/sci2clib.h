@@ -436,12 +436,14 @@ extern "C" {
 }
 #endif
 
-#include "cvcore.hpp"
-#include "int_cvcore.hpp"
-#include "cvhighgui.hpp"
-#include "int_cvhighgui.hpp"
-#include "cvimgproc.hpp"
-#include "int_cvimgproc.hpp"
+// #ifdef opencv1
+// #include "cvcore.hpp"
+// #include "int_cvcore.hpp"
+// #include "cvhighgui.hpp"
+// #include "int_cvhighgui.hpp"
+// #include "cvimgproc.hpp"
+// #include "int_cvimgproc.hpp"
+// #endif
 
 #endif /* !__SCI2CLIB_H__ */
 

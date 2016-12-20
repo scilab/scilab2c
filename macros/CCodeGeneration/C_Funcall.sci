@@ -437,7 +437,7 @@ else
    if (FlagCall == 0)
       // Add prototype to the header file
 
-     C_InitHeader(CCall+';',HeaderFileName,SharedInfo.Sci2CLibMainHeaderFName,Target);
+     C_InitHeader(CCall+';',HeaderFileName,SharedInfo.Sci2CLibMainHeaderFName,Target,SharedInfo.OpenCVUsed);
 
       // Add { at the beginning of the function.
       PrintStringInfo('   {',ReportFileName,'file','y');
