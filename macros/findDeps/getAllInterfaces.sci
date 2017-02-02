@@ -142,7 +142,9 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/differential_calculus/interfaces/int_ode.h"
       "src/c/differential_calculus/interfaces/int_diffc.h"
       "src/c/Files/interfaces/int_files.h"
-      "src/c/string/interfaces/int_convstr.h"];
+      "src/c/string/interfaces/int_convstr.h"
+      "src/c/CACSD/interfaces/int_syslin.h"
+      "src/c/linearAlgebra/interfaces/int_schur.h"];
 
   //Interface files required for "Arduino" output
   Arduino_interfaces = [

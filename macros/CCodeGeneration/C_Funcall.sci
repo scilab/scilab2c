@@ -229,7 +229,6 @@ else
          else
             TmpInArgName = InArg(counterin).Name;
          end
-         
          TmpInArgType = C_Type(InArg(counterin).Type);
 
          //if (FunctionName == 'OpEqual')

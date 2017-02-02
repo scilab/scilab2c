@@ -373,6 +373,12 @@ extern "C" {
 #include "convstr.h"
 #include "int_convstr.h"
 
+
+#include "syslin.h"
+#include "int_syslin.h"	
+
+#include "schur.h"
+#include "int_schur.h"	
 /*Functions related to opencv*/
 /*#include "cvcore.hpp"
 #include "int_cvcore.hpp"

@@ -977,7 +977,10 @@ function allSources = getAllSources(SharedInfo)
       "src/c/Files/mput/i8mputa.c"
       "src/c/Files/mput/u16mputa.c"
       "src/c/Files/mput/i16mputa.c"
-      "src/c/string/convstr/gconvstrs.c"];
+      "src/c/string/convstr/gconvstrs.c"
+      "src/c/CACSD/syslin/dsyslina.c"
+      "src/c/linearAlgebra/schur/dschura.c"
+      "src/c/linearAlgebra/schur/dgschura.c"];
 
   //Files to be inserted only if output format selected is 'Arduino'.
   Arduino_files = ["src/c/scilab-arduino/cmd_digital_out/u8cmd_digital_outs.c"

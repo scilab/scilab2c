@@ -46,6 +46,20 @@ extern "C" {
 					in2, in3, func_name, solvertype, size1[1], 1.0e-2, 1.0e-2, \
 					1.0e-6, size1, out)
 
+#define d0d0d0d0d0fn0oded0(in1, in2, in3, in4, in5, func_name) \
+					dodes(in1, in2, in3, func_name, "rkf",1, in5, in4, 1.0e-6, NULL)
+
+#define d2d0d0d0d0fn0oded2(in1, size1, in2, in3, in4, in5, func_name, out) \
+					dodea(in1, in2, in3, func_name, "rkf", size1[1], in5, in4, \
+					1.0e-6, size1, out)
+
+#define d0d0d2d0d0fn0oded2(in1, in2, in3, size3, in4, in5, func_name, out) \
+					dodea(in1, in2, in3, func_name, "rkf", 1, in5, in4, 1.0e-6, size3, out)
+
+#define d2d0d2d0d0fn0oded2(in1, size1, in2, in3, size3, in4, in5, func_name, out) \
+					dodea(in1, in2, in3, func_name, "rkf", size1[1], in5, in4, \
+					1.0e-6, size1, out)
+
 #ifdef  __cplusplus
 } /* extern "C" */
 #endif

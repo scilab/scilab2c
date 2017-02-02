@@ -52,6 +52,14 @@ elseif (ArgType == 'fn') //This type introduced for ODE function,
    OutC_Type = '';
 elseif (ArgType ==  'mt')
    OutC_Type = 'Mat'
+elseif (ArgType == 'ss') 
+   OutC_Type = 'double'
+   //This type is introduced for storing state space systems. 
+   //It is a matrix of size (n+k)*(n+m+1), for n states, m inputs,
+   //k outputs. It stores matrices A,B,C,D and initial state in following form
+   //    | A B X0 |
+   //    | C D 0  |
+   	   
 else
    error(9999, 'Unknown Argument Type: ""'+ArgType+'"".');
 end

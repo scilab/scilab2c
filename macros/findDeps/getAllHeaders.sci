@@ -147,7 +147,9 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/differential_calculus/includes/ode.h"
       "src/c/differential_calculus/includes/diffc.h"
       "src/c/Files/includes/files.h"
-      "src/c/string/includes/convstr.h"];
+      "src/c/string/includes/convstr.h"
+      "src/c/CACSD/includes/syslin.h"
+      "src/c/linearAlgebra/includes/schur.h"];
 
   //Header files required for "Arduino" output
   Arduino_headers = [

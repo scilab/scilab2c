@@ -131,7 +131,7 @@ for cntinarg = 1:NInArg
       [TBFlagfound,TBType,TBSize,TBValue,TBFindLike,TBDimension,TBScope] = ST_GetSymbolInfo(tmpname,FileInfo,SharedInfo);
       if (TBFlagfound == 0)
             if(ASTFunName == 'ode')
-               if(NInArg == 4 & cntinarg == 4)  
+               if((NInArg == 4 & cntinarg == 4) | (NInArg == 6 & cntinarg == 6))  
                //incase of 4 arguments, fourth argument is function name
                   UpdatedInArg(cntinarg).Name      = tmpname; // Change the name.
                   UpdatedInArg(cntinarg).Type      = 'fn'; //it is a function name

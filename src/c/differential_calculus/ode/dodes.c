@@ -20,7 +20,8 @@
 
 
 double dodes(double initial_value, double start_time, double end_time, \
-			int (*ode_function), char *solver_type, double nequs, double eps_abs, \
+			int (*ode_function)(double, double*, double*, int*), \
+			char *solver_type, double nequs, double eps_abs, \
 			double eps_rel, double step_size, int *params)
 {
 	double out = 0, t = 0;

@@ -14,11 +14,11 @@
 #define __ODE_H__
 
 double dodes(double initial_value, double start_time, double end_time, \
-			int (*ode_function), char *solver_type, double nequs, double eps_abs, double eps_rel, \
+			int (*ode_function)(double, double*, double*, int*), char *solver_type, double nequs, double eps_abs, double eps_rel, \
 			double step_size, int *params);
 
 void dodea(double *initial_value, double start_time, double end_time, \
-			int (*ode_function), char *solver_type, double nequs, double eps_abs, double eps_rel, \
+			int (*ode_function)(double, double*, double*, int*), char *solver_type, double nequs, double eps_abs, double eps_rel, \
 			double step_size, int *params, double *out);
 
 #endif /*__ODE_H__*/

@@ -94,8 +94,7 @@ for counteroutput = 1:NOutArg
    if (TBFlagfound == 1)
       if (TBFlagEqualSymbols == 0)
          PrintStringInfo(' ',ReportFileName,'both','y');
-         PrintStringIn
-         fo('SCI2CERROR: Symbol Table Conflict. Trying to insert again symbol ""'+...
+         PrintStringInfo('SCI2CERROR: Symbol Table Conflict. Trying to insert again symbol ""'+...
                          OutArg(counteroutput).Name+'"" with different settings',ReportFileName,'both','y');
          PrintStringInfo('SCI2CERROR: Please check that you are not using variable ""'+OutArg(counteroutput).Name+'""',ReportFileName,'both','y');
          PrintStringInfo('SCI2CERROR: with different sizes and/or types.',ReportFileName,'both','y');

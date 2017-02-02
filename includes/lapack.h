@@ -24,6 +24,16 @@
 extern "C" {
 #endif
 
+#ifndef lapack_int
+#define lapack_int int
+#endif
+#ifndef lapack_logical
+#define lapack_logical lapack_int
+#endif
+
+typedef lapack_logical (*LAPACK_D_SELECT3) (double*, double*, double*);
+typedef lapack_logical (*LAPACK_D_SELECT2) (double*, double*);
+
 #define getRelativeMachinePrecision()		dlamch_("e", 1L)
 #define getOverflowThreshold()			dlamch_("o", 1L)
 #define getUnderflowThreshold()			dlamch_("u", 1L)
@@ -161,6 +171,15 @@ extern int C2F(zheev)(char*,char*,int*,doubleComplex*,int*,double*,doubleComplex
 /* used in spec */
 extern int C2F(dgeev)(char*,char*,int*,double*,int*,double*,double*,double*,int*,double*,int*,double*,int*,int*);
 extern int C2F(dsyev)(char*,char*,int*,double*,int*,double*,double*,int*,int*);
+
+/*used in schur*/
+extern int dgees_(char*,char*,LAPACK_D_SELECT2,int*,double*,int*,int*, \
+			double*,double*,double*,int*,double*,int*,int*,int*);
+
+extern int dgges_(char*,char*,char*,LAPACK_D_SELECT3,int*,double*,int*,double*,int*, \
+			int*,double*,double*,double*,double*,int*,double*,int*,double*, int*, \
+			int*,int*);
+
 
 #ifdef  __cplusplus
 } /* extern "C" */

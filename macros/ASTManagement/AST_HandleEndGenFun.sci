@@ -199,9 +199,9 @@ NOutArg_mod = NOutArg
 			// is a name of a function
 			if NInArg == 4 
 				ODEFunName = InArg(4).Name;
-				InArg(4).Name = 'odefn'+ InArg(4).Name
 				//To differentiate functions containing differential equations,
 				//'odefn' is added at the beginning of the function name.  
+				InArg(4).Name = 'odefn'+ InArg(4).Name
 				SharedInfo.Includelist($+1) = InArg(4).Name; 
 				//Add ode function in list. this will be used to add corresponding
 				//header file in main function.
@@ -209,7 +209,13 @@ NOutArg_mod = NOutArg
 				ODEFunName = InArg(5).Name;
 				InArg(5).Name = 'odefn'+ InArg(5).Name
 				SharedInfo.Includelist($+1) = InArg(5).Name; 
-			end	
+			elseif NInArg == 6 
+				ODEFunName = InArg(6).Name;
+				InArg(6).Name = 'odefn'+ InArg(6).Name
+				SharedInfo.Includelist($+1) = InArg(6).Name; 
+			end
+			
+			
 		elseif(ASTFunName == 'RPI_ThreadCreate')
 			PI_thread_FunName = InArg(1).Name;
 			InArg(1).Name = 'PI_thread_'+PI_thread_FunName;
@@ -390,7 +396,7 @@ NOutArg_mod = NOutArg
 	   ST_InsOutArg(OutArg,NOutArg,FileInfo,SharedInfo,'all');
 	end
 	if ASTFunName == 'ode' then
-		if NInArg == 4
+		if ((NInArg == 4) | (NInArg == 6))
 			ODE_InArg(1) = InArg(3)
 			ODE_InArg(2) = InArg(1)
 			ODE_OutArg(1) = OutArg(1)
