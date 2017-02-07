@@ -15,14 +15,15 @@
 #include "lapack.h"
 #include "stdlib.h"
 #include "string.h"
-
+#include <math.h>
 
 /*flag  --> 0: nothing
 		--> 1: continuous
 		--> 2: discrete
 */
 
-lapack_logical selctg2( double* in1, double* in2, double* in3);
+lapack_logical selctg21( double* in1, double* in2, double* in3);
+lapack_logical selctg22( double* in1, double* in2, double* in3);
 
 double dgschura(double* in1, int size, double* in2, int flag, int nout, \
 			double* out1, double* out2, double* out3, double* out4)
@@ -40,7 +41,7 @@ double dgschura(double* in1, int size, double* in2, int flag, int nout, \
 	modifies the input variable*/
 
 	/*Used incase of flag > 0*/ 
-	LAPACK_D_SELECT3 selctg = &selctg2;  
+	LAPACK_D_SELECT3 selctg = &selctg21;  
 
 	if(nout >= 2){
 		 JOBVSL = 'V';
@@ -143,7 +144,15 @@ double dgschura(double* in1, int size, double* in2, int flag, int nout, \
 	return ret;
 }
 
-lapack_logical selctg2(double* in1, double* in2,  double* in3)
+lapack_logical selctg21(double* in1, double* in2,  double* in3)
+{
+	if((sqrt(*in1**in1+*in2**in2)/ *in3) < 1)
+		return 1;
+	else 
+		return 0;
+}
+
+lapack_logical selctg22(double* in1, double* in2,  double* in3)
 {
 	if((sqrt(*in1**in1+*in2**in2)/ *in3) < 1)
 		return 1;

@@ -377,6 +377,12 @@ extern "C" {
 #include "syslin.h"
 #include "int_syslin.h"	
 
+#include "lqr.h"
+#include "int_lqr.h"	
+
+#include "lqe.h"
+#include "int_lqe.h"	
+
 #include "schur.h"
 #include "int_schur.h"	
 /*Functions related to opencv*/

@@ -979,6 +979,8 @@ function allSources = getAllSources(SharedInfo)
       "src/c/Files/mput/i16mputa.c"
       "src/c/string/convstr/gconvstrs.c"
       "src/c/CACSD/syslin/dsyslina.c"
+      "src/c/CACSD/lqr/dlqra.c"
+      "src/c/CACSD/lqe/dlqea.c"
       "src/c/linearAlgebra/schur/dschura.c"
       "src/c/linearAlgebra/schur/dgschura.c"];
 

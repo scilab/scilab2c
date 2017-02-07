@@ -18,57 +18,57 @@ extern "C" {
 #endif
 
 #define g2d2d2d2syslinss2(in1,size1,in2,size2,in3,size3,in4,size4,out) \
-	dsyslina(in2,size2[0],in3,size3[1],in4,size4[0],NULL,NULL,out)
+	dsyslina(in1,in2,size2[0],in3,size3[1],in4,size4[0],NULL,NULL,out)
 
 #define g2d2d2d2d2syslinss2(in1,size1,in2,size2,in3,size3,in4,size4,in5, \
-	size5,out)	dsyslina(in2,size2[0],in3,size3[1],in4,size4[0],in5,NULL,out)
+	size5,out)	dsyslina(in1,in2,size2[0],in3,size3[1],in4,size4[0],in5,NULL,out)
 
 #define g2d2d2d2d2d2syslinss2(in1,size1,in2,size2,in3,size3,in4,size4, \
- 	in5,size5,in6,size6,out)	dsyslina(in2,size2[0],in3,size3[1],in4, \
+ 	in5,size5,in6,size6,out)	dsyslina(in1,in2,size2[0],in3,size3[1],in4, \
  	size4[0],in5,in6,out)
 //
 #define g2d0d0d0syslinss2(in1,size1,in2,in3,in4,out) \
-	dsyslina(in2,1,in3,1,in4,1,NULL,NULL,out)
+	dsyslina(in1,&in2,1,&in3,1,&in4,1,NULL,NULL,out)
 
 #define g2d0d2d0syslinss2(in1,size1,in2,in3,size3,in4,out) \
-	dsyslina(in2,1,in3,size3[1],in4,1,NULL,NULL,out)
+	dsyslina(in1,&in2,1,in3,size3[1],&in4,1,NULL,NULL,out)
 
 #define g2d0d0d2syslinss2(in1,size1,in2,in3,in4,size4,out) \
-	dsyslina(in2,1,in3,1,in4,size4[0],NULL,NULL,out)
+	dsyslina(in1,&in2,1,&in3,1,in4,size4[0],NULL,NULL,out)
 
 #define g2d0d2d2syslinss2(in1,size1,in2,in3,size3,in4,size4,out) \
-	dsyslina(in2,1,in3,size3[1],in4,size4[0],NULL,NULL,out)
+	dsyslina(in1,&in2,1,in3,size3[1],in4,size4[0],NULL,NULL,out)
 //
 #define g2d0d0d0d0syslinss2(in1,size1,in2,in3,in4,in5,out) \
-	dsyslina(in2,1,in3,1,in4,1,in5,NULL,out)
+	dsyslina(in1,&in2,1,&in3,1,&in4,1,&in5,NULL,out)
 
 #define g2d0d2d0d2syslinss2(in1,size1,in2,in3,size3,in4,in5,size5, \
-	out) dsyslina(in2,1,in3,size3[1],in4,1,in5,NULL,out)
+	out) dsyslina(in1,&in2,1,in3,size3[1],&in4,1,&in5,NULL,out)
 
 #define g2d0d0d2d2syslinss2(in1,size1,in2,in3,in4,size4,in5,size5, \
-	out) dsyslina(in2,1,in3,1,in4,size4[0],in5,NULL,out)
+	out) dsyslina(in1,&in2,1,&in3,1,in4,size4[0],in5,NULL,out)
 
 #define g2d0d2d2d2syslinss2(in1,size1,in2,in3,size3,in4,size4,in5, \
-	size5, out) dsyslina(in2,1,in3,size3[1],in4,size4[0],in5,NULL,out)
+	size5, out) dsyslina(in1,&in2,1,in3,size3[1],in4,size4[0],in5,NULL,out)
 
 #define g2d2d2d2d0syslinss2(in1,size1,in2,size2,in3,size3,in4,size4, \
-	in5,out) dsyslina(in2,size2[0],in3,size3[1],in4,size4[0],in5,NULL,out)
+	in5,out) dsyslina(in1,in2,size2[0],in3,size3[1],in4,size4[0],&in5,NULL,out)
 //
 #define g2d0d0d0d0d0syslinss2(in1,size1,in2,in3,in4,in5,in6,out) \
-	dsyslina(in2,1,in3,1,in4,1,in5,in6,out)
+	dsyslina(in1,&in2,1,&in3,1,&in4,1,&in5,&in6,out)
 
 #define g2d0d2d0d2d0syslinss2(in1,size1,in2,in3,size3,in4,in5,size5, \
-	in6,out) dsyslina(in2,1,in3,size3[1],in4,1,in5,in6,out)
+	in6,out) dsyslina(in1,&in2,1,in3,size3[1],in4,1,in5,&in6,out)
 
 #define g2d0d0d2d2d0syslinss2(in1,size1,in2,in3,in4,size4,in5,size5, \
-	in6,out) dsyslina(in2,1,in3,1,in4,size4[0],in5,in6,out)
+	in6,out) dsyslina(in1,&in2,1,in3,1,in4,size4[0],in5,&in6,out)
 
 #define g2d0d2d2d2d0syslinss2(in1,size1,in2,in3,size3,in4,size4,in5, \
-	size5,in6,out) dsyslina(in2,1,in3,size3[1],in4,size4[0],in5,in6,out)
+	size5,in6,out) dsyslina(in1,&in2,1,in3,size3[1],in4,size4[0],in5,&in6,out)
 
 #define g2d2d2d2d0d2syslinss2(in1,size1,in2,size2,in3,size3,in4,size4, \
-	in5,in6,size6,out) dsyslina(in2,size2[0],in3,size3[1],in4,size4[0], \
-	in5,in6,out)
+	in5,in6,size6,out) dsyslina(in1,in2,size2[0],in3,size3[1],in4,size4[0], \
+	&in5,in6,out)
 
 #ifdef  __cplusplus
 } /* extern "C" */

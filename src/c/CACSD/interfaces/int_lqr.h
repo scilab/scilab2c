@@ -1,4 +1,4 @@
-/* Copyright (C) 2017 - IIT Bombay - FOSSEE
+ /* Copyright (C) 2017 - IIT Bombay - FOSSEE
 
  This file must be used under the terms of the CeCILL.
  This source file is licensed as described in the file COPYING, which
@@ -8,24 +8,18 @@
  Author: Siddhesh Wani
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
-*/
- 
-#ifndef __SYSLIN_H__
-#define __SYSLIN_H__
-
-#include <stdlib.h>
+ */
+#ifndef __INT_LQR_H__
+#define __INT_LQR_H__
 
 #ifdef  __cplusplus
 extern "C" {
 #endif
 
-
-void dsyslina(char* dom, double* A, int no_of_states, double* B, int no_of_inputs, \
-	double* C, int no_of_outputs, double* D, double* X0, double* out);
-
+#define ss2lqrd2d2(in1,size1,out1,out2) dlqra(in1,size1[0],size1[1],out1,out2);
 
 #ifdef  __cplusplus
 } /* extern "C" */
 #endif
 
-#endif /*__SYSLIN_H__*/
+#endif /*__INT_LQR_H__*/

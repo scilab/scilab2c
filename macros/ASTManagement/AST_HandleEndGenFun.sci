@@ -316,7 +316,7 @@ NOutArg_mod = NOutArg
 	   OutArg(1).FindLike  = InArg(1).FindLike;
 	   OutArg(1).Scope     = 'Number_d';
 	else
-	   OutArg = FA_GetOutArgInfo(InArg,NInArg,OutArg,NOutArg,SharedInfo,FunPrecSpecifier,FunTypeAnnot,FunSizeAnnot,ReportFileName);
+	   OutArg = FA_GetOutArgInfo(InArg,NInArg,OutArg,NOutArg,SharedInfo,FunPrecSpecifier,FunTypeAnnot,FunSizeAnnot,ReportFileName,ASTFunName);
 	end
 	
 	// #RNU_RES_B

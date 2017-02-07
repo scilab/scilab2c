@@ -11,62 +11,70 @@
 */
 
 /*Function for declaring state space system*/
+/*output structure is as follows :
+ | A B X0 |
+ | C D dom|
+ where dom is 1 for 'c' and 2 for 'd'
+ Another column is appended with no_of_states and no_inputs as its elements */
+
+
 
 #include <stdlib.h>
 
-void dsyslina(double* A, int no_of_states, double* B, int no_of_inputs, \
+void dsyslina(char* dom, double* A, int no_of_states, double* B, int no_of_inputs, \
 	double* C, int no_of_outputs, double* D, double* X0, double* out)
 {
 	int row = 0,col = 0;
-    int no_of_cols = no_of_states + no_of_inputs + 1;
-
+    int no_of_cols = no_of_states + no_of_inputs + 2;
+    int no_of_rows = no_of_states + no_of_outputs;
     /*Copy matrix A into out matrix*/
-    for(row = 0; row < no_of_states; row++)
+    for(col = 0; col < no_of_states; col++)
     {
-    	for(col = 0; col < no_of_states; col++)
+    	for(row = 0; row < no_of_states; row++)
     	{
-    		out[row*no_of_cols + col] = A[row*no_of_states + col];
+    		out[col*no_of_rows + row] = A[col*no_of_states + row];
     	}
     	
     }
 
     /*Copy matrix B in out matrix*/
-    for(row = 0; row < no_of_states; row++)
+    for(col=0; col < no_of_inputs; col++)
     {
-    	for(col=0; col < no_of_inputs; col++)
+    	for(row = 0; row < no_of_states; row++)
     	{
-    		out[row * no_of_cols + no_of_states + col] = B[row * no_of_inputs + col];
+    		out[col * no_of_rows + no_of_states*no_of_rows + row]  \
+    				= B[col * no_of_states + row];
     	}
     }
 
     /*Copy matrix C in out matrix*/
-    for(row = 0; row < no_of_outputs; row++)
+    for(col=0; col < no_of_states; col++)
     {
-    	for(col=0; col < no_of_states; col++)
+    	for(row = 0; row < no_of_outputs; row++)
     	{
-    		out[(no_of_states + row)*no_of_cols + col] = C[row * no_of_states + col];
+    		out[no_of_states + (col*no_of_rows) + row] = C[col * no_of_outputs + row];
     	}
     }
 
 	/*Copy matrix D in out matrix*/
 	if( D != NULL)
 	{
-	    for(row = 0; row < no_of_outputs; row++)
+	    for(col=0; col < no_of_inputs; col++)
 		{
-	    	for(col=0; col < no_of_inputs; col++)
+	    	for(row = 0; row < no_of_outputs; row++)
 	    	{
-	    		out[(no_of_states+row)*no_of_cols + no_of_states+col] = \
-	    			D[row * no_of_inputs + col];
+	    		out[(no_of_states+col)*no_of_rows + no_of_states +  row] = \
+	    			D[col * no_of_outputs + row];
 	    	}
 	    }
 	}
 	else
 	{
-	    for(row = 0; row < no_of_outputs; row++)
+	    for(col=0; col < no_of_inputs; col++)
 		{
-	    	for(col=0; col < no_of_inputs; col++)
+	    	for(row = 0; row < no_of_outputs; row++)
 	    	{
-	    		out[(no_of_states+row)*no_of_cols + no_of_states+col] = 0;
+	    		out[(no_of_states+col)*no_of_rows + no_of_states +  row] = 0;
 	    	}
 	    }
 	}	
@@ -76,19 +84,24 @@ void dsyslina(double* A, int no_of_states, double* B, int no_of_inputs, \
 	{
 	    for(row = 0; row < no_of_states; row++)
 		{
-	    	out[(row+1)*(no_of_cols) - 1] = X0[row];
-	    	
+	    	out[(no_of_rows*(no_of_cols-1))+row] = X0[row];
 	    }
 	}
 	else
 	{
 	    for(row = 0; row < no_of_states; row++)
 		{
-	    	out[(row+1)*(no_of_cols) - 1] = 0;
-	    	
+	    	out[(no_of_rows*(no_of_cols-1))+row] = 0;
 	    }
 	}	
 
+	if(*dom == 'c')
+		out[(no_of_rows*(no_of_cols-2))	+ no_of_states] = 1; 
+	else if(*dom == 'd')
+		out[(no_of_rows*(no_of_cols-2)) + no_of_states] = 2;
 
+	/*Insert no of states and inputs in last column*/
+	out[(no_of_rows*(no_of_cols-1))] = no_of_states;
+	out[(no_of_rows*(no_of_cols-1))+1] = no_of_inputs; 
 
 }

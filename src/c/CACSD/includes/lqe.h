@@ -1,4 +1,4 @@
-/* Copyright (C) 2017 - IIT Bombay - FOSSEE
+ /* Copyright (C) 2017 - IIT Bombay - FOSSEE
 
  This file must be used under the terms of the CeCILL.
  This source file is licensed as described in the file COPYING, which
@@ -8,24 +8,19 @@
  Author: Siddhesh Wani
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
-*/
- 
-#ifndef __SYSLIN_H__
-#define __SYSLIN_H__
+ */
+#ifndef __LQE_H__
+#define __LQE_H__
 
-#include <stdlib.h>
 
 #ifdef  __cplusplus
 extern "C" {
 #endif
 
+void dlqea(double* sys, int sys_rows, int sys_cols, double* X, double* K);
 
-void dsyslina(char* dom, double* A, int no_of_states, double* B, int no_of_inputs, \
-	double* C, int no_of_outputs, double* D, double* X0, double* out);
-
-
-#ifdef  __cplusplus
+#ifdef  __cplusplus 
 } /* extern "C" */
 #endif
 
-#endif /*__SYSLIN_H__*/
+#endif /*__LQE_H__*/

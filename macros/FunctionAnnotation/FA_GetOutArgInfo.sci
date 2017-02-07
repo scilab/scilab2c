@@ -1,5 +1,6 @@
 function UpdatedOutArg = ...
-   FA_GetOutArgInfo(InArg,NInArg,OutArg,NOutArg,SharedInfo,FunPrecSpecifier,FunTypeAnnot,FunSizeAnnot,ReportFileName)
+   FA_GetOutArgInfo(InArg,NInArg,OutArg,NOutArg,SharedInfo,FunPrecSpecifier, ...
+        FunTypeAnnot,FunSizeAnnot,ReportFileName,ASTFunName)
 // function UpdatedOutArg = ...
 //    FA_GetOutArgInfo(InArg,NInArg,OutArg,NOutArg,SharedInfo,FunPrecSpecifier,FunTypeAnnot,FunSizeAnnot,ReportFileName)
 // -----------------------------------------------------------------
@@ -23,7 +24,7 @@ function UpdatedOutArg = ...
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-SCI2CNInArgCheck(argn(2),9,9);
+SCI2CNInArgCheck(argn(2),10,10);
 // -----------------------
 // --- Initialization. ---
 // -----------------------
@@ -121,8 +122,13 @@ for counterout = 1:NOutArg
        UpdatedOutArg(counterout).Size(iterOutputPosition) = string(tmpeval);
      end
    end
-
-   UpdatedOutArg(counterout).Value     = %nan;
+   if(ASTFunName == 'syslin')
+    no_of_st = eval(InArg(2).Size(1))
+    no_of_ip = eval(InArg(3).Size(2))
+      UpdatedOutArg(counterout).Value     = no_of_st+no_of_ip*0.1;
+   else 
+      UpdatedOutArg(counterout).Value     = %nan;
+   end
    UpdatedOutArg(counterout).Dimension = GetSymbolDimension(UpdatedOutArg(counterout).Size);
    UpdatedOutArg(counterout).Scope     = 'Temp';//NUT anche su questo si puo' ragionare verifica anche la handleoperation.
 end
