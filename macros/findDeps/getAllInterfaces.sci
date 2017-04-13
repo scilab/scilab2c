@@ -146,7 +146,10 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/CACSD/interfaces/int_syslin.h"
       "src/c/CACSD/interfaces/int_lqr.h"
       "src/c/CACSD/interfaces/int_lqe.h"
-      "src/c/linearAlgebra/interfaces/int_schur.h"];
+      "src/c/CACSD/interfaces/int_obscont.h"
+      "src/c/linearAlgebra/interfaces/int_schur.h"
+      "src/c/linearAlgebra/interfaces/int_balanc.h"
+      "src/c/linearAlgebra/interfaces/int_rcond.h"];
 
   //Interface files required for "Arduino" output
   Arduino_interfaces = [

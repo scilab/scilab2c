@@ -381,10 +381,20 @@ extern "C" {
 #include "int_lqr.h"	
 
 #include "lqe.h"
-#include "int_lqe.h"	
+#include "int_lqe.h"
+
+#include "obscont.h"
+#include "int_obscont.h"	
 
 #include "schur.h"
-#include "int_schur.h"	
+#include "int_schur.h"
+
+#include "balanc.h"
+#include "int_balanc.h"	
+
+#include "rcond.h"
+#include "int_rcond.h"
+	
 /*Functions related to opencv*/
 /*#include "cvcore.hpp"
 #include "int_cvcore.hpp"

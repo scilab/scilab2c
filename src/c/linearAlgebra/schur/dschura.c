@@ -10,7 +10,7 @@
  Email: toolbox@scilab.in
  */
 
-/*Fucntion to find schur decomposition of given square matrix */
+/*Funtion to find schur decomposition of given square matrix */
 #include "schur.h"
 #include "lapack.h"
 #include "stdlib.h"

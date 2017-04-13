@@ -129,6 +129,7 @@ for cntinarg = 1:NInArg
       PrintStringInfo('Input Argument '+string(cntinarg)+' is a symbol: '+tmpname+'.',FileInfo.Funct(nxtscifunnumber).ReportFileName,'file');
       // #RNU_RES_E
       [TBFlagfound,TBType,TBSize,TBValue,TBFindLike,TBDimension,TBScope] = ST_GetSymbolInfo(tmpname,FileInfo,SharedInfo);
+
       if (TBFlagfound == 0)
             if(ASTFunName == 'ode')
                if((NInArg == 4 & cntinarg == 4) | (NInArg == 6 & cntinarg == 6))  

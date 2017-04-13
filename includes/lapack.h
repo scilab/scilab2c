@@ -180,6 +180,11 @@ extern int dgges_(char*,char*,char*,LAPACK_D_SELECT3,int*,double*,int*,double*,i
 			int*,double*,double*,double*,double*,int*,double*,int*,double*, int*, \
 			int*,int*);
 
+/*used in matrix balancing*/
+extern int dgebal_(char*,int*,double*,int*,int*,int*,double*,int*);
+extern int dggbal_(char*,int*,double*,int*,double*,int*,int*,int*,double*, \
+			double*,double*,int*);
+extern int dgebak_(char*,char*,int*,int*,int*,double*,int*,double*,int*,int*);
 
 #ifdef  __cplusplus
 } /* extern "C" */

@@ -151,7 +151,10 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/CACSD/includes/syslin.h"
       "src/c/CACSD/includes/lqr.h"
       "src/c/CACSD/includes/lqe.h"
-      "src/c/linearAlgebra/includes/schur.h"];
+      "src/c/CACSD/includes/obscont.h"
+      "src/c/linearAlgebra/includes/schur.h"
+      "src/c/linearAlgebra/includes/balanc.h"
+      "src/c/linearAlgebra/includes/rcond.h"];
 
   //Header files required for "Arduino" output
   Arduino_headers = [

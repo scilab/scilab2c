@@ -981,8 +981,11 @@ function allSources = getAllSources(SharedInfo)
       "src/c/CACSD/syslin/dsyslina.c"
       "src/c/CACSD/lqr/dlqra.c"
       "src/c/CACSD/lqe/dlqea.c"
+      "src/c/CACSD/obscont/dobsconta.c"
       "src/c/linearAlgebra/schur/dschura.c"
-      "src/c/linearAlgebra/schur/dgschura.c"];
+      "src/c/linearAlgebra/schur/dgschura.c"
+      "src/c/linearAlgebra/balanc/dbalanca.c"
+      "src/c/linearAlgebra/rcond/drconda.c"];
 
   //Files to be inserted only if output format selected is 'Arduino'.
   Arduino_files = ["src/c/scilab-arduino/cmd_digital_out/u8cmd_digital_outs.c"
