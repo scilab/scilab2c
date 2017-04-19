@@ -5354,40 +5354,6 @@ PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file',
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
-//------------------------------------
-//---- Class PERMUTE -----------------
-//------------------------------------
-//ClassName = 'PERMUTE';
-
-// --- Class Annotation. ---
-//PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
-//ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
-
-//Arguements specified: initial value, start time, time vector, ode function
-//PrintStringInfo('NIN=         2',ClassFileName,'file','y');
-//PrintStringInfo('NOUT=         1',ClassFileName,'file','y');
-//PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
-//PrintStringInfo('OUT(1).SZ(1)= FA_SZ_PERMUTE_ROW(IN(1).SZ, IN(2).VAL)',ClassFileName,'file','y');
-//PrintStringInfo('OUT(1).SZ(2)= FA_SZ_PERMUTE_COL(IN(1).SZ, IN(2).VAL)',ClassFileName,'file','y');
-
-//ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
-//PrintStringInfo('d2d2'+ArgSeparator+'d2',ClassFileName,'file','y');
-//PrintStringInfo('s2s2'+ArgSeparator+'s2',ClassFileName,'file','y');
-//PrintStringInfo('u82u82'+ArgSeparator+'u82',ClassFileName,'file','y');
-//PrintStringInfo('i82i82'+ArgSeparator+'i82',ClassFileName,'file','y');
-//PrintStringInfo('u162u162'+ArgSeparator+'u162',ClassFileName,'file','y');
-//PrintStringInfo('i162i162'+ArgSeparator+'i162',ClassFileName,'file','y');
-//PrintStringInfo('s2d2'+ArgSeparator+'s0',ClassFileName,'file','y');
-//PrintStringInfo('u82d2'+ArgSeparator+'u80',ClassFileName,'file','y');
-//PrintStringInfo('i82d2'+ArgSeparator+'i80',ClassFileName,'file','y');
-//PrintStringInfo('u162d2'+ArgSeparator+'u160',ClassFileName,'file','y');
-//PrintStringInfo('i162d2'+ArgSeparator+'i160',ClassFileName,'file','y');
-
-// --- Annotation Function And Function List Function. ---
-//FunctionName = 'permute'; 
-//PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
-//INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
-//INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
 //------------------------------------
 //---- Class DIFF -----------------

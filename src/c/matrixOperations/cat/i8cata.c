@@ -1,4 +1,14 @@
-/* Scilab2C FOSSEE IIT BOMBAY*/
+/* Copyright (C) 2016 - IIT Bombay - FOSSEE
+
+ This file must be used under the terms of the CeCILL.
+ This source file is licensed as described in the file COPYING, which
+ you should have received as part of this distribution.  The terms
+ are also available at
+ http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+ Author: Mushir
+ Organization: FOSSEE, IIT Bombay
+ Email: toolbox@scilab.in
+*/
 #include "cat.h"
 /* From scilab help cat then the concatenation is done according to the rows
 A1 = [1 2 3;4 5 6];

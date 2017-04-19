@@ -10,10 +10,17 @@ function typeout = FA_TP_INT8()
 // Output data:
 // typeout: string containing the type specifier.
 //
-// Status:
+// Copyright (C) 2017 - IIT Bombay - FOSSEE
 //
-// Copyright 2007 Raffaele Nutricato & Alberto Morea.
-// Contact: raffaele.nutricato@tiscali.it
+// This file must be used under the terms of the CeCILL.
+// This source file is licensed as described in the file COPYING, which
+// you should have received as part of this distribution.  The terms
+// are also available at
+// http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+// Author: Siddhesh Wani
+// Organization: FOSSEE, IIT Bombay
+// Email: toolbox@scilab.in
+//
 // -----------------------------------------------------------------
 
 // ------------------------------

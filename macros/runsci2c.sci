@@ -154,7 +154,7 @@ end
 
 //Copy folder containing opencv include files in Includes folder
 if((Target == 'RPi') & (SharedInfo.OpenCVUsed == %T))
-  copyfile(SCI2CHOME + "/" +'src/c/hardware/rasberrypi/libraries/opencv/opencv2/',SCI2COutputPath+"/includes/opencv2")
+  copyfile(SCI2CHOME + "/" +'thirdparty/raspberrypi/includes/opencv2/',SCI2COutputPath+"/includes/opencv2")
 end  
 
 // --------------------------

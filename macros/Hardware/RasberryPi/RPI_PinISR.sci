@@ -1,3 +1,11 @@
+// This file must be used under the terms of the CeCILL.
+// This source file is licensed as described in the file COPYING, which
+// you should have received as part of this distribution.  The terms
+// are also available at
+// http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+// Organization: FOSSEE, IIT Bombay
+// Email: toolbox@scilab.in
+
 function RPI_PinISR(pin, edgetype, fn)
 // Function to assign a function to be run when an interrupt occurs on 
 // specified pin. 
@@ -30,7 +38,8 @@ function RPI_PinISR(pin, edgetype, fn)
 // for providing support for generating C code for RPi.
 
 //Pins of header P1 which can be used as GPIO
-supported_pins = [3,5,7,8,10,11,12,13,15,16,18,19,21,22,23,24,26]
+supported_pins = [3,5,7,8,10,11,12,13,15,16,18,19,21,22,23,24,26,27,28,29,...
+				  31,31,33,35,36,37,38,40];
 	
 PinIsGPIO = members(pin, supported_pins); //Check if input pin supports GPIO
 
@@ -38,7 +47,7 @@ PinIsGPIO = members(pin, supported_pins); //Check if input pin supports GPIO
 if(PinIsGPIO == 0)
 	error(9999, 'SCI2CERROR: Given pin number doesnot support GPIO functionality.');
 end
-EdgeTypeSupported = members(edgetype,[1 2 3])
+EdgeTypeSupported = members(edgetype,[1 2 3]);
 
 if(EdgeTypeSupported == 0)
 	error(9999, 'SCI2CERROR: Given edgetype is incorrect. Please specify correct edgetype from [1,2,3]')

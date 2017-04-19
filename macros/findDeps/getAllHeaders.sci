@@ -175,10 +175,10 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/hardware/avr/includes/AVRPeripheralPWM.h"
       "src/c/hardware/avr/includes/AVRUtil.h"
 	    ]; 
-
+ 
   RPi_headers = [
-      "src/c/hardware/rasberrypi/libraries/wiringPi/wiringPi.h"
-      "src/c/hardware/rasberrypi/libraries/wiringPi/wiringSerial.h"
+      "thirdparty/raspberrypi/includes/wiringPi.h"
+      "thirdparty/raspberrypi/includes/wiringSerial.h"
       "src/c/hardware/rasberrypi/includes/RPIPeripheralDigital.h"
       "src/c/hardware/rasberrypi/includes/RPIPeripheralTiming.h"
       "src/c/hardware/rasberrypi/includes/RPIPeripheralSerial.h"

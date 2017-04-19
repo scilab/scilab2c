@@ -22,7 +22,8 @@ function RPI_DigitalSetup(pin, direction)
 //     Siddhesh Wani
 // -----------------------------------------------------------------
 //Pins of header P1 which can be used as GPIO
-supported_pins = [3,5,7,8,10,11,12,13,15,16,18,19,21,22,23,24,26]
+supported_pins = [3,5,7,8,10,11,12,13,15,16,18,19,21,22,23,24,26,27,28,29,...
+				  31,31,33,35,36,37,38,40];
 	
 PinIsGPIO = members(pin, supported_pins); //Check if input pin supports GPIO
 
@@ -30,4 +31,6 @@ PinIsGPIO = members(pin, supported_pins); //Check if input pin supports GPIO
 if(PinIsGPIO == 0)
 	error(9999, 'SCI2CERROR: Given pin number doesnot support GPIO functionality.');
 end
+state = 1;
+
 endfunction

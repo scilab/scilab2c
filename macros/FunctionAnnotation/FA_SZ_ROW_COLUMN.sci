@@ -1,47 +1,27 @@
 function opoutsize = FA_SZ_ROW_COLUMN(in1size,in2size)
-// function opoutsize = FA_SZ_OPPLUSA(in1size,in2size)
+//function opoutsize = FA_SZ_ROW_COLUMN(in1size,in2size)
 // -----------------------------------------------------------------
-// Returns the size of the output computed by OPPLUS operator 
-// restricted to arithmetic operations (string operations not supported.)
-// 
-// Assuming:
-// size(in1) = [in1r,in1c]
-// size(in2) = [in2r,in2c]
-// size(out) = [outr,outc]
-//
-// we have the following combinations:
-// in1   in2   outr   outc
-// -----------------------
-//  S     S    in2r   in2c    
-//  S     M    in2r   in2c
-//  M     S    in1r   in1c
-//  M     M    in1r   in1c
-//
-// Where S means that the input is a scalar
-// and M means that the input is a matrix.
-// There is also the case related to the string catenation!
-// This is the main difference between - and + operators.
+// Get size of output for Schur function
 //
 // Input data:
-// in1size: size of input number 1. It is an array of 2 strings. 
-//          The first string specifies the number of rows.
-//          The second string specifies the number of columns.
-// 
-// in2size: size of input number 2. It is an array of 2 strings. 
-//          The first string specifies the number of rows.
-//          The second string specifies the number of columns.
+// in2tp: string specifying the type of second input argument.
+// in1sz: string specifying the size of first input argument.
 //
 // Output data:
-// opoutsize: size of output. It is an array of 2 strings. 
-//            The first string specifies the number of rows.
-//            The second string specifies the number of columns. 
+// out2sz: string containing the size for second output argument.
 //
-// Status:
-// 18-Mar-2008 -- Raffaele Nutricato: Author.
-// 18-Mar-2008 -- Alberto Morea: Test Ok.
+// Copyright (C) 2017 - IIT Bombay - FOSSEE
 //
-// Copyright 2008 Raffaele Nutricato & Alberto Morea.
-// Contact: raffaele.nutricato@tiscali.it
+// This file must be used under the terms of the CeCILL.
+// This source file is licensed as described in the file COPYING, which
+// you should have received as part of this distribution.  The terms
+// are also available at
+// http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+// Author: Mushir
+// Organization: FOSSEE, IIT Bombay
+// Email: toolbox@scilab.in
+//
+
 // -----------------------------------------------------------------
 
 // ------------------------------

@@ -1,20 +1,32 @@
 function outsize = FA_SZ_COLUMN_DIAG(insize)
-    // function outsize = FA_SZ_1(insize)
-    // -----------------------------------------------------------------
-    // Returns the first element of the size array.
-    // 
-    // Input data:
-    // insize: size of input argument. It is an array of 2 strings. 
-    //          The first string specifies the number of rows.
-    //          The second string specifies the number of columns.
-    // 
-    // Output data:
-    // outsize: first element of the insize array.
-    //
-    // Status:
-    // 08-Dec-2007 -- Raffaele Nutricato: Author.
-    // 08-Dec-2007 -- Alberto Morea: Test Ok.
-    // -----------------------------------------------------------------
+//function outsize = FA_SZ_COLUMN_DIAG(insize)
+// -----------------------------------------------------------------
+// Get size of column of the output for diag function
+//
+// Input data:
+// insize: string specifying the size of input argument.
+//
+// Output data:
+// outsize: string containing the column size for output argument.
+//
+// Copyright (C) 2017 - IIT Bombay - FOSSEE
+//
+// This file must be used under the terms of the CeCILL.
+// This source file is licensed as described in the file COPYING, which
+// you should have received as part of this distribution.  The terms
+// are also available at
+// http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+// Author: Mushir
+// Organization: FOSSEE, IIT Bombay
+// Email: toolbox@scilab.in
+//
+
+// -----------------------------------------------------------------
+
+// ------------------------------
+// --- Check input arguments. ---
+// ------------------------------
+SCI2CNInArgCheck(argn(1),1,1);
 
     if(insize(2)=='1') then
         outsize = insize(1);

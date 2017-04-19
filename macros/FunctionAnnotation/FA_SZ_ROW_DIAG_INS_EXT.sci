@@ -1,4 +1,33 @@
 function outsize = FA_SZ_ROW_DIAG_INS_EXT(insize,val)
+//function outsize = FA_SZ_ROW_DIAG_INS_EXT(insize,val)
+// -----------------------------------------------------------------
+// Get row size of output for diag(insert) function
+//
+// Input data:
+// insize: string specifying the size of first input argument.
+// val: string specifying the value of second input argument.
+//
+// Output data:
+// outsize: string containing the size for output argument.
+//
+// Copyright (C) 2017 - IIT Bombay - FOSSEE
+//
+// This file must be used under the terms of the CeCILL.
+// This source file is licensed as described in the file COPYING, which
+// you should have received as part of this distribution.  The terms
+// are also available at
+// http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+// Author: Mushir
+// Organization: FOSSEE, IIT Bombay
+// Email: toolbox@scilab.in
+//
+
+// -----------------------------------------------------------------
+
+// ------------------------------
+// --- Check input arguments. ---
+// ------------------------------
+SCI2CNInArgCheck(argn(2),2,2);
 
     // val ==> Position value ...,-2,-1,0,1,2....
     //insize ==> insize(1) will give ROW size and insize(2) will give COLUMN size.
@@ -6,7 +35,7 @@ function outsize = FA_SZ_ROW_DIAG_INS_EXT(insize,val)
     row_num = eval(insize(1));
     col_num = eval(insize(2));
     val_num = eval(val);
-    ///////////////////////////////////////////////  FOR INSERT CONDITION ////////////////////////////////////////////
+    /////////////////////  FOR INSERT CONDITION //////////////////////////////
 
 
 
@@ -15,7 +44,8 @@ function outsize = FA_SZ_ROW_DIAG_INS_EXT(insize,val)
             outsize = string(col_num);// ROW size is equal to COLUMN size
 
         else    // For ....-2,-1,1,2... positions
-            outsize = string(col_num+abs(val_num)); //ROW is equal to COLUMN SIZE + position value (i.e for 1*4 matrix and insert position 1 then ROW size is 4+1 = 5 )
+            outsize = string(col_num+abs(val_num)); 
+            //ROW is equal to COLUMN SIZE + position value (i.e for 1*4 matrix and insert position 1 then ROW size is 4+1 = 5 )
 
         end 
     elseif(col_num == 1)  // if Column size is one 
@@ -23,14 +53,15 @@ function outsize = FA_SZ_ROW_DIAG_INS_EXT(insize,val)
             outsize = string(row_num); // ROW size is equal to ROW size
 
         else    // ....-2,-1,1,2... positions.
-            outsize = string(row_num + abs(val_num));//ROW is equal to ROW SIZE + position value (i.e for 4*1 matrix and insert position 1 then ROW size is 4+1 = 5 )     
+            outsize = string(row_num + abs(val_num));
+            //ROW is equal to ROW SIZE + position value (i.e for 4*1 matrix and insert position 1 then ROW size is 4+1 = 5 )     
 
         end
 
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
 
 
-        ///////////////////////////////////////// FOR EXTRACT CONDITION /////////////////////////////////////////////////     
+    //////////////////////////// FOR EXTRACT CONDITION /////////////////////////
 
     elseif(row_num == col_num)   // For no. of rows equal to no. of column (R == C)
         if(val_num == 0) then  //For 0th position
@@ -66,7 +97,7 @@ function outsize = FA_SZ_ROW_DIAG_INS_EXT(insize,val)
             outsize = string(row_num-abs(val_num));  // row size is substraction of row size and absolute value of position values(-1,-2,-3)
         end
 
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////
     end
 
 endfunction 

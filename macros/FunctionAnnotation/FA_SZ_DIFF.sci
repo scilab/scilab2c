@@ -1,4 +1,17 @@
-// Copyright (C) 2016 - IIT Bombay - FOSSEE
+function outsize = FA_SZ_DIFF(in1size, in2val, in3val)
+//function outsize = FA_SZ_DIFF(in1size, in2val, in3val)
+// -----------------------------------------------------------------
+// Get size of output for diff function
+//
+// Input data:
+// in1size: string specifying the size of first input argument.
+// in2val: string specifying the value of second input argument.
+// in3val: string specifying the value of third input argument.
+//
+// Output data:
+// outsize: string containing the size for output argument.
+//
+// Copyright (C) 2017 - IIT Bombay - FOSSEE
 //
 // This file must be used under the terms of the CeCILL.
 // This source file is licensed as described in the file COPYING, which
@@ -8,9 +21,15 @@
 // Author: Siddhesh Wani
 // Organization: FOSSEE, IIT Bombay
 // Email: toolbox@scilab.in
+//
 
-//This fucntion calulates size of output depending upon input
-function outsize = FA_SZ_DIFF(in1size, in2val, in3val)
+// -----------------------------------------------------------------
+
+// ------------------------------
+// --- Check input arguments. ---
+// ------------------------------
+SCI2CNInArgCheck(argn(3),3,3);
+
 	in1size = string(in1size);
 	in1row = eval(in1size(1));
 	in1col = eval(in1size(2));
