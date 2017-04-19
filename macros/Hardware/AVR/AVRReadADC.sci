@@ -1,4 +1,14 @@
-function AVRReadADC(channel)
+// Copyright (C) 2017 - IIT Bombay - FOSSEE
+//
+// This file must be used under the terms of the CeCILL.
+// This source file is licensed as described in the file COPYING, which
+// you should have received as part of this distribution.  The terms
+// are also available at
+// http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+// Organization: FOSSEE, IIT Bombay
+// Email: toolbox@scilab.in
+
+function adc_result = AVRReadADC(channel)
 // Function to get voltage on analog pin on AVR
 //
 // Calling Sequence
@@ -22,10 +32,13 @@ function AVRReadADC(channel)
 //     adc_result = u8AVRReadADC(0)   //Read ADC0
 //
 // Authors
-//     Siddhesh Wani
+//     Siddhesh Wani Ashish Kamble
 //
-
-
 // This is curretly dummy function. It provides no functionality but is required 
 // for providing support for generating C code for AVR.
+
+if(channel>=8) then 
+disp("Error : Inavlid input argument ''channel'' in AVRReadADC function.");
+end
+adc_result = 0;   //adc_result has been initialised to avoid runtime error.
 endfunction

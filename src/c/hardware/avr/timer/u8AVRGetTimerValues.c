@@ -1,3 +1,14 @@
+// Copyright (C) 2017 - IIT Bombay - FOSSEE
+//
+// This file must be used under the terms of the CeCILL.
+// This source file is licensed as described in the file COPYING, which
+// you should have received as part of this distribution.  The terms
+// are also available at
+// http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+// Organization: FOSSEE, IIT Bombay
+// Email: toolbox@scilab.in
+
+
 // Function to get timer count
 //
 // Calling Sequence
@@ -12,26 +23,41 @@
 //
 //
 // Authors
-//     Siddhesh Wani
+//     Ashish Kamble
 //
 
 
 #include "AVRPeripheralTimer.h"
+#include <avr/interrupt.h>
 
 
-uint8 u8AVRGetTimerValues(uint8 timer)
-{
+uint16 u8AVRGetTimerValues(uint16 timer)
+{   uint16_t x;
     switch(timer)
 	{
 		case 0:
-				return TCNT0;
-				
+		     {
+                      x = TCNT0; 
+		      break;
+		     }	
 		case 1:
-				break;
+		    {
+                     unsigned char sreg;
+ 		     unsigned int val;
+ 		     sreg = SREG;
+ 		     cli();
+ 		     val = TCNT1;
+ 		     SREG = sreg;	
+ 		     sei();
+                     x = val;
+                     break;		   
+                    }
 		case 2:
-				return TCNT2;
+		     {
+                      x = TCNT2;
+  		      break;
+		     }
 	}	    
-
-	return 0;
+return x;
 }
 

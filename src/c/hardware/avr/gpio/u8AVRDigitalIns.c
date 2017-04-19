@@ -1,3 +1,13 @@
+// Copyright (C) 2017 - IIT Bombay - FOSSEE
+//
+// This file must be used under the terms of the CeCILL.
+// This source file is licensed as described in the file COPYING, which
+// you should have received as part of this distribution.  The terms
+// are also available at
+// http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+// Organization: FOSSEE, IIT Bombay
+// Email: toolbox@scilab.in
+
 // Function to get current state (high\low) of a digital pin on AVR
 //
 // Calling Sequence
@@ -28,27 +38,26 @@
 
 uint8 u8AVRDigitalIns(uint8 port,uint8 pin)
 {
-    uint8 state = 0;
+    unsigned int state = 0;
     if(port == PORT_A)
     {
-	state = (uint8)(PINA & (1<<pin));
-	return state;
+	state  = bit_is_clear(PINA,pin);
+        return !state;
     }
     if(port == PORT_B)
     {
-	state = (uint8)(PINB & (1<<pin));
-	return state;
+        state  = bit_is_clear(PINB,pin);
+        return !state;
     }
     if(port == PORT_C)
     {
-	state = (uint8)(PINC & (1<<pin));
-	return state;    
+        state  = bit_is_clear(PINC,pin);
+	return !state;    
     }
     if(port == PORT_D)
     {
-	state = (uint8)(PIND & (1<<pin));
-	return state;
+        state  = bit_is_clear(PIND,pin);
+	return !state;
     }
 
-//return state;
 }

@@ -1,8 +1,14 @@
-//This file defines constants corresponding to gpios.
+// Copyright (C) 2017 - IIT Bombay - FOSSEE
 //
-// Authors
-//     Siddhesh Wani
-//
+// This file must be used under the terms of the CeCILL.
+// This source file is licensed as described in the file COPYING, which
+// you should have received as part of this distribution.  The terms
+// are also available at
+// http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+// Organization: FOSSEE, IIT Bombay
+// Author: Ashish Kamble
+// Email: toolbox@scilab.in
+
 
 #ifndef __INT_AVRPERIPHERALPWM_H__
 #define __INT_AVRPERIPHERALPWM_H__
@@ -14,10 +20,17 @@
 extern "C" {
 #endif
 
-#define AVRPWMSetup(in1,in2,in3,in4) u8AVRPWMSetups((uint8) in1,\
-                                         (uint8) in2, (uint8) in3, (uint8) in4);
+#define AVRPWM0Setup(in1,in2) u8AVRPWM0Setups((uint8) in1, (uint8) in2);
 
-#define AVRPWMSetDuty(in1,in2) u8AVRPWMSetDutys((uint8) in1, (uint8) in2);
+#define AVRPWM2Setup(in1,in2) u8AVRPWM2Setups((uint8) in1, (uint8) in2);
+
+#define AVRPWM1Setup(in1,in2,in3) u8AVRPWM1Setups((uint8) in1, (uint8) in2, (uint8) in3);
+
+#define AVRPWM0SetDuty(in1) u8AVRPWM0SetDutys((uint8) in1);
+
+#define AVRPWM2SetDuty(in1) u8AVRPWM2SetDutys((uint8) in1);
+
+#define AVRPWM1SetDuty(in1,in2,in3) u8AVRPWM1SetDutys((uint8) in1,(uint16) in2,(uint16) in3);
 
 #ifdef  __cplusplus
 } /* extern "C" */

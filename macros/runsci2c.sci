@@ -141,7 +141,7 @@ for i = 1:size(allInterfaces, "*")
   //disp("Copying "+allInterfaces(i)+" in "+SCI2COutputPath+"/interfaces/");
   copyfile(allInterfaces(i), SCI2COutputPath+"/interfaces/");
 end
-
+disp(allLibraries);
 // -- Libraries
 if(~isempty(allLibraries))
   PrintStepInfo('Copying libraries', FileInfo.GeneralReport,'both');
@@ -177,7 +177,9 @@ if (Target == 'Arduino')
        //disp("Copying "+arduinoFiles(i)+" in "+SCI2COutputPath+"/arduino/sci2carduino");
        copyfile(arduinoFiles(i), SCI2COutputPath+"/arduino/sci2c_arduino/");
    end
-
+elseif (Target == 'AVR')
+     AVRFile = SCI2CHOME + "/" + "src/c/hardware/avr/default_files/Makefile";
+     copyfile(AVRFile, SCI2COutputPath);
 else
 
    if BuildTool == "make"

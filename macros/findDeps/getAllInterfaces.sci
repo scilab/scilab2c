@@ -100,6 +100,18 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/elementaryFunctions/interfaces/int_int8.h"
       "src/c/elementaryFunctions/interfaces/int_uint16.h"
       "src/c/elementaryFunctions/interfaces/int_int16.h"
+      "src/c/elementaryFunctions/interfaces/int_acosd.h"
+      "src/c/elementaryFunctions/interfaces/int_acot.h"
+      "src/c/elementaryFunctions/interfaces/int_acotd.h"
+      "src/c/elementaryFunctions/interfaces/int_acoth.h"
+      "src/c/elementaryFunctions/interfaces/int_acsc.h"
+      "src/c/elementaryFunctions/interfaces/int_acscd.h"
+      "src/c/elementaryFunctions/interfaces/int_acsch.h"
+      "src/c/elementaryFunctions/interfaces/int_asec.h"
+      "src/c/elementaryFunctions/interfaces/int_asecd.h"
+      "src/c/elementaryFunctions/interfaces/int_asech.h"
+      "src/c/elementaryFunctions/interfaces/int_asind.h"
+      "src/c/elementaryFunctions/interfaces/int_atand.h"
       "src/c/statisticsFunctions/interfaces/int_mean.h"
       "src/c/statisticsFunctions/interfaces/int_meanf.h"
       "src/c/statisticsFunctions/interfaces/int_stdevf.h"
@@ -167,6 +179,8 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/hardware/avr/interfaces/int_AVRPeripheralADC.h"
       "src/c/hardware/avr/interfaces/int_AVRPeripheralPWM.h"
       "src/c/hardware/avr/interfaces/int_AVRUtil.h"
+      "src/c/hardware/avr/interfaces/int_AVRPeripheralTimer.h"
+      "src/c/hardware/avr/interfaces/int_AVRPeripheralUART.h"
 	];
 
   RPI_interfaces = [

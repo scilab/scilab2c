@@ -143,7 +143,7 @@ error(msprintf(gettext("%s: Wrong number of input argument(s): %d expected.\n"),
 
 // --- LAUNCH USER SCI CODE TO TEST IT BEFORE TRANSLATING IT!!! ---
 // If Target choosen is 'Standalone' then only execute the code, otherwise directly start conversion.  
-  if ((Target == "StandAlone"))// | (Target == "RPi"))
+  if (Target == "StandAlone" |Target == "AVR") 
   runscicode(UserScilabMainFile, UserSciFilesPaths);
   
  // --- ASK USER FOR CONTINUATION. ---

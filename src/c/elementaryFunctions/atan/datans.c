@@ -13,6 +13,7 @@
 #include <math.h>
 #include "atan.h"
 
-double	       datans(double x) {
+double datans(double x) 
+{
   return (atan(x));
 }

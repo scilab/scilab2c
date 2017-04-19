@@ -1,8 +1,14 @@
-//This file defines constants corresponding to gpios.
+// Copyright (C) 2017 - IIT Bombay - FOSSEE
 //
-// Authors
-//     Siddhesh Wani
-//
+// This file must be used under the terms of the CeCILL.
+// This source file is licensed as described in the file COPYING, which
+// you should have received as part of this distribution.  The terms
+// are also available at
+// http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+// Organization: FOSSEE, IIT Bombay
+// Author: Siddhesh Wani, Ashish Kamble
+// Email: toolbox@scilab.in
+
 
 #ifndef __INT_AVRPERIPHERALTIMER_H__
 #define __INT_AVRPERIPHERALTIMER_H__
@@ -14,9 +20,9 @@
 extern "C" {
 #endif
 
-#define AVRTimerSetup(in1,in2) u8AVRTimerSetups((uint8) in1, (uint8) in2);
+#define AVRGetTimerValue(in1) u8AVRGetTimerValues((uint16) in1);
 
-#define AVRGetTimerValue(in1) u8AVRGetTimerValues((uint8) in1);
+#define AVRTimerSetup(in1,in2,in3) u8AVRTimerSetups((uint8) in1, (uint16) in2, (uint8) in3);
 
 #ifdef  __cplusplus
 } /* extern "C" */
