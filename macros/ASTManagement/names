@@ -41,4 +41,15 @@ AST_ReadEqualRhsNames
 GenOutArgNames
 Operator2FunName
 SciFile2ASTFile
+_comment_string
+_cste_string
+_equal_string
+_for_string
+_funcall_string
+_ifthenel_string
+_operatio_string
+_program_p
+_program_string
+_variable_string
+_while_string
 objectlist2string

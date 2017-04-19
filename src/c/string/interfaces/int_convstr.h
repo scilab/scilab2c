@@ -5,7 +5,7 @@
  you should have received as part of this distribution.  The terms
  are also available at
  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
- Author: Siddhesh Wani
+ Author: Shamik Guha
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
  */
@@ -16,7 +16,9 @@
  extern "C" {
  #endif
 
-#define g0constrg0(in, size)	gconstrs(in)
+#define g2g2convstrg2(in,size,flag,size2,out)	gconvstrs(in,size[0]*size[1],flag,size2[1],out)
+//#define g2g2convstrg0(in,size,type,typesize,out)	(type=='u': \
+			gconvstrs(in,size[0]*size[1],0,out)?gconvstrs(in,size[0]*size[1],1,out))
 
  #ifdef  __cplusplus
  } /* extern "C" */

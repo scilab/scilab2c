@@ -5,7 +5,7 @@
  you should have received as part of this distribution.  The terms
  are also available at
  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
- Author: Siddhesh Wani
+ Author: Shamik Guha
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
  */
@@ -17,7 +17,7 @@
  extern "C" {
  #endif
 
-int gconvstrs(int* in);
+void gconvstrs(char* in, int size,char* flag,int size2,char* out);
 
  #ifdef  __cplusplus 
  } /* extern "C" */

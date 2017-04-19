@@ -13,7 +13,7 @@
 #include "tanh.h"
 #include "tan.h"
 
-floatComplex		ctanhs(floatComplex z) {
+floatComplex	ctanhs(floatComplex z) {
   float real = creals(z);
   float imag = cimags(z);
 

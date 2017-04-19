@@ -21,6 +21,9 @@ function y = doublecomplex(x)
 // ------------------------------
 SCI2CNInArgCheck(argn(2),1,1);
 
-y = x+0*%i;
+if(x==0)
+y = 0*%i;
+else
+y=x+0*%i;
 
 endfunction

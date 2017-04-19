@@ -167,6 +167,33 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/linearAlgebra/includes/schur.h"
       "src/c/linearAlgebra/includes/balanc.h"
       "src/c/linearAlgebra/includes/rcond.h"];
+	"src/c/string/includes/strsubst.h"
+	//"src/c/string/includes/strcmp.h"
+	"src/c/string/includes/strrev.h"
+	"src/c/string/includes/strrchr.h"
+	"src/c/elementaryFunctions/includes/dec2bin.h"
+	"src/c/elementaryFunctions/includes/dec2hex.h"
+	"src/c/elementaryFunctions/includes/dec2oct.h"
+	"src/c/elementaryFunctions/includes/oct2dec.h"
+	"src/c/elementaryFunctions/includes/hex2dec.h"
+	"src/c/elementaryFunctions/includes/bin2dec.h"
+	"src/c/elementaryFunctions/includes/dec2base.h"
+	"src/c/elementaryFunctions/includes/base2dec.h"
+	"src/c/elementaryFunctions/includes/cosd.h"
+	"src/c/elementaryFunctions/includes/cotd.h"
+	"src/c/elementaryFunctions/includes/coth.h"
+	"src/c/elementaryFunctions/includes/csc.h"
+	"src/c/elementaryFunctions/includes/cscd.h"
+	"src/c/elementaryFunctions/includes/csch.h"
+	"src/c/elementaryFunctions/includes/sec.h"
+	"src/c/elementaryFunctions/includes/secd.h"
+	"src/c/elementaryFunctions/includes/sech.h"
+	"src/c/elementaryFunctions/includes/float.h"
+	"src/c/elementaryFunctions/includes/factorial.h"
+	"src/c/elementaryFunctions/includes/interp1.h"	
+	"src/c/elementaryFunctions/includes/primes.h"
+	"src/c/elementaryFunctions/includes/factor.h"
+];
 
   //Header files required for "Arduino" output
   Arduino_headers = [

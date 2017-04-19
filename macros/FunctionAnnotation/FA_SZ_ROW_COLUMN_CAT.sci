@@ -40,7 +40,7 @@ if(inval == '1') then
     outsize(2) = string(in2num_r);
 elseif(inval == '2') then
     in1num_c = eval(in1size);
-    in2num_c = eval(in2size)
+    in2num_c = eval(in2size);
     outsize(1) = string(in1num_c);
     outsize(2) = string(in1num_c + in2num_c);
 else
