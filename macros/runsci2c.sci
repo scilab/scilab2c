@@ -141,7 +141,7 @@ for i = 1:size(allInterfaces, "*")
   //disp("Copying "+allInterfaces(i)+" in "+SCI2COutputPath+"/interfaces/");
   copyfile(allInterfaces(i), SCI2COutputPath+"/interfaces/");
 end
-disp(allLibraries);
+
 // -- Libraries
 if(~isempty(allLibraries))
   PrintStepInfo('Copying libraries', FileInfo.GeneralReport,'both');
@@ -153,9 +153,9 @@ if(~isempty(allLibraries))
 end
 
 //Copy folder containing opencv include files in Includes folder
-if((Target == 'RPi') & (SharedInfo.OpenCVUsed == %T))
-  copyfile(SCI2CHOME + "/" +'thirdparty/raspberrypi/includes/opencv2/',SCI2COutputPath+"/includes/opencv2")
-end  
+//if((Target == 'RPi') & (SharedInfo.OpenCVUsed == %T))
+//  copyfile(SCI2CHOME + "/" +'thirdparty/raspberrypi/includes/opencv2/',SCI2COutputPath+"/includes/opencv2")
+//end  
 
 // --------------------------
 // --- Generate Makefile. ---

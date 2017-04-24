@@ -24,48 +24,59 @@ function allLibraries = getAllLibraries(SharedInfo)
   Target = SharedInfo.Target;
   //Library files required for "RasberryPi" target
   RPi_libs = [
-      "thirdparty/raspberrypi/lib/libwiringPi.so"
-      "thirdparty/raspberrypi/lib/libcblas.a"
-      "thirdparty/raspberrypi/lib/librefblas.a"
-      "thirdparty/raspberrypi/lib/liblapack.a"
-      "thirdparty/raspberrypi/lib/libgfortran.a"
-      "thirdparty/raspberrypi/lib/libgsl.a"];
+      "thirdparty/lib/raspberrypi/libwiringPi.so"
+      "thirdparty/lib/raspberrypi/libcblas.a"
+      "thirdparty/lib/raspberrypi/librefblas.a"
+      "thirdparty/lib/raspberrypi/liblapack.a"
+      "thirdparty/lib/raspberrypi/libgfortran.a"
+      "thirdparty/lib/raspberrypi/libgsl.a"];
 
   RPi_cvlibs = [
-      "thirdparty/raspberrypi/lib/libopencv_calib3d.a"
-      "thirdparty/raspberrypi/lib/libopencv_contrib.a"
-      "thirdparty/raspberrypi/lib/libopencv_core.a"
-      "thirdparty/raspberrypi/lib/libopencv_features2d.a"
-      "thirdparty/raspberrypi/lib/libopencv_flann.a"
-      "thirdparty/raspberrypi/lib/libopencv_gpu.a"
-      "thirdparty/raspberrypi/lib/libopencv_highgui.a"
-      "thirdparty/raspberrypi/lib/libopencv_imgproc.a"
-      "thirdparty/raspberrypi/lib/libopencv_legacy.a"
-      "thirdparty/raspberrypi/lib/libopencv_ml.a"
-      "thirdparty/raspberrypi/lib/libopencv_nonfree.a"
-      "thirdparty/raspberrypi/lib/libopencv_objdetect.a"
-      "thirdparty/raspberrypi/lib/libopencv_ocl.a"
-      "thirdparty/raspberrypi/lib/libopencv_photo.a"
-      "thirdparty/raspberrypi/lib/libopencv_stitching.a"
-      "thirdparty/raspberrypi/lib/libopencv_superres.a"
-      "thirdparty/raspberrypi/lib/libopencv_video.a"
-      "thirdparty/raspberrypi/lib/libopencv_videostab.a"
-      "thirdparty/raspberrypi/lib/libopencv_ts.a"
-      "thirdparty/raspberrypi/lib/libjpeg.a"
-      "thirdparty/raspberrypi/lib/libjasper.a"
-      "thirdparty/raspberrypi/lib/libpng.a"
-      "thirdparty/raspberrypi/lib/libIlmImf.a"
-      "thirdparty/raspberrypi/lib/libzlib.a"
-      "thirdparty/raspberrypi/lib/libtiff.a"];  
+      "thirdparty/lib/raspberrypi/libopencv_calib3d.a"
+      "thirdparty/lib/raspberrypi/libopencv_contrib.a"
+      "thirdparty/lib/raspberrypi/libopencv_core.a"
+      "thirdparty/lib/raspberrypi/libopencv_features2d.a"
+      "thirdparty/lib/raspberrypi/libopencv_flann.a"
+      "thirdparty/lib/raspberrypi/libopencv_gpu.a"
+      "thirdparty/lib/raspberrypi/libopencv_highgui.a"
+      "thirdparty/lib/raspberrypi/libopencv_imgproc.a"
+      "thirdparty/lib/raspberrypi/libopencv_legacy.a"
+      "thirdparty/lib/raspberrypi/libopencv_ml.a"
+      "thirdparty/lib/raspberrypi/libopencv_nonfree.a"
+      "thirdparty/lib/raspberrypi/libopencv_objdetect.a"
+      "thirdparty/lib/raspberrypi/libopencv_ocl.a"
+      "thirdparty/lib/raspberrypi/libopencv_photo.a"
+      "thirdparty/lib/raspberrypi/libopencv_stitching.a"
+      "thirdparty/lib/raspberrypi/libopencv_superres.a"
+      "thirdparty/lib/raspberrypi/libopencv_video.a"
+      "thirdparty/lib/raspberrypi/libopencv_videostab.a"
+      "thirdparty/lib/raspberrypi/libopencv_ts.a"
+      "thirdparty/lib/raspberrypi/libjpeg.a"
+      "thirdparty/lib/raspberrypi/libjasper.a"
+      "thirdparty/lib/raspberrypi/libpng.a"
+      "thirdparty/lib/raspberrypi/libIlmImf.a"
+      "thirdparty/lib/raspberrypi/libzlib.a"
+      "thirdparty/lib/raspberrypi/libtiff.a"];  
+
 
   if Target == "RPi"
     allLibraries = RPi_libs;
     if (SharedInfo.OpenCVUsed == %T)
       allLibraries = cat(1,allLibraries,RPi_cvlibs)  
     end
+  elseif Target == "StandAlone"
+    allLibraries =[];
+    if (SharedInfo.OpenCVUsed == %T)
+      os_arch = system_getproperty('os.arch');
+      if(getos() == 'Linux' & os_arch == 'amd64')
+        allLibraries = cat(1,allLibraries,"thirdparty/lib/pc/linux/x64/OpenCV")
+      elseif(getos() == 'Windows' & os_arch == 'amd64')
+        allLibraries = cat(1,allLibraries,"thirdparty/lib/pc/windows/x64/OpenCV")    
+      end  
+    end
   
   else
-  allLibraries = [];
+    allLibraries = [];
   end
 
 endfunction

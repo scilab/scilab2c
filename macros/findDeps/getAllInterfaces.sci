@@ -162,13 +162,6 @@ function allInterfaces = getAllInterfaces(SharedInfo)
 	"src/c/elementaryFunctions/interfaces/int_dec2base.h"
 	"src/c/elementaryFunctions/interfaces/int_base2dec.h"
 	"src/c/elementaryFunctions/interfaces/int_dec2bin.h"
-      "src/c/CACSD/interfaces/int_syslin.h"
-      "src/c/CACSD/interfaces/int_lqr.h"
-      "src/c/CACSD/interfaces/int_lqe.h"
-      "src/c/CACSD/interfaces/int_obscont.h"
-      "src/c/linearAlgebra/interfaces/int_schur.h"
-      "src/c/linearAlgebra/interfaces/int_balanc.h"
-      "src/c/linearAlgebra/interfaces/int_rcond.h"];
 	"src/c/elementaryFunctions/interfaces/int_dec2hex.h"
 	"src/c/elementaryFunctions/interfaces/int_dec2oct.h"
 	"src/c/elementaryFunctions/interfaces/int_oct2dec.h"
@@ -185,10 +178,16 @@ function allInterfaces = getAllInterfaces(SharedInfo)
 	"src/c/elementaryFunctions/interfaces/int_sech.h"
 	"src/c/elementaryFunctions/interfaces/int_float.h"
 	"src/c/elementaryFunctions/interfaces/int_factorial.h"
-	"src/c/elementaryFunctions/interfaces/int_interp1.h"
 	"src/c/elementaryFunctions/interfaces/int_primes.h"
 	"src/c/elementaryFunctions/interfaces/int_factor.h"
-];
+      "src/c/CACSD/interfaces/int_syslin.h"
+      "src/c/CACSD/interfaces/int_lqr.h"
+      "src/c/CACSD/interfaces/int_lqe.h"
+      "src/c/CACSD/interfaces/int_obscont.h"
+      "src/c/linearAlgebra/interfaces/int_schur.h"
+      "src/c/linearAlgebra/interfaces/int_balanc.h"
+      "src/c/linearAlgebra/interfaces/int_rcond.h"];
+
 
   //Interface files required for "Arduino" output
   Arduino_interfaces = [

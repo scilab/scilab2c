@@ -17,9 +17,9 @@
  #endif
 
 #define g2g2convstrg2(in,size,flag,size2,out)	gconvstrs(in,size[0]*size[1],flag,size2[1],out)
-//#define g2g2convstrg0(in,size,type,typesize,out)	(type=='u': \
+/*#define g2g2convstrg0(in,size,type,typesize,out)	(type=='u': \
 			gconvstrs(in,size[0]*size[1],0,out)?gconvstrs(in,size[0]*size[1],1,out))
-
+*/
  #ifdef  __cplusplus
  } /* extern "C" */
  #endif

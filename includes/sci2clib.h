@@ -296,10 +296,6 @@ extern "C" {
 #include "factorial.h"
 #include "int_factorial.h"
 
-/*interfacing interp1*/
-#include "interp1.h"
-#include "int_interp1.h"
-
 /*interfacing primes*/
 #include "primes.h"
 #include "int_primes.h"

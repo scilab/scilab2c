@@ -85,9 +85,14 @@ else
     PrintStringInfo('CXXFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR) -L $(LIBDIR)',FileInfo.MakefileFilename,'file','y','y');
 	  PrintStringInfo('LDFLAGS = -lblas -llapack -lm ',FileInfo.MakefileFilename,'file','y','y');
     if(SharedInfo.OpenCVUsed == %T)
-      PrintStringInfo('LDFLAGS += `pkg-config --libs opencv`',FileInfo.MakefileFilename,'file','y','y');
-      PrintStringInfo('CFLAGS += `pkg-config --cflags opencv`',FileInfo.MakefileFilename,'file','y','y');
-      PrintStringInfo('CXXFLAGS += `pkg-config --cflags opencv`',FileInfo.MakefileFilename,'file','y','y');
+      //PrintStringInfo('LDFLAGS += `pkg-config --libs opencv`',FileInfo.MakefileFilename,'file','y','y');
+      //PrintStringInfo('CFLAGS += `pkg-config --cflags opencv`',FileInfo.MakefileFilename,'file','y','y');
+      //PrintStringInfo('CXXFLAGS += `pkg-config --cflags opencv`',FileInfo.MakefileFilename,'file','y','y');
+      PrintStringInfo('LDFLAGS += -lopencv_calib3d -lopencv_contrib -lopencv_features2d -lopencv_flann -lopencv_gpu',FileInfo.MakefileFilename,'file','y','y');
+      PrintStringInfo('LDFLAGS += -lopencv_highgui -lopencv_imgproc -lopencv_legacy -lopencv_ml -lopencv_nonfree',FileInfo.MakefileFilename,'file','y','y');
+      PrintStringInfo('LDFLAGS += -lopencv_objdetect -lopencv_ocl -lopencv_photo -lopencv_stitching -lopencv_superres',FileInfo.MakefileFilename,'file','y','y');
+      PrintStringInfo('LDFLAGS += -lopencv_ts -lopencv_video -lopencv_videostab -lopencv_core -lrt -lpthread -lm -ldl', FileInfo.MakefileFilename,'file','y','y');
+      PrintStringInfo('LDFLAGS += -lIlmImf -ljpeg -ljasper -ltiff -lpng -lzlib -lstdc++',FileInfo.MakefileFilename,'file','y','y');
     end
   end 
 	

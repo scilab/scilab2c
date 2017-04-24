@@ -20,7 +20,7 @@
 extern "C" {
 #endif
 
-#define max(a,b) (a>=b?a:b)
+//#define max(a,b) (a>=b?a:b)
 
 #define maxa(a,size1,b,size2,out) 	{int i;\
 						for (i=0;i<size1[0]*size2[1];i++) out[i]=max(a[i],b[i]);\
