@@ -31,6 +31,8 @@ EXTERN_ELEMFUNCT float dfloats(double in);
 
 EXTERN_ELEMFUNCT float	i8floats(int8 in);
 
+EXTERN_ELEMFUNCT float	u8floats(uint8 in);
+
 EXTERN_ELEMFUNCT float	u16floats(uint16 in);
 
 EXTERN_ELEMFUNCT float	i16floats(int16 in);

@@ -13,7 +13,7 @@
 #define __SEC_H__
 #include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
-//#include "doubleComplex.h"
+#include "doubleComplex.h"
 #include <complex.h>
 #include "types.h"
 
@@ -26,7 +26,7 @@ double dsecs(double in);
 void sseca(float* in,int size,float* out);
 float ssecs(float in);
 
-void zsecs(double complex z);
+doubleComplex zsecs(doubleComplex z);
 //void zseca(doubleComplex* in, int size,doubleComplex* out);
 floatComplex csecs(floatComplex z);
 void cseca(floatComplex* in, int size,floatComplex* out);

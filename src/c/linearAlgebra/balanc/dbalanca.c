@@ -59,7 +59,7 @@ void dbalanca(double* in1, int rows, double* in2, double* out1, \
 		memcpy(buf2,in2,rows*rows*sizeof(double));
 
 		dggbal_(&JOB,&rows,buf1,&rows,buf2,&rows,&ILO,&IHI,LSCALE,RSCALE, \
-					LWORK,INFO);
+					LWORK,&INFO);
 		deyea(out3,rows,rows);
 		deyea(out4,rows,rows);
 

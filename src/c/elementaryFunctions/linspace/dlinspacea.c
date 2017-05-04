@@ -9,13 +9,15 @@
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
 */
-
+#include <stdlib.h>
 #include "linspace.h"
+
 void dlinspacea(double *low_limit,int _row,double *up_limit,double range_num,double *out)
 {
    int i,j,k;
    double temp;
-   float step_iterate[_row];  /* for each row the spacing between two values is different.*/
+   double *step_iterate;  /* for each row the spacing between two values is different.*/
+   step_iterate = (double*) malloc((double)_row*sizeof(double));
    for(i=0;i<_row;i++)
    {
     

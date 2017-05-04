@@ -9,6 +9,7 @@
 // Author: Ashish Kamble
 // Email: toolbox@scilab.in
 
+#include <math.h>
 #include "acoth.h"
 #include "log.h"
 

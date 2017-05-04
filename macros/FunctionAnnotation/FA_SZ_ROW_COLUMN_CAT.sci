@@ -44,7 +44,7 @@ elseif(inval == '2') then
     outsize(1) = string(in1num_c);
     outsize(2) = string(in1num_c + in2num_c);
 else
-     error(36, "Wrong input argument '+inval+'. Use 1 or 2 as first argument in cat command.");
+     error(36, "Wrong input argument "+inval+". Use 1 or 2 as first argument in cat command.");
 end
 
 endfunction 

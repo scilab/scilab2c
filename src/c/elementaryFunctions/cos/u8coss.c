@@ -14,5 +14,5 @@
 #include "cos.h"
 
 float	       u8coss(uint8 x) {
-  return (cos(x));
+  return (cos((double)x));
 }

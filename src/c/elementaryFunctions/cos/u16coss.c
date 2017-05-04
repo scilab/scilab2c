@@ -14,5 +14,5 @@
 #include "cos.h"
 
 float	       u16coss(uint16 x) {
-  return (cos(x));
+  return (cos((double)x));
 }

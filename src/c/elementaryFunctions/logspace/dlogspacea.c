@@ -9,14 +9,16 @@
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
 */
-
+#include <math.h>
+#include <stdlib.h>
 #include "logspace.h"
-#include<math.h>
+
 void dlogspacea(double *low_limit,int _row,double *up_limit,double range_num,double *out)
 {
    int i,j,k;
    double temp;
-   double step_iterate[_row];  /* for each row the spacing between two values is different.*/
+   double *step_iterate;  /* for each row the spacing between two values is different.*/
+   step_iterate = (double*) malloc((double)_row*sizeof(double));
    for(i=0;i<_row;i++)
    {
      step_iterate[i] = pow(10,((up_limit[i]-low_limit[i])/(range_num-1)));

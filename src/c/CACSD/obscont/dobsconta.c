@@ -22,8 +22,8 @@ void dobsconta(double* sys, int sys_rows, int sys_cols, double* Kc, double* Kf, 
 {
 	int no_of_states, no_of_inputs, no_of_outputs, dom = 1;
     int row,col;
-    no_of_states = sys[sys_rows*(sys_cols-1)];
-    no_of_inputs = sys[sys_rows*(sys_cols-1) + 1];
+    no_of_states = (int)sys[sys_rows*(sys_cols-1)];
+    no_of_inputs = (int)sys[sys_rows*(sys_cols-1) + 1];
     no_of_outputs = sys_rows - no_of_states;
 
  	int no_of_cols;
@@ -85,7 +85,7 @@ void dobsconta(double* sys, int sys_rows, int sys_cols, double* Kc, double* Kf, 
         }
     }
 
-    dom = sys[(sys_rows*(sys_cols-2)) + no_of_states];
+    (int)dom = sys[(sys_rows*(sys_cols-2)) + no_of_states];
 
     dmulma(B,no_of_states,no_of_inputs,Kc,no_of_inputs,no_of_states,BKc);
     dmulma(Kf,no_of_states,no_of_outputs,C,no_of_outputs,no_of_states,KfC);

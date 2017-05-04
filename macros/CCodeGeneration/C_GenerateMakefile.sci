@@ -71,31 +71,20 @@ else
 	  PrintStringInfo('CFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR) -L $(LIBDIR)',FileInfo.MakefileFilename,'file','y','y');
     PrintStringInfo('CXXFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR) -L $(LIBDIR)',FileInfo.MakefileFilename,'file','y','y');
     PrintStringInfo('LDFLAGS = -llapack -lrefblas -lgfortran -lwiringPi',FileInfo.MakefileFilename,'file','y','y');
-    if(SharedInfo.OpenCVUsed == %T)
-      PrintStringInfo('LDFLAGS += -lopencv_calib3d -lopencv_contrib -lopencv_features2d -lopencv_flann -lopencv_gpu',FileInfo.MakefileFilename,'file','y','y');
-      PrintStringInfo('LDFLAGS += -lopencv_highgui -lopencv_imgproc -lopencv_legacy -lopencv_ml -lopencv_nonfree',FileInfo.MakefileFilename,'file','y','y');
-      PrintStringInfo('LDFLAGS += -lopencv_objdetect -lopencv_ocl -lopencv_photo -lopencv_stitching -lopencv_superres',FileInfo.MakefileFilename,'file','y','y');
-      PrintStringInfo('LDFLAGS += -lopencv_ts -lopencv_video -lopencv_videostab -lopencv_core -lrt -lpthread -lm -ldl', FileInfo.MakefileFilename,'file','y','y');
-      PrintStringInfo('LDFLAGS += -lIlmImf -ljpeg -ljasper -ltiff -lpng -lzlib -lstdc++',FileInfo.MakefileFilename,'file','y','y');
-    end
   else
 		PrintStringInfo('CC     = gcc',FileInfo.MakefileFilename,'file','y','y');
     PrintStringInfo('CXX     = g++',FileInfo.MakefileFilename,'file','y','y');
     PrintStringInfo('CFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR) -L $(LIBDIR)',FileInfo.MakefileFilename,'file','y','y');
     PrintStringInfo('CXXFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR) -L $(LIBDIR)',FileInfo.MakefileFilename,'file','y','y');
 	  PrintStringInfo('LDFLAGS = -lblas -llapack -lm ',FileInfo.MakefileFilename,'file','y','y');
-    if(SharedInfo.OpenCVUsed == %T)
-      //PrintStringInfo('LDFLAGS += `pkg-config --libs opencv`',FileInfo.MakefileFilename,'file','y','y');
-      //PrintStringInfo('CFLAGS += `pkg-config --cflags opencv`',FileInfo.MakefileFilename,'file','y','y');
-      //PrintStringInfo('CXXFLAGS += `pkg-config --cflags opencv`',FileInfo.MakefileFilename,'file','y','y');
+  end 
+	if(SharedInfo.OpenCVUsed == %T)
       PrintStringInfo('LDFLAGS += -lopencv_calib3d -lopencv_contrib -lopencv_features2d -lopencv_flann -lopencv_gpu',FileInfo.MakefileFilename,'file','y','y');
       PrintStringInfo('LDFLAGS += -lopencv_highgui -lopencv_imgproc -lopencv_legacy -lopencv_ml -lopencv_nonfree',FileInfo.MakefileFilename,'file','y','y');
       PrintStringInfo('LDFLAGS += -lopencv_objdetect -lopencv_ocl -lopencv_photo -lopencv_stitching -lopencv_superres',FileInfo.MakefileFilename,'file','y','y');
       PrintStringInfo('LDFLAGS += -lopencv_ts -lopencv_video -lopencv_videostab -lopencv_core -lrt -lpthread -lm -ldl', FileInfo.MakefileFilename,'file','y','y');
       PrintStringInfo('LDFLAGS += -lIlmImf -ljpeg -ljasper -ltiff -lpng -lzlib -lstdc++',FileInfo.MakefileFilename,'file','y','y');
-    end
-  end 
-	
+  end
 end
 //If ode function is used, add libgsl.
 if(size(SharedInfo.Includelist) <> 0)
@@ -110,28 +99,8 @@ PrintStringInfo('EXEFILE = $(SCI2CDIR)/$(EXEFILENAME)', FileInfo.MakefileFilenam
 
 // Sources
 //Check the output format selected and insert files according to it
-target = SharedInfo.Target;
 PrintStringInfo('SRC = $(wildcard $(CSRCDIR)/*.c)', FileInfo.MakefileFilename,'file','y','y');
 PrintStringInfo('SRCC = $(wildcard $(CSRCDIR)/*.cpp)', FileInfo.MakefileFilename,'file','y','y');
-// allSources = getAllSources(SharedInfo);
-// nbSources = size(allSources);
-
-// for i = 1:(nbSources(1) - 1)
-//   [tmppath,tmpfile,tmpext] = fileparts(allSources(i));
-  
-//   if(~isempty(strstr(allSources(i),'dode')))
-//     if(size(SharedInfo.Includelist) <> 0)
-//         if((mtlb_strcmp(part(SharedInfo.Includelist(1),1:5),'odefn') == %T))
-//           PrintStringInfo('    $(CSRCDIR)/'+tmpfile+tmpext+' \\', FileInfo.MakefileFilename,'file','y','y');
-//         end
-//     end
-//   else
-//     PrintStringInfo('    $(CSRCDIR)/'+tmpfile+tmpext+' \\', FileInfo.MakefileFilename,'file','y','y');
-//   end
-// end
-
-// [tmppath,tmpfile,tmpext] = fileparts(allSources(nbSources(1)));
-// PrintStringInfo('    $(CSRCDIR)/'+tmpfile+tmpext, FileInfo.MakefileFilename,'file','y','y');
 
 // Objects
 PrintStringInfo('OBJ = $(SRC:.c=.o)', FileInfo.MakefileFilename,'file','y','y');
