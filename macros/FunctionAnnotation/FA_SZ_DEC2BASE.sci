@@ -12,7 +12,7 @@ if (isnum(in1val)) then
     //disp(out);
 
 else
-    error(36, "Wrong input argument '+in1val+'.");
+    error(36, 'Wrong input argument '+in1val+'.');
 
 end
 if (in2_num>10) then

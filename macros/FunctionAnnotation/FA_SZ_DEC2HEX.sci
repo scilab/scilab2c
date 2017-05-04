@@ -9,7 +9,7 @@ if (isnum(inval)) then
     //disp(out);
 
 else
-    error(36, "Wrong input argument '+inval+'.");
+    error(36, 'Wrong input argument '+inval+'.');
 
 end
 

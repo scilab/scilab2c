@@ -1,0 +1,6 @@
+GenerateSetupFunction
+GetArduinoFunctions
+GetArduinoSetupFunctions
+InsertSetupInList
+IsArduinoFunction
+IsArduinoSetupFunction

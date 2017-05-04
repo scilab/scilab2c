@@ -30,4 +30,4 @@ SCI2CNInArgCheck(argn(1),1,1);
 
     in1num = string(eval(insize(1)));
     outsize = in1num;  
-endfunction:
+endfunction
