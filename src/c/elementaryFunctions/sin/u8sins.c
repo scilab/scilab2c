@@ -14,5 +14,5 @@
 #include "sin.h"
 
 float u8sins(uint8 x) {
-  return (sin(x));
+  return (sin((double)x));
 }

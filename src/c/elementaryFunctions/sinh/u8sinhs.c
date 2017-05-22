@@ -14,5 +14,5 @@
 #include "sinh.h"
 
 float u8sinhs(uint8 x) {
-  return (sinh(x));
+  return (sinh((double)x));
 }

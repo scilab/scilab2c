@@ -187,7 +187,7 @@ else
      copyBlasLapackLibs(FileInfo,SharedInfo);   //Previously .dll files and blas,lapack library not creating for cygwin  by additing this works fine
    end
    if BuildTool == "nmake"
-      copyBlasLapackLibs(FileInfo,SharedInfo);
+      //copyBlasLapackLibs(FileInfo,SharedInfo);
       C_GenerateMakefile_msvc(FileInfo,SharedInfo);
    end
 end

@@ -12,6 +12,7 @@
 
 /*Function for calculating lqe gain. Refer 'lqe.sci' in scilab source.*/
 
+#include <stdlib.h>
 #include "lqr.h"
 #include "matrixTranspose.h"
 
@@ -24,8 +25,8 @@ void dlqea(double* sys, int sys_rows, int sys_cols, double* X, double* K)
 	int sys_lqr_cols = sys_rows + 2;
 	int no_of_ip, no_of_st;
 
-	no_of_ip = sys[sys_rows*(sys_cols-1)+1];
-	no_of_st = sys[sys_rows*(sys_cols-1)];
+	no_of_ip = (int)sys[sys_rows*(sys_cols-1)+1];
+	no_of_st = (int)sys[sys_rows*(sys_cols-1)];
 	
 	/*Transpose given system and calculate LQR with new system. Transpose result
 	got from LQR*/

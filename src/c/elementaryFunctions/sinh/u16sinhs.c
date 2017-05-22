@@ -14,5 +14,5 @@
 #include "sinh.h"
 
 float u16sinhs(uint16 x) {
-  return (sinh(x));
+  return (sinh((double)x));
 }

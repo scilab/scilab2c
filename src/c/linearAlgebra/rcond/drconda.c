@@ -18,15 +18,15 @@
 
 double drconda(double* in1, int rows)
 {
-	double *buf, *IPIV, *LDWORK, *LIWORK;
-	int INFO;
+	double *buf, *LDWORK;
+	int INFO, *IPIV, *LIWORK;
 	char one = '1';
 	double ANORM;
 	double RCOND = 1;
 
 	buf   = (double*) malloc((double) rows*rows*sizeof(double));
-	IPIV   = (double*) malloc((double) rows*sizeof(double));
-	LIWORK = (double*) malloc((double) rows*sizeof(double));
+	IPIV   = (int*) malloc((int) rows*sizeof(int));
+	LIWORK = (int*) malloc((int) rows*sizeof(int));
 	LDWORK = (double*) malloc((double) 4*rows*sizeof(double));
 
 	/*Copy input in temp buf, as lapack modifies input*/

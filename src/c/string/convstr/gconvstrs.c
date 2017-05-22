@@ -11,7 +11,9 @@
 */
 
 #include <string.h>
+#include <ctype.h>
 #include "convstr.h"
+
 
 void gconvstrs(char* in, int size,char* flag,int size2,char* out)
 {

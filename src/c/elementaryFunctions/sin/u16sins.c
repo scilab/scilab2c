@@ -14,5 +14,5 @@
 #include "sin.h"
 
 float u16sins(uint16 x) {
-  return (sin(x));
+  return (sin((double)x));
 }

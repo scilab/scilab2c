@@ -80,12 +80,7 @@ double ghex2decs(char* in,int size)
                 val = 15;
                 break;
         }
-	o = o + (val * pow(16, size));
-        //printf("%f\n",out[0]);
-	//o=(int)out[0];
-	//o=o/16;
-        //printf("%d  %d  %d\n",o,val,(val * pow(16, size)));
-        //j++;
+    	o = o + (val * (int)pow((double)16, size));
         size--;
     }
 	return o;

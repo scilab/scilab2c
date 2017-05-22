@@ -65,7 +65,7 @@ function allLibraries = getAllLibraries(SharedInfo)
       allLibraries = cat(1,allLibraries,RPi_cvlibs)  
     end
   elseif Target == "StandAlone"
-    allLibraries =[];
+    allLibraries =["thirdparty/lib/pc/windows/x64/Lapack"];
     if (SharedInfo.OpenCVUsed == %T)
       os_arch = system_getproperty('os.arch');
       if(getos() == 'Linux' & os_arch == 'amd64')

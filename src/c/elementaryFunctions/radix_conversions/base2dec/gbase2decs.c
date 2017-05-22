@@ -159,12 +159,7 @@ double gbase2decs(char* in,int size,int base)
                 val = 35;
                 break;
         }
-	o = o + (val * pow(base, size));
-        //printf("%f\n",out[0]);
-	//o=(int)out[0];
-	//o=o/16;
-        //printf("%d  %d  %d\n",o,val,(val * pow(16, size)));
-        //j++;
+	   o = o + (val * (int)pow((double)base, size));
         size--;
     }
 	return o;

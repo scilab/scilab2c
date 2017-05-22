@@ -4,6 +4,7 @@
 %for_string
 %funcall_string
 %ifthenel_string
+%ifthenelse_string
 %operatio_string
 %operation_string
 %program_p
@@ -48,6 +49,7 @@ _equal_string
 _for_string
 _funcall_string
 _ifthenel_string
+_ifthenelse_string
 _operatio_string
 _operation_string
 _program_p
