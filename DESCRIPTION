@@ -1,0 +1,73 @@
+Toolbox: scilab2c
+
+Title: Scilab 2 C
+
+Summary: Translate Scilab code into C code
+
+Version: 2.3
+
+Author: Bruno JOFRET
+ Allan SIMON
+ Raffaele NUTRICATO
+ Alberto MOREA
+ Maria Teresa CHIARADA
+
+Maintainer: Pierre Marechal <pierre.marechal@contrib.scilab.org>
+ Bruno Jofret <bruno.jofret@scilab-enterprises.com>
+
+Category: Tests
+ Technical
+
+Entity: DIGITEO
+
+WebSite: http://forge.scilab.org/index.php/p/scilab2c/
+
+URL: http://atoms.scilab.org/toolboxes/scilab2c/2.3
+
+License: GPL
+
+ScilabVersion: >= 5.4
+
+Depends: 
+
+Date: 2012-08-02 09:53:30
+
+Description: Sci2C is a tool capable to translate Scilab code into C code.
+ 
+ It is a standalone toolbox of Scilab and it has been primarily developed to
+ become the interface between the Scilab scientific software package and the
+ hArtes design flow.
+ 
+ The output C code is in a plain style and does not include any part of the
+ Scilab interpreter thus making it small, efficient and easy to interface to the
+ hArtes tool chain.
+ 
+ In other words, the generated C code is standalone and minimal in the sense that
+ Scilab interpreter is no longer needed and only the minimal number of C files
+ which are necessary to execute the application are generated. It follows that
+ the generated code can be embedded in processors or used as entries for other
+ software.
+ 
+ Sci2C is implemented in Scilab language, so it naturally becomes a Scilab
+ toolbox available in the Scilab installation program and consequently it can be
+ directly used in the Scilab Development Environment. 
+ 
+ The implementation of Sci2C is mainly based on the introduction of data and
+ function annotations into Scilab code which is seen as comment by the Scilab
+ interpreter, but that are used by Sci2C to translate the Scilab code into an
+ efficient and plain C code. Moreover the use of annotations allows the user to
+ specify not only the size of data but also their precision, in that way it is
+ possible to get a further optimization of the C code produced thanks to the
+ possibility to use ad-hoc precision for each data to be processed.
+ 
+ Two major limitations can be identified in Sci2C: the first limitation of the
+ tool is that the annotations must be manually added by the user, although it is
+ the only manual intervention required by the tool; the second limitation is that
+ the size of data is fixed and consequently no dynamic array extension is
+ allowed. 
+ 
+ Other minor limitations have been introduced in order to simplify the
+ development of the tool without impacting on the usefulness of it for embedded
+ systems.
+ 
+
