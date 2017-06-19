@@ -8,6 +8,7 @@
  * are also available at    
  * http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
+ * Edited - Sandeep Gupta (FOSSEE) - IIT Bombay 
  */
 
 /* THIS IS AN AUTOMATICALLY GENERATED FILE : DO NOT EDIT BY HAND. */
@@ -26,13 +27,13 @@
 #define z0specz0(in)			zspecs(in)
 
 #define s2specc2(in,size,out)		{float* ZEROS;\
-						ZEROS=malloc((uint)(size[0]*size[0]*sizeof(float)));\
+						ZEROS=(float *)malloc((uint)(size[0]*size[0]*sizeof(float)));\
 						szerosa(ZEROS,size[0],size[0]);\
 						cspeca(FloatComplexMatrix(in,ZEROS,size[0]*size[0]), size[0], out);\
 						}
 
 #define d2specz2(in,size,out)		{double* ZEROS;\
-						ZEROS=malloc((uint)(size[0]*size[0]*sizeof(double)));\
+						ZEROS=(double *)malloc((uint)(size[0]*size[0]*sizeof(double)));\
 						dzerosa(ZEROS,size[0],size[0]);\
 						zspeca(DoubleComplexMatrix(in,ZEROS,size[0]*size[0]), size[0] , out);\
 						}
@@ -52,13 +53,13 @@
 #define z0specz0z0(in,out)			zspec2s(in,out)
 
 #define s2specc2c2(in,size,out1,out2)		{float* ZEROS;\
-						ZEROS=malloc((uint)(size[0]*size[0]*sizeof(float)));\
+						ZEROS=(float *)malloc((uint)(size[0]*size[0]*sizeof(float)));\
 						szerosa(ZEROS,size[0],size[0]);\
 						cspec2a(FloatComplexMatrix(in,ZEROS,size[0]*size[0]), size[0] , out1 , out2 );\
 						}
 
 #define d2specz2z2(in,size,out1,out2)		{double* ZEROS;\
-						ZEROS=malloc((uint)(size[0]*size[0]*sizeof(double)));\
+						ZEROS=(double *)malloc((uint)(size[0]*size[0]*sizeof(double)));\
 						dzerosa(ZEROS,size[0],size[0]);\
 						zspec2a(DoubleComplexMatrix(in,ZEROS,size[0]*size[0]), size[0] , out1 , out2 );\
 						}

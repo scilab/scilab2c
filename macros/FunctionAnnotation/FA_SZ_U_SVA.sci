@@ -25,15 +25,15 @@ function opout = FA_SZ_U_SVA(in1,in2)
 //
 // -----------------------------------------------------------------
 
-in1 = string(in1);
-in1 = eval(in1);
-in2 = string(in2);
-in2 = eval(in2);
-
-[U,S,V] = sva(in1,in2);
-outsize = size(U)
-
-opout = outsize(2)
-opout = string(opout)
+//in1 = string(in1);
+disp(in1)
+disp(in2)
+//in1 = eval(in1);
+//in2 = string(in2);
+//in2 = eval(in2);
+//[U,S,V] = sva(in1,in2);
+//outsize = size(U)
+//opout = outsize(2)
+opout = string(in2)
 
 endfunction

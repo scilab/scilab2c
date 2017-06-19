@@ -32,7 +32,7 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/type/int_real.h"
       "src/c/matrixOperations/interfaces/int_vmagn.h"
       "src/c/matrixOperations/interfaces/int_ones.h"
-      "src/c/matrixOperations/interfaces/int_spec.h"
+      "src/c/linearAlgebra/interfaces/int_spec.h"
       "src/c/matrixOperations/interfaces/int_cat.h"
       "src/c/matrixOperations/interfaces/int_zeros.h"
       "src/c/matrixOperations/interfaces/int_OpBackSlash.h"

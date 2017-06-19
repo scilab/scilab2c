@@ -60,7 +60,7 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/matrixOperations/includes/logm.h"
       "src/c/matrixOperations/includes/ones.h"
       "src/c/matrixOperations/includes/matrixSquaredMagnitude.h"
-      "src/c/matrixOperations/includes/spec.h"
+      "src/c/linearAlgebra/includes/spec.h"			// moved from matrixOperation to linearAlgebra
       "src/c/matrixOperations/includes/matrixTranspose.h"
       "src/c/matrixOperations/includes/determ.h"
       "src/c/matrixOperations/includes/matrixMultiplication.h"

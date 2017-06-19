@@ -373,7 +373,7 @@ extern "C" {
 /* interfacing ones */
 #include "ones.h"
 #include "int_ones.h"
-/* interfacing spec */
+/* Linear Algebra - spec */
 #include "spec.h"
 #include "int_spec.h"
 /* interfacing trace */
