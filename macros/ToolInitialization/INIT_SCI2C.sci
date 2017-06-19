@@ -1,5 +1,5 @@
 function [FileInfoDatFile,SharedInfoDatFile] = ...
-    INIT_SCI2C(UserScilabMainFile, UserSciFilesPaths, SCI2COutputDir, RunMode,Target)
+    INIT_SCI2C(UserScilabMainFile, UserSciFilesPaths, SCI2COutputDir, RunMode,Target,Board_name)
 // function [FileInfoDatFile,SharedInfoDatFile] = INIT_SCI2C(SCI2CInputPrmFile)
 // -----------------------------------------------------------------
 // #RNU_RES_B
@@ -68,7 +68,7 @@ OutCCCodeDir = SCI2CResultDir;
 
 //-- FIXME : MainLibHeader and Verbose mode are (?) configurable
 SharedInfo = INIT_GenSharedInfo(RunMode,UserScilabMainFile, ...
-				TotTempScalarVars,EnableTempVarsReuse,"sci2clib.h", %t,Target);
+				TotTempScalarVars,EnableTempVarsReuse,"sci2clib.h", %t,Target,Board_name);
 
 // ----------------------------
 // --- Initialize FileInfo. ---
