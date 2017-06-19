@@ -65,8 +65,22 @@ extern "C" {
 #include "rand.h"
 #include "int_rand.h"
 
+/* INTERPOLATION FUNCTIONS*/
+
+/*interfacing interp1*/
+#include "interp1.h"
+#include "int_interp1.h"
+
 /* ELEMENTARY FUNCTIONS */
 
+#include "nextpow2.h"
+#include "int_nextpow2.h"
+/*interfacing gcd*/
+#include "gcd.h"
+#include "int_gcd.h"
+/* interfacing isreal*/
+#include "isreal.h"
+#include "int_isreal.h"
 /* interfacing atand */
 #include "atand.h"
 #include "int_atand.h"
@@ -412,6 +426,18 @@ extern "C" {
 #include "norm.h"
 
 /* SIGNAL PROCESSING */
+
+
+#include "modk.h"
+#include "int_modk.h"
+/* interfacing idct */
+#include "idct.h"
+#include "int_idct.h"
+
+/* interfacing dct   */
+#include "dct.h"
+#include "int_dct.h"
+
 /* interfacing convol */
 #include "conv.h"
 #include "conv2d.h"

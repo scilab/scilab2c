@@ -73,6 +73,14 @@ global STACKDEDUG
 // #RNU_RES_E
 [ASTFunName,InArg,NInArg,OutArg,NOutArg] = AST_GetFuncallPrm(FileInfo,SharedInfo,ASTFunType);
 NOutArg_mod = NOutArg
+	if ASTFunName == 'OpLogAnd'
+		AST_PushASTStack('&&');
+		return ;
+	end
+	if ASTFunName == 'OpLogOr'
+		AST_PushASTStack('||');
+		return;
+	end
 	if(mtlb_strcmp(part(ASTFunName,1:2),'CV') == %T)
 		SharedInfo.OpenCVUsed = %T;
 	end
@@ -119,6 +127,9 @@ NOutArg_mod = NOutArg
 	// --- Read the function annotations. ---
 	// --------------------------------------
 	// #RNU_RES_E
+	if ASTFunName == '%k'
+		ASTFunName='modk';
+	end
 	
 	if (ASTFunName == 'OpEqual')
 	   FunTypeAnnot = '';
@@ -132,6 +143,7 @@ NOutArg_mod = NOutArg
 	// --- Search for Equal Lhs and precision specifier to be applied to the current function. ---
 	// -------------------------------------------------------------------------------------------
 	// #RNU_RES_E
+	PrintStringInfo(' no of out arguments' + string(NOutArg),ReportFileName,'file','y');
 	[LhsArg,NLhsArg,FunPrecSpecifier,SharedInfo] = AST_GetPrecAndLhsArg(OutArg,NOutArg,ASTFunName,FunTypeAnnot,FunSizeAnnot,ASTFunType,FileInfo,SharedInfo);
 	//NUT: questa funzione contiene troppi parametri e mi sembra disordinata.
 
@@ -329,8 +341,13 @@ NOutArg_mod = NOutArg
 	   OutArg(1).Name  = string(OutArg(1).Value);
 	elseif ((ASTFunName == 'double') & (NInArg == 1) & (InArg(1).Dimension == 0) & (InArg(1).Scope == 'Number'))
 	   OutArg(1).Name  = string(OutArg(1).Value);
+	//elseif ASTFunName == 'disp'
 	else
 	   [OutArg,SharedInfo] = GenOutArgNames(ASTFunName,InArg,NInArg,OutArg,NOutArg,LhsArg,NLhsArg,FileInfo,SharedInfo);
+	   if ( ASTFunName == 'OpLogGt' | ASTFunName == 'OpLogLt' | ASTFunName == 'OpLogLe' | ASTFunName == 'OpLogGe' | ASTFunName == 'OpLogNe' | ASTFunName == 'OpLogEq')
+		PrintStringInfo('   returning back due logical function',ReportFileName,'file','y');
+		return;
+	   end
 	end
 	
 	if ((ASTFunName == 'uint8') & (NInArg == 1) & (InArg(1).Dimension == 0) & (InArg(1).Scope == 'Number'))
@@ -374,6 +391,8 @@ NOutArg_mod = NOutArg
 	   // Scope already set above.
 	elseif (ASTFunName == 'double' & NInArg == 1 & (InArg(1).Dimension == 0) & (InArg(1).Scope == 'Number'))
 	   // Scope already set above.
+	//elseif ASTFunName == 'disp'
+	   //do nothing
 	else
 	   OutArg = ST_AnalyzeScope(OutArg,NOutArg,FileInfo,SharedInfo);
 	end
@@ -392,6 +411,8 @@ NOutArg_mod = NOutArg
 	   //#RNUREM_ME A number is not inserted in the symbol table.
 	elseif ((ASTFunName == 'double') & (NInArg == 1) & (InArg(1).Dimension == 0) & (InArg(1).Scope == 'Number'))
 	   //#RNUREM_ME A number is not inserted in the symbol table.
+	//elseif ASTFunName == 'disp'
+	   //do nothing
 	else
 	   ST_InsOutArg(OutArg,NOutArg,FileInfo,SharedInfo,'all');
 	end
@@ -424,8 +445,9 @@ NOutArg_mod = NOutArg
 	// --------------------------------------------
 	//#RNU_RES_E
 	//disp(OutArg,InArg,ASTFunName)
+
 	CFunName = C_GenerateFunName(ASTFunName,InArg,NInArg,OutArg,NOutArg_mod);
-    
+    	
   	//#RNU_RES_B
 	PrintStringInfo('   C Function Name: '+CFunName,ReportFileName,'file','y');
 	if(IsArduinoFunction(ASTFunName))
@@ -495,6 +517,8 @@ NOutArg_mod = NOutArg
 	if (((ASTFunName=='OpEqual') & (SharedInfo.SkipNextEqual == 1)) | ...
 		SharedInfo.SkipNextFun > 0 | ...
 		((sum(mtlb_strcmp(ASTFunName,SharedInfo.Annotations.DataPrec)) > 0) & (SharedInfo.SkipNextPrec == 1)))
+	   // Do nothing
+	//elseif ASTFunName == 'disp'
 	   // Do nothing
 	else
 	   AST_CheckCommonInOutArgs(InArg,NInArg,OutArg,NOutArg,ReportFileName);

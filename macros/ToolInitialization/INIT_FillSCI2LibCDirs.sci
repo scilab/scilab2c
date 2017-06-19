@@ -844,6 +844,207 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,E
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
 // -------------------
+// --- Class Isreal. ---
+// -------------------
+ClassName = 'Isreal';
+
+// --- Class Annotation. ---
+PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
+ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
+PrintStringInfo('NIN=          1',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+//Was FA_TP_USER
+//Cause some trouble if user specify some precision and if input(and also output) is complex.
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y'); //FOR INRIA changed from IN(1).TP to FA_TP_USER
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+//---Function list class. ----
+ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+PrintStringInfo('s0'+ArgSeparator+'s0',ClassFileName,'file','y');
+PrintStringInfo('d0'+ArgSeparator+'d0',ClassFileName,'file','y');
+//PrintStringInfo('z0'+ArgSeparator+'d0',ClassFileName,'file','y');
+//PrintStringInfo('z0'+ArgSeparator+'z0',ClassFileName,'file','y');
+
+// --- Annotation Function And Function List Function. ---
+FunctionName = 'isreal';
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+
+ClassName = 'gcd';
+
+// --- Class Annotation. ---
+PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
+ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
+PrintStringInfo('NIN=          1',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+//Was FA_TP_USER
+//Cause some trouble if user specify some precision and if input(and also output) is complex.
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y'); //FOR INRIA changed from IN(1).TP to FA_TP_USER
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+//---Function list class. ----
+ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+PrintStringInfo('u82'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('u80'+ArgSeparator+'u80',ClassFileName,'file','y');
+//PrintStringInfo('d2'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('d2'+ArgSeparator+'d2',ClassFileName,'file','y');
+
+// --- Annotation Function And Function List Function. ---
+FunctionName = 'gcd';
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+ClassName = 'nextpow2';
+
+// --- Class Annotation. ---
+PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
+ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
+PrintStringInfo('NIN=          1',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+//Was FA_TP_USER
+//Cause some trouble if user specify some precision and if input(and also output) is complex.
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y'); //FOR INRIA changed from IN(1).TP to FA_TP_USER
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+
+ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+//PrintStringInfo('u82'+ArgSeparator+'u80',ClassFileName,'file','y');
+//PrintStringInfo('u80'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('d0'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('d2'+ArgSeparator+'d2',ClassFileName,'file','y');
+
+// --- Annotation Function And Function List Function. ---
+FunctionName = 'nextpow2';
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+
+
+ClassName = 'interp1';
+
+// --- Class Annotation. ---
+PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
+ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
+PrintStringInfo('NIN=          1',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+//Was FA_TP_USER
+//Cause some trouble if user specify some precision and if input(and also output) is complex.
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y'); //FOR INRIA changed from IN(1).TP to FA_TP_USER
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+
+PrintStringInfo('NIN=          2',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+//Was FA_TP_USER
+//Cause some trouble if user specify some precision and if input(and also output) is complex.
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y'); //FOR INRIA changed from IN(1).TP to FA_TP_USER
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+
+PrintStringInfo('NIN=          3',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+//Was FA_TP_USER
+//Cause some trouble if user specify some precision and if input(and also output) is complex.
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y'); //FOR INRIA changed from IN(1).TP to FA_TP_USER
+PrintStringInfo('OUT(1).SZ(1)= IN(3).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(3).SZ(2)',ClassFileName,'file','y');
+
+PrintStringInfo('NIN=          4',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+//Was FA_TP_USER
+//Cause some trouble if user specify some precision and if input(and also output) is complex.
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y'); //FOR INRIA changed from IN(1).TP to FA_TP_USER
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+
+//---Function list class. ----
+ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+//PrintStringInfo('u82'+ArgSeparator+'u80',ClassFileName,'file','y');
+//PrintStringInfo('u80'+ArgSeparator+'u80',ClassFileName,'file','y');
+//PrintStringInfo('d2'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('d2d2d2'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('d2d2d2g2'+ArgSeparator+'d2',ClassFileName,'file','y');
+
+// --- Annotation Function And Function List Function. ---
+FunctionName = 'interp1';
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+
+// -------------------
+// --- Class DCT. ---
+// -------------------
+ClassName = 'dct';
+
+// --- Class Annotation. ---
+PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
+ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
+PrintStringInfo('NIN=          1',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+//Was FA_TP_USER
+//Cause some trouble if user specify some precision and if input(and also output) is complex.
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y'); //FOR INRIA changed from IN(1).TP to FA_TP_USER
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+
+PrintStringInfo('NIN=          2',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+//Was FA_TP_USER
+//Cause some trouble if user specify some precision and if input(and also output) is complex.
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y'); //FOR INRIA changed from IN(1).TP to FA_TP_USER
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+
+// --- Function List Class. ---
+ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+
+PrintStringInfo('d2'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('d2d0'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('z2'+ArgSeparator+'z2',ClassFileName,'file','y');
+PrintStringInfo('z2d0'+ArgSeparator+'z2',ClassFileName,'file','y');
+PrintStringInfo('c2'+ArgSeparator+'c2',ClassFileName,'file','y');
+PrintStringInfo('c2s0'+ArgSeparator+'c2',ClassFileName,'file','y');
+// --- Annotation Function And Function List Function. ---
+FunctionName = 'dct';
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+// -------------------
+// --- Class IDCT. ---
+// -------------------
+ClassName = 'idct';
+
+// --- Class Annotation. ---
+PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
+ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
+PrintStringInfo('NIN=          1',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+//Was FA_TP_USER
+//Cause some trouble if user specify some precision and if input(and also output) is complex.
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y'); //FOR INRIA changed from IN(1).TP to FA_TP_USER
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+// --- Function List Class. ---
+ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+
+PrintStringInfo('d2'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('z2'+ArgSeparator+'z2',ClassFileName,'file','y');
+PrintStringInfo('c2'+ArgSeparator+'c2',ClassFileName,'file','y');
+// --- Annotation Function And Function List Function. ---
+FunctionName = 'idct';
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+
+
+// -------------------
 // --- Class Sqrt. ---
 // -------------------
 ClassName = 'Sqrt';
@@ -7455,6 +7656,7 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+PrintStringInfo('d2d2d2'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('d2d2d0g2'+ArgSeparator+'d0',ClassFileName,'file','y');
 //PrintStringInfo('d2'+ArgSeparator+'d2',ClassFileName,'file','y');
 //PrintStringInfo('s0'+ArgSeparator+'s0',ClassFileName,'file','y');
@@ -7471,6 +7673,36 @@ PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file',
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
+
+// --- Class Modk. ---
+// ------------------
+ClassName = 'Modk';
+
+// --- Class Annotation. ---
+PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
+ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
+PrintStringInfo('NIN=          1',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    ''d''',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+
+// --- Function List Class. ---
+ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+PrintStringInfo('d2'+ArgSeparator+'d2',ClassFileName,'file','y');
+//PrintStringInfo('s0'+ArgSeparator+'s0',ClassFileName,'file','y');
+//PrintStringInfo('s2'+ArgSeparator+'s2',ClassFileName,'file','y');
+
+//PrintStringInfo('z2'+ArgSeparator+'z2',ClassFileName,'file','y');
+//PrintStringInfo('z0'+ArgSeparator+'z0',ClassFileName,'file','y');
+//PrintStringInfo('c2'+ArgSeparator+'c2',ClassFileName,'file','y');
+//PrintStringInfo('c0'+ArgSeparator+'c0',ClassFileName,'file','y');
+
+// --- Annotation Function And Function List Function. ---
+FunctionName = 'modk'; 
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
 
 //------------------------------------
