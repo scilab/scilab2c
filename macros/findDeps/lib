@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <scilablib name="scilab2clib">
   <macro name="findDeps" file="findDeps.bin" md5="84601fa84fc20d60cf13a314f416eb7a"/>
-  <macro name="getAllHeaders" file="getAllHeaders.bin" md5="3c63954ca20ef81c5d932af02322fec4"/>
+  <macro name="getAllHeaders" file="getAllHeaders.bin" md5="8e21ae3669d6db632552aba41eb23170"/>
   <macro name="getAllInterfaces" file="getAllInterfaces.bin" md5="9d04a03e4f869830242dcc4172a5ab96"/>
   <macro name="getAllLibraries" file="getAllLibraries.bin" md5="66f2a3077700b6a833c7256fcb1a8c9c"/>
   <macro name="getAllSources" file="getAllSources.bin" md5="3f7100c25098af239631246751f666c9"/>

@@ -197,7 +197,14 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/scilab-arduino/interfaces/int_cmd_analog_in.h"
       "src/c/scilab-arduino/interfaces/int_cmd_dcmotor.h"
       "src/c/scilab-arduino/interfaces/int_cmd_servo.h"
-      "src/c/scilab-arduino/interfaces/int_sleep.h"];
+      "src/c/scilab-arduino/interfaces/int_sleep.h"
+      "src/c/scilab-arduino/interfaces/int_cmd_analog_in_volt.h"
+      "src/c/scilab-arduino/interfaces/int_cmd_analog_out_volt.h"
+      "src/c/scilab-arduino/interfaces/int_cmd_i2c_dev.h"
+      "src/c/scilab-arduino/interfaces/int_cmd_i2c_write.h"
+      "src/c/scilab-arduino/interfaces/int_cmd_i2c_read.h"
+      "src/c/scilab-arduino/interfaces/int_cmd_i2c_write_register.h"
+      "src/c/scilab-arduino/interfaces/int_cmd_i2c_read_register.h"];
 
   //Interface files required for "AVR" output
   AVR_interfaces = [
