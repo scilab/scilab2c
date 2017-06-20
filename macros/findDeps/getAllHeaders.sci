@@ -247,4 +247,8 @@ function allHeaders = getAllHeaders(SharedInfo)
       allHeaders = cat(1,allHeaders,OpenCV_headers);
   end
 
+  if((mtlb_strcmp(part(SharedInfo.Includelist(1),1:5),'odefn') == %T))
+  	allHeaders = cat(1,allHeaders,"thirdparty/includes/GSL");
+  end
+
 endfunction

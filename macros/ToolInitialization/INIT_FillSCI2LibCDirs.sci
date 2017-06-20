@@ -6527,15 +6527,34 @@ ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
 PrintStringInfo('NIN=         1',ClassFileName,'file','y');
 PrintStringInfo('NOUT=         2',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).TP=    ''d''',ClassFileName,'file','y');
-PrintStringInfo('OUT(1).SZ(1)= FA_SZ_1(FA_SZ_LQR(IN(1).VAL))',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= FA_SZ_2(FA_SZ_LQR(IN(1).VAL))',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(2)= FA_SZ_1(FA_SZ_LQR(IN(1).VAL))',ClassFileName,'file','y');
 PrintStringInfo('OUT(2).TP=    ''d''',ClassFileName,'file','y');
-PrintStringInfo('OUT(2).SZ(1)= FA_SZ_2(FA_SZ_LQR(IN(1).VAL))',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(1)= FA_SZ_1(FA_SZ_LQR(IN(1).VAL))',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(2)= FA_SZ_1(FA_SZ_LQR(IN(1).VAL))',ClassFileName,'file','y');
+
+PrintStringInfo('NIN=         3',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         2',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    ''d''',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= FA_SZ_2(FA_SZ_LQR(IN(1).VAL))',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= FA_SZ_1(FA_SZ_LQR(IN(1).VAL))',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).TP=    ''d''',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(1)= FA_SZ_1(FA_SZ_LQR(IN(1).VAL))',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(2)= FA_SZ_1(FA_SZ_LQR(IN(1).VAL))',ClassFileName,'file','y');
+
+PrintStringInfo('NIN=         4',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         2',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    ''d''',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= FA_SZ_2(FA_SZ_LQR(IN(1).VAL))',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= FA_SZ_1(FA_SZ_LQR(IN(1).VAL))',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).TP=    ''d''',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(1)= FA_SZ_1(FA_SZ_LQR(IN(1).VAL))',ClassFileName,'file','y');
 PrintStringInfo('OUT(2).SZ(2)= FA_SZ_1(FA_SZ_LQR(IN(1).VAL))',ClassFileName,'file','y');
 
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('ss2'+ArgSeparator+'d2d2',ClassFileName,'file','y');
-
+PrintStringInfo('ss2d2d2'+ArgSeparator+'d2d2',ClassFileName,'file','y');
+PrintStringInfo('ss2d2d2d2'+ArgSeparator+'d2d2',ClassFileName,'file','y');
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'lqr'; 
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');

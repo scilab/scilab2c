@@ -6,7 +6,7 @@
   <macro name="C_GenDeclarations" file="C_GenDeclarations.bin" md5="ee8ec8971503228c9717c5125fce85f3"/>
   <macro name="C_GenerateFunName" file="C_GenerateFunName.bin" md5="085877ab44748da056c79995d3555ec2"/>
   <macro name="C_GenerateLaunchScript" file="C_GenerateLaunchScript.bin" md5="6a7eebd266f6ba252a610a9b6e5e12fe"/>
-  <macro name="C_GenerateMakefile" file="C_GenerateMakefile.bin" md5="2786ec422a65d735cbeef69d14e1e801"/>
+  <macro name="C_GenerateMakefile" file="C_GenerateMakefile.bin" md5="7874d54e825ecb576f9b3e0d9c7d781b"/>
   <macro name="C_GenerateMakefile_msvc" file="C_GenerateMakefile_msvc.bin" md5="d2962ecb30341f5815ddc52e6fc03543"/>
   <macro name="C_GenerateSCI2CHeader" file="C_GenerateSCI2CHeader.bin" md5="0718f257ee598048a8c8c0fcdb06c8fc"/>
   <macro name="C_IfElseBlocks" file="C_IfElseBlocks.bin" md5="78d53c95511b9b46ea8739a177efd631"/>

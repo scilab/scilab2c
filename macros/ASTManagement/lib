@@ -13,7 +13,7 @@
   <macro name="%program_string" file="%program_string.bin" md5="879f4b4f005fd98d8dd1a198e85b4dce"/>
   <macro name="%variable_string" file="%variable_string.bin" md5="be1ccff22e2958638882c809403b2a36"/>
   <macro name="%while_string" file="%while_string.bin" md5="3f9300680176235c78bfc42abbe11715"/>
-  <macro name="AST2Ccode" file="AST2Ccode.bin" md5="15a60b078a7d01b0ef9aa6ba9ea3f0d9"/>
+  <macro name="AST2Ccode" file="AST2Ccode.bin" md5="ef63ed363eb7ed0ab5e3a6d19b3aa8fc"/>
   <macro name="AST_CheckCommonInOutArgs" file="AST_CheckCommonInOutArgs.bin" md5="7be23272bbff9b141535b71c0eefb3b4"/>
   <macro name="AST_CheckLastFunc" file="AST_CheckLastFunc.bin" md5="41af209af677f8fd3c68fd1920a7fcbb"/>
   <macro name="AST_CheckLineLength" file="AST_CheckLineLength.bin" md5="eb2c4ac2671c0cf8df0ed2fe354ac94c"/>
@@ -23,7 +23,7 @@
   <macro name="AST_GetASTFile" file="AST_GetASTFile.bin" md5="46b005d916ff66672d4424fe6c867371"/>
   <macro name="AST_GetFuncallPrm" file="AST_GetFuncallPrm.bin" md5="eae44f2db2aa35208413d2748f4b1eda"/>
   <macro name="AST_GetPrecAndLhsArg" file="AST_GetPrecAndLhsArg.bin" md5="a295fca5ee80625948428f8cccca4728"/>
-  <macro name="AST_HandleEOL" file="AST_HandleEOL.bin" md5="41ac83445b2b86cffcb1d592fd0c7560"/>
+  <macro name="AST_HandleEOL" file="AST_HandleEOL.bin" md5="f409b060684fb927473057b32ef5d7f0"/>
   <macro name="AST_HandleEndFor" file="AST_HandleEndFor.bin" md5="fdbd73e88f395b5af34aaff8f338257a"/>
   <macro name="AST_HandleEndGenFun" file="AST_HandleEndGenFun.bin" md5="df5c68198d63a3359690d0ab672cf062"/>
   <macro name="AST_HandleEndProgram" file="AST_HandleEndProgram.bin" md5="6c15e907c85813690569e22aafe1ad73"/>

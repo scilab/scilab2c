@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <scilablib name="scilab2clib">
   <macro name="INIT_CreateDirs" file="INIT_CreateDirs.bin" md5="5b23f4434e84d9a783841b3bbd77a8ed"/>
-  <macro name="INIT_FillSCI2LibCDirs" file="INIT_FillSCI2LibCDirs.bin" md5="ee49a61032430fd6560031777c35bc76"/>
+  <macro name="INIT_FillSCI2LibCDirs" file="INIT_FillSCI2LibCDirs.bin" md5="44aca48a3736c5f88da03cea2e948f97"/>
   <macro name="INIT_GenAnnFLFunctions" file="INIT_GenAnnFLFunctions.bin" md5="682d03ac085a9d855a7057ba0a7f539a"/>
   <macro name="INIT_GenFileInfo" file="INIT_GenFileInfo.bin" md5="a4e048fb09778089af4740d69f1bdbe7"/>
   <macro name="INIT_GenLibraries" file="INIT_GenLibraries.bin" md5="f839fe378df2a79345c693ad0a1a6ed5"/>
