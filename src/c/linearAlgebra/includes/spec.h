@@ -49,6 +49,9 @@ EXTERN_MATOPS void dspec2a(double* in, int rows, double* eigenvalues,double* eig
 EXTERN_MATOPS void cspec2a(floatComplex* in, int rows, floatComplex* eigenvalues,floatComplex* eigenvectors);
 EXTERN_MATOPS void zspec2a(doubleComplex* in, int rows,doubleComplex* eigenvalues,doubleComplex* eigenvectors);
 
+/*Edited by - Sandeep Gupta, IITB FOSSEE*/
+void dspec1a(double *in1,double *in2,int size,int nout,doubleComplex *out1,double *out2,doubleComplex *out3,doubleComplex *out4);
+
 #ifdef  __cplusplus
 } /* extern "C" */
 #endif

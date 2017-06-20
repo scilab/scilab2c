@@ -1194,6 +1194,7 @@ function allSources = getAllSources(SharedInfo)
 	  "src/c/linearAlgebra/svd/zsvda.c"
 	  "src/c/linearAlgebra/hess/dhessa.c"
 	  "src/c/linearAlgebra/sva/dsvaa.c"
+	  "src/c/linearAlgebra/spec/dspec1a.c"
       "src/c/linearAlgebra/rcond/drconda.c"];
 
   //Files to be inserted only if output format selected is 'Arduino'.

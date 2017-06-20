@@ -4264,6 +4264,49 @@ PrintStringInfo('OUT(2).TP=    FA_TP_COMPLEX(IN(1).TP)',ClassFileName,'file','y'
 PrintStringInfo('OUT(2).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
 PrintStringInfo('OUT(2).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
 
+// Edited by Sandeep Gupta, IITB FOSSEE Project.
+PrintStringInfo('NIN=          2',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    FA_TP_COMPLEX(IN(1).TP)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
+
+PrintStringInfo('NIN=          2',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         2',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    FA_TP_COMPLEX(IN(1).TP)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(2)= ''1''',ClassFileName,'file','y');
+
+PrintStringInfo('NIN=          2',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         3',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    FA_TP_COMPLEX(IN(1).TP)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(2)= ''1''',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).TP=    FA_TP_COMPLEX(IN(1).TP)',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).SZ(2)= IN(1).SZ(1)',ClassFileName,'file','y');
+
+PrintStringInfo('NIN=          2',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         4',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    FA_TP_COMPLEX(IN(1).TP)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(2)= ''1''',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).TP=    FA_TP_COMPLEX(IN(1).TP)',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).SZ(2)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(4).TP=    FA_TP_COMPLEX(IN(1).TP)',ClassFileName,'file','y');
+PrintStringInfo('OUT(4).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(4).SZ(2)= IN(1).SZ(1)',ClassFileName,'file','y');
+
 // --- Function List Class. ---
 //NUT: no mixed data types
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
@@ -4291,6 +4334,12 @@ PrintStringInfo('d2'+ArgSeparator+'d2d2',ClassFileName,'file','y');
 PrintStringInfo('d2'+ArgSeparator+'z2z2',ClassFileName,'file','y');
 PrintStringInfo('c2'+ArgSeparator+'c2c2',ClassFileName,'file','y');
 PrintStringInfo('z2'+ArgSeparator+'z2z2',ClassFileName,'file','y');
+
+PrintStringInfo('d2d2'+ArgSeparator+'z2',ClassFileName,'file','y');
+PrintStringInfo('d2d2'+ArgSeparator+'z2d2',ClassFileName,'file','y');
+PrintStringInfo('d2d2'+ArgSeparator+'z2d2z2',ClassFileName,'file','y');
+PrintStringInfo('d2d2'+ArgSeparator+'z2d2z2z2',ClassFileName,'file','y');
+
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'spec'; // AS : Done  AS : Float_Done

@@ -69,4 +69,11 @@
 
 #define z2specz2z2(in,size,out1,out2)		zspec2a(in, size[0], out2, out1)
 
+/*Edited by Sandeep Gupta, IITB, FOSSEE Project.spec(A,B) */
+
+#define d2d2specz2(in1,size,in2,size2,out1) dspec1a(in1,in2,size[0],1,out1,NULL,NULL,NULL)
+#define d2d2specz2d2(in1,size,in2,size2,out1,out2) dspec1a(in1,in2,size[0],2,out1,out2,NULL,NULL)
+#define d2d2specz2d2z2(in1,size,in2,size2,out1,out2,out3) dspec1a(in1,in2,size[0],3,out1,out2,out3,NULL)
+#define d2d2specz2d2z2z2(in1,size,in2,size2,out1,out2,out3,out4) dspec1a(in1,in2,size[0],4,out1,out2,out3,out4)
+
 #endif /* !__INT_SPEC_H__ */
