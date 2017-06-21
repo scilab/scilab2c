@@ -1207,7 +1207,15 @@ function allSources = getAllSources(SharedInfo)
       //"src/c/scilab-arduino/cmd_servo_attach/u8cmd_servo_attach.cpp"
       //"src/c/scilab-arduino/cmd_servo_detach/u8cmd_servo_detach.cpp"
       //"src/c/scilab-arduino/cmd_servo_move/u8cmd_servo_move.cpp"
-      "src/c/scilab-arduino/sleep/u16sleeps.c"];
+      "src/c/scilab-arduino/sleep/u16sleeps.c"
+      "src/c/scilab-arduino/cmd_analog_in_volt/u8cmd_analog_in_volts.c"
+      "src/c/scilab-arduino/cmd_analog_out_volt/u8cmd_analog_out_volts.c"
+      "src/c/scilab-arduino/cmd_dcmotor_release/u8cmd_dcmotor_releases.c"
+      "src/c/scilab-arduino/cmd_i2c_dev/u8cmd_i2c_devs.cpp"
+      "src/c/scilab-arduino/cmd_i2c_write/u8cmd_i2c_writes.cpp"
+      "src/c/scilab-arduino/cmd_i2c_read/u8cmd_i2c_reads.cpp"
+      "src/c/scilab-arduino/cmd_i2c_write_register/u8cmd_i2c_write_registers.cpp"
+      "src/c/scilab-arduino/cmd_i2c_read_register/u8cmd_i2c_read_registers.cpp"];
 
   //Files to be inserted only if output format selected is 'AVR'.
   AVR_files = [

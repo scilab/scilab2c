@@ -23,6 +23,5 @@ function arduinoFiles = getArduinoFiles()
 
   arduinoFiles = [
 		"src/c/scilab-arduino/default_files/setup_arduino.h"
-		"src/c/scilab-arduino/default_files/Makefile"
 		"src/c/scilab-arduino/default_files/sci2c_arduino.ino"];
 endfunction

@@ -208,7 +208,15 @@ function allHeaders = getAllHeaders(SharedInfo)
       //"src/c/scilab-arduino/includes/cmd_servo_attach.h"
       //"src/c/scilab-arduino/includes/cmd_servo_detach.h"
       //"src/c/scilab-arduino/includes/cmd_servo_move.h"
-      "src/c/scilab-arduino/includes/sleep.h"];
+      "src/c/scilab-arduino/includes/sleep.h"
+      "src/c/scilab-arduino/includes/cmd_analog_in_volt.h"
+	"src/c/scilab-arduino/includes/cmd_analog_out_volt.h"
+      "src/c/scilab-arduino/includes/cmd_dcmotor_release.h"
+      "src/c/scilab-arduino/includes/cmd_i2c_dev.h"
+      "src/c/scilab-arduino/includes/cmd_i2c_write.h"
+      "src/c/scilab-arduino/includes/cmd_i2c_read.h"
+      "src/c/scilab-arduino/includes/cmd_i2c_read_register.h"
+      "src/c/scilab-arduino/includes/cmd_i2c_write_register.h"];
 
   AVR_headers = [
       "src/c/hardware/avr/includes/AVRPeripheralGPIO.h"
@@ -248,6 +256,10 @@ function allHeaders = getAllHeaders(SharedInfo)
 
   if (SharedInfo.OpenCVUsed == %T)
       allHeaders = cat(1,allHeaders,OpenCV_headers);
+  end
+
+  if((mtlb_strcmp(part(SharedInfo.Includelist(1),1:5),'odefn') == %T))
+  	allHeaders = cat(1,allHeaders,"thirdparty/includes/GSL");
   end
 
 endfunction
