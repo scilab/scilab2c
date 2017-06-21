@@ -396,7 +396,7 @@ extern "C" {
 /* interfacing ones */
 #include "ones.h"
 #include "int_ones.h"
-/* interfacing spec */
+/* Linear Algebra - spec */
 #include "spec.h"
 #include "int_spec.h"
 /* interfacing trace */
@@ -628,8 +628,17 @@ extern "C" {
 #include "balanc.h"
 #include "int_balanc.h"	
 
+#include "svd.h"		/*Linear Alegbra - Singular value decompostion */
+#include "int_svd.h"
+
 #include "rcond.h"
 #include "int_rcond.h"
+
+#include "hess.h"	/* Linear Algebra - Hess function */
+#include "int_hess.h"
+
+#include "sva.h"
+#include "int_sva.h" /*Linear Algebra - SVA function */
 	
 /*Functions related to opencv*/
 /*#include "cvcore.hpp"

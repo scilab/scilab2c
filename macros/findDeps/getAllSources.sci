@@ -95,6 +95,10 @@ function allSources = getAllSources(SharedInfo)
       "src/c/matrixOperations/cat/dcats.c"
       "src/c/matrixOperations/cat/scata.c"
       "src/c/matrixOperations/cat/scats.c"
+      "src/c/matrixOperations/cat/zcata.c"
+      "src/c/matrixOperations/cat/zcats.c"
+      "src/c/matrixOperations/cat/ccata.c"
+      "src/c/matrixOperations/cat/ccats.c"
       "src/c/matrixOperations/cat/u8cats.c"
       "src/c/matrixOperations/cat/u8cata.c"
       "src/c/matrixOperations/cat/u16cats.c"
@@ -151,18 +155,18 @@ function allSources = getAllSources(SharedInfo)
       "src/c/matrixOperations/powm/spowma.c"
       "src/c/matrixOperations/powm/zpowma.c"
       "src/c/matrixOperations/powm/cpowma.c"
-      "src/c/matrixOperations/spec/cspeca.c"
-      "src/c/matrixOperations/spec/dspeca.c"
-      "src/c/matrixOperations/spec/sspeca.c"
-      "src/c/matrixOperations/spec/zspeca.c"
+      "src/c/linearAlgebra/spec/cspeca.c"
+      "src/c/linearAlgebra/spec/dspeca.c"
+      "src/c/linearAlgebra/spec/sspeca.c"
+      "src/c/linearAlgebra/spec/zspeca.c"
       "src/c/matrixOperations/transpose/ztransposea.c"
       "src/c/matrixOperations/transpose/stransposea.c"
       "src/c/matrixOperations/transpose/ctransposea.c"
       "src/c/matrixOperations/transpose/dtransposea.c"
-      "src/c/matrixOperations/spec2/zspec2a.c"
-      "src/c/matrixOperations/spec2/sspec2a.c"
-      "src/c/matrixOperations/spec2/dspec2a.c"
-      "src/c/matrixOperations/spec2/cspec2a.c"
+      "src/c/linearAlgebra/spec2/zspec2a.c"
+      "src/c/linearAlgebra/spec2/sspec2a.c"
+      "src/c/linearAlgebra/spec2/dspec2a.c"
+      "src/c/linearAlgebra/spec2/cspec2a.c"
       "src/c/matrixOperations/trace/stracea.c"
       "src/c/matrixOperations/trace/dtracea.c"
       "src/c/matrixOperations/trace/ctracea.c"
@@ -1225,6 +1229,11 @@ function allSources = getAllSources(SharedInfo)
       "src/c/linearAlgebra/schur/dschura.c"
       "src/c/linearAlgebra/schur/dgschura.c"
       "src/c/linearAlgebra/balanc/dbalanca.c"
+      "src/c/linearAlgebra/svd/dsvda.c"
+	  "src/c/linearAlgebra/svd/zsvda.c"
+	  "src/c/linearAlgebra/hess/dhessa.c"
+	  "src/c/linearAlgebra/sva/dsvaa.c"
+	  "src/c/linearAlgebra/spec/dspec1a.c"
       "src/c/linearAlgebra/rcond/drconda.c"];
 
   //Files to be inserted only if output format selected is 'Arduino'.
@@ -1346,8 +1355,5 @@ function allSources = getAllSources(SharedInfo)
       allSources = cat(1,allSources,OpenCV_files);
   end
 
- //"src/c/matrixOperations/cat/zcata.c"
-   //   "src/c/matrixOperations/cat/zcats.c"
-     // "src/c/matrixOperations/cat/ccata.c"
-      //"src/c/matrixOperations/cat/ccats.c"
+
 endfunction
