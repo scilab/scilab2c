@@ -46,6 +46,9 @@ ReportFileName  = FileInfo.Funct(nxtscifunnumber).ReportFileName;
 // ---------------------------------
 // --- Parameter Initialization. ---
 // ---------------------------------
+global rc_count
+rc_count = 0;
+
 global SCI2CSTACK
 SCI2CSTACK = ['EMPTYSTACK'];
 
@@ -144,29 +147,45 @@ while ~meof(fidAST)
       //NUT: per fare in modo di coprire le ins, anche se ci puo' essere qualche rischio quando
       //NUT: ho miste ins e variabili, per esempio [c(1,1), a] = twooutfun();
       //NUT: in questo caso solo una delle due equal va scartata.
-         [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,'Equal');
-         SharedInfo = INIT_SharedInfoEqual(SharedInfo);
+ 	 if rc_count > 0
+		[FileInfo,SharedInfo] = AST_HandleFunRC(FileInfo,SharedInfo);
+	 else
+         	[FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,'Equal');
+         	SharedInfo = INIT_SharedInfoEqual(SharedInfo);
+	 end
       case 'Equal' then
          SharedInfo.Equal.Enabled = 1; // 1 means enabled -> we are inside an equal AST block.
          AST_PushASTStack(treeline);
       case 'Lhs       :' then
-         SharedInfo.Equal.Lhs = 1; // 1 means that we are inside the Lhs block of the Equal
-	 //if SharedInfo.Equal.NOutArg > 0
-         [EqualInArgName,EqualInArgScope,EqualNInArg] = AST_ReadEqualRhsNames(FileInfo,SharedInfo);
-	 SharedInfo.Equal.NInArg = EqualNInArg;
-	 //end
+		disp(rc_count);
+		if rc_count > 0
+		SharedInfo.Equal.Lhs = 1;
+		[EqualInArgName,EqualInArgScope,EqualNInArg] = AST_HandleRC(FileInfo,SharedInfo);
+		SharedInfo.Equal.NInArg = EqualNInArg;
+		AST_PushASTStack(treeline);
+		for tmpcnt = 1:SharedInfo.Equal.NInArg
+	           SharedInfo.Equal.InArg(tmpcnt).Name = EqualInArgName(tmpcnt);
+	           SharedInfo.Equal.InArg(tmpcnt).Scope = EqualInArgScope(tmpcnt);
+         	end		
+		else
+	        SharedInfo.Equal.Lhs = 1; // 1 means that we are inside the Lhs block of the Equal
+	 	//if SharedInfo.Equal.NOutArg > 0
+	        [EqualInArgName,EqualInArgScope,EqualNInArg] = AST_ReadEqualRhsNames(FileInfo,SharedInfo);
+		SharedInfo.Equal.NInArg = EqualNInArg;
+		//end
      
-         // lengthNumber = length('Number_');
-         // if (part(EqualInArgScope,1:lengthNumber) == 'Number_')
-         //    SharedInfo.SkipNextEqual = 1
-         // end
-         
-         for tmpcnt = 1:SharedInfo.Equal.NInArg
-            SharedInfo.Equal.InArg(tmpcnt).Name = EqualInArgName(tmpcnt);
-            SharedInfo.Equal.InArg(tmpcnt).Scope = EqualInArgScope(tmpcnt);
-         end
-	 //end
-         AST_PushASTStack(treeline);
+	        // lengthNumber = length('Number_');
+	        // if (part(EqualInArgScope,1:lengthNumber) == 'Number_')
+	        //    SharedInfo.SkipNextEqual = 1
+	        // end
+	         
+	        for tmpcnt = 1:SharedInfo.Equal.NInArg
+	           SharedInfo.Equal.InArg(tmpcnt).Name = EqualInArgName(tmpcnt);
+	           SharedInfo.Equal.InArg(tmpcnt).Scope = EqualInArgScope(tmpcnt);
+         	end
+	 	//end
+         	AST_PushASTStack(treeline);
+		end
 
       // ----------------
       // --- If/Else. ---
@@ -232,6 +251,11 @@ while ~meof(fidAST)
       case 'EndWhile' then
          SharedInfo = AST_HandleEndWhile(FileInfo,SharedInfo);
          SharedInfo.While.Level = SharedInfo.While.Level - 1;
+
+
+      case 'Endrc' then
+	 rc_count = rc_count + 1;	
+         //[FileInfo,SharedInfo] = AST_HandleRC(FileInfo,SharedInfo);
 
       // ----------------
       // --- Default. ---

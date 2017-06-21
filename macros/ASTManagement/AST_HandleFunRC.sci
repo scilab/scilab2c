@@ -1,18 +1,23 @@
-function [FunctionName,InArg,NInArg,OutArg,NOutArg] = AST_ParseEqualStruct(FileInfo,SharedInfo)
-// function [FunctionName,InArg,NInArg,OutArg,NOutArg] = AST_ParseEqualStruct(FileInfo,SharedInfo)
+function [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo)
+// function [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,ASTFunType)
 // -----------------------------------------------------------------
-//#RNU_RES_B
-// Parses the Equal structure of the AST.
-// Structure of Equal:
-//  txt=['Equal'
-//       '  Expression: '
-//       '    '+string(e.expression)
-//       '  Lhs       : '
-//       '     '+objectlist2string(e.lhs)
-//       'EndEqual'
+// #RNU_RES_B
+// Handles the EndFuncall, EndOperation and EndEqual tags of the AST.
+// ASTFunType can be 'Funcall', 'Operation', 'Equal'
+// Structure of Funcall:
+// overloading function for "funcall" type tlist string function
+// this is a node of the AST
+// fields:
+//     rhs  : a list
+//     name : string, the name of the function
+//     lhsnb: number, the number of function lhs
+//  txt=['Funcall  : '+F.name
+//       '  #lhs   : '+string(F.lhsnb)
+//       '  Rhs    : '
+//       '      '+objectlist2string(F.rhs)
+//       'EndFuncall'
 //      ]
-//#RNU_RES_E
-//
+// #RNU_RES_E
 //
 // Input data:
 // //NUT: add description here
@@ -30,27 +35,24 @@ function [FunctionName,InArg,NInArg,OutArg,NOutArg] = AST_ParseEqualStruct(FileI
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-SCI2CNInArgCheck(argn(2),2,2);
 
 // -----------------------
 // --- Initialization. ---
 // -----------------------
 nxtscifunname   = SharedInfo.NextSCIFunName;
 nxtscifunnumber = SharedInfo.NextSCIFunNumber;
-ReportFileName  = FileInfo.Funct(nxtscifunnumber).ReportFileName;
+ReportFileName         = FileInfo.Funct(nxtscifunnumber).ReportFileName;
 
-global SCI2CSTACK 
+global SCI2CSTACK
 global StackPosition;
 global STACKDEDUG
+// ---------------------------
+// --- End Initialization. ---
+// ---------------------------
 
-//#RNU_RES_B
-PrintStringInfo(' ',ReportFileName,'file','y','n');
-PrintStringInfo('***Reading AST***',ReportFileName,'file','y','n');
-//#RNU_RES_E
-
-// -------------------------------
-// --- Read Output parameters. ---
-// -------------------------------
+// ------------------------------
+// --- Read output parameters. --
+// ------------------------------
 LhsField = AST_PopASTStack();
 NOutArg = 0;
 OutputArgumentNames = [];
@@ -65,38 +67,24 @@ while (LhsField ~= 'Lhs       :')
      error(9999, 'Found Equal before Lhs');
    end
 end
-OutputArgumentNames = SCI2Cflipud(OutputArgumentNames);
-OutputArgumentScope = SCI2Cflipud(OutputArgumentScope);
 
 // ------------------------------
 // --- Read input parameters. ---
 // ------------------------------
-ExprField = AST_PopASTStack();
+
+
+RhsField = AST_PopASTStack();
 NInArg = 0;
-InputArgumentNames = [];
-while (ExprField ~= 'Expression:')
+InArg = [];
+while (RhsField ~= 'Expression:')
    NInArg = NInArg + 1;
-   [InputArgumentNames(NInArg),InputArgumentScope(NInArg)] = AST_ExtractNameAndScope(ExprField);
-   ExprField = AST_PopASTStack();
-   if (ExprField == 'Equal')
-     error(9999, 'Found Equal before Lhs');
-   end
+   InArg(NInArg) = RhsField;
+   RhsField = AST_PopASTStack();
 end
 InputArgumentNames = SCI2Cflipud(InputArgumentNames);
 InputArgumentScope = SCI2Cflipud(InputArgumentScope);
 
-//#RNU_RES_B
-// ------------------------------
-// --- Extract function name. ---
-// ------------------------------
-//#RNU_RES_E
-FunctionName = AST_PopASTStack();
-if (FunctionName ~= 'Equal') then
-   error(9999, 'Problems with Equal, Expected Equal tag.');
-end
-FunctionName = 'OpEqual';
 
-//#RNU_RES_B
 // -------------------------------------
 // --- Generate the InArg structure. ---
 // -------------------------------------
@@ -121,28 +109,9 @@ end
 // ------------------------
 // --- Print Some Info. ---
 // ------------------------
-//#RNU_RES_B
-PrintStringInfo('Function Name: '+FunctionName,ReportFileName,'file','y','n');
+
 PrintStringInfo('N Input Arguments: '+string(NInArg),ReportFileName,'file','y','n');
-//#RNU_RES_E
-if (SharedInfo.Equal.Nins > 0)
-   //#RNU_RES_B
-   PrintStringInfo('N ins functions: '+string(SharedInfo.Equal.Nins),ReportFileName,'file','y');
-   //#RNU_RES_E
-   for counterinputargs = 1:NInArg
-      //#RNU_RES_B
-      PrintStringInfo('Input Argument Number '+string(counterinputargs)+': '+InArg(counterinputargs).Name,...
-         ReportFileName,'file','y');
-      PrintStringInfo('   Scope: '+InArg(counterinputargs).Scope,...
-         ReportFileName,'file','y');
-      //#RNU_RES_E
-   end
-   if (NInArg ~= SharedInfo.Equal.Nins)
-     error(9999, 'Number of input arguments must be equal to number of ins functions.');
-   end
-else
-   //#RNU_RES_B
-   PrintStringInfo('N Output Arguments: '+string(NOutArg),ReportFileName,'file','y');
+PrintStringInfo('N Output Arguments: '+string(NOutArg),ReportFileName,'file','y');
    //#RNU_RES_E
    for counterinputargs = 1:NInArg
       //#RNU_RES_B
@@ -160,9 +129,37 @@ else
          ReportFileName,'file','y','n');
       //#RNU_RES_E
    end
-   if (NInArg ~= NOutArg)
-     error(9999, 'Number of input arguments must be equal to number of output arguments.');
-   end
+
+NOutArg_mod = NOutArg;
+
+FunTypeAnnot = '';
+FunSizeAnnot = '';
+NLhsArg = 0;
+LhsArg = [];
+PrintStringInfo('...Equal not found.',ReportFileName,'file','y');
+
+PrintStringInfo('***Analyzing Input Arguments***',ReportFileName,'file','y');
+UpdatedInArg = InArg;
+[InArg,SharedInfo] = ST_GetInArgInfo(InArg,NInArg,FileInfo,SharedInfo,'OpEqual');
+
+size_count = 0;
+for i = 1:NInArg
+	size_count = size_count + InArg(i).Size(2);
 end
+
+PrintStringInfo('   Generating Out Arg names.',ReportFileName,'file','y');
+OutArg(1).Type      = InArg(1).Type;
+OutArg(1).Size(1)   = '1'
+OutArg(1).Size(2)   = string(size_count);
+OutArg(1).Dimension = InArg(1).Dimension;
+OutArg(1).Value     = InArg(1).Value;
+OutArg(1).FindLike  = InArg(1).FindLike;
+
+//--- Check for output Argument in symbol table ---//
+OutArg = ST_AnalyzeScope(OutArg,NOutArg,FileInfo,SharedInfo);
+
+//--- Put the output Argument in symbol table ---//
+ST_InsOutArg(OutArg,NOutArg,FileInfo,SharedInfo,'all');
+
 
 endfunction
