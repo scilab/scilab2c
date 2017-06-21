@@ -28,8 +28,10 @@ AST_HandleEndProgram
 AST_HandleEndWhile
 AST_HandleFor
 AST_HandleForStatem
+AST_HandleFunRC
 AST_HandleHeader
 AST_HandleIfElse
+AST_HandleRC
 AST_HandleWhileExpr
 AST_HandleWhileStatem
 AST_ParseEqualStruct
@@ -57,3 +59,5 @@ _program_string
 _variable_string
 _while_string
 objectlist2string
+AST_HandleRC
+AST_HandleFunRC

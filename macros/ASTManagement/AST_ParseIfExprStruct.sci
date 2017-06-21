@@ -1,4 +1,4 @@
-function [IfCondArg,NIfCondArg] = AST_ParseIfExprStruct(FileInfo,SharedInfo,ASTIfExpType)
+function [IfCondArg,NIfCondArg,Op,NOp] = AST_ParseIfExprStruct(FileInfo,SharedInfo,ASTIfExpType)
 // function [IfCondArg,NIfCondArg] = AST_ParseIfExprStruct(FileInfo,SharedInfo,ASTIfExpType)
 // -----------------------------------------------------------------
 //#RNU_RES_B
@@ -63,13 +63,26 @@ global STACKDEDUG
 // ------------------------------------
 // --- Read if condition variables. ---
 // ------------------------------------
+//OutArgOld=[];
+//OutArgNew=[];
+
+//for i = 1:3	
+  //  OutArgOld(i)=AST_PopASTStack();
+    //PrintStringInfo(' '+OutArgOld(i),ReportFileName,'file','y');
+//end
+//x = AST_PopASTStack();
+
+//OutArgNew = SCI2Cflipud(OutArgOld);
+	
 flagendpop = 0;
 IfExprField = AST_PopASTStack();
+PrintStringInfo(' '+IfExprField+' '+ASTIfExpType,ReportFileName,'file','y');
 if (ASTIfExpType=='if')
    if (IfExprField=='Expression:')
       flagendpop = 1;
       // Pop Again the If tag from the AST.
       IfExprField = AST_PopASTStack();
+      PrintStringInfo(' '+IfExprField,ReportFileName,'file','y');
    end
 elseif (ASTIfExpType=='elseif')
    if (IfExprField=='Else If Expression')
@@ -78,7 +91,8 @@ elseif (ASTIfExpType=='elseif')
 else
    error(9999, 'Unknown ASTIfExpType ""'+ASTIfExpType+'"".');
 end
-
+NOp=0;
+Op=[];
 while (flagendpop == 0)
    if (IfExprField~='<EOL>')   
       if (ASTIfExpType=='if')
@@ -86,22 +100,40 @@ while (flagendpop == 0)
             flagendpop = 1;
             // Pop Again the If tag from the AST.
             IfExprField = AST_PopASTStack();
+	 elseif (IfExprField=='Operands:')
+		flagendpop = 0;
+		g = AST_PopASTStack();
          else
+	    if (IfExprField=='&&' | IfExprField=='||')
+		NOp = NOp + 1;
+		Op(NOp) = IfExprField;
+		//PrintStringInfo('operators are  '+Op(NOp),ReportFileName,'file','y');
+	    else
             NIfCondArg = NIfCondArg + 1;
-            [IfCondArg(NIfCondArg),tmpscope] = AST_ExtractNameAndScope(IfExprField);
+	    IfCondArg(NIfCondArg) = IfExprField;
+	    end
+            //[IfCondArg(NIfCondArg),tmpscope] = AST_ExtractNameAndScope(IfExprField);
          end
       elseif (ASTIfExpType=='elseif')
          if (IfExprField=='Else If Expression')
             flagendpop = 1;
          else
-            NIfCondArg = NIfCondArg + 1;
-            IfCondArg(NIfCondArg) = IfExprField;
-            [IfCondArg(NIfCondArg),tmpscope] = AST_ExtractNameAndScope(IfExprField);
+	    if (IfExprField=='&&')
+		NOp = NOp + 1;
+		Op(NOp) = IfExprField;
+	    else
+            	NIfCondArg = NIfCondArg + 1;
+            	IfCondArg(NIfCondArg) = IfExprField;
+	    end
+            //[IfCondArg(NIfCondArg),tmpscope] = AST_ExtractNameAndScope(IfExprField);
          end
       end
    end
    IfExprField = AST_PopASTStack();
+   PrintStringInfo('operators are  '+IfExprField,ReportFileName,'file','y');
 end
+
+IfCondArg = SCI2Cflipud(IfCondArg);
 
 //#RNU_RES_B
 // -------------------------------------------
