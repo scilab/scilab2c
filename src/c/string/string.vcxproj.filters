@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\disp">
+      <UniqueIdentifier>{b94a802b-46a2-4208-b7c2-982395b9a4a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\string">
+      <UniqueIdentifier>{03649445-c48f-4716-b559-21d648261a80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="disp\cdispa.c">
+      <Filter>Source Files\disp</Filter>
+    </ClCompile>
+    <ClCompile Include="disp\cdisps.c">
+      <Filter>Source Files\disp</Filter>
+    </ClCompile>
+    <ClCompile Include="disp\ddispa.c">
+      <Filter>Source Files\disp</Filter>
+    </ClCompile>
+    <ClCompile Include="disp\ddisps.c">
+      <Filter>Source Files\disp</Filter>
+    </ClCompile>
+    <ClCompile Include="disp\sdispa.c">
+      <Filter>Source Files\disp</Filter>
+    </ClCompile>
+    <ClCompile Include="disp\sdisps.c">
+      <Filter>Source Files\disp</Filter>
+    </ClCompile>
+    <ClCompile Include="disp\zdispa.c">
+      <Filter>Source Files\disp</Filter>
+    </ClCompile>
+    <ClCompile Include="disp\zdisps.c">
+      <Filter>Source Files\disp</Filter>
+    </ClCompile>
+    <ClCompile Include="string\cstringa.c">
+      <Filter>Source Files\string</Filter>
+    </ClCompile>
+    <ClCompile Include="string\cstrings.c">
+      <Filter>Source Files\string</Filter>
+    </ClCompile>
+    <ClCompile Include="string\dstringa.c">
+      <Filter>Source Files\string</Filter>
+    </ClCompile>
+    <ClCompile Include="string\dstrings.c">
+      <Filter>Source Files\string</Filter>
+    </ClCompile>
+    <ClCompile Include="string\sstringa.c">
+      <Filter>Source Files\string</Filter>
+    </ClCompile>
+    <ClCompile Include="string\sstrings.c">
+      <Filter>Source Files\string</Filter>
+    </ClCompile>
+    <ClCompile Include="string\zstringa.c">
+      <Filter>Source Files\string</Filter>
+    </ClCompile>
+    <ClCompile Include="string\zstrings.c">
+      <Filter>Source Files\string</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="disp\Makefile.am">
+      <Filter>Source Files\disp</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="includes\disp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\dynlib_string.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\str.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

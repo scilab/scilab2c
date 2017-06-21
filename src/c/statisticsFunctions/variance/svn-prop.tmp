@@ -1,0 +1,12 @@
+
+.libs
+.deps
+Makefile
+testMatrixAddition
+testMatrixSubtraction
+testMatrixMultiplication
+testMatrixDivision
+*.o
+*.lo
+*.la
+

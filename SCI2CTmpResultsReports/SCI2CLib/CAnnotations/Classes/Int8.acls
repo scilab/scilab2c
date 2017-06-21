@@ -1,0 +1,5 @@
+NIN=          1
+NOUT=         1       
+OUT(1).TP=    'i8'
+OUT(1).SZ(1)= IN(1).SZ(1)
+OUT(1).SZ(2)= IN(1).SZ(2)

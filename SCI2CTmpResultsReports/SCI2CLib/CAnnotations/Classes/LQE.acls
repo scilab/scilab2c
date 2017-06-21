@@ -1,0 +1,8 @@
+NIN=         1
+NOUT=         2
+OUT(1).TP=    'd'
+OUT(1).SZ(1)= FA_SZ_1(FA_SZ_LQE(IN(1).VAL,IN(1).SZ(1)))
+OUT(1).SZ(2)= FA_SZ_1(FA_SZ_LQE(IN(1).VAL,IN(1).SZ(1)))
+OUT(2).TP=    'd'
+OUT(2).SZ(1)= FA_SZ_1(FA_SZ_LQE(IN(1).VAL,IN(1).SZ(1)))
+OUT(2).SZ(2)= FA_SZ_2(FA_SZ_LQE(IN(1).VAL,IN(1).SZ(1)))
