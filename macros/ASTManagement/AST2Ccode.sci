@@ -1,5 +1,5 @@
 function AST2Ccode(FileInfoDatFile)
-// function AST2Ccode(FileInfoDatFile)
+// function AST2Ccode(FileInfoDatFi
 // -----------------------------------------------------------------
 // Read the AST and call the corresponding handlers.
 //

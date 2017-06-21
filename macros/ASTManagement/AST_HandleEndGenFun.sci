@@ -439,6 +439,7 @@ NOutArg_mod = NOutArg
   	//#RNU_RES_B
 	PrintStringInfo('   C Function Name: '+CFunName,ReportFileName,'file','y');
 	if(IsArduinoFunction(ASTFunName))
+		//disp(ASTFunName)
 		if(IsArduinoSetupFunction(ASTFunName))
 			//If current function is an arduino setup function (like 'dc_motor_setup'), it 	
 			//should not be converted and inserted here. It is inserted in a list now and
