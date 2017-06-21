@@ -1,0 +1,5 @@
+NIN=          3
+NOUT=         1       
+OUT(1).TP=    FA_TP_USER
+OUT(1).SZ(1)= '1'
+OUT(1).SZ(2)= FA_SZ_RTMAX(FA_SZ_FROM_VAL(IN(1).VAL,IN(1).TP))

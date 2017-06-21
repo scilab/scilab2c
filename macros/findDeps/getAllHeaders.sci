@@ -154,6 +154,18 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/signalProcessing/includes/lpc2cep.h"
       "src/c/signalProcessing/includes/dynlib_signalprocessing.h"
       "src/c/signalProcessing/includes/crossCorr.h"
+      "src/c/signalProcessing/includes/zpbutt.h"
+      "src/c/signalProcessing/includes/zpch1.h"
+      "src/c/signalProcessing/includes/zpch2.h"
+      "src/c/signalProcessing/includes/buttmag.h"
+      "src/c/signalProcessing/includes/cheb1mag.h"
+      "src/c/signalProcessing/includes/cheb2mag.h"
+      "src/c/signalProcessing/includes/sincd.h"
+      "src/c/signalProcessing/includes/fsfirlin.h"
+      "src/c/signalProcessing/includes/modk.h"
+      "src/c/signalProcessing/includes/filt_sinc.h"
+      "src/c/signalProcessing/includes/ffilt.h"
+      "src/c/signalProcessing/includes/modsn.h"
       "src/c/implicitList/dynlib_implicitlist.h"
       "src/c/implicitList/implicitList.h"
       "src/c/differential_calculus/includes/ode.h"
@@ -164,6 +176,11 @@ function allHeaders = getAllHeaders(SharedInfo)
 	//"src/c/string/includes/strcmp.h"
 	"src/c/string/includes/strrev.h"
 	"src/c/string/includes/strrchr.h"
+	"src/c/string/includes/strchr.h"
+	"src/c/string/includes/ascii.h"
+	"src/c/string/includes/strspn.h"
+	"src/c/string/includes/strcspn.h"
+	"src/c/string/includes/strncpy.h"
 	"src/c/elementaryFunctions/includes/dec2bin.h"
 	"src/c/elementaryFunctions/includes/dec2hex.h"
 	"src/c/elementaryFunctions/includes/dec2oct.h"
@@ -185,6 +202,9 @@ function allHeaders = getAllHeaders(SharedInfo)
 	"src/c/elementaryFunctions/includes/factorial.h"
 	"src/c/elementaryFunctions/includes/primes.h"
 	"src/c/elementaryFunctions/includes/factor.h"
+	"src/c/elementaryFunctions/includes/gcd.h"
+	"src/c/elementaryFunctions/includes/lcm.h"
+	"src/c/elementaryFunctions/includes/sinc.h"
       "src/c/CACSD/includes/syslin.h"
       "src/c/CACSD/includes/lqr.h"
       "src/c/CACSD/includes/lqe.h"
@@ -192,7 +212,7 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/linearAlgebra/includes/schur.h"
       "src/c/linearAlgebra/includes/balanc.h"
       "src/c/linearAlgebra/includes/rcond.h"];
-      
+
 
   //Header files required for "Arduino" output
   Arduino_headers = [
@@ -214,8 +234,8 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/hardware/avr/includes/AVRUtil.h"
       "src/c/hardware/avr/includes/AVRPeripheralTimer.h"
       "src/c/hardware/avr/includes/AVRPeripheralUART.h"
-	    ]; 
- 
+	    ];
+
   RPi_headers = [
       "thirdparty/includes/WiringPi/wiringPi.h"
       "thirdparty/includes/WiringPi/wiringSerial.h"

@@ -1,0 +1,10 @@
+NIN=          1
+NOUT=         1
+OUT(1).TP=    IN(1).TP
+OUT(1).SZ(1)= FA_SZ_ROW_DIAG(IN(1).SZ)
+OUT(1).SZ(2)= FA_SZ_COLUMN_DIAG(IN(1).SZ)
+NIN=          2
+NOUT=         1
+OUT(1).TP=    IN(1).TP
+OUT(1).SZ(1)= FA_SZ_ROW_DIAG_INS_EXT(IN(1).SZ,IN(2).VAL)
+OUT(1).SZ(2)= FA_SZ_COL_DIAG_IN_EX(IN(1).SZ,IN(2).VAL)

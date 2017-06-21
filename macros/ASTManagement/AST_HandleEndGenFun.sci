@@ -73,6 +73,7 @@ global STACKDEDUG
 // #RNU_RES_E
 [ASTFunName,InArg,NInArg,OutArg,NOutArg] = AST_GetFuncallPrm(FileInfo,SharedInfo,ASTFunType);
 NOutArg_mod = NOutArg
+	
 	if(mtlb_strcmp(part(ASTFunName,1:2),'CV') == %T)
 		SharedInfo.OpenCVUsed = %T;
 	end
@@ -119,6 +120,13 @@ NOutArg_mod = NOutArg
 	// --- Read the function annotations. ---
 	// --------------------------------------
 	// #RNU_RES_E
+	if ASTFunName == '%k'
+		ASTFunName='modk';
+	end
+	
+	if ASTFunName == '%sn'
+		ASTFunName='modsn';
+	end
 	
 	if (ASTFunName == 'OpEqual')
 	   FunTypeAnnot = '';
@@ -424,6 +432,8 @@ NOutArg_mod = NOutArg
 	// --------------------------------------------
 	//#RNU_RES_E
 	//disp(OutArg,InArg,ASTFunName)
+	
+	
 	CFunName = C_GenerateFunName(ASTFunName,InArg,NInArg,OutArg,NOutArg_mod);
     
   	//#RNU_RES_B
@@ -449,7 +459,8 @@ NOutArg_mod = NOutArg
 	else
 	   LibTypeInfo = 'USER2C';
 	end
-
+	
+	
 	//#RNU_RES_B
 	// ------------------------------------------------------------------------------------
 	// --- Check whether the function has been already called in the current .sci file. ---

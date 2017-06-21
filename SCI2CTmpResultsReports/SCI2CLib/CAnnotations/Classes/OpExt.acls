@@ -1,0 +1,15 @@
+NIN=          2
+NOUT=         1
+OUT(1).TP=    IN(1).TP
+OUT(1).SZ(1)= FA_MUL(IN(2).SZ(1),IN(2).SZ(2))
+OUT(1).SZ(2)= '1'
+NIN=          3
+NOUT=         1
+OUT(1).TP=    IN(1).TP
+OUT(1).SZ(1)= FA_MUL(IN(2).SZ(1),IN(2).SZ(2))
+OUT(1).SZ(2)= FA_MUL(IN(3).SZ(1),IN(3).SZ(2))
+NIN=          4
+NOUT=         1
+OUT(1).TP=    IN(1).TP
+OUT(1).SZ(1)= FA_MUL(IN(2).SZ(1),IN(2).SZ(2))
+OUT(1).SZ(2)= FA_MUL(IN(3).SZ(1),IN(3).SZ(2))

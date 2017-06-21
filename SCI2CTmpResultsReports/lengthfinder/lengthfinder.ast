@@ -1,0 +1,48 @@
+Program
+Name   : lengthfinder
+Outputs: <empty>
+Inputs : <empty>
+Statements 
+    <EOL>
+    Equal
+      Expression: 
+        Operation
+           Operands:
+              Number_x: 1
+              Number_x: 5
+           Operator: :
+        EndOperation
+      Lhs       : 
+         Variable: x
+    EndEqual
+    <EOL>
+    Equal
+      Expression: 
+        Funcall  : length
+          #lhs   : 1
+          Rhs    : 
+              Variable: x
+        EndFuncall
+      Lhs       : 
+         Variable: y
+    EndEqual
+    <EOL>
+    Equal
+      Expression: 
+        Funcall  : disp
+          #lhs   : 1
+          Rhs    : 
+              Variable: y
+        EndFuncall
+      Lhs       : 
+         Variable: ans1
+    EndEqual
+    <EOL>
+    <EOL>
+    Funcall  : return
+      #lhs   : 0
+      Rhs    : 
+          <empty>
+    EndFuncall
+    <EOL>
+EndProgram

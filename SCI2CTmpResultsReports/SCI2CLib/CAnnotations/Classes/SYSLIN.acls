@@ -1,0 +1,15 @@
+NIN=         4
+NOUT=         1
+OUT(1).TP=    'ss'
+OUT(1).SZ(1)= FA_ADD(IN(2).SZ(1),IN(4).SZ(1))
+OUT(1).SZ(2)= FA_ADD(FA_ADD(IN(2).SZ(2),IN(3).SZ(2)), '2')
+NIN=         5
+NOUT=         1
+OUT(1).TP=    'ss'
+OUT(1).SZ(1)= FA_ADD(IN(2).SZ(1),IN(4).SZ(1))
+OUT(1).SZ(2)= FA_ADD(FA_ADD(IN(2).SZ(2),IN(3).SZ(2)), '2')
+NIN=         6
+NOUT=         1
+OUT(1).TP=    'ss'
+OUT(1).SZ(1)= FA_ADD(IN(2).SZ(1),IN(4).SZ(1))
+OUT(1).SZ(2)= FA_ADD(FA_ADD(IN(2).SZ(2),IN(3).SZ(2)), '2')
