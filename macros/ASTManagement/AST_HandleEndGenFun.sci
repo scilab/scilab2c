@@ -131,6 +131,10 @@ NOutArg_mod = NOutArg
 		ASTFunName='modk';
 	end
 	
+	if ASTFunName == '%sn'
+		ASTFunName='modsn';
+	end
+	
 	if (ASTFunName == 'OpEqual')
 	   FunTypeAnnot = '';
 	   FunSizeAnnot = '';
@@ -446,6 +450,7 @@ NOutArg_mod = NOutArg
 	//#RNU_RES_E
 	//disp(OutArg,InArg,ASTFunName)
 
+	
 	CFunName = C_GenerateFunName(ASTFunName,InArg,NInArg,OutArg,NOutArg_mod);
     	
   	//#RNU_RES_B
@@ -472,7 +477,8 @@ NOutArg_mod = NOutArg
 	else
 	   LibTypeInfo = 'USER2C';
 	end
-
+	
+	
 	//#RNU_RES_B
 	// ------------------------------------------------------------------------------------
 	// --- Check whether the function has been already called in the current .sci file. ---

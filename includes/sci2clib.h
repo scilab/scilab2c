@@ -318,6 +318,15 @@ extern "C" {
 #include "factor.h"
 #include "int_factor.h"
 
+/*interfacing gcd*/
+#include "gcd.h"
+#include "int_gcd.h"
+
+/*interfacing lcm*/
+#include "lcm.h"
+#include "int_lcm.h"
+
+
 /* IMPLICIT LISTS */
 /* interfacing implicitList/OpColon */
 #include "implicitList.h"
@@ -457,7 +466,57 @@ extern "C" {
 #include "lev.h"
 #include "int_lev.h"
 
+/* interfacing zpbutt */
+#include "zpbutt.h"
+#include "int_zpbutt.h"
 
+/*interfacing zpch1 */
+#include "zpch1.h"
+#include "int_zpch1.h"
+
+/*interfacing zpch2 */
+#include "zpch2.h"
+#include "int_zpch2.h"
+
+/*interfacing buttmag */
+#include "buttmag.h"
+#include "int_buttmag.h"
+
+/*interfacing cheb1mag */
+#include "cheb1mag.h"
+#include "int_cheb1mag.h"
+
+/*interfacing cheb2mag */
+#include "cheb2mag.h"
+#include "int_cheb2mag.h"
+
+/*interfacing sinc */
+#include "sinc.h"
+#include "int_sinc.h"
+
+/*interfacing sincd */
+#include "sincd.h"
+#include "int_sincd.h"
+
+/*interfacing fsfirlin */
+#include "fsfirlin.h"
+#include "int_fsfirlin.h"
+
+/*interfacing %k */
+#include "modk.h"
+#include "int_modk.h"
+
+/*interfacing filt_sinc */
+#include "filt_sinc.h"
+#include "int_filt_sinc.h"
+
+/*interfacing ffilt */
+#include "ffilt.h"
+#include "int_ffilt.h"
+
+/*interfacing modsn */
+#include "modsn.h"
+#include "int_modsn.h"
 
 /* STATISTICS FUNCTIONS */
 
@@ -525,6 +584,26 @@ extern "C" {
 /*interfacing strrchr*/
 #include "strrchr.h"
 #include "int_strrchr.h"
+
+/*interfacing strchr*/
+#include "strchr.h"
+#include "int_strchr.h"
+
+/*interfacing ascii*/
+#include "ascii.h"
+#include "int_ascii.h"
+
+/*interfacing strspn*/
+#include "strspn.h"
+#include "int_strspn.h"
+
+/*interfacing strcspn*/
+#include "strcspn.h"
+#include "int_strcspn.h"
+
+/*interfacing strncpy*/
+#include "strncpy.h"
+#include "int_strncpy.h"
 
 /*Functions related to strings*/
 #include "convstr.h"
