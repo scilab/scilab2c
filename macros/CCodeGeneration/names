@@ -6,6 +6,7 @@ C_GenerateFunName
 C_GenerateLaunchScript
 C_GenerateMakefile
 C_GenerateMakefile_msvc
+C_GenerateMkfle_arduino
 C_GenerateSCI2CHeader
 C_IfElseBlocks
 C_IfExpression
