@@ -99,7 +99,18 @@ end
 
 if (flagexist == %F)
    // #RNU_RES_B
+   AvailableDat = SCI2CAvailableCDat;
+   
    PrintStringInfo('   C Function Name not found in the ""Available"" , ""Converted"" and ""ToBeConverted"" function lists.',ReportFileName,'file','y');
+   load(AvailableDat,'Available');
+   PrintStringInfo('Available: ' + strcat(Available(grep(Available, ASTFunName)), ' '),ReportFileName,'file','y');
+   clear Available
+   load(ConvertedDat,'Converted');
+   PrintStringInfo('Converted: ' + strcat(Converted(grep(Converted, ASTFunName)), ' '),ReportFileName,'file','y');
+   clear Converted
+   load(ToBeConvertedDat,'ToBeConverted');
+   PrintStringInfo('ToBeConverted: ' + ToBeConverted.SCIFunctionName + ' ' + ToBeConverted.CFunctionName,ReportFileName,'file','y');
+   clear ToBeConverted   
    // #RNU_RES_E
 end
 

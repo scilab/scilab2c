@@ -4,11 +4,14 @@ function txt=%trycatch_string(p)
 //fields:
 //      trystat   : list('EOL') (the instructions list)
 //      catchstat : list('EOL') (the instructions list on error)
-  
-  txt=['Statements'
-       '    '+objectlist2string(p.trystat)
-       'CatchStatements'
-       '    '+objectlist2string(p.catchstat)
-       'EndProgram'
-      ]
+
+//  FIXME: catch statement should be handled : how ?
+//  txt=['Statements'
+//       '    '+objectlist2string(p.trystat)
+//       'CatchStatements'
+//       '    '+objectlist2string(p.catchstat)
+//       'EndProgram'
+//      ]
+
+  txt = objectlist2string(p.trystat);
 endfunction
