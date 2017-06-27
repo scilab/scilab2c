@@ -1,4 +1,4 @@
-function [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo)
+function [FileInfo,SharedInfo] = AST_HandleFunRC(FileInfo,SharedInfo)
 // function [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,ASTFunType)
 // -----------------------------------------------------------------
 // #RNU_RES_B
@@ -26,10 +26,10 @@ function [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo)
 // //NUT: add description here
 //
 // Status:
-// 11-Apr-2007 -- Raffaele Nutricato: Author.
+// 11-Apr-2007 -- Ukasha Noor: Author.
 //
-// Copyright 2007 Raffaele Nutricato.
-// Contact: raffaele.nutricato@tiscali.it
+// Copyright 2017 Ukasha Noor.
+// Contact: ukashanoor.iiitk@gmail.com
 // -----------------------------------------------------------------
 
 // ------------------------------
@@ -74,22 +74,29 @@ end
 
 
 RhsField = AST_PopASTStack();
+InputArgumentNames = [];
+InputArgumentScope = [];
 NInArg = 0;
 InArg = [];
 while (RhsField ~= 'Expression:')
    NInArg = NInArg + 1;
-   InArg(NInArg) = RhsField;
+   if RhsField <> 'Operands:'
+   [InputArgumentNames(NInArg),InputArgumentScope(NInArg)] = AST_ExtractNameAndScope(RhsField);
+   end
+   //disp(InputArgumentNames(NInArg));
+   //InArg(NInArg) = RhsField;
    RhsField = AST_PopASTStack();
 end
 InputArgumentNames = SCI2Cflipud(InputArgumentNames);
 InputArgumentScope = SCI2Cflipud(InputArgumentScope);
+
+disp(NInArg);
 
 
 // -------------------------------------
 // --- Generate the InArg structure. ---
 // -------------------------------------
 //#RNU_RES_E
-InArg = [];
 for counterinputargs = 1:NInArg
    InArg(counterinputargs).Name=InputArgumentNames(counterinputargs);
    InArg(counterinputargs).Scope=InputArgumentScope(counterinputargs);
@@ -105,6 +112,7 @@ for counteroutputargs = 1:NOutArg
    OutArg(counteroutputargs).Name=OutputArgumentNames(counteroutputargs);
    OutArg(counteroutputargs).Scope=OutputArgumentScope(counteroutputargs);
 end
+disp(NOutArg);
 
 // ------------------------
 // --- Print Some Info. ---
@@ -125,8 +133,7 @@ PrintStringInfo('N Output Arguments: '+string(NOutArg),ReportFileName,'file','y'
       //#RNU_RES_B
       PrintStringInfo('Output Argument Number '+string(counteroutputargs)+': '+OutArg(counteroutputargs).Name,...
          ReportFileName,'file','y','n');
-      PrintStringInfo('   Scope: '+OutArg(counterinputargs).Scope,...
-         ReportFileName,'file','y','n');
+      //PrintStringInfo('   Scope: '+ OutArg(counterinputargs).Scope,ReportFileName,'file','y','n');
       //#RNU_RES_E
    end
 
@@ -144,14 +151,22 @@ UpdatedInArg = InArg;
 
 size_count = 0;
 for i = 1:NInArg
-	size_count = size_count + InArg(i).Size(2);
+	size_count = size_count + eval(InArg(i).Size(2));
 end
+
+com_type = 0;
+for i = 1:NInArg
+	if InArg(i).Type == 'z'
+		com_type = 1;
+	end
+end
+	
 
 PrintStringInfo('   Generating Out Arg names.',ReportFileName,'file','y');
 OutArg(1).Type      = InArg(1).Type;
 OutArg(1).Size(1)   = '1'
 OutArg(1).Size(2)   = string(size_count);
-OutArg(1).Dimension = InArg(1).Dimension;
+OutArg(1).Dimension = 2;
 OutArg(1).Value     = InArg(1).Value;
 OutArg(1).FindLike  = InArg(1).FindLike;
 
@@ -159,7 +174,7 @@ OutArg(1).FindLike  = InArg(1).FindLike;
 OutArg = ST_AnalyzeScope(OutArg,NOutArg,FileInfo,SharedInfo);
 
 //--- Put the output Argument in symbol table ---//
-ST_InsOutArg(OutArg,NOutArg,FileInfo,SharedInfo,'all');
+ST_InsOutArg_Dup(InArg,NInArg,OutArg,NOutArg,com_type,FileInfo,SharedInfo,'all');
 
 
 endfunction

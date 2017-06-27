@@ -36,7 +36,7 @@ function [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,ASTFunT
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-SCI2CNInArgCheck(argn(2),3,3);
+//SCI2CNInArgCheck(argn(2),3,3);
 
 // -----------------------
 // --- Initialization. ---
@@ -61,6 +61,8 @@ PrintStepInfo('Handling Funcall/Operation/Equal',FileInfo.Funct(nxtscifunnumber)
 global SCI2CSTACK
 global StackPosition;
 global STACKDEDUG
+
+disp_isthere = 0;
 // ---------------------------
 // --- End Initialization. ---
 // ---------------------------
