@@ -162,13 +162,23 @@ for i = 1:NInArg
 end
 	
 
-PrintStringInfo('   Generating Out Arg names.',ReportFileName,'file','y');
-OutArg(1).Type      = InArg(1).Type;
-OutArg(1).Size(1)   = '1'
-OutArg(1).Size(2)   = string(size_count);
-OutArg(1).Dimension = 2;
-OutArg(1).Value     = InArg(1).Value;
-OutArg(1).FindLike  = InArg(1).FindLike;
+if com_type == 0
+	PrintStringInfo('   Generating Out Arg names.',ReportFileName,'file','y');
+	OutArg(1).Type      = InArg(1).Type;
+	OutArg(1).Size(1)   = '1'
+	OutArg(1).Size(2)   = string(size_count);
+	OutArg(1).Dimension = 2;
+	OutArg(1).Value     = InArg(1).Value;
+	OutArg(1).FindLike  = InArg(1).FindLike;
+else
+	PrintStringInfo('   Generating Out Arg names.',ReportFileName,'file','y');
+	OutArg(1).Type      = 'z';
+	OutArg(1).Size(1)   = '1'
+	OutArg(1).Size(2)   = string(size_count);
+	OutArg(1).Dimension = 2;
+	OutArg(1).Value     = InArg(1).Value;
+	OutArg(1).FindLike  = InArg(1).FindLike;
+end
 
 //--- Check for output Argument in symbol table ---//
 OutArg = ST_AnalyzeScope(OutArg,NOutArg,FileInfo,SharedInfo);

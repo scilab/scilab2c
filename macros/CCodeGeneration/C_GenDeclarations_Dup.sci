@@ -85,28 +85,61 @@ if (ArgStruct.Dimension > 0)
       computedSizeField = computedSizeField + ', ' + ArgStruct.Size(sizeIterator);
     end
     Cdeclaration(1) = Cdeclaration(1)+C_Type(ArgStruct.Type)+' '+ArgStruct.Name+'['+computedSize+']={';
-    if com_type == 0
-	for i = 1:NInArg-1
-		Cdeclaration(1) = Cdeclaration(1)+InArg(i).Name+',';
-	end
-	Cdeclaration(1) = Cdeclaration(1)+InArg(NInArg).Name+'};';
-    else
-    	for i=1:NInArg-1
-    		if InArg(i).Type <> 'z'
-    			Cdeclaration(1) = Cdeclaration(1)+InArg(i).Name+',0,';
-    	    else
-    	            Cdeclaration(1) = Cdeclaration(1)+InArg(i).Name+',';
-    	    end
-    	end
-    	if InArg(NInArg).Type <> 'z'
-    		Cdeclaration(1) = Cdeclaration(1) + InArg(NInArg).Name + ',0};'
+    row = eval(ArgStruct.Size(1))
+    col = eval(ArgStruct.Size(2))
+    if row == 1
+	if com_type == 0
+		for i = 1:NInArg-1
+			Cdeclaration(1) = Cdeclaration(1)+InArg(i).Name+',';
+		end
+		Cdeclaration(1) = Cdeclaration(1)+InArg(NInArg).Name+'};';
     	else
-    	    Cdeclaration(1) = Cdeclaration(1) + InArg(NInArg).Name + '};'
+    		for i=1:NInArg-1
+    			if InArg(i).Type <> 'z'
+    				Cdeclaration(1) = Cdeclaration(1)+InArg(i).Name+',0,';
+    		    	else
+    		                Cdeclaration(1) = Cdeclaration(1)+InArg(i).Name+',';
+    		    	end
+    		end
+    		if InArg(NInArg).Type <> 'z'
+    			Cdeclaration(1) = Cdeclaration(1) + InArg(NInArg).Name + ',0};'
+    		else
+    		    Cdeclaration(1) = Cdeclaration(1) + InArg(NInArg).Name + '};'
+    		end
     	end
+    else
+	if com_type == 0
+		for i = 1:col
+			for j = 0:row-1
+				if (j*col)+i ~= row*col
+				Cdeclaration(1) = Cdeclaration(1) + InArg(((j*col)+i)).Name + ',';
+				end
+			end
+		end
+		Cdeclaration(1) = Cdeclaration(1) + InArg(NInArg).Name + '};';
+	else
+		disp("hello")
+		for i = 1:col
+			for j = 0:row-1
+				if (j*col)+i ~= row*col
+					if InArg(((j*col)+i)).Type <> 'z'
+						Cdeclaration(1) = Cdeclaration(1) + InArg(((j*col)+i)).Name + ',0,';
+					else
+						Cdeclaration(1) = Cdeclaration(1) + InArg(((j*col)+i)).Name + ',';
+					end
+				end
+			end
+		end
+		if InArg(NInArg).Type <> 'z'
+			Cdeclaration(1) = Cdeclaration(1) + InArg(NInArg).Name + ',0};';
+		else
+			Cdeclaration(1) = Cdeclaration(1) + InArg(NInArg).Name + '};';
+		end
+	end
     end
     Cdeclaration(2) = Cdeclaration(2)+C_Type('i')+' __'+ArgStruct.Name+'Size['+string(computedSizeLength)+']';
     if (FlagExt <> 1)
-      Cdeclaration(2) = Cdeclaration(2)+' = {'+computedSizeField+'};';
+      Cdeclaration(2) = Cdeclaration(2)+' = {'+computedSizeField+'}';
     end
     Cdeclaration(2) = Cdeclaration(2)+';';
   end
