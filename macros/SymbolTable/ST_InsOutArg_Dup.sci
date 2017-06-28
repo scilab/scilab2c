@@ -16,6 +16,7 @@ function ST_InsOutArg_Dup(InArg,NInArg,OutArg,NOutArg,com_type,FileInfo,SharedIn
 // Copyright 2007 Raffaele Nutricato & Alberto Morea.
 // Contact: raffaele.nutricato@tiscali.it
 // -----------------------------------------------------------------
+SCI2CNInArgCheck(argn(2),8,8)
 
 
 // ------------------------------

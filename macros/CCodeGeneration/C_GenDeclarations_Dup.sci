@@ -23,7 +23,7 @@ function Cdeclaration = C_GenDeclarations_Dup(InArg,NInArg,com_type,ArgStruct,CD
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-  //SCI2CNInArgCheck(argn(2),6,6);
+SCI2CNInArgCheck(argn(2),9,9);
 // #RNU_RES_B
 //NUT: ilnome di questa funzione va cambiato perche' le dichiarazioni le fanno anche i for e i while.
 
@@ -95,13 +95,13 @@ if (ArgStruct.Dimension > 0)
 		Cdeclaration(1) = Cdeclaration(1)+InArg(NInArg).Name+'};';
     	else
     		for i=1:NInArg-1
-    			if InArg(i).Type <> 'z'
+    			if InArg(i).Type <> 'z' & InArg(i).Type <> 'c'
     				Cdeclaration(1) = Cdeclaration(1)+InArg(i).Name+',0,';
     		    	else
     		                Cdeclaration(1) = Cdeclaration(1)+InArg(i).Name+',';
     		    	end
     		end
-    		if InArg(NInArg).Type <> 'z'
+    		if InArg(NInArg).Type <> 'z' & InArg(NInArg).Type <> 'c'
     			Cdeclaration(1) = Cdeclaration(1) + InArg(NInArg).Name + ',0};'
     		else
     		    Cdeclaration(1) = Cdeclaration(1) + InArg(NInArg).Name + '};'
@@ -118,11 +118,10 @@ if (ArgStruct.Dimension > 0)
 		end
 		Cdeclaration(1) = Cdeclaration(1) + InArg(NInArg).Name + '};';
 	else
-		disp("hello")
 		for i = 1:col
 			for j = 0:row-1
 				if (j*col)+i ~= row*col
-					if InArg(((j*col)+i)).Type <> 'z'
+					if InArg(((j*col)+i)).Type <> 'z' & InArg(((j*col)+i)).Type <> 'c'
 						Cdeclaration(1) = Cdeclaration(1) + InArg(((j*col)+i)).Name + ',0,';
 					else
 						Cdeclaration(1) = Cdeclaration(1) + InArg(((j*col)+i)).Name + ',';
@@ -130,7 +129,7 @@ if (ArgStruct.Dimension > 0)
 				end
 			end
 		end
-		if InArg(NInArg).Type <> 'z'
+		if InArg(NInArg).Type <> 'z' & InArg(NInArg).Type <> 'c' 
 			Cdeclaration(1) = Cdeclaration(1) + InArg(NInArg).Name + ',0};';
 		else
 			Cdeclaration(1) = Cdeclaration(1) + InArg(NInArg).Name + '};';

@@ -32,6 +32,8 @@ function [RhsNames,RhsScope,NRhs] = AST_HandleRC(FileInfo,SharedInfo)
 // Contact: raffaele.nutricato@tiscali.it
 // -----------------------------------------------------------------
 
+SCI2CNInArgCheck(argn(2),2,2)
+
 ReportFileName  = FileInfo.Funct(nxtscifunnumber).ReportFileName;
 
 // ------------------------------

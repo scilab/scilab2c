@@ -62,7 +62,8 @@ StackPosition = 1;
 global STACKDEDUG
 STACKDEDUG = 0; // 1 -> Every Pop and Push operation on the stack, the stack content will be printed on screen.
 
-
+global disp_isthere
+disp_isthere = 0;
 // -------------------------------------
 // --- End parameter Initialization. ---
 // -------------------------------------
@@ -141,9 +142,10 @@ while ~meof(fidAST)
       //NUT: qui puoi anche aggiunger piu' case per specificare meglio la struttura della funcall
       //NUT: i case aggiunti ovviamente faranno solo il push della treeline.
       case 'EndOperation' then
-         [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,'Operation');
+         [disp_isthere,FileInfo,SharedInfo] = AST_HandleEndGenFun(disp_isthere,FileInfo,SharedInfo,'Operation');
       case 'EndFuncall' then
-         [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,'Funcall');
+         [disp_isthere,FileInfo,SharedInfo] = AST_HandleEndGenFun(disp_isthere,FileInfo,SharedInfo,'Funcall');
+	 disp(disp_isthere);
 
       // --------------
       // --- Equal. ---
@@ -161,13 +163,18 @@ while ~meof(fidAST)
 		rc_count = 0;
                 cc_count = 0;
 	 else
-         	[FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,'Equal');
+		if disp_isthere == 0
+         	[disp_isthere,FileInfo,SharedInfo] = AST_HandleEndGenFun(disp_isthere,FileInfo,SharedInfo,'Equal');
          	SharedInfo = INIT_SharedInfoEqual(SharedInfo);
+		end
 	 end
+	 disp_isthere = 0;
+
       case 'Equal' then
          SharedInfo.Equal.Enabled = 1; // 1 means enabled -> we are inside an equal AST block.
          AST_PushASTStack(treeline);
       case 'Lhs       :' then
+		disp(disp_isthere);
 		if rc_count > 0 & cc_count == 0
 		SharedInfo.Equal.Lhs = 1;
 		[EqualInArgName,EqualInArgScope,EqualNInArg] = AST_HandleRC(FileInfo,SharedInfo);
@@ -184,6 +191,7 @@ while ~meof(fidAST)
 		else
 	        SharedInfo.Equal.Lhs = 1; // 1 means that we are inside the Lhs block of the Equal
 	 	//if SharedInfo.Equal.NOutArg > 0
+                if disp_isthere == 0
 	        [EqualInArgName,EqualInArgScope,EqualNInArg] = AST_ReadEqualRhsNames(FileInfo,SharedInfo);
 		SharedInfo.Equal.NInArg = EqualNInArg;
 		//end
@@ -198,6 +206,7 @@ while ~meof(fidAST)
 	           SharedInfo.Equal.InArg(tmpcnt).Scope = EqualInArgScope(tmpcnt);
          	end
 	 	//end
+                end
          	AST_PushASTStack(treeline);
 		end
 
@@ -233,6 +242,7 @@ while ~meof(fidAST)
       // -----------------
       case 'EndProgram'
          SharedInfo = AST_HandleEndProgram(FileInfo,SharedInfo);
+	 disp_isthere = 0;
          //NUT: per essere precisi si puo' pensare di mettere un check
          //NUT: alla fine dell'albero per accertarsi che c'e' end program li' dove ce lo aspettiamo
 

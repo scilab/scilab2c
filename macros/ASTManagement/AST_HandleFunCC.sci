@@ -32,6 +32,8 @@ function [FileInfo,SharedInfo] = AST_HandleFunCC(NCol,FileInfo,SharedInfo)
 // Contact: ukashanoor.iiitk@gmail.com
 // -----------------------------------------------------------------
 
+SCI2CNInArgCheck(argn(2),3,3)
+
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
@@ -156,6 +158,8 @@ com_type = 0;
 for i = 1:NInArg
 	if InArg(i).Type == 'z'
 		com_type = 1;
+	elseif InArg(i).Type == 'c'
+		com_type = 2;
 	end
 end
 	
@@ -168,9 +172,17 @@ if com_type == 0
 	OutArg(1).Dimension = 2;
 	OutArg(1).Value     = InArg(1).Value;
 	OutArg(1).FindLike  = InArg(1).FindLike;
-else
+elseif com_type == 1
 	PrintStringInfo('   Generating Out Arg names.',ReportFileName,'file','y');
 	OutArg(1).Type      = 'z';
+	OutArg(1).Size(1)   = string(NCol);
+	OutArg(1).Size(2)   = string(NRow);
+	OutArg(1).Dimension = 2;
+	OutArg(1).Value     = InArg(1).Value;
+	OutArg(1).FindLike  = InArg(1).FindLike;
+else
+	PrintStringInfo('   Generating Out Arg names.',ReportFileName,'file','y');
+	OutArg(1).Type      = 'c';
 	OutArg(1).Size(1)   = string(NCol);
 	OutArg(1).Size(2)   = string(NRow);
 	OutArg(1).Dimension = 2;
