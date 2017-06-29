@@ -1,4 +1,4 @@
-function [FileInfo,SharedInfo] = AST_HandleFunRC(FileInfo,SharedInfo)
+function [FileInfo,SharedInfo] = AST_HandleFunCC(NCol,FileInfo,SharedInfo)
 // function [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,ASTFunType)
 // -----------------------------------------------------------------
 // #RNU_RES_B
@@ -32,7 +32,7 @@ function [FileInfo,SharedInfo] = AST_HandleFunRC(FileInfo,SharedInfo)
 // Contact: ukashanoor.iiitk@gmail.com
 // -----------------------------------------------------------------
 
-SCI2CNInArgCheck(argn(2),2,2)
+SCI2CNInArgCheck(argn(2),3,3)
 
 // ------------------------------
 // --- Check input arguments. ---
@@ -151,10 +151,8 @@ PrintStringInfo('***Analyzing Input Arguments***',ReportFileName,'file','y');
 UpdatedInArg = InArg;
 [InArg,SharedInfo] = ST_GetInArgInfo(InArg,NInArg,FileInfo,SharedInfo,'OpEqual');
 
-size_count = 0;
-for i = 1:NInArg
-	size_count = size_count + eval(InArg(i).Size(2));
-end
+NCol = NCol + 1;
+NRow = NInArg/NCol;
 
 com_type = 0;
 for i = 1:NInArg
@@ -169,24 +167,24 @@ end
 if com_type == 0
 	PrintStringInfo('   Generating Out Arg names.',ReportFileName,'file','y');
 	OutArg(1).Type      = InArg(1).Type;
-	OutArg(1).Size(1)   = '1'
-	OutArg(1).Size(2)   = string(size_count);
+	OutArg(1).Size(1)   = string(NCol);
+	OutArg(1).Size(2)   = string(NRow);
 	OutArg(1).Dimension = 2;
 	OutArg(1).Value     = InArg(1).Value;
 	OutArg(1).FindLike  = InArg(1).FindLike;
 elseif com_type == 1
 	PrintStringInfo('   Generating Out Arg names.',ReportFileName,'file','y');
 	OutArg(1).Type      = 'z';
-	OutArg(1).Size(1)   = '1'
-	OutArg(1).Size(2)   = string(size_count);
+	OutArg(1).Size(1)   = string(NCol);
+	OutArg(1).Size(2)   = string(NRow);
 	OutArg(1).Dimension = 2;
 	OutArg(1).Value     = InArg(1).Value;
 	OutArg(1).FindLike  = InArg(1).FindLike;
 else
 	PrintStringInfo('   Generating Out Arg names.',ReportFileName,'file','y');
 	OutArg(1).Type      = 'c';
-	OutArg(1).Size(1)   = '1'
-	OutArg(1).Size(2)   = string(size_count);
+	OutArg(1).Size(1)   = string(NCol);
+	OutArg(1).Size(2)   = string(NRow);
 	OutArg(1).Dimension = 2;
 	OutArg(1).Value     = InArg(1).Value;
 	OutArg(1).FindLike  = InArg(1).FindLike;

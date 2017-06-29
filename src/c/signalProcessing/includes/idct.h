@@ -25,6 +25,8 @@ extern "C" {
 
 void didcta(double *in,int row,int col,double *out);
 
+void sidcta(float *in,int row,int col,float *out);
+
 void zidcta(doubleComplex *in,int row,int col,doubleComplex *out);
 
 void cidcta(floatComplex *in,int row,int col,floatComplex *out);

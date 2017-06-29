@@ -2,6 +2,7 @@ C_FinalizeCode
 C_ForExpression
 C_Funcall
 C_GenDeclarations
+C_GenDeclarations_Dup
 C_GenerateFunName
 C_GenerateLaunchScript
 C_GenerateMakefile
@@ -13,7 +14,6 @@ C_IfExpression
 C_IndentBlanks
 C_InitHeader
 C_MemAllocOutTempVars
-C_RCOperator
 C_SCI2CHeader
 C_Type
 C_WhileExpression

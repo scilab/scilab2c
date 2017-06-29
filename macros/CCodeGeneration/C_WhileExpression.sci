@@ -19,7 +19,7 @@ function SharedInfo = C_WhileExpression(IfCondArg,NIfCondArg,Op,NOp,FileInfo,Sha
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-//SCI2CNInArgCheck(argn(2),2,2);
+SCI2CNInArgCheck(argn(2),6,6);
 
 // -----------------------
 // --- Initialization. ---

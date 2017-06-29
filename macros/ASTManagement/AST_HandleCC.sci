@@ -1,4 +1,4 @@
-function [RhsNames,RhsScope,NRhs] = AST_HandleRC(FileInfo,SharedInfo)
+function [RhsNames,RhsScope,NRhs] = AST_HandleCC(FileInfo,SharedInfo)
 // function [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,ASTFunType)
 // -----------------------------------------------------------------
 // #RNU_RES_B
@@ -57,8 +57,9 @@ NRhs = 0;
 RhsField(cntpop) = AST_PopASTStack();
 RhsNames = [];
 while (RhsField(cntpop) ~= 'Expression:')
+   if RhsField(cntpop) <> 'Operands:' & RhsField(cntpop) <> 'Begin:'
    NRhs = NRhs + 1;
-   if RhsField(cntpop) <> 'Operands:'
+   
    [RhsNames(NRhs),RhsScope(NRhs)] = AST_ExtractNameAndScope(RhsField(cntpop));
    end
    cntpop = cntpop + 1;
@@ -69,7 +70,8 @@ RhsScope = SCI2Cflipud(RhsScope);
 
 // --- Repush everything into the stack. ---
 for cntpush = cntpop:-1:1
-   if RhsField(cntpush) <> 'Operands:'
+   if RhsField(cntpush) <> 'Operands:' & RhsField(cntpush) <> 'Begin:'
+   PrintStringInfo(' ' + RhsField(cntpush),ReportFileName,'file','y');
    AST_PushASTStack(RhsField(cntpush));
    end
 end
@@ -78,8 +80,8 @@ end
 //for counterinputargs = 1:NRhs
    //#RNU_RES_B
    //disp(counterinputargs);
-  // PrintStringInfo('Input Argument Number '+string(counterinputargs)+': '+RhsNames(counterinputargs).Name,...
-    //  ReportFileName,'file','y');
+   //PrintStringInfo('Input Argument Number '+string(counterinputargs)+': '+RhsNames(counterinputargs).Name,...
+     // ReportFileName,'file','y');
    //PrintStringInfo('   Scope: '+RhsNames(counterinputargs).Scope,...
      // ReportFileName,'file','y');
    //#RNU_RES_E

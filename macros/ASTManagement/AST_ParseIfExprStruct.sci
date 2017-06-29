@@ -98,6 +98,7 @@ while (flagendpop == 0)
       if (ASTIfExpType=='if')
          if (IfExprField=='Expression:')
             flagendpop = 1;
+            //PrintStringInfo('hello dere  '+IfExprField,ReportFileName,'file','y');
             // Pop Again the If tag from the AST.
             IfExprField = AST_PopASTStack();
 	 elseif (IfExprField=='Operands:')
@@ -117,10 +118,14 @@ while (flagendpop == 0)
       elseif (ASTIfExpType=='elseif')
          if (IfExprField=='Else If Expression')
             flagendpop = 1;
+	    //IfExprField = AST_PopASTStack();
          else
-	    if (IfExprField=='&&')
+	    if (IfExprField=='&&' | IfExprField=='||')
 		NOp = NOp + 1;
 		Op(NOp) = IfExprField;
+            elseif (IfExprField=='Operands:')
+		flagendpop = 0;
+		g = AST_PopASTStack();
 	    else
             	NIfCondArg = NIfCondArg + 1;
             	IfCondArg(NIfCondArg) = IfExprField;
@@ -129,7 +134,9 @@ while (flagendpop == 0)
          end
       end
    end
+   if flagendpop == 0
    IfExprField = AST_PopASTStack();
+   end
    PrintStringInfo('operators are  '+IfExprField,ReportFileName,'file','y');
 end
 

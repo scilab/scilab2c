@@ -23,6 +23,8 @@ extern "C" {
 //void dinterp13a(double *x,double *fx,double *q,int size,double *out);
 void dinterp13a(double *x,int size1,double *fx,int size2,double *q,int size3,char *a,int size4,double *out);
 
+void sinterp13a(float *x,int size1,float *fx,int size2,float *q,int size3,char *a,int size4,float *out);
+
 #ifdef  __cplusplus
 } /* extern "C" */
 #endif
