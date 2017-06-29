@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<scilablib name="scilab2clib">
+  <macro name="ST_AnalyzeScope" file="ST_AnalyzeScope.bin" md5="121fa8c22cf0eb4e393b7416327647bf"/>
+  <macro name="ST_Del" file="ST_Del.bin" md5="c0bdeb010d246043ef563330baaf7c8d"/>
+  <macro name="ST_FindPos" file="ST_FindPos.bin" md5="8ed17c55f492018967232dbdcbb86118"/>
+  <macro name="ST_Get" file="ST_Get.bin" md5="5d1169cd38716e1b5bf03e92ca66429f"/>
+  <macro name="ST_GetInArgInfo" file="ST_GetInArgInfo.bin" md5="8849c06e2870e890cfa6d364fbbea996"/>
+  <macro name="ST_GetSymbolInfo" file="ST_GetSymbolInfo.bin" md5="e5daa7c30d3494273c0025ab71805479"/>
+  <macro name="ST_InsForCntVars" file="ST_InsForCntVars.bin" md5="f6c885f5e7e167615ecb30f7a87b50cf"/>
+  <macro name="ST_InsOutArg" file="ST_InsOutArg.bin" md5="8bb85177e44aea939b511ad397291f66"/>
+  <macro name="ST_Load" file="ST_Load.bin" md5="cc2bdfc34e42a0842708b330b61f693e"/>
+  <macro name="ST_MatchSymbol" file="ST_MatchSymbol.bin" md5="cc9dfa265cad9609ea3323e65b5e3dea"/>
+  <macro name="ST_Save" file="ST_Save.bin" md5="c16a3c951d700392f0f159532d1eee68"/>
+  <macro name="ST_Set" file="ST_Set.bin" md5="e110b67b46b44bcb9eccae988f741a60"/>
+</scilablib>
