@@ -1,4 +1,4 @@
-function [RhsNames,RhsScope,NRhs] = AST_ReadEqualRhsNames(FileInfo,SharedInfo)
+function [RhsNames,RhsScope,NRhs] = AST_HandleRC(FileInfo,SharedInfo)
 // function [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,ASTFunType)
 // -----------------------------------------------------------------
 // #RNU_RES_B
@@ -32,6 +32,8 @@ function [RhsNames,RhsScope,NRhs] = AST_ReadEqualRhsNames(FileInfo,SharedInfo)
 // Contact: raffaele.nutricato@tiscali.it
 // -----------------------------------------------------------------
 
+SCI2CNInArgCheck(argn(2),2,2)
+
 ReportFileName  = FileInfo.Funct(nxtscifunnumber).ReportFileName;
 
 // ------------------------------
@@ -54,9 +56,11 @@ cntpop = 1;
 NRhs = 0;
 RhsField(cntpop) = AST_PopASTStack();
 RhsNames = [];
-while (RhsField(cntpop) ~= 'Operands:')
+while (RhsField(cntpop) ~= 'Expression:')
    NRhs = NRhs + 1;
+   if RhsField(cntpop) <> 'Operands:'
    [RhsNames(NRhs),RhsScope(NRhs)] = AST_ExtractNameAndScope(RhsField(cntpop));
+   end
    cntpop = cntpop + 1;
    RhsField(cntpop) = AST_PopASTStack();
 end
@@ -65,17 +69,20 @@ RhsScope = SCI2Cflipud(RhsScope);
 
 // --- Repush everything into the stack. ---
 for cntpush = cntpop:-1:1
+   if RhsField(cntpush) <> 'Operands:'
    AST_PushASTStack(RhsField(cntpush));
+   end
 end
 
 
-for counterinputargs = 1:NRhs
+//for counterinputargs = 1:NRhs
    //#RNU_RES_B
-   PrintStringInfo('Input Argument Number '+string(counterinputargs)+': '+InArg(counterinputargs).Name,...
-      ReportFileName,'file','y');
-   PrintStringInfo('   Scope: '+InArg(counterinputargs).Scope,...
-      ReportFileName,'file','y');
+   //disp(counterinputargs);
+  // PrintStringInfo('Input Argument Number '+string(counterinputargs)+': '+RhsNames(counterinputargs).Name,...
+    //  ReportFileName,'file','y');
+   //PrintStringInfo('   Scope: '+RhsNames(counterinputargs).Scope,...
+     // ReportFileName,'file','y');
    //#RNU_RES_E
-end
+//end
 
 endfunction

@@ -60,7 +60,7 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/matrixOperations/includes/logm.h"
       "src/c/matrixOperations/includes/ones.h"
       "src/c/matrixOperations/includes/matrixSquaredMagnitude.h"
-      "src/c/linearAlgebra/includes/spec.h"			// moved from matrixOperation to linearAlgebra
+      "src/c/linearAlgebra/includes/spec.h"
       "src/c/matrixOperations/includes/matrixTranspose.h"
       "src/c/matrixOperations/includes/determ.h"
       "src/c/matrixOperations/includes/matrixMultiplication.h"
@@ -219,8 +219,8 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/linearAlgebra/includes/schur.h"
       "src/c/linearAlgebra/includes/balanc.h"
       "src/c/linearAlgebra/includes/svd.h"
-	  "src/c/linearAlgebra/includes/hess.h"
-	  "src/c/linearAlgebra/includes/sva.h"	
+	"src/c/linearAlgebra/includes/hess.h"
+	"src/c/linearAlgebra/includes/sva.h"
       "src/c/linearAlgebra/includes/rcond.h"];
 
 
@@ -252,7 +252,7 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/hardware/avr/includes/AVRUtil.h"
       "src/c/hardware/avr/includes/AVRPeripheralTimer.h"
       "src/c/hardware/avr/includes/AVRPeripheralUART.h"
-	    ];
+      ];
 
   RPi_headers = [
       "thirdparty/includes/WiringPi/wiringPi.h"
@@ -263,7 +263,7 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/hardware/rasberrypi/includes/RPIPeripheralThreading.h"
       "src/c/hardware/rasberrypi/includes/RPIPeripheralPinISR.h"
       "src/c/hardware/rasberrypi/includes/RPIPeripheralPWM.h"
-		];
+      ];
 
   OpenCV_headers = [
       "src/c/imageProcessing/includes/cvcore.hpp"
@@ -285,7 +285,8 @@ function allHeaders = getAllHeaders(SharedInfo)
       allHeaders = cat(1,allHeaders,OpenCV_headers);
   end
 
-  if((mtlb_strcmp(part(SharedInfo.Includelist(1),1:5),'odefn') == %T))
+  if(size(SharedInfo.Includelist) <> 0 & (mtlb_strcmp(part(SharedInfo.Includelist(1),1:5),'odefn') == %T))
+      disp("Hi")
   	allHeaders = cat(1,allHeaders,"thirdparty/includes/GSL");
   end
 

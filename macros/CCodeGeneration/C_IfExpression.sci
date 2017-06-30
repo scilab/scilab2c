@@ -19,7 +19,7 @@ function SharedInfo = C_IfExpression(IfCondArg,NIfCondArg,Op,NOp,ASTIfExpType,Fi
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-//SCI2CNInArgCheck(argn(4),7,7);
+SCI2CNInArgCheck(argn(2),7,7);
 
 //global SCI2CSTACK 
 //global StackPosition;

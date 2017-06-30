@@ -12,7 +12,7 @@
 #include<stdio.h>
 #include "strspn.h"
 
-int max(int a,int b){
+int maxg(int a,int b){
 	if(a>b) return a;
 	return b;
 }
@@ -37,28 +37,8 @@ uint8 gstrspna(char *str1,int size1,char *str2,int size2)
 		{
 		ct=ct-1;
 		}
-		m = max(m,ct);
+		m = maxg(m,ct);
 	    }
 	}
 return m;
 }
-/*
-int main()
-{
-    int n1,n2;
-    char inp1[100000],inp2[100000];
-    printf("Enter the length of the first string");
-    scanf("%d",&n1);
-    for(int i=0;i<=(n1+1);i++)
-    {
-      scanf("%c",&inp1[i]);
-    }
-    printf("Enter the length of the second string");
-    scanf("%d",&n2 );
-    for(int j=0;j<=(n2+1);j++)
-    {
-      scanf("%c",&inp2[j]);
-    }
-    strcspnfn(inp1,n1+1,inp2,n2+1);
-}
-*/

@@ -968,6 +968,8 @@ ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 //PrintStringInfo('d2'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('d2d2d2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('d2d2d2g2'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('s2s2s2'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('s2s2s2g2'+ArgSeparator+'s2',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'interp1';
@@ -1005,6 +1007,8 @@ ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 
 PrintStringInfo('d2'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('d2d0'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('s2'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('s2s0'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('z2'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('z2d0'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('c2'+ArgSeparator+'c2',ClassFileName,'file','y');
@@ -1034,6 +1038,7 @@ PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 
 PrintStringInfo('d2'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('s2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('z2'+ArgSeparator+'z2',ClassFileName,'file','y');
 PrintStringInfo('c2'+ArgSeparator+'c2',ClassFileName,'file','y');
 // --- Annotation Function And Function List Function. ---
@@ -1404,7 +1409,9 @@ ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 
 
 PrintStringInfo('d0d0d0'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('s0s0s0'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('d2d2d0'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('s2s2s0'+ArgSeparator+'s2',ClassFileName,'file','y');
 
 
 // --- Annotation Function And Function List Function. ---

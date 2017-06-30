@@ -21,6 +21,10 @@
 
 #define d2d0dctd2(in,size,sign,out)	ddcta(in,size[0],size[1],sign,out)
 
+#define s2dcts2(in,size,out)		sdcta(in,size[0],size[1],-1,out)
+
+#define s2s0dcts2(in,size,sign,out)	sdcta(in,size[0],size[1],sign,out)
+
 #define z2dctz2(in,size,out)		zdcta(in,size[0],size[1],-1,out)
 
 #define z2d0dctz2(in,size,sign,out)	zdcta(in,size[0],size[1],sign,out)

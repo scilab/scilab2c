@@ -113,7 +113,7 @@ PrintStepInfo('Copying sources', FileInfo.GeneralReport,'both');
 
 for i = 1:size(allSources, "*")
   // DEBUG only
-  disp("Copying "+allSources(i)+" in "+SCI2COutputPath+"/src/c/");
+  //disp("Copying "+allSources(i)+" in "+SCI2COutputPath+"/src/c/");
   //Copy ode related functions only if 'ode' function is used.
   if(~isempty(strstr(allSources(i),'dode')))
     if(size(SharedInfo.Includelist) <> 0)
@@ -130,7 +130,7 @@ end
 PrintStepInfo('Copying headers', FileInfo.GeneralReport,'both');
 for i = 1:size(allHeaders, "*")
   // DEBUG only
-  disp("Copying "+allHeaders(i)+" in "+SCI2COutputPath+"/includes/");
+  //disp("Copying "+allHeaders(i)+" in "+SCI2COutputPath+"/includes/");
   copyfile(allHeaders(i), SCI2COutputPath+"/includes/");
 end
 

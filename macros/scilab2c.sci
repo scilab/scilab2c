@@ -12,7 +12,7 @@
 
 function scilab2c(varargin)
   [lhs, rhs] = argn();
-  disp("YES")
+  
   select rhs
 //
 // scilab2c()

@@ -19,6 +19,8 @@
 
 #define d2idctd2(in,size,out)	didcta(in,size[0],size[1],out)
 
+#define s2idcts2(in,size,out)	sidcta(in,size[0],size[1],out)
+
 #define z2idctz2(in,size,out)	zidcta(in,size[0],size[1],out)
 
 #define c2idctc2(in,size,out)	cidcta(in,size[0],size[1],out)

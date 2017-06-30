@@ -1,5 +1,5 @@
 
-function [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,ASTFunType)
+function [disp_isthere,FileInfo,SharedInfo] = AST_HandleEndGenFun(disp_isthere,FileInfo,SharedInfo,ASTFunType)
 // function [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,ASTFunType)
 // -----------------------------------------------------------------
 // #RNU_RES_B
@@ -36,7 +36,7 @@ function [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,ASTFunT
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-SCI2CNInArgCheck(argn(2),3,3);
+SCI2CNInArgCheck(argn(2),4,4);
 
 // -----------------------
 // --- Initialization. ---
@@ -61,6 +61,8 @@ PrintStepInfo('Handling Funcall/Operation/Equal',FileInfo.Funct(nxtscifunnumber)
 global SCI2CSTACK
 global StackPosition;
 global STACKDEDUG
+
+disp_isthere = 0;
 // ---------------------------
 // --- End Initialization. ---
 // ---------------------------
@@ -81,6 +83,11 @@ NOutArg_mod = NOutArg
 		AST_PushASTStack('||');
 		return;
 	end
+	
+	if ASTFunName == 'disp'
+		disp_isthere = 1;
+	end
+
 	if(mtlb_strcmp(part(ASTFunName,1:2),'CV') == %T)
 		SharedInfo.OpenCVUsed = %T;
 	end
