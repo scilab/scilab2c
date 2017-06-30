@@ -6,10 +6,19 @@ function txt=%funcall_string(F)
 //    name : string, the name of the function
 //    lhsnb: number, the number of function lhs
 
+if F.name <> 'disp'
 txt=['Funcall  : '+F.name
      '  #lhs   : '+string(F.lhsnb)
      '  Rhs    : '
      '      '+objectlist2string(F.rhs)
      'EndFuncall'
     ]
+else
+txt=['Funcall  : '+F.name
+     '  #lhs   : '+'0'
+     '  Rhs    : '
+     '      '+objectlist2string(F.rhs)
+     'EndFuncall'
+    ]
+end
 endfunction

@@ -16,7 +16,14 @@
 extern "C" {
 #endif
 
-#define ss2lqrd2d2(in1,size1,out1,out2) dlqra(in1,size1[0],size1[1],out1,out2);
+#define ss2lqrd2d2(in1,size1,out1,out2) dlqra(in1,size1[0],size1[1],NULL,\
+				NULL,NULL,out1,out2);
+
+#define ss2d2d2lqrd2d2(in1,size1,in2,size2,in3,size3,out1,out2) dlqra(in1,\
+				size1[0],size1[1],in2,in3,NULL,out1,out2);
+
+#define ss2d2d2d2lqrd2d2(in1,size1,in2,size2,in3,size3,in4,size4,out1,out2) \
+				dlqra(in1,size1[0],size1[1],in2,in3,in4,out1,out2);
 
 #ifdef  __cplusplus
 } /* extern "C" */
