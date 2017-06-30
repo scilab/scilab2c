@@ -112,6 +112,8 @@ NOutArg_mod = NOutArg
 		  PrintStringInfo(' ',ReportFileName,'both','y');
 		  error(9999, 'SCI2CERROR: Unexpected number of output arguments for global function.');
 	   end
+	 elseif(ASTFunName == 'raspi' | ASTFunName == 'raspi_close')
+	   SharedInfo.SkipNextFun = 1;
 	end
 
 	// #RNU_RES_B

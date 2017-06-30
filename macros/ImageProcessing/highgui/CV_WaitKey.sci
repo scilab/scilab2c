@@ -15,25 +15,25 @@ function CV_WaitKey(delay)
 //     CV_WaitKey(delay)
 //
 // Parameters
-//		delay: waiting delay, if 0 then wait till keypress
+//	delay: waiting delay, if 0 then wait till keypress
 //
 // Description
-//		This function can be used for inseting some delay. This function must
-//		follow CV_ShowImage to display image. 
-// Examples
-//		img = CV_LoadImage('~/test.jpg',0)
-//		CV_ShowImage('',img)
-//		CV_WaitKey(0);
+//	This function can be used for inseting some delay. This function must
+//	follow CV_ShowImage to display image. 
 //
+// This is curretly dummy function. It provides no functionality but is required 
+// for providing support for generating C code for OpenCV
+//
+// Examples
+//	img = CV_LoadImage('~/test.jpg',0)
+//	CV_ShowImage('',img)
+//	CV_WaitKey(0);
 // See also
 //     CV_LoadImage CV_ShowImage
-//
 //
 // Authors
 //     Siddhesh Wani
 //
 
-// This is curretly dummy function. It provides no functionality but is required 
-// for providing support for generating C code for OpenCV
 
 endfunction

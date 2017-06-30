@@ -70,7 +70,7 @@ else
     PrintStringInfo('CXX     = arm-linux-gnueabihf-g++ ',FileInfo.MakefileFilename,'file','y','y');
 	  PrintStringInfo('CFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR) -L $(LIBDIR)',FileInfo.MakefileFilename,'file','y','y');
     PrintStringInfo('CXXFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR) -L $(LIBDIR)',FileInfo.MakefileFilename,'file','y','y');
-    PrintStringInfo('LDFLAGS = -llapack -lrefblas -lgfortran -lwiringPi',FileInfo.MakefileFilename,'file','y','y');
+    PrintStringInfo('LDFLAGS = -llapack -lrefblas -lgfortran -lwiringPi -lwiringPiDev -lrt -lpthread',FileInfo.MakefileFilename,'file','y','y');
   else
 		PrintStringInfo('CC     = gcc',FileInfo.MakefileFilename,'file','y','y');
     PrintStringInfo('CXX     = g++',FileInfo.MakefileFilename,'file','y','y');

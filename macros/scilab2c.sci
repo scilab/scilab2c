@@ -158,6 +158,7 @@ error(msprintf(gettext("%s: Wrong number of input argument(s): %d expected.\n"),
 	userchoice = 1;
   end
   if (userchoice == 1)
+
 // --- LAUNCH SCI2C ---
 	runsci2c(UserScilabMainFile, UserSciFilesPaths, CCodeOutputDir, RunMode, BuildTool,Target);
   end

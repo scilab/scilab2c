@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from AVRDigitalPortSetup.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="AVRDigitalPortSetup" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>AVRDigitalPortSetup</refname>
+    <refpurpose>Function to decide direction of port on AVR</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   AVRDigitalPortSetup(port,direction)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>port      :</term>
+      <listitem><para> port of microcontroller to be used(1 for PORTA, 2 for PORTB,...)</para></listitem></varlistentry>
+   <varlistentry><term>direction :</term>
+      <listitem><para> direction to be set for pin (0 for INPUT, 1 for OUTPUT)</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Each AVR microcontroller has pins which can be configured as digital
+outputs/inputs. These are normally divided among some 'ports' (group of pins).
+User has to select one of these port and which pin of that port to be
+used as digital output/input. Also, desired direction must be specified as
+'INPUT' or 'OUTPUT'.
+   </para>
+   <para>
+This is curretly dummy function. It provides no functionality but is required
+for providing support for generating C code for AVR.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+AVRDigitalPortSetup(1,0); //This function will make PortA as input port
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="AVRDigitalIn">AVRDigitalOut</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Siddhesh Wani</member>
+   <member>Ashish Kamble</member>
+   </simplelist>
+</refsection>
+</refentry>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from CV_Threshold.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="CV_Threshold" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>CV_Threshold</refname>
+    <refpurpose>function to threshold input image</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   dst = CV_Threshold(srcimg,code,threshold,max_value,thresh_type)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>srcimg:</term>
+      <listitem><para> source image to be converted</para></listitem></varlistentry>
+   <varlistentry><term>threshold:</term>
+      <listitem><para> threshold value</para></listitem></varlistentry>
+   <varlistentry><term>max_value:</term>
+      <listitem><para> maximum value to be used with THRESH_BINARY and THRESH_BINARY_INV</para></listitem></varlistentry>
+   <varlistentry><term>thresh_type:</term>
+      <listitem><para> Type for threshold. It can one of the following: THRESH_BINARY, THRESH_BINARY_INV, THRESH_TRUNC, THRESH_TOZERO, THRESH_TOZERO_INV</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function can be used for converting an image to other colorspace.
+Refer OpenCV documentation for list of available conversions
+   </para>
+   <para>
+This is curretly dummy function. It provides no functionality but is required
+for providing support for generating C code for OpenCV
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+img = CV_LoadImage('~/test.jpg',0)
+dst = CV_Threshold(img,100,255,'THRESH_BINARY')
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="CV_LoadImage">CV_CreateImage</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Siddhesh Wani</member>
+   </simplelist>
+</refsection>
+</refentry>

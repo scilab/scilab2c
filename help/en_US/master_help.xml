@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+<!--Begin Entities-->
+<!ENTITY a9b187f890a3dc0a131c78f91d88fffcf SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRADCSetup.xml">
+<!ENTITY a8349f4b66c6c427129eb7c646fc05b39 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRDigitalIn.xml">
+<!ENTITY a71620a73cb33bebfeb8d13899a026ec4 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRDigitalOut.xml">
+<!ENTITY a68c3144a45199cf3f8b3aad660160527 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRDigitalPortSetup.xml">
+<!ENTITY a607abb629b298800c47d5c68b6270150 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRDigitalSetup.xml">
+<!ENTITY a3e869ed60f4df86940495945c041bc0e SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRGetTimerValue.xml">
+<!ENTITY ad660ad06d66e41962fc3922b83d3223d SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRPWM0SetDuty.xml">
+<!ENTITY a656e4015b3a18f0f92613360c89a5126 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRPWM0Setup.xml">
+<!ENTITY a465fb895c612a56cdfa6d49a796b3ebc SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRPWM1SetDuty.xml">
+<!ENTITY a3923ebd6e61d3ea327ac0b38eea44729 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRPWM1Setup.xml">
+<!ENTITY ab21063dade8e81cc41c41b203fe770a7 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRPWM2SetDuty.xml">
+<!ENTITY a3d04d0133df424dc634f59cf5e37970f SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRPWM2Setup.xml">
+<!ENTITY ab987a9543f5085f2797390ef2005bb1b SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRReadADC.xml">
+<!ENTITY ae5acf96a8e7e377e4f915fb237495324 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRSleep.xml">
+<!ENTITY a10d52e3ccf17ba4549a5eb8f20fe4b64 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRTimerSetup.xml">
+<!ENTITY adb1b91db8538f4a6dc2059182de8c942 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRUARTReceive.xml">
+<!ENTITY a34cfa9a3b84af4efa7dfa7daa0e10ab4 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRUARTSetup.xml">
+<!ENTITY a9464ef2b6d5841f1edb9a18b22c04490 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRUARTTransmit.xml">
+<!ENTITY a1bd531f91c338e939c157b0d1e06bf06 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_AdaptiveThreshold.xml">
+<!ENTITY a2c2b81ddbe44425373feedac0c24db71 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_Blur.xml">
+<!ENTITY a3ca4fafb273b3c4e61164de4ecf2e313 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_Canny.xml">
+<!ENTITY a4fd365473a6da804dc048b62d3fe681b SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_CornerHarris.xml">
+<!ENTITY a2dfffb4205d1f7d8d99dba84afa2d5b0 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_CreateImage.xml">
+<!ENTITY a255d8b16c2c27d874cb1a0dd1d1cf016 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_CvtColor.xml">
+<!ENTITY a48073a178223648546c3715285fafc64 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_Dilate.xml">
+<!ENTITY ac9861c98ff022c9027cec2004b205cb6 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_DistanceTransform.xml">
+<!ENTITY ab14b133a0d5508a44b4dc249b80d1d9b SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_Erode.xml">
+<!ENTITY afc3078d19fbe9afc1beb887f8e727ae2 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_GaussianBlur.xml">
+<!ENTITY a68b507c9c47bc04d8beedc0d02423953 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_GetImgSize.xml">
+<!ENTITY a6fa161fc578adc8b4b9683fea89cc93a SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_LoadImage.xml">
+<!ENTITY a0d920ecface4c20c8362c316f30f375b SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_MedianBlur.xml">
+<!ENTITY a8e0fd1bb3d635b95bfefb457784dba90 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_SaveImage.xml">
+<!ENTITY aec8420bd19e47fc7d4b1a968956bfe54 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_ShowImage.xml">
+<!ENTITY a89c6b4c01591aa15372e9a3b9ae162f9 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_Threshold.xml">
+<!ENTITY a1a6cdeaaa9224a83de904800de542e77 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_WaitKey.xml">
+<!--End Entities-->
+]>
+<book version="5.0-subset Scilab" xml:lang="en_US"
+      xmlns="http://docbook.org/ns/docbook"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:mml="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:db="http://docbook.org/ns/docbook">
+  <info xml:id='scilab_2_c_converter_manual'>
+    <title>Scilab 2 C Converter</title>
+  </info>
+
+<part xml:id='section_473a2b9e79723ff76a7f243f85d2b6b8'>
+<title>Scilab 2 C Converter</title>
+&a9b187f890a3dc0a131c78f91d88fffcf;
+&a8349f4b66c6c427129eb7c646fc05b39;
+&a71620a73cb33bebfeb8d13899a026ec4;
+&a68c3144a45199cf3f8b3aad660160527;
+&a607abb629b298800c47d5c68b6270150;
+&a3e869ed60f4df86940495945c041bc0e;
+&ad660ad06d66e41962fc3922b83d3223d;
+&a656e4015b3a18f0f92613360c89a5126;
+&a465fb895c612a56cdfa6d49a796b3ebc;
+&a3923ebd6e61d3ea327ac0b38eea44729;
+&ab21063dade8e81cc41c41b203fe770a7;
+&a3d04d0133df424dc634f59cf5e37970f;
+&ab987a9543f5085f2797390ef2005bb1b;
+&ae5acf96a8e7e377e4f915fb237495324;
+&a10d52e3ccf17ba4549a5eb8f20fe4b64;
+&adb1b91db8538f4a6dc2059182de8c942;
+&a34cfa9a3b84af4efa7dfa7daa0e10ab4;
+&a9464ef2b6d5841f1edb9a18b22c04490;
+&a1bd531f91c338e939c157b0d1e06bf06;
+&a2c2b81ddbe44425373feedac0c24db71;
+&a3ca4fafb273b3c4e61164de4ecf2e313;
+&a4fd365473a6da804dc048b62d3fe681b;
+&a2dfffb4205d1f7d8d99dba84afa2d5b0;
+&a255d8b16c2c27d874cb1a0dd1d1cf016;
+&a48073a178223648546c3715285fafc64;
+&ac9861c98ff022c9027cec2004b205cb6;
+&ab14b133a0d5508a44b4dc249b80d1d9b;
+&afc3078d19fbe9afc1beb887f8e727ae2;
+&a68b507c9c47bc04d8beedc0d02423953;
+&a6fa161fc578adc8b4b9683fea89cc93a;
+&a0d920ecface4c20c8362c316f30f375b;
+&a8e0fd1bb3d635b95bfefb457784dba90;
+&aec8420bd19e47fc7d4b1a968956bfe54;
+&a89c6b4c01591aa15372e9a3b9ae162f9;
+&a1a6cdeaaa9224a83de904800de542e77;
+</part>
+</book>

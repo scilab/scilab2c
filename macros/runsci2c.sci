@@ -53,10 +53,10 @@ disp(RunSci2CMainDir);
 [FileInfoDatFile,SharedInfoDatFile] = INIT_SCI2C(UserScilabMainFile, ...
 						 UserSciFilesPaths, SCI2COutputPath, RunMode, Target);
 
+
 // -- Load FileInfo and SharedInfo
 load(SharedInfoDatFile,'SharedInfo');
 load(FileInfoDatFile,'FileInfo');
-
 RunMode = SharedInfo.RunMode;
 
 // --- Generation of the library structure. ---
@@ -91,7 +91,6 @@ load(SharedInfoDatFile,'SharedInfo');
 // ---------------------------
 
 global SCI2CHOME
-
 allSources = SCI2CHOME + "/" + getAllSources(SharedInfo);
 allHeaders = SCI2CHOME + "/" +getAllHeaders(SharedInfo);
 allInterfaces = SCI2CHOME + "/" + getAllInterfaces(SharedInfo);

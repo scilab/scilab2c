@@ -100,6 +100,8 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/elementaryFunctions/interfaces/int_int8.h"
       "src/c/elementaryFunctions/interfaces/int_uint16.h"
       "src/c/elementaryFunctions/interfaces/int_int16.h"
+      "src/c/elementaryFunctions/interfaces/int_uint32.h"
+      "src/c/elementaryFunctions/interfaces/int_int32.h"
       "src/c/elementaryFunctions/interfaces/int_acosd.h"
       "src/c/elementaryFunctions/interfaces/int_acot.h"
       "src/c/elementaryFunctions/interfaces/int_acotd.h"
@@ -211,12 +213,22 @@ function allInterfaces = getAllInterfaces(SharedInfo)
 
   RPI_interfaces = [
       "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralDigital.h"
-      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralTiming.h"
-      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralSerial.h"
-      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralThreading.h"
-      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralPinISR.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralGertboard.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralI2C.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralInterrupt.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralLCD.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralMcp.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralMisc.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralPcf.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralPiGlow.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralPinMap.h"
       "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralPWM.h"
-      ]; 
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralSerial.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralSetup.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralShift.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralSoft.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralTiming.h"
+        ];
 
   OpenCV_interfaces = [
       "src/c/imageProcessing/interfaces/int_cvcore.hpp"

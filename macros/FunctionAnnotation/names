@@ -4,6 +4,7 @@ FA_GetDefaultPrecision
 FA_GetFunAnn
 FA_GetOutArgInfo
 FA_GetResizeApproach
+FA_INSZ_RPI
 FA_INT
 FA_MAX
 FA_MIN

@@ -84,7 +84,6 @@ for cntout = 1:NOutArg
       // #RNU_RES_E
       OutArg(cntout).Scope     = 'Local';
    end
-   
    // #RNU_RES_B
    // --- Check in global symbol table. ---
    // #RNU_RES_E

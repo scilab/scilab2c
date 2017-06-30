@@ -189,6 +189,12 @@ extern "C" {
 /* interfacing int16 */
 #include "int16.h"
 #include "int_int16.h"
+/* interfacing uint32 */
+#include "uint32.h"
+#include "int_uint32.h"
+/* interfacing int32 */
+#include "int32.h"
+#include "int_int32.h"
 
 /*interfacing bitand */
 #include "bitand.h"
@@ -573,21 +579,41 @@ extern "C" {
 #endif
 
 /*RPi*/
-#ifdef RPi1
+//#ifdef RPi1
 #include "wiringPi.h"
-#include "int_RPIPeripheralDigital.h"
 #include "RPIPeripheralDigital.h"
-#include "int_RPIPeripheralTiming.h"
-#include "RPIPeripheralTiming.h"
-#include "int_RPIPeripheralSerial.h"
-#include "RPIPeripheralSerial.h"
-#include "int_RPIPeripheralThreading.h"
-#include "RPIPeripheralThreading.h"
-#include "int_RPIPeripheralPinISR.h"
-#include "RPIPeripheralPinISR.h"
-#include "int_RPIPeripheralPWM.h"
+#include "int_RPIPeripheralDigital.h"
+#include "RPIPeripheralGertboard.h"
+#include "int_RPIPeripheralGertboard.h"
+#include "RPIPeripheralI2C.h"
+#include "int_RPIPeripheralI2C.h"
+#include "RPIPeripheralInterrupt.h"
+#include "int_RPIPeripheralInterrupt.h"
+#include "RPIPeripheralLCD.h"
+#include "int_RPIPeripheralLCD.h"
+#include "RPIPeripheralMcp.h"
+#include "int_RPIPeripheralMcp.h"
+#include "RPIPeripheralMisc.h"
+#include "int_RPIPeripheralMisc.h"
+#include "RPIPeripheralPcf.h"
+#include "int_RPIPeripheralPcf.h"
+#include "RPIPeripheralPiGlow.h"
+#include "int_RPIPeripheralPiGlow.h"
+#include "RPIPeripheralPinMap.h"
+#include "int_RPIPeripheralPinMap.h"
 #include "RPIPeripheralPWM.h"
-#endif
+#include "int_RPIPeripheralPWM.h"
+#include "RPIPeripheralSerial.h"
+#include "int_RPIPeripheralSerial.h"
+#include "RPIPeripheralSetup.h"
+#include "int_RPIPeripheralSetup.h"
+#include "RPIPeripheralShift.h"
+#include "int_RPIPeripheralShift.h"
+#include "RPIPeripheralSoft.h"
+#include "int_RPIPeripheralSoft.h"
+#include "RPIPeripheralTiming.h"
+#include "int_RPIPeripheralTiming.h"
+//#endif
 
 #ifdef __cplusplus
 }

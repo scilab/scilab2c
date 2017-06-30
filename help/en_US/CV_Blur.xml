@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from CV_Blur.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="CV_Blur" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>CV_Blur</refname>
+    <refpurpose>function to blur image using normalised box filter</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   dst = CV_Blur(srcimg,ksize_width,ksize_height,anchor_x,anchor_y,border_type)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>srcimg :</term>
+      <listitem><para> Source image.</para></listitem></varlistentry>
+   <varlistentry><term>ksize_width, ksize_height :</term>
+      <listitem><para> blurring kernel size.</para></listitem></varlistentry>
+   <varlistentry><term>anchor_x, anchor_y :</term>
+      <listitem><para> x,y coordinates of anchor point</para></listitem></varlistentry>
+   <varlistentry><term>border_type :</term>
+      <listitem><para> border mode used to extrapolate pixels outside of the image.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function can be used for blurring image using normalised box
+filter. Image can be of any depth and have any no of channels.
+   </para>
+   <para>
+border_type can be :
+<itemizedlist>
+<listitem>BORDER_REPLICATE:         aaaaaa|abcdefgh|hhhhhhh</listitem>
+<listitem>BORDER_REFLECT:           fedcba|abcdefgh|hgfedcb</listitem>
+<listitem>BORDER_REFLECT_101:       gfedcb|abcdefgh|gfedcba</listitem>
+<listitem>BORDER_WRAP:              cdefgh|abcdefgh|abcdefg</listitem>
+<listitem>BORDER_CONSTANT:        iiiiii|abcdefgh|iiiiiii</listitem>
+</itemizedlist>
+   </para>
+   <para>
+This is curretly dummy function. It provides no functionality but is required
+for providing support for generating C code for OpenCV
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+img = CV_LoadImage('~/test.jpg',0)
+dst = CV_Blur(img,3,3,-1,-1,"BORDER_CONSTANT")
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="CV_LoadImage">CV_Threshold, CV_CvtColor</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Siddhesh Wani</member>
+   </simplelist>
+</refsection>
+</refentry>

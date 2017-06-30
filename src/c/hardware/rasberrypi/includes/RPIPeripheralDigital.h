@@ -19,15 +19,14 @@
 extern "C" {
 #endif
 
-
 #include "types.h"
-#include "wiringPi.h"
 
-extern int phy_pin[];
+extern int phy_pin[];       //Not needed???
 
-void u8RPIDigitalSetups(uint8 pin, uint8 direction);
-void u8RPIDigitalOuts(uint8 pin, uint8 state);
-uint8 u8RPIDigitalIns(uint8 pin);
+uint8 u8RPI_digitalReads(uint8 pin);
+uint8 RPI_digitalReadByte();
+void u8RPI_digitalWrites(uint8 pin, uint8 state);
+void u8RPI_digitalWriteBytes(uint8 value);
 
 #ifdef  __cplusplus
 } /* extern "C" */
