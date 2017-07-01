@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book [
 <!--Begin Entities-->
-<!ENTITY a9b187f890a3dc0a131c78f91d88fffcf SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRADCSetup.xml">
-<!ENTITY a8349f4b66c6c427129eb7c646fc05b39 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRDigitalIn.xml">
-<!ENTITY a71620a73cb33bebfeb8d13899a026ec4 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRDigitalOut.xml">
-<!ENTITY a68c3144a45199cf3f8b3aad660160527 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRDigitalPortSetup.xml">
-<!ENTITY a607abb629b298800c47d5c68b6270150 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRDigitalSetup.xml">
-<!ENTITY a3e869ed60f4df86940495945c041bc0e SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRGetTimerValue.xml">
-<!ENTITY ad660ad06d66e41962fc3922b83d3223d SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRPWM0SetDuty.xml">
-<!ENTITY a656e4015b3a18f0f92613360c89a5126 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRPWM0Setup.xml">
-<!ENTITY a465fb895c612a56cdfa6d49a796b3ebc SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRPWM1SetDuty.xml">
-<!ENTITY a3923ebd6e61d3ea327ac0b38eea44729 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRPWM1Setup.xml">
-<!ENTITY ab21063dade8e81cc41c41b203fe770a7 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRPWM2SetDuty.xml">
-<!ENTITY a3d04d0133df424dc634f59cf5e37970f SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRPWM2Setup.xml">
-<!ENTITY ab987a9543f5085f2797390ef2005bb1b SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRReadADC.xml">
-<!ENTITY ae5acf96a8e7e377e4f915fb237495324 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRSleep.xml">
-<!ENTITY a10d52e3ccf17ba4549a5eb8f20fe4b64 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRTimerSetup.xml">
-<!ENTITY adb1b91db8538f4a6dc2059182de8c942 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRUARTReceive.xml">
-<!ENTITY a34cfa9a3b84af4efa7dfa7daa0e10ab4 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRUARTSetup.xml">
-<!ENTITY a9464ef2b6d5841f1edb9a18b22c04490 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/AVRUARTTransmit.xml">
-<!ENTITY a1bd531f91c338e939c157b0d1e06bf06 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_AdaptiveThreshold.xml">
-<!ENTITY a2c2b81ddbe44425373feedac0c24db71 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_Blur.xml">
-<!ENTITY a3ca4fafb273b3c4e61164de4ecf2e313 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_Canny.xml">
-<!ENTITY a4fd365473a6da804dc048b62d3fe681b SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_CornerHarris.xml">
-<!ENTITY a2dfffb4205d1f7d8d99dba84afa2d5b0 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_CreateImage.xml">
-<!ENTITY a255d8b16c2c27d874cb1a0dd1d1cf016 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_CvtColor.xml">
-<!ENTITY a48073a178223648546c3715285fafc64 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_Dilate.xml">
-<!ENTITY ac9861c98ff022c9027cec2004b205cb6 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_DistanceTransform.xml">
-<!ENTITY ab14b133a0d5508a44b4dc249b80d1d9b SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_Erode.xml">
-<!ENTITY afc3078d19fbe9afc1beb887f8e727ae2 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_GaussianBlur.xml">
-<!ENTITY a68b507c9c47bc04d8beedc0d02423953 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_GetImgSize.xml">
-<!ENTITY a6fa161fc578adc8b4b9683fea89cc93a SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_LoadImage.xml">
-<!ENTITY a0d920ecface4c20c8362c316f30f375b SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_MedianBlur.xml">
-<!ENTITY a8e0fd1bb3d635b95bfefb457784dba90 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_SaveImage.xml">
-<!ENTITY aec8420bd19e47fc7d4b1a968956bfe54 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_ShowImage.xml">
-<!ENTITY a89c6b4c01591aa15372e9a3b9ae162f9 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_Threshold.xml">
-<!ENTITY a1a6cdeaaa9224a83de904800de542e77 SYSTEM "/home/panda/.Scilab/scilab-5.5.2/atoms/scilab2c/2.3/help/en_US/CV_WaitKey.xml">
+<!ENTITY a7b466cf4d5347f633e51a733f0f1a168 SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/AVRADCSetup.xml">
+<!ENTITY ade404b3b665f98bc73ebe7208886a6f4 SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/AVRDigitalIn.xml">
+<!ENTITY aaca8c01a70b7156b2ae86463b562fa3c SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/AVRDigitalOut.xml">
+<!ENTITY aa9cd530e4bf4de01a70a8a8d76abc707 SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/AVRDigitalPortSetup.xml">
+<!ENTITY ae30f1c06a4abbee692b4423bb22fc7bc SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/AVRDigitalSetup.xml">
+<!ENTITY af078d1c1044bbf067ba59f15b5a63027 SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/AVRGetTimerValue.xml">
+<!ENTITY a34111840b91dd5f14c2689fe5c258179 SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/AVRPWM0SetDuty.xml">
+<!ENTITY a6eb68eb74f8e78f731f8e674b4eb1390 SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/AVRPWM0Setup.xml">
+<!ENTITY a49dc2badf73873dc0ecee752026db407 SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/AVRPWM1SetDuty.xml">
+<!ENTITY a5f3175fef91ec1581f336de968bbec35 SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/AVRPWM1Setup.xml">
+<!ENTITY a0a1c83196d95bbe80de01a80cf377079 SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/AVRPWM2SetDuty.xml">
+<!ENTITY a10cde1c9b6859df41427903d04735550 SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/AVRPWM2Setup.xml">
+<!ENTITY a978be3c7b3c1f02e988d2a9b21e441e4 SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/AVRReadADC.xml">
+<!ENTITY a64ec0ea5fc8d6722ee29d9897054c6c4 SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/AVRSleep.xml">
+<!ENTITY a41184b2b1ee091d3d9c6251f67fc6c6f SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/AVRTimerSetup.xml">
+<!ENTITY a3f015b4d6eb215e1689c9f38eda87aa8 SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/AVRUARTReceive.xml">
+<!ENTITY a52617e3ef335f4d203adf04737be5251 SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/AVRUARTSetup.xml">
+<!ENTITY ac5b79c05aaad679f350048aabcd868ae SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/AVRUARTTransmit.xml">
+<!ENTITY a4b50d5bc321f61760721ae6ade129c9f SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/CV_AdaptiveThreshold.xml">
+<!ENTITY a105497ce787901446337c2e2060c1e5b SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/CV_Blur.xml">
+<!ENTITY ad659714976caebf52f37401dd84c5fc5 SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/CV_Canny.xml">
+<!ENTITY a10c0891023433c3d4dab8fed5d0adb5b SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/CV_CornerHarris.xml">
+<!ENTITY a11f5875ed5a13a1992433bd0e8fbefcc SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/CV_CreateImage.xml">
+<!ENTITY a2fbd4c528b0263f1c6aa21eba663d80a SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/CV_CvtColor.xml">
+<!ENTITY a80a1d2ed052f44069c57a54d4b64acb3 SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/CV_Dilate.xml">
+<!ENTITY a951dcde55ab990b63f2612dc497e1893 SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/CV_DistanceTransform.xml">
+<!ENTITY afca42ed96adf0d8cb8b6690858acce4d SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/CV_Erode.xml">
+<!ENTITY a2ae1465eeae4dd56559ca82f8faf7b17 SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/CV_GaussianBlur.xml">
+<!ENTITY aa814e04831ba6aa08de1b4430ce8f403 SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/CV_GetImgSize.xml">
+<!ENTITY a9fbf27ff967d711deb0a2f8cbdc7becf SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/CV_LoadImage.xml">
+<!ENTITY a483f0c1580d357568095ab99a20233ec SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/CV_MedianBlur.xml">
+<!ENTITY a292b8a8f992d070ed6ee41a9f44795ad SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/CV_SaveImage.xml">
+<!ENTITY a04f4ba8e54814e93925ee457717d2c95 SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/CV_ShowImage.xml">
+<!ENTITY aba215d2967214789de57c18aaf381a1f SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/CV_Threshold.xml">
+<!ENTITY a50c92e4a1158997805caf76751451ea0 SYSTEM "/media/siddhesh/Data/Softwares/Ubuntu/scilab-5.5.1/share/scilab/contrib/scilab2c/Scilab2C/2.3-1/help/en_US/CV_WaitKey.xml">
 <!--End Entities-->
 ]>
 <book version="5.0-subset Scilab" xml:lang="en_US"
@@ -50,42 +50,42 @@
     <title>Scilab 2 C Converter</title>
   </info>
 
-<part xml:id='section_473a2b9e79723ff76a7f243f85d2b6b8'>
+<part xml:id='section_0da8c7f3adca54f0475553087384b7a7'>
 <title>Scilab 2 C Converter</title>
-&a9b187f890a3dc0a131c78f91d88fffcf;
-&a8349f4b66c6c427129eb7c646fc05b39;
-&a71620a73cb33bebfeb8d13899a026ec4;
-&a68c3144a45199cf3f8b3aad660160527;
-&a607abb629b298800c47d5c68b6270150;
-&a3e869ed60f4df86940495945c041bc0e;
-&ad660ad06d66e41962fc3922b83d3223d;
-&a656e4015b3a18f0f92613360c89a5126;
-&a465fb895c612a56cdfa6d49a796b3ebc;
-&a3923ebd6e61d3ea327ac0b38eea44729;
-&ab21063dade8e81cc41c41b203fe770a7;
-&a3d04d0133df424dc634f59cf5e37970f;
-&ab987a9543f5085f2797390ef2005bb1b;
-&ae5acf96a8e7e377e4f915fb237495324;
-&a10d52e3ccf17ba4549a5eb8f20fe4b64;
-&adb1b91db8538f4a6dc2059182de8c942;
-&a34cfa9a3b84af4efa7dfa7daa0e10ab4;
-&a9464ef2b6d5841f1edb9a18b22c04490;
-&a1bd531f91c338e939c157b0d1e06bf06;
-&a2c2b81ddbe44425373feedac0c24db71;
-&a3ca4fafb273b3c4e61164de4ecf2e313;
-&a4fd365473a6da804dc048b62d3fe681b;
-&a2dfffb4205d1f7d8d99dba84afa2d5b0;
-&a255d8b16c2c27d874cb1a0dd1d1cf016;
-&a48073a178223648546c3715285fafc64;
-&ac9861c98ff022c9027cec2004b205cb6;
-&ab14b133a0d5508a44b4dc249b80d1d9b;
-&afc3078d19fbe9afc1beb887f8e727ae2;
-&a68b507c9c47bc04d8beedc0d02423953;
-&a6fa161fc578adc8b4b9683fea89cc93a;
-&a0d920ecface4c20c8362c316f30f375b;
-&a8e0fd1bb3d635b95bfefb457784dba90;
-&aec8420bd19e47fc7d4b1a968956bfe54;
-&a89c6b4c01591aa15372e9a3b9ae162f9;
-&a1a6cdeaaa9224a83de904800de542e77;
+&a7b466cf4d5347f633e51a733f0f1a168;
+&ade404b3b665f98bc73ebe7208886a6f4;
+&aaca8c01a70b7156b2ae86463b562fa3c;
+&aa9cd530e4bf4de01a70a8a8d76abc707;
+&ae30f1c06a4abbee692b4423bb22fc7bc;
+&af078d1c1044bbf067ba59f15b5a63027;
+&a34111840b91dd5f14c2689fe5c258179;
+&a6eb68eb74f8e78f731f8e674b4eb1390;
+&a49dc2badf73873dc0ecee752026db407;
+&a5f3175fef91ec1581f336de968bbec35;
+&a0a1c83196d95bbe80de01a80cf377079;
+&a10cde1c9b6859df41427903d04735550;
+&a978be3c7b3c1f02e988d2a9b21e441e4;
+&a64ec0ea5fc8d6722ee29d9897054c6c4;
+&a41184b2b1ee091d3d9c6251f67fc6c6f;
+&a3f015b4d6eb215e1689c9f38eda87aa8;
+&a52617e3ef335f4d203adf04737be5251;
+&ac5b79c05aaad679f350048aabcd868ae;
+&a4b50d5bc321f61760721ae6ade129c9f;
+&a105497ce787901446337c2e2060c1e5b;
+&ad659714976caebf52f37401dd84c5fc5;
+&a10c0891023433c3d4dab8fed5d0adb5b;
+&a11f5875ed5a13a1992433bd0e8fbefcc;
+&a2fbd4c528b0263f1c6aa21eba663d80a;
+&a80a1d2ed052f44069c57a54d4b64acb3;
+&a951dcde55ab990b63f2612dc497e1893;
+&afca42ed96adf0d8cb8b6690858acce4d;
+&a2ae1465eeae4dd56559ca82f8faf7b17;
+&aa814e04831ba6aa08de1b4430ce8f403;
+&a9fbf27ff967d711deb0a2f8cbdc7becf;
+&a483f0c1580d357568095ab99a20233ec;
+&a292b8a8f992d070ed6ee41a9f44795ad;
+&a04f4ba8e54814e93925ee457717d2c95;
+&aba215d2967214789de57c18aaf381a1f;
+&a50c92e4a1158997805caf76751451ea0;
 </part>
 </book>
