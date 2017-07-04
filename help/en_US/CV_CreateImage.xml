@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from CV_CreateImage.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="CV_CreateImage" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>CV_CreateImage</refname>
+    <refpurpose>function to create an image object of given size and type</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   CV_CreateImage(image_size,bit_depth,no_of_channels)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>image_size:</term>
+      <listitem><para> width and height of image</para></listitem></varlistentry>
+   <varlistentry><term>bit_depth:</term>
+      <listitem><para> Bit depth of image elements</para></listitem></varlistentry>
+   <varlistentry><term>no_of_channels:</term>
+      <listitem><para> no of channels per pixels</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function can be used to create opencv image object. For more info about bit depth and channels,please refer to OpenCV documentation
+   </para>
+   <para>
+This is curretly dummy function. It provides no functionality but is required for providing support for generating C code for OpenCV
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+CV_CreateImage([320 240], "IPL_DEPTH_8U", 1)    //to create image of the size 320*240 pixels with 8 bit unsigned each pixels and gray scale image
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="CV_LoadImage">CV_LoadImage</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Siddhesh Wani</member>
+   </simplelist>
+</refsection>
+</refentry>

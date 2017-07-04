@@ -1,5 +1,0 @@
-NIN=         1
-NOUT=         1
-OUT(1).TP=    'g'
-OUT(1).SZ(1)= IN(1).SZ(1)
-OUT(1).SZ(2)= FA_MUL(FA_SZ_DEC2HEX(IN(1).VAL),IN(1).SZ(1))

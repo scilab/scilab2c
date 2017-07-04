@@ -60,7 +60,7 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/matrixOperations/includes/logm.h"
       "src/c/matrixOperations/includes/ones.h"
       "src/c/matrixOperations/includes/matrixSquaredMagnitude.h"
-      "src/c/matrixOperations/includes/spec.h"
+      "src/c/linearAlgebra/includes/spec.h"
       "src/c/matrixOperations/includes/matrixTranspose.h"
       "src/c/matrixOperations/includes/determ.h"
       "src/c/matrixOperations/includes/matrixMultiplication.h"
@@ -72,6 +72,10 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/matrixOperations/includes/kron.h"
       "src/c/matrixOperations/includes/flipdim.h"
       "src/c/matrixOperations/includes/norm.h"
+      "src/c/interpolation/includes/interp1.h"
+      "src/c/elementaryFunctions/includes/nextpow2.h"
+      "src/c/elementaryFunctions/includes/gcd.h"
+      "src/c/elementaryFunctions/includes/isreal.h"
       "src/c/elementaryFunctions/includes/cos.h"
       "src/c/elementaryFunctions/includes/fix.h"
       "src/c/elementaryFunctions/includes/exp.h"
@@ -111,6 +115,8 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/elementaryFunctions/includes/int8.h"
       "src/c/elementaryFunctions/includes/uint16.h"
       "src/c/elementaryFunctions/includes/int16.h"
+      "src/c/elementaryFunctions/includes/uint32.h"
+      "src/c/elementaryFunctions/includes/int32.h"
       "src/c/elementaryFunctions/includes/acosd.h"
       "src/c/elementaryFunctions/includes/acot.h"
       "src/c/elementaryFunctions/includes/acotd.h"
@@ -140,6 +146,9 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/string/includes/dynlib_string.h"
       "src/c/string/includes/disp.h"
       "src/c/string/includes/str.h"
+      "src/c/signalProcessing/includes/modk.h"
+      "src/c/signalProcessing/includes/idct.h"
+      "src/c/signalProcessing/includes/dct.h"
       "src/c/signalProcessing/fft/fft_internal.h"
       "src/c/signalProcessing/ifft/ifft_internal.h"
       "src/c/signalProcessing/levin/levinUtils.h"
@@ -213,6 +222,9 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/CACSD/includes/obscont.h"
       "src/c/linearAlgebra/includes/schur.h"
       "src/c/linearAlgebra/includes/balanc.h"
+      "src/c/linearAlgebra/includes/svd.h"
+	"src/c/linearAlgebra/includes/hess.h"
+	"src/c/linearAlgebra/includes/sva.h"
       "src/c/linearAlgebra/includes/rcond.h"];
 
 
@@ -227,7 +239,15 @@ function allHeaders = getAllHeaders(SharedInfo)
       //"src/c/scilab-arduino/includes/cmd_servo_attach.h"
       //"src/c/scilab-arduino/includes/cmd_servo_detach.h"
       //"src/c/scilab-arduino/includes/cmd_servo_move.h"
-      "src/c/scilab-arduino/includes/sleep.h"];
+      "src/c/scilab-arduino/includes/sleep.h"
+      "src/c/scilab-arduino/includes/cmd_analog_in_volt.h"
+	"src/c/scilab-arduino/includes/cmd_analog_out_volt.h"
+      "src/c/scilab-arduino/includes/cmd_dcmotor_release.h"
+      "src/c/scilab-arduino/includes/cmd_i2c_dev.h"
+      "src/c/scilab-arduino/includes/cmd_i2c_write.h"
+      "src/c/scilab-arduino/includes/cmd_i2c_read.h"
+      "src/c/scilab-arduino/includes/cmd_i2c_read_register.h"
+      "src/c/scilab-arduino/includes/cmd_i2c_write_register.h"];
 
   AVR_headers = [
       "src/c/hardware/avr/includes/AVRPeripheralGPIO.h"
@@ -236,18 +256,44 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/hardware/avr/includes/AVRUtil.h"
       "src/c/hardware/avr/includes/AVRPeripheralTimer.h"
       "src/c/hardware/avr/includes/AVRPeripheralUART.h"
-	    ];
+      ];
 
   RPi_headers = [
       "thirdparty/includes/WiringPi/wiringPi.h"
       "thirdparty/includes/WiringPi/wiringSerial.h"
+      "thirdparty/includes/WiringPi/gertboard.h"
+      "thirdparty/includes/WiringPi/lcd.h"
+      "thirdparty/includes/WiringPi/mcp23s08.h"
+      "thirdparty/includes/WiringPi/mcp23s17.h"
+      "thirdparty/includes/WiringPi/mcp23008.h"
+      "thirdparty/includes/WiringPi/mcp23016.h"
+      "thirdparty/includes/WiringPi/mcp23017.h"
+      "thirdparty/includes/WiringPi/pcf8574.h"
+      "thirdparty/includes/WiringPi/pcf8591.h"
+      "thirdparty/includes/WiringPi/piGlow.h"
+      "thirdparty/includes/WiringPi/sn3218.h"
+      "thirdparty/includes/WiringPi/sr595.h"
+      "thirdparty/includes/WiringPi/softPwm.h"
+      "thirdparty/includes/WiringPi/softTone.h"
+      "thirdparty/includes/WiringPi/wiringPiI2C.h"
+      "thirdparty/includes/WiringPi/wiringShift.h"
       "src/c/hardware/rasberrypi/includes/RPIPeripheralDigital.h"
-      "src/c/hardware/rasberrypi/includes/RPIPeripheralTiming.h"
-      "src/c/hardware/rasberrypi/includes/RPIPeripheralSerial.h"
-      "src/c/hardware/rasberrypi/includes/RPIPeripheralThreading.h"
-      "src/c/hardware/rasberrypi/includes/RPIPeripheralPinISR.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralGertboard.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralI2C.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralInterrupt.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralLCD.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralMcp.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralMisc.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralPcf.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralPiGlow.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralPinMap.h"
       "src/c/hardware/rasberrypi/includes/RPIPeripheralPWM.h"
-		];
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralSerial.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralSetup.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralShift.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralSoft.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralTiming.h"
+        ];
 
   OpenCV_headers = [
       "src/c/imageProcessing/includes/cvcore.hpp"
@@ -267,6 +313,11 @@ function allHeaders = getAllHeaders(SharedInfo)
 
   if (SharedInfo.OpenCVUsed == %T)
       allHeaders = cat(1,allHeaders,OpenCV_headers);
+  end
+
+  if(size(SharedInfo.Includelist) <> 0 & (mtlb_strcmp(part(SharedInfo.Includelist(1),1:5),'odefn') == %T))
+      disp("Hi")
+  	allHeaders = cat(1,allHeaders,"thirdparty/includes/GSL");
   end
 
 endfunction

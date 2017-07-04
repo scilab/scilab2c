@@ -18,20 +18,26 @@ function count = AVRGetTimerValue(timer)
 //             2 for timer2
 //              
 // Description
-//     This function returns the count value of a desired timer.By knowing the count value 
-//     certain interrupt action can be taken.
+//     This function returns the count value of a desired timer.By knowing the count value certain interrupt action can be taken.
+//
+//     Timer can take the following values
+//     <itemizedlist>
+//     <listitem><para>0   -> for timer0</para></listitem>
+//     <listitem><para>1   -> for timer1</para></listitem>
+//     <listitem><para>2   -> for timer2</para></listitem>
+//     </itemizedlist>
+//
+// This is curretly dummy function. It provides no functionality but is required 
+// for providing support for generating C code for AVR.
 //
 // Examples
 //     AVRGetTimerValue(0);   //returns present count of the TCNT0 counter
-//
 // See also
 //     AVRTimerSetup
 //
 // Authors
 //     Ashish Kamble
 //
-// This is curretly dummy function. It provides no functionality but is required 
-// for providing support for generating C code for AVR.
 
 if(timer>=3) then 
 disp("Error : Invalid input argument ''timer'' in AVRGetTimerValue function.");

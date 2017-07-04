@@ -1,0 +1,97 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>AVRPWM2Setup</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="AVRPWM2SetDuty.html">&lt;&lt; AVRPWM2SetDuty</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_0da8c7f3adca54f0475553087384b7a7.html">Scilab 2 C Converter</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="AVRReadADC.html">AVRReadADC &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">Scilab 2 C Converter</a> &gt;&gt; <a href="section_0da8c7f3adca54f0475553087384b7a7.html">Scilab 2 C Converter</a> &gt; AVRPWM2Setup</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">AVRPWM2Setup</h1>
+    <p class="refpurpose">Function to Setup OC2 pin for required PWM mode</p></div>
+
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">waveform_mode:</span>
+      <dd><p class="para">integer, from 0 to 2</p></dd></dt>
+   <dt><span class="term">output_mode:</span>
+      <dd><p class="para">integer, from 0 to 1 (or 2) depending on the waveform_mode</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">Every Micro controller has PWM pins which can generate varying voltages
+from 0V-5V.This function helps to use OC2 pin to produces required
+output waveform by setting the waveform mode and otput mode.</p>
+   <p class="para">waveform_mode can take values-
+<ul class="itemizedlist"><li><p class="para">0   -&gt; for Phase correct PWM Mode</p></li>
+<li><p class="para">1   -&gt; for Fast PWM Mode</p></li>
+<li><p class="para">2   -&gt; for CTC Mode</p></li></ul></p>
+   <p class="para">output_mode can take values-
+<ul class="itemizedlist">For Phase correct PWM Mode:
+<li><p class="para">0 for Clear OC2 on compare match when up-counting. Set OC2 on compare match when down-counting.</p></li>
+<li><p class="para">1 for Set OC2 on compare match when up-counting. Clear OC2 on compare match when down-counting.</p></li>
+For Fast PWM Mode:
+<li><p class="para">0 for non-inverted output i.e Clear OC2 on compare match, set OC2 at BOTTOM.</p></li>
+<li><p class="para">1 for inverted output i.e Set OC2 on compare match, clear OC2 at BOTTOM.</p></li>
+For CTC Mode:
+<li><p class="para">0 to Clear OC2 on compare match</p></li>
+<li><p class="para">1 to Set OC2 on compare match</p></li>
+<li><p class="para">2 to toggle OC2 on compare match</p></li></ul></p>
+   <p class="para">This is curretly dummy function. It provides no functionality but is required
+for providing support for generating C code for AVR.</p>
+   <p class="para">Example
+AVRPWM2Setup(2,0);     //This function will select CTC waveform mode and will clear OC2 on
+compare match</p></div>
+
+<div class="refsection"><h3 class="title">See also</h3>
+   <ul class="itemizedlist"><li class="member"><a href="AVRPWM2SetDuty.html" class="link">AVRPWM2SetDuty</a></li></ul></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Ashish Kamble</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="AVRPWM2SetDuty.html">&lt;&lt; AVRPWM2SetDuty</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_0da8c7f3adca54f0475553087384b7a7.html">Scilab 2 C Converter</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="AVRReadADC.html">AVRReadADC &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

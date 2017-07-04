@@ -12,28 +12,28 @@ function CV_ShowImage(winname,img)
 // function to show an image 
 //
 // Calling Sequence
-//	   CV_ShowImage(img)
+//     CV_ShowImage(img)
 //     CV_ShowImage(winname,img)
 //
 // Parameters
-//     winname: name of window in which img is to be shown
-//	   img: image to be shown already acquired (from file/camera)
+//	winname: name of window in which img is to be shown
+//	img: image to be shown already acquired (from file/camera)
 //
 // Description
 //		This function can be used for showing images
-// Examples
-//		img = CV_LoadImage('~/test.jpg',0)
-//		CV_ShowImage(img)
 //
+// This is curretly dummy function. It provides no functionality but is required 
+// for providing support for generating C code for OpenCV
+//
+// Examples
+//	img = CV_LoadImage('~/test.jpg',0)
+//	CV_ShowImage(img)
 // See also
 //     CV_CreateImage CV_LoadImage
-//
 //
 // Authors
 //     Siddhesh Wani
 //
 
-// This is curretly dummy function. It provides no functionality but is required 
-// for providing support for generating C code for OpenCV
 
 endfunction

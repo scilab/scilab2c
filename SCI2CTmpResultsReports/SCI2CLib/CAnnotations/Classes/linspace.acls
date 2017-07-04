@@ -1,5 +1,0 @@
-NIN=          3
-NOUT=         1
-OUT(1).TP=    IN(1).TP
-OUT(1).SZ(1)= FA_SZ_LINSPACE_ROW(IN(1).SZ)
-OUT(1).SZ(2)= IN(3).VAL

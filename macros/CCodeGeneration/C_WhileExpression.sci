@@ -1,4 +1,4 @@
-function SharedInfo = C_WhileExpression(FileInfo,SharedInfo)
+function SharedInfo = C_WhileExpression(IfCondArg,NIfCondArg,Op,NOp,FileInfo,SharedInfo)
 // function SharedInfo = C_WhileExpression(FileInfo,SharedInfo)
 // -----------------------------------------------------------------
 // //NUT: add description here
@@ -19,7 +19,7 @@ function SharedInfo = C_WhileExpression(FileInfo,SharedInfo)
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-SCI2CNInArgCheck(argn(2),2,2);
+SCI2CNInArgCheck(argn(2),6,6);
 
 // -----------------------
 // --- Initialization. ---
@@ -76,7 +76,27 @@ PrintStringInfo('}',CPass1WhileEpilFileName ,'file','y');
 // ------------------------------
 // --- Insert for expression. ---
 // ------------------------------
-CCall = 'while('+SharedInfo.WhileExpr.CondVar+')';
+//CCall = 'while('+SharedInfo.WhileExpr.CondVar+')';
+//PrintStringInfo(C_IndentBlanks(SharedInfo.NIndent)+CCall,CPass1FileName,'file','y');
+
+i=1;
+k=1;
+CCall ='';
+CCall = CCall+'while';
+   CCall = CCall+'(';
+   while i <= NIfCondArg
+	CCall = CCall + IfCondArg(i) + ' ';
+	//d = modulo(i,3);
+	//PrintStringInfo(' '+string(i)+string(d),'file','y');
+	if (modulo(i,3)==0 & i<>NIfCondArg)
+	    CCall = CCall + Op(k) + ' ';
+	    k = k + 1;
+	end
+        i = i + 1;
+   end 
+   CCall = CCall+')';
+
+PrintStringInfo('   '+CCall,ReportFileName,'file','y');
 PrintStringInfo(C_IndentBlanks(SharedInfo.NIndent)+CCall,CPass1FileName,'file','y');
    
 // -------------------

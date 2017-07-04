@@ -70,7 +70,7 @@ else
     PrintStringInfo('CXX     = arm-linux-gnueabihf-g++ ',FileInfo.MakefileFilename,'file','y','y');
 	  PrintStringInfo('CFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR) -L $(LIBDIR)',FileInfo.MakefileFilename,'file','y','y');
     PrintStringInfo('CXXFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR) -L $(LIBDIR)',FileInfo.MakefileFilename,'file','y','y');
-    PrintStringInfo('LDFLAGS = -llapack -lrefblas -lgfortran -lwiringPi',FileInfo.MakefileFilename,'file','y','y');
+    PrintStringInfo('LDFLAGS = -llapack -lrefblas -lgfortran -lwiringPi -lwiringPiDev -lrt -lpthread',FileInfo.MakefileFilename,'file','y','y');
   else
 		PrintStringInfo('CC     = gcc',FileInfo.MakefileFilename,'file','y','y');
     PrintStringInfo('CXX     = g++',FileInfo.MakefileFilename,'file','y','y');
@@ -78,6 +78,25 @@ else
     PrintStringInfo('CXXFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR) -L $(LIBDIR)',FileInfo.MakefileFilename,'file','y','y');
 	  PrintStringInfo('LDFLAGS = -lblas -llapack -lm ',FileInfo.MakefileFilename,'file','y','y');
   end 
+
+  //If ode function is used, add libgsl.
+  if(size(SharedInfo.Includelist) <> 0)
+    if((mtlb_strcmp(part(SharedInfo.Includelist(1),1:5),'odefn') == %T))
+      if(target == 'RPi')
+        PrintStringInfo('LDFLAGS = -lgsl -lcblas',FileInfo.MakefileFilename,'file','y','y');
+      else
+        PrintStringInfo('LDFLAGS = -lgsl',FileInfo.MakefileFilename,'file','y','y');
+      end
+        
+    end
+  end
+
+  if (target == 'RPi')
+    PrintStringInfo('LDFLAGS += -llapack -lrefblas -lgfortran -lwiringPi',FileInfo.MakefileFilename,'file','y','y');
+  else
+    PrintStringInfo('LDFLAGS += -lblas -llapack -lm ',FileInfo.MakefileFilename,'file','y','y');
+  end 
+
 	if(SharedInfo.OpenCVUsed == %T)
       PrintStringInfo('LDFLAGS += -lopencv_calib3d -lopencv_contrib -lopencv_features2d -lopencv_flann -lopencv_gpu',FileInfo.MakefileFilename,'file','y','y');
       PrintStringInfo('LDFLAGS += -lopencv_highgui -lopencv_imgproc -lopencv_legacy -lopencv_ml -lopencv_nonfree',FileInfo.MakefileFilename,'file','y','y');

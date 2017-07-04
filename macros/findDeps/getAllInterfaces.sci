@@ -32,7 +32,7 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/type/int_real.h"
       "src/c/matrixOperations/interfaces/int_vmagn.h"
       "src/c/matrixOperations/interfaces/int_ones.h"
-      "src/c/matrixOperations/interfaces/int_spec.h"
+      "src/c/linearAlgebra/interfaces/int_spec.h"
       "src/c/matrixOperations/interfaces/int_cat.h"
       "src/c/matrixOperations/interfaces/int_zeros.h"
       "src/c/matrixOperations/interfaces/int_OpBackSlash.h"
@@ -61,6 +61,10 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/matrixOperations/interfaces/int_flipdim.h"
       "src/c/matrixOperations/interfaces/int_permute.h"
       "src/c/matrixOperations/interfaces/int_norm.h"
+      "src/c/interpolation/interfaces/int_interp1.h"
+      "src/c/elementaryFunctions/interfaces/int_nextpow2.h"
+      "src/c/elementaryFunctions/interfaces/int_gcd.h"
+      "src/c/elementaryFunctions/interfaces/int_isreal.h"
       "src/c/elementaryFunctions/interfaces/int_asinh.h"
       "src/c/elementaryFunctions/interfaces/int_atanh.h"
       "src/c/elementaryFunctions/interfaces/int_sinh.h"
@@ -100,6 +104,8 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/elementaryFunctions/interfaces/int_int8.h"
       "src/c/elementaryFunctions/interfaces/int_uint16.h"
       "src/c/elementaryFunctions/interfaces/int_int16.h"
+      "src/c/elementaryFunctions/interfaces/int_uint32.h"
+      "src/c/elementaryFunctions/interfaces/int_int32.h"
       "src/c/elementaryFunctions/interfaces/int_acosd.h"
       "src/c/elementaryFunctions/interfaces/int_acot.h"
       "src/c/elementaryFunctions/interfaces/int_acotd.h"
@@ -142,6 +148,9 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/operations/interfaces/int_OpIns.h"
       "src/c/string/interfaces/int_disp.h"
       "src/c/string/interfaces/int_string.h"
+      "src/c/signalProcessing/interfaces/int_modk.h"
+      "src/c/signalProcessing/interfaces/int_idct.h"
+      "src/c/signalProcessing/interfaces/int_dct.h"
       "src/c/signalProcessing/interfaces/int_ifft.h"
       "src/c/signalProcessing/interfaces/int_lpc2cep.h"
       "src/c/signalProcessing/interfaces/int_cepstrum.h"
@@ -208,6 +217,9 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/CACSD/interfaces/int_obscont.h"
       "src/c/linearAlgebra/interfaces/int_schur.h"
       "src/c/linearAlgebra/interfaces/int_balanc.h"
+      "src/c/linearAlgebra/interfaces/int_svd.h"
+	  "src/c/linearAlgebra/interfaces/int_hess.h"
+	  "src/c/linearAlgebra/interfaces/int_sva.h"	
       "src/c/linearAlgebra/interfaces/int_rcond.h"];
 
 
@@ -219,7 +231,14 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/scilab-arduino/interfaces/int_cmd_analog_in.h"
       "src/c/scilab-arduino/interfaces/int_cmd_dcmotor.h"
       "src/c/scilab-arduino/interfaces/int_cmd_servo.h"
-      "src/c/scilab-arduino/interfaces/int_sleep.h"];
+      "src/c/scilab-arduino/interfaces/int_sleep.h"
+      "src/c/scilab-arduino/interfaces/int_cmd_analog_in_volt.h"
+      "src/c/scilab-arduino/interfaces/int_cmd_analog_out_volt.h"
+      "src/c/scilab-arduino/interfaces/int_cmd_i2c_dev.h"
+      "src/c/scilab-arduino/interfaces/int_cmd_i2c_write.h"
+      "src/c/scilab-arduino/interfaces/int_cmd_i2c_read.h"
+      "src/c/scilab-arduino/interfaces/int_cmd_i2c_write_register.h"
+      "src/c/scilab-arduino/interfaces/int_cmd_i2c_read_register.h"];
 
   //Interface files required for "AVR" output
   AVR_interfaces = [
@@ -233,12 +252,22 @@ function allInterfaces = getAllInterfaces(SharedInfo)
 
   RPI_interfaces = [
       "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralDigital.h"
-      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralTiming.h"
-      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralSerial.h"
-      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralThreading.h"
-      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralPinISR.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralGertboard.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralI2C.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralInterrupt.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralLCD.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralMcp.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralMisc.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralPcf.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralPiGlow.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralPinMap.h"
       "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralPWM.h"
-      ];
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralSerial.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralSetup.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralShift.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralSoft.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralTiming.h"
+        ];
 
   OpenCV_interfaces = [
       "src/c/imageProcessing/interfaces/int_cvcore.hpp"

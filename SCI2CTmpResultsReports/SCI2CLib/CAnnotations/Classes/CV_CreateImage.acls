@@ -1,5 +1,0 @@
-NIN=         4
-NOUT=         1
-OUT(1).TP=    'mt'
-OUT(1).SZ(1)= '1'
-OUT(1).SZ(2)= '1'

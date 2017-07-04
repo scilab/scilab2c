@@ -10,29 +10,34 @@
 
 function AVRUARTSetup(mode, baudrate, stopbits, parity)
 // Function to Setup Serial Communication i.e UART or USART in ATmega16.
+// 
+// Parameters
+//     mode : integer, from 0 to 2
+//     baudrate : Enter one of the following available baudrates (2400 , 4800 , 9600 , 14400 , 19200 , 28800 , 38400 , 57600 , 768000 , 115200 , 230400 , 250000 , 1000000)
+//     stopbits : integer, (0 for one stopbit) or (1 for two stopbits)
+//     parity : integer, from 0 to 2
+// 
 // Description
 //        This function Setup the UART or USART for Serial Communicaion between ATmega16 
 //        and different micro controllers or between ATmega16 and Computer.   
-// 
-// Parameters
-//     mode : 
-//           0 for Asynchronous Normal mode
-//           1 for Asynchronous Double Speed mode
-//           2 for Synchronous mode
-//    
-//     baudrate : Enter one of the following available baudrates
-//                2400 , 4800 , 9600 , 14400 , 19200 , 28800 , 38400 , 57600 ,
-//                768000 , 115200 , 230400 , 250000 , 1000000 .
 //
-//     stopbits : 
-//               0 for one stopbit
-//               1 for two stopbits
+//	mode can take values:
+//	<itemizedlist>
+//      <listitem><para>0 for Asynchronous Normal mode</para></listitem>
+//      <listitem><para>1 for Asynchronous Double Speed mode</para></listitem>
+//      <listitem><para>2 for Synchronous mode</para></listitem>
+//      </itemizedlist>
 //
-//     parity : 
-//             0 for parity disabled
-//             1 for even parity    
-//             2 for odd parity
-// 
+//	parity can take values:
+//	<itemizedlist>
+//      <listitem><para>0 for parity disabled</para></listitem>
+//      <listitem><para>1 for even parity</para></listitem>
+//      <listitem><para>2 for odd parity</para></listitem>
+//      </itemizedlist>
+//
+// This is curretly dummy function. It provides no functionality but is required 
+// for providing support for generating C code for AVR.
+//
 //Examples
 //     AVRUARTSetup(0,9600,0,0); //This function will enable UART Communication for ATmega16
 //                                 with 9600 as baudrate,one stop bit and parity disabled
@@ -43,8 +48,7 @@ function AVRUARTSetup(mode, baudrate, stopbits, parity)
 // Authors
 //     Ashish Kamble
 //
-// This is curretly dummy function. It provides no functionality but is required 
-// for providing support for generating C code for AVR.
+
 if(mode>=3) then
 disp("Error : Invalid input argument ''mode'' in AVRUARTSetup function.");
 end

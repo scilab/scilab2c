@@ -1,8 +1,0 @@
-NIN=         1
-NOUT=         2
-OUT(1).TP=    'd'
-OUT(1).SZ(1)= FA_SZ_1(FA_SZ_LQR(IN(1).VAL))
-OUT(1).SZ(2)= FA_SZ_1(FA_SZ_LQR(IN(1).VAL))
-OUT(2).TP=    'd'
-OUT(2).SZ(1)= FA_SZ_2(FA_SZ_LQR(IN(1).VAL))
-OUT(2).SZ(2)= FA_SZ_1(FA_SZ_LQR(IN(1).VAL))

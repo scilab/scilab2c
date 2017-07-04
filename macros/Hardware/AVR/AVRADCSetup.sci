@@ -17,26 +17,28 @@ function AVRADCSetup(prescaler,adc_ref)
 // Parameters
 //     prescaler: prescaler to be used for generating ADC clock (0-7)
 //     adc_ref	: reference voltage to be used for ADC conversion
-//              0 -> Voltage on VREF pin
-//              1 -> Voltage on AVCC pin
-//              2 -> Internal 2.56 reference voltage       
 //
 // Description
-//     This function initialises ADc of AVR with given parameters. 'prescaler' is 
-//     needed for deciding ADC clock. ADC clock should be between 50KHz and 200KHz
-//     and it given as (MCU clock/2^prescaler). Select appropriate prescaler depending
-//     on MCU clock. 'adc_ref' selects one of the available reference voltage sources
-//     available
+//     This function initialises ADc of AVR with given parameters. 'prescaler' is needed for deciding ADC clock. ADC clock should be between 50KHz and 200KHz and it given as (MCU clock/2^prescaler). Select appropriate prescaler depending on MCU clock. 'adc_ref' selects one of the available reference voltage sources available.
+//
+//     The adc_ref can take the following values-
+//     <itemizedlist>
+//     <listitem><para>0   -> Voltage on VREF pin</para></listitem>
+//     <listitem><para>1   -> Voltage on AVCC pin</para></listitem>
+//     <listitem><para>2   -> Internal 2.56 reference voltage</para></listitem>
+//     </itemizedlist>
+//
+//     This is curretly dummy function. It provides no functionality but is required for providing support for generating C code for AVR.
+//
 // Examples
 //     AVRADCSetup(128,0)
 // See also
 //     AVRReadADC
 //
 // Authors
-//     Siddhesh Wani Ashish Kamble
+//     Siddhesh Wani 
+//     Ashish Kamble
 //
-// This is curretly dummy function. It provides no functionality but is required 
-// for providing support for generating C code for AVR.
 
 if(prescaler>=8)
 disp("Error : Invalid input argument ''prescaler'' in AVRADCSetup function.");

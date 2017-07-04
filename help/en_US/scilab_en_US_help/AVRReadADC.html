@@ -1,0 +1,84 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>AVRReadADC</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="AVRPWM2Setup.html">&lt;&lt; AVRPWM2Setup</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_0da8c7f3adca54f0475553087384b7a7.html">Scilab 2 C Converter</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="AVRSleep.html">AVRSleep &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">Scilab 2 C Converter</a> &gt;&gt; <a href="section_0da8c7f3adca54f0475553087384b7a7.html">Scilab 2 C Converter</a> &gt; AVRReadADC</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">AVRReadADC</h1>
+    <p class="refpurpose">Function to get voltage on analog pin on AVR</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">u8AVRReadADCs</span><span class="default">(</span><span class="default">channel</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">channel     :</span>
+      <dd><p class="para">Select which channel is to be read. Values from 0-7 select one of the pins ADC0-ADC7. For other possible channel values refer datasheet</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">This function returns digital value for present on adc pins. &#0039;channel&#0039;
+selects which of the ADC0-ADC7 is to be used for reading analog value.
+Apart from reading just ADC0-ADC7 other it can also read differential
+voltages between some pins. For channel values for those options, please
+refer datasheet.</p>
+   <p class="para">This is curretly dummy function. It provides no functionality but is required
+for providing support for generating C code for AVR.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">adc_result</span> <span class="scilaboperator">=</span> <span class="scilabid">u8AVRReadADC</span><span class="scilabopenclose">(</span><span class="scilabnumber">0</span><span class="scilabopenclose">)</span>   <span class="scilabcomment">//Read ADC0</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Siddhesh Wani</li>
+   <li class="member">Ashish Kamble</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="AVRPWM2Setup.html">&lt;&lt; AVRPWM2Setup</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_0da8c7f3adca54f0475553087384b7a7.html">Scilab 2 C Converter</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="AVRSleep.html">AVRSleep &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

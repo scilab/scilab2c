@@ -1,4 +1,4 @@
-function runsci2c(UserScilabMainFile, UserSciFilesPaths, SCI2COutputPath, Runmode, BuildTool,Target)
+function runsci2c(UserScilabMainFile, UserSciFilesPaths, SCI2COutputPath, Runmode, BuildTool,Target,Board_name)
 // function runsci2c(SCI2CInputPrmFile)
 // -----------------------------------------------------------------
 // ===         hArtes/PoliBa/GAP SCI2C tool                      ===
@@ -51,12 +51,12 @@ disp(RunSci2CMainDir);
 
 // --- Initialize the SCI2C tool directories and files. ---
 [FileInfoDatFile,SharedInfoDatFile] = INIT_SCI2C(UserScilabMainFile, ...
-						 UserSciFilesPaths, SCI2COutputPath, RunMode, Target);
+						 UserSciFilesPaths, SCI2COutputPath, RunMode, Target,Board_name);
+
 
 // -- Load FileInfo and SharedInfo
 load(SharedInfoDatFile,'SharedInfo');
 load(FileInfoDatFile,'FileInfo');
-
 RunMode = SharedInfo.RunMode;
 
 // --- Generation of the library structure. ---
@@ -91,7 +91,6 @@ load(SharedInfoDatFile,'SharedInfo');
 // ---------------------------
 
 global SCI2CHOME
-
 allSources = SCI2CHOME + "/" + getAllSources(SharedInfo);
 allHeaders = SCI2CHOME + "/" +getAllHeaders(SharedInfo);
 allInterfaces = SCI2CHOME + "/" + getAllInterfaces(SharedInfo);
@@ -177,6 +176,8 @@ if (Target == 'Arduino')
        //disp("Copying "+arduinoFiles(i)+" in "+SCI2COutputPath+"/arduino/sci2carduino");
        copyfile(arduinoFiles(i), SCI2COutputPath+"/arduino/sci2c_arduino/");
    end
+    C_GenerateMkfle_arduino(FileInfo,SharedInfo);
+   movefile(FileInfo.MakefileFilename, SCI2COutputPath+"/arduino/sci2c_arduino/");    
 elseif (Target == 'AVR')
      AVRFile = SCI2CHOME + "/" + "src/c/hardware/avr/default_files/Makefile";
      copyfile(AVRFile, SCI2COutputPath);
