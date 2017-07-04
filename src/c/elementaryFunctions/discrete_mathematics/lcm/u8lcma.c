@@ -44,7 +44,8 @@ uint8 u8lcma(uint8* in,int size)
         else
         i+=max;
     }
-    for(int j=2;j<size;j++)
+    int j;
+    for(j=2;j<size;j++)
     {
     x1=lcm_temp;
     x2=*(in+j);

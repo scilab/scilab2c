@@ -21,6 +21,8 @@ extern "C" {
 #endif
 
 #define u320RPI_delay(time) u32RPI_delays(time);
+#define d0RPI_delay(time) u32RPI_delays(time);
+
 #define u320RPI_delayMicro(time) u32RPI_delayMicros(time);
 #define RPI_millisu320() RPI_millis();
 #define RPI_microsu320() RPI_micros();

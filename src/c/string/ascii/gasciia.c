@@ -16,8 +16,8 @@
 #include "ascii.h"
 void gasciia(char *str,int size,int* oup)
 {
-
-  for(int i=0;i<size;i++)
+  int i;
+  for(i=0;i<size;i++)
   {
     *(oup+i)=(int)str[i];
   }

@@ -1,4 +1,4 @@
-/* Copyright (C) 2016 - IIT Bombay - FOSSEE
+/* Copyright (C) 2017 - IIT Bombay - FOSSEE
 
  This file must be used under the terms of the CeCILL.
  This source file is licensed as described in the file COPYING, which
@@ -20,8 +20,6 @@ extern "C" {
 #endif
 
 #include "types.h"
-
-extern int phy_pin[];       //Not needed???
 
 uint8 u8RPI_digitalReads(uint8 pin);
 uint8 RPI_digitalReadByte();

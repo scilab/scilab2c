@@ -31,7 +31,8 @@ uint8 u8gcdua(uint8* in,int size)
   int x=*in;
   int y=*(in+1);
   int max=(x>y)?x:y;
-  for(int i=max;i>=1;i--)
+  int i;
+  for(i=max;i>=1;i--)
   {
     if(x%i==0 && y%i==0)
     {
@@ -39,12 +40,13 @@ uint8 u8gcdua(uint8* in,int size)
       break;
     }
   }
-  for(int j=2;j<size;j++)
+  int j;
+  for(j=2;j<size;j++)
   {
     x=temp;
     y=*(in+j);
     max=(x>y)?x:y;
-    for(int i=max;i>=1;i--)
+    for(i=max;i>=1;i--)
     {
       if(x%i==0 && y%i==0)
       {

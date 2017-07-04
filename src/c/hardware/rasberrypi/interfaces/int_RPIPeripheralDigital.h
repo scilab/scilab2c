@@ -21,8 +21,12 @@ extern "C" {
 #endif
 
 #define u80RPI_digitalReadu80(pin) u8RPI_digitalReads(pin);
+#define d0RPI_digitalReadd0(pin) u8RPI_digitalReads(pin);
+
 #define RPI_digitalReadByteu80() RPI_digitalReadByte();
 #define u80u80RPI_digitalWrite(pin,state) u8RPI_digitalWrites(pin,state);
+#define d0d0RPI_digitalWrite(pin,state) u8RPI_digitalWrites(pin,state);
+
 #define u80RPI_digitalWriteByte(value) u8RPI_digitalWriteBytes(value);
 
 #ifdef  __cplusplus

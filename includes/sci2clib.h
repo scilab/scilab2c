@@ -446,12 +446,12 @@ extern "C" {
 #include "modk.h"
 #include "int_modk.h"
 /* interfacing idct */
-#include "idct.h"
-#include "int_idct.h"
+//#include "idct.h"
+//#include "int_idct.h"
 
 /* interfacing dct   */
-#include "dct.h"
-#include "int_dct.h"
+//#include "dct.h"
+//#include "int_dct.h"
 
 /* interfacing convol */
 #include "conv.h"
@@ -709,7 +709,7 @@ extern "C" {
 #endif
 
 /*RPi*/
-//#ifdef RPi1
+#ifdef RPi1
 #include "wiringPi.h"
 #include "RPIPeripheralDigital.h"
 #include "int_RPIPeripheralDigital.h"
@@ -743,7 +743,7 @@ extern "C" {
 #include "int_RPIPeripheralSoft.h"
 #include "RPIPeripheralTiming.h"
 #include "int_RPIPeripheralTiming.h"
-//#endif
+#endif
 
 #ifdef __cplusplus
 }

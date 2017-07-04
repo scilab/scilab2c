@@ -15,6 +15,7 @@
 #include "addition.h"
 #include "types.h"
 #include "floatComplex.h" 
+#include "multiplication.h"
 /*#include "matrixMultiplication"*/
 /*#include <fftw3.h>*/
 #include <math.h>
@@ -26,7 +27,7 @@ void cdcta(floatComplex *in,int row,int col,int sign,floatComplex *out)
 	int x,y;
 	float res,ress;
 	float re,z,q,m;
-	floatComplex accu = DoubleComplex(0, 0);
+	floatComplex accu = FloatComplex(0, 0);
 	floatComplex temp,mm;
 	if(sign==-1)
 	{
@@ -44,7 +45,10 @@ void cdcta(floatComplex *in,int row,int col,int sign,floatComplex *out)
 						for(j=0;j<col;j++)
 						{
 							y=row*j+i;		
-							temp=in[y]*(cos(((M_PI)*(y+1-1./2.)*(x))/n));
+							float a;
+							a=(cos(((M_PI)*(y+1-1./2.)*(x))/n));
+							floatComplex b=FloatComplex(a,0);
+							temp=cmuls(in[y],b);
 							out[x]=cadds(out[x],temp);
 						}
 					}

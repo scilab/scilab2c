@@ -254,6 +254,7 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralI2C.h"
       "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralInterrupt.h"
       "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralLCD.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralLCD128x64.h"
       "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralMcp.h"
       "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralMisc.h"
       "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralPcf.h"

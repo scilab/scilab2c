@@ -1,11 +1,11 @@
-/* Copyright (C) 2016 - IIT Bombay - FOSSEE
+/* Copyright (C) 2017 - IIT Bombay - FOSSEE
 
  This file must be used under the terms of the CeCILL.
  This source file is licensed as described in the file COPYING, which
  you should have received as part of this distribution.  The terms
  are also available at
  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
- Author:  Jorawar Singh, Siddhesh Wani
+ Author:  Jorawar Singh
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
 */
@@ -30,8 +30,8 @@ extern "C" {
 #define u80u80u80RPI_lcdPosition(fd,row,col) u8RPI_lcdPositions(fd,row,col);
 #define u80u80RPI_lcdPutchar(fd,char) u8RPI_lcdPutchars(fd,char);
 #define u80u80RPI_lcdSendCommand(fd,cmd) u8RPI_lcdSendCommands(fd,cmd);
-#define u80g2RPI_lcdPutss(fd,msg,size) u8RPI_lcdPutss(fd,msg,size[1]);;
-#define u80g2RPI_lcdPrintfs(fd,data,size) u8RPI_lcdPrintfs(fd,data,size[1]);
+#define u80g2RPI_lcdPuts(fd,msg,size) u8RPI_lcdPutss(fd,msg,size[1]);;
+#define u80g2RPI_lcdPrintf(fd,data,size) u8RPI_lcdPrintfs(fd,data,size[1]);
 
 #ifdef  __cplusplus
 } /* extern "C" */

@@ -29,7 +29,7 @@ void sdcta(float *in,int row,int col,int sign,float *out);
 
 void zdcta(doubleComplex *in,int row,int col,int sign,doubleComplex *out);
 
-void cdcta(floatComplex *in,int row,int col,int sign,floatComplex *out);
+//void cdcta(floatComplex *in,int row,int col,int sign,floatComplex *out);
 
 #ifdef  __cplusplus
 } /* extern "C" */
