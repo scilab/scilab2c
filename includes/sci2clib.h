@@ -18,6 +18,15 @@ extern "C" {
 /* interfacing lapack */
 #include "lapack.h"
 
+
+#include "sva.h"
+#include "int_sva.h"
+
+
+#include "svd.h"
+#include "int_svd.h"
+
+
 /* AUXILIARY FUNCTIONS */
 
 /* interfacing abs */

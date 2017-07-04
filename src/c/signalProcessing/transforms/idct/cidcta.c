@@ -26,7 +26,7 @@ void cidcta(floatComplex *in,int row,int col,floatComplex *out)
 	int x,y;
 	float res,ress;
 	float re,z,q,m;
-	floatComplex accu = DoubleComplex(0, 0);
+	floatComplex accu = FloatComplex(0, 0);
 	floatComplex temp,mm;
 	if(row==1)
 	{

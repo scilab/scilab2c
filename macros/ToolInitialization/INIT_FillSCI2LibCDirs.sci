@@ -6722,6 +6722,162 @@ PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file',
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
+//------------------------------------
+//---- Class SVD -------------------
+//------------------------------------
+ClassName = 'SVD';
+
+// --- Class Annotation. ---
+PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
+ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
+
+PrintStringInfo('NIN=         1',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)=  IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
+
+PrintStringInfo('NIN=         2',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         3',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= FA_MIN(IN(1).SZ(1),IN(1).SZ(2))',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(1)= FA_MIN(IN(1).SZ(1),IN(1).SZ(2))',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(2)= FA_MIN(IN(1).SZ(1),IN(1).SZ(2))',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).SZ(1)= IN(1).SZ(2)',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).SZ(2)= FA_MIN(IN(1).SZ(1),IN(1).SZ(2))',ClassFileName,'file','y');
+
+PrintStringInfo('NIN=         1',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         3',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).SZ(1)= IN(1).SZ(2)',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+
+PrintStringInfo('NIN=         1',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)=  FA_MIN(IN(1).SZ(1),IN(1).SZ(2))',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
+
+PrintStringInfo('NIN=         2',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         3',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= FA_MIN(IN(1).SZ(1),IN(1).SZ(2))',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(1)= FA_MIN(IN(1).SZ(1),IN(1).SZ(2))',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(2)= FA_MIN(IN(1).SZ(1),IN(1).SZ(2))',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).SZ(1)= IN(1).SZ(2)',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).SZ(2)= FA_MIN(IN(1).SZ(1),IN(1).SZ(2))',ClassFileName,'file','y');
+
+PrintStringInfo('NIN=         1',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         3',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).SZ(1)= IN(1).SZ(2)',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+
+PrintStringInfo('NIN=         1',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         4',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).SZ(1)= IN(1).SZ(2)',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+PrintStringInfo('OUT(4).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(4).SZ(1)= ''1''',ClassFileName,'file','y');
+PrintStringInfo('OUT(4).SZ(2)= ''1''',ClassFileName,'file','y');
+
+PrintStringInfo('NIN=         2',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         4',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).SZ(1)= IN(1).SZ(2)',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).SZ(2)= IN(1).SZ(2)',ClassFileName,'file','y');
+PrintStringInfo('OUT(4).TP=    ''d''',ClassFileName,'file','y');
+PrintStringInfo('OUT(4).SZ(1)= ''1''',ClassFileName,'file','y');
+PrintStringInfo('OUT(4).SZ(2)= ''1''',ClassFileName,'file','y');
+
+ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+PrintStringInfo('d2'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('d2g2'+ArgSeparator+'d2d2d2',ClassFileName,'file','y');
+PrintStringInfo('d2'+ArgSeparator+'d2d2d2',ClassFileName,'file','y');
+PrintStringInfo('d2'+ArgSeparator+'d2d2d2d0',ClassFileName,'file','y');
+PrintStringInfo('d2d0'+ArgSeparator+'d2d2d2d0',ClassFileName,'file','y');
+
+// --- Annotation Function And Function List Function. ---
+FunctionName = 'svd'; 
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+//------------------------------------
+//---- Class SVA ---------------------
+//------------------------------------
+ClassName = 'SVA';
+
+// --- Class Annotation. ---
+PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
+ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
+
+PrintStringInfo('NIN=         1',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         3',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= FA_MIN(IN(1).SZ(1),IN(1).SZ(2))',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(1)= FA_MIN(IN(1).SZ(1),IN(1).SZ(2))',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(2)= FA_MIN(IN(1).SZ(1),IN(1).SZ(2))',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).SZ(1)= IN(1).SZ(2)',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).SZ(2)= FA_MIN(IN(1).SZ(1),IN(1).SZ(2))',ClassFileName,'file','y');
+
+PrintStringInfo('NIN=         2',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         3',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(1).SZ(1)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= FA_MIN(IN(1).SZ(1),IN(1).SZ(2))',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(1)= FA_MIN(IN(1).SZ(1),IN(1).SZ(2))',ClassFileName,'file','y');
+PrintStringInfo('OUT(2).SZ(2)= FA_MIN(IN(1).SZ(1),IN(1).SZ(2))',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).SZ(1)= IN(1).SZ(2)',ClassFileName,'file','y');
+PrintStringInfo('OUT(3).SZ(2)= FA_MIN(IN(1).SZ(1),IN(1).SZ(2))',ClassFileName,'file','y');
+
+ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+PrintStringInfo('d2'+ArgSeparator+'d2d2d2',ClassFileName,'file','y');
+PrintStringInfo('d2d0'+ArgSeparator+'d2d2d2',ClassFileName,'file','y');
+
+// --- Annotation Function And Function List Function. ---
+FunctionName = 'sva'; 
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+
 
 //------------------------------------
 //---- Class lqr ---------------------

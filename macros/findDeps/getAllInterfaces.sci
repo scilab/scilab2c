@@ -191,6 +191,8 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/CACSD/interfaces/int_lqr.h"
       "src/c/CACSD/interfaces/int_lqe.h"
       "src/c/CACSD/interfaces/int_obscont.h"
+      "src/c/linearAlgebra/interfaces/int_sva.h"
+      "src/c/linearAlgebra/interfaces/int_svd.h"
       "src/c/linearAlgebra/interfaces/int_schur.h"
       "src/c/linearAlgebra/interfaces/int_balanc.h"
       "src/c/linearAlgebra/interfaces/int_rcond.h"];

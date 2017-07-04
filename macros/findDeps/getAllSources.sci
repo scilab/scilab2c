@@ -1205,6 +1205,8 @@ function allSources = getAllSources(SharedInfo)
       "src/c/CACSD/lqr/dlqra.c"
       "src/c/CACSD/lqe/dlqea.c"
       "src/c/CACSD/obscont/dobsconta.c"
+      "src/c/linearAlgebra/sva/dsvaa.c"
+      "src/c/linearAlgebra/svd/dsvda.c"
       "src/c/linearAlgebra/schur/dschura.c"
       "src/c/linearAlgebra/schur/dgschura.c"
       "src/c/linearAlgebra/balanc/dbalanca.c"
