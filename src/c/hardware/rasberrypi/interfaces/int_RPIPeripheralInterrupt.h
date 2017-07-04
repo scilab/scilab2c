@@ -21,6 +21,7 @@ extern "C" {
 #endif
 
 #define u80i160RPI_waitForInterrupti80(pin,time) u8RPI_waitForInterrupts(pin,time);
+#define d0d0RPI_waitForInterrupti80(pin,time) u8RPI_waitForInterrupts(pin,time);
 
 #ifdef  __cplusplus
 } /* extern "C" */

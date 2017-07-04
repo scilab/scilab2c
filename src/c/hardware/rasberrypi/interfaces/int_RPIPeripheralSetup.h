@@ -19,11 +19,26 @@
 extern "C" {
 #endif
 
+//pinNumbering
 #define g2RPI_pinNumberingi80(seq,size) gRPI_pinNumberinga(seq,size[1]);
+//getAlt
 #define u80RPI_getAltu80(pin) u8RPI_getAlts(pin);
+#define u160RPI_getAltu80(pin) u8RPI_getAlts(pin);
+#define u320RPI_getAltu80(pin) u8RPI_getAlts(pin);
+#define d0RPI_getAltu80(pin) u8RPI_getAlts(pin);
+//pinModeAlt
 #define u80u80RPI_pinModeAlt(pin,mode) u8RPI_pinModeAlts(pin,mode);
+#define u160u160RPI_pinModeAlt(pin,mode) u8RPI_pinModeAlts(pin,mode);
+#define u320u320RPI_pinModeAlt(pin,mode) u8RPI_pinModeAlts(pin,mode);
+#define d0d0RPI_pinModeAlt(pin,mode) u8RPI_pinModeAlts(pin,mode);
+//pinMode
 #define u80g2RPI_pinMode(pin,mode,size) u8RPI_pinModes(pin,mode,size[1]);
+#define u160g2RPI_pinMode(pin,mode,size) u8RPI_pinModes(pin,mode,size[1]);
+#define u320g2RPI_pinMode(pin,mode,size) u8RPI_pinModes(pin,mode,size[1]);
+#define d0g2RPI_pinMode(pin,mode,size) u8RPI_pinModes(pin,mode,size[1]);
+//pullControl
 #define u80g2RPI_pullControl(pin,mode,size) u8RPI_pullControls(pin,mode,size[1]);
+#define d0g2RPI_pullControl(pin,mode,size) u8RPI_pullControls(pin,mode,size[1]);
 
 #ifdef  __cplusplus
 } /* extern "C" */

@@ -29,8 +29,8 @@
 
 #define z2d0dctz2(in,size,sign,out)	zdcta(in,size[0],size[1],sign,out)
 
-#define c2dctc2(in,size,out)		cdcta(in,size[0],size[1],-1,out)
+//#define c2dctc2(in,size,out)		cdcta(in,size[0],size[1],-1,out)
 
-#define c2s0dctc2(in,size,sign,out)	cdcta(in,size[0],size[1],sign,out)
+//#define c2s0dctc2(in,size,sign,out)	cdcta(in,size[0],size[1],sign,out)
 
 #endif
