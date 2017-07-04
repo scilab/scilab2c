@@ -14,7 +14,8 @@
 #include "idct.h"
 #include "addition.h"
 #include "types.h"
-#include "floatComplex.h" 
+#include "floatComplex.h"
+#include "multiplication.h" 
 /*#include "matrixMultiplication"*/
 /*#include <fftw3.h>*/
 #include <math.h>
@@ -24,10 +25,10 @@ void cidcta(floatComplex *in,int row,int col,floatComplex *out)
 	int i,j,k,u,v;
 	int n=col;
 	int x,y;
-	float res,ress;
+	float res,ress,vv,ff;
 	float re,z,q,m;
 	floatComplex accu = FloatComplex(0, 0);
-	floatComplex temp,mm;
+	floatComplex temp,mm,aa,bb;
 	if(row==1)
 	{
 		res=1./sqrt(n);
@@ -46,12 +47,14 @@ void cidcta(floatComplex *in,int row,int col,floatComplex *out)
 						if(y==0)
 						{
 							q=res*(cos(((M_PI)*(j)*(v+1./2.))/n));
-							out[x]=cadds(out[x],in[y]*q);
+							aa=FloatComplex(q,0);
+							out[x]=cadds(out[x],cmuls(in[y],aa));
 						}
 						else
 						{
 							q=ress*(cos(((M_PI)*(j)*(v+1./2.))/n));
-							out[x]=cadds(out[x],in[y]*q);
+							aa=FloatComplex(q,0);
+							out[x]=cadds(out[x],cmuls(in[y],aa));
 						}
 					}
 				}
@@ -77,19 +80,37 @@ void cidcta(floatComplex *in,int row,int col,floatComplex *out)
 						y=row*j+i;
 						mm=in[j*row+i];
 						z=(float)(((float)v+1.0/2.0)*(float)j);
-						q=(float)(M_PI/(float)col);	
-						mm=mm*(cos(q*z));
+						q=(float)(M_PI/(float)col);
+						vv=cos(q*z);
+						aa=FloatComplex(vv,0);	
+						mm=cmuls(mm,aa);
 						if(j==0)
-						temp=cadds(temp,mm*(1./sqrt((float)col)));
+						{
+							vv=1./sqrt((float)col);
+							aa=FloatComplex(vv,0);
+							temp=cadds(temp,cmuls(mm,aa));
+						}
 						else
-						temp=cadds(temp,mm*sqrt(2./col));
+						{
+							vv=sqrt(2./col);
+							aa=FloatComplex(vv,0);
+							temp=cadds(temp,cmuls(mm,aa));
+						}
 					}
 					z=(float)(((float)u+1.0/2.0)*(float)i);
 					q=(float)(M_PI/(float)row);	
 					if(i==0)
-					out[x]=cadds(out[x],temp*((cos(z*q))*(1./sqrt(row))));
+					{
+						vv=(cos(z*q))*(1./sqrt(row));
+						aa=FloatComplex(vv,0);
+						out[x]=cadds(out[x],cmuls(temp,aa));
+					}
 					else
-					out[x]=cadds(out[x],temp*((cos(z*q))*sqrt(2./row)));
+					{
+						vv=(cos(z*q))*sqrt(2./row);
+						aa=FloatComplex(vv,0);
+						out[x]=cadds(out[x],cmuls(temp,aa));
+					}
 				}
 			}
 		}

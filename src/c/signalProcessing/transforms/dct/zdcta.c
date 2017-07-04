@@ -15,6 +15,7 @@
 #include "addition.h"
 #include "types.h"
 #include "doubleComplex.h" 
+#include "multiplication.h"
 /*#include "matrixMultiplication"*/
 /*#include <fftw3.h>*/
 #include <math.h>
@@ -24,10 +25,10 @@ void zdcta(doubleComplex *in,int row,int col,int sign,doubleComplex *out)
 	int i,j,k,u,v;
 	int n;
 	int x,y;
-	double res,ress;
-	double re,z,q,m;
+	double  res,ress,vv,ff;
+	double  re,z,q,m;
 	doubleComplex accu = DoubleComplex(0, 0);
-	doubleComplex temp,mm;
+	doubleComplex temp,mm,aa,bb,cc;
 	if(sign==-1)
 	{
 		if(row==1)
@@ -43,22 +44,30 @@ void zdcta(doubleComplex *in,int row,int col,int sign,doubleComplex *out)
 					{
 						for(j=0;j<col;j++)
 						{
-							y=row*j+i;		
-							temp=in[y]*(cos(((M_PI)*(y+1-1./2.)*(x))/n));
+							y=row*j+i;
+							vv = cos(((M_PI)*(y+1-1./2.)*(x))/n);
+							aa = DoubleComplex(vv,0);		
+							temp=zmuls(in[y],aa);
 							out[x]=zadds(out[x],temp);
 						}
 					}
 					if(x==0)
-					out[x]*=1./(sqrt(n));
+					{
+						vv = 1./(sqrt(n));
+						aa = DoubleComplex(vv,0);
+						out[x]=zmuls(out[x],aa);
+					}
 					else
 					{
-						double res=2./n;
-						out[x]*=sqrt(res);
+						double  res=2./n;
+						res = sqrt(res);
+						aa = DoubleComplex(res,0);
+						out[x]=zmuls(out[x],aa);
 					}
 				}
 			}
-		}	
-		else	
+		}
+		else
 		{	
 			n=col*row;
 			for(u=0;u<row;u++)
@@ -74,31 +83,55 @@ void zdcta(doubleComplex *in,int row,int col,int sign,doubleComplex *out)
 						for(j=0;j<col;j++)
 						{
 							y=j*row+i;
-							z=(double)(((double)j+1.0/2.0)*(double)v);
-							q=(double)(M_PI/(double)col);
-							mm=in[y]*(cos(q*z));	
+							z=(double )(((double )j+1.0/2.0)*(double )v);
+							q=(double )(M_PI/(double )col);
+							vv = cos(q*z);
+							aa = DoubleComplex(vv,0);
+							mm=zmuls(in[y],aa);
 							temp=zadds(temp,mm);
 						}
-						z=(double)(((double)i+1.0/2.0)*(double)u);
-						q=(double)(M_PI/(double)row);
-						temp*=cos(q*z);
+						z=(double )(((double )i+1.0/2.0)*(double )u);
+						q=(double )(M_PI/(double )row);
+						ff = cos(q*z);
+						bb = DoubleComplex(ff,0);
+						temp=zmuls(temp,bb);
 						out[x]=zadds(out[x],temp);
-					}
+						}
 					if(u==0)
 					{
-						out[x]*=1./sqrt((double)row);
+						vv = 1./sqrt((double )row);
+						aa = DoubleComplex(vv,0);
+						out[x]=zmuls(out[x],aa);
 						if(v==0)
-						out[x]*=1./sqrt((double)col);
+						{
+							vv = 1./sqrt((double )col);
+							aa = DoubleComplex(vv,0);
+							out[x]=zmuls(out[x],aa);
+						}
 						else
-						out[x]*=sqrt(2./col);
+						{
+							vv = sqrt(2./col);
+							aa = DoubleComplex(vv,0);
+							out[x]=zmuls(out[x],aa);
+						}
 					}
 					else
 					{
-						out[x]*=sqrt(2./row);
+						vv = sqrt(2./row);
+						aa = DoubleComplex(vv,0);
+						out[x]=zmuls(out[x],aa);
 						if(v==0)
-						out[x]*=1./sqrt((double)col);
+						{
+							vv = 1./sqrt((double )col);
+							aa = DoubleComplex(vv,0);
+							out[x]=zmuls(out[x],aa);
+						}
 						else
-						out[x]*=sqrt(2./col);
+						{
+							vv = sqrt(2./col);
+							aa = DoubleComplex(vv,0);
+							out[x]=zmuls(out[x],aa);
+						}
 					}
 				}
 			}
@@ -125,12 +158,14 @@ void zdcta(doubleComplex *in,int row,int col,int sign,doubleComplex *out)
 							if(y==0)
 							{
 								q=res*(cos(((M_PI)*(j)*(v+1./2.))/n));
-								out[x]=zadds(out[x],in[y]*q);
+								aa = DoubleComplex(q,0);
+								out[x]=zadds(out[x],zmuls(in[y],aa));
 							}
 							else
 							{
 								q=ress*(cos(((M_PI)*(j)*(v+1./2.))/n));
-								out[x]=zadds(out[x],in[y]*q);
+								aa = DoubleComplex(q,0);
+								out[x]=zadds(out[x],zmuls(in[y],aa));
 							}
 						}
 					}
@@ -155,20 +190,38 @@ void zdcta(doubleComplex *in,int row,int col,int sign,doubleComplex *out)
 						{
 							y=row*j+i;
 							mm=in[j*row+i];
-							z=(double)(((double)v+1.0/2.0)*(double)j);
-							q=(double)(M_PI/(double)col);	
-							mm=mm*(cos(q*z));
+							z=(double )(((double )v+1.0/2.0)*(double )j);
+							q=(double )(M_PI/(double )col);
+							vv = cos(q*z);
+							aa = DoubleComplex(vv,0);		
+							mm=zmuls(mm,aa);
 							if(j==0)
-							temp=zadds(temp,mm*(1./sqrt((double)col)));
+							{
+								vv = 1./sqrt((double )col);
+								aa = DoubleComplex(vv,0);
+								temp=zadds(temp,zmuls(mm,aa));
+							}		
 							else
-							temp=zadds(temp,mm*sqrt(2./col));
+							{
+								vv = sqrt(2./col);
+								aa = DoubleComplex(vv,0);
+								temp=zadds(temp,zmuls(mm,aa));
+							}
 						}
-						z=(double)(((double)u+1.0/2.0)*(double)i);
-						q=(double)(M_PI/(double)row);	
+						z=(double )(((double )u+1.0/2.0)*(double )i);
+						q=(double )(M_PI/(double )row);	
 						if(i==0)
-						out[x]=zadds(out[x],temp*((cos(z*q))*(1./sqrt(row))));
+						{	
+							vv = (cos(z*q))*(1./sqrt(row));
+							aa = DoubleComplex(vv,0);
+							out[x]=zadds(out[x],zmuls(temp,aa));
+						}
 						else
-						out[x]=zadds(out[x],temp*((cos(z*q))*sqrt(2./row)));
+						{
+							vv = (cos(z*q))*sqrt(2./row);
+							aa = DoubleComplex(vv,0);
+							out[x]=zadds(out[x],zmuls(temp,aa));
+						}
 					}
 				}
 			}

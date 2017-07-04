@@ -15,6 +15,7 @@
 #include "addition.h"
 #include "types.h"
 #include "floatComplex.h" 
+#include "multiplication.h"
 /*#include "matrixMultiplication"*/
 /*#include <fftw3.h>*/
 #include <math.h>
@@ -24,10 +25,10 @@ void cdcta(floatComplex *in,int row,int col,int sign,floatComplex *out)
 	int i,j,k,u,v;
 	int n;
 	int x,y;
-	float res,ress;
+	float res,ress,vv,ff;
 	float re,z,q,m;
 	floatComplex accu = FloatComplex(0, 0);
-	floatComplex temp,mm;
+	floatComplex temp,mm,aa,bb,cc;
 	if(sign==-1)
 	{
 		if(row==1)
@@ -43,17 +44,25 @@ void cdcta(floatComplex *in,int row,int col,int sign,floatComplex *out)
 					{
 						for(j=0;j<col;j++)
 						{
-							y=row*j+i;		
-							temp=in[y]*(cos(((M_PI)*(y+1-1./2.)*(x))/n));
+							y=row*j+i;
+							vv = cos(((M_PI)*(y+1-1./2.)*(x))/n);
+							aa = FloatComplex(vv,0);		
+							temp=cmuls(in[y],aa);
 							out[x]=cadds(out[x],temp);
 						}
 					}
 					if(x==0)
-					out[x]*=1./(sqrt(n));
+					{
+						vv = 1./(sqrt(n));
+						aa = FloatComplex(vv,0);
+						out[x]=cmuls(out[x],aa);
+					}
 					else
 					{
 						float res=2./n;
-						out[x]*=sqrt(res);
+						res = sqrt(res);
+						aa = FloatComplex(res,0);
+						out[x]=cmuls(out[x],aa);
 					}
 				}
 			}
@@ -76,29 +85,53 @@ void cdcta(floatComplex *in,int row,int col,int sign,floatComplex *out)
 							y=j*row+i;
 							z=(float)(((float)j+1.0/2.0)*(float)v);
 							q=(float)(M_PI/(float)col);
-							mm=in[y]*(cos(q*z));	
+							vv = cos(q*z);
+							aa = FloatComplex(vv,0);
+							mm=cmuls(in[y],aa);
 							temp=cadds(temp,mm);
 						}
 						z=(float)(((float)i+1.0/2.0)*(float)u);
 						q=(float)(M_PI/(float)row);
-						temp*=cos(q*z);
+						ff = cos(q*z);
+						bb = FloatComplex(ff,0);
+						temp=cmuls(temp,bb);
 						out[x]=cadds(out[x],temp);
 						}
 					if(u==0)
 					{
-						out[x]*=1./sqrt((float)row);
+						vv = 1./sqrt((float)row);
+						aa = FloatComplex(vv,0);
+						out[x]=cmuls(out[x],aa);
 						if(v==0)
-						out[x]*=1./sqrt((float)col);
+						{
+							vv = 1./sqrt((float)col);
+							aa = FloatComplex(vv,0);
+							out[x]=cmuls(out[x],aa);
+						}
 						else
-						out[x]*=sqrt(2./col);
+						{
+							vv = sqrt(2./col);
+							aa = FloatComplex(vv,0);
+							out[x]=cmuls(out[x],aa);
+						}
 					}
 					else
 					{
-						out[x]*=sqrt(2./row);
+						vv = sqrt(2./row);
+						aa = FloatComplex(vv,0);
+						out[x]=cmuls(out[x],aa);
 						if(v==0)
-						out[x]*=1./sqrt((float)col);
+						{
+							vv = 1./sqrt((float)col);
+							aa = FloatComplex(vv,0);
+							out[x]=cmuls(out[x],aa);
+						}
 						else
-						out[x]*=sqrt(2./col);
+						{
+							vv = sqrt(2./col);
+							aa = FloatComplex(vv,0);
+							out[x]=cmuls(out[x],aa);
+						}
 					}
 				}
 			}
@@ -125,12 +158,14 @@ void cdcta(floatComplex *in,int row,int col,int sign,floatComplex *out)
 							if(y==0)
 							{
 								q=res*(cos(((M_PI)*(j)*(v+1./2.))/n));
-								out[x]=cadds(out[x],in[y]*q);
+								aa = FloatComplex(q,0);
+								out[x]=cadds(out[x],cmuls(in[y],aa));
 							}
 							else
 							{
 								q=ress*(cos(((M_PI)*(j)*(v+1./2.))/n));
-								out[x]=cadds(out[x],in[y]*q);
+								aa = FloatComplex(q,0);
+								out[x]=cadds(out[x],cmuls(in[y],aa));
 							}
 						}
 					}
@@ -156,19 +191,37 @@ void cdcta(floatComplex *in,int row,int col,int sign,floatComplex *out)
 							y=row*j+i;
 							mm=in[j*row+i];
 							z=(float)(((float)v+1.0/2.0)*(float)j);
-							q=(float)(M_PI/(float)col);	
-							mm=mm*(cos(q*z));
+							q=(float)(M_PI/(float)col);
+							vv = cos(q*z);
+							aa = FloatComplex(vv,0);		
+							mm=cmuls(mm,aa);
 							if(j==0)
-							temp=cadds(temp,mm*(1./sqrt((float)col)));
+							{
+								vv = 1./sqrt((float)col);
+								aa = FloatComplex(vv,0);
+								temp=cadds(temp,cmuls(mm,aa));
+							}		
 							else
-							temp=cadds(temp,mm*sqrt(2./col));
+							{
+								vv = sqrt(2./col);
+								aa = FloatComplex(vv,0);
+								temp=cadds(temp,cmuls(mm,aa));
+							}
 						}
 						z=(float)(((float)u+1.0/2.0)*(float)i);
 						q=(float)(M_PI/(float)row);	
 						if(i==0)
-						out[x]=cadds(out[x],temp*((cos(z*q))*(1./sqrt(row))));
+						{	
+							vv = (cos(z*q))*(1./sqrt(row));
+							aa = FloatComplex(vv,0);
+							out[x]=cadds(out[x],cmuls(temp,aa));
+						}
 						else
-						out[x]=cadds(out[x],temp*((cos(z*q))*sqrt(2./row)));
+						{
+							vv = (cos(z*q))*sqrt(2./row);
+							aa = FloatComplex(vv,0);
+							out[x]=cadds(out[x],cmuls(temp,aa));
+						}
 					}
 				}
 			}
