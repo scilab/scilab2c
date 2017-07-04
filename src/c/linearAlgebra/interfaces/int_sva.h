@@ -18,7 +18,7 @@ extern "C" {
 #endif
 
 #define d2svad2d2d2(in1,size,out1,out2,out3) dsvaa(1,in1,size[0],size[1],0,out1,out2,out3);
-#define d2d0svad2d2d2(in1,size1,in2,size2,out1,out2,out3) dsvaa(2,in1,size1[0],size1[1],in2,out1,out2,out3);
+#define d2d0svad2d2d2(in1,size1,in2,out1,out2,out3) dsvaa(2,in1,size1[0],size1[1],in2,out1,out2,out3);
 
 #ifdef  __cplusplus
 } /* extern "C" */

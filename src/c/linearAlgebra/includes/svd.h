@@ -18,7 +18,7 @@
 extern "C" {
 #endif
 
-void dsvda(double *in1,int row,int col,double in2,double nout,double *out1, \
+double dsvda(double tol,double *in1,int row,int col,double in2,double nout,double *out1, \
 	double *out2,double *out3);
 void zsvda(doubleComplex *in1,int row,int col,int in2,int nout, doubleComplex *out1,\
 		doubleComplex *out2,doubleComplex *out3);	

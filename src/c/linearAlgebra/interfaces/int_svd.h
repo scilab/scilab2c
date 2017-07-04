@@ -17,9 +17,13 @@
 extern "C" {
 #endif
 
-#define d2svdd2(in1,size1,out1) dsvda(in1,size1[0],size1[1],0,1,out1,NULL,NULL)
-#define d2g2svdd2d2d2(in1,size1,in2,size2,out1,out2,out3) dsvda(in1,size1[0],size1[1],1,3,out1,out2,out3);
-#define d2svdd2d2d2(in1,size1,out1,out2,out3) dsvda(in1,size1[0],size1[1],0,3,out1,out2,out3);
+#define d2svdd2(in1,size1,out1) dsvda(0,in1,size1[0],size1[1],0,1,out1,NULL,NULL)
+#define d2g2svdd2d2d2(in1,size1,in2,size2,out1,out2,out3) dsvda(0,in1,size1[0],size1[1],1,3,out1,out2,out3);
+#define d2svdd2d2d2(in1,size1,out1,out2,out3) dsvda(0,in1,size1[0],size1[1],0,3,out1,out2,out3);
+
+#define d2svdd2d2d2d0(in1,size1,out1,out2,out3) dsvda(0,in1,size1[0],size1[1],0,4,out1,out2,out3);
+#define d2d0svdd2d2d2d0(in1,size1,tol,out1,out2,out3) dsvda(tol,in1,size1[0],size1[1],0,4,out1,out2,out3);
+
 #define z2svdz2(in1,size1,out2) zsvda(in1,size1[0],size1[1],0,1,NULL,out2,NULL);
 #define z2g2svdz2z2z2(in1,size1,in2,size2,out1,out2,out3) zsvda(in1,size1[0],size1[1],1,3,out1,out2,out3);
 #define z2svdz2z2z2(in1,size1,out1,out2,out3) zsvda(in1,size1[0],size1[1],0,3,out1,out2,out3);
