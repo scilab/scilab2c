@@ -1,4 +1,4 @@
-/* Copyright (C) 2016 - IIT Bombay - FOSSEE
+/* Copyright (C) 2017 - IIT Bombay - FOSSEE
 
  This file must be used under the terms of the CeCILL.
  This source file is licensed as described in the file COPYING, which
@@ -11,25 +11,13 @@
  */
 #include<stdio.h>
 #include<math.h>
-#include "sinc.h"
-#include "sin.h"
-#include "doubleComplex.h"
-#include "division.h"
-void zsinca(doubleComplex* sample,int size,doubleComplex* oup)
+#include "amell.h"
+
+void damella(double* u,int size,double x,double* oup)
 {
-	int j;
-	double r,i;
-	for(j=0;j<size;j++)
+	int i;
+	for(i=0;i<size;i++)
 	{
-	r=zreals(sample[j]);
-	i=zimags(sample[j]);
-	if(r==0 && i==0)
-	{
-	oup[j]=DoubleComplex(1,0);
-	}
-	else
-	{
-	oup[j]=zrdivs(zsins(sample[j]),sample[j]);
-	}
+	oup[i]=damells(u[i],x);
 	}
 }

@@ -10,12 +10,10 @@
  Email: toolbox@scilab.in
  */
 
-#ifndef __INT_MODSN_H__
-#define __INT_MODSN_H__
+#ifndef __INT_ELL1MAG_H__
+#define __INT_ELL1MAG_H__
 
-#define d0d0modsnd0(uu,emmc) dmodsns(uu,emmc)
-#define z0d0modsnz0(uu,emmc) zmodsns(uu,emmc)
-#define d2d0modsnd2(uu,size,emmc,sn) dmodsna(uu,size[1],emmc,sn)
-#define z2d0modsnz2(uu,size,emmc,sn) zmodsna(uu,size[1],emmc,sn)
+#define d0d0z2ell1magd2(eps,m1,z,size,oup) zell1maga(eps,m1,z,size[1],oup)
+#define d0d0d2ell1magd2(eps,m1,z,size,oup) dell1maga(eps,m1,z,size[1],oup)
 
-#endif /* !__INT_MODSN_H__! */
+#endif /* !__INT_ELL1MAG_H__! */

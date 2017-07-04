@@ -166,6 +166,8 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/signalProcessing/includes/filt_sinc.h"
       "src/c/signalProcessing/includes/ffilt.h"
       "src/c/signalProcessing/includes/modsn.h"
+      "src/c/signalProcessing/includes/ell1mag.h"
+      "src/c/signalProcessing/includes/amell.h"
       "src/c/implicitList/dynlib_implicitlist.h"
       "src/c/implicitList/implicitList.h"
       "src/c/differential_calculus/includes/ode.h"

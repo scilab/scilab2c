@@ -46,13 +46,4 @@ void dfilt_sincs(double N,double fc,double* oup)
 	oup[k]=xn[k]/xd[k];
 	}
 }
-/*
-int main()
-{
-	int n;
-	double fl;
-	n=5;
-	fl=0.2;
-	filt_sinc(n,fl);
-}
-*/
+

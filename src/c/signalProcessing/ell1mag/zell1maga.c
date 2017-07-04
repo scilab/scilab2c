@@ -1,4 +1,4 @@
-/* Copyright (C) 2016 - IIT Bombay - FOSSEE
+/* Copyright (C) 2017 - IIT Bombay - FOSSEE
 
  This file must be used under the terms of the CeCILL.
  This source file is licensed as described in the file COPYING, which
@@ -9,27 +9,32 @@
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
  */
+
 #include<stdio.h>
-#include<math.h>
-#include "sinc.h"
-#include "sin.h"
+#include "modsn.h"
+#include "ell1mag.h"
 #include "doubleComplex.h"
-#include "division.h"
-void zsinca(doubleComplex* sample,int size,doubleComplex* oup)
+
+void zell1maga(double eps,double m1,doubleComplex* z,int size,double* oup )
 {
+	doubleComplex s[size];
+	int i;
+	for(i=0;i<size;i++)
+	{
+	s[i]=zmodsns(z[i],m1);
+	}
+	double un[size];
 	int j;
-	double r,i;
 	for(j=0;j<size;j++)
 	{
-	r=zreals(sample[j]);
-	i=zimags(sample[j]);
-	if(r==0 && i==0)
-	{
-	oup[j]=DoubleComplex(1,0);
+	un[j]=1;
 	}
-	else
+	doubleComplex v;
+	int k;
+	for(k=0;k<size;k++)
 	{
-	oup[j]=zrdivs(zsins(sample[j]),sample[j]);
-	}
+	v=un[k]/(un[k]+(eps*eps*s[k]*s[k]));
+	oup[k]=zreals(v);
 	}
 }
+	

@@ -164,6 +164,8 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/signalProcessing/interfaces/int_filt_sinc.h"
       "src/c/signalProcessing/interfaces/int_ffilt.h"
       "src/c/signalProcessing/interfaces/int_modsn.h"
+      "src/c/signalProcessing/interfaces/int_ell1mag.h"
+      "src/c/signalProcessing/interfaces/int_amell.h"
       "src/c/implicitList/int_OpColon.h"
       "src/c/differential_calculus/interfaces/int_ode.h"
       "src/c/differential_calculus/interfaces/int_diffc.h"

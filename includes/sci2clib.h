@@ -488,9 +488,17 @@ extern "C" {
 #include "ffilt.h"
 #include "int_ffilt.h"
 
-/*interfacing modsn */
+/*interfacing %sn */
 #include "modsn.h"
 #include "int_modsn.h"
+
+/*interfacing ell1mag */
+#include "ell1mag.h"
+#include "int_ell1mag.h"
+
+/* interfacing amell */
+#include "amell.h"
+#include "int_amell.h"
 
 /* STATISTICS FUNCTIONS */
 

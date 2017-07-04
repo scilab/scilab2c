@@ -10,12 +10,18 @@
  Email: toolbox@scilab.in
  */
 
-#ifndef __INT_MODSN_H__
-#define __INT_MODSN_H__
+#ifndef __AMELL_H__
+#define __AMELL_H__
+#include "types.h"
 
-#define d0d0modsnd0(uu,emmc) dmodsns(uu,emmc)
-#define z0d0modsnz0(uu,emmc) zmodsns(uu,emmc)
-#define d2d0modsnd2(uu,size,emmc,sn) dmodsna(uu,size[1],emmc,sn)
-#define z2d0modsnz2(uu,size,emmc,sn) zmodsna(uu,size[1],emmc,sn)
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-#endif /* !__INT_MODSN_H__! */
+double damells(double u,double x);
+
+#ifdef __cplusplus
+} /* extern "c" */
+#endif
+
+#endif /*__AMELL_H__*/
