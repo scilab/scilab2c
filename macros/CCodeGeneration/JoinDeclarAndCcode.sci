@@ -146,10 +146,10 @@ PrintStringInfo('** --- C code. ---',CPass2FileName,'file','y');
 PrintStringInfo('** ---------------',CPass2FileName,'file','y');
 PrintStringInfo('*/',CPass2FileName,'file','y');
 
-//if((SharedInfo.Target == "RPi") & (nxtscifunname == SharedInfo.SCIMainFunName))
+if((SharedInfo.Target == "RPi") & (nxtscifunname == SharedInfo.SCIMainFunName))
    //Add wiringPiSetup() function as it is required
-//   PrintStringInfo('wiringPiSetup();',CPass2FileName,'file','y');   
-//end   
+   PrintStringInfo('wiringPiSetup();',CPass2FileName,'file','y');   
+end   
 // --- Copy the remaining part of V1 in V2. ---
 while (~meof(CPass1V1FileFid))
    // #RNU_RES_B

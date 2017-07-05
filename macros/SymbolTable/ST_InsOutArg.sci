@@ -47,6 +47,8 @@ PrintStringInfo('***Putting output arguments in the symbol table***',ReportFileN
 // ---------------------------
 // --- End Initialization. ---
 // ---------------------------
+
+
 for counteroutput = 1:NOutArg
    // #RNU_RES_B
    PrintStringInfo('   Symbol ""'+OutArg(counteroutput).Name+'""',ReportFileName,'file','y','n');

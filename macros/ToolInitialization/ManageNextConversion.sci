@@ -44,8 +44,6 @@ FlagContinueTranslation = 0;
 // --- Finalize the current C code. ---
 // ------------------------------------
 C_FinalizeCode(FileInfo,SharedInfo);
-//PrintStringInfo(' hello',ReportFileName,'file','y');
-
 
 // ------------------------------------------------
 // --- Identify the next function to translate. ---

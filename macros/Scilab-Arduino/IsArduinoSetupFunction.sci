@@ -9,7 +9,6 @@
 // Email: toolbox@scilab.in
 
 function Output = IsArduinoSetupFunction(FunName)
-disp(FunName)
 // -----------------------------------------------------------------
 // Check whether input function name is an Arduino setup function or not. 
 //
@@ -25,7 +24,6 @@ disp(FunName)
 
 //Get list of supported functions for Arduino
 ArduinoSetupFunctions = GetArduinoSetupFunctions();
-
 
 //Check whether input function is present in above list or not
 FunNameInArduinoSetup = members(FunName,ArduinoSetupFunctions);

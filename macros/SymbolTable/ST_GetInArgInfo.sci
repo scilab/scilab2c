@@ -49,13 +49,13 @@ for cntinarg = 1:NInArg
    tmpname = InArg(cntinarg).Name; 
    tmpscope = InArg(cntinarg).Scope;
    lengthNumber = length('Number_');
-   if (part(tmpscope,1:lengthNumber) == 'Number_')	
+   if (part(tmpscope,1:lengthNumber) == 'Number_')
       // #RNU_RES_B
       PrintStringInfo('Input Argument '+string(cntinarg)+' is a number: '+tmpname+'.',FileInfo.Funct(nxtscifunnumber).ReportFileName,'file');
       // #RNU_RES_E
       UpdatedInArg(cntinarg).Type = part(tmpscope,lengthNumber+1:lengthNumber+1);
       if (UpdatedInArg(cntinarg).Type == 'x')
-         UpdatedInArg(cntinarg).Type = SharedInfo.DefaultPrecision; // It is the default	
+         UpdatedInArg(cntinarg).Type = SharedInfo.DefaultPrecision; // It is the default.
       elseif (UpdatedInArg(cntinarg).Type == 'X')
          if (SharedInfo.DefaultPrecision == 's')
             UpdatedInArg(cntinarg).Type = 'c'; // It is the default.
@@ -101,17 +101,6 @@ for cntinarg = 1:NInArg
       UpdatedInArg(cntinarg).FindLike  = 0;
       UpdatedInArg(cntinarg).Dimension = 0;
       UpdatedInArg(cntinarg).Scope     = 'Number';
-	if((ASTFunName == 'cmd_analog_in' | ASTFunName == 'cmd_analog_in_volt' ) & cntinarg == 2)
-	 numvalue = eval(tmpname);
-               if (SharedInfo.Board_name == 'mega' | SharedInfo.Board_name == 'mega2560') then
-		      tmpname = string(numvalue + 54)
- 		      UpdatedInArg(cntinarg).Value     = 54 + numvalue;
-	       else
-	              tmpname = string(numvalue + 14)
-		      UpdatedInArg(cntinarg).Value     = 14 + numvalue;
-	       end
-	  UpdatedInArg(cntinarg).Name      = tmpname; // Change the name.
-        end
       
    elseif (tmpscope == 'String')
       // #RNU_RES_B

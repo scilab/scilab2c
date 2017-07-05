@@ -22,7 +22,7 @@ double ddisph (double* in, int rows, int columns, int levels){
         {
             for (j=0;j<columns;j++)
             {
-                printf ("  %1.20f  ", in[i+j*rows+k*columns*rows]);
+                printf ("  %e  ", in[i+j*rows+k*columns*rows]);
             }
             printf("\n");
         }

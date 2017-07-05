@@ -27,10 +27,8 @@ TOOLBOX_TITLE = 'Scilab 2 C Converter';
 toolbox_dir = get_absolute_file_path('builder.sce');
 
 tbx_builder_macros(toolbox_dir);
-tbx_build_localization(TOOLBOX_NAME, toolbox_dir);
-tbx_builder_help(toolbox_dir);
+//tbx_builder_help(toolbox_dir);
 tbx_build_loader(TOOLBOX_NAME, toolbox_dir);
-tbx_build_cleaner(TOOLBOX_NAME, toolbox_dir);
 
 clear toolbox_dir TOOLBOX_NAME TOOLBOX_TITLE;
 // ====================================================================

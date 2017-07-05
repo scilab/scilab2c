@@ -1,4 +1,4 @@
-function SharedInfo = INIT_GenSharedInfo(RunMode,UserScilabMainFile,TotTempScalarVars,EnableTempVarsReuse,Sci2CLibMainHeaderFName,CopySciCodeIntoCCode,Target,Board_name)
+function SharedInfo = INIT_GenSharedInfo(RunMode,UserScilabMainFile,TotTempScalarVars,EnableTempVarsReuse,Sci2CLibMainHeaderFName,CopySciCodeIntoCCode,Target)
 // function SharedInfo = INIT_GenSharedInfo(WorkingDir,OutCCCodeDir,UserSciFilesPaths,...
 //    RunMode,UserScilabMainFile,TotTempScalarVars,EnableTempVarsReuse,Sci2CLibMainHeaderFName)
 // -----------------------------------------------------------------
@@ -131,7 +131,5 @@ SharedInfo.Target = Target; // Specifies code generation target.
 SharedInfo.Includelist = list(); //Maintains list of functions being used in code
 								// to add their header files to main function.
 SharedInfo.OpenCVUsed = %F; 	// Specifies if opencv library is used or not
-
-SharedInfo.Board_name = Board_name; //Specifies Name of Arduino board
 
 endfunction

@@ -1,4 +1,4 @@
-function SharedInfo = C_IfExpression(IfCondArg,NIfCondArg,Op,NOp,ASTIfExpType,FileInfo,SharedInfo)
+function SharedInfo = C_IfExpression(IfCondArg,NIfCondArg,ASTIfExpType,FileInfo,SharedInfo)
 // function SharedInfo = C_IfExpression(IfCondArg,NIfCondArg,ASTIfExpType,FileInfo,SharedInfo)
 // -----------------------------------------------------------------
 // //NUT: add description here
@@ -19,16 +19,12 @@ function SharedInfo = C_IfExpression(IfCondArg,NIfCondArg,Op,NOp,ASTIfExpType,Fi
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-SCI2CNInArgCheck(argn(2),7,7);
-
-//global SCI2CSTACK 
-//global StackPosition;
-//global STACKDEDUG
+SCI2CNInArgCheck(argn(2),5,5);
 
 // --- Check NIfCondArg value. ---
-//if ((NIfCondArg ~= 1) & (ASTIfExpType~='else'))
-  // error(9999, 'Cannot manage ""if/elseif"" with a number of condition variables not equal to 1.');
-//end
+if ((NIfCondArg ~= 1) & (ASTIfExpType~='else'))
+   error(9999, 'Cannot manage ""if/elseif"" with a number of condition variables not equal to 1.');
+end
 
 // -----------------------
 // --- Initialization. ---
@@ -41,7 +37,7 @@ CPass1FileName = FileInfo.Funct(nxtscifunnumber).CPass1FileName;
 
 // #RNU_RES_B
 PrintStringInfo(' ',ReportFileName,'file','y');
-PrintStringInfo('***Generating C code***'+ string(NIfCondArg),ReportFileName,'file','y');
+PrintStringInfo('***Generating C code***',ReportFileName,'file','y');
 // #RNU_RES_E
 // ---------------------------
 // --- End Initialization. ---
@@ -70,23 +66,10 @@ if SCI2Cstrncmps1size(ASTIfExpType,'else')
    SharedInfo = C_IfElseBlocks(FileInfo,SharedInfo,'out');
 end
 
-i=1;
-k=1;
 CCall ='';
 CCall = CCall+CFunName;
 if (ASTIfExpType~='else')
-   CCall = CCall+'(';
-   while i <= NIfCondArg
-	CCall = CCall + IfCondArg(i) + ' ';
-	//d = modulo(i,3);
-	//PrintStringInfo(' '+string(i)+string(d),'file','y');
-	if (modulo(i,3)==0 & i<>NIfCondArg)
-	    CCall = CCall + Op(k) + ' ';
-	    k = k + 1;
-	end
-        i = i + 1;
-   end 
-   CCall = CCall+')';
+   CCall = CCall+'('+IfCondArg(1)+')';
 end
 PrintStringInfo('   '+CCall,ReportFileName,'file','y');
 PrintStringInfo(C_IndentBlanks(SharedInfo.NIndent)+CCall,CPass1FileName,'file','y');

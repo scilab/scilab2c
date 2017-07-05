@@ -52,7 +52,7 @@ FunSizeAnnot = '';
 // ---------------------------------------------
 // --- Open the .sci file (read only). ---
 inclsfid = SCI2COpenFileRead(SCI2CClassFileName);
-PrintStringInfo(' '+string(inclsfid),ReportFileName,'file','y');
+
 // #RNU_RES_B
 // --- Loop over the lines of the input file. ---
 // Position file pointer to the desired NInArg/NOutArg section,
@@ -212,6 +212,5 @@ mclose(inclsfid);
 // -------------------------------------------------
 // --- End Read the annotations of the function. ---
 // -------------------------------------------------
-PrintStringInfo('  end of annotation '+string(NOutArg_mod),ReportFileName,'file','y');
 
 endfunction

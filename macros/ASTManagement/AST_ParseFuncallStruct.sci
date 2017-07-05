@@ -87,10 +87,6 @@ NOutArg = eval(stripblanks(part(buffstring,10:length(buffstring))));
 buffstring = AST_PopASTStack();
 FunctionName = stripblanks(part(buffstring,12:length(buffstring)));
 
-//if (FunctionName == 'disp')
-  // NOutArg = 0;
-//end	
-
 // -------------------------------------
 // --- Generate the InArg structure. ---
 // -------------------------------------

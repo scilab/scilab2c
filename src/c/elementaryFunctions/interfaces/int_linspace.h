@@ -15,10 +15,6 @@
 
 #define d0d0d0linspaced2(in1,in2,in3,out) dlinspaces(in1,in2,in3,out)
 
-#define s0s0s0linspaces2(in1,in2,in3,out) slinspaces(in1,in2,in3,out)
-
 #define d2d2d0linspaced2(in1,size1,in2,size2,in3,out) dlinspacea(in1,size1[0],in2,in3,out)
-
-#define s2s2s0linspaces2(in1,size1,in2,size2,in3,out) slinspacea(in1,size1[0],in2,in3,out)
 
 #endif 

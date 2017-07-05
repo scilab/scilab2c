@@ -61,17 +61,6 @@ LabelFunctName = 'Operator: ';
 FunctionName = stripblanks(part(buffstring,length(LabelFunctName)+1:length(buffstring)));
 // Generate the proper function name.
 FunctionName  = Operator2FunName(FunctionName);
-PrintStringInfo(' '+FunctionName,ReportFileName,'file','y');
-
-if (FunctionName == 'OpLogAnd' | FunctionName=='OpLogOr')
-    NInArg = 0;
-    NOutArg = 0;
-    InArg=[];
-    //RhsField = AST_PopASTStack();
-    //PrintStringInfo('hello'+RhsField,ReportFileName,'file','y');
-    //RhsField = AST_PopASTStack();
-    return ;
-end
 
 // ------------------------------
 // --- Read input parameters. ---

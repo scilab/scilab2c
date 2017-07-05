@@ -26,18 +26,18 @@ function AVRDigitalOut(port,pin,state)
 //     digital output. Also, desired output state must be specified as 
 //     'HIGH' or 'LOW'.     
 //
-// This is curretly dummy function. It provides no functionality but is required 
-// for providing support for generating C code for AVR.
-//
 // Examples
 //     AVRDigitalOut('A',0,HIGH)
+//
 // See also
 //     AVRDigitalIn
 //
-// Authors
-//     Siddhesh Wani
-//     Ashish Kamble
 //
+// Authors
+//     Siddhesh Wani Ashish Kamble
+//
+// This is curretly dummy function. It provides no functionality but is required 
+// for providing support for generating C code for AVR.
 
 if((port==0)|(port>=8)) then 
 disp("Error : Inavalid input argument ''port'' in AVRDigitalOut function.");

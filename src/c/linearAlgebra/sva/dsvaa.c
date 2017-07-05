@@ -33,14 +33,14 @@ void dsvaa(int ninp,double *in1,int row,int col,double in2,double *out1, \
 
 	/* Calculation of svd of a given matrix */
 	double *U,*S,*V;
-	U = (double *)malloc((double)row*min(row,col)*sizeof(double));
-	S = (double *)malloc((double)min(row,col)*min(row,col)*sizeof(double));
-	V = (double *)malloc((double)col*min(row,col)*sizeof(double));
+	U = (double *)malloc((double)row*Min(row,col)*sizeof(double));
+	S = (double *)malloc((double)Min(row,col)*Min(row,col)*sizeof(double));
+	V = (double *)malloc((double)col*Min(row,col)*sizeof(double));
 		
 	dsvda(0,in1,M,N,1,3,U,S,V);
 
 	if (ninp == 1){ 		/* [u,s,v] = sva(A) when input is only matrix */
-		tol = max(row,col)*S[0]*eps;
+		tol = Max(row,col)*S[0]*eps;
 		rk = 0;		
 		for(i=0;i<col;i++){
 			if(S[i+i*row] > tol){
@@ -52,7 +52,7 @@ void dsvaa(int ninp,double *in1,int row,int col,double in2,double *out1, \
 		tol = in2;
 		if(tol > 1){
 			rk = tol;
-			if(rk > min(row,col)){
+			if(rk > Min(row,col)){
 				printf("ERROR:  Wrong value for input argument !");	
 				out1 = NULL;
 				out2 = NULL;
@@ -70,20 +70,20 @@ void dsvaa(int ninp,double *in1,int row,int col,double in2,double *out1, \
 		}	
 	}
 	arow = M;
-	acol = min(M,N);	
+	acol = Min(M,N);	
 	for(i=0;i<arow;i++){
 		for(j=0;j<rk;j++){
 			out1[i+j*row]=U[i+j*arow];		
 		}	
 	}
-	arow = min(M,N);
+	arow = Min(M,N);
 	for(i=0;i<rk;i++){
 		for(j=0;j<rk;j++){
 			out2[i+j*(int)rk] = S[i+j*arow];	
 		}			
 	}
 	arow = N;
-	acol = min(M,N);
+	acol = Min(M,N);
 	for(i=0;i<arow;i++){
 		for(j=0;j<rk;j++){
 			out3[i+j*arow] = V[i+j*arow];		

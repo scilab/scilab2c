@@ -21,11 +21,8 @@ extern "C" {
 
 EXTERN_ELEMFUNCT void  dlinspaces(double low_limit,double up_limit,double range_num, double* out);
 
-EXTERN_ELEMFUNCT void  slinspaces(float low_limit,float up_limit,float range_num, float* out);
-
 EXTERN_ELEMFUNCT void  dlinspacea(double *low_limit,int row,double *up_limit,double range_num, double* out);
 
-EXTERN_ELEMFUNCT void  slinspacea(float *low_limit,int row,float *up_limit,float range_num, float* out);
 
 
 

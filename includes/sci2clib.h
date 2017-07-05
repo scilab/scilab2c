@@ -18,15 +18,6 @@ extern "C" {
 /* interfacing lapack */
 #include "lapack.h"
 
-
-#include "sva.h"
-#include "int_sva.h"
-
-
-#include "svd.h"
-#include "int_svd.h"
-
-
 /* AUXILIARY FUNCTIONS */
 
 /* interfacing abs */
@@ -74,22 +65,8 @@ extern "C" {
 #include "rand.h"
 #include "int_rand.h"
 
-/* INTERPOLATION FUNCTIONS*/
-
-/*interfacing interp1*/
-#include "interp1.h"
-#include "int_interp1.h"
-
 /* ELEMENTARY FUNCTIONS */
 
-#include "nextpow2.h"
-#include "int_nextpow2.h"
-/*interfacing gcd*/
-#include "gcd.h"
-#include "int_gcd.h"
-/* interfacing isreal*/
-#include "isreal.h"
-#include "int_isreal.h"
 /* interfacing atand */
 #include "atand.h"
 #include "int_atand.h"
@@ -212,12 +189,6 @@ extern "C" {
 /* interfacing int16 */
 #include "int16.h"
 #include "int_int16.h"
-/* interfacing uint32 */
-#include "uint32.h"
-#include "int_uint32.h"
-/* interfacing int32 */
-#include "int32.h"
-#include "int_int32.h"
 
 /*interfacing bitand */
 #include "bitand.h"
@@ -333,15 +304,6 @@ extern "C" {
 #include "factor.h"
 #include "int_factor.h"
 
-/*interfacing gcd*/
-#include "gcd.h"
-#include "int_gcd.h"
-
-/*interfacing lcm*/
-#include "lcm.h"
-#include "int_lcm.h"
-
-
 /* IMPLICIT LISTS */
 /* interfacing implicitList/OpColon */
 #include "implicitList.h"
@@ -450,18 +412,6 @@ extern "C" {
 #include "norm.h"
 
 /* SIGNAL PROCESSING */
-
-
-#include "modk.h"
-#include "int_modk.h"
-/* interfacing idct */
-//#include "idct.h"
-//#include "int_idct.h"
-
-/* interfacing dct   */
-//#include "dct.h"
-//#include "int_dct.h"
-
 /* interfacing convol */
 #include "conv.h"
 #include "conv2d.h"
@@ -481,65 +431,7 @@ extern "C" {
 #include "lev.h"
 #include "int_lev.h"
 
-/* interfacing zpbutt */
-#include "zpbutt.h"
-#include "int_zpbutt.h"
 
-/*interfacing zpch1 */
-#include "zpch1.h"
-#include "int_zpch1.h"
-
-/*interfacing zpch2 */
-#include "zpch2.h"
-#include "int_zpch2.h"
-
-/*interfacing buttmag */
-#include "buttmag.h"
-#include "int_buttmag.h"
-
-/*interfacing cheb1mag */
-#include "cheb1mag.h"
-#include "int_cheb1mag.h"
-
-/*interfacing cheb2mag */
-#include "cheb2mag.h"
-#include "int_cheb2mag.h"
-
-/*interfacing sinc */
-#include "sinc.h"
-#include "int_sinc.h"
-
-/*interfacing sincd */
-#include "sincd.h"
-#include "int_sincd.h"
-
-/*interfacing fsfirlin */
-#include "fsfirlin.h"
-#include "int_fsfirlin.h"
-
-/*interfacing %k */
-#include "modk.h"
-#include "int_modk.h"
-
-/*interfacing filt_sinc */
-#include "filt_sinc.h"
-#include "int_filt_sinc.h"
-
-/*interfacing ffilt */
-#include "ffilt.h"
-#include "int_ffilt.h"
-
-/*interfacing %sn */
-#include "modsn.h"
-#include "int_modsn.h"
-
-/*interfacing ell1mag */
-#include "ell1mag.h"
-#include "int_ell1mag.h"
-
-/* interfacing amell */
-#include "amell.h"
-#include "int_amell.h"
 
 /* STATISTICS FUNCTIONS */
 
@@ -608,26 +500,6 @@ extern "C" {
 #include "strrchr.h"
 #include "int_strrchr.h"
 
-/*interfacing strchr*/
-#include "strchr.h"
-#include "int_strchr.h"
-
-/*interfacing ascii*/
-#include "ascii.h"
-#include "int_ascii.h"
-
-/*interfacing strspn*/
-#include "strspn.h"
-#include "int_strspn.h"
-
-/*interfacing strcspn*/
-#include "strcspn.h"
-#include "int_strcspn.h"
-
-/*interfacing strncpy*/
-#include "strncpy.h"
-#include "int_strncpy.h"
-
 /*Functions related to strings*/
 #include "convstr.h"
 #include "int_convstr.h"
@@ -660,8 +532,27 @@ extern "C" {
 #include "hess.h"	/* Linear Algebra - Hess function */
 #include "int_hess.h"
 
-#include "sva.h"
-#include "int_sva.h" /*Linear Algebra - SVA function */
+#include "sva.h"	/* Linear Algebra - SVA function */
+#include "int_sva.h" 
+
+#include "sqroot.h"	/* Linear Algebra - Sqroot function */
+#include "int_sqroot.h"
+
+#include "givens.h"	/* Linear Algebra - Givens Function */
+#include "int_givens.h"
+
+#include "householder.h" /* Linear Algebra - Householder function */
+#include "int_householder.h"
+
+#include "fullrf.h"		/* Linear Algebra - Full rank factoziation */
+#include "int_fullrf.h"
+
+#include "rowcomp.h"	/* Linear Algebra - row compression, range */
+#include "int_rowcomp.h"
+
+
+#include "qr.h"
+#include "int_qr.h"
 	
 /*Functions related to opencv*/
 /*#include "cvcore.hpp"
@@ -684,24 +575,8 @@ extern "C" {
 #include "int_cmd_dcmotor.h"
 #include "cmd_dcmotor_run.h"
 #include "cmd_dcmotor_setup.h"
-#include "cmd_dcmotor_release.h"
 #include "int_sleep.h"
 #include "sleep.h"
-#include "int_cmd_analog_in_volt.h"
-#include "cmd_analog_in_volt.h"
-#include "int_cmd_analog_out_volt.h"
-#include "cmd_analog_out_volt.h"
-#include "cmd_i2c_dev.h"
-#include "int_cmd_i2c_dev.h"
-#include "cmd_i2c_write.h"
-#include "int_cmd_i2c_write.h"
-#include "cmd_i2c_read.h"
-#include "int_cmd_i2c_read.h"
-#include "cmd_i2c_write_register.h"
-#include "int_cmd_i2c_write_register.h"
-#include "cmd_i2c_read_register.h"
-#include "int_cmd_i2c_read_register.h"
-
 /*#include "cmd_servo_attach.h"
 #include "cmd_servo_detach.h"
 #include "cmd_servo_move.h"
@@ -728,38 +603,18 @@ extern "C" {
 /*RPi*/
 #ifdef RPi1
 #include "wiringPi.h"
-#include "RPIPeripheralDigital.h"
 #include "int_RPIPeripheralDigital.h"
-#include "RPIPeripheralGertboard.h"
-#include "int_RPIPeripheralGertboard.h"
-#include "RPIPeripheralI2C.h"
-#include "int_RPIPeripheralI2C.h"
-#include "RPIPeripheralInterrupt.h"
-#include "int_RPIPeripheralInterrupt.h"
-#include "RPIPeripheralLCD.h"
-#include "int_RPIPeripheralLCD.h"
-#include "RPIPeripheralMcp.h"
-#include "int_RPIPeripheralMcp.h"
-#include "RPIPeripheralMisc.h"
-#include "int_RPIPeripheralMisc.h"
-#include "RPIPeripheralPcf.h"
-#include "int_RPIPeripheralPcf.h"
-#include "RPIPeripheralPiGlow.h"
-#include "int_RPIPeripheralPiGlow.h"
-#include "RPIPeripheralPinMap.h"
-#include "int_RPIPeripheralPinMap.h"
-#include "RPIPeripheralPWM.h"
-#include "int_RPIPeripheralPWM.h"
-#include "RPIPeripheralSerial.h"
-#include "int_RPIPeripheralSerial.h"
-#include "RPIPeripheralSetup.h"
-#include "int_RPIPeripheralSetup.h"
-#include "RPIPeripheralShift.h"
-#include "int_RPIPeripheralShift.h"
-#include "RPIPeripheralSoft.h"
-#include "int_RPIPeripheralSoft.h"
-#include "RPIPeripheralTiming.h"
+#include "RPIPeripheralDigital.h"
 #include "int_RPIPeripheralTiming.h"
+#include "RPIPeripheralTiming.h"
+#include "int_RPIPeripheralSerial.h"
+#include "RPIPeripheralSerial.h"
+#include "int_RPIPeripheralThreading.h"
+#include "RPIPeripheralThreading.h"
+#include "int_RPIPeripheralPinISR.h"
+#include "RPIPeripheralPinISR.h"
+#include "int_RPIPeripheralPWM.h"
+#include "RPIPeripheralPWM.h"
 #endif
 
 #ifdef __cplusplus

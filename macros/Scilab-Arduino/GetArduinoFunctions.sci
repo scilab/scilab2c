@@ -30,7 +30,6 @@ ArduinoFunctions = [
 			"cmd_dcmotor_run"
             "cmd_servo_attach"
             "cmd_servo_detach"
-            "cmd_servo_move"
-	    "i2c_dev"];
+            "cmd_servo_move"];
 
 endfunction

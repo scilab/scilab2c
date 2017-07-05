@@ -27,7 +27,7 @@ function outsize = FA_SZ_ROW_COLUMN_CAT(inval,in1size,in2size)
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-SCI2CNInArgCheck(argn(2),3,3);
+SCI2CNInArgCheck(argn(1),3,3);
 
 
 in1size = string(in1size);

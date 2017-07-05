@@ -15,28 +15,27 @@ function cvtimg = CV_CvtColor(srcimg,code)
 //     CV_CvtColor(srcimg,code)
 //
 // Parameters
-//	srcimg: source image to be converted
-//	dstimg: destination image in which to store converted image
-//	code: String specifying conversion type. Same as defined in OpenCV. for eg. 'CV_RGB2GRAY' for conversion from RGB image to grayscale image
-//	dstCn: no of channels in destination image (0 by default)
+//     srcimg: source image to be converted
+//	   dstimg: destination image in which to store converted image
+//	   code: String specifying conversion type. Same as defined in OpenCV
+//			for eg. 'CV_RGB2GRAY' for conversion from RGB image to grayscale image
+//	   dstCn: no of channels in destination image (0 by default)
 //
 // Description
-//	This function can be used for converting an image to other colorspace.
-//	Refer OpenCV documentation for list of available conversions
-//
-// This is curretly dummy function. It provides no functionality but is required 
-// for providing support for generating C code for OpenCV
-//
+//		This function can be used for converting an image to other colorspace.
+//		Refer OpenCV documentation for list of available conversions
 // Examples
-//	img = CV_LoadImage('~/test.jpg',0)
-//	dst = CV_CvtColor(img,'CV_RGB2GRAY')
+//		img = CV_LoadImage('~/test.jpg',0)
+//		dst = CV_CvtColor(img,'CV_RGB2GRAY')
+//
 // See also
 //     CV_LoadImage CV_CreateImage
 //
 // Authors
 //     Siddhesh Wani
 //
-
 cvtimg = 0
+// This is curretly dummy function. It provides no functionality but is required 
+// for providing support for generating C code for OpenCV
 
 endfunction
