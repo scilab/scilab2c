@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book [
 <!--Begin Entities-->
-<!ENTITY aa4e59f7469f5c11e672d1768d80a313d SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/AVRADCSetup.xml">
-<!ENTITY a1d994fb4d945fae4acb80d6fd8333004 SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/AVRDigitalIn.xml">
-<!ENTITY add09de2a95b7ed306a35b53e980b3e90 SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/AVRDigitalOut.xml">
-<!ENTITY a4397b185ae2cdc0c38ee5cba453da0ce SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/AVRDigitalPortSetup.xml">
-<!ENTITY a9c63c170d4525ca69b76e029a661bdb5 SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/AVRDigitalSetup.xml">
-<!ENTITY ae7cda6368a6b43939f00b5e4518c86f5 SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/AVRGetTimerValue.xml">
-<!ENTITY a978254b6f95f67857b984f6f47acbeef SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/AVRPWM0SetDuty.xml">
-<!ENTITY a12d6e3990c9535a9a7a263a728194c65 SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/AVRPWM0Setup.xml">
-<!ENTITY a00a988928aa4270555daad63bcb690cb SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/AVRPWM1SetDuty.xml">
-<!ENTITY a539c26defb9f05463d0ce5459f1c7583 SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/AVRPWM1Setup.xml">
-<!ENTITY a3288ef52e1705d6634e93a5e55a31bf2 SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/AVRPWM2SetDuty.xml">
-<!ENTITY a3548111a692116d8ee0eae34f799d72d SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/AVRPWM2Setup.xml">
-<!ENTITY a9a959f18ddee333a1267e4872a779d22 SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/AVRReadADC.xml">
-<!ENTITY aa92c26a5cba43827d64cdc489ae63ca5 SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/AVRSleep.xml">
-<!ENTITY a66fa288c2ad2c1a24e70cb036732ffff SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/AVRTimerSetup.xml">
-<!ENTITY aa505640044f2558f671950211dfbb695 SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/AVRUARTReceive.xml">
-<!ENTITY aace75f8933c6ccb6a7bd24b19b784e3f SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/AVRUARTSetup.xml">
-<!ENTITY a8fc216f2dfd8eee80f14d174785b7bc0 SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/AVRUARTTransmit.xml">
-<!ENTITY a4edea9b44935b3180889f99e5370aee4 SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/CV_AdaptiveThreshold.xml">
-<!ENTITY aff5fbeafa9733aeb2a9b23c1aacb4631 SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/CV_Blur.xml">
-<!ENTITY a68325bb85314e1d5ec89869069c8445e SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/CV_Canny.xml">
-<!ENTITY ad3dd56a5d5a76d73636a583751902602 SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/CV_CornerHarris.xml">
-<!ENTITY a0f0d979abe457bb6a40d2a542732bf10 SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/CV_CreateImage.xml">
-<!ENTITY a9f22418ecd71f71eed44a456b8635ddb SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/CV_CvtColor.xml">
-<!ENTITY a3d8fa68e94f2bf78571ec1c132cbf30d SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/CV_Dilate.xml">
-<!ENTITY ae280e09f59dc55502a391472a5e3c6a7 SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/CV_DistanceTransform.xml">
-<!ENTITY a34ae20f1c7b1a6aba4cfe28cb8458f4e SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/CV_Erode.xml">
-<!ENTITY ae55c9b2aa4e91cd219c5ca2b997898b4 SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/CV_GaussianBlur.xml">
-<!ENTITY ac8a5edd3c9c9a7f196e5dbb50d6a35a2 SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/CV_GetImgSize.xml">
-<!ENTITY ab2cca98b6ef2f0dc8983fab762ad7764 SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/CV_LoadImage.xml">
-<!ENTITY ab1553393fdffa9c613547bc6be1fff3d SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/CV_MedianBlur.xml">
-<!ENTITY abf0582be77e4c6c254d484f146797055 SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/CV_SaveImage.xml">
-<!ENTITY a709b81dcd97f499cf0d5ea132d4a8316 SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/CV_ShowImage.xml">
-<!ENTITY a61a3e5beb0f5d7654a142e2723b448fb SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/CV_Threshold.xml">
-<!ENTITY abba952c5250821630096b30b2ec5021f SYSTEM "/home/ankit/Documents/NewSci2C/Scilab2C/2.3-1/help/en_US/CV_WaitKey.xml">
+<!ENTITY a5585378c322fd44fa8852f927f17e4c1 SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/AVRADCSetup.xml">
+<!ENTITY a6d3cd812997759f6df3b9300e8cb9a5f SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/AVRDigitalIn.xml">
+<!ENTITY a4cd43117fff79a05c9c1cb92ca159fb0 SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/AVRDigitalOut.xml">
+<!ENTITY ac10743cabb02ac73e9422d292333adc5 SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/AVRDigitalPortSetup.xml">
+<!ENTITY a0455deedefdc64e8aa172f718fe04e11 SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/AVRDigitalSetup.xml">
+<!ENTITY aa0868ee1ac861c6cc31a4efb658696ee SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/AVRGetTimerValue.xml">
+<!ENTITY a5e2cec0861bdaa3941465937e9c7fe08 SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/AVRPWM0SetDuty.xml">
+<!ENTITY a497b5be328fe629d76b83542872f018c SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/AVRPWM0Setup.xml">
+<!ENTITY a381efc355e4e4e50e1bca6f7a0521232 SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/AVRPWM1SetDuty.xml">
+<!ENTITY abfbec8145c707212401cf7e9fb509bc8 SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/AVRPWM1Setup.xml">
+<!ENTITY a42af2444d9926e4b02fef93f72ca9cd6 SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/AVRPWM2SetDuty.xml">
+<!ENTITY add2960a2d404d3df6c424ac5098dbcf7 SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/AVRPWM2Setup.xml">
+<!ENTITY a40265c6b80549805b6b16a6071bcef5b SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/AVRReadADC.xml">
+<!ENTITY ad695a1a38e4472e3db755aff64d4b364 SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/AVRSleep.xml">
+<!ENTITY a0a0ca83674b009e4a0213674d11968fc SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/AVRTimerSetup.xml">
+<!ENTITY a6317fc8ec64ae9d5ca6cec52d1ece0c7 SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/AVRUARTReceive.xml">
+<!ENTITY a2e731ced35cd3a06e3c9af576a258b8d SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/AVRUARTSetup.xml">
+<!ENTITY a094928dc7cdff643d3b2159551121621 SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/AVRUARTTransmit.xml">
+<!ENTITY aa9952ade02812a4faedd94e9f1eaf2bc SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/CV_AdaptiveThreshold.xml">
+<!ENTITY ae66ab9d22beeb512a51b92f76752c906 SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/CV_Blur.xml">
+<!ENTITY a3be43518dcc84c088113b20d43f9c6c8 SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/CV_Canny.xml">
+<!ENTITY a3105c28f31042dcb9cc4efd3292bdba4 SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/CV_CornerHarris.xml">
+<!ENTITY ab04642ea4d77aca4f150fa3dac17c4d7 SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/CV_CreateImage.xml">
+<!ENTITY aa5dbac33c7a0b37ab4e3300113a7a726 SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/CV_CvtColor.xml">
+<!ENTITY a2dfe6e1b3e4f5e5cbc6e523972e95c12 SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/CV_Dilate.xml">
+<!ENTITY a43ad38bfeebd6e51c4b11425962176a5 SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/CV_DistanceTransform.xml">
+<!ENTITY a87893806fbd649785adf7a810c0e2345 SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/CV_Erode.xml">
+<!ENTITY a797eca95df509dfe016b3601fb554fe9 SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/CV_GaussianBlur.xml">
+<!ENTITY aa48aed27ce2525468bff9bd707f390ae SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/CV_GetImgSize.xml">
+<!ENTITY a26e202d6555d40522ccf25a082d859df SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/CV_LoadImage.xml">
+<!ENTITY adcc544524719436aab5b2c18b3489232 SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/CV_MedianBlur.xml">
+<!ENTITY a1ddf8141229473e7f3da828725106f09 SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/CV_SaveImage.xml">
+<!ENTITY a225a8f25506462d19fef0ee73ce71b8c SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/CV_ShowImage.xml">
+<!ENTITY a5cde11953ef74ac9dd79586e59c6008d SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/CV_Threshold.xml">
+<!ENTITY a81a5318495e1c8e37cb38161f33a38a8 SYSTEM "/home/abhinav/Documents/Scilab2C/2.3-1/help/en_US/CV_WaitKey.xml">
 <!--End Entities-->
 ]>
 <book version="5.0-subset Scilab" xml:lang="en_US"
@@ -50,42 +50,42 @@
     <title>Scilab 2 C Converter</title>
   </info>
 
-<part xml:id='section_c4a64b600f61b91c1ebf30f1b892cb10'>
+<part xml:id='section_de1a1188d71074f6718f9b3e65179365'>
 <title>Scilab 2 C Converter</title>
-&aa4e59f7469f5c11e672d1768d80a313d;
-&a1d994fb4d945fae4acb80d6fd8333004;
-&add09de2a95b7ed306a35b53e980b3e90;
-&a4397b185ae2cdc0c38ee5cba453da0ce;
-&a9c63c170d4525ca69b76e029a661bdb5;
-&ae7cda6368a6b43939f00b5e4518c86f5;
-&a978254b6f95f67857b984f6f47acbeef;
-&a12d6e3990c9535a9a7a263a728194c65;
-&a00a988928aa4270555daad63bcb690cb;
-&a539c26defb9f05463d0ce5459f1c7583;
-&a3288ef52e1705d6634e93a5e55a31bf2;
-&a3548111a692116d8ee0eae34f799d72d;
-&a9a959f18ddee333a1267e4872a779d22;
-&aa92c26a5cba43827d64cdc489ae63ca5;
-&a66fa288c2ad2c1a24e70cb036732ffff;
-&aa505640044f2558f671950211dfbb695;
-&aace75f8933c6ccb6a7bd24b19b784e3f;
-&a8fc216f2dfd8eee80f14d174785b7bc0;
-&a4edea9b44935b3180889f99e5370aee4;
-&aff5fbeafa9733aeb2a9b23c1aacb4631;
-&a68325bb85314e1d5ec89869069c8445e;
-&ad3dd56a5d5a76d73636a583751902602;
-&a0f0d979abe457bb6a40d2a542732bf10;
-&a9f22418ecd71f71eed44a456b8635ddb;
-&a3d8fa68e94f2bf78571ec1c132cbf30d;
-&ae280e09f59dc55502a391472a5e3c6a7;
-&a34ae20f1c7b1a6aba4cfe28cb8458f4e;
-&ae55c9b2aa4e91cd219c5ca2b997898b4;
-&ac8a5edd3c9c9a7f196e5dbb50d6a35a2;
-&ab2cca98b6ef2f0dc8983fab762ad7764;
-&ab1553393fdffa9c613547bc6be1fff3d;
-&abf0582be77e4c6c254d484f146797055;
-&a709b81dcd97f499cf0d5ea132d4a8316;
-&a61a3e5beb0f5d7654a142e2723b448fb;
-&abba952c5250821630096b30b2ec5021f;
+&a5585378c322fd44fa8852f927f17e4c1;
+&a6d3cd812997759f6df3b9300e8cb9a5f;
+&a4cd43117fff79a05c9c1cb92ca159fb0;
+&ac10743cabb02ac73e9422d292333adc5;
+&a0455deedefdc64e8aa172f718fe04e11;
+&aa0868ee1ac861c6cc31a4efb658696ee;
+&a5e2cec0861bdaa3941465937e9c7fe08;
+&a497b5be328fe629d76b83542872f018c;
+&a381efc355e4e4e50e1bca6f7a0521232;
+&abfbec8145c707212401cf7e9fb509bc8;
+&a42af2444d9926e4b02fef93f72ca9cd6;
+&add2960a2d404d3df6c424ac5098dbcf7;
+&a40265c6b80549805b6b16a6071bcef5b;
+&ad695a1a38e4472e3db755aff64d4b364;
+&a0a0ca83674b009e4a0213674d11968fc;
+&a6317fc8ec64ae9d5ca6cec52d1ece0c7;
+&a2e731ced35cd3a06e3c9af576a258b8d;
+&a094928dc7cdff643d3b2159551121621;
+&aa9952ade02812a4faedd94e9f1eaf2bc;
+&ae66ab9d22beeb512a51b92f76752c906;
+&a3be43518dcc84c088113b20d43f9c6c8;
+&a3105c28f31042dcb9cc4efd3292bdba4;
+&ab04642ea4d77aca4f150fa3dac17c4d7;
+&aa5dbac33c7a0b37ab4e3300113a7a726;
+&a2dfe6e1b3e4f5e5cbc6e523972e95c12;
+&a43ad38bfeebd6e51c4b11425962176a5;
+&a87893806fbd649785adf7a810c0e2345;
+&a797eca95df509dfe016b3601fb554fe9;
+&aa48aed27ce2525468bff9bd707f390ae;
+&a26e202d6555d40522ccf25a082d859df;
+&adcc544524719436aab5b2c18b3489232;
+&a1ddf8141229473e7f3da828725106f09;
+&a225a8f25506462d19fef0ee73ce71b8c;
+&a5cde11953ef74ac9dd79586e59c6008d;
+&a81a5318495e1c8e37cb38161f33a38a8;
 </part>
 </book>

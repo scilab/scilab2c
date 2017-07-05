@@ -160,6 +160,9 @@ extern "C" {
 /* interfacing fix */
 #include "fix.h"
 #include "int_fix.h"
+/*interfacing isrow*/
+#include "isrow.h"
+#include "int_isrow.h"
 /* interfacing floor */
 #include "floor.h"
 #include "int_floor.h"

@@ -127,6 +127,7 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/elementaryFunctions/includes/asec.h"
       "src/c/elementaryFunctions/includes/asecd.h"
       "src/c/elementaryFunctions/includes/asech.h"
+      "src/c/elementaryFunctions/includes/isrow.h"
       "src/c/elementaryFunctions/includes/asind.h"
       "src/c/elementaryFunctions/includes/atand.h"
       "src/c/statisticsFunctions/includes/variance.h"

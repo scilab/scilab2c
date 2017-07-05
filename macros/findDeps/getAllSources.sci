@@ -764,6 +764,8 @@ function allSources = getAllSources(SharedInfo)
       "src/c/elementaryFunctions/acsc/cacsca.c"
       "src/c/elementaryFunctions/acsc/zacscs.c"
       "src/c/elementaryFunctions/acsc/zacsca.c"
+      "src/c/elementaryFunctions/isrow/disrowa.c"
+      "src/c/elementaryFunctions/isrow/disrows.c"
       "src/c/elementaryFunctions/acscd/dacscda.c"
       "src/c/elementaryFunctions/acscd/dacscds.c"
       "src/c/elementaryFunctions/acscd/sacscda.c"
