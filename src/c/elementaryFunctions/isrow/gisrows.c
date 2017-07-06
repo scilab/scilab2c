@@ -16,7 +16,7 @@
 #include "isrow.h"
 #include "types.h"
 
-char sisrows(float inp)
+char gisrows(char inp)
 {
    char out='T';
    

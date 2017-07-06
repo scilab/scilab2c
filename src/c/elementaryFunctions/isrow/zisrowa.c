@@ -13,12 +13,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include "doubleComplex.h"
 #include "isrow.h"
 #include "types.h"
 
-char sisrows(float inp)
+char zisrowa(doubleComplex *inp, int size1)
 {
-   char out='T';
-   
+    char out='F';
+    if(size1==1)
+    {
+     out  = 'T';
+    }
     return out;
 }

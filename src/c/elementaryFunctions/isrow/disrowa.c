@@ -15,12 +15,12 @@
 #include <math.h>
 #include "isrow.h"
 #include "types.h"
-double disrowa(double* inp, int size1)
+char disrowa(double* inp, int size1)
 {
-   double out=0;
+   char out= 'F' ;
     if(size1==1)
     {
-     out  = 1;
+     out  = 'T';
     }
     return out;
 }

@@ -53,6 +53,8 @@
 
 #define g2disp(in, size)		printf("%s\n",in)
 
+#define g0disp(in)                      printf("%c\n", in)
+
 #endif /* __INT_DISP_H__ */
 
 

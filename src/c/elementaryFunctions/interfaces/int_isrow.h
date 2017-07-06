@@ -13,11 +13,13 @@
 #ifndef __INT_ISROW_H__
 #define __INT_ISROW_H__
 
-#define d2isrowd0(in, size )        disrowa(in, size[0])
-#define d0isrowd0(in)               disrows(in)
-#define s2isrowd0(in , size)        siswora(in, size[0])
-#define s0isrowd0(in)               sisrows(in)
-#define g2isrowd0(in, size)         gisrowa(in, size[0])
+#define d2isrowg0(in, size )        disrowa(in, size[0])
+#define d0isrowg0(in)               disrows(in)
+#define s2isrowg0(in , size)        siswora(in, size[0])
+#define s0isrowg0(in)               sisrows(in)
+#define g2isrowg0(in, size)         gisrowa(in, size[0])
+#define g0isrowg0(in)               gisrows(in)
+#define z2isrowg0(in, size)         zisrowa(in , size[0])
 
 
 #endif

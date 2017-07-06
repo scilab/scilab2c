@@ -15,12 +15,12 @@
 #include <math.h>
 #include "isrow.h"
 #include "types.h"
-double sisrowa(float* inp, int size1)
+char sisrowa(float* inp, int size1)
 {
-   double out=0;
+   char out='F';
     if(size1==1)
     {
-     out  = 1;
+     out  = 'T';
     }
     return out;
 }

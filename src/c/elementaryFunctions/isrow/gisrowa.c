@@ -16,12 +16,12 @@
 #include "isrow.h"
 #include "types.h"
 #include "string.h"
-double gisrowa(char *inp, int size1)
+char gisrowa(char *inp, int size1)
 {
-   double out=0;
+   char out='F';
     if(size1==1)
     {
-     out  = 1;
+     out  = 'T';
     }
     return out;
 }

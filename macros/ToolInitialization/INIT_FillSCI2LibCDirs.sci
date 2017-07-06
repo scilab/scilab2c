@@ -931,17 +931,19 @@ PrintStringInfo('NIN=          1',ClassFileName,'file','y');
 PrintStringInfo('NOUT=         1       ',ClassFileName,'file','y');
 //Was FA_TP_USER
 //Cause some trouble if user specify some precision and if input(and also output) is complex.
-PrintStringInfo('OUT(1).TP=   ''d''',ClassFileName,'file','y'); 
+PrintStringInfo('OUT(1).TP=   ''g''',ClassFileName,'file','y'); 
 PrintStringInfo('OUT(1).SZ(1)= ''1''',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 //---Function list class. ----
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
-PrintStringInfo('d0'+ArgSeparator+'d0',ClassFileName,'file','y');
-PrintStringInfo('d2'+ArgSeparator+'d0',ClassFileName,'file','y');
-PrintStringInfo('s2'+ArgSeparator+'d0',ClassFileName,'file','y');
-PrintStringInfo('s0'+ArgSeparator+'d0',ClassFileName,'file','y');
-PrintStringInfo('g2'+ArgSeparator+'d0',ClassFileName,'file','y');
-PrintStringInfo('g0'+ArgSeparator+'d0',ClassFileName,'file','y');
+PrintStringInfo('d0'+ArgSeparator+'g0',ClassFileName,'file','y');
+PrintStringInfo('d2'+ArgSeparator+'g0',ClassFileName,'file','y');
+PrintStringInfo('s2'+ArgSeparator+'g0',ClassFileName,'file','y');
+PrintStringInfo('s0'+ArgSeparator+'g0',ClassFileName,'file','y');
+PrintStringInfo('g2'+ArgSeparator+'g0',ClassFileName,'file','y');
+PrintStringInfo('g0'+ArgSeparator+'g0',ClassFileName,'file','y');
+PrintStringInfo('z2'+ArgSeparator+'g0',ClassFileName,'file','y');
+PrintStringInfo('g0'+ArgSeparator+'g0',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'isrow';

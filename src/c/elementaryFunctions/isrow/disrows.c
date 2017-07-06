@@ -16,9 +16,9 @@
 #include "isrow.h"
 #include "types.h"
 
-double disrows(double inp)
+char disrows(double inp)
 {
-   double out=1;
+   double out='T';
    
     return out;
 }

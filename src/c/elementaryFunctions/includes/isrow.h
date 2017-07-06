@@ -15,16 +15,20 @@
 
 
 #include "types.h"
+#include "doubleComplex.h"
+#include "floatComplex.h"
 
 #ifdef  __cplusplus
 extern "C" {
 #endif
 
-double disrowa(double* , int);
-double disrows(double);
-double sisrowa( float* , int);
-double sisrows( float);
-double gisrowa(char* , int);
+char disrowa(double* , int);
+char disrows(double);
+char sisrowa( float* , int);
+char sisrows( float);
+char gisrowa(char* , int);
+char gisrows(char);
+char zisrowa(doubleComplex *inp, int);
 
 #ifdef  __cplusplus
 } /* extern "C" */
