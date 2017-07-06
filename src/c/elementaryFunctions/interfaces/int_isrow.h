@@ -20,6 +20,7 @@
 #define g2isrowg0(in, size)         gisrowa(in, size[0])
 #define g0isrowg0(in)               gisrows(in)
 #define z2isrowg0(in, size)         zisrowa(in , size[0])
+#define z0isrowg0(in)               zisrows(in)
 
 
 #endif

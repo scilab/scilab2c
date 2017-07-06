@@ -943,7 +943,7 @@ PrintStringInfo('s0'+ArgSeparator+'g0',ClassFileName,'file','y');
 PrintStringInfo('g2'+ArgSeparator+'g0',ClassFileName,'file','y');
 PrintStringInfo('g0'+ArgSeparator+'g0',ClassFileName,'file','y');
 PrintStringInfo('z2'+ArgSeparator+'g0',ClassFileName,'file','y');
-PrintStringInfo('g0'+ArgSeparator+'g0',ClassFileName,'file','y');
+PrintStringInfo('z0'+ArgSeparator+'g0',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'isrow';
