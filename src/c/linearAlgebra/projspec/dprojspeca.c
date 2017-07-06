@@ -63,8 +63,5 @@ double dprojspeca(double *inp1,int row,int col,double *out1,double *out2,double 
 		index = 0;
 		return index;	
 	}
-	
 	index = 1;
-	
-
 }

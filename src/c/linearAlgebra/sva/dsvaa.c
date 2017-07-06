@@ -20,6 +20,7 @@
 
 #define eps 2.22044604925e-16
 
+/* Ref: Scilab source code */
 void dsvaa(int ninp,double *in1,int row,int col,double in2,double *out1, \
 	double *out2,double *out3){
 
@@ -70,21 +71,21 @@ void dsvaa(int ninp,double *in1,int row,int col,double in2,double *out1, \
 		}	
 	}
 	arow = M;
-	acol = Min(M,N);	
+	acol = Min(M,N);	/* Copying, the output in required format */
 	for(i=0;i<arow;i++){
 		for(j=0;j<rk;j++){
 			out1[i+j*row]=U[i+j*arow];		
 		}	
 	}
 	arow = Min(M,N);
-	for(i=0;i<rk;i++){
+	for(i=0;i<rk;i++){	/* Copying, the output in required format */
 		for(j=0;j<rk;j++){
 			out2[i+j*(int)rk] = S[i+j*arow];	
 		}			
 	}
 	arow = N;
 	acol = Min(M,N);
-	for(i=0;i<arow;i++){
+	for(i=0;i<arow;i++){	/* Copying, the output in required format */
 		for(j=0;j<rk;j++){
 			out3[i+j*arow] = V[i+j*arow];		
 		}
