@@ -17,11 +17,11 @@ void ztransposea ( doubleComplex* in , int lines , int columns, doubleComplex* o
 	int i    = 0 ;
 	int j    = 0 ;
 	
-	for(i = 0 ; i<lines ; i++)
+	for(i = 0 ; i <  lines ; i++)
 	{
-		for(j = 0 ; j < columns ; j++)
+		for(j = 0 ; j <  columns ; j++)
 
-		out[j+i*columns] = in[i+j*lines];
+		out[j+i*columns]	= in[i+j*lines];
 	}
 	
 }

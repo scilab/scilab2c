@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from CV_DistanceTransform.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="CV_DistanceTransform" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>CV_DistanceTransform</refname>
+    <refpurpose>function to calculate distance to closest zero pixels for each pixel</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   dst = CV_DistanceTransform(srcimg,distance_type,mask_size)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>srcimg :</term>
+      <listitem><para> Source 8-bit single-channel image.</para></listitem></varlistentry>
+   <varlistentry><term>distance_type :</term>
+      <listitem><para> Type of distance. It can be CV_DIST_L1, CV_DIST_L2 , or CV_DIST_C</para></listitem></varlistentry>
+   <varlistentry><term>mask_size :</term>
+      <listitem><para> Size of the distance transform mask</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function can be used to calculate distance to closest zero pixel for each pixel of the source image. Output is 32 bit floatingpoint, single channel image of the same size as that of source image.
+   </para>
+   <para>
+This is curretly dummy function. It provides no functionality but is required
+for providing support for generating C code for OpenCV
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+img = CV_LoadImage('~/test.jpg',0)
+dst = CV_DistanceTransform(img,"CV_DIST_L1",3)
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="CV_LoadImage">CV_CreateImage CV_CvtColor</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Siddhesh Wani</member>
+   </simplelist>
+</refsection>
+</refentry>

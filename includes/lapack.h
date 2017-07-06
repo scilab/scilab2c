@@ -195,13 +195,6 @@ extern doubleComplex zgesvd_( char* , char* , int* , int* ,doubleComplex *,\
                 int* , double* ,doubleComplex* , int* ,doubleComplex* , int* ,\
                  doubleComplex* , int* , double* , int* );
 
-/*USed in QR decompsition*/
-extern double dgeqrf_(int *,int *,double *,int *,double *,double *,int *,int *);
-extern double dgeqpf_(int *,int *,double *,int *,int *,double *,double *,int *);
-extern double dorgqr_(int *,int *,int *,double *,int *,double *,double *,int *,int *);
-extern void dlaset_(char *,int *,int *,double *,double *,double *,int *);
-
-
 #ifdef  __cplusplus
 } /* extern "C" */
 #endif

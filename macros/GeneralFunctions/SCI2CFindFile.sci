@@ -20,7 +20,6 @@ function [FlagFound,SCIFileName] = SCI2CFindFile(PathList,FileName)
 // --- Check input arguments. ---
 // ------------------------------
 SCI2CNInArgCheck(argn(2),2,2);
-
 FlagFound = 0;
 SCIFileName = '';
 

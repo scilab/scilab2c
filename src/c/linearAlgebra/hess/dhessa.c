@@ -20,13 +20,11 @@
 #include "matrixTranspose.h"
 #include "matrixMultiplication.h"
 
-/* Lapack subroutines - which are used*/
 extern int dgehrd_(int *, int *,int *,double *,int *,double *,double *,int *,int *);
 extern int dorghr_(int *, int *,int *,double *,int *,double *,double *,int *,int *);
 
-/* All the vairbale names are given exactly the same name as scilab source code */
+
 void dhessa(double *in1,int size,int nout,double *out1, double *out2){
-/* Variables names are done through, Lapack library. */
 	int i,j,k;	
 	int N = size;
 	int ILO=1;
@@ -43,11 +41,11 @@ void dhessa(double *in1,int size,int nout,double *out1, double *out2){
 	WORK = (double *)malloc((double)LWORK*sizeof(double));
 	dgehrd_(&N,&ILO,&IHI,A,&LDA,TAU,WORK,&N,&INFO);
 		
-	for(i=0;i<N;i++)		/* copying it in output */
+	for(i=0;i<N;i++)
 		for(j=0;j<N;j++)
 			out2[i+j*N] = A[i+j*N];
 	
-	for(j=1;j<=N-2;j++){	/* copying it in output */
+	for(j=1;j<=N-2;j++){
 		for(i=j+2;i<=N;i++){
 			out2[(i-1)+(j-1)*N] = 0;
 		}

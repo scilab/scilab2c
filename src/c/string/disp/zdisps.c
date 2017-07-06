@@ -14,6 +14,6 @@
 
 double zdisps (doubleComplex in) {	
 
-  printf("  %e + %ei  \n" ,zreals(in) ,zimags(in)); 
+  printf("  %1.20f + %1.20fi  \n" ,zreals(in) ,zimags(in)); 
   return 0;
 }

@@ -10,17 +10,19 @@
 
 function AVRUARTTransmit(data)
 // Function to Transmit data using UART or USART.
+//       
+// Parameter
+//        data : The data to be transmitted can be a Char,String,Unsigned Int,Signed Int.        
+//
 // Description
 //        This function Tranmits data over UART or USART.The data to be transmitted can 
 //        be a Char , String , Unsigned Int, Signed Int. 
-//       
-// Parameter
-//        data : 
-//             The data to be transmitted can be a Char,String,Unsigned Int,Signed Int.        
+//
+// This is curretly dummy function. It provides no functionality but is required 
+// for providing support for generating C code for AVR.    
 //
 //Examples
-//    AVRUARTTransmit("This is example");  //This function will transmit the entered string.
-//                               
+//    AVRUARTTransmit("This is example");  //This function will transmit the entered string.                 
 //See also
 //     AVRUARTSetup
 //     AVRUARTReceive
@@ -28,6 +30,4 @@ function AVRUARTTransmit(data)
 // Authors
 //     Ashish Kamble
 //
-// This is curretly dummy function. It provides no functionality but is required 
-// for providing support for generating C code for AVR.    
 endfunction

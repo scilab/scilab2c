@@ -43,7 +43,7 @@ void		zrowcata(doubleComplex *in1, int lines1, int columns1, doubleComplex *in2,
 ** A1=[1 2 3;4 5 6]; A2=[7 8 9 ;10 11 12]; y=cat(2,A1,A2) => y=[1 2 3 7 8 9 ; 4 5 6 10 11 12]
 **
 */
-void zcolumncata(doubleComplex *in1, int lines1, int columns1, doubleComplex *in2, int lines2, int columns2, doubleComplex* out) {
+void		zcolumncata(doubleComplex *in1, int lines1, int columns1, doubleComplex *in2, int lines2, int columns2, doubleComplex* out) {
   int i = 0;
   for (i = 0 ; i < lines1 * columns1 ; ++i) {
     out[i] = in1[i];

@@ -6,8 +6,6 @@
  are also available at
  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  Author: Siddhesh Wani
-
- Edited by: Sandeep Gupta
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
  */
@@ -16,17 +14,13 @@
  /*Acceptable norms are: 1, 2, 'inf', 'fro', */
 
 #include "norm.h"
-#include "svd.h"
 #include <math.h>
-#include <stdio.h>
-#include<stdlib.h>
 
 double dnorma (double *in, int row, int col, int norm)
 {
 	double res = 0, sum = 0;
 	int col_count, row_count;
-	double *S;
-	S = (double *)malloc(min(row,col)*sizeof(double));
+
 	switch (norm)
 	{
 		case 1:  /*largest column sum*/
@@ -43,8 +37,6 @@ double dnorma (double *in, int row, int col, int norm)
 			break;
 
 		case 2:  /*Largest singular value of the matrix*/
-			dsvda(0,in,row,col,0,1,S,NULL,NULL);			
-			res = S[0];
 			break;
 
 		case 3: /*inf: largest row sum*/

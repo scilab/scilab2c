@@ -24,7 +24,9 @@ function allLibraries = getAllLibraries(SharedInfo)
   Target = SharedInfo.Target;
   //Library files required for "RasberryPi" target
   RPi_libs = [
-      "thirdparty/lib/raspberrypi/libwiringPi.so"
+      "thirdparty/lib/raspberrypi/libRPIwfi.a"
+      "thirdparty/lib/raspberrypi/libwiringPi.a"
+      "thirdparty/lib/raspberrypi/libwiringPiDev.a"
       "thirdparty/lib/raspberrypi/libcblas.a"
       "thirdparty/lib/raspberrypi/librefblas.a"
       "thirdparty/lib/raspberrypi/liblapack.a"

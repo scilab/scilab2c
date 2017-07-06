@@ -20,12 +20,12 @@ sci2c_GenFunctionslib    = lib(pathmacros + "GeneralFunctions"   + filesep());
 sci2c_SymbolTablelib     = lib(pathmacros + "SymbolTable"        + filesep());
 sci2c_ToolInitlib        = lib(pathmacros + "ToolInitialization" + filesep());
 sci2c_finDeps            = lib(pathmacros + "findDeps"           + filesep());
-sci2c_AVRlib		 	 = lib(pathmacros + "Hardware\AVR"       + filesep());
-sci2c_RPilib		 	 = lib(pathmacros + "Hardware\RasberryPi"+ filesep());
+sci2c_AVRlib	    	 = lib(pathmacros + "Hardware\AVR"       + filesep());
+sci2c_RPilib    		 = lib(pathmacros + "Hardware\RasberryPi"+ filesep());
 sci2c_ScilabArduinolib	 = lib(pathmacros + "Scilab-Arduino"     + filesep());
 sci2c_CVCorelib	     	 = lib(pathmacros + "ImageProcessing\core" + filesep());
 sci2c_CVHighguilib    	 = lib(pathmacros + "ImageProcessing\highgui" + filesep());
-sci2c_CVImgproclib	     = lib(pathmacros + "ImageProcessing\imgproc" + filesep());
+sci2c_CVImgproclib  	 = lib(pathmacros + "ImageProcessing\imgproc" + filesep());
 clear pathmacros;
 
 // Load and add help chapter
@@ -47,7 +47,7 @@ if or(getscilabmode() == ["NW";"STD"]) then
     mprintf("\tLoad demos\n");
    pathdemos = pathconvert(root_tlbx + "/demos/scilab2c.dem.gateway.sce",%f,%t);
 
-   add_demo(gettext("Scilab2C"),pathdemos);
+//   add_demo(gettext("Scilab2C"),pathdemos);
    clear pathdemos ;
 end
 

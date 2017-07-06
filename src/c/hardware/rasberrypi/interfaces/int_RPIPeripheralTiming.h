@@ -5,11 +5,10 @@
  you should have received as part of this distribution.  The terms
  are also available at
  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
- Author: Siddhesh Wani
+ Author:  Jorawar Singh, Siddhesh Wani
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
 */
-
 
 #ifndef __INT_RPIPERIPHERALTIMING_H__
 #define __INT_RPIPERIPHERALTIMING_H__
@@ -21,14 +20,15 @@
 extern "C" {
 #endif
 
-#define RPI_DelayMicro(in1) u16RPIDelayMicros((uint16) in1)
-#define RPI_DelayMilli(in1) u16RPIDelayMillis((uint16) in1)
-#define RPI_GetMicro() u32RPIGetMicros()
-#define RPI_GetMillis() u32RPIGetMillis()
+#define u320RPI_delay(time) u32RPI_delays(time);
+#define d0RPI_delay(time) u32RPI_delays(time);
 
+#define u320RPI_delayMicro(time) u32RPI_delayMicros(time);
+#define RPI_millisu320() RPI_millis();
+#define RPI_microsu320() RPI_micros();
 
 #ifdef  __cplusplus
 } /* extern "C" */
 #endif
 
-#endif /* !__RPIPERIPHERALTIMING_H__ */
+#endif /* !__INT_RPIPERIPHERALTIMING_H__ */

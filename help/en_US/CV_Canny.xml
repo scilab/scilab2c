@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from CV_Canny.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="CV_Canny" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>CV_Canny</refname>
+    <refpurpose>Finds edges in image using Canny algorithm</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   edges = CV_Canny(srcimg,threhold1,threshold2,aperture_size,L2gradient)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>srcimg :</term>
+      <listitem><para> single-channel 8-bit input image.</para></listitem></varlistentry>
+   <varlistentry><term>threshold1 :</term>
+      <listitem><para> first threshold for the hysteresis procedure.</para></listitem></varlistentry>
+   <varlistentry><term>threshold2 :</term>
+      <listitem><para> second threshold for the hysteresis procedure.</para></listitem></varlistentry>
+   <varlistentry><term>aperture_size :</term>
+      <listitem><para> aperture size for the Sobel() operator.</para></listitem></varlistentry>
+   <varlistentry><term>L2gradient :</term>
+      <listitem><para> a flag, indicating whether a more accurate</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function can be used for finding edes in single channel 8 bit
+image. 'aperture_size' and 'L2gradient' are optionals. By default,
+aperture_size is 3 and L2gradient is false.
+   </para>
+   <para>
+For L2gradient: L_2 norm  =sqrt{(dI/dx)^2 + (dI/dy)^2} should be used to calculate the image gradient magnitude (L2gradient=1 ), or whether the default  L_1 norm  =|dI/dx|+|dI/dy| is enough (L2gradient=0).
+   </para>
+   <para>
+This is curretly dummy function. It provides no functionality but is required
+for providing support for generating C code for OpenCV
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+img = CV_LoadImage('~/test.jpg',0)
+dst = CV_CvtColor(img,"CV_RGB2GRAY");
+edge = CV_Canny(dst,50,100,3,0);
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="CV_LoadImage">CV_CvtColor</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Siddhesh Wani</member>
+   </simplelist>
+</refsection>
+</refentry>

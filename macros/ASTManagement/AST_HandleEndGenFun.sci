@@ -1,5 +1,5 @@
 
-function [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,ASTFunType)
+function [disp_isthere,FileInfo,SharedInfo] = AST_HandleEndGenFun(disp_isthere,FileInfo,SharedInfo,ASTFunType)
 // function [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,ASTFunType)
 // -----------------------------------------------------------------
 // #RNU_RES_B
@@ -36,7 +36,7 @@ function [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,ASTFunT
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-SCI2CNInArgCheck(argn(2),3,3);
+SCI2CNInArgCheck(argn(2),4,4);
 
 // -----------------------
 // --- Initialization. ---
@@ -61,6 +61,8 @@ PrintStepInfo('Handling Funcall/Operation/Equal',FileInfo.Funct(nxtscifunnumber)
 global SCI2CSTACK
 global StackPosition;
 global STACKDEDUG
+
+disp_isthere = 0;
 // ---------------------------
 // --- End Initialization. ---
 // ---------------------------
@@ -73,6 +75,19 @@ global STACKDEDUG
 // #RNU_RES_E
 [ASTFunName,InArg,NInArg,OutArg,NOutArg] = AST_GetFuncallPrm(FileInfo,SharedInfo,ASTFunType);
 NOutArg_mod = NOutArg
+	if ASTFunName == 'OpLogAnd'
+		AST_PushASTStack('&&');
+		return ;
+	end
+	if ASTFunName == 'OpLogOr'
+		AST_PushASTStack('||');
+		return;
+	end
+	
+	if ASTFunName == 'disp'
+		disp_isthere = 1;
+	end
+
 	if(mtlb_strcmp(part(ASTFunName,1:2),'CV') == %T)
 		SharedInfo.OpenCVUsed = %T;
 	end
@@ -112,6 +127,8 @@ NOutArg_mod = NOutArg
 		  PrintStringInfo(' ',ReportFileName,'both','y');
 		  error(9999, 'SCI2CERROR: Unexpected number of output arguments for global function.');
 	   end
+	 elseif(ASTFunName == 'raspi' | ASTFunName == 'raspi_close')
+	   SharedInfo.SkipNextFun = 1;
 	end
 
 	// #RNU_RES_B
@@ -119,6 +136,13 @@ NOutArg_mod = NOutArg
 	// --- Read the function annotations. ---
 	// --------------------------------------
 	// #RNU_RES_E
+	if ASTFunName == '%k'
+		ASTFunName='modk';
+	end
+	
+	if ASTFunName == '%sn'
+		ASTFunName='modsn';
+	end
 	
 	if (ASTFunName == 'OpEqual')
 	   FunTypeAnnot = '';
@@ -132,6 +156,7 @@ NOutArg_mod = NOutArg
 	// --- Search for Equal Lhs and precision specifier to be applied to the current function. ---
 	// -------------------------------------------------------------------------------------------
 	// #RNU_RES_E
+	PrintStringInfo(' no of out arguments' + string(NOutArg),ReportFileName,'file','y');
 	[LhsArg,NLhsArg,FunPrecSpecifier,SharedInfo] = AST_GetPrecAndLhsArg(OutArg,NOutArg,ASTFunName,FunTypeAnnot,FunSizeAnnot,ASTFunType,FileInfo,SharedInfo);
 	//NUT: questa funzione contiene troppi parametri e mi sembra disordinata.
 
@@ -329,8 +354,13 @@ NOutArg_mod = NOutArg
 	   OutArg(1).Name  = string(OutArg(1).Value);
 	elseif ((ASTFunName == 'double') & (NInArg == 1) & (InArg(1).Dimension == 0) & (InArg(1).Scope == 'Number'))
 	   OutArg(1).Name  = string(OutArg(1).Value);
+	//elseif ASTFunName == 'disp'
 	else
 	   [OutArg,SharedInfo] = GenOutArgNames(ASTFunName,InArg,NInArg,OutArg,NOutArg,LhsArg,NLhsArg,FileInfo,SharedInfo);
+	   if ( ASTFunName == 'OpLogGt' | ASTFunName == 'OpLogLt' | ASTFunName == 'OpLogLe' | ASTFunName == 'OpLogGe' | ASTFunName == 'OpLogNe' | ASTFunName == 'OpLogEq')
+		PrintStringInfo('   returning back due logical function',ReportFileName,'file','y');
+		return;
+	   end
 	end
 	
 	if ((ASTFunName == 'uint8') & (NInArg == 1) & (InArg(1).Dimension == 0) & (InArg(1).Scope == 'Number'))
@@ -374,6 +404,8 @@ NOutArg_mod = NOutArg
 	   // Scope already set above.
 	elseif (ASTFunName == 'double' & NInArg == 1 & (InArg(1).Dimension == 0) & (InArg(1).Scope == 'Number'))
 	   // Scope already set above.
+	//elseif ASTFunName == 'disp'
+	   //do nothing
 	else
 	   OutArg = ST_AnalyzeScope(OutArg,NOutArg,FileInfo,SharedInfo);
 	end
@@ -392,6 +424,8 @@ NOutArg_mod = NOutArg
 	   //#RNUREM_ME A number is not inserted in the symbol table.
 	elseif ((ASTFunName == 'double') & (NInArg == 1) & (InArg(1).Dimension == 0) & (InArg(1).Scope == 'Number'))
 	   //#RNUREM_ME A number is not inserted in the symbol table.
+	//elseif ASTFunName == 'disp'
+	   //do nothing
 	else
 	   ST_InsOutArg(OutArg,NOutArg,FileInfo,SharedInfo,'all');
 	end
@@ -424,8 +458,10 @@ NOutArg_mod = NOutArg
 	// --------------------------------------------
 	//#RNU_RES_E
 	//disp(OutArg,InArg,ASTFunName)
+
+	
 	CFunName = C_GenerateFunName(ASTFunName,InArg,NInArg,OutArg,NOutArg_mod);
-    
+    	
   	//#RNU_RES_B
 	PrintStringInfo('   C Function Name: '+CFunName,ReportFileName,'file','y');
 	if(IsArduinoFunction(ASTFunName))
@@ -449,7 +485,8 @@ NOutArg_mod = NOutArg
 	else
 	   LibTypeInfo = 'USER2C';
 	end
-
+	
+	
 	//#RNU_RES_B
 	// ------------------------------------------------------------------------------------
 	// --- Check whether the function has been already called in the current .sci file. ---
@@ -495,6 +532,8 @@ NOutArg_mod = NOutArg
 	if (((ASTFunName=='OpEqual') & (SharedInfo.SkipNextEqual == 1)) | ...
 		SharedInfo.SkipNextFun > 0 | ...
 		((sum(mtlb_strcmp(ASTFunName,SharedInfo.Annotations.DataPrec)) > 0) & (SharedInfo.SkipNextPrec == 1)))
+	   // Do nothing
+	//elseif ASTFunName == 'disp'
 	   // Do nothing
 	else
 	   AST_CheckCommonInOutArgs(InArg,NInArg,OutArg,NOutArg,ReportFileName);

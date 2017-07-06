@@ -15,24 +15,26 @@ function status = CV_SaveImage(filename,img)
 //     CV_SaveImage(filename,img)
 //
 // Parameters
-//     filename: name of file image to be saved as
-//	   img: image to be saved
+//	filename: name of file image to be saved as
+//	img: image to be saved
 //
 // Description
-//		This function can be used for saving image. File format is detected
-//		from file extension 
-// Examples
-//		img = CV_LoadImage('~/test.jpg',0)
-//		CV_SaveImage('test1.png',img)
+//	This function can be used for saving image. File format is detected
+//	from file extension 
 //
+// This is curretly dummy function. It provides no functionality but is required 
+// for providing support for generating C code for OpenCV
+//
+// Examples
+//	img = CV_LoadImage('~/test.jpg',0)
+//	CV_SaveImage('test1.png',img)
 // See also
 //     CV_LoadImage CV_CreateImage
 //
 // Authors
 //     Siddhesh Wani
 //
+
 status = 0;
-// This is curretly dummy function. It provides no functionality but is required 
-// for providing support for generating C code for OpenCV
 
 endfunction

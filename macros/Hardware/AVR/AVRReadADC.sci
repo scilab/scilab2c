@@ -15,11 +15,7 @@ function adc_result = AVRReadADC(channel)
 //     u8AVRReadADCs(channel)
 //
 // Parameters
-//     channel 	: Select which channel is to be read. Values from 0-7 select one 
-//	             of the pins ADC0-ADC7. For other possible channel values refer
-//               datasheet
-//   Returns->  
-//     result 	: Digital value for the voltage present on channel selected
+//     channel 	: Select which channel is to be read. Values from 0-7 select one of the pins ADC0-ADC7. For other possible channel values refer datasheet
 //
 // Description
 //     This function returns digital value for present on adc pins. 'channel' 
@@ -28,14 +24,15 @@ function adc_result = AVRReadADC(channel)
 //     voltages between some pins. For channel values for those options, please 
 //     refer datasheet.      
 //
-// Examples
-//     adc_result = u8AVRReadADC(0)   //Read ADC0
-//
-// Authors
-//     Siddhesh Wani Ashish Kamble
-//
 // This is curretly dummy function. It provides no functionality but is required 
 // for providing support for generating C code for AVR.
+//
+// Examples
+//     adc_result = u8AVRReadADC(0)   //Read ADC0
+// Authors
+//     Siddhesh Wani
+//     Ashish Kamble
+//
 
 if(channel>=8) then 
 disp("Error : Inavlid input argument ''channel'' in AVRReadADC function.");
