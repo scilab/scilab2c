@@ -19,6 +19,7 @@
 #include "matrixTranspose.h"
 #include "conj.h"
 
+/* Lapack functions used . */
 extern doubleComplex zgesvd_( char* , char* , int* , int* ,doubleComplex *,\
                 int* , double* ,doubleComplex* , int* ,doubleComplex* , int* ,\
                  doubleComplex* , int* , double* , int* );
