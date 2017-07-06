@@ -99,7 +99,7 @@ void dsqroota(double *inp,int row,int col, double *out){
 			printf("\n");	
 		}*/
 		/*sqrt of S*/
-		printf("%d ",rk);
+		//printf("%d ",rk);
 		for(i=0;i<rk;i++){
 			for(j=0;j<rk;j++){
 				A[i*rk+j] = sqrt(S[i*row+j]);
