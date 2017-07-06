@@ -15,7 +15,7 @@
 
 #define d2isrowg0(in, size )        disrowa(in, size[0])
 #define d0isrowg0(in)               disrows(in)
-#define s2isrowg0(in , size)        siswora(in, size[0])
+#define s2isrowg0(in , size)        sisrowa(in, size[0])
 #define s0isrowg0(in)               sisrows(in)
 #define g2isrowg0(in, size)         gisrowa(in, size[0])
 #define g0isrowg0(in)               gisrows(in)

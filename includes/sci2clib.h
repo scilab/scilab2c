@@ -163,6 +163,12 @@ extern "C" {
 /*interfacing isrow*/
 #include "isrow.h"
 #include "int_isrow.h"
+/*interfacing iscolumn*/
+#include "iscolumn.h"
+#include "int_iscolumn.h"
+/*interfacing ismatrix*/
+#include "ismatrix.h"
+#include "int_ismatrix.h"
 /* interfacing floor */
 #include "floor.h"
 #include "int_floor.h"
