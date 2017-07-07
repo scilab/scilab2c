@@ -35,6 +35,8 @@ function [IfCondArg,NIfCondArg] = AST_ParseIfExprStruct(FileInfo,SharedInfo,ASTI
 //
 // Status:
 // 11-Apr-2007 -- Raffaele Nutricato: Author.
+// 25-June-2017 -- Ukasha Noor: Revised By 
+// This function is counting the number of logical operators and there operands.
 //
 // Copyright 2007 Raffaele Nutricato.
 // Contact: raffaele.nutricato@tiscali.it

@@ -1,18 +1,18 @@
-// Copyright (C) 2017 - IIT Bombay - FOSSEE
+//
+// Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+// Copyright (C) 2010-2010 - DIGITEO - Bruno JOFRET
+//
 // This file must be used under the terms of the CeCILL.
 // This source file is licensed as described in the file COPYING, which
 // you should have received as part of this distribution.  The terms
 // are also available at
 // http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
-// Author: Sandeep Gupta
-// Organization: FOSSEE, IIT Bombay
-// Email: toolbox@scilab.in
-
+// Author : Ukasha Noor
+//
 
 lines(0);
 
 global SCI2CHOME
 
-scilab2c(SCI2CHOME+"/tests/unit_tests/testLinearAlgebra/test_svd/testsvd.sci", TMPDIR,SCI2CHOME+"/tests/unit_tests/testLinearAlgebra/test_svd");
+scilab2c(SCI2CHOME + "/tests/unit_tests/test02_IDCT/scilabcode/testidct.sci", TMPDIR,SCI2CHOME + "/tests/unit_tests/test02_IDCT/scilabcode");
 
-editor(TMPDIR+"/main.c");

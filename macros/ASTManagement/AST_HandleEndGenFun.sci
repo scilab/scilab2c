@@ -1,9 +1,7 @@
 
-<<<<<<< HEAD
 function [disp_isthere,FileInfo,SharedInfo] = AST_HandleEndGenFun(disp_isthere,FileInfo,SharedInfo,ASTFunType)
-=======
 function [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,ASTFunType)
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
+
 // function [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,ASTFunType)
 // -----------------------------------------------------------------
 // #RNU_RES_B
@@ -32,19 +30,18 @@ function [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,ASTFunT
 //
 // Status:
 // 11-Apr-2007 -- Raffaele Nutricato: Author.
+// 15-June-2017 -- Ukasha Noor : Revised By 
 //
 // Copyright 2007 Raffaele Nutricato.
 // Contact: raffaele.nutricato@tiscali.it
 // -----------------------------------------------------------------
 
+
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-<<<<<<< HEAD
+
 SCI2CNInArgCheck(argn(2),4,4);
-=======
-SCI2CNInArgCheck(argn(2),3,3);
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 
 // -----------------------
 // --- Initialization. ---
@@ -69,11 +66,8 @@ PrintStepInfo('Handling Funcall/Operation/Equal',FileInfo.Funct(nxtscifunnumber)
 global SCI2CSTACK
 global StackPosition;
 global STACKDEDUG
-<<<<<<< HEAD
 
 disp_isthere = 0;
-=======
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 // ---------------------------
 // --- End Initialization. ---
 // ---------------------------
@@ -85,7 +79,6 @@ disp_isthere = 0;
 //NUT: verifica se ASTFunType e' veramente importante
 // #RNU_RES_E
 [ASTFunName,InArg,NInArg,OutArg,NOutArg] = AST_GetFuncallPrm(FileInfo,SharedInfo,ASTFunType);
-<<<<<<< HEAD
 NOutArg_mod = NOutArg
 	if ASTFunName == 'OpLogAnd'
 		AST_PushASTStack('&&');
@@ -100,13 +93,11 @@ NOutArg_mod = NOutArg
 		disp_isthere = 1;
 	end
 
-=======
 if (ASTFunType=='Funcall')
 SharedInfo.Function_list(SharedInfo.Function_list_index) =  ASTFunName;
 SharedInfo.Function_list_index = SharedInfo.Function_list_index + 1; 
 end
 NOutArg_mod = NOutArg
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 	if(mtlb_strcmp(part(ASTFunName,1:2),'CV') == %T)
 		SharedInfo.OpenCVUsed = %T;
 	end

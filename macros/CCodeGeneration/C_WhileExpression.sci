@@ -15,6 +15,7 @@ function SharedInfo = C_WhileExpression(FileInfo,SharedInfo)
 //
 // Status:
 // 15-Nov-2007 -- Raffaele Nutricato: Author.
+// 27-June-2017 -- Ukasha Noor: Modified by
 //
 // Copyright 2007 Raffaele Nutricato.
 // Contact: raffaele.nutricato@tiscali.it

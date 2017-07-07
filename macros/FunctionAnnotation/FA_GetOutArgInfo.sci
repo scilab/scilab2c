@@ -29,6 +29,7 @@ SCI2CNInArgCheck(argn(2),10,10);
 // --- Initialization. ---
 // -----------------------
 
+
 UpdatedOutArg   = OutArg;
 for cntin = 1:NInArg
    IN(cntin).TP    = InArg(cntin).Type;
@@ -101,7 +102,19 @@ for counterout = 1:NOutArg
    // This is a dynamic memory extension of a local variable and for the moment
    // we issue an error according to SCI2C specifications
    // #RNU_RES_E
-   //disp(FunSizeAnnot)
+   //disp(FunSizeAnnot(2),FunSizeAnnot(1))
+	//Ukasha
+//	if ASTFunName == svd
+//		x=1;
+//		for i=1:InArg(1).Size(1)
+//			for j=1:InArg(1).Size(2)
+//				A(i)(j)=InArg(1).Value(x);
+//			end
+//		end
+//		[U,S,V]=svd(A,"e");
+			
+
+ 
    for iterOutputPosition=1:size(FunSizeAnnot, 'c')
      tmpeval = eval(FunSizeAnnot(counterout, iterOutputPosition));
      if (IsNanSize(tmpeval))

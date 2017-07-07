@@ -26,6 +26,7 @@ function [FunctionName,InArg,NInArg,NOutArg] = AST_ParseOperStruct(FileInfo,Shar
 //
 // Status:
 // 11-Apr-2007 -- Raffaele Nutricato: Author.
+// 25-June-2017 -- Ukasha Noor: Revised By
 //
 // Copyright 2007 Raffaele Nutricato.
 // Contact: raffaele.nutricato@tiscali.it
