@@ -60,7 +60,6 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/matrixOperations/includes/logm.h"
       "src/c/matrixOperations/includes/ones.h"
       "src/c/matrixOperations/includes/matrixSquaredMagnitude.h"
-      "src/c/linearAlgebra/includes/spec.h"
       "src/c/matrixOperations/includes/matrixTranspose.h"
       "src/c/matrixOperations/includes/determ.h"
       "src/c/matrixOperations/includes/matrixMultiplication.h"
@@ -221,14 +220,19 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/CACSD/includes/lqr.h"
       "src/c/CACSD/includes/lqe.h"
       "src/c/CACSD/includes/obscont.h"
-      "src/c/linearAlgebra/includes/sva.h"
-      "src/c/linearAlgebra/includes/svd.h"
       "src/c/linearAlgebra/includes/schur.h"
       "src/c/linearAlgebra/includes/balanc.h"
       "src/c/linearAlgebra/includes/svd.h"
-	"src/c/linearAlgebra/includes/hess.h"
-	"src/c/linearAlgebra/includes/sva.h"
-      "src/c/linearAlgebra/includes/rcond.h"];
+	  "src/c/linearAlgebra/includes/hess.h"
+	  "src/c/linearAlgebra/includes/sva.h"	
+	  "src/c/linearAlgebra/includes/sqroot.h"
+	  "src/c/linearAlgebra/includes/givens.h"
+	  "src/c/linearAlgebra/includes/householder.h"
+	  "src/c/linearAlgebra/includes/fullrf.h"
+	  "src/c/linearAlgebra/includes/rowcomp.h"
+      "src/c/linearAlgebra/includes/rcond.h"
+	  "src/c/linearAlgebra/includes/qr.h"
+	  "src/c/linearAlgebra/includes/spec.h"];
 
 
   //Header files required for "Arduino" output

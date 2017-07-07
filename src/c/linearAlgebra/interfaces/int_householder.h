@@ -1,4 +1,4 @@
- /* Copyright (C) 2016 - IIT Bombay - FOSSEE
+ /* Copyright (C) 2017 - IIT Bombay - FOSSEE
 
  This file must be used under the terms of the CeCILL.
  This source file is licensed as described in the file COPYING, which
@@ -9,24 +9,20 @@
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
  */
-#ifndef __NORM_H__
-#define __NORM_H__
 
+#ifndef __INT_HOUSEHOLDER_H__
+#define __INT_HOUSEHOLDER_H__
 
 #ifdef  __cplusplus
 extern "C" {
 #endif
 
-double dnormv (double *in, int size, int norm);
+#define d2householderd2(in1,size,out1) dhouseholdera(1,in1,size[0],NULL,out2);
+#define d2d2householderd2(in1,size1,in2,size2,out1) dhouseholdera(2,in1,size1[0],in2,out1);
 
-double dnorma (double *in, int row, int col, int norm);
-
-float snormv (float *in, int size, int norm);
-
-float snorma (float *in, int row, int col, int norm);
-
-#ifdef  __cplusplus 
+#ifdef  __cplusplus
 } /* extern "C" */
 #endif
 
-#endif /*__NORM_H__*/
+#endif /*__INT_HOUSEHOLDER_H__*/
+

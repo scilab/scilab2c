@@ -1,4 +1,4 @@
- /* Copyright (C) 2016 - IIT Bombay - FOSSEE
+ /* Copyright (C) 2017 - IIT Bombay - FOSSEE
 
  This file must be used under the terms of the CeCILL.
  This source file is licensed as described in the file COPYING, which
@@ -9,24 +9,18 @@
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
  */
-#ifndef __NORM_H__
-#define __NORM_H__
-
+#ifndef __QR_H__
+#define __QR_H__
+#include "types.h"
 
 #ifdef  __cplusplus
 extern "C" {
 #endif
 
-double dnormv (double *in, int size, int norm);
-
-double dnorma (double *in, int row, int col, int norm);
-
-float snormv (float *in, int size, int norm);
-
-float snorma (float *in, int row, int col, int norm);
+double dqra(int ninp,int nout,double *inp1,int M,int N,double tol,double *out1,double *out2,double *out3);
 
 #ifdef  __cplusplus 
 } /* extern "C" */
 #endif
 
-#endif /*__NORM_H__*/
+#endif /*__QR_H__*/

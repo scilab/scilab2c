@@ -1,4 +1,4 @@
- /* Copyright (C) 2016 - IIT Bombay - FOSSEE
+ /* Copyright (C) 2017 - IIT Bombay - FOSSEE
 
  This file must be used under the terms of the CeCILL.
  This source file is licensed as described in the file COPYING, which
@@ -9,24 +9,21 @@
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
  */
-#ifndef __NORM_H__
-#define __NORM_H__
 
+#ifndef __INT_ROWCOMP_H__
+#define __INT_ROWCOMP_H__
 
 #ifdef  __cplusplus
 extern "C" {
 #endif
 
-double dnormv (double *in, int size, int norm);
+#define d2rowcompd2d0(in1,size,out1) drowcompa(1,in1,size[0],size[1],NULL,0,out1);
+#define d2g2rowcompd2d0(in1,size,flag,size1,out1) drowcompa(2,in1,size[0],size[1],flag,0,out1);
+#define d2g2d0rowcompd2d0(in1,size,flag,size1,tol,out1) drowcompa(2,in1,size[0],size[1],flag,tol,out1);
 
-double dnorma (double *in, int row, int col, int norm);
-
-float snormv (float *in, int size, int norm);
-
-float snorma (float *in, int row, int col, int norm);
-
-#ifdef  __cplusplus 
+#ifdef  __cplusplus
 } /* extern "C" */
 #endif
 
-#endif /*__NORM_H__*/
+#endif /*__INT_ROWCOMP_H__*/
+

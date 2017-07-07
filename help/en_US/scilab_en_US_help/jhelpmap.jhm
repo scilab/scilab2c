@@ -2,7 +2,11 @@
 <!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 1.0//EN" "http://java.sun.com/products/javahelp/map_1_0.dtd">
 <map version="1.0">
 <mapID target="index" url="index.html"/>
+<<<<<<< HEAD
 <mapID target="section_009504e67ab100d6991ada9db2f321bb" url="section_009504e67ab100d6991ada9db2f321bb.html"/>
+=======
+<mapID target="section_35ee3b19a97c75b084122c05ac0777c6" url="section_35ee3b19a97c75b084122c05ac0777c6.html"/>
+>>>>>>> 8106d4ce6960cfd63c3a42171fdf5d52e46ccb06
 <mapID target="AVRADCSetup" url="AVRADCSetup.html"/>
 <mapID target="AVRDigitalIn" url="AVRDigitalIn.html"/>
 <mapID target="AVRDigitalOut" url="AVRDigitalOut.html"/>

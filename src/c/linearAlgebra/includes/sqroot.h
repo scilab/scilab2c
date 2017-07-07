@@ -1,4 +1,4 @@
- /* Copyright (C) 2016 - IIT Bombay - FOSSEE
+ /* Copyright (C) 2017 - IIT Bombay - FOSSEE
 
  This file must be used under the terms of the CeCILL.
  This source file is licensed as described in the file COPYING, which
@@ -9,24 +9,18 @@
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
  */
-#ifndef __NORM_H__
-#define __NORM_H__
-
+#ifndef __SQROOT_H__
+#define __SQROOT_H__
+#include "types.h"
 
 #ifdef  __cplusplus
 extern "C" {
 #endif
 
-double dnormv (double *in, int size, int norm);
-
-double dnorma (double *in, int row, int col, int norm);
-
-float snormv (float *in, int size, int norm);
-
-float snorma (float *in, int row, int col, int norm);
+void dsqroota(double *inp,int row,int col,double *out);
 
 #ifdef  __cplusplus 
 } /* extern "C" */
 #endif
 
-#endif /*__NORM_H__*/
+#endif /*__SQROOT_H__*/

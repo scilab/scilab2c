@@ -19,6 +19,7 @@
 #include "matrixTranspose.h"
 #include "conj.h"
 
+/* Lapack functions used . */
 extern doubleComplex zgesvd_( char* , char* , int* , int* ,doubleComplex *,\
                 int* , double* ,doubleComplex* , int* ,doubleComplex* , int* ,\
                  doubleComplex* , int* , double* , int* );
@@ -113,7 +114,16 @@ void zsvda(doubleComplex *in1,int row,int col,int in2,int nout, doubleComplex *o
 						out3[i+j*N] = zconjs(VT[j+i*N]);
 						out3[j+i*N] = zconjs(VT[i+j*N]);				
 					}
-				}			
+				}	
+				/* output from zgesvd is copied to out2 variables in required format*/
+				for(j=0;j<M;j++){
+					for(k=0;k<N;k++){
+						if(j == k)
+							out2[j*(Min(M,N))+k] = DoubleComplex(S[j],0);
+						else 
+							out2[j*(Min(M,N))+k] = DoubleComplex(0,0);					
+					}
+				}		
 				//ztransposea(VT,LDVT,Min(M,N),out3);
 				/*for(i=0;i<N;i++){
 					for(j=0;j<N;j++){
@@ -124,7 +134,7 @@ void zsvda(doubleComplex *in1,int row,int col,int in2,int nout, doubleComplex *o
 				//free(U);
 				//free(VT);
 			}
-			else{
+			else{	/*svd(x,'e')*/
 				LDA = M;
 				LDU = M;
 				if(M > N){
@@ -156,18 +166,18 @@ void zsvda(doubleComplex *in1,int row,int col,int in2,int nout, doubleComplex *o
 					for(j=0;j<N;j++){
 						out3[j+i*N] = zconjs(VT[i+j*Min(M,N)]);				
 					}
-				}								
+				}
+				/* output from zgesvd is copied to out2 variables in required format*/
+				for(j=0;j<Min(M,N);j++){
+					for(k=0;k<Min(M,N);k++){
+						if(j == k)
+							out2[j*(Min(M,N))+k] = DoubleComplex(S[j],0);
+						else 
+							out2[j*(Min(M,N))+k] = DoubleComplex(0,0);					
+					}
+				}						
 				//free(U);
 				//free(VT);
-			}
-			/* output from zgesvd is copied to out2 variables in required format*/
-			for(j=0;j<Min(M,N);j++){
-				for(k=0;k<Min(M,N);k++){
-					if(j == k)
-						out2[j*(Min(M,N))+k] = DoubleComplex(S[j],0);
-					else 
-						out2[j*(Min(M,N))+k] = DoubleComplex(0,0);					
-				}
 			}
 		}
 }

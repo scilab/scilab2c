@@ -1,4 +1,4 @@
- /* Copyright (C) 2016 - IIT Bombay - FOSSEE
+ /* Copyright (C) 2017 - IIT Bombay - FOSSEE
 
  This file must be used under the terms of the CeCILL.
  This source file is licensed as described in the file COPYING, which
@@ -9,24 +9,20 @@
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
  */
-#ifndef __NORM_H__
-#define __NORM_H__
 
+#ifndef __INT_FULLRF_H__
+#define __INT_FULLRF_H__
 
 #ifdef  __cplusplus
 extern "C" {
 #endif
 
-double dnormv (double *in, int size, int norm);
+#define d2fullrfd2d2d0(in1,size,out1,out2) dfullrfa(1,in1,size[0],size[1],0,out1,out2);
+#define d2d0fullrfd2d2d0(in1,size,in2,out1,out2) dfullrfa(2,in1,size[0],size[1],in2,out1,out2);
 
-double dnorma (double *in, int row, int col, int norm);
-
-float snormv (float *in, int size, int norm);
-
-float snorma (float *in, int row, int col, int norm);
-
-#ifdef  __cplusplus 
+#ifdef  __cplusplus
 } /* extern "C" */
 #endif
 
-#endif /*__NORM_H__*/
+#endif /*__INT_FULLRF_H__*/
+

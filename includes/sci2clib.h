@@ -665,8 +665,27 @@ extern "C" {
 #include "hess.h"	/* Linear Algebra - Hess function */
 #include "int_hess.h"
 
-#include "sva.h"
-#include "int_sva.h" /*Linear Algebra - SVA function */
+#include "sva.h"	/* Linear Algebra - SVA function */
+#include "int_sva.h" 
+
+#include "sqroot.h"	/* Linear Algebra - Sqroot function */
+#include "int_sqroot.h"
+
+#include "givens.h"	/* Linear Algebra - Givens Function */
+#include "int_givens.h"
+
+#include "householder.h" /* Linear Algebra - Householder function */
+#include "int_householder.h"
+
+#include "fullrf.h"		/* Linear Algebra - Full rank factoziation */
+#include "int_fullrf.h"
+
+#include "rowcomp.h"	/* Linear Algebra - row compression, range */
+#include "int_rowcomp.h"
+
+
+#include "qr.h" /* Linear Algebra - QR decomposition */
+#include "int_qr.h"
 	
 /*Functions related to opencv*/
 /*#include "cvcore.hpp"
