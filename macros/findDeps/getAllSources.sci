@@ -315,6 +315,7 @@ function allSources = getAllSources(SharedInfo)
       "src/c/matrixOperations/matrix/dmatrixa.c"
       "src/c/matrixOperations/matrix/smatrixa.c"
       "src/c/matrixOperations/matrix/u16matrixa.c"
+      "src/c/matrixOperations/matrix/zmatrixa.c"
       "src/c/matrixOperations/triu/dtriua.c"
       "src/c/matrixOperations/triu/striua.c"
       "src/c/matrixOperations/triu/u8triua.c"

@@ -6911,8 +6911,8 @@ PrintStringInfo('d2d0d0'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('d2s0s0'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('d2u160u160'+ArgSeparator+'d2',ClassFileName,'file','y');
 PrintStringInfo('d2u80u80'+ArgSeparator+'d2',ClassFileName,'file','y');
-PrintStringInfo('u160'+ArgSeparator+'u160',ClassFileName,'file','y');
-PrintStringInfo('i160'+ArgSeparator+'i160',ClassFileName,'file','y');
+PrintStringInfo('z2d0d0'+ArgSeparator+'z2',ClassFileName,'file','y');
+PrintStringInfo('z2s0s0'+ArgSeparator+'z2',ClassFileName,'file','y');
 
 PrintStringInfo('s2d0d0'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('s2s0s0'+ArgSeparator+'s2',ClassFileName,'file','y');

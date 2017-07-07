@@ -33,6 +33,13 @@ extern "C" {
 //#define s2u160u160matrixs2(in1, size, in2, in3, out )     smatrixa(in1, size[0], size[1], in2, in3, out)
 //#define s2u80u80matrixs2(in1, size, in2, in3, out )       smatrixa(in1, size[0], size[1], in2, in3, out)
 
+#define z2d0d0matrixz2(in1, size, in2, in3, out )         zmatrixa(in1, size[0], size[1], in2, in3, out)
+#define z2s0s0matrixz2(in1, size, in2, in3, out )         zmatrixa(in1, size[0], size[1], in2, in3, out)
+//#define s2u160u160matrixs2(in1, size, in2, in3, out )     smatrixa(in1, size[0], size[1], in2, in3, out)
+//#define s2u80u80matrixs2(in1, size, in2, in3, out )       smatrixa(in1, size[0], size[1], in2, in3, out)
+
+
+
 
 
 #ifdef  __cplusplus
