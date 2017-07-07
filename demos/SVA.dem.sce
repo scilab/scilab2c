@@ -13,6 +13,6 @@ lines(0);
 
 global SCI2CHOME
 
-scilab2c(SCI2CHOME+"/tests/unit_tests/testLinearAlgebra/test_svd/testsvd.sci", TMPDIR,SCI2CHOME+"/tests/unit_tests/testLinearAlgebra/test_svd");
+scilab2c(SCI2CHOME+"/tests/unit_tests/testLinearAlgebra/testsva/testsva.sci", TMPDIR,SCI2CHOME+"/tests/unit_tests/testLinearAlgebra/testsva");
 
 editor(TMPDIR+"/main.c");
