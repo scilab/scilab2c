@@ -15,7 +15,7 @@
 #include <math.h>
 #include "isscalar.h"
 #include "types.h"
-char discalara(double* inp, int size1)
+char disscalara(double* inp, int size1)
 {
    char out= 'F' ;
  

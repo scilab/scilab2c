@@ -10,8 +10,8 @@
 
 
 
-#ifndef __INT_ISROW_H__
-#define __INT_ISROW_H__
+#ifndef __INT_ISSCALAR_H__
+#define __INT_ISSCALAR_H__
 
 #define d2isscalarg0(in, size )        disscalara(in, size[0])
 #define d0isscalarg0(in)               disscalars(in)

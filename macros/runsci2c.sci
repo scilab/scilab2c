@@ -138,6 +138,7 @@ PrintStepInfo('Copying interfaces', FileInfo.GeneralReport,'both');
 for i = 1:size(allInterfaces, "*")
   // DEBUG only
   //disp("Copying "+allInterfaces(i)+" in "+SCI2COutputPath+"/interfaces/");
+
   copyfile(allInterfaces(i), SCI2COutputPath+"/interfaces/");
 end
 
