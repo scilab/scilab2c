@@ -9,14 +9,14 @@
 
 void ctoeplitza(floatComplex* inp1,int size1,floatComplex* inp2,int size2,floatComplex* oup)
 {
-    if (inp1[0]!=inp2[0])
+    if ((creals(inp1[0])!=creals(inp2[0]))&&(cimags(inp1[0])!=cimags(inp2[0])))
     {
         printf("Error!The first elements of the Vectors are not equal."); // First element of both input vectors must be equal for Toeplitz.
         return;
     }
     int i, j;
 
-    for(i=0;i<size1*size2;i++) oup[i] = 0;       // Initializing the output matrix with zeros.
+    for(i=0;i<size1*size2;i++) oup[i] = FloatComplex(0,0);       // Initializing the output matrix with zeros.
 
     for (i = 0; i<size1; i++)
     {
@@ -28,7 +28,7 @@ void ctoeplitza(floatComplex* inp1,int size1,floatComplex* inp2,int size2,floatC
     }
     for (i = size2+1; i<size1*size2; i++)        // Loop to build the rest of the Toeplitz matrix.
     {
-        if (oup[i] == 0)
+        if (creals(oup[i]) == 0 && cimags(oup[i]) == 0)
         oup[i] = oup[i-size2-1];
     }		
 }

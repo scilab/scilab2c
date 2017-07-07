@@ -302,6 +302,7 @@ PrintStringInfo('i80'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('u160'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('i160'+ArgSeparator+'s0',ClassFileName,'file','y');
 PrintStringInfo('s2'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('z0'+ArgSeparator+'c0',ClassFileName,'file','y');
 
 PrintStringInfo('d2'+ArgSeparator+'s2',ClassFileName,'file','y');
 PrintStringInfo('u82'+ArgSeparator+'s2',ClassFileName,'file','y');
@@ -316,7 +317,6 @@ FunctionName = 'float';
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
-
 
 // ---------------------
 // --- Class Int8. ---

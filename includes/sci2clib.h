@@ -318,7 +318,7 @@ extern "C" {
 #include "int_secd.h"
 
 /*interfacing float*/
-#include "float.h"
+#include "get_float.h"
 #include "int_float.h"
 
 /*interfacing factorial*/

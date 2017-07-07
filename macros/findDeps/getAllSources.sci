@@ -625,9 +625,9 @@ function allSources = getAllSources(SharedInfo)
       "src/c/elementaryFunctions/lnp1m1/slnp1m1s.c"
       "src/c/elementaryFunctions/lnp1m1/dlnp1m1s.c"
 
-	"src/c/elementaryFunctions/float/dfloats.c"
+      "src/c/elementaryFunctions/float/dfloats.c"
       "src/c/elementaryFunctions/float/dfloata.c"
-	"src/c/elementaryFunctions/float/sfloats.c"
+      "src/c/elementaryFunctions/float/sfloats.c"
       "src/c/elementaryFunctions/float/sfloata.c"
       "src/c/elementaryFunctions/float/u8floats.c"
       "src/c/elementaryFunctions/float/u8floata.c"
