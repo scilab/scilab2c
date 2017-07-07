@@ -21,9 +21,16 @@ extern "C" {
 #endif
 
 #define u80RPI_piGlowSetup(clear) u8RPI_piGlowSetups(clear);
+#define d0RPI_piGlowSetup(clear) u8RPI_piGlowSetups(clear);
+
 #define u80u80u80RPI_piGlow1(leg,ring,intensity) u8RPI_piGlow1s(leg,ring,intensity);
+#define d0d0d0RPI_piGlow1(leg,ring,intensity) u8RPI_piGlow1s(leg,ring,intensity);
+
 #define u80u80RPI_piGlowLeg(leg,intensity) u8RPI_piGlowLegs(leg,intensity);
+#define d0d0RPI_piGlowLeg(leg,intensity) u8RPI_piGlowLegs(leg,intensity);
+
 #define u80u80RPI_piGlowRing(ring,intensity) u8RPI_piGlowRings(ring,intensity);
+#define d0d0RPI_piGlowRing(ring,intensity) u8RPI_piGlowRings(ring,intensity);
 
 #ifdef  __cplusplus
 } /* extern "C" */

@@ -38,8 +38,10 @@ extern "C" {
 
 #define u80u80u80u80u80RPI_lcd128x64line(x0,y0,x1,y1,colour) u8RPI_lcd128x64lines(x0,y0,x1,y1,colour);
 #define d0d0d0d0d0RPI_lcd128x64line(x0,y0,x1,y1,colour) u8RPI_lcd128x64lines(x0,y0,x1,y1,colour);
+
 #define u80u80u80u80u80RPI_lcd128x64circle(x,y,r,colour,filled) u8RPI_lcd128x64circles(x,y,r,colour,filled);
 #define d0d0d0d0d0RPI_lcd128x64circle(x,y,r,colour,filled) u8RPI_lcd128x64circles(x,y,r,colour,filled);
+
 #define u80u80u80u80u80RPI_lcd128x64putchar(x,y,c,bgCol,fgCol) u8RPI_lcd128x64putchars(x,y,c,bgCol,fgCol);
 #define d0d0d0d0u80RPI_lcd128x64putchar(x,y,c,bgCol,fgCol) u8RPI_lcd128x64putchars(x,y,c,bgCol,fgCol);
 
@@ -48,6 +50,7 @@ extern "C" {
 
 #define u80u80u80u80u80u80RPI_lcd128x64rectangle(x1,y1,x2,y2,colour,filled) u8RPI_lcd128x64rectangles(x1,y1,x2,y2,colour,filled);
 #define d0d0d0d0d0d0RPI_lcd128x64rectangle(x1,y1,x2,y2,colour,filled) u8RPI_lcd128x64rectangles(x1,y1,x2,y2,colour,filled);
+
 #define u80u80u80u80u80u80RPI_lcd128x64ellipse(cx,cy,xRadius,yRadius,colour,filled) u8RPI_lcd128x64ellipses(cx,cy,xRadius,yRadius,colour,filled);
 #define d0d0d0d0d0d0RPI_lcd128x64ellipse(cx,cy,xRadius,yRadius,colour,filled) u8RPI_lcd128x64ellipses(cx,cy,xRadius,yRadius,colour,filled);
 

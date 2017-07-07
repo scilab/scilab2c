@@ -21,12 +21,25 @@ extern "C" {
 #endif
 
 #define u160RPI_I2CSetupi80(arrd) u16RPI_I2CSetups(arrd);
+#define d0RPI_I2CSetupi80(arrd) u16RPI_I2CSetups(arrd);
+
 #define u160RPI_I2CReadi80(fd) u16RPI_I2CReads(fd);
+#define d0RPI_I2CReadi80(fd) u16RPI_I2CReads(fd);
+
 #define u160u160RPI_I2CReadReg8i80(fd,reg) u16RPI_I2CReadReg8s(fd,reg);
+#define d0d0RPI_I2CReadReg8i80(fd,reg) u16RPI_I2CReadReg8s(fd,reg);
+
 #define u160u160RPI_I2CReadReg16i80(fd,reg) u16RPI_I2CReadReg16s(fd,reg);
+#define d0d0RPI_I2CReadReg16i80(fd,reg) u16RPI_I2CReadReg16s(fd,reg);
+
 #define u160u160RPI_I2CWritei80(fd,data) u16RPI_I2CWrites(fd,data);
+#define d0d0RPI_I2CWritei80(fd,data) u16RPI_I2CWrites(fd,data);
+
 #define u160u160u160RPI_I2CWriteReg8i80(fd,reg,data) u16RPI_I2CWriteReg8s(fd,reg,data);
+#define d0d0d0RPI_I2CWriteReg8i80(fd,reg,data) u16RPI_I2CWriteReg8s(fd,reg,data);
+
 #define u160u160u160RPI_I2CWriteReg16i80(fd,reg,data) u16RPI_I2CWriteReg16s(fd,reg,data);
+#define d0d0d0RPI_I2CWriteReg16i80(fd,reg,data) u16RPI_I2CWriteReg16s(fd,reg,data);
 
 #ifdef  __cplusplus
 } /* extern "C" */

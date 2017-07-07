@@ -21,10 +21,18 @@ extern "C" {
 #endif
 
 #define u80u160RPI_pwmWrite(pin,value) u8RPI_pwmWrites(pin,value);
+#define d0d0RPI_pwmWrite(pin,value) u8RPI_pwmWrites(pin,value);
+
 #define u320RPI_pwmRange(value) u32RPI_pwmRanges(value);
+#define d0RPI_pwmRange(value) u32RPI_pwmRanges(value);
+
 #define g2RPI_pwmMode(mode) gRPI_pwmModea(mode);
+
 #define u160RPI_pwmClock(divisor) u16RPI_pwmClocks(divisor);
+#define d0RPI_pwmClock(divisor) u16RPI_pwmClocks(divisor);
+
 #define u80u160RPI_pwmToneWrite(pin,value) u8RPI_pwmToneWrites(pin,value);
+#define d0d0RPI_pwmToneWrite(pin,value) u8RPI_pwmToneWrites(pin,value);
 
 #ifdef  __cplusplus
 } /* extern "C" */

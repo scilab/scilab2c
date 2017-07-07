@@ -12,6 +12,6 @@
 
 #include "RPIPeripheralPWM.h"
 
-void u8RPI_pwmToneWrites(uint8 pin, uint16 value){
-	pwmToneWrite(pin, value);
+void u8RPI_pwmToneWrites(uint8 pin,uint16 freq){
+	pwmToneWrite(pin,freq);
 }
