@@ -449,6 +449,11 @@ extern "C" {
 #include "int_norm.h"
 #include "norm.h"
 
+/*interface Toeplitz */
+#include "toeplitz.h"
+#include "int_toeplitz.h"
+
+
 /* SIGNAL PROCESSING */
 
 

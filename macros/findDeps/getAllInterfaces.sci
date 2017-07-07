@@ -61,6 +61,7 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/matrixOperations/interfaces/int_flipdim.h"
       "src/c/matrixOperations/interfaces/int_permute.h"
       "src/c/matrixOperations/interfaces/int_norm.h"
+      "src/c/matrixOperations/interfaces/int_toeplitz.h"
       "src/c/interpolation/interfaces/int_interp1.h"
       "src/c/elementaryFunctions/interfaces/int_nextpow2.h"
       "src/c/elementaryFunctions/interfaces/int_gcd.h"
