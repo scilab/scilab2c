@@ -70,7 +70,11 @@ else
     PrintStringInfo('CXX     = arm-linux-gnueabihf-g++ ',FileInfo.MakefileFilename,'file','y','y');
 	  PrintStringInfo('CFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR) -L $(LIBDIR)',FileInfo.MakefileFilename,'file','y','y');
     PrintStringInfo('CXXFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR) -L $(LIBDIR)',FileInfo.MakefileFilename,'file','y','y');
+<<<<<<< HEAD
     PrintStringInfo('LDFLAGS = -llapack -lrefblas -lgfortran -lwiringPi -lwiringPiDev -lrt -lpthread',FileInfo.MakefileFilename,'file','y','y');
+=======
+    PrintStringInfo('LDFLAGS = -llapack -lrefblas -lgfortran -lwiringPi',FileInfo.MakefileFilename,'file','y','y');
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
   else
 		PrintStringInfo('CC     = gcc',FileInfo.MakefileFilename,'file','y','y');
     PrintStringInfo('CXX     = g++',FileInfo.MakefileFilename,'file','y','y');
@@ -78,6 +82,7 @@ else
     PrintStringInfo('CXXFLAGS = -Wall -pedantic -g -I $(HSRCDIR) -I $(ISRCDIR) -L $(LIBDIR)',FileInfo.MakefileFilename,'file','y','y');
 	  PrintStringInfo('LDFLAGS = -lblas -llapack -lm ',FileInfo.MakefileFilename,'file','y','y');
   end 
+<<<<<<< HEAD
 
   //If ode function is used, add libgsl.
   if(size(SharedInfo.Includelist) <> 0)
@@ -97,6 +102,8 @@ else
     PrintStringInfo('LDFLAGS += -lblas -llapack -lm ',FileInfo.MakefileFilename,'file','y','y');
   end 
 
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 	if(SharedInfo.OpenCVUsed == %T)
       PrintStringInfo('LDFLAGS += -lopencv_calib3d -lopencv_contrib -lopencv_features2d -lopencv_flann -lopencv_gpu',FileInfo.MakefileFilename,'file','y','y');
       PrintStringInfo('LDFLAGS += -lopencv_highgui -lopencv_imgproc -lopencv_legacy -lopencv_ml -lopencv_nonfree',FileInfo.MakefileFilename,'file','y','y');

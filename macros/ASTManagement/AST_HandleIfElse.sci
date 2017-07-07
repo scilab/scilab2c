@@ -74,13 +74,20 @@ global STACKDEDUG
 // ---------------------------------------------------
 //#RNU_RES_E
 if (ASTIfExpType~='else')
+<<<<<<< HEAD
    [IfCondArg,NIfCondArg,Op,NOp] = AST_ParseIfExprStruct(FileInfo,SharedInfo,ASTIfExpType);
+=======
+   [IfCondArg,NIfCondArg] = AST_ParseIfExprStruct(FileInfo,SharedInfo,ASTIfExpType);
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 else
    // "else" type doesn't contain any condition to test.
    IfCondArg = '';
    NIfCondArg = 0;
+<<<<<<< HEAD
    Op = '';
    NOp = 0;
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 end
 
 //#RNU_RES_B
@@ -89,6 +96,10 @@ end
 // -----------------------------
 // --- Generate the C code for if/elseif Expression. ---
 //#RNU_RES_E
+<<<<<<< HEAD
 SharedInfo = C_IfExpression(IfCondArg,NIfCondArg,Op,NOp,ASTIfExpType,FileInfo,SharedInfo);
+=======
+SharedInfo = C_IfExpression(IfCondArg,NIfCondArg,ASTIfExpType,FileInfo,SharedInfo);
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 
 endfunction

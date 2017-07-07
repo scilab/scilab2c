@@ -17,7 +17,11 @@
 extern "C" {
 #endif
 
+<<<<<<< HEAD
 void dlqra(double* sys, int sys_rows, int sys_cols, double* Q, double* R, double* S, double* X, double* K);
+=======
+void dlqra(double* sys, int sys_rows, int sys_cols, double* X, double* K);
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 
 #ifdef  __cplusplus 
 } /* extern "C" */

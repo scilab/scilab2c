@@ -54,7 +54,11 @@ void dlqea(double* sys, int sys_rows, int sys_cols, double* X, double* K)
 
 	/*Calculate LQR gain*/
 	K_lqr = (double*) malloc(no_of_ip*no_of_st*sizeof(double));
+<<<<<<< HEAD
 	dlqra(sys_lqr,sys_lqr_rows,sys_lqr_cols,NULL,NULL,NULL,X,K_lqr);
+=======
+	dlqra(sys_lqr,sys_lqr_rows,sys_lqr_cols,X,K_lqr);
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 
 	dtransposea(K_lqr,sys_rows - no_of_st,no_of_st,K);
 }

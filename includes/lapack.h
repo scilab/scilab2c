@@ -186,6 +186,7 @@ extern int dggbal_(char*,int*,double*,int*,double*,int*,int*,int*,double*, \
 			double*,double*,int*);
 extern int dgebak_(char*,char*,int*,int*,int*,double*,int*,double*,int*,int*);
 
+<<<<<<< HEAD
 /*Used in SVD */
 extern double dgesvd_(char*,char*,int*,int*,double*,int*,double*,double*,int*,\
 	double*,int*,double *,int*,int*);
@@ -195,6 +196,8 @@ extern doubleComplex zgesvd_( char* , char* , int* , int* ,doubleComplex *,\
                 int* , double* ,doubleComplex* , int* ,doubleComplex* , int* ,\
                  doubleComplex* , int* , double* , int* );
 
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 #ifdef  __cplusplus
 } /* extern "C" */
 #endif

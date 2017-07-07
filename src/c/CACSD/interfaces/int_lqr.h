@@ -16,6 +16,7 @@
 extern "C" {
 #endif
 
+<<<<<<< HEAD
 #define ss2lqrd2d2(in1,size1,out1,out2) dlqra(in1,size1[0],size1[1],NULL,\
 				NULL,NULL,out1,out2);
 
@@ -24,6 +25,9 @@ extern "C" {
 
 #define ss2d2d2d2lqrd2d2(in1,size1,in2,size2,in3,size3,in4,size4,out1,out2) \
 				dlqra(in1,size1[0],size1[1],in2,in3,in4,out1,out2);
+=======
+#define ss2lqrd2d2(in1,size1,out1,out2) dlqra(in1,size1[0],size1[1],out1,out2);
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 
 #ifdef  __cplusplus
 } /* extern "C" */

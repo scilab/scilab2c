@@ -60,7 +60,11 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/matrixOperations/includes/logm.h"
       "src/c/matrixOperations/includes/ones.h"
       "src/c/matrixOperations/includes/matrixSquaredMagnitude.h"
+<<<<<<< HEAD
       "src/c/linearAlgebra/includes/spec.h"
+=======
+      "src/c/matrixOperations/includes/spec.h"
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/matrixOperations/includes/matrixTranspose.h"
       "src/c/matrixOperations/includes/determ.h"
       "src/c/matrixOperations/includes/matrixMultiplication.h"
@@ -72,10 +76,13 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/matrixOperations/includes/kron.h"
       "src/c/matrixOperations/includes/flipdim.h"
       "src/c/matrixOperations/includes/norm.h"
+<<<<<<< HEAD
       "src/c/interpolation/includes/interp1.h"
       "src/c/elementaryFunctions/includes/nextpow2.h"
       "src/c/elementaryFunctions/includes/gcd.h"
       "src/c/elementaryFunctions/includes/isreal.h"
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/elementaryFunctions/includes/cos.h"
       "src/c/elementaryFunctions/includes/fix.h"
       "src/c/elementaryFunctions/includes/exp.h"
@@ -115,8 +122,11 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/elementaryFunctions/includes/int8.h"
       "src/c/elementaryFunctions/includes/uint16.h"
       "src/c/elementaryFunctions/includes/int16.h"
+<<<<<<< HEAD
       "src/c/elementaryFunctions/includes/uint32.h"
       "src/c/elementaryFunctions/includes/int32.h"
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/elementaryFunctions/includes/acosd.h"
       "src/c/elementaryFunctions/includes/acot.h"
       "src/c/elementaryFunctions/includes/acotd.h"
@@ -146,9 +156,12 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/string/includes/dynlib_string.h"
       "src/c/string/includes/disp.h"
       "src/c/string/includes/str.h"
+<<<<<<< HEAD
       "src/c/signalProcessing/includes/modk.h"
       "src/c/signalProcessing/includes/idct.h"
       "src/c/signalProcessing/includes/dct.h"
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/signalProcessing/fft/fft_internal.h"
       "src/c/signalProcessing/ifft/ifft_internal.h"
       "src/c/signalProcessing/levin/levinUtils.h"
@@ -163,6 +176,7 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/signalProcessing/includes/lpc2cep.h"
       "src/c/signalProcessing/includes/dynlib_signalprocessing.h"
       "src/c/signalProcessing/includes/crossCorr.h"
+<<<<<<< HEAD
       "src/c/signalProcessing/includes/zpbutt.h"
       "src/c/signalProcessing/includes/zpch1.h"
       "src/c/signalProcessing/includes/zpch2.h"
@@ -177,6 +191,8 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/signalProcessing/includes/modsn.h"
       "src/c/signalProcessing/includes/ell1mag.h"
       "src/c/signalProcessing/includes/amell.h"
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/implicitList/dynlib_implicitlist.h"
       "src/c/implicitList/implicitList.h"
       "src/c/differential_calculus/includes/ode.h"
@@ -187,11 +203,14 @@ function allHeaders = getAllHeaders(SharedInfo)
 	//"src/c/string/includes/strcmp.h"
 	"src/c/string/includes/strrev.h"
 	"src/c/string/includes/strrchr.h"
+<<<<<<< HEAD
 	"src/c/string/includes/strchr.h"
 	"src/c/string/includes/ascii.h"
 	"src/c/string/includes/strspn.h"
 	"src/c/string/includes/strcspn.h"
 	"src/c/string/includes/strncpy.h"
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 	"src/c/elementaryFunctions/includes/dec2bin.h"
 	"src/c/elementaryFunctions/includes/dec2hex.h"
 	"src/c/elementaryFunctions/includes/dec2oct.h"
@@ -213,13 +232,17 @@ function allHeaders = getAllHeaders(SharedInfo)
 	"src/c/elementaryFunctions/includes/factorial.h"
 	"src/c/elementaryFunctions/includes/primes.h"
 	"src/c/elementaryFunctions/includes/factor.h"
+<<<<<<< HEAD
 	"src/c/elementaryFunctions/includes/gcd.h"
 	"src/c/elementaryFunctions/includes/lcm.h"
 	"src/c/elementaryFunctions/includes/sinc.h"
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/CACSD/includes/syslin.h"
       "src/c/CACSD/includes/lqr.h"
       "src/c/CACSD/includes/lqe.h"
       "src/c/CACSD/includes/obscont.h"
+<<<<<<< HEAD
       "src/c/linearAlgebra/includes/sva.h"
       "src/c/linearAlgebra/includes/svd.h"
       "src/c/linearAlgebra/includes/schur.h"
@@ -229,6 +252,12 @@ function allHeaders = getAllHeaders(SharedInfo)
 	"src/c/linearAlgebra/includes/sva.h"
       "src/c/linearAlgebra/includes/rcond.h"];
 
+=======
+      "src/c/linearAlgebra/includes/schur.h"
+      "src/c/linearAlgebra/includes/balanc.h"
+      "src/c/linearAlgebra/includes/rcond.h"];
+      
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 
   //Header files required for "Arduino" output
   Arduino_headers = [
@@ -258,6 +287,7 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/hardware/avr/includes/AVRUtil.h"
       "src/c/hardware/avr/includes/AVRPeripheralTimer.h"
       "src/c/hardware/avr/includes/AVRPeripheralUART.h"
+<<<<<<< HEAD
       ];
 
   RPi_headers = [
@@ -299,6 +329,20 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/hardware/rasberrypi/includes/RPIPeripheralSoft.h"
       "src/c/hardware/rasberrypi/includes/RPIPeripheralTiming.h"
         ];
+=======
+	    ]; 
+ 
+  RPi_headers = [
+      "thirdparty/includes/WiringPi/wiringPi.h"
+      "thirdparty/includes/WiringPi/wiringSerial.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralDigital.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralTiming.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralSerial.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralThreading.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralPinISR.h"
+      "src/c/hardware/rasberrypi/includes/RPIPeripheralPWM.h"
+		];
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 
   OpenCV_headers = [
       "src/c/imageProcessing/includes/cvcore.hpp"
@@ -320,9 +364,12 @@ function allHeaders = getAllHeaders(SharedInfo)
       allHeaders = cat(1,allHeaders,OpenCV_headers);
   end
 
+<<<<<<< HEAD
   if(size(SharedInfo.Includelist) <> 0 & (mtlb_strcmp(part(SharedInfo.Includelist(1),1:5),'odefn') == %T))
       disp("Hi")
   	allHeaders = cat(1,allHeaders,"thirdparty/includes/GSL");
   end
 
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 endfunction

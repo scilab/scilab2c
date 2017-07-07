@@ -2,7 +2,10 @@ C_FinalizeCode
 C_ForExpression
 C_Funcall
 C_GenDeclarations
+<<<<<<< HEAD
 C_GenDeclarations_Dup
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 C_GenerateFunName
 C_GenerateLaunchScript
 C_GenerateMakefile

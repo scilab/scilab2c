@@ -12,7 +12,10 @@
 
 function scilab2c(varargin)
   [lhs, rhs] = argn();
+<<<<<<< HEAD
   
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
   select rhs
 //
 // scilab2c()
@@ -198,7 +201,10 @@ error(msprintf(gettext("%s: Wrong number of input argument(s): %d expected.\n"),
 	userchoice = 1;
   end
   if (userchoice == 1)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 // --- LAUNCH SCI2C ---
 	runsci2c(UserScilabMainFile, UserSciFilesPaths, CCodeOutputDir, RunMode, BuildTool,Target,Board_name);
   end

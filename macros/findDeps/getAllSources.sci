@@ -10,7 +10,11 @@
 //
 //
 
+<<<<<<< HEAD
 function allSources = getAllSources(SharedInfo)
+=======
+function allSources = getAllSources(SharedInfo,BuildTool)
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       Target = SharedInfo.Target;
 
   //Files common to types of output format
@@ -95,10 +99,13 @@ function allSources = getAllSources(SharedInfo)
       "src/c/matrixOperations/cat/dcats.c"
       "src/c/matrixOperations/cat/scata.c"
       "src/c/matrixOperations/cat/scats.c"
+<<<<<<< HEAD
       "src/c/matrixOperations/cat/zcata.c"
       "src/c/matrixOperations/cat/zcats.c"
       "src/c/matrixOperations/cat/ccata.c"
       "src/c/matrixOperations/cat/ccats.c"
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/matrixOperations/cat/u8cats.c"
       "src/c/matrixOperations/cat/u8cata.c"
       "src/c/matrixOperations/cat/u16cats.c"
@@ -155,18 +162,32 @@ function allSources = getAllSources(SharedInfo)
       "src/c/matrixOperations/powm/spowma.c"
       "src/c/matrixOperations/powm/zpowma.c"
       "src/c/matrixOperations/powm/cpowma.c"
+<<<<<<< HEAD
       "src/c/linearAlgebra/spec/cspeca.c"
       "src/c/linearAlgebra/spec/dspeca.c"
       "src/c/linearAlgebra/spec/sspeca.c"
       "src/c/linearAlgebra/spec/zspeca.c"
+=======
+      "src/c/matrixOperations/spec/cspeca.c"
+      "src/c/matrixOperations/spec/dspeca.c"
+      "src/c/matrixOperations/spec/sspeca.c"
+      "src/c/matrixOperations/spec/zspeca.c"
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/matrixOperations/transpose/ztransposea.c"
       "src/c/matrixOperations/transpose/stransposea.c"
       "src/c/matrixOperations/transpose/ctransposea.c"
       "src/c/matrixOperations/transpose/dtransposea.c"
+<<<<<<< HEAD
       "src/c/linearAlgebra/spec2/zspec2a.c"
       "src/c/linearAlgebra/spec2/sspec2a.c"
       "src/c/linearAlgebra/spec2/dspec2a.c"
       "src/c/linearAlgebra/spec2/cspec2a.c"
+=======
+      "src/c/matrixOperations/spec2/zspec2a.c"
+      "src/c/matrixOperations/spec2/sspec2a.c"
+      "src/c/matrixOperations/spec2/dspec2a.c"
+      "src/c/matrixOperations/spec2/cspec2a.c"
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/matrixOperations/trace/stracea.c"
       "src/c/matrixOperations/trace/dtracea.c"
       "src/c/matrixOperations/trace/ctracea.c"
@@ -334,9 +355,12 @@ function allSources = getAllSources(SharedInfo)
       "src/c/matrixOperations/kron/skrona.c"
       "src/c/matrixOperations/norm/dnormv.c"
       "src/c/matrixOperations/norm/dnorma.c"
+<<<<<<< HEAD
       "src/c/elementaryFunctions/nextpow2/dnextpow2a.c"
       "src/c/elementaryFunctions/isreal/sisreals.c"
       "src/c/elementaryFunctions/isreal/disreals.c"
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/elementaryFunctions/cos/dcosa.c"
       "src/c/elementaryFunctions/cos/dcoss.c"
       "src/c/elementaryFunctions/cos/scosa.c"
@@ -623,6 +647,7 @@ function allSources = getAllSources(SharedInfo)
       "src/c/elementaryFunctions/round/i16rounds.c"
       "src/c/elementaryFunctions/lnp1m1/slnp1m1s.c"
       "src/c/elementaryFunctions/lnp1m1/dlnp1m1s.c"
+<<<<<<< HEAD
 
 	"src/c/elementaryFunctions/float/dfloats.c"
       "src/c/elementaryFunctions/float/dfloata.c"
@@ -637,6 +662,8 @@ function allSources = getAllSources(SharedInfo)
       "src/c/elementaryFunctions/float/i16floats.c"
       "src/c/elementaryFunctions/float/i16floata.c"
 
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/elementaryFunctions/uint8/duint8s.c"
       "src/c/elementaryFunctions/uint8/duint8a.c"
       "src/c/elementaryFunctions/uint8/suint8s.c"
@@ -647,6 +674,21 @@ function allSources = getAllSources(SharedInfo)
       "src/c/elementaryFunctions/uint8/u16uint8a.c"
       "src/c/elementaryFunctions/uint8/i16uint8s.c"
       "src/c/elementaryFunctions/uint8/i16uint8a.c"
+<<<<<<< HEAD
+=======
+      "src/c/elementaryFunctions/float/dfloats.c"
+      "src/c/elementaryFunctions/float/dfloata.c"
+      "src/c/elementaryFunctions/float/sfloats.c"
+      "src/c/elementaryFunctions/float/sfloata.c"
+      "src/c/elementaryFunctions/float/u8floats.c"
+      "src/c/elementaryFunctions/float/u8floata.c"
+      "src/c/elementaryFunctions/float/i8floats.c"
+      "src/c/elementaryFunctions/float/i8floata.c"
+      "src/c/elementaryFunctions/float/u16floats.c"
+      "src/c/elementaryFunctions/float/u16floata.c"
+      "src/c/elementaryFunctions/float/i16floats.c"
+      "src/c/elementaryFunctions/float/i16floata.c"
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/elementaryFunctions/int8/dint8s.c"
       "src/c/elementaryFunctions/int8/dint8a.c"
       "src/c/elementaryFunctions/int8/sint8s.c"
@@ -677,6 +719,7 @@ function allSources = getAllSources(SharedInfo)
       "src/c/elementaryFunctions/int16/i8int16a.c"
       "src/c/elementaryFunctions/int16/u16int16s.c"
       "src/c/elementaryFunctions/int16/u16int16a.c"
+<<<<<<< HEAD
       "src/c/elementaryFunctions/uint32/duint32s.c"
       "src/c/elementaryFunctions/uint32/duint32a.c"
       "src/c/elementaryFunctions/uint32/suint32s.c"
@@ -706,6 +749,8 @@ function allSources = getAllSources(SharedInfo)
       "src/c/elementaryFunctions/int32/u32int32s.c"
       "src/c/elementaryFunctions/int32/u32int32a.c"
                   
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/elementaryFunctions/bitand/u8bitands.c"
       "src/c/elementaryFunctions/bitand/u8bitanda.c"
       "src/c/elementaryFunctions/bitand/u16bitands.c"
@@ -726,8 +771,11 @@ function allSources = getAllSources(SharedInfo)
       "src/c/elementaryFunctions/bitset/u16bitsets.c"
       "src/c/elementaryFunctions/bitget/u8bitgets.c"
       "src/c/elementaryFunctions/bitget/u16bitgets.c"
+<<<<<<< HEAD
       "src/c/elementaryFunctions/linspace/slinspacea.c"
       "src/c/elementaryFunctions/linspace/slinspaces.c"
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/elementaryFunctions/linspace/dlinspaces.c"
       "src/c/elementaryFunctions/linspace/dlinspacea.c"
       "src/c/elementaryFunctions/logspace/dlogspaces.c"
@@ -792,8 +840,11 @@ function allSources = getAllSources(SharedInfo)
       "src/c/elementaryFunctions/atand/datands.c"
       "src/c/elementaryFunctions/atand/satanda.c"
       "src/c/elementaryFunctions/atand/satands.c"
+<<<<<<< HEAD
       "src/c/elementaryFunctions/discrete_mathematics/gcd/u8gcda.c"
       "src/c/elementaryFunctions/discrete_mathematics/lcm/u8lcma.c"
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/statisticsFunctions/max/dmaxa.c"
       "src/c/statisticsFunctions/max/smaxa.c"
       "src/c/statisticsFunctions/max/srowmaxa.c"
@@ -999,6 +1050,7 @@ function allSources = getAllSources(SharedInfo)
       "src/c/string/string/u16strings.c"
       "src/c/string/string/i16stringa.c"
       "src/c/string/string/i16strings.c"
+<<<<<<< HEAD
       "src/c/signalProcessing/modk/dmodka.c"
       "src/c/signalProcessing/transforms/idct/sidcta.c"
       "src/c/signalProcessing/transforms/idct/cidcta.c"
@@ -1008,6 +1060,8 @@ function allSources = getAllSources(SharedInfo)
       "src/c/signalProcessing/transforms/dct/cdcta.c"
       "src/c/signalProcessing/transforms/dct/zdcta.c"
       "src/c/signalProcessing/transforms/dct/ddcta.c"
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/signalProcessing/fft/dfft2.c"
       "src/c/signalProcessing/fft/cfftma.c"
       "src/c/signalProcessing/fft/r2tx.c"
@@ -1073,6 +1127,7 @@ function allSources = getAllSources(SharedInfo)
       "src/c/signalProcessing/hilbert/shilberts.c"
       "src/c/signalProcessing/hilbert/dhilberta.c"
       "src/c/signalProcessing/hilbert/dhilberts.c"
+<<<<<<< HEAD
       "src/c/signalProcessing/zpbutt/dzpbutts.c"
       "src/c/signalProcessing/zpch1/dzpch1s.c"
       "src/c/signalProcessing/zpch2/dzpch2s.c"
@@ -1093,6 +1148,8 @@ function allSources = getAllSources(SharedInfo)
       "src/c/signalProcessing/ell1mag/dell1maga.c"
       "src/c/signalProcessing/amell/damells.c"
       "src/c/signalProcessing/amell/damella.c"
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/implicitList/zimplicitLists.c"
       "src/c/implicitList/dimplicitLists.c"
       "src/c/implicitList/cimplicitLists.c"
@@ -1117,6 +1174,7 @@ function allSources = getAllSources(SharedInfo)
       "src/c/Files/mput/u16mputa.c"
       "src/c/Files/mput/i16mputa.c"
       "src/c/string/convstr/gconvstrs.c"
+<<<<<<< HEAD
 	"src/c/string/strsubst/gstrsubsta.c"
 	//"src/c/string/strcmp/gstrcmps.c"
 	"src/c/string/strrev/gstrreva.c"
@@ -1127,6 +1185,12 @@ function allSources = getAllSources(SharedInfo)
 	"src/c/string/strspn/gstrspna.c"
 	"src/c/string/strcspn/gstrcspna.c"
 	"src/c/string/strncpy/gstrncpya.c"
+=======
+      "src/c/string/strsubst/gstrsubsta.c"
+      //"src/c/string/strcmp/gstrcmps.c"
+      "src/c/string/strrev/gstrreva.c"
+      "src/c/string/strrchr/gstrrchra.c"
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/elementaryFunctions/radix_conversions/dec2bin/ddec2bins.c"
       "src/c/elementaryFunctions/radix_conversions/dec2bin/i8dec2bins.c"
       "src/c/elementaryFunctions/radix_conversions/dec2bin/i16dec2bins.c"
@@ -1245,12 +1309,15 @@ function allSources = getAllSources(SharedInfo)
       "src/c/elementaryFunctions/Trigonometry/sech/zsechs.c"
       "src/c/elementaryFunctions/Trigonometry/sech/csecha.c"
       "src/c/elementaryFunctions/Trigonometry/sech/csechs.c"
+<<<<<<< HEAD
       "src/c/interpolation/interp1/sinterp13a.c"
       "src/c/interpolation/interp1/dinterp13a.c"
       "src/c/elementaryFunctions/discrete_mathematics/gcd/u8gcds.c"
       "src/c/elementaryFunctions/Trigonometry/sinc/dsinca.c"
       "src/c/elementaryFunctions/Trigonometry/sinc/zsinca.c"
       "src/c/elementaryFunctions/discrete_mathematics/gcd/dgcda.c"
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/elementaryFunctions/discrete_mathematics/factorial/dfactorials.c"
       "src/c/elementaryFunctions/discrete_mathematics/factorial/dfactoriala.c"
       "src/c/elementaryFunctions/discrete_mathematics/factorial/sfactorials.c"
@@ -1263,6 +1330,7 @@ function allSources = getAllSources(SharedInfo)
       "src/c/CACSD/lqr/dlqra.c"
       "src/c/CACSD/lqe/dlqea.c"
       "src/c/CACSD/obscont/dobsconta.c"
+<<<<<<< HEAD
       "src/c/linearAlgebra/sva/dsvaa.c"
       "src/c/linearAlgebra/svd/dsvda.c"
       "src/c/linearAlgebra/schur/dschura.c"
@@ -1273,6 +1341,11 @@ function allSources = getAllSources(SharedInfo)
 	  "src/c/linearAlgebra/hess/dhessa.c"
 	  "src/c/linearAlgebra/sva/dsvaa.c"
 	  "src/c/linearAlgebra/spec/dspec1a.c"
+=======
+      "src/c/linearAlgebra/schur/dschura.c"
+      "src/c/linearAlgebra/schur/dgschura.c"
+      "src/c/linearAlgebra/balanc/dbalanca.c"
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/linearAlgebra/rcond/drconda.c"];
 
   //Files to be inserted only if output format selected is 'Arduino'.
@@ -1331,6 +1404,7 @@ function allSources = getAllSources(SharedInfo)
          ];
 
   RPI_files = [
+<<<<<<< HEAD
       "/src/c/hardware/rasberrypi/Digital/RPI_digitalReadByte.c"
       "/src/c/hardware/rasberrypi/Digital/u8RPI_digitalReads.c"
       "/src/c/hardware/rasberrypi/Digital/u8RPI_digitalWriteBytes.c"
@@ -1418,6 +1492,40 @@ function allSources = getAllSources(SharedInfo)
       "/src/c/hardware/rasberrypi/Timing/RPI_millis.c"
       "/src/c/hardware/rasberrypi/Timing/u32RPI_delayMicros.c"
       "/src/c/hardware/rasberrypi/Timing/u32RPI_delays.c"
+=======
+      "src/c/hardware/rasberrypi/gpio/u8RPIDigitalSetups.c"
+      "src/c/hardware/rasberrypi/gpio/u8RPIDigitalOuts.c"
+      "src/c/hardware/rasberrypi/gpio/u8RPIDigitalIns.c"
+      "src/c/hardware/rasberrypi/timing/u16RPIDelayMillis.c"
+      "src/c/hardware/rasberrypi/timing/u16RPIDelayMicros.c"
+      "src/c/hardware/rasberrypi/timing/u32RPIGetMillis.c"
+      "src/c/hardware/rasberrypi/timing/u32RPIGetMicros.c"
+      "src/c/hardware/rasberrypi/serial/u16RPISerialSetups.c"
+      "src/c/hardware/rasberrypi/serial/u8RPISerialCloses.c"
+      "src/c/hardware/rasberrypi/serial/u8RPISerialSendChars.c"
+      "src/c/hardware/rasberrypi/serial/u8RPISerialSendDatas.c"
+      "src/c/hardware/rasberrypi/serial/i8RPISerialSendDatas.c"
+      "src/c/hardware/rasberrypi/serial/u16RPISerialSendDatas.c"
+      "src/c/hardware/rasberrypi/serial/i16RPISerialSendDatas.c"
+      "src/c/hardware/rasberrypi/serial/u8RPISerialSendDataa.c"
+      "src/c/hardware/rasberrypi/serial/i8RPISerialSendDataa.c"
+      "src/c/hardware/rasberrypi/serial/u16RPISerialSendDataa.c"
+      "src/c/hardware/rasberrypi/serial/i16RPISerialSendDataa.c"
+      "src/c/hardware/rasberrypi/serial/sRPISerialSendDatas.c"
+      "src/c/hardware/rasberrypi/serial/dRPISerialSendDatas.c"
+      "src/c/hardware/rasberrypi/serial/sRPISerialSendDataa.c"
+      "src/c/hardware/rasberrypi/serial/dRPISerialSendDataa.c"
+      "src/c/hardware/rasberrypi/serial/gRPISerialSendDatas.c"
+      "src/c/hardware/rasberrypi/serial/i16RPISerialDataAvails.c"
+      "src/c/hardware/rasberrypi/serial/i16RPISerialGetChars.c"
+      "src/c/hardware/rasberrypi/serial/u8RPISerialFlushs.c"
+      "src/c/hardware/rasberrypi/threading/u16RPIThreadCreates.c"
+      "src/c/hardware/rasberrypi/pwm/u8RPIHardPWMWrites.c"
+      "src/c/hardware/rasberrypi/pwm/u8RPIHardPWMSetRanges.c"
+      "src/c/hardware/rasberrypi/pwm/u8RPIHardPWMSetModes.c"
+      "src/c/hardware/rasberrypi/pwm/u8RPIHardPWMSetClocks.c"
+      "src/c/hardware/rasberrypi/ISR/i16RPIPinISRs.c"
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       ];
 
   OpenCV_files = [
@@ -1435,10 +1543,25 @@ function allSources = getAllSources(SharedInfo)
       "src/c/imageProcessing/cvimgproc/imcvCanny.cpp"
       "src/c/imageProcessing/cvimgproc/imcvCornerHarris.cpp"];
 
+<<<<<<< HEAD
   if Target == "StandAlone"
   allSources = Standalone_files;
   elseif Target == "Arduino"
   allSources = cat(1,Standalone_files, Arduino_files);
+=======
+  if Target == "Arduino" & BuildTool == "nmake"
+    Required_addrs = get_rquird_fnctns(Standalone_files,Arduino_files,SharedInfo);
+  end
+
+  if Target == "StandAlone"
+  allSources = Standalone_files;
+  elseif Target == "Arduino"
+  	if BuildTool == "nmake"
+   	 	allSources = Required_addrs;
+        else
+                allSources = cat(1,Standalone_files, Arduino_files);
+        end
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
   elseif Target == "AVR"
   allSources = cat(1,Standalone_files, AVR_files);
   elseif Target == "RPi"
@@ -1449,5 +1572,12 @@ function allSources = getAllSources(SharedInfo)
       allSources = cat(1,allSources,OpenCV_files);
   end
 
+<<<<<<< HEAD
 
+=======
+ //"src/c/matrixOperations/cat/zcata.c"
+   //   "src/c/matrixOperations/cat/zcats.c"
+     // "src/c/matrixOperations/cat/ccata.c"
+      //"src/c/matrixOperations/cat/ccats.c"
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 endfunction

@@ -42,10 +42,16 @@ load(FileInfo.SharedInfoDatFile,'SharedInfo');
 nxtscifunname   = SharedInfo.NextSCIFunName;
 nxtscifunnumber = SharedInfo.NextSCIFunNumber;
 ReportFileName  = FileInfo.Funct(nxtscifunnumber).ReportFileName;
+<<<<<<< HEAD
+=======
+SharedInfo.Function_list = [];
+SharedInfo.Function_list_index = 1;
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 
 // ---------------------------------
 // --- Parameter Initialization. ---
 // ---------------------------------
+<<<<<<< HEAD
 
 global cc_count
 cc_count = 0;
@@ -53,6 +59,8 @@ cc_count = 0;
 global rc_count
 rc_count = 0;
 
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 global SCI2CSTACK
 SCI2CSTACK = ['EMPTYSTACK'];
 
@@ -61,9 +69,12 @@ StackPosition = 1;
 
 global STACKDEDUG
 STACKDEDUG = 0; // 1 -> Every Pop and Push operation on the stack, the stack content will be printed on screen.
+<<<<<<< HEAD
 
 global disp_isthere
 disp_isthere = 0;
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 // -------------------------------------
 // --- End parameter Initialization. ---
 // -------------------------------------
@@ -142,10 +153,16 @@ while ~meof(fidAST)
       //NUT: qui puoi anche aggiunger piu' case per specificare meglio la struttura della funcall
       //NUT: i case aggiunti ovviamente faranno solo il push della treeline.
       case 'EndOperation' then
+<<<<<<< HEAD
          [disp_isthere,FileInfo,SharedInfo] = AST_HandleEndGenFun(disp_isthere,FileInfo,SharedInfo,'Operation');
       case 'EndFuncall' then
          [disp_isthere,FileInfo,SharedInfo] = AST_HandleEndGenFun(disp_isthere,FileInfo,SharedInfo,'Funcall');
 	 disp(disp_isthere);
+=======
+         [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,'Operation');
+      case 'EndFuncall' then
+         [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,'Funcall');
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 
       // --------------
       // --- Equal. ---
@@ -155,6 +172,7 @@ while ~meof(fidAST)
       //NUT: per fare in modo di coprire le ins, anche se ci puo' essere qualche rischio quando
       //NUT: ho miste ins e variabili, per esempio [c(1,1), a] = twooutfun();
       //NUT: in questo caso solo una delle due equal va scartata.
+<<<<<<< HEAD
  	 if rc_count > 0 & cc_count == 0
 		[FileInfo,SharedInfo] = AST_HandleFunRC(FileInfo,SharedInfo);
 		rc_count = 0;
@@ -170,10 +188,15 @@ while ~meof(fidAST)
 	 end
 	 disp_isthere = 0;
 
+=======
+         [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,'Equal');
+         SharedInfo = INIT_SharedInfoEqual(SharedInfo);
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       case 'Equal' then
          SharedInfo.Equal.Enabled = 1; // 1 means enabled -> we are inside an equal AST block.
          AST_PushASTStack(treeline);
       case 'Lhs       :' then
+<<<<<<< HEAD
 		disp(disp_isthere);
 		if rc_count > 0 & cc_count == 0
 		SharedInfo.Equal.Lhs = 1;
@@ -209,6 +232,21 @@ while ~meof(fidAST)
                 end
          	AST_PushASTStack(treeline);
 		end
+=======
+         SharedInfo.Equal.Lhs = 1; // 1 means that we are inside the Lhs block of the Equal
+         [EqualInArgName,EqualInArgScope,EqualNInArg] = AST_ReadEqualRhsNames(FileInfo,SharedInfo);
+         
+         // lengthNumber = length('Number_');
+         // if (part(EqualInArgScope,1:lengthNumber) == 'Number_')
+         //    SharedInfo.SkipNextEqual = 1
+         // end
+         SharedInfo.Equal.NInArg = EqualNInArg;
+         for tmpcnt = 1:SharedInfo.Equal.NInArg
+            SharedInfo.Equal.InArg(tmpcnt).Name = EqualInArgName(tmpcnt);
+            SharedInfo.Equal.InArg(tmpcnt).Scope = EqualInArgScope(tmpcnt);
+         end
+         AST_PushASTStack(treeline);
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 
       // ----------------
       // --- If/Else. ---
@@ -242,7 +280,10 @@ while ~meof(fidAST)
       // -----------------
       case 'EndProgram'
          SharedInfo = AST_HandleEndProgram(FileInfo,SharedInfo);
+<<<<<<< HEAD
 	 disp_isthere = 0;
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
          //NUT: per essere precisi si puo' pensare di mettere un check
          //NUT: alla fine dell'albero per accertarsi che c'e' end program li' dove ce lo aspettiamo
 
@@ -276,6 +317,7 @@ while ~meof(fidAST)
          SharedInfo = AST_HandleEndWhile(FileInfo,SharedInfo);
          SharedInfo.While.Level = SharedInfo.While.Level - 1;
 
+<<<<<<< HEAD
 
       case 'Endrc' then
 	 rc_count = rc_count + 1;
@@ -285,6 +327,8 @@ while ~meof(fidAST)
 	
          //[FileInfo,SharedInfo] = AST_HandleRC(FileInfo,SharedInfo);
 
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       // ----------------
       // --- Default. ---
       // ----------------
@@ -292,6 +336,23 @@ while ~meof(fidAST)
          AST_PushASTStack(treeline);
    end
 end
+<<<<<<< HEAD
+=======
+
+// ------------------------------------
+// -----List of functions Used--------
+// -------------------------------------
+
+SharedInfo.Function_list_index = SharedInfo.Function_list_index - 2;
+SharedInfo.Function_list = SharedInfo.Function_list(1:SharedInfo.Function_list_index);
+//To remove function repeatedly used----------
+x = size(unique(SharedInfo.Function_list));                          
+SharedInfo.Function_list_index = x(1);
+SharedInfo.Function_list = unique(SharedInfo.Function_list);
+
+SharedInfo.Function_list = SharedInfo.Function_list(1:SharedInfo.Function_list_index);
+
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 // --------------------------------------
 // --- End main loop to read the AST. ---
 // --------------------------------------

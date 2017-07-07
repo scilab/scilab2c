@@ -32,7 +32,11 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/type/int_real.h"
       "src/c/matrixOperations/interfaces/int_vmagn.h"
       "src/c/matrixOperations/interfaces/int_ones.h"
+<<<<<<< HEAD
       "src/c/linearAlgebra/interfaces/int_spec.h"
+=======
+      "src/c/matrixOperations/interfaces/int_spec.h"
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/matrixOperations/interfaces/int_cat.h"
       "src/c/matrixOperations/interfaces/int_zeros.h"
       "src/c/matrixOperations/interfaces/int_OpBackSlash.h"
@@ -61,10 +65,13 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/matrixOperations/interfaces/int_flipdim.h"
       "src/c/matrixOperations/interfaces/int_permute.h"
       "src/c/matrixOperations/interfaces/int_norm.h"
+<<<<<<< HEAD
       "src/c/interpolation/interfaces/int_interp1.h"
       "src/c/elementaryFunctions/interfaces/int_nextpow2.h"
       "src/c/elementaryFunctions/interfaces/int_gcd.h"
       "src/c/elementaryFunctions/interfaces/int_isreal.h"
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/elementaryFunctions/interfaces/int_asinh.h"
       "src/c/elementaryFunctions/interfaces/int_atanh.h"
       "src/c/elementaryFunctions/interfaces/int_sinh.h"
@@ -94,18 +101,29 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/elementaryFunctions/interfaces/int_bitand.h"
       "src/c/elementaryFunctions/interfaces/int_bitor.h"
       "src/c/elementaryFunctions/interfaces/int_bitxor.h"
+<<<<<<< HEAD
       "src/c/elementaryFunctions/interfaces/int_bitcmp.h"
       "src/c/elementaryFunctions/interfaces/int_bitset.h"
       "src/c/elementaryFunctions/interfaces/int_bitget.h"
       "src/c/elementaryFunctions/interfaces/int_linspace.h"
       "src/c/elementaryFunctions/interfaces/int_logspace.h"
+=======
+      "src/c/elementaryFunctions/interfaces/int_bitcmp.h" 
+      "src/c/elementaryFunctions/interfaces/int_bitset.h" 
+      "src/c/elementaryFunctions/interfaces/int_bitget.h" 
+      "src/c/elementaryFunctions/interfaces/int_linspace.h"
+      "src/c/elementaryFunctions/interfaces/int_logspace.h"  
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/elementaryFunctions/interfaces/int_cosh.h"
       "src/c/elementaryFunctions/interfaces/int_uint8.h"
       "src/c/elementaryFunctions/interfaces/int_int8.h"
       "src/c/elementaryFunctions/interfaces/int_uint16.h"
       "src/c/elementaryFunctions/interfaces/int_int16.h"
+<<<<<<< HEAD
       "src/c/elementaryFunctions/interfaces/int_uint32.h"
       "src/c/elementaryFunctions/interfaces/int_int32.h"
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/elementaryFunctions/interfaces/int_acosd.h"
       "src/c/elementaryFunctions/interfaces/int_acot.h"
       "src/c/elementaryFunctions/interfaces/int_acotd.h"
@@ -118,8 +136,11 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/elementaryFunctions/interfaces/int_asech.h"
       "src/c/elementaryFunctions/interfaces/int_asind.h"
       "src/c/elementaryFunctions/interfaces/int_atand.h"
+<<<<<<< HEAD
       "src/c/elementaryFunctions/interfaces/int_gcd.h"
       "src/c/elementaryFunctions/interfaces/int_lcm.h"
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/statisticsFunctions/interfaces/int_mean.h"
       "src/c/statisticsFunctions/interfaces/int_meanf.h"
       "src/c/statisticsFunctions/interfaces/int_stdevf.h"
@@ -148,9 +169,12 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/operations/interfaces/int_OpIns.h"
       "src/c/string/interfaces/int_disp.h"
       "src/c/string/interfaces/int_string.h"
+<<<<<<< HEAD
       "src/c/signalProcessing/interfaces/int_modk.h"
       "src/c/signalProcessing/interfaces/int_idct.h"
       "src/c/signalProcessing/interfaces/int_dct.h"
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/signalProcessing/interfaces/int_ifft.h"
       "src/c/signalProcessing/interfaces/int_lpc2cep.h"
       "src/c/signalProcessing/interfaces/int_cepstrum.h"
@@ -161,6 +185,7 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/signalProcessing/interfaces/int_fftshift.h"
       "src/c/signalProcessing/interfaces/int_fft.h"
       "src/c/signalProcessing/interfaces/int_lev.h"
+<<<<<<< HEAD
       "src/c/signalProcessing/interfaces/int_zpbutt.h"
       "src/c/signalProcessing/interfaces/int_zpch1.h"
       "src/c/signalProcessing/interfaces/int_zpch2.h"
@@ -175,6 +200,8 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/signalProcessing/interfaces/int_modsn.h"
       "src/c/signalProcessing/interfaces/int_ell1mag.h"
       "src/c/signalProcessing/interfaces/int_amell.h"
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/implicitList/int_OpColon.h"
       "src/c/differential_calculus/interfaces/int_ode.h"
       "src/c/differential_calculus/interfaces/int_diffc.h"
@@ -184,11 +211,14 @@ function allInterfaces = getAllInterfaces(SharedInfo)
 	//"src/c/string/interfaces/int_strcmp.h"
 	"src/c/string/interfaces/int_strrev.h"
 	"src/c/string/interfaces/int_strrchr.h"
+<<<<<<< HEAD
 	"src/c/string/interfaces/int_strchr.h"
 	"src/c/string/interfaces/int_ascii.h"
 	"src/c/string/interfaces/int_strspn.h"
 	"src/c/string/interfaces/int_strcspn.h"
 	"src/c/string/interfaces/int_strncpy.h"
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 	"src/c/elementaryFunctions/interfaces/int_dec2base.h"
 	"src/c/elementaryFunctions/interfaces/int_base2dec.h"
 	"src/c/elementaryFunctions/interfaces/int_dec2bin.h"
@@ -210,11 +240,15 @@ function allInterfaces = getAllInterfaces(SharedInfo)
 	"src/c/elementaryFunctions/interfaces/int_factorial.h"
 	"src/c/elementaryFunctions/interfaces/int_primes.h"
 	"src/c/elementaryFunctions/interfaces/int_factor.h"
+<<<<<<< HEAD
 	"src/c/elementaryFunctions/interfaces/int_sinc.h"
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/CACSD/interfaces/int_syslin.h"
       "src/c/CACSD/interfaces/int_lqr.h"
       "src/c/CACSD/interfaces/int_lqe.h"
       "src/c/CACSD/interfaces/int_obscont.h"
+<<<<<<< HEAD
       "src/c/linearAlgebra/interfaces/int_sva.h"
       "src/c/linearAlgebra/interfaces/int_svd.h"
       "src/c/linearAlgebra/interfaces/int_schur.h"
@@ -222,6 +256,10 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/linearAlgebra/interfaces/int_svd.h"
 	  "src/c/linearAlgebra/interfaces/int_hess.h"
 	  "src/c/linearAlgebra/interfaces/int_sva.h"	
+=======
+      "src/c/linearAlgebra/interfaces/int_schur.h"
+      "src/c/linearAlgebra/interfaces/int_balanc.h"
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       "src/c/linearAlgebra/interfaces/int_rcond.h"];
 
 
@@ -254,6 +292,7 @@ function allInterfaces = getAllInterfaces(SharedInfo)
 
   RPI_interfaces = [
       "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralDigital.h"
+<<<<<<< HEAD
       "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralGertboard.h"
       "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralI2C.h"
       "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralInterrupt.h"
@@ -271,6 +310,14 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralSoft.h"
       "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralTiming.h"
         ];
+=======
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralTiming.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralSerial.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralThreading.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralPinISR.h"
+      "src/c/hardware/rasberrypi/interfaces/int_RPIPeripheralPWM.h"
+      ]; 
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 
   OpenCV_interfaces = [
       "src/c/imageProcessing/interfaces/int_cvcore.hpp"

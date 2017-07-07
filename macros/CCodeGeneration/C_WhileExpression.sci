@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 function SharedInfo = C_WhileExpression(IfCondArg,NIfCondArg,Op,NOp,FileInfo,SharedInfo)
+=======
+function SharedInfo = C_WhileExpression(FileInfo,SharedInfo)
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 // function SharedInfo = C_WhileExpression(FileInfo,SharedInfo)
 // -----------------------------------------------------------------
 // //NUT: add description here
@@ -19,7 +23,11 @@ function SharedInfo = C_WhileExpression(IfCondArg,NIfCondArg,Op,NOp,FileInfo,Sha
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
+<<<<<<< HEAD
 SCI2CNInArgCheck(argn(2),6,6);
+=======
+SCI2CNInArgCheck(argn(2),2,2);
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 
 // -----------------------
 // --- Initialization. ---
@@ -63,7 +71,11 @@ for cntstr = 1:NumCStrings
    // Epilogue
    if (length(C_Strings(cntstr)) == 0)
       C_Strings(cntstr) = ' '; // RNU for Bruno: If I don't do that I get a PrintStringInfo error related to mputstr.
+<<<<<<< HEAD
       // Function not defined for given argument type(s),
+=======
+      // Function not defined for given argument type(s),
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
       // check arguments or define function %0_mputstr for overloading.
    end
    PrintStringInfo(C_Strings(cntstr),CPass1WhileEpilFileName ,'file','y','n');
@@ -76,6 +88,7 @@ PrintStringInfo('}',CPass1WhileEpilFileName ,'file','y');
 // ------------------------------
 // --- Insert for expression. ---
 // ------------------------------
+<<<<<<< HEAD
 //CCall = 'while('+SharedInfo.WhileExpr.CondVar+')';
 //PrintStringInfo(C_IndentBlanks(SharedInfo.NIndent)+CCall,CPass1FileName,'file','y');
 
@@ -97,6 +110,9 @@ CCall = CCall+'while';
    CCall = CCall+')';
 
 PrintStringInfo('   '+CCall,ReportFileName,'file','y');
+=======
+CCall = 'while('+SharedInfo.WhileExpr.CondVar+')';
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 PrintStringInfo(C_IndentBlanks(SharedInfo.NIndent)+CCall,CPass1FileName,'file','y');
    
 // -------------------
