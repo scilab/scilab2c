@@ -20,13 +20,18 @@ extern "C" {
 
 #define d2d0d0matrixd2(in1, size, in2, in3, out )         dmatrixa(in1, size[0], size[1], in2, in3, out)
 #define d2s0s0matrixd2(in1, size, in2, in3, out )         dmatrixa(in1, size[0], size[1], in2, in3, out)
-#define d2u160u160matrixd2(in1, size, in2, in3, out )     dmatrixa(in1, size[0], size[1], in2, in3, out)
-#define d2u80u80matrixd2(in1, size, in2, in3, out )       dmatrixa(in1, size[0], size[1], in2, in3, out)
+//#define d2u160u160matrixd2(in1, size, in2, in3, out )     dmatrixa(in1, size[0], size[1], in2, in3, out)
+//#define d2u80u80matrixd2(in1, size, in2, in3, out )       dmatrixa(in1, size[0], size[1], in2, in3, out)
 
 #define s2d0d0matrixs2(in1, size, in2, in3, out )         smatrixa(in1, size[0], size[1], in2, in3, out)
 #define s2s0s0matrixs2(in1, size, in2, in3, out )         smatrixa(in1, size[0], size[1], in2, in3, out)
-#define s2u160u160matrixs2(in1, size, in2, in3, out )     smatrixa(in1, size[0], size[1], in2, in3, out)
-#define s2u80u80matrixs2(in1, size, in2, in3, out )       smatrixa(in1, size[0], size[1], in2, in3, out)
+//#define s2u160u160matrixs2(in1, size, in2, in3, out )     smatrixa(in1, size[0], size[1], in2, in3, out)
+//#define s2u80u80matrixs2(in1, size, in2, in3, out )       smatrixa(in1, size[0], size[1], in2, in3, out)
+
+#define u162d0d0matrixu162(in1, size, in2, in3, out )         u16matrixa(in1, size[0], size[1], in2, in3, out)
+#define u162s0s0matrixu162(in1, size, in2, in3, out )         u16matrixa(in1, size[0], size[1], in2, in3, out)
+//#define s2u160u160matrixs2(in1, size, in2, in3, out )     smatrixa(in1, size[0], size[1], in2, in3, out)
+//#define s2u80u80matrixs2(in1, size, in2, in3, out )       smatrixa(in1, size[0], size[1], in2, in3, out)
 
 
 

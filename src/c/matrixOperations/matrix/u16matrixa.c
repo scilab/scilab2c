@@ -10,23 +10,24 @@
  Email: toolbox@scilab.in
 */
  
+/*Function returns cumulative sum of members of array/matrix*/
 
-#ifndef __MATRIX_H__
-#define __MATRIX_H__
-
+#include "matrix.h"
 #include "types.h"
 #include "uint16.h"
 
-#ifdef  __cplusplus
-extern "C" {
-#endif
-
-void dmatrixa(double* , int , int , int , int , double*);
-void smatrixa( float* , int , int , int , int , float*);
-void u16matrixa(uint16 *, int , int , int , int ,uint16 *out);
-
-#ifdef  __cplusplus
-} /* extern "C" */
-#endif
-
-#endif /*__MATRIX_H__*/
+void u16matrixa(uint16 *in, int irow, int icolumn, int orow, int ocolumn ,uint16 *out)
+{
+	int i;
+		if(irow*icolumn==orow*ocolumn)
+			{
+                            for(i=0;i<irow*icolumn ; i++)
+				{
+					out[i]=in[i];
+				}
+			}
+		else
+			{
+				printf("The given dimensions are not valid for matrix reshaping");
+			}
+}
