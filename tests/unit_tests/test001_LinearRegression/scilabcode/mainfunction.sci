@@ -1,4 +1,4 @@
-//SCI2C: DEFAULT_PRECISION= DOUBLE
+//SCI2C: DEFAULT_PRECISION= FLOAT
 
 function mainfunction()
 

@@ -15,8 +15,7 @@
 uint8 gstrcspna(char *str1,int size1,char *str2,int size2)
 {
     int ind,i,j;;
-    for(i=0;i<=size1;i++)
-    int j;
+   
     for(i=0;i<=size1;i++)
     {
       for(j=0;j<=size2;j++)

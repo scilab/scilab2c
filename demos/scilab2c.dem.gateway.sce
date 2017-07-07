@@ -16,6 +16,8 @@ subdemolist = ["Trigonometric Identity" , "TrigonometricIdentity.dem.sce";
               "Linear Regression" , "LinearRegression.dem.sce";
               "Symbols", "Symbols.dem.sce";
                "High Pass Filter", "Filter.dem.sce";
+  	       "Discrete Cosine Transform" , "test_dct.dem.sce";
+	       "Inverse Cosine Transform" , "test_idct.dem.sce";
               ];
 
 subdemolist(:,2) = demopath + subdemolist(:,2);

@@ -1,4 +1,3 @@
-
 function [disp_isthere,FileInfo,SharedInfo] = AST_HandleEndGenFun(disp_isthere,FileInfo,SharedInfo,ASTFunType)
 // function [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,ASTFunType)
 // -----------------------------------------------------------------
@@ -28,10 +27,12 @@ function [disp_isthere,FileInfo,SharedInfo] = AST_HandleEndGenFun(disp_isthere,F
 //
 // Status:
 // 11-Apr-2007 -- Raffaele Nutricato: Author.
+// 15-June-2017 -- Ukasha Noor : Revised By 
 //
 // Copyright 2007 Raffaele Nutricato.
 // Contact: raffaele.nutricato@tiscali.it
 // -----------------------------------------------------------------
+
 
 // ------------------------------
 // --- Check input arguments. ---

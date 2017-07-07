@@ -8,7 +8,9 @@
 // Author: Ukasha Noor
 // Organization: FOSSEE, IIT Bombay
 // Email: toolbox@scilab.in
-
+// This function is used for 2D array declaration
+// This function extracts the input arguments in the array and check there Name and Scope.
+// Then repush everything back to stack
 function [RhsNames,RhsScope,NRhs] = AST_HandleCC(FileInfo,SharedInfo)
 
 SCI2CNInArgCheck(argn(2),2,2)
@@ -56,14 +58,6 @@ for cntpush = cntpop:-1:1
 end
 
 
-//for counterinputargs = 1:NRhs
-   //#RNU_RES_B
-   //disp(counterinputargs);
-   //PrintStringInfo('Input Argument Number '+string(counterinputargs)+': '+RhsNames(counterinputargs).Name,...
-     // ReportFileName,'file','y');
-   //PrintStringInfo('   Scope: '+RhsNames(counterinputargs).Scope,...
-     // ReportFileName,'file','y');
-   //#RNU_RES_E
-//end
+
 
 endfunction
