@@ -18,6 +18,8 @@ subdemolist = ["Trigonometric Identity" , "TrigonometricIdentity.dem.sce";
                "High Pass Filter", "Filter.dem.sce";
 		"Jacobi functions","Jacobi.dem.sce";
 		"Analog Filters","analogFilter.dem.sce";
+  	       "Discrete Cosine Transform" , "test_dct.dem.sce";
+	       "Inverse Cosine Transform" , "test_idct.dem.sce";
 		"String Functions","string.dem.sce";
 		"Filter Responses","FilterResponse.dem.sce";
               ];

@@ -1,4 +1,4 @@
-function [RhsNames,RhsScope,NRhs] = AST_HandleRC(FileInfo,SharedInfo)
+function [RhsNames,RhsScope,NRhs,FName] = AST_HandleFuncArray(FileInfo,SharedInfo)
 // Copyright (C) 2017 - IIT Bombay - FOSSEE
 
 // This file must be used under the terms of the CeCILL.
@@ -35,7 +35,7 @@ cntpop = 1;
 NRhs = 0;
 RhsField(cntpop) = AST_PopASTStack();
 RhsNames = [];
-while (RhsField(cntpop) ~= 'Expression:')
+while (RhsField(cntpop) ~= 'Rhs    :')
    NRhs = NRhs + 1;
    if RhsField(cntpop) <> 'Operands:'
    [RhsNames(NRhs),RhsScope(NRhs)] = AST_ExtractNameAndScope(RhsField(cntpop));
@@ -43,12 +43,17 @@ while (RhsField(cntpop) ~= 'Expression:')
    cntpop = cntpop + 1;
    RhsField(cntpop) = AST_PopASTStack();
 end
+first = AST_PopASTStack();
+second = AST_PopASTStack();
+
+FName = stripblanks(part(second,12:length(second)));
+
 RhsNames = SCI2Cflipud(RhsNames);
 RhsScope = SCI2Cflipud(RhsScope);
 
 // --- Repush everything into the stack. ---
 for cntpush = cntpop:-1:1
-   if RhsField(cntpush) <> 'Operands:'
+   if RhsField(cntpush) <> 'Operands:' & RhsField(cntpush) <> 'Rhs    :'
    AST_PushASTStack(RhsField(cntpush));
    end
 end

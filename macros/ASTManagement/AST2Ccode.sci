@@ -11,6 +11,7 @@ function AST2Ccode(FileInfoDatFile)
 //
 // Status:
 // 11-May-2007 -- Raffaele Nutricato: Author.
+// 15-June-2017 -- Ukasha Noor: Revised By
 //
 // Copyright 2007 Raffaele Nutricato.
 // Contact: raffaele.nutricato@tiscali.it
@@ -64,6 +65,8 @@ STACKDEDUG = 0; // 1 -> Every Pop and Push operation on the stack, the stack con
 
 global disp_isthere
 disp_isthere = 0;
+
+FName = null
 // -------------------------------------
 // --- End parameter Initialization. ---
 // -------------------------------------
@@ -144,8 +147,13 @@ while ~meof(fidAST)
       case 'EndOperation' then
          [disp_isthere,FileInfo,SharedInfo] = AST_HandleEndGenFun(disp_isthere,FileInfo,SharedInfo,'Operation');
       case 'EndFuncall' then
+	 if rc_count > 0 & cc_count == 0
+		[EqualInArgName,EqualInArgScope,EqualNInArg,FName] = AST_HandleFuncArray(FileInfo,SharedInfo);
+	elseif cc_count > 0
+		[EqualInArgName,EqualInArgScope,EqualNInArg,FName] = AST_HandleFuncArray2D(FileInfo,SharedInfo);
+	else
          [disp_isthere,FileInfo,SharedInfo] = AST_HandleEndGenFun(disp_isthere,FileInfo,SharedInfo,'Funcall');
-
+	end
       // --------------
       // --- Equal. ---
       // --------------
@@ -155,10 +163,10 @@ while ~meof(fidAST)
       //NUT: ho miste ins e variabili, per esempio [c(1,1), a] = twooutfun();
       //NUT: in questo caso solo una delle due equal va scartata.
  	 if rc_count > 0 & cc_count == 0
-		[FileInfo,SharedInfo] = AST_HandleFunRC(FileInfo,SharedInfo);
+		[FileInfo,SharedInfo] = AST_HandleFunRC(FName,FileInfo,SharedInfo);
 		rc_count = 0;
 	 elseif cc_count > 0
-		[FileInfo,SharedInfo] = AST_HandleFunCC(cc_count,FileInfo,SharedInfo);
+		[FileInfo,SharedInfo] = AST_HandleFunCC(FName,cc_count,FileInfo,SharedInfo);
 		rc_count = 0;
                 cc_count = 0;
 	 else
@@ -168,6 +176,7 @@ while ~meof(fidAST)
 		end
 	 end
 	 disp_isthere = 0;
+ 	 FName = null
 
       case 'Equal' then
          SharedInfo.Equal.Enabled = 1; // 1 means enabled -> we are inside an equal AST block.
