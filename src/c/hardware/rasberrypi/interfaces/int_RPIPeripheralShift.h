@@ -21,8 +21,13 @@ extern "C" {
 #endif
 
 #define u80u80u80RPI_shiftInu80(dpin,cpin,order) u8RPI_shiftIns(dpin,cpin,order);
+#define d0d0d0RPI_shiftInu80(dpin,cpin,order) u8RPI_shiftIns(dpin,cpin,order);
+
 #define u80u80u80u80RPI_shiftOut(dpin,cpin,order,val) u8RPI_shiftOuts(dpin,cpin,order,val);
+#define d0d0d0d0RPI_shiftOut(dpin,cpin,order,val) u8RPI_shiftOuts(dpin,cpin,order,val);
+
 #define u160u80u80u80u80RPI_sr595Setupi80(pinBase,nPins,dP,cP,lP) u16RPI_sr595Setups(pinBase,nPins,dP,cP,lP);
+#define d0d0d0d0d0RPI_sr595Setupi80(pinBase,nPins,dP,cP,lP) u16RPI_sr595Setups(pinBase,nPins,dP,cP,lP);
 
 #ifdef  __cplusplus
 } /* extern "C" */

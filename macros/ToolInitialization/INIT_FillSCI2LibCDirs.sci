@@ -5817,6 +5817,7 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('u80'+ArgSeparator+'',ClassFileName,'file','y');
+PrintStringInfo('d0'+ArgSeparator+'',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_digitalWriteByte'; 
@@ -5869,6 +5870,7 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('u160'+ArgSeparator+'',ClassFileName,'file','y');
+PrintStringInfo('d0'+ArgSeparator+'',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_pwmClock'; 
@@ -5893,6 +5895,7 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('u320'+ArgSeparator+'',ClassFileName,'file','y');
+PrintStringInfo('d0'+ArgSeparator+'',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_pwmRange'; 
@@ -5949,6 +5952,7 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('u80'+ArgSeparator+'i80',ClassFileName,'file','y');
+PrintStringInfo('d0'+ArgSeparator+'i80',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_I2CSetup'; 
@@ -5981,6 +5985,7 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('u160'+ArgSeparator+'i80',ClassFileName,'file','y');
+PrintStringInfo('d0'+ArgSeparator+'i80',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_I2CRead'; 
@@ -6037,6 +6042,7 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('u80'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('d0'+ArgSeparator+'u80',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_getAlt'; 
@@ -6073,6 +6079,7 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('u160'+ArgSeparator+'u160',ClassFileName,'file','y');
+PrintStringInfo('d0'+ArgSeparator+'u160',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_gertboardAnalogRead'; 
@@ -6097,6 +6104,7 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('u80'+ArgSeparator+'g2',ClassFileName,'file','y');
+PrintStringInfo('d0'+ArgSeparator+'g2',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_serialGetchar'; 
@@ -6118,6 +6126,7 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('u80u80'+ArgSeparator+'',ClassFileName,'file','y');
+PrintStringInfo('d0d0'+ArgSeparator+'',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_pinModeAlt'; 
@@ -6182,6 +6191,7 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('u80u160'+ArgSeparator+'',ClassFileName,'file','y');
+PrintStringInfo('d0d0'+ArgSeparator+'',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_pwmWrite'; 
@@ -6214,6 +6224,7 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('u160u160'+ArgSeparator+'',ClassFileName,'file','y');
+PrintStringInfo('d0d0'+ArgSeparator+'',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_gertboardAnalogWrite'; 
@@ -6238,6 +6249,7 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('u80g2'+ArgSeparator+'',ClassFileName,'file','y');
+PrintStringInfo('d0g2'+ArgSeparator+'',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_pinMode'; 
@@ -6282,6 +6294,7 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('u80u320'+ArgSeparator+'',ClassFileName,'file','y');
+PrintStringInfo('d0d0'+ArgSeparator+'',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_softToneWrite'; 
@@ -6306,6 +6319,7 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('u80i160'+ArgSeparator+'i80',ClassFileName,'file','y');
+PrintStringInfo('d0d0'+ArgSeparator+'i80',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_waitForInterrupt'; 
@@ -6330,6 +6344,7 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('u160u160'+ArgSeparator+'i80',ClassFileName,'file','y');
+PrintStringInfo('d0d0'+ArgSeparator+'i80',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_I2CWrite'; 
@@ -6362,6 +6377,7 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('g2u320'+ArgSeparator+'i80',ClassFileName,'file','y');
+PrintStringInfo('g2d0'+ArgSeparator+'i80',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_serialOpen'; 
@@ -6386,6 +6402,7 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('u160u80'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('d0d0'+ArgSeparator+'u80',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_pcf8574Setup'; 
@@ -6423,6 +6440,7 @@ PrintStringInfo('NOUT=        1',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('u80u80u80'+ArgSeparator+'',ClassFileName,'file','y');
+PrintStringInfo('d0d0d0'+ArgSeparator+'',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_lcdPosition'; 
@@ -6448,6 +6466,7 @@ PrintStringInfo('NOUT=        1',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('u160u160u160'+ArgSeparator+'i80',ClassFileName,'file','y');
+PrintStringInfo('d0d0d0'+ArgSeparator+'i80',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_I2CWriteReg8'; 
@@ -6473,6 +6492,7 @@ PrintStringInfo('NOUT=        1',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('u80u80u80'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('d0d0d0'+ArgSeparator+'u80',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_shiftIn'; 
@@ -6497,6 +6517,7 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('u80u160u160'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('d0d0d0'+ArgSeparator+'u80',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_softPwmCreate'; 
@@ -6521,6 +6542,7 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('u160u160u160'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('d0d0d0'+ArgSeparator+'u80',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_mcp23s08Setup'; 
@@ -6549,6 +6571,7 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('u80u80u80u80'+ArgSeparator+'',ClassFileName,'file','y');
+PrintStringInfo('d0d0d0d0'+ArgSeparator+'',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_shiftOut'; 
@@ -6573,6 +6596,7 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('u160u80u80u80u80'+ArgSeparator+'i80',ClassFileName,'file','y');
+PrintStringInfo('d0d0d0d0d0'+ArgSeparator+'i80',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_sr595Setup'; 
@@ -6597,6 +6621,7 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('u80u80u80u80u80u80u80u80u80u80'+ArgSeparator+'',ClassFileName,'file','y');
+PrintStringInfo('d0d0d0d0d0d0d0d0d0d0'+ArgSeparator+'',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_lcdCharDef'; 
@@ -6621,6 +6646,7 @@ PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
 // --- Function List Class. ---
 ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
 PrintStringInfo('u80u80u80u80u80u80u80u80u80u80u80u80u80'+ArgSeparator+'u80',ClassFileName,'file','y');
+PrintStringInfo('d0d0d0d0d0d0d0d0d0d0d0d0d0'+ArgSeparator+'u80',ClassFileName,'file','y');
 
 // --- Annotation Function And Function List Function. ---
 FunctionName = 'RPI_lcdInit'; 

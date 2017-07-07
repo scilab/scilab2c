@@ -78,7 +78,6 @@ elseif (SCI2Cfileexist(FileInfo.SCI2CLibSCIAnnFun,tmpannfilename))
    SCI2CClassName     = FL_GetFunctionClass(AnnFileName,SCI2CClassSpecifier,ReportFileName);
    SCI2CClassFileName = fullfile(FileInfo.SCI2CLibSCIAnnCls,SCI2CClassName+'.acls');
 end
-
 if (FlagFoundAnnFile == 0)
    [FlagFoundAnnFile,fullpathscifilename] = SCI2CFindFile(FileInfo.UserSciFilesPaths,FunName+'.sci');
    if (FlagFoundAnnFile == 0)

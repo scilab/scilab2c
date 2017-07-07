@@ -21,11 +21,22 @@ extern "C" {
 #endif
 
 #define u80u160u160RPI_softPwmCreateu80(pin,ival,range) u8RPI_softPwmCreates(pin,ival,range);
+#define d0d0d0RPI_softPwmCreateu80(pin,ival,range) u8RPI_softPwmCreates(pin,ival,range);
+
 #define u80RPI_softPwmStop(pin) u8RPI_softPwmStops(pin);
+#define d0RPI_softPwmStop(pin) u8RPI_softPwmStops(pin);
+
 #define u80u160RPI_softPwmWrite(pin,value) u8RPI_softPwmWrites(pin,value);
+#define d0d0RPI_softPwmWrite(pin,value) u8RPI_softPwmWrites(pin,value);
+
 #define u80RPI_softToneCreateu80(pin) u8RPI_softToneCreates(pin);
+#define d0RPI_softToneCreateu80(pin) u8RPI_softToneCreates(pin);
+
 #define u80RPI_softToneStop(pin) u8RPI_softToneStops(pin);
+#define d0RPI_softToneStop(pin) u8RPI_softToneStops(pin);
+
 #define u80u320RPI_softToneWrite(pin,value) u8RPI_softToneWrites(pin,value);
+#define d0d0RPI_softToneWrite(pin,value) u8RPI_softToneWrites(pin,value);
 
 #ifdef  __cplusplus
 } /* extern "C" */
