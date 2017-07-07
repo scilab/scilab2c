@@ -20,12 +20,21 @@ sci2c_GenFunctionslib    = lib(pathmacros + "GeneralFunctions"   + filesep());
 sci2c_SymbolTablelib     = lib(pathmacros + "SymbolTable"        + filesep());
 sci2c_ToolInitlib        = lib(pathmacros + "ToolInitialization" + filesep());
 sci2c_finDeps            = lib(pathmacros + "findDeps"           + filesep());
+<<<<<<< HEAD
 sci2c_AVRlib	    	 = lib(pathmacros + "Hardware\AVR"       + filesep());
 sci2c_RPilib    		 = lib(pathmacros + "Hardware\RasberryPi"+ filesep());
 sci2c_ScilabArduinolib	 = lib(pathmacros + "Scilab-Arduino"     + filesep());
 sci2c_CVCorelib	     	 = lib(pathmacros + "ImageProcessing\core" + filesep());
 sci2c_CVHighguilib    	 = lib(pathmacros + "ImageProcessing\highgui" + filesep());
 sci2c_CVImgproclib  	 = lib(pathmacros + "ImageProcessing\imgproc" + filesep());
+=======
+sci2c_AVRlib		 	 = lib(pathmacros + "Hardware\AVR"       + filesep());
+sci2c_RPilib		 	 = lib(pathmacros + "Hardware\RasberryPi"+ filesep());
+sci2c_ScilabArduinolib	 = lib(pathmacros + "Scilab-Arduino"     + filesep());
+sci2c_CVCorelib	     	 = lib(pathmacros + "ImageProcessing\core" + filesep());
+sci2c_CVHighguilib    	 = lib(pathmacros + "ImageProcessing\highgui" + filesep());
+sci2c_CVImgproclib	     = lib(pathmacros + "ImageProcessing\imgproc" + filesep());
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 clear pathmacros;
 
 // Load and add help chapter

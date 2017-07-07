@@ -16,6 +16,7 @@ function img = CV_LoadImage(filename,loadtype)
 //
 // Parameters
 //     filename: name of file to be opened
+<<<<<<< HEAD
 //     loadtype: desired load method
 //
 // Description
@@ -41,5 +42,27 @@ function img = CV_LoadImage(filename,loadtype)
 //
 
 img = 0;
+=======
+//	   loadtype: desired load method
+//			<0 --> image is loaded as is (with alpha channel)
+//			=0 --> image is loaded as greyscale
+//			>0 --> 3 channel color image is loaded
+//
+// Description
+//		This function can be used for loading a previously stored image
+// Examples
+//		CV_LoadImage('~/test.jpg',0)
+//
+// See also
+//     CV_CreateImage
+//
+//
+// Authors
+//     Siddhesh Wani
+//
+img = 0;
+// This is curretly dummy function. It provides no functionality but is required 
+// for providing support for generating C code for OpenCV
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 
 endfunction

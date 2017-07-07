@@ -103,7 +103,11 @@ elseif get(gcbo, "tag")=="cancelbtn" | get(gcbo, "tag")=="close_menu" then
 elseif get(gcbo, "tag")=="convertbtn" then
   UserScilabMainFile =  get(findobj("tag", "fileedit"), "string");
 
+<<<<<<< HEAD
   UserSciFilesPaths =  get(findobj("tag", "subfunsedit"), "string");
+=======
+  UserSciFilesPaths = get(findobj("tag", "subfunsedit"), "string");
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 
 //  Sci2CLibMainHeaderFName = get(findobj("tag", "headeredit"), "string");
 
@@ -199,18 +203,12 @@ elseif get(gcbo, "tag")=="convertbtn" then
 
 
   // -*- DEBUG ONLY -*-
-
-  mprintf("UserScilabMainFile = {%s}\n", UserScilabMainFile);
-  mprintf("UserSciFilesPaths = {%s}\n", UserSciFilesPaths);
-  mprintf("UserSciCodeMainDir = {%s}\n", UserSciCodeMainDir);
-  mprintf("RunMode = {%s}\n", RunMode);
-  mprintf("CopySciCodeIntoCCode = {%d}\n", bool2s(CopySciCodeIntoCCode));
-  mprintf("NativeBuild = {%s}\n", NativeBuild);
-  mprintf("Target = {%s}\n", Target);
-  mprintf("Board Name = {%s}\n", Board_name);
-//  disp("Variable Names:")
-//  disp(UserScilabMainFile, UserSciCodeMainDir, UserSciFilesPaths, RunMode, NativeBuild,Target,Board_name)
-//  disp("Done")
+  //mprintf("UserScilabMainFile = {%s}\n", UserScilabMainFile);
+  //mprintf("UserSciFilesPaths = {%s}\n", UserSciFilesPaths);
+  //mprintf("UserSciCodeMainDir = {%s}\n", UserSciCodeMainDir);
+  //mprintf("RunMode = {%s}\n", RunMode);
+  //mprintf("CopySciCodeIntoCCode = {%d}\n", bool2s(CopySciCodeIntoCCode));
+  //mprintf("NativeBuild = {%s}\n", NativeBuild);  
   scilab2c(UserScilabMainFile, UserSciCodeMainDir, UserSciFilesPaths, RunMode, NativeBuild,Target,Board_name);
 //
 // --- sci2c help ---

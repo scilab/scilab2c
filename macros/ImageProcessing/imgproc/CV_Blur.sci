@@ -8,6 +8,7 @@
 // Organization: FOSSEE, IIT Bombay
 // Email: toolbox@scilab.in
 
+<<<<<<< HEAD
 function cvtimg = CV_Blur(srcimg,ksize_width,ksize_height,anchor_x,anchor_y,border_type)
 // function to blur image using normalised box filter
 //
@@ -36,6 +37,30 @@ function cvtimg = CV_Blur(srcimg,ksize_width,ksize_height,anchor_x,anchor_y,bord
 // This is curretly dummy function. It provides no functionality but is required 
 // for providing support for generating C code for OpenCV
 //
+=======
+function cvtimg = CV_Blur(srcimg,ksize_width,ksize_height,anchor_x,anchor_y, ...
+							border_type)
+// function to blur image using normalised box filter
+//
+// Calling Sequence
+//     dst = CV_Blur(srcimg,ksize_width,ksize_height,anchor_x,anchor_y, ...
+//				border_type)
+//
+// Parameters
+//     	srcimg -> Source image.
+//		ksize_width, ksize_height -> blurring kernel size.
+//		anchor_x, anchor_y -> x,y coordinates of anchor point
+//		borderType -> border mode used to extrapolate pixels outside of the 
+//				image. Can be :
+//						BORDER_REPLICATE:     	aaaaaa|abcdefgh|hhhhhhh
+//						BORDER_REFLECT:       	fedcba|abcdefgh|hgfedcb
+//						BORDER_REFLECT_101:   	gfedcb|abcdefgh|gfedcba
+//						BORDER_WRAP:          	cdefgh|abcdefgh|abcdefg
+//						BORDER_CONSTANT:		iiiiii|abcdefgh|iiiiiii  
+// Description
+//		This function can be used for blurring image using normalised box 
+//		filter. Image can be of any depth and have any no of channels. 
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 // Examples
 //		img = CV_LoadImage('~/test.jpg',0)
 //		dst = CV_Blur(img,3,3,-1,-1,"BORDER_CONSTANT")
@@ -46,7 +71,13 @@ function cvtimg = CV_Blur(srcimg,ksize_width,ksize_height,anchor_x,anchor_y,bord
 // Authors
 //     Siddhesh Wani
 //
+<<<<<<< HEAD
 
 cvtimg = 0
+=======
+cvtimg = 0
+// This is curretly dummy function. It provides no functionality but is required 
+// for providing support for generating C code for OpenCV
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 
 endfunction

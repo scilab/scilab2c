@@ -26,7 +26,11 @@ void		zrowcata(doubleComplex *in1, int lines1, int columns1, doubleComplex *in2,
     {
       for (j = 0 ; j < lines1 ; ++j)
 	{
+<<<<<<< HEAD
 	  out[i*(lines1 + lines2) + j] = in1[i*lines1 + j];
+=======
+	  /*out[i*(lines1 + lines2) + j] = in1[i*lines1 + j];*/
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 	}
        for (j = 0 ; j < lines2 ; ++j)
 	{

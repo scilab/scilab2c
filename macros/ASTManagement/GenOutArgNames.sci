@@ -32,12 +32,15 @@ SCI2CNInArgCheck(argn(2),9,9);
 nxtscifunname   = SharedInfo.NextSCIFunName;
 nxtscifunnumber = SharedInfo.NextSCIFunNumber;
 ReportFileName  = FileInfo.Funct(nxtscifunnumber).ReportFileName;
+<<<<<<< HEAD
 
 
 global SCI2CSTACK
 global StackPosition;
 global STACKDEDUG
 
+=======
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 // #RNU_RES_B
 PrintStringInfo('   Generating Out Arg names.',ReportFileName,'file','y');
 // #RNU_RES_E
@@ -49,6 +52,7 @@ OutArg = OldOutArg;
 // ---------------------------------------------------------------------------------------
 // At this step only the name of the output arguments can be generated. ---
 //#RNU_RES_E
+<<<<<<< HEAD
 if (FunctionName ~= 'OpLogGt' & FunctionName ~= 'OpLogLt' & FunctionName ~= 'OpLogGe' & FunctionName ~= 'OpLogLe' & FunctionName ~= 'OpLogNe' & FunctionName ~= 'OpLogEq')
 	if (NLhsArg > 0)
 	   //#RNU_RES_B
@@ -114,4 +118,49 @@ else
 	s = AST_PopASTStack();
 	PrintStringInfo('   Pushing in the AST stack: ""'+s+'"".',ReportFileName,'file','y');
 end
+=======
+if (NLhsArg > 0)
+   //#RNU_RES_B
+   // Use the equal Lhs names.
+   PrintStringInfo('Using Equal Lhs names.',ReportFileName,'file','y');
+   //#RNU_RES_E
+   if (NLhsArg ~= NOutArg)
+      error(9999, 'NLhsArg='+string(NLhsArg)+' must be equal to NOutArg='+string(NOutArg)+'.');
+   end
+   for counteroutputargs = 1:NOutArg
+      OutArg(counteroutputargs).Name=LhsArg(counteroutputargs).Name;
+      OutArg(counteroutputargs).Scope=LhsArg(counteroutputargs).Scope;
+   end
+else
+   //#RNU_RES_B
+   // Generate temporary variables.
+   PrintStringInfo('Generating temporary variables.',ReportFileName,'file','y');
+   //#RNU_RES_E
+   if ((sum(mtlb_strcmp(FunctionName,SharedInfo.Annotations.DataPrec)) > 0) & ...
+       (SharedInfo.SkipNextPrec == 1))
+      //#RNU_RES_B
+      PrintStringInfo('   Skipping code generating because already generated in the previous function.',ReportFileName,'file','y');
+      //#RNU_RES_E
+      for counteroutputargs = 1:NOutArg
+         OutArg(counteroutputargs).Name = InArg(counteroutputargs).Name;
+      end
+   elseif (mtlb_strcmp(FunctionName,'OpEqual'))
+      // do nothing.
+      //NUT: verifica questa parte di codice. e' sicuro che se ho equal gli oldoutarg contengono gia' il nome?
+   else
+      for counteroutputargs = 1:NOutArg
+         if ((SharedInfo.ASTReader.EnableTempVarsReuse == 1) & ...
+             (length(SharedInfo.ASTReader.ReusableTempVars) > 0))
+            TmpOutArgName = strcat([SharedInfo.ASTReader.TempVarsName,string(SharedInfo.ASTReader.ReusableTempVars(1))]);
+            SharedInfo.ASTReader.ReusableTempVars = SharedInfo.ASTReader.ReusableTempVars(2:$);
+         else
+            SharedInfo.ASTReader.UsedTempVars = SharedInfo.ASTReader.UsedTempVars + 1;
+            TmpOutArgName = strcat([SharedInfo.ASTReader.TempVarsName,string(SharedInfo.ASTReader.UsedTempVars)]);
+         end
+         OutArg(counteroutputargs).Name=TmpOutArgName;
+      end
+   end
+end
+
+>>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 endfunction
