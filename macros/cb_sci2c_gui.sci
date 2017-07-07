@@ -200,12 +200,17 @@ elseif get(gcbo, "tag")=="convertbtn" then
 
   // -*- DEBUG ONLY -*-
 
-  //mprintf("UserScilabMainFile = {%s}\n", UserScilabMainFile);
-  //mprintf("UserSciFilesPaths = {%s}\n", UserSciFilesPaths);
-  //mprintf("UserSciCodeMainDir = {%s}\n", UserSciCodeMainDir);
-  //mprintf("RunMode = {%s}\n", RunMode);
-  //mprintf("CopySciCodeIntoCCode = {%d}\n", bool2s(CopySciCodeIntoCCode));
-  //mprintf("NativeBuild = {%s}\n", NativeBuild);
+  mprintf("UserScilabMainFile = {%s}\n", UserScilabMainFile);
+  mprintf("UserSciFilesPaths = {%s}\n", UserSciFilesPaths);
+  mprintf("UserSciCodeMainDir = {%s}\n", UserSciCodeMainDir);
+  mprintf("RunMode = {%s}\n", RunMode);
+  mprintf("CopySciCodeIntoCCode = {%d}\n", bool2s(CopySciCodeIntoCCode));
+  mprintf("NativeBuild = {%s}\n", NativeBuild);
+  mprintf("Target = {%s}\n", Target);
+  mprintf("Board Name = {%s}\n", Board_name);
+//  disp("Variable Names:")
+//  disp(UserScilabMainFile, UserSciCodeMainDir, UserSciFilesPaths, RunMode, NativeBuild,Target,Board_name)
+//  disp("Done")
   scilab2c(UserScilabMainFile, UserSciCodeMainDir, UserSciFilesPaths, RunMode, NativeBuild,Target,Board_name);
 //
 // --- sci2c help ---
