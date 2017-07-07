@@ -2,40 +2,4 @@
 <!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 1.0//EN" "http://java.sun.com/products/javahelp/map_1_0.dtd">
 <map version="1.0">
 <mapID target="index" url="index.html"/>
-<mapID target="section_de1a1188d71074f6718f9b3e65179365" url="section_de1a1188d71074f6718f9b3e65179365.html"/>
-<mapID target="AVRADCSetup" url="AVRADCSetup.html"/>
-<mapID target="AVRDigitalIn" url="AVRDigitalIn.html"/>
-<mapID target="AVRDigitalOut" url="AVRDigitalOut.html"/>
-<mapID target="AVRDigitalPortSetup" url="AVRDigitalPortSetup.html"/>
-<mapID target="AVRDigitalSetup" url="AVRDigitalSetup.html"/>
-<mapID target="AVRGetTimerValue" url="AVRGetTimerValue.html"/>
-<mapID target="AVRPWM0SetDuty" url="AVRPWM0SetDuty.html"/>
-<mapID target="AVRPWM0Setup" url="AVRPWM0Setup.html"/>
-<mapID target="AVRPWM1SetDuty" url="AVRPWM1SetDuty.html"/>
-<mapID target="AVRPWM1Setup" url="AVRPWM1Setup.html"/>
-<mapID target="AVRPWM2SetDuty" url="AVRPWM2SetDuty.html"/>
-<mapID target="AVRPWM2Setup" url="AVRPWM2Setup.html"/>
-<mapID target="AVRReadADC" url="AVRReadADC.html"/>
-<mapID target="AVRSleep" url="AVRSleep.html"/>
-<mapID target="AVRTimerSetup" url="AVRTimerSetup.html"/>
-<mapID target="AVRUARTReceive" url="AVRUARTReceive.html"/>
-<mapID target="AVRUARTSetup" url="AVRUARTSetup.html"/>
-<mapID target="AVRUARTTransmit" url="AVRUARTTransmit.html"/>
-<mapID target="CV_AdaptiveThreshold" url="CV_AdaptiveThreshold.html"/>
-<mapID target="CV_Blur" url="CV_Blur.html"/>
-<mapID target="CV_Canny" url="CV_Canny.html"/>
-<mapID target="CV_CornerHarris" url="CV_CornerHarris.html"/>
-<mapID target="CV_CreateImage" url="CV_CreateImage.html"/>
-<mapID target="CV_CvtColor" url="CV_CvtColor.html"/>
-<mapID target="CV_Dilate" url="CV_Dilate.html"/>
-<mapID target="CV_DistanceTransform" url="CV_DistanceTransform.html"/>
-<mapID target="CV_Erode" url="CV_Erode.html"/>
-<mapID target="CV_GaussianBlur" url="CV_GaussianBlur.html"/>
-<mapID target="CV_GetImgSize" url="CV_GetImgSize.html"/>
-<mapID target="CV_LoadImage" url="CV_LoadImage.html"/>
-<mapID target="CV_MedianBlur" url="CV_MedianBlur.html"/>
-<mapID target="CV_SaveImage" url="CV_SaveImage.html"/>
-<mapID target="CV_ShowImage" url="CV_ShowImage.html"/>
-<mapID target="CV_Threshold" url="CV_Threshold.html"/>
-<mapID target="CV_WaitKey" url="CV_WaitKey.html"/>
 </map>

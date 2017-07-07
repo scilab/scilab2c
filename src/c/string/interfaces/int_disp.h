@@ -51,7 +51,7 @@
 
 #define d3disp(in,size)       ddisph(in,size[0],size[1],size[2])
 
-#define g2disp(in, size)		printf("%s\n",in)
+#define g2disp(in, size)		printf("%s\n", in)
 
 #define g0disp(in)                      printf("%c\n", in)
 
