@@ -66,6 +66,7 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/matrixOperations/includes/matrixMultiplication.h"
       "src/c/matrixOperations/includes/diag.h"
       "src/c/matrixOperations/includes/cumsum.h"
+      "src/c/matrixOperations/includes/matrix.h"
       "src/c/matrixOperations/includes/cumprod.h"
       "src/c/matrixOperations/includes/triu.h"
       "src/c/matrixOperations/includes/tril.h"

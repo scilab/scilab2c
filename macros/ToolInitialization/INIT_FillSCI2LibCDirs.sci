@@ -6890,6 +6890,51 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,E
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
 //------------------------------------
+//---- Class MATRIX---------------------
+//------------------------------------
+ClassName = 'MATRIX';
+
+// --- Class Annotation. ---
+PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
+ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
+
+//Arguements specified: initial value, start time, time vector, ode function
+PrintStringInfo('NIN=         3',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= IN(2).VAL',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= IN(3).VAL',ClassFileName,'file','y');
+
+// --- Function List Class. ---
+ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+PrintStringInfo('d2d0d0'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('d2s0s0'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('d2u160u160'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('d2u80u80'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('u160'+ArgSeparator+'u160',ClassFileName,'file','y');
+PrintStringInfo('i160'+ArgSeparator+'i160',ClassFileName,'file','y');
+
+PrintStringInfo('s2d0d0'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('s2s0s0'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('s2u160u160'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('s2u80u80'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('u162'+ArgSeparator+'u162',ClassFileName,'file','y');
+PrintStringInfo('i162'+ArgSeparator+'i162',ClassFileName,'file','y');
+
+PrintStringInfo('d2g2'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('s2g2'+ArgSeparator+'s2',ClassFileName,'file','y');
+PrintStringInfo('u82g2'+ArgSeparator+'u82',ClassFileName,'file','y');
+PrintStringInfo('i82g2'+ArgSeparator+'i82',ClassFileName,'file','y');
+PrintStringInfo('u162g2'+ArgSeparator+'u162',ClassFileName,'file','y');
+PrintStringInfo('i162g2'+ArgSeparator+'i162',ClassFileName,'file','y');
+// --- Annotation Function And Function List Function. ---
+FunctionName = 'matrix'; 
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+
+//------------------------------------
 //---- Class TRIU ---------------------
 //------------------------------------
 ClassName = 'TRIU';

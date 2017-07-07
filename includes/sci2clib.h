@@ -327,7 +327,7 @@ extern "C" {
 #include "int_secd.h"
 
 /*interfacing float*/
-#include "float.h"
+#include "get_float.h"
 #include "int_float.h"
 
 /*interfacing factorial*/
@@ -439,6 +439,9 @@ extern "C" {
 /*interfacing cumsum*/
 #include "int_cumsum.h"
 #include "cumsum.h"
+/*interfacing matrix*/
+#include "int_matrix.h"
+#include "matrix.h"
 /*interfacing cumprod*/
 #include "int_cumprod.h"
 #include "cumprod.h"
