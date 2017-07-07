@@ -145,7 +145,6 @@ while ~meof(fidAST)
          [disp_isthere,FileInfo,SharedInfo] = AST_HandleEndGenFun(disp_isthere,FileInfo,SharedInfo,'Operation');
       case 'EndFuncall' then
          [disp_isthere,FileInfo,SharedInfo] = AST_HandleEndGenFun(disp_isthere,FileInfo,SharedInfo,'Funcall');
-	 disp(disp_isthere);
 
       // --------------
       // --- Equal. ---
@@ -174,7 +173,6 @@ while ~meof(fidAST)
          SharedInfo.Equal.Enabled = 1; // 1 means enabled -> we are inside an equal AST block.
          AST_PushASTStack(treeline);
       case 'Lhs       :' then
-		disp(disp_isthere);
 		if rc_count > 0 & cc_count == 0
 		SharedInfo.Equal.Lhs = 1;
 		[EqualInArgName,EqualInArgScope,EqualNInArg] = AST_HandleRC(FileInfo,SharedInfo);

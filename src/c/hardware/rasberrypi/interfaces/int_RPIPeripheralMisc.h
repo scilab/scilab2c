@@ -21,8 +21,12 @@ extern "C" {
 #endif
 
 #define RPI_boardRevu80() RPI_boardRev();
+
 #define u80u80RPI_padDrive(group,strength) u8RPI_padDrives(group,strength);
+#define d0d0RPI_padDrive(group,strength) u8RPI_padDrives(group,strength);
+
 #define u160RPI_sn3218Setupi80(pinBase) u16RPI_sn3218Setups(pinBase);
+#define d0RPI_sn3218Setupi80(pinBase) u16RPI_sn3218Setups(pinBase);
 
 #ifdef  __cplusplus
 } /* extern "C" */

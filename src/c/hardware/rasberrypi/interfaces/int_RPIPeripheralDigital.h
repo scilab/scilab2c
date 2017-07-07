@@ -28,6 +28,7 @@ extern "C" {
 #define d0d0RPI_digitalWrite(pin,state) u8RPI_digitalWrites(pin,state);
 
 #define u80RPI_digitalWriteByte(value) u8RPI_digitalWriteBytes(value);
+#define d0RPI_digitalWriteByte(value) u8RPI_digitalWriteBytes(value);
 
 #ifdef  __cplusplus
 } /* extern "C" */

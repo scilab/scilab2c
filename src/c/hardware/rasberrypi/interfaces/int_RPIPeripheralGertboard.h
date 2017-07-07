@@ -21,9 +21,15 @@ extern "C" {
 #endif
 
 #define RPI_gertboardSPISetupi80() RPI_gertboardSPISetup();
+
 #define u160RPI_gertboardAnalogSetupi80(pinBase) u16RPI_gertboardAnalogSetups(pinBase);
+#define d0RPI_gertboardAnalogSetupi80(pinBase) u16RPI_gertboardAnalogSetups(pinBase);
+
 #define u160RPI_gertboardAnalogReadu160(pin) u160RPI_gertboardAnalogReads(pin);
+#define d0RPI_gertboardAnalogReadu160(pin) u160RPI_gertboardAnalogReads(pin);
+
 #define u160u160RPI_gertboardAnalogWrite(pin,value) u160RPI_gertboardAnalogWrites(pin,value);
+#define d0d0RPI_gertboardAnalogWrite(pin,value) u160RPI_gertboardAnalogWrites(pin,value);
 
 #ifdef  __cplusplus
 } /* extern "C" */
