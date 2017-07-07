@@ -82,12 +82,4 @@ double dmodsns(double uu, double emmc)
 	}
 	return sn;
 }
-/*
-int main()
-{
-	double u,k;
-	u=4;
-	k=0.7;
-	sn(u,k);
-}
-*/
+

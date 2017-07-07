@@ -16,11 +16,11 @@ uint8 gstrcspna(char *str1,int size1,char *str2,int size2)
 {
     int ind,i,j;
     
-    for(i=0;i<=size1;i++)
+    for(i=0;i<=size2;i++)
     {
-      for(j=0;j<=size2;j++)
+      for(j=0;j<=size1;j++)
       {
-        if(str2[j]==str1[i])
+        if(str2[i]==str1[j])
         {
           ind=j;
           break;

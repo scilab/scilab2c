@@ -9715,7 +9715,7 @@ ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
 
 PrintStringInfo('NIN=         3',ClassFileName,'file','y');
 PrintStringInfo('NOUT=         1',ClassFileName,'file','y');
-PrintStringInfo('OUT(1).TP=    IN(3).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    ''d''',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(1)= IN(3).SZ(1)',ClassFileName,'file','y');
 PrintStringInfo('OUT(1).SZ(2)= IN(3).SZ(2)',ClassFileName,'file','y');
 

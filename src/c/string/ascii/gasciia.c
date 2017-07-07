@@ -14,12 +14,12 @@
     into its ascii equivalent.
 */
 #include "ascii.h"
-void gasciia(char *str,int size,int* oup)
+void gasciia(char *str,int size,uint8* oup)
 {
 	int i;
   for(i=0;i<size;i++)
   {
-    *(oup+i)=(int)str[i];
+    *(oup+i)=str[i];
   }
 
 }

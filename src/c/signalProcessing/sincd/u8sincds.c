@@ -13,12 +13,11 @@
 #include<stdio.h>
 #include<math.h>
 #include "sincd.h"
-#define PI 3.14159265358979
 void u8sincds(int n,int flg,double* oup)
 {
 	double npt=4*n;
 	int sz=4*n;
-	double pas=PI/npt;
+	double pas=M_PI/npt;
 	double om[sz+1];
 	int i;
 	//om[0]=0;
@@ -69,7 +68,7 @@ void u8sincds(int n,int flg,double* oup)
 	int a;
 	for(a=0;a<=4*n;a++)
 	{
-	om[a]=om[a]-(PI/(2*n));
+	om[a]=om[a]-(M_PI/(2*n));
 	}
 	int j,k;
 	for(j=0;j<=4*n;j++)

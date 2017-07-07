@@ -14,6 +14,9 @@
 #include "modsn.h"
 #include "ell1mag.h"
 #include "doubleComplex.h"
+#include "multiplication.h"
+#include "addition.h"
+#include "division.h"
 
 void zell1maga(double eps,double m1,doubleComplex* z,int size,double* oup )
 {
@@ -31,9 +34,15 @@ void zell1maga(double eps,double m1,doubleComplex* z,int size,double* oup )
 	}
 	doubleComplex v;
 	int k;
+	double ml;
+	ml=eps*eps;
+	doubleComplex tp1,tp2,tp3;
 	for(k=0;k<size;k++)
 	{
-	v=un[k]/(un[k]+(eps*eps*s[k]*s[k]));
+	tp1=zmuls(s[k],s[k]);
+	tp2=DoubleComplex(ml,0);
+	tp3=DoubleComplex(un[k],0);
+	v=zrdivs(tp3,zadds(tp3,(zmuls(tp2,tp1))));
 	oup[k]=zreals(v);
 	}
 }
