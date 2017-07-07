@@ -129,6 +129,7 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/elementaryFunctions/includes/asecd.h"
       "src/c/elementaryFunctions/includes/asech.h"
       "src/c/elementaryFunctions/includes/isrow.h"
+      "src/c/elementaryFunctions/includes/isscalar.h"
       "src/c/elementaryFunctions/includes/iscolumn.h"
       "src/c/elementaryFunctions/includes/ismatrix.h"
       "src/c/elementaryFunctions/includes/asind.h"

@@ -100,6 +100,7 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/elementaryFunctions/interfaces/int_bitget.h"
       "src/c/elementaryFunctions/interfaces/int_linspace.h"
       "src/c/elementaryFunctions/interfaces/int_isrow.h"
+      "src/c/elementaryFunctions/interfaces/int_isscalar.h"
       "src/c/elementaryFunctions/interfaces/int_iscolumn.h"
       "src/c/elementaryFunctions/interfaces/int_ismatrix.h"
       "src/c/elementaryFunctions/interfaces/int_logspace.h"
