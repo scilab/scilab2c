@@ -1,0 +1,4 @@
+CV_LoadImage
+CV_SaveImage
+CV_ShowImage
+CV_WaitKey
