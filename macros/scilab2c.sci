@@ -57,7 +57,7 @@ function scilab2c(varargin)
     RunMode = "All";
     BuildTool = getNativeBuildTool();
     Target = "StandAlone"
-    //Board_name = "uno"
+    Board_name = "uno"
 	//
 // scilab2c(UserScilabMainFile, CCodeOutputDir, UserSciFilesPaths, RunMode)
 //

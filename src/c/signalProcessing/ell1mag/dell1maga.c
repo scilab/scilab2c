@@ -21,7 +21,7 @@ void dell1maga(double eps,double m1,double* z,int size,double* oup )
 	int i;
 	for(i=0;i<size;i++)
 	{
-	s[i]=zmodsns(z[i],m1);
+	s[i]=dmodsns(z[i],m1);
 	}
 	double un[size];
 	int j;

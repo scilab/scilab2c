@@ -16,6 +16,10 @@ subdemolist = ["Trigonometric Identity" , "TrigonometricIdentity.dem.sce";
               "Linear Regression" , "LinearRegression.dem.sce";
               "Symbols", "Symbols.dem.sce";
                "High Pass Filter", "Filter.dem.sce";
+		"Jacobi functions","Jacobi.dem.sce";
+		"Analog Filters","analogFilter.dem.sce";
+		"String Functions","string.dem.sce";
+		"Filter Responses","FilterResponse.dem.sce";
               ];
 
 subdemolist(:,2) = demopath + subdemolist(:,2);

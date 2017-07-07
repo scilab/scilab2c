@@ -1,3 +1,14 @@
+/* Copyright (C) 2017 - IIT Bombay - FOSSEE
+
+ This file must be used under the terms of the CeCILL.
+ This source file is licensed as described in the file COPYING, which
+ you should have received as part of this distribution.  The terms
+ are also available at
+ http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+ Author: Ankit Raj
+ Organization: FOSSEE, IIT Bombay
+ Email: toolbox@scilab.in
+ */
 #include<stdio.h>
 #include<math.h>
 #include "modk.h"
@@ -10,7 +21,6 @@ double max_calc(double* ptr,int sz)
 	    ptr[0]=-1*ptr[0];
 	}
 	mx=(ptr[0]);
-	//printf("%lf\n",mx);
 	for(i=1;i<sz;i++)
 	{
 	if(ptr[i]<0)
@@ -47,10 +57,7 @@ void dmodka(double* inp,int size,double* oup)
 	c[l]=sqrt(inp[l]);
 	
 	}
-	int x=0;
-	//double maxi;
-	//maxi=max_calc(c,size);
-	//printf("%lf",maxi);
+	int x=0;	
 	
 	while(max_calc(c,size)>eps)
 	{
@@ -88,10 +95,4 @@ void dmodka(double* inp,int size,double* oup)
 	}
 	
 }
-/*
-int main()
-{
-	double m[3]={0.1,0.2,0.3};
-	dka(m,3);
-}
-*/
+

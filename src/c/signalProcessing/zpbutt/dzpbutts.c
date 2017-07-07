@@ -12,6 +12,7 @@
 #include<stdio.h>
 #include<math.h>
 #include "zpbutt.h"
+#include "doubleComplex.h"
 #define PI 3.14159265
 double dzpbutts(double n,double fl,doubleComplex* out)
 {
