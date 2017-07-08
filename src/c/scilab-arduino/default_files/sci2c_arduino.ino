@@ -11,13 +11,8 @@
 */
 
 #include "Arduino.h"
-<<<<<<< HEAD
 #include <loop_arduino.h>
 #include <setup_arduino.h>
-=======
-#include "loop_arduino.h"
-#include "setup_arduino.h"
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 
 void setup()
 {

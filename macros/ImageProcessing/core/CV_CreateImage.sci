@@ -17,7 +17,6 @@ function img = CV_CreateImage(width,height,bit_depth,no_of_channels)
 //
 // Parameters
 //     image_size: width and height of image
-<<<<<<< HEAD
 //     bit_depth: Bit depth of image elements
 //     no_of_channels: no of channels per pixels
 //
@@ -36,27 +35,5 @@ function img = CV_CreateImage(width,height,bit_depth,no_of_channels)
 //
 
 img = 0;
-=======
-//	   bit_depth: Bit depth of image elements
-//	   no_of_channels: no of channels per pixels
-//
-// Description
-//		This function can be used to create opencv image object. For more info
-//	    about bit depth and channels,please refer to OpenCV documentation 
-// Examples
-//		CV_CreateImage([320 240], "IPL_DEPTH_8U", 1)	//to create image of the size 320*240
-//		pixels with 8 bit unsigned each pixels and gray scale image  
-//
-// See also
-//     CV_LoadImage
-//
-//
-// Authors
-//     Siddhesh Wani
-//
-img = 0;
-// This is curretly dummy function. It provides no functionality but is required 
-// for providing support for generating C code for OpenCV
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 
 endfunction

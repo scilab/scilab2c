@@ -53,17 +53,10 @@ disp(RunSci2CMainDir);
 [FileInfoDatFile,SharedInfoDatFile] = INIT_SCI2C(UserScilabMainFile, ...
 						 UserSciFilesPaths, SCI2COutputPath, RunMode, Target,Board_name);
 
-<<<<<<< HEAD
 
 // -- Load FileInfo and SharedInfo
 load(SharedInfoDatFile,'SharedInfo');
 load(FileInfoDatFile,'FileInfo');
-=======
-// -- Load FileInfo and SharedInfo
-load(SharedInfoDatFile,'SharedInfo');
-load(FileInfoDatFile,'FileInfo');
-
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 RunMode = SharedInfo.RunMode;
 
 // --- Generation of the library structure. ---
@@ -98,11 +91,7 @@ load(SharedInfoDatFile,'SharedInfo');
 // ---------------------------
 
 global SCI2CHOME
-<<<<<<< HEAD
 allSources = SCI2CHOME + "/" + getAllSources(SharedInfo);
-=======
-allSources = SCI2CHOME + "/" + getAllSources(SharedInfo, BuildTool);
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 allHeaders = SCI2CHOME + "/" +getAllHeaders(SharedInfo);
 allInterfaces = SCI2CHOME + "/" + getAllInterfaces(SharedInfo);
 if(~isempty(getAllLibraries(SharedInfo)))
@@ -111,14 +100,7 @@ else
   allLibraries = ''
 end
 //allLibraries = SCI2CHOME + "/" + getAllLibraries(Target);
-<<<<<<< HEAD
 
-=======
-if (Target == 'Arduino')
-    mkdir(SCI2COutputPath+"/arduino/");
-    mkdir(SCI2COutputPath+"/arduino/sci2c_arduino");
-end
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 mkdir(SCI2COutputPath+"/src/");
 mkdir(SCI2COutputPath+"/src/c/");
 mkdir(SCI2COutputPath+"/includes/");
@@ -135,27 +117,11 @@ for i = 1:size(allSources, "*")
   if(~isempty(strstr(allSources(i),'dode')))
     if(size(SharedInfo.Includelist) <> 0)
         if((mtlb_strcmp(part(SharedInfo.Includelist(1),1:5),'odefn') == %T))
-<<<<<<< HEAD
           copyfile(allSources(i), SCI2COutputPath+"/src/c/");
         end
     end
   else
     copyfile(allSources(i), SCI2COutputPath+"/src/c/");      
-=======
-          if BuildTool == "nmake"
-            copyfile(allSources(i), SCI2COutputPath+"/arduino/sci2c_arduino/");
-          else
-            copyfile(allSources(i), SCI2COutputPath+"/src/c/");
-          end
-        end
-    end
-  else
-          if BuildTool == "nmake"
-             copyfile(allSources(i), SCI2COutputPath+"/arduino/sci2c_arduino/");
-          else
-             copyfile(allSources(i), SCI2COutputPath+"/src/c/");
-          end
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
   end
 end
 
@@ -164,15 +130,7 @@ PrintStepInfo('Copying headers', FileInfo.GeneralReport,'both');
 for i = 1:size(allHeaders, "*")
   // DEBUG only
   //disp("Copying "+allHeaders(i)+" in "+SCI2COutputPath+"/includes/");
-<<<<<<< HEAD
   copyfile(allHeaders(i), SCI2COutputPath+"/includes/");
-=======
-	if BuildTool == "nmake"
-          copyfile(allHeaders(i), SCI2COutputPath+"/arduino/sci2c_arduino/");
-        else
-          copyfile(allHeaders(i), SCI2COutputPath+"/includes/");
-	end
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 end
 
 // -- Interfaces
@@ -180,15 +138,7 @@ PrintStepInfo('Copying interfaces', FileInfo.GeneralReport,'both');
 for i = 1:size(allInterfaces, "*")
   // DEBUG only
   //disp("Copying "+allInterfaces(i)+" in "+SCI2COutputPath+"/interfaces/");
-<<<<<<< HEAD
   copyfile(allInterfaces(i), SCI2COutputPath+"/interfaces/");
-=======
-  if BuildTool == "nmake"
-          copyfile(allInterfaces(i), SCI2COutputPath+"/arduino/sci2c_arduino/");
-  else
-  	  copyfile(allInterfaces(i), SCI2COutputPath+"/interfaces/");
-  end
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 end
 
 // -- Libraries
@@ -215,11 +165,8 @@ end
 if (Target == 'Arduino')
 
    GenerateSetupFunction(FileInfo);
-<<<<<<< HEAD
    mkdir(SCI2COutputPath+"/arduino/");
    mkdir(SCI2COutputPath+"/arduino/sci2c_arduino");
-=======
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
    //Copy arduino makefile
    arduinoFiles = SCI2CHOME + "/" + getArduinoFiles();
    PrintStepInfo('Copying arduino files', FileInfo.GeneralReport,'both');
@@ -245,15 +192,6 @@ else
       C_GenerateMakefile_msvc(FileInfo,SharedInfo);
    end
 end
-<<<<<<< HEAD
-=======
-if BuildTool == "nmake" & Target == 'Arduino'
-   movefile(SCI2COutputPath +"/setup_arduino.h", SCI2COutputPath+"/arduino/sci2c_arduino/");
-   movefile(SCI2COutputPath +"/setup_arduino.cpp", SCI2COutputPath+"/arduino/sci2c_arduino/");
-   movefile(SCI2COutputPath +"/loop_arduino.cpp", SCI2COutputPath+"/arduino/sci2c_arduino/");
-   movefile(SCI2COutputPath +"/loop_arduino.h", SCI2COutputPath+"/arduino/sci2c_arduino/");
-end
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 
 
 

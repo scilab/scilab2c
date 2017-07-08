@@ -45,10 +45,7 @@ if SCI2Cfileexist(FileInfo.USER2CLibCAnnFun,tmpannfilename)
    // #RNU_RES_B
    // It is a C function of the USER2C library.
    // #RNU_RES_E
-<<<<<<< HEAD
    PrintStringInfo('cUser2c',ReportFileName,'file','y');
-=======
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
    FlagFoundAnnFile   = 1;
    AnnFileName        = fullfile(FileInfo.USER2CLibCAnnFun,tmpannfilename);
    SCI2CClassName     = FL_GetFunctionClass(AnnFileName,SCI2CClassSpecifier,ReportFileName);
@@ -57,10 +54,7 @@ elseif SCI2Cfileexist(FileInfo.USER2CLibSCIAnnFun,tmpannfilename)
    // #RNU_RES_B
    // It is a scilab function of the USER2C library.
    // #RNU_RES_E
-<<<<<<< HEAD
    PrintStringInfo('fUser2c',ReportFileName,'file','y');
-=======
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
    FlagFoundAnnFile   = 1;
    AnnFileName        = fullfile(FileInfo.USER2CLibSCIAnnFun,tmpannfilename);
    SCI2CClassName     = FL_GetFunctionClass(AnnFileName,SCI2CClassSpecifier,ReportFileName);
@@ -69,10 +63,7 @@ elseif (SCI2Cfileexist(FileInfo.SCI2CLibCAnnFun,tmpannfilename))
    // #RNU_RES_B
    // It is a C function of the SCI2C library.
    // #RNU_RES_E
-<<<<<<< HEAD
    PrintStringInfo('csci2c',ReportFileName,'file','y');
-=======
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
    FlagFoundAnnFile   = 1;
    AnnFileName        = fullfile(FileInfo.SCI2CLibCAnnFun,tmpannfilename);
    SCI2CClassName     = FL_GetFunctionClass(AnnFileName,SCI2CClassSpecifier,ReportFileName);
@@ -81,10 +72,7 @@ elseif (SCI2Cfileexist(FileInfo.SCI2CLibSCIAnnFun,tmpannfilename))
    // #RNU_RES_B
    // It is a scilab function of the SCI2C library.
    // #RNU_RES_E
-<<<<<<< HEAD
    PrintStringInfo('fsci2c',ReportFileName,'file','y');
-=======
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
    FlagFoundAnnFile   = 1;
    AnnFileName        = fullfile(FileInfo.SCI2CLibSCIAnnFun,tmpannfilename);
    SCI2CClassName     = FL_GetFunctionClass(AnnFileName,SCI2CClassSpecifier,ReportFileName);

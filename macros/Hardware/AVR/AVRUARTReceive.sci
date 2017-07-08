@@ -10,25 +10,16 @@
 
 function received = AVRUARTReceive()
 // Function to Receive Char value send to ATmega16 using UART or USART.
-<<<<<<< HEAD
 //
-=======
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 // Description
 //        This function Receives Char as 8 bit value.This value is stored in UDR at receiving       
 //        end.
 //
-<<<<<<< HEAD
 //  This is curretly dummy function. It provides no functionality but is required 
 //  for providing support for generating C code for AVR.
 //
 //Examples
 //    state = AVRUARTReceive(); //This function will Receive char and return the entire value            
-=======
-//Examples
-//    state = AVRUARTReceive(); //This function will Receive char and return the entire value
-//                               
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 //See also
 //     AVRUARTSetup
 //     AVRUARTTransmit
@@ -36,10 +27,5 @@ function received = AVRUARTReceive()
 // Authors
 //     Ashish Kamble
 //
-<<<<<<< HEAD
-=======
-// This is curretly dummy function. It provides no functionality but is required 
-// for providing support for generating C code for AVR.
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 received = 0; // received has been initialised to avoid runtime error.
 endfunction

@@ -186,7 +186,6 @@ extern int dggbal_(char*,int*,double*,int*,double*,int*,int*,int*,double*, \
 			double*,double*,int*);
 extern int dgebak_(char*,char*,int*,int*,int*,double*,int*,double*,int*,int*);
 
-<<<<<<< HEAD
 /*Used in SVD */
 extern double dgesvd_(char*,char*,int*,int*,double*,int*,double*,double*,int*,\
 	double*,int*,double *,int*,int*);

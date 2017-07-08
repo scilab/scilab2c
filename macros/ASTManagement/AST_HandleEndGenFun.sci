@@ -1,7 +1,4 @@
-
 function [disp_isthere,FileInfo,SharedInfo] = AST_HandleEndGenFun(disp_isthere,FileInfo,SharedInfo,ASTFunType)
-function [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,ASTFunType)
-
 // function [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,ASTFunType)
 // -----------------------------------------------------------------
 // #RNU_RES_B
@@ -40,7 +37,6 @@ function [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,ASTFunT
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-
 SCI2CNInArgCheck(argn(2),4,4);
 
 // -----------------------
@@ -93,11 +89,6 @@ NOutArg_mod = NOutArg
 		disp_isthere = 1;
 	end
 
-if (ASTFunType=='Funcall')
-SharedInfo.Function_list(SharedInfo.Function_list_index) =  ASTFunName;
-SharedInfo.Function_list_index = SharedInfo.Function_list_index + 1; 
-end
-NOutArg_mod = NOutArg
 	if(mtlb_strcmp(part(ASTFunName,1:2),'CV') == %T)
 		SharedInfo.OpenCVUsed = %T;
 	end
@@ -373,10 +364,6 @@ NOutArg_mod = NOutArg
 		PrintStringInfo('   returning back due logical function',ReportFileName,'file','y');
 		return;
 	   end
-
-	else
-	   [OutArg,SharedInfo] = GenOutArgNames(ASTFunName,InArg,NInArg,OutArg,NOutArg,LhsArg,NLhsArg,FileInfo,SharedInfo);
-
 	end
 	
 	if ((ASTFunName == 'uint8') & (NInArg == 1) & (InArg(1).Dimension == 0) & (InArg(1).Scope == 'Number'))
@@ -481,14 +468,6 @@ NOutArg_mod = NOutArg
   	//#RNU_RES_B
 	PrintStringInfo('   C Function Name: '+CFunName,ReportFileName,'file','y');
 	if(IsArduinoFunction(ASTFunName))
-
-	CFunName = C_GenerateFunName(ASTFunName,InArg,NInArg,OutArg,NOutArg_mod);
-    
-  	//#RNU_RES_B
-	PrintStringInfo('   C Function Name: '+CFunName,ReportFileName,'file','y');
-	if(IsArduinoFunction(ASTFunName))
-		//disp(ASTFunName)
-
 		if(IsArduinoSetupFunction(ASTFunName))
 			//If current function is an arduino setup function (like 'dc_motor_setup'), it 	
 			//should not be converted and inserted here. It is inserted in a list now and

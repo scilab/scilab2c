@@ -31,10 +31,6 @@ ArduinoFunctions = [
             "cmd_servo_attach"
             "cmd_servo_detach"
             "cmd_servo_move"
-<<<<<<< HEAD
 	    "i2c_dev"];
-=======
-	    "cmd_i2c_dev"];
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 
 endfunction

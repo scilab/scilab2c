@@ -44,24 +44,6 @@ struct  float_complex
 typedef struct float_complex floatComplex;
 /*
 ** }
-<<<<<<< HEAD
-=======
-*/
-#elif defined(ARDUINO)
-/*
-** Hand made Float Complex definition
-** {
-*/
-struct  float_complex
-{
-  float real;
-  float imag;
-};
-
-typedef struct float_complex floatComplex;
-/*
-** }
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 */
 #else
 /*

@@ -21,10 +21,7 @@ AST_ExtractNameAndScope
 AST_GetASTFile
 AST_GetFuncallPrm
 AST_GetPrecAndLhsArg
-<<<<<<< HEAD
 AST_HandleCC
-=======
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 AST_HandleEOL
 AST_HandleEndFor
 AST_HandleEndGenFun
@@ -32,7 +29,6 @@ AST_HandleEndProgram
 AST_HandleEndWhile
 AST_HandleFor
 AST_HandleForStatem
-<<<<<<< HEAD
 AST_HandleFunCC
 AST_HandleFunRC
 AST_HandleFuncArray
@@ -40,10 +36,6 @@ AST_HandleFuncArray2D
 AST_HandleHeader
 AST_HandleIfElse
 AST_HandleRC
-=======
-AST_HandleHeader
-AST_HandleIfElse
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 AST_HandleWhileExpr
 AST_HandleWhileStatem
 AST_ParseEqualStruct

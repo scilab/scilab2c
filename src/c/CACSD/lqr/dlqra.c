@@ -22,12 +22,8 @@
 #include "schur.h"
 #include "matrixDivision.h" 
 
-<<<<<<< HEAD
 void dlqra(double* sys, int sys_rows, int sys_cols, double* Q, double* R, \
             double* S, double* K, double* X)
-=======
-void dlqra(double* sys, int sys_rows, int sys_cols, double* X, double* K)
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 {
     int no_of_states, no_of_inputs, no_of_outputs, dom = 1;
     int row,col;
@@ -37,11 +33,7 @@ void dlqra(double* sys, int sys_rows, int sys_cols, double* X, double* K)
 
     double *A, *B, *C, *D;
     double *B_t, *C_t, *D_t;
-<<<<<<< HEAD
     //double *Q, *R, *S;
-=======
-    double *Q, *R, *S;
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
     double *Ri, *LA, *LE;
     double *BRi, *StRi, *S_t;
     double *buf1, *buf2, *buf3, *buf4, *buf5, *buf6;
@@ -99,18 +91,10 @@ void dlqra(double* sys, int sys_rows, int sys_cols, double* X, double* K)
 
     dom = (int)sys[(sys_rows*(sys_cols-2)) + no_of_states];
 
-<<<<<<< HEAD
-=======
-    Q = (double*) malloc (no_of_states*no_of_states*sizeof(double));
-    R = (double*) malloc (no_of_inputs*no_of_inputs*sizeof(double));
-    S = (double*) malloc (no_of_inputs*no_of_states*sizeof(double));
-
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
     dtransposea(B,no_of_states,no_of_inputs,B_t);
     dtransposea(C,no_of_outputs,no_of_states,C_t);
     dtransposea(D,no_of_outputs,no_of_inputs,D_t);
 
-<<<<<<< HEAD
     if(Q == NULL)
     {/*If Q is not provided*/
         Q = (double*) malloc (no_of_states*no_of_states*sizeof(double));
@@ -130,14 +114,6 @@ void dlqra(double* sys, int sys_rows, int sys_cols, double* X, double* K)
     }
 
     /*Free up unwanted variables*/
-=======
-    dmulma(C_t,no_of_states,no_of_outputs,C,no_of_outputs,no_of_states,Q);
-    dmulma(D_t,no_of_inputs,no_of_outputs,D,no_of_outputs,no_of_inputs,R);
-    dmulma(D_t,no_of_inputs,no_of_outputs,C,no_of_outputs,no_of_states,S);
-
-    /*Free up unwanted variables*/
-
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
     free(C);
     free(C_t);
     free(D);
@@ -211,13 +187,8 @@ void dlqra(double* sys, int sys_rows, int sys_cols, double* X, double* K)
 
         /*Freeup umwanted variables*/
         free(A);    
-<<<<<<< HEAD
         //free(Q);
         //free(R);
-=======
-        free(Q);
-        free(R);
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
         free(BRi);
         free(S_t);
         free(StRi);
@@ -317,11 +288,7 @@ void dlqra(double* sys, int sys_rows, int sys_cols, double* X, double* K)
         }
 
 
-<<<<<<< HEAD
         //free(Q);
-=======
-        free(Q);
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
         free(BRi);
         free(S_t);
         free(StRi);
@@ -359,11 +326,7 @@ void dlqra(double* sys, int sys_rows, int sys_cols, double* X, double* K)
 
          /*inv(B'XB+R)*/
         dmulma(B_t,no_of_inputs,no_of_states,X,no_of_states,no_of_states,buf3);
-<<<<<<< HEAD
         dmulma(buf3,no_of_inputs,no_of_states,B,no_of_states,no_of_inputs,buf6);
-=======
-        dmulma(buf3,no_of_inputs,no_of_states,B_t,no_of_states,no_of_inputs,buf6);
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
         dadda(buf6,no_of_inputs*no_of_inputs,R,no_of_inputs*no_of_inputs,buf5);
         dinverma(buf5,buf6,no_of_inputs);
         /*B'XA+S*/
@@ -380,22 +343,14 @@ void dlqra(double* sys, int sys_rows, int sys_cols, double* X, double* K)
 
         free(A);
         free(B);
-<<<<<<< HEAD
         //free(R);
-=======
-        free(R);
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
         free(buf5);
         free(buf6);
         
     }
 
     free(B_t);
-<<<<<<< HEAD
     //free(S);
-=======
-    free(S);
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
     free(wsmall);
     free(X12);
     free(phi12);

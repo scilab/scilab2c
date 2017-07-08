@@ -10,8 +10,4 @@ function txt=%operation_string(O)
        '   Operator: '+O.operator
        'EndOperation'
       ]
-<<<<<<< HEAD
 endfunction
-=======
-endfunction
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0

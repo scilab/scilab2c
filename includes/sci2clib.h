@@ -18,7 +18,6 @@ extern "C" {
 /* interfacing lapack */
 #include "lapack.h"
 
-<<<<<<< HEAD
 
 #include "sva.h"
 #include "int_sva.h"
@@ -28,8 +27,6 @@ extern "C" {
 #include "int_svd.h"
 
 
-=======
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 /* AUXILIARY FUNCTIONS */
 
 /* interfacing abs */
@@ -77,7 +74,6 @@ extern "C" {
 #include "rand.h"
 #include "int_rand.h"
 
-<<<<<<< HEAD
 /* INTERPOLATION FUNCTIONS*/
 
 /*interfacing interp1*/
@@ -94,10 +90,6 @@ extern "C" {
 /* interfacing isreal*/
 #include "isreal.h"
 #include "int_isreal.h"
-=======
-/* ELEMENTARY FUNCTIONS */
-
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 /* interfacing atand */
 #include "atand.h"
 #include "int_atand.h"
@@ -220,15 +212,12 @@ extern "C" {
 /* interfacing int16 */
 #include "int16.h"
 #include "int_int16.h"
-<<<<<<< HEAD
 /* interfacing uint32 */
 #include "uint32.h"
 #include "int_uint32.h"
 /* interfacing int32 */
 #include "int32.h"
 #include "int_int32.h"
-=======
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 
 /*interfacing bitand */
 #include "bitand.h"
@@ -344,7 +333,6 @@ extern "C" {
 #include "factor.h"
 #include "int_factor.h"
 
-<<<<<<< HEAD
 /*interfacing gcd*/
 #include "gcd.h"
 #include "int_gcd.h"
@@ -354,8 +342,6 @@ extern "C" {
 #include "int_lcm.h"
 
 
-=======
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 /* IMPLICIT LISTS */
 /* interfacing implicitList/OpColon */
 #include "implicitList.h"
@@ -425,11 +411,7 @@ extern "C" {
 /* interfacing ones */
 #include "ones.h"
 #include "int_ones.h"
-<<<<<<< HEAD
 /* Linear Algebra - spec */
-=======
-/* interfacing spec */
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 #include "spec.h"
 #include "int_spec.h"
 /* interfacing trace */
@@ -473,7 +455,6 @@ extern "C" {
 
 
 /* SIGNAL PROCESSING */
-<<<<<<< HEAD
 
 
 #include "modk.h"
@@ -486,8 +467,6 @@ extern "C" {
 //#include "dct.h"
 //#include "int_dct.h"
 
-=======
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 /* interfacing convol */
 #include "conv.h"
 #include "conv2d.h"
@@ -507,7 +486,6 @@ extern "C" {
 #include "lev.h"
 #include "int_lev.h"
 
-<<<<<<< HEAD
 /* interfacing zpbutt */
 #include "zpbutt.h"
 #include "int_zpbutt.h"
@@ -567,9 +545,6 @@ extern "C" {
 /* interfacing amell */
 #include "amell.h"
 #include "int_amell.h"
-=======
-
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 
 /* STATISTICS FUNCTIONS */
 
@@ -638,7 +613,6 @@ extern "C" {
 #include "strrchr.h"
 #include "int_strrchr.h"
 
-<<<<<<< HEAD
 /*interfacing strchr*/
 #include "strchr.h"
 #include "int_strchr.h"
@@ -659,8 +633,6 @@ extern "C" {
 #include "strncpy.h"
 #include "int_strncpy.h"
 
-=======
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 /*Functions related to strings*/
 #include "convstr.h"
 #include "int_convstr.h"
@@ -684,7 +656,6 @@ extern "C" {
 #include "balanc.h"
 #include "int_balanc.h"	
 
-<<<<<<< HEAD
 #include "svd.h"		/*Linear Alegbra - Singular value decompostion */
 #include "int_svd.h"
 
@@ -813,20 +784,6 @@ extern "C" {
 #include "int_RPIPeripheralSoft.h"
 #include "RPIPeripheralTiming.h"
 #include "int_RPIPeripheralTiming.h"
-=======
-#include "int_RPIPeripheralDigital.h"
-#include "RPIPeripheralDigital.h"
-#include "int_RPIPeripheralTiming.h"
-#include "RPIPeripheralTiming.h"
-#include "int_RPIPeripheralSerial.h"
-#include "RPIPeripheralSerial.h"
-#include "int_RPIPeripheralThreading.h"
-#include "RPIPeripheralThreading.h"
-#include "int_RPIPeripheralPinISR.h"
-#include "RPIPeripheralPinISR.h"
-#include "int_RPIPeripheralPWM.h"
-#include "RPIPeripheralPWM.h"
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 #endif
 
 #ifdef __cplusplus

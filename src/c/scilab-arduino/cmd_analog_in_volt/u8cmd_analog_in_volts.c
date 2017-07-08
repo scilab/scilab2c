@@ -15,13 +15,8 @@
 
 float u8cmd_analog_in_volts(uint8 board_no, uint8 pin)
 {
-<<<<<<< HEAD
     float a;
     a = ((5*(float)analogRead(pin))/1023);
-=======
-    float a;					//declaration of variable
-    a = ((5*(float)analogRead(pin))/1023);	//recieved 10 bit input from analog pin is convert to voltage(0 - 50
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
     return(a);
 }
 

@@ -15,7 +15,6 @@
 
 void u8cmd_dcmotor_releases(uint8 board_no, uint8 motor_no)
 {
-<<<<<<< HEAD
 	if (dcm_mode[motor_no] == 3)
 	{
 		analogWrite(dcm_pin_1[motor_no],0);
@@ -26,17 +25,5 @@ void u8cmd_dcmotor_releases(uint8 board_no, uint8 motor_no)
 	{
 		digitalWrite(dcm_pin_1[motor_no],LOW);
 		digitalWrite(dcm_pin_2[motor_no],LOW);
-=======
-	if (dcm_mode[motor_no] == 3)						//for IC accepting analog value
-	{
-		analogWrite(dcm_pin_1[motor_no],0);				//passing LOW to IC pins to stop the motor
-		analogWrite(dcm_pin_2[motor_no],0);
-	}
-
-	else 									//for IC accepting digital value
-	{
-		digitalWrite(dcm_pin_1[motor_no],LOW);
-		digitalWrite(dcm_pin_2[motor_no],LOW);				//passing LOW to IC pins to stop the motor
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 	}
 }

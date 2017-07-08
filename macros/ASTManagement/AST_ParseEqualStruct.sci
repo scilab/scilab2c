@@ -123,11 +123,7 @@ end
 // ------------------------
 //#RNU_RES_B
 PrintStringInfo('Function Name: '+FunctionName,ReportFileName,'file','y','n');
-<<<<<<< HEAD
 PrintStringInfo('N Input Arguments: '+string(NInArg),ReportFileName,'file','y','n');
-=======
-PrintStringInfo('N Intput Arguments: '+string(NInArg),ReportFileName,'file','y','n');
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 //#RNU_RES_E
 if (SharedInfo.Equal.Nins > 0)
    //#RNU_RES_B

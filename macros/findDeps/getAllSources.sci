@@ -1448,24 +1448,10 @@ function allSources = getAllSources(SharedInfo)
       "src/c/imageProcessing/cvimgproc/imcvCanny.cpp"
       "src/c/imageProcessing/cvimgproc/imcvCornerHarris.cpp"];
 
-
   if Target == "StandAlone"
   allSources = Standalone_files;
   elseif Target == "Arduino"
   allSources = cat(1,Standalone_files, Arduino_files);
-
-  if Target == "Arduino" & BuildTool == "nmake"
-    Required_addrs = get_rquird_fnctns(Standalone_files,Arduino_files,SharedInfo);
-  end
-
-  if Target == "StandAlone"
-  allSources = Standalone_files;
-  elseif Target == "Arduino"
-  	if BuildTool == "nmake"
-   	 	allSources = Required_addrs;
-        else
-                allSources = cat(1,Standalone_files, Arduino_files);
-        end
   elseif Target == "AVR"
   allSources = cat(1,Standalone_files, AVR_files);
   elseif Target == "RPi"

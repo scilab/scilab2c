@@ -15,7 +15,6 @@ function dstimg = CV_DistanceTransform(srcimg,distance_type,mask_size)
 //     dst = CV_DistanceTransform(srcimg,distance_type,mask_size)
 //
 // Parameters
-<<<<<<< HEAD
 //     	srcimg : Source 8-bit single-channel image.
 //	distance_type : Type of distance. It can be CV_DIST_L1, CV_DIST_L2 , or CV_DIST_C
 //	mask_size : Size of the distance transform mask
@@ -29,33 +28,13 @@ function dstimg = CV_DistanceTransform(srcimg,distance_type,mask_size)
 // Examples
 //	img = CV_LoadImage('~/test.jpg',0)
 //	dst = CV_DistanceTransform(img,"CV_DIST_L1",3)
-=======
-//     	srcimg -> Source 8-bit single-channel image.
-//		distance_type -> Type of distance. It can be 
-//							CV_DIST_L1, CV_DIST_L2 , or CV_DIST_C
-//		mask_size -> Size of the distance transform mask
-// Description
-//		This function can be used to calculate distance to closest zero 
-//		pixel for each pixel of the source image. Output is 32 bit floating
-//		point, single channel image of the same size as that of source image.
-// Examples
-//		img = CV_LoadImage('~/test.jpg',0)
-//		dst = CV_DistanceTransform(img,"CV_DIST_L1",3)
-//
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 // See also
 //     CV_LoadImage CV_CreateImage CV_CvtColor
 //
 // Authors
 //     Siddhesh Wani
 //
-<<<<<<< HEAD
 
 dstimg = 0
-=======
-dstimg = 0
-// This is curretly dummy function. It provides no functionality but is required 
-// for providing support for generating C code for OpenCV
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 
 endfunction

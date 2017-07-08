@@ -15,11 +15,7 @@ function AVRDigitalPortSetup(port,direction)
 //     AVRDigitalPortSetup(port,direction)
 //
 // Parameters
-<<<<<<< HEAD
 //     port      : port of microcontroller to be used(1 for PORTA, 2 for PORTB,...)
-=======
-//     port : port of microcontroller to be used(1 for PORTA, 2 for PORTB,...)
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 //     direction : direction to be set for pin (0 for INPUT, 1 for OUTPUT)
 //
 // Description
@@ -29,31 +25,19 @@ function AVRDigitalPortSetup(port,direction)
 //     used as digital output/input. Also, desired direction must be specified as 
 //     'INPUT' or 'OUTPUT'.     
 //
-<<<<<<< HEAD
 // This is curretly dummy function. It provides no functionality but is required 
 // for providing support for generating C code for AVR.
 //
-=======
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 // Examples
 //     AVRDigitalPortSetup(1,0); //This function will make PortA as input port
 //
 // See also
 //     AVRDigitalIn AVRDigitalOut
 //
-<<<<<<< HEAD
 // Authors
 //     Siddhesh Wani
 //     Ashish Kamble
 //
-=======
-//
-// Authors
-//     Siddhesh Wani Ashish Kamble
-//
-// This is curretly dummy function. It provides no functionality but is required 
-// for providing support for generating C code for AVR.
->>>>>>> 9e5793a7b05b23e6044a6d7a9ddd5db39ba375f0
 
 if((port==0)|(port>=5)) then 
 disp("Error : Invalid input argument ''port'' in AVRDigitalPortSetup function.");
