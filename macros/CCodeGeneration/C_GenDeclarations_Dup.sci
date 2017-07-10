@@ -11,6 +11,10 @@ function Cdeclaration = C_GenDeclarations_Dup(InArg,NInArg,com_type,ArgStruct,CD
 //
 // Status:
 // 27-Oct-2007 -- Raffaele Nutricato: Author.
+//
+// 25-June-2017 -- Ukasha Noor: Modified it.
+// This function is called for array declaration in C.
+//
 // 10-Jun-2008 -- Raffaele Nutricato: adapted to work with realloc function.
 //
 // Copyright 2007 Raffaele Nutricato.
@@ -84,6 +88,9 @@ if (ArgStruct.Dimension > 0)
       computedSize = computedSize + ' * ' + ArgStruct.Size(sizeIterator);
       computedSizeField = computedSizeField + ', ' + ArgStruct.Size(sizeIterator);
     end
+// Modified Changes: row tells number of rows and col is number of columns in array.
+// col_type tells whether it is floatComplex or doubleComplex or real.
+// and accordingly it declares the array.
     Cdeclaration(1) = Cdeclaration(1)+C_Type(ArgStruct.Type)+' '+ArgStruct.Name+'['+computedSize+']={';
     row = eval(ArgStruct.Size(1))
     col = eval(ArgStruct.Size(2))

@@ -8,10 +8,13 @@
 // Author: Ukasha Noor
 // Organization: FOSSEE, IIT Bombay
 // Email: toolbox@scilab.in
+// This function is used for 1D array declaration.
+// Checks the input and output argumnets and put them in respective variables.
+// Then calls the function to generate the C code for 1D array declaration.
 
-function [FileInfo,SharedInfo] = AST_HandleFunRC(FileInfo,SharedInfo)
+function [FileInfo,SharedInfo] = AST_HandleFunRC(FName,FileInfo,SharedInfo)
 
-SCI2CNInArgCheck(argn(2),2,2)
+SCI2CNInArgCheck(argn(2),3,3)
 
 // ------------------------------
 // --- Check input arguments. ---
@@ -142,30 +145,56 @@ for i = 1:NInArg
 end
 	
 
-if com_type == 0
-	PrintStringInfo('   Generating Out Arg names.',ReportFileName,'file','y');
-	OutArg(1).Type      = InArg(1).Type;
-	OutArg(1).Size(1)   = '1'
-	OutArg(1).Size(2)   = string(size_count);
-	OutArg(1).Dimension = 2;
-	OutArg(1).Value     = InArg(1).Value;
-	OutArg(1).FindLike  = InArg(1).FindLike;
-elseif com_type == 1
-	PrintStringInfo('   Generating Out Arg names.',ReportFileName,'file','y');
-	OutArg(1).Type      = 'z';
-	OutArg(1).Size(1)   = '1'
-	OutArg(1).Size(2)   = string(size_count);
-	OutArg(1).Dimension = 2;
-	OutArg(1).Value     = InArg(1).Value;
-	OutArg(1).FindLike  = InArg(1).FindLike;
+if FName <> null
+		PrintStringInfo('   Generating Out Arg names.',ReportFileName,'file','y');
+		if FName == 'float'
+			OutArg(1).Type      = 's';
+		elseif FName == 'uint8'
+			OutArg(1).Type      = 'u8';
+		elseif FName == 'int16'
+			OutArg(1).Type      = 'i16';
+		elseif FName == 'uint16'
+			OutArg(1).Type      = 'u16';
+		elseif FName == 'int8'
+			OutArg(1).Type      = 'i8';
+		elseif FName == 'uint32'
+			OutArg(1).Type      = 'u32';
+		elseif FName == 'int32'
+			OutArg(1).Type      = 'i32';
+		else
+			OutArg(1).Type      = 'd';
+		end
+		OutArg(1).Size(1)   = '1'
+		OutArg(1).Size(2)   = string(size_count);
+		OutArg(1).Dimension = 2;
+		OutArg(1).Value     = InArg(1).Value;
+		OutArg(1).FindLike  = InArg(1).FindLike;
 else
-	PrintStringInfo('   Generating Out Arg names.',ReportFileName,'file','y');
-	OutArg(1).Type      = 'c';
-	OutArg(1).Size(1)   = '1'
-	OutArg(1).Size(2)   = string(size_count);
-	OutArg(1).Dimension = 2;
-	OutArg(1).Value     = InArg(1).Value;
-	OutArg(1).FindLike  = InArg(1).FindLike;
+	if com_type == 0
+		PrintStringInfo('   Generating Out Arg names.',ReportFileName,'file','y');
+		OutArg(1).Type      = InArg(1).Type;
+		OutArg(1).Size(1)   = '1'
+		OutArg(1).Size(2)   = string(size_count);
+		OutArg(1).Dimension = 2;
+		OutArg(1).Value     = InArg(1).Value;
+		OutArg(1).FindLike  = InArg(1).FindLike;
+	elseif com_type == 1
+		PrintStringInfo('   Generating Out Arg names.',ReportFileName,'file','y');
+		OutArg(1).Type      = 'z';
+		OutArg(1).Size(1)   = '1'
+		OutArg(1).Size(2)   = string(size_count);
+		OutArg(1).Dimension = 2;
+		OutArg(1).Value     = InArg(1).Value;
+		OutArg(1).FindLike  = InArg(1).FindLike;
+	else
+		PrintStringInfo('   Generating Out Arg names.',ReportFileName,'file','y');
+		OutArg(1).Type      = 'c';
+		OutArg(1).Size(1)   = '1'
+		OutArg(1).Size(2)   = string(size_count);
+		OutArg(1).Dimension = 2;
+		OutArg(1).Value     = InArg(1).Value;
+		OutArg(1).FindLike  = InArg(1).FindLike;
+	end
 end
 
 //--- Check for output Argument in symbol table ---//

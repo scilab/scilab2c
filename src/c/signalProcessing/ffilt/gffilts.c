@@ -80,11 +80,4 @@ void gffilts(char* ft,int size,double N,double fc,double fh,double* oup)
 		oup[id]=1+oup[id];
 	}
 }
-/*
-int main()
-{
-	string s;
-	int n;
-	double fl,fh;
-}
-*/
+

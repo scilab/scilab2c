@@ -21,7 +21,10 @@ extern "C" {
 #endif
 
 #define u160u80RPI_pcf8574Setupu80(pinBase,addr) u16RPI_pcf8574Setups(pinBase,addr);
+#define d0d0RPI_pcf8574Setupu80(pinBase,addr) u16RPI_pcf8574Setups(pinBase,addr);
+
 #define u160u80RPI_pcf8591Setupu80(pinBase,addr) u16RPI_pcf8591Setups(pinBase,addr);
+#define d0d0RPI_pcf8591Setupu80(pinBase,addr) u16RPI_pcf8591Setups(pinBase,addr);
 
 #ifdef  __cplusplus
 } /* extern "C" */

@@ -1,36 +1,15 @@
 function [RhsNames,RhsScope,NRhs] = AST_HandleRC(FileInfo,SharedInfo)
-// function [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,ASTFunType)
-// -----------------------------------------------------------------
-// #RNU_RES_B
-// Handles the EndFuncall, EndOperation and EndEqual tags of the AST.
-// ASTFunType can be 'Funcall', 'Operation', 'Equal'
-// Structure of Funcall:
-// overloading function for "funcall" type tlist string function
-// this is a node of the AST
-// fields:
-//     rhs  : a list
-//     name : string, the name of the function
-//     lhsnb: number, the number of function lhs
-//  txt=['Funcall  : '+F.name
-//       '  #lhs   : '+string(F.lhsnb)
-//       '  Rhs    : '
-//       '      '+objectlist2string(F.rhs)
-//       'EndFuncall'
-//      ]
-// #RNU_RES_E
-//
-// Input data:
-// //NUT: add description here
-//
-// Output data:
-// //NUT: add description here
-//
-// Status:
-// 11-Apr-2007 -- Raffaele Nutricato: Author.
-//
-// Copyright 2007 Raffaele Nutricato.
-// Contact: raffaele.nutricato@tiscali.it
-// -----------------------------------------------------------------
+// Copyright (C) 2017 - IIT Bombay - FOSSEE
+
+// This file must be used under the terms of the CeCILL.
+// This source file is licensed as described in the file COPYING, which
+// you should have received as part of this distribution.  The terms
+// are also available at
+// http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+// Author: Ukasha Noor
+// Organization: FOSSEE, IIT Bombay
+// Email: toolbox@scilab.in
+// This function is used for 1D array declaration.
 
 SCI2CNInArgCheck(argn(2),2,2)
 
@@ -75,14 +54,5 @@ for cntpush = cntpop:-1:1
 end
 
 
-//for counterinputargs = 1:NRhs
-   //#RNU_RES_B
-   //disp(counterinputargs);
-  // PrintStringInfo('Input Argument Number '+string(counterinputargs)+': '+RhsNames(counterinputargs).Name,...
-    //  ReportFileName,'file','y');
-   //PrintStringInfo('   Scope: '+RhsNames(counterinputargs).Scope,...
-     // ReportFileName,'file','y');
-   //#RNU_RES_E
-//end
 
 endfunction

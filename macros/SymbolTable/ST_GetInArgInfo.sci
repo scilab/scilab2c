@@ -210,7 +210,7 @@ for cntinarg = 1:NInArg
    PrintStringInfo('   Type:      '+UpdatedInArg(cntinarg).Type,FileInfo.Funct(nxtscifunnumber).ReportFileName,'file');
    PrintStringInfo('   Size(1):   '+string(UpdatedInArg(cntinarg).Size(1)),FileInfo.Funct(nxtscifunnumber).ReportFileName,'file');
    PrintStringInfo('   Size(2):   '+string(UpdatedInArg(cntinarg).Size(2)),FileInfo.Funct(nxtscifunnumber).ReportFileName,'file');
-   PrintStringInfo('   Value:     '+string(UpdatedInArg(cntinarg).Value),FileInfo.Funct(nxtscifunnumber).ReportFileName,'file');
+   //PrintStringInfo('   Value:     '+string(UpdatedInArg(cntinarg).Value),FileInfo.Funct(nxtscifunnumber).ReportFileName,'file');
    PrintStringInfo('   FindLike:  '+string(UpdatedInArg(cntinarg).FindLike),FileInfo.Funct(nxtscifunnumber).ReportFileName,'file');
    PrintStringInfo('   Dimension: '+string(UpdatedInArg(cntinarg).Dimension),FileInfo.Funct(nxtscifunnumber).ReportFileName,'file');
    PrintStringInfo('   Scope:     '+UpdatedInArg(cntinarg).Scope,FileInfo.Funct(nxtscifunnumber).ReportFileName,'file');

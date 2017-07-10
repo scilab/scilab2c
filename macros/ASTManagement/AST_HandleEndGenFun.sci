@@ -1,4 +1,3 @@
-
 function [disp_isthere,FileInfo,SharedInfo] = AST_HandleEndGenFun(disp_isthere,FileInfo,SharedInfo,ASTFunType)
 // function [FileInfo,SharedInfo] = AST_HandleEndGenFun(FileInfo,SharedInfo,ASTFunType)
 // -----------------------------------------------------------------
@@ -28,10 +27,12 @@ function [disp_isthere,FileInfo,SharedInfo] = AST_HandleEndGenFun(disp_isthere,F
 //
 // Status:
 // 11-Apr-2007 -- Raffaele Nutricato: Author.
+// 15-June-2017 -- Ukasha Noor : Revised By 
 //
 // Copyright 2007 Raffaele Nutricato.
 // Contact: raffaele.nutricato@tiscali.it
 // -----------------------------------------------------------------
+
 
 // ------------------------------
 // --- Check input arguments. ---
@@ -74,6 +75,10 @@ disp_isthere = 0;
 //NUT: verifica se ASTFunType e' veramente importante
 // #RNU_RES_E
 [ASTFunName,InArg,NInArg,OutArg,NOutArg] = AST_GetFuncallPrm(FileInfo,SharedInfo,ASTFunType);
+if (ASTFunType=='Funcall')
+SharedInfo.Function_list(SharedInfo.Function_list_index) =  ASTFunName;
+SharedInfo.Function_list_index = SharedInfo.Function_list_index + 1; 
+end
 NOutArg_mod = NOutArg
 	if ASTFunName == 'OpLogAnd'
 		AST_PushASTStack('&&');
@@ -127,8 +132,10 @@ NOutArg_mod = NOutArg
 		  PrintStringInfo(' ',ReportFileName,'both','y');
 		  error(9999, 'SCI2CERROR: Unexpected number of output arguments for global function.');
 	   end
-	 elseif(ASTFunName == 'raspi' | ASTFunName == 'raspi_close')
-	   SharedInfo.SkipNextFun = 1;
+	//To skip the functions for Raspberry Pi connections 
+    elseif(ASTFunName == 'raspi' | ASTFunName == 'raspi_close' | ASTFunName == 'i2cdetect')
+       disp_isthere=1;  // Skips the corresponding Lhs argument declaration
+       return           // Skips the function call
 	end
 
 	// #RNU_RES_B
@@ -142,8 +149,8 @@ NOutArg_mod = NOutArg
 	
 	if ASTFunName == '%sn'
 		ASTFunName='modsn';
-	end
-	
+	end	
+
 	if (ASTFunName == 'OpEqual')
 	   FunTypeAnnot = '';
 	   FunSizeAnnot = '';

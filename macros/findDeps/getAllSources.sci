@@ -10,7 +10,7 @@
 //
 //
 
-function allSources = getAllSources(SharedInfo)
+function allSources = getAllSources(SharedInfo,BuildTool)
       Target = SharedInfo.Target;
 
   //Files common to types of output format
@@ -155,18 +155,10 @@ function allSources = getAllSources(SharedInfo)
       "src/c/matrixOperations/powm/spowma.c"
       "src/c/matrixOperations/powm/zpowma.c"
       "src/c/matrixOperations/powm/cpowma.c"
-      "src/c/linearAlgebra/spec/cspeca.c"
-      "src/c/linearAlgebra/spec/dspeca.c"
-      "src/c/linearAlgebra/spec/sspeca.c"
-      "src/c/linearAlgebra/spec/zspeca.c"
       "src/c/matrixOperations/transpose/ztransposea.c"
       "src/c/matrixOperations/transpose/stransposea.c"
       "src/c/matrixOperations/transpose/ctransposea.c"
       "src/c/matrixOperations/transpose/dtransposea.c"
-      "src/c/linearAlgebra/spec2/zspec2a.c"
-      "src/c/linearAlgebra/spec2/sspec2a.c"
-      "src/c/linearAlgebra/spec2/dspec2a.c"
-      "src/c/linearAlgebra/spec2/cspec2a.c"
       "src/c/matrixOperations/trace/stracea.c"
       "src/c/matrixOperations/trace/dtracea.c"
       "src/c/matrixOperations/trace/ctracea.c"
@@ -338,6 +330,15 @@ function allSources = getAllSources(SharedInfo)
       "src/c/matrixOperations/kron/skrona.c"
       "src/c/matrixOperations/norm/dnormv.c"
       "src/c/matrixOperations/norm/dnorma.c"
+      "src/c/matrixOperations/toeplitz/dtoeplitza.c"
+      "src/c/matrixOperations/toeplitz/u8toeplitza.c"
+      "src/c/matrixOperations/toeplitz/u16toeplitza.c"
+      "src/c/matrixOperations/toeplitz/gtoeplitza.c"
+      "src/c/matrixOperations/toeplitz/ztoeplitza.c"
+      "src/c/matrixOperations/toeplitz/stoeplitza.c"
+      "src/c/matrixOperations/toeplitz/ctoeplitza.c"
+      "src/c/matrixOperations/toeplitz/i8toeplitza.c"
+      "src/c/matrixOperations/toeplitz/i16toeplitza.c"
       "src/c/elementaryFunctions/nextpow2/dnextpow2a.c"
       "src/c/elementaryFunctions/isreal/sisreals.c"
       "src/c/elementaryFunctions/isreal/disreals.c"
@@ -627,7 +628,6 @@ function allSources = getAllSources(SharedInfo)
       "src/c/elementaryFunctions/round/i16rounds.c"
       "src/c/elementaryFunctions/lnp1m1/slnp1m1s.c"
       "src/c/elementaryFunctions/lnp1m1/dlnp1m1s.c"
-
       "src/c/elementaryFunctions/float/dfloats.c"
       "src/c/elementaryFunctions/float/dfloata.c"
       "src/c/elementaryFunctions/float/sfloats.c"
@@ -640,7 +640,6 @@ function allSources = getAllSources(SharedInfo)
       "src/c/elementaryFunctions/float/u16floata.c"
       "src/c/elementaryFunctions/float/i16floats.c"
       "src/c/elementaryFunctions/float/i16floata.c"
-
       "src/c/elementaryFunctions/uint8/duint8s.c"
       "src/c/elementaryFunctions/uint8/duint8a.c"
       "src/c/elementaryFunctions/uint8/suint8s.c"
@@ -709,7 +708,6 @@ function allSources = getAllSources(SharedInfo)
       "src/c/elementaryFunctions/int32/i16int32a.c"
       "src/c/elementaryFunctions/int32/u32int32s.c"
       "src/c/elementaryFunctions/int32/u32int32a.c"
-                  
       "src/c/elementaryFunctions/bitand/u8bitands.c"
       "src/c/elementaryFunctions/bitand/u8bitanda.c"
       "src/c/elementaryFunctions/bitand/u16bitands.c"
@@ -1318,16 +1316,28 @@ function allSources = getAllSources(SharedInfo)
       "src/c/CACSD/lqr/dlqra.c"
       "src/c/CACSD/lqe/dlqea.c"
       "src/c/CACSD/obscont/dobsconta.c"
-      "src/c/linearAlgebra/sva/dsvaa.c"
-      "src/c/linearAlgebra/svd/dsvda.c"
+	  "src/c/linearAlgebra/spec2/zspec2a.c"
+      "src/c/linearAlgebra/spec2/sspec2a.c"
+      "src/c/linearAlgebra/spec2/dspec2a.c"
+      "src/c/linearAlgebra/spec2/cspec2a.c"
+	  "src/c/linearAlgebra/spec/cspeca.c"
+      "src/c/linearAlgebra/spec/dspeca.c"
+      "src/c/linearAlgebra/spec/sspeca.c"
+      "src/c/linearAlgebra/spec/zspeca.c"
       "src/c/linearAlgebra/schur/dschura.c"
       "src/c/linearAlgebra/schur/dgschura.c"
       "src/c/linearAlgebra/balanc/dbalanca.c"
       "src/c/linearAlgebra/svd/dsvda.c"
 	  "src/c/linearAlgebra/svd/zsvda.c"
+	  "src/c/linearAlgebra/sqroot/dsqroota.c"
 	  "src/c/linearAlgebra/hess/dhessa.c"
+	  "src/c/linearAlgebra/givens/dgivensa.c"
+	  "src/c/linearAlgebra/householder/dhouseholdera.c"
 	  "src/c/linearAlgebra/sva/dsvaa.c"
 	  "src/c/linearAlgebra/spec/dspec1a.c"
+	  "src/c/linearAlgebra/fullrf/dfullrfa.c"
+	  "src/c/linearAlgebra/rowcomp/drowcompa.c"
+	  "src/c/linearAlgebra/qr/dqra.c"
       "src/c/linearAlgebra/rcond/drconda.c"];
 
   //Files to be inserted only if output format selected is 'Arduino'.
@@ -1490,10 +1500,18 @@ function allSources = getAllSources(SharedInfo)
       "src/c/imageProcessing/cvimgproc/imcvCanny.cpp"
       "src/c/imageProcessing/cvimgproc/imcvCornerHarris.cpp"];
 
+  if Target == "Arduino" & BuildTool == "nmake"
+    Required_addrs = get_rquird_fnctns(Standalone_files,Arduino_files,SharedInfo);
+  end
+
   if Target == "StandAlone"
   allSources = Standalone_files;
   elseif Target == "Arduino"
-  allSources = cat(1,Standalone_files, Arduino_files);
+  	if BuildTool == "nmake"
+   	 	allSources = Required_addrs;
+        else
+                allSources = cat(1,Standalone_files, Arduino_files);
+        end
   elseif Target == "AVR"
   allSources = cat(1,Standalone_files, AVR_files);
   elseif Target == "RPi"

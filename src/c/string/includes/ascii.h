@@ -17,7 +17,7 @@
 extern "C" {
 #endif
 
-void gasciia(char* str,int size,int* oup);
+void gasciia(char* str,int size,uint8* oup);
 void dasciia(double* inp,int size,char* oup);
 
 #ifdef __cplusplus

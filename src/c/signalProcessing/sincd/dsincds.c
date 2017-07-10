@@ -13,7 +13,6 @@
 #include<stdio.h>
 #include<math.h>
 #include "sincd.h"
-//#define PI 3.14159265358979
 void dsincds(double n,double flg,double* oup)
 {
 	double npt=4*n;

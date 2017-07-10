@@ -11,11 +11,9 @@
  */
 
 #include<stdio.h>
-
 #include<math.h>
 #include "sincd.h"
 #include "fsfirlin.h"
-//#define PI 3.14159265358979
 
 void dfsfirlina(double* hd,int size,double flag,double* hst)
 {

@@ -21,7 +21,10 @@ extern "C" {
 #endif
 
 #define u80RPI_physToGpioi80(pin) u8RPI_physToGpios(pin);
+#define d0RPI_physToGpioi80(pin) u8RPI_physToGpios(pin);
+
 #define u80RPI_wpiToGpioi80(pin) u8RPI_wpiToGpios(pin);
+#define d0RPI_wpiToGpioi80(pin) u8RPI_wpiToGpios(pin);
 
 #ifdef  __cplusplus
 } /* extern "C" */

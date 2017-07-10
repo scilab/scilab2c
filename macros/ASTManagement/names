@@ -31,6 +31,8 @@ AST_HandleFor
 AST_HandleForStatem
 AST_HandleFunCC
 AST_HandleFunRC
+AST_HandleFuncArray
+AST_HandleFuncArray2D
 AST_HandleHeader
 AST_HandleIfElse
 AST_HandleRC

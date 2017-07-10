@@ -25,7 +25,7 @@ ArduinoSetupFunctions = [
 	             "cmd_dcmotor_setup"
                      "cmd_servo_attach"
                      "cmd_servo_detach"
-		     "i2c_dev"];
+		     "cmd_i2c_dev"];
 
 
 endfunction

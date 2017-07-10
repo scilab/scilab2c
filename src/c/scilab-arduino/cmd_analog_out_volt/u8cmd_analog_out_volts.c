@@ -15,8 +15,8 @@
 
 void u8cmd_analog_out_volts(uint8 board_no, uint8 pin, float value)
 {	
-    int a;
-    a = ((value*255)/5);
-    analogWrite(pin,a);
+    int a;			//declaring variable 
+    a = ((value*255)/5);	//converting given voltage to duty cycle value (0 - 255)
+    analogWrite(pin,a);		//passing pin no. and duty cycle value
     
 }

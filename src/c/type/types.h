@@ -4,7 +4,7 @@
 /*****************************************************************************/
 /* TYPE DEFINITIONS                                                          */
 /*****************************************************************************/
-typedef unsigned char       boolean;
+/*typedef unsigned char       boolean;*/
 
 typedef unsigned char       uint8;
 typedef unsigned short      uint16;
