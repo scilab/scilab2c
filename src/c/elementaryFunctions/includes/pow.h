@@ -15,6 +15,11 @@
 
 #include "dynlib_elementaryfunctions.h"
 #include "multiplication.h"
+#include "floatComplex.h"
+#include "doubleComplex.h"
+#include "uint8.h"
+#include "uint16.h"
+#include "int16.h"
 
 #ifdef  __cplusplus
 extern "C" {

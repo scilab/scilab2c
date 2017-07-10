@@ -17,6 +17,7 @@
 #include "types.h"
 #include "doubleComplex.h"
 #include "floatComplex.h"
+#include "uint16.h"
 
 #ifdef  __cplusplus
 extern "C" {
@@ -30,6 +31,9 @@ char giscolumna(char* , int);
 char giscolumns(char);
 char ziscolumna(doubleComplex*, int);
 char ziscolumns(doubleComplex);
+char u16iscolumna(uint16*, int);
+char u16iscolumns(uint16);
+
 
 #ifdef  __cplusplus
 } /* extern "C" */

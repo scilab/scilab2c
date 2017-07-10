@@ -10,32 +10,16 @@
  Email: toolbox@scilab.in
 */
 
-#ifndef __ISROW_H__
-#define __ISROW_H__
-
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include "issquare.h"
 #include "types.h"
 #include "doubleComplex.h"
-#include "floatComplex.h"
-#include "uint16.h"
 
-#ifdef  __cplusplus
-extern "C" {
-#endif
-
-char disrowa(double* , int);
-char disrows(double);
-char sisrowa( float* , int);
-char sisrows( float);
-char gisrowa(char* , int);
-char gisrows(char);
-char zisrowa(doubleComplex*, int);
-char zisrows(doubleComplex);
-char u16isrowa(uint16*, int);
-char u16isrows(uint16);
-
-#ifdef  __cplusplus
-} /* extern "C" */
-#endif
-
-#endif
+char zissquares(doubleComplex inp)
+{
+   char out='T';
+   
+    return out;
+}

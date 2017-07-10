@@ -10,8 +10,8 @@
  Email: toolbox@scilab.in
 */
 
-#ifndef __ISROW_H__
-#define __ISROW_H__
+#ifndef __NTHROOT_H__
+#define __NTHROOT_H__
 
 
 #include "types.h"
@@ -23,16 +23,12 @@
 extern "C" {
 #endif
 
-char disrowa(double* , int);
-char disrows(double);
-char sisrowa( float* , int);
-char sisrows( float);
-char gisrowa(char* , int);
-char gisrows(char);
-char zisrowa(doubleComplex*, int);
-char zisrows(doubleComplex);
-char u16isrowa(uint16*, int);
-char u16isrows(uint16);
+void dnthroota(double* , int ,int ,  double*, int , int, double*);
+void dnthroot1a(double*, int , int, double, double*);
+double dnthroots(double, double);
+void snthroota(float* , int ,int ,  float*, int , int, double*);
+void snthroot1a(float*, int , int, float, double*);
+double snthroots(float, float);
 
 #ifdef  __cplusplus
 } /* extern "C" */

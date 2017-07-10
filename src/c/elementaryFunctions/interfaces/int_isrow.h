@@ -21,6 +21,9 @@
 #define g0isrowg0(in)               gisrows(in)
 #define z2isrowg0(in, size)         zisrowa(in , size[0])
 #define z0isrowg0(in)               zisrows(in)
+#define u162isrowg0(in, size)         u16isrowa(in , size[0])
+#define u160isrowg0(in)               u16isrows(in)
+
 
 
 #endif

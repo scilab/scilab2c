@@ -21,6 +21,9 @@
 #define g0iscolumng0(in)               giscolumns(in)
 #define z2iscolumng0(in,size)         ziscolumna(in , size[1])
 #define z0iscolumng0(in)               ziscolumns(in)
+#define u162iscolumng0(in,size)         u16iscolumna(in , size[1])
+#define u160iscolumng0(in)               u16iscolumns(in)
+
 
 
 #endif
