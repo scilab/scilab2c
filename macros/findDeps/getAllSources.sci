@@ -10,7 +10,7 @@
 //
 //
 
-function allSources = getAllSources(SharedInfo)
+function allSources = getAllSources(SharedInfo,BuildTool)
       Target = SharedInfo.Target;
 
   //Files common to types of output format
@@ -624,7 +624,6 @@ function allSources = getAllSources(SharedInfo)
       "src/c/elementaryFunctions/round/i16rounds.c"
       "src/c/elementaryFunctions/lnp1m1/slnp1m1s.c"
       "src/c/elementaryFunctions/lnp1m1/dlnp1m1s.c"
-
       "src/c/elementaryFunctions/float/dfloats.c"
       "src/c/elementaryFunctions/float/dfloata.c"
       "src/c/elementaryFunctions/float/sfloats.c"
@@ -637,7 +636,6 @@ function allSources = getAllSources(SharedInfo)
       "src/c/elementaryFunctions/float/u16floata.c"
       "src/c/elementaryFunctions/float/i16floats.c"
       "src/c/elementaryFunctions/float/i16floata.c"
-
       "src/c/elementaryFunctions/uint8/duint8s.c"
       "src/c/elementaryFunctions/uint8/duint8a.c"
       "src/c/elementaryFunctions/uint8/suint8s.c"
@@ -706,7 +704,6 @@ function allSources = getAllSources(SharedInfo)
       "src/c/elementaryFunctions/int32/i16int32a.c"
       "src/c/elementaryFunctions/int32/u32int32s.c"
       "src/c/elementaryFunctions/int32/u32int32a.c"
-                  
       "src/c/elementaryFunctions/bitand/u8bitands.c"
       "src/c/elementaryFunctions/bitand/u8bitanda.c"
       "src/c/elementaryFunctions/bitand/u16bitands.c"
@@ -1448,10 +1445,18 @@ function allSources = getAllSources(SharedInfo)
       "src/c/imageProcessing/cvimgproc/imcvCanny.cpp"
       "src/c/imageProcessing/cvimgproc/imcvCornerHarris.cpp"];
 
+  if Target == "Arduino" & BuildTool == "nmake"
+    Required_addrs = get_rquird_fnctns(Standalone_files,Arduino_files,SharedInfo);
+  end
+
   if Target == "StandAlone"
   allSources = Standalone_files;
   elseif Target == "Arduino"
-  allSources = cat(1,Standalone_files, Arduino_files);
+  	if BuildTool == "nmake"
+   	 	allSources = Required_addrs;
+        else
+                allSources = cat(1,Standalone_files, Arduino_files);
+        end
   elseif Target == "AVR"
   allSources = cat(1,Standalone_files, AVR_files);
   elseif Target == "RPi"

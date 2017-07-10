@@ -43,6 +43,8 @@ load(FileInfo.SharedInfoDatFile,'SharedInfo');
 nxtscifunname   = SharedInfo.NextSCIFunName;
 nxtscifunnumber = SharedInfo.NextSCIFunNumber;
 ReportFileName  = FileInfo.Funct(nxtscifunnumber).ReportFileName;
+SharedInfo.Function_list = [];
+SharedInfo.Function_list_index = 1;
 
 // ---------------------------------
 // --- Parameter Initialization. ---
@@ -299,6 +301,22 @@ while ~meof(fidAST)
          AST_PushASTStack(treeline);
    end
 end
+// ------------------------------------
+// -----List of functions Used--------
+// -------------------------------------
+
+SharedInfo.Function_list_index = SharedInfo.Function_list_index - 2;
+SharedInfo.Function_list = SharedInfo.Function_list(1:SharedInfo.Function_list_index);
+//To remove function repeatedly used----------
+x = size(unique(SharedInfo.Function_list));                          
+SharedInfo.Function_list_index = x(1);
+SharedInfo.Function_list = unique(SharedInfo.Function_list);
+
+SharedInfo.Function_list = SharedInfo.Function_list(1:SharedInfo.Function_list_index);
+
+
+
+
 // --------------------------------------
 // --- End main loop to read the AST. ---
 // --------------------------------------

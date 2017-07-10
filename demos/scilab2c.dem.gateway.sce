@@ -33,6 +33,12 @@ subdemolist = ["Trigonometric Identity" , "TrigonometricIdentity.dem.sce";
 			  "HESS", "HESS.dem.sce";
 			  "GIVENS Transformation", "GIVENS.dem.sce";
 			  "Full rank factorization","FULLRF.dem.sce";
+			   "Arduino blink", "blink.dem.sce";
+	       "Arduino digital input", "digital_in.dem.sce";
+	       "Arduino analog voltage i/o", "analog_in_out_volt.dem.sce";
+	       "Arduino analog output", "analog_out.dem.sce";
+   	       "Arduino DC motor", "dc_motor.dem.sce";
+	       "Arduino Master write", "master_write.dem.sce";
               ];
 
 subdemolist(:,2) = demopath + subdemolist(:,2);

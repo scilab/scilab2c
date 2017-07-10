@@ -75,6 +75,10 @@ disp_isthere = 0;
 //NUT: verifica se ASTFunType e' veramente importante
 // #RNU_RES_E
 [ASTFunName,InArg,NInArg,OutArg,NOutArg] = AST_GetFuncallPrm(FileInfo,SharedInfo,ASTFunType);
+if (ASTFunType=='Funcall')
+SharedInfo.Function_list(SharedInfo.Function_list_index) =  ASTFunName;
+SharedInfo.Function_list_index = SharedInfo.Function_list_index + 1; 
+end
 NOutArg_mod = NOutArg
 	if ASTFunName == 'OpLogAnd'
 		AST_PushASTStack('&&');
