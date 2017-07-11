@@ -790,7 +790,6 @@ function allSources = getAllSources(SharedInfo,BuildTool)
       "src/c/elementaryFunctions/nthroot/snthroota.c"
       "src/c/elementaryFunctions/nthroot/snthroot1a.c"
       "src/c/elementaryFunctions/nthroot/snthroots.c"
-
       "src/c/elementaryFunctions/isscalar/disscalara.c"
       "src/c/elementaryFunctions/isscalar/disscalars.c"
       "src/c/elementaryFunctions/isscalar/gisscalars.c"
