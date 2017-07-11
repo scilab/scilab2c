@@ -39,6 +39,9 @@ subdemolist = ["Trigonometric Identity" , "TrigonometricIdentity.dem.sce";
 	       "Arduino analog output", "analog_out.dem.sce";
    	       "Arduino DC motor", "dc_motor.dem.sce";
 	       "Arduino Master write", "master_write.dem.sce";
+		"Ffilt coeff. of FIR low pass filter","ffilt.dem.sce";
+		"Design of FIR linear phase filters using freq. samping technique","fsfirlin.dem.sce";
+		"Samples of sinc function","filt_sinc.dem.sce";
               ];
 
 subdemolist(:,2) = demopath + subdemolist(:,2);
