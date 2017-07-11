@@ -475,6 +475,11 @@ extern "C" {
 #include "int_toeplitz.h"
 
 
+/*interface Cross */
+#include "cross.h"
+#include "int_cross.h"
+
+
 /* SIGNAL PROCESSING */
 
 

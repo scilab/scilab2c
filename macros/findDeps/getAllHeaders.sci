@@ -73,6 +73,7 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/matrixOperations/includes/flipdim.h"
       "src/c/matrixOperations/includes/norm.h"
       "src/c/matrixOperations/includes/toeplitz.h"
+      "src/c/matrixOperations/includes/cross.h"
       "src/c/interpolation/includes/interp1.h"
       "src/c/elementaryFunctions/includes/nextpow2.h"
       "src/c/elementaryFunctions/includes/gcd.h"
