@@ -4836,6 +4836,42 @@ INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,E
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
 
+//------------------------------------
+//---- Class ISEQUAL ----------------
+//------------------------------------
+ClassName = 'isequal';
+
+// --- Class Annotation. ---
+PrintStringInfo('   Adding Class: '+ClassName+'.',GeneralReport,'file','y');
+ClassFileName = fullfile(SCI2CLibCAnnClsDir,ClassName+ExtensionCAnnCls);
+
+PrintStringInfo('NIN=         2',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1',ClassFileName,'file','y');
+//Was FA_TP_USER
+//Cause some trouble if user specify some precision and if input(and also output) is complex.
+PrintStringInfo('OUT(1).TP=   ''g''',ClassFileName,'file','y'); 
+PrintStringInfo('OUT(1).SZ(1)= ''1''',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= ''1''',ClassFileName,'file','y');
+
+
+ClassFileName = fullfile(SCI2CLibCFLClsDir,ClassName+ExtensionCFuncListCls);
+PrintStringInfo('d0d0'+ArgSeparator+'g0',ClassFileName,'file','y');
+PrintStringInfo('d2d2'+ArgSeparator+'g0',ClassFileName,'file','y');
+PrintStringInfo('s0s0'+ArgSeparator+'g0',ClassFileName,'file','y');
+PrintStringInfo('s2s2'+ArgSeparator+'g0',ClassFileName,'file','y');
+PrintStringInfo('z0z0'+ArgSeparator+'g0',ClassFileName,'file','y');
+PrintStringInfo('z2z2'+ArgSeparator+'g0',ClassFileName,'file','y');
+PrintStringInfo('u160u160'+ArgSeparator+'g0',ClassFileName,'file','y');
+PrintStringInfo('u162u162'+ArgSeparator+'g0',ClassFileName,'file','y');
+
+
+// --- Annotation Function And Function List Function. ---
+FunctionName = 'isequal'; 
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
+
 // -------------------
 // --- Class Spec. ---
 // -------------------

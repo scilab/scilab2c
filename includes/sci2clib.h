@@ -359,6 +359,10 @@ extern "C" {
 #include "lcm.h"
 #include "int_lcm.h"
 
+/*interfacing isequal*/
+#include "isequal.h"
+#include "int_isequal.h"
+
 
 /* IMPLICIT LISTS */
 /* interfacing implicitList/OpColon */

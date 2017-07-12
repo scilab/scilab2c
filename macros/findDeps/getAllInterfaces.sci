@@ -128,6 +128,7 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/elementaryFunctions/interfaces/int_atand.h"
       "src/c/elementaryFunctions/interfaces/int_gcd.h"
       "src/c/elementaryFunctions/interfaces/int_lcm.h"
+      "src/c/elementaryFunctions/interfaces/int_isequal.h"
       "src/c/statisticsFunctions/interfaces/int_mean.h"
       "src/c/statisticsFunctions/interfaces/int_meanf.h"
       "src/c/statisticsFunctions/interfaces/int_stdevf.h"
