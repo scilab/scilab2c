@@ -14,19 +14,28 @@
 #include "strcspn.h"
 uint8 gstrcspna(char *str1,int size1,char *str2,int size2)
 {
-    int ind,i,j;
     
-    for(i=0;i<=size2;i++)
+    uint8 ind=size1+1;
+    int l,m;
+    for(m=0;m<size2;m++)
     {
-      for(j=0;j<=size1;j++)
-      {
-        if(str2[i]==str1[j])
+        int tp;
+        for(l=0;l<size1;l++)
         {
-          ind=j;
-          break;
+            if(str2[m]==str1[l])
+	    {
+            tp=l;
+            if(ind>tp)
+            {
+                ind=tp;
+            }
+	    }
         }
-      }
     }
-    return (ind+1);
+    if(ind==size1+1)
+    {
+        ind=size1;
+    }
+    return ind;
 }
 
