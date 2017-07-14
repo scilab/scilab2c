@@ -220,6 +220,8 @@ function allInterfaces = getAllInterfaces(SharedInfo)
 	"src/c/elementaryFunctions/interfaces/int_primes.h"
 	"src/c/elementaryFunctions/interfaces/int_factor.h"
 	"src/c/elementaryFunctions/interfaces/int_sinc.h"
+	"src/c/specialFunctions/interfaces/int_erf.h"
+	"src/c/specialFunctions/interfaces/int_erfc.h"
       "src/c/CACSD/interfaces/int_syslin.h"
       "src/c/CACSD/interfaces/int_lqr.h"
       "src/c/CACSD/interfaces/int_lqe.h"

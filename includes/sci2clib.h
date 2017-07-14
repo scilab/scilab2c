@@ -80,6 +80,16 @@ extern "C" {
 #include "interp1.h"
 #include "int_interp1.h"
 
+/* SPECIAL FUNCTIONS */
+
+/* interfacing erf */
+#include "erf.h"
+#include "int_erf.h"
+
+/* interfacing erf */
+#include "erfc.h"
+#include "int_erfc.h"
+
 /* ELEMENTARY FUNCTIONS */
 
 #include "nextpow2.h"
