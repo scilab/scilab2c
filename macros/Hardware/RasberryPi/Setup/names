@@ -1,0 +1,5 @@
+RPI_getAlt
+RPI_pinMode
+RPI_pinModeAlt
+RPI_pinNumbering
+RPI_pullControl

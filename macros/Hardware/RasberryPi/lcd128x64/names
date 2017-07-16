@@ -1,0 +1,12 @@
+RPI_lcd128x64Orientation
+RPI_lcd128x64circle
+RPI_lcd128x64clear
+RPI_lcd128x64ellipse
+RPI_lcd128x64line
+RPI_lcd128x64lineTo
+RPI_lcd128x64point
+RPI_lcd128x64putchar
+RPI_lcd128x64puts
+RPI_lcd128x64rectangle
+RPI_lcd128x64setOrigin
+RPI_lcd128x64setup

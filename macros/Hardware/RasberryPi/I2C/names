@@ -1,0 +1,9 @@
+RPI_I2CRead
+RPI_I2CReadReg16
+RPI_I2CReadReg8
+RPI_I2CSetup
+RPI_I2CSetupInterface
+RPI_I2CWrite
+RPI_I2CWriteReg16
+RPI_I2CWriteReg8
+RPI_i2cdetect

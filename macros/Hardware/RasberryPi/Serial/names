@@ -1,0 +1,8 @@
+RPI_serialClose
+RPI_serialDataAvail
+RPI_serialFlush
+RPI_serialGetchar
+RPI_serialOpen
+RPI_serialPrintf
+RPI_serialPutchar
+RPI_serialPuts
