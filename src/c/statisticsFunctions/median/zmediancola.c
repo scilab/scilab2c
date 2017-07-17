@@ -9,28 +9,28 @@
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
 */
- 
 
-#ifndef __MATRIX_H__
-#define __MATRIX_H__
 
+#include "median.h"
 #include "types.h"
-#include "doubleComplex.h"
 #include "uint16.h"
+#include "doubleComplex.h"
+
+void zmediancola(doubleComplex *in, int row, int col, doubleComplex * out)
+{
+    doubleComplex inter[col]; 
 
 
-#ifdef  __cplusplus
-extern "C" {
-#endif
+for(int i=0; i< row; i++)
+	{
+		for(int j=0 ; j< col; j++)
+			{
+				inter[j]= in[i+ (j*row)];
+				
+			}
+     out[i]= zmediana( inter, col);
+	
+	}
 
-void dmatrixa(double* , int , int , int , int , double*);
-void smatrixa( float* , int , int , int , int , float*);
-void u16matrixa(uint16 *, int , int , int , int ,uint16 *out);
-void zmatrixa(doubleComplex *, int , int , int , int  ,doubleComplex *);
 
-
-#ifdef  __cplusplus
-} /* extern "C" */
-#endif
-
-#endif /*__MATRIX_H__*/
+}

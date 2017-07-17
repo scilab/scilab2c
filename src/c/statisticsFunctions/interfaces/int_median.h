@@ -10,18 +10,26 @@
  Email: toolbox@scilab.in
 */
 
-#ifndef __INT_MATRIX_H__
-#define __INT_MATRIX_H__
+#ifndef __INT_MEDIAN_H__
+#define __INT_MEDIAN_H__
 
 
 #ifdef  __cplusplus
 extern "C" {
 #endif
 
-#define d2d0d0matrixd2(in1, size, in2, in3, out )         dmatrixa(in1, size[0], size[1], in2, in3, out)
-#define d2s0s0matrixd2(in1, size, in2, in3, out )         dmatrixa(in1, size[0], size[1], in2, in3, out)
-//#define d2u160u160matrixd2(in1, size, in2, in3, out )     dmatrixa(in1, size[0], size[1], in2, in3, out)
-//#define d2u80u80matrixd2(in1, size, in2, in3, out )       dmatrixa(in1, size[0], size[1], in2, in3, out)
+#define d2mediand0(in1, size)                             dmediana(in1, size[0]* size[1])
+#define d2g2mediand2(in1, size1, in2, size2, out)         (in2[0]== 'r') ? dmedianrowa(in1, size1[0], size1[1], out) :dmediancola(in1, size1[0], size1[1], out)
+
+#define s2medians0(in1, size)                             smediana(in1, size[0]* size[1])
+#define s2g2medians2(in1, size1, in2, size2, out)         (in2[0]== 'r') ? smedianrowa(in1, size1[0], size1[1], out) :smediancola(in1, size1[0], size1[1], out)
+
+#define u162medianu160(in1, size)                             u16mediana(in1, size[0]* size[1])
+#define u162g2medianu162(in1, size1, in2, size2, out)         (in2[0]== 'r') ? u16medianrowa(in1, size1[0], size1[1], out) :u16mediancola(in1, size1[0], size1[1], out)
+
+#define z2medianz0(in1, size)                             zmediana(in1, size[0]* size[1])
+#define z2g2medianz2(in1, size1, in2, size2, out)         (in2[0]== 'r') ? zmedianrowa(in1, size1[0], size1[1], out) :zmediancola(in1, size1[0], size1[1], out)
+
 
 #define s2d0d0matrixs2(in1, size, in2, in3, out )         smatrixa(in1, size[0], size[1], in2, in3, out)
 #define s2s0s0matrixs2(in1, size, in2, in3, out )         smatrixa(in1, size[0], size[1], in2, in3, out)

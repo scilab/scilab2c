@@ -587,6 +587,9 @@ extern "C" {
 /* interfacing mean */
 #include "mean.h"
 #include "int_mean.h"
+/* interfacing median */
+#include "median.h"
+#include "int_median.h"
 /* interfacing stdevf */
 #include "stdevf.h"
 #include "int_stdevf.h"
