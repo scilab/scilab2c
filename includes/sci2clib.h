@@ -80,6 +80,16 @@ extern "C" {
 #include "interp1.h"
 #include "int_interp1.h"
 
+/* SPECIAL FUNCTIONS */
+
+/* interfacing erf */
+#include "erf.h"
+#include "int_erf.h"
+
+/* interfacing erf */
+#include "erfc.h"
+#include "int_erfc.h"
+
 /* ELEMENTARY FUNCTIONS */
 
 #include "nextpow2.h"
@@ -361,6 +371,10 @@ extern "C" {
 /*interfacing lcm*/
 #include "lcm.h"
 #include "int_lcm.h"
+
+/*interfacing isequal*/
+#include "isequal.h"
+#include "int_isequal.h"
 
 
 /* IMPLICIT LISTS */
