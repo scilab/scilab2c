@@ -604,6 +604,9 @@ extern "C" {
 /* interfacing median */
 #include "median.h"
 #include "int_median.h"
+/* interfacing mad */
+#include "mad.h"
+#include "int_mad.h"
 /* interfacing stdevf */
 #include "stdevf.h"
 #include "int_stdevf.h"
