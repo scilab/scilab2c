@@ -22,7 +22,7 @@ subdemolist =["Linear Algebra","LinearAlgebra/LinearAlgebra.dem.gateway.sce";
               "Symbols", "Symbols.dem.sce";
               "Jacobi functions","Jacobi.dem.sce";
 		      "String Functions","string.dem.sce";
-		"Ffilt coeff. of FIR low pass filter","ffilt.dem.sce";
-		"Design of FIR linear phase filters using freq. samping technique","fsfirlin.dem.sce";
-		"Samples of sinc function","filt_sinc.dem.sce";]
+              "Ffilt coeff. of FIR low pass filter","ffilt.dem.sce";
+              "Design of FIR linear phase filters using freq. samping technique","fsfirlin.dem.sce";
+              "Samples of sinc function","filt_sinc.dem.sce";]
 subdemolist(:,2) = demopath + subdemolist(:,2);
