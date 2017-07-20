@@ -8,11 +8,12 @@
 // Author: Jorawar Singh, Sandeep Gupta
 // Organization: FOSSEE, IIT Bombay
 // Email: toolbox@scilab.in
+//
 
+lines(0);
 
-subdemolist = ["Wait and Blink","test_wait_and_blink.dem.sce";
-               "LCD","test_lcd.dem.sce"
-              ];
+global SCI2CHOME
 
-global SCI2CHOME;
-subdemolist(:,2) = SCI2CHOME + "/demos/RPi/"+ subdemolist(:,2);
+scilab2c(SCI2CHOME + "/tests/unit_tests/test_RPi/lcd.sci", TMPDIR,SCI2CHOME + "/tests/unit_tests/test_RPi/", "All", "make" ,"RPi", "uno");
+
+editor([TMPDIR+"/main.c"]);

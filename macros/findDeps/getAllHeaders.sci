@@ -233,6 +233,8 @@ function allHeaders = getAllHeaders(SharedInfo)
 	"src/c/elementaryFunctions/includes/sinc.h"
 	"src/c/specialFunctions/includes/erf.h"
 	"src/c/specialFunctions/includes/erfc.h"
+	"src/c/specialFunctions/includes/erfcx.h"
+	"src/c/specialFunctions/includes/erfinv.h"
       "src/c/CACSD/includes/syslin.h"
       "src/c/CACSD/includes/lqr.h"
       "src/c/CACSD/includes/lqe.h"

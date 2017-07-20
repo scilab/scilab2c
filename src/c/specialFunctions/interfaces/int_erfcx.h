@@ -1,4 +1,4 @@
- /* Copyright (C) 2017 - IIT Bombay - FOSSEE
+/* Copyright (C) 2017 - IIT Bombay - FOSSEE
 
  This file must be used under the terms of the CeCILL.
  This source file is licensed as described in the file COPYING, which
@@ -9,28 +9,24 @@
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
  */
-
-#ifndef __ERFC_H__
-#define __ERFC_H__
-#include "types.h"
-#include "floatComplex.h"
-#include "doubleComplex.h"
-#include "uint8.h"
-#include "uint16.h"
-#include "int16.h"
+#ifndef __INT_ERFCX_H__
+#define __INT_ERFCX_H__
 
 #ifdef  __cplusplus
 extern "C" {
 #endif
 
-double derfcs(double inp1);
-void derfca(double* inp1, int sizer, int sizec,double* out);
-float serfcs(float inp1);
-void serfca(float* inp1, int sizer, int sizec, float* out);
 
 
-#ifdef  __cplusplus 
+#define d0erfcxd0(in1) derfcxs(in1)
+#define s0erfcxs0(in1) serfcxs(in1)
+#define d2erfcxd2(in1,size,out) derfcxa(in1,size[0],size[1],out)
+#define s2erfcs2(in1,size,out) serfca(in1,size[0],size[1],out)
+
+
+
+#ifdef  __cplusplus
 } /* extern "C" */
 #endif
 
-#endif /*__ERFC_H__*/
+#endif /*__INT_ERFCX_H__*/

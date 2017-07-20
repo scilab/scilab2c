@@ -10,27 +10,28 @@
  Email: toolbox@scilab.in
  */
 
-#ifndef __ERFC_H__
-#define __ERFC_H__
+#ifndef __ERFCX_H__
+#define __ERFCX_H__
 #include "types.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 #include "uint8.h"
 #include "uint16.h"
 #include "int16.h"
+#include "erfc.h"
 
 #ifdef  __cplusplus
 extern "C" {
 #endif
 
-double derfcs(double inp1);
-void derfca(double* inp1, int sizer, int sizec,double* out);
-float serfcs(float inp1);
-void serfca(float* inp1, int sizer, int sizec, float* out);
+double derfcxs(double inp1);
+void derfcxa(double* inp1, int sizer, int sizec,double* out);
+float serfcxs(float inp1);
+void serfcxa(float* inp1, int sizer, int sizec, float* out);
 
 
 #ifdef  __cplusplus 
 } /* extern "C" */
 #endif
 
-#endif /*__ERFC_H__*/
+#endif /*__ERFCX_H__*/

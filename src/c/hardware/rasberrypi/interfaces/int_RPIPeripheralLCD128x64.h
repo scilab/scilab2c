@@ -33,6 +33,7 @@ extern "C" {
 
 #define u80u80u80RPI_lcd128x64point(x,y,colour) u8RPI_lcd128x64points(x,y,colour);
 #define d0d0d0RPI_lcd128x64point(x,y,colour) u8RPI_lcd128x64points(x,y,colour);
+
 #define u80u80u80RPI_lcd128x64lineTo(x,y,colour) u8RPI_lcd128x64lineTos(x,y,colour);
 #define d0d0d0RPI_lcd128x64lineTo(x,y,colour) u8RPI_lcd128x64lineTos(x,y,colour);
 
