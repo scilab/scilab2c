@@ -15,9 +15,9 @@
 #include <math.h>
 #include "isvector.h"
 #include "types.h"
-char disvectora(double* inp, int size1)
+char disvectora(double* inp, int row, int col)
 {
-   if(size1 ==1)
+   if(row ==1 || col==1)
    return 'T';
    return 'F';
 }

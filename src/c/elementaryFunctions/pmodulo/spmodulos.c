@@ -13,13 +13,42 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "doubleComplex.h"
-#include "isvector.h"
+#include "pmodulo.h"
 #include "types.h"
 
-char zisvectora(doubleComplex *inp, int row, int col)
-{
-     if(row ==1 || col==1)
-   return 'T';
-   return 'F';
+float spmodulos(float inp1, float inp2)
+{ 
+    if( inp1>0 && inp2>0)
+
+		{
+			return fmod(inp1,inp2);
+
+         	}
+
+
+    if( inp1>0 && inp2<0)
+
+		{
+
+			return fmod(inp1,inp2);
+
+		}
+
+
+    if(inp1<0 && inp2>0)
+
+    		{
+
+			return ((fmod(inp1,inp2))+(inp2));
+
+	
+		}
+
+    if(inp1<0 && inp2<0)
+		{
+
+			return ((fmod(inp1,inp2))-(inp2));
+
+		}
+
 }

@@ -16,9 +16,9 @@
 #include "isvector.h"
 #include "types.h"
 #include "string.h"
-char gisvectora(char *inp, int size1)
+char gisvectora(char *inp, int row, int col)
 {
-   if(size1 ==1)
+   if(row ==1 || col==1)
    return 'T';
    return 'F';
 }

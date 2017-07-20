@@ -13,13 +13,13 @@
 #ifndef __INT_ISVECTOR_H__
 #define __INT_ISVECTOR_H__
 
-#define d2isvectorg0(in, size )        disvectora(in, size[0])
+#define d2isvectorg0(in, size )        disvectora(in, size[0], size[1])
 #define d0isvectorg0(in)               disvectors(in)
-#define s2isvectorg0(in , size)        sisvectora(in, size[0])
+#define s2isvectorg0(in , size)        sisvectora(in, size[0], size[1])
 #define s0isvectorg0(in)               sisvectors(in)
-#define g2isvectorg0(in, size)         gisvectora(in, size[0])
+#define g2isvectorg0(in, size)         gisvectora(in, size[0], size[1])
 #define g0isvectorg0(in)               gisvectors(in)
-#define z2isvectorg0(in, size)         zisvectora(in , size[0])
+#define z2isvectorg0(in, size)         zisvectora(in , size[0], size[1])
 #define z0isvectorg0(in)               zisvectors(in)
 
 

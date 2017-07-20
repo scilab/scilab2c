@@ -17,6 +17,6 @@
 #include "types.h"
 char dismatrixs(double in)
 {
-   char out= 'F' ;
+   char out= 'T' ;
     return out;
 }

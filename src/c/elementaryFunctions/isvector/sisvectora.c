@@ -15,9 +15,9 @@
 #include <math.h>
 #include "isvector.h"
 #include "types.h"
-char sisvectora(float* inp, int size1)
+char sisvectora(float* inp, int row, int col)
 {
-    if(size1 ==1)
+    if(row ==1 || col==1)
    return 'T';
    return 'F';
 }

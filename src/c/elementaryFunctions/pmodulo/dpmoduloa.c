@@ -13,13 +13,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "doubleComplex.h"
-#include "isvector.h"
+#include "pmodulo.h"
 #include "types.h"
-
-char zisvectora(doubleComplex *inp, int row, int col)
+void dpmoduloa(double* inp1, int size, double* inp2, double* out)
 {
-     if(row ==1 || col==1)
-   return 'T';
-   return 'F';
+ 
+		
+				for(int i=0; i< size; i++)
+					{
+
+					out[i]= dpmodulos(inp1[i], inp2[i]);
+														
+					}
+
+
+
+	
 }

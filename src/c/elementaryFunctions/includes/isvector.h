@@ -22,13 +22,13 @@
 extern "C" {
 #endif
 
-char disvectora(double* , int);
+char disvectora(double* , int, int);
 char disvectors(double);
-char sisvectora( float* , int);
+char sisvectora( float* , int, int);
 char sisvectors( float);
-char gisvectora(char* , int);
+char gisvectora(char* , int, int );
 char gisvectors(char);
-char zisvectora(doubleComplex*, int);
+char zisvectora(doubleComplex*, int, int);
 char zisvectors(doubleComplex);
 
 #ifdef  __cplusplus
