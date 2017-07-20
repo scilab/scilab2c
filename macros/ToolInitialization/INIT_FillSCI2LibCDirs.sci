@@ -1949,6 +1949,11 @@ PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file',
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
+FunctionName = 'mad'; // BJ : Done AS : Float_Done
+PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
+INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
+
 FunctionName = 'st_deviation'; // BJ : Not implemented
 PrintStringInfo('      Adding Function: '+FunctionName+'.',GeneralReport,'file','y');
 INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCAnnFunDir,ClassName,GeneralReport,ExtensionCAnnFun);
