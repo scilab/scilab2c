@@ -16,6 +16,8 @@
 
 #include "types.h"
 #include "doubleComplex.h"
+#include "uint16.h"
+
 
 #ifdef  __cplusplus
 extern "C" {

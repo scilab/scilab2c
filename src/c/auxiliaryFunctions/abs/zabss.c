@@ -16,6 +16,7 @@
 #include "sqrt.h"
 #include "max.h"
 #include "min.h"
+#include "doubleComplex.h"
 
 double zabss(doubleComplex in) {
   double real = dabss(zreals(in));

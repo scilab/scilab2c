@@ -11,6 +11,7 @@
  */
 
 #include "addition.h"
+#include "doubleComplex.h"
 
 doubleComplex zadds(doubleComplex z1, doubleComplex z2) {
   return DoubleComplex(zreals(z1) + zreals(z2),

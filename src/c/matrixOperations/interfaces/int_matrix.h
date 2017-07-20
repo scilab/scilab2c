@@ -46,4 +46,4 @@ extern "C" {
 } /* extern "C" */
 #endif
 
-#endif /*__INT_CUMSUM_H__*/
+#endif /*__INT_MATRIX_H__*/

@@ -187,6 +187,9 @@ extern "C" {
 /*interfacing isscalar*/
 #include "isscalar.h"
 #include "int_isscalar.h"
+/*interfacing isvector*/
+#include "isvector.h"
+#include "int_isvector.h"
 /*interfacing iscolumn*/
 #include "iscolumn.h"
 #include "int_iscolumn.h"
@@ -470,6 +473,9 @@ extern "C" {
 /*interfacing matrix*/
 #include "int_matrix.h"
 #include "matrix.h"
+/*interfacing nnz*/
+#include "int_nnz.h"
+#include "nnz.h"
 /*interfacing cumprod*/
 #include "int_cumprod.h"
 #include "cumprod.h"
@@ -600,6 +606,9 @@ extern "C" {
 /* interfacing mean */
 #include "mean.h"
 #include "int_mean.h"
+/* interfacing median */
+#include "median.h"
+#include "int_median.h"
 /* interfacing stdevf */
 #include "stdevf.h"
 #include "int_stdevf.h"

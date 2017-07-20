@@ -1,0 +1,4 @@
+RPI_SPIDataRW
+RPI_SPIGetFd
+RPI_SPISetup
+RPI_SPISetupMode
