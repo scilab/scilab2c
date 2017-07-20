@@ -90,6 +90,10 @@ extern "C" {
 #include "erfc.h"
 #include "int_erfc.h"
 
+/* interfacing erfcx */
+#include "erfcx.h"
+#include "int_erfcx.h"
+
 /* interfacing erfinv */
 #include "erfinv.h"
 #include "int_erfinv.h"

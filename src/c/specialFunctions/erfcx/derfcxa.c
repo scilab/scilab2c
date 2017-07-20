@@ -13,13 +13,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "erfinv.h"
+#include "erfcx.h"
+#include "erfc.h"
 
-void serfinva(float* inp1, int sizer, int sizec,float* out)
+void derfcxa(double* inp1, int sizer, int sizec, double* out)
 {
     for (int i = 0; i < sizer*sizec; i++)
     {
-	out[i] = serfinvs(inp1[i]);
+	out[i] = derfcxs(inp1[i]);
     }
 }
 
