@@ -86,9 +86,14 @@ extern "C" {
 #include "erf.h"
 #include "int_erf.h"
 
-/* interfacing erf */
+/* interfacing erfc */
 #include "erfc.h"
 #include "int_erfc.h"
+
+/* interfacing erfinv */
+#include "erfinv.h"
+#include "int_erfinv.h"
+
 
 /* ELEMENTARY FUNCTIONS */
 
