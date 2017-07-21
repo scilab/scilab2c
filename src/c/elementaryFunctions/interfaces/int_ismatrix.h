@@ -21,6 +21,8 @@
 #define g0ismatrixg0(in)               gismatrixs(in)
 #define z2ismatrixg0(in, size)         zismatrixa(in)
 #define z0ismatrixg0(in)               zismatrixs(in)
+#define u162ismatrixg0(in, size)         u16ismatrixa(in)
+#define u160ismatrixg0(in)               u16ismatrixs(in)
 
 
 #endif

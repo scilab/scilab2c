@@ -185,6 +185,12 @@ extern "C" {
 /*interfacing nthroot*/
 #include "nthroot.h"
 #include "int_nthroot.h"
+/*interfacing pmodulo*/
+#include "pmodulo.h"
+#include "int_pmodulo.h"
+/*interfacing nanmax*/
+#include "nanmax.h"
+#include "int_nanmax.h"
 /*interfacing issquare*/
 #include "issquare.h"
 #include "int_issquare.h"

@@ -10,29 +10,28 @@
  Email: toolbox@scilab.in
 */
 
-#ifndef __ISMATRIX_H__
-#define __ISMATRIX_H__
+#ifndef __NANMAX_H__
+#define __NANMAX_H__
 
 
 #include "types.h"
 #include "doubleComplex.h"
 #include "floatComplex.h"
-#include "uint16.h"
+#include "int16.h"
 
 #ifdef  __cplusplus
 extern "C" {
 #endif
 
-char dismatrixa(double*);
-char dismatrixs(double);
-char sismatrixa(float*);
-char sismatrixs(float);
-char gismatrixa(char*);
-char gismatrixs(char);
-char zismatrixa(doubleComplex*);
-char zismatrixs(doubleComplex);
-char u16ismatrixa(uint16*);
-char u16ismatrixs(uint16);
+double dnanmaxa (double* , int);
+void   dnanmaxrowa (double*, int , int, double*);
+void   dnanmaxcola (double*, int , int, double*);
+
+float snanmaxa (float* , int);
+void   snanmaxrowa (float*, int , int, float*);
+void   snanmaxcola (float*, int , int, float*);
+
+
 
 #ifdef  __cplusplus
 } /* extern "C" */

@@ -10,29 +10,28 @@
  Email: toolbox@scilab.in
 */
 
-#ifndef __ISMATRIX_H__
-#define __ISMATRIX_H__
+#ifndef __PMODULO_H__
+#define __PMODULO_H__
 
 
 #include "types.h"
 #include "doubleComplex.h"
 #include "floatComplex.h"
-#include "uint16.h"
+#include "int16.h"
 
 #ifdef  __cplusplus
 extern "C" {
 #endif
 
-char dismatrixa(double*);
-char dismatrixs(double);
-char sismatrixa(float*);
-char sismatrixs(float);
-char gismatrixa(char*);
-char gismatrixs(char);
-char zismatrixa(doubleComplex*);
-char zismatrixs(doubleComplex);
-char u16ismatrixa(uint16*);
-char u16ismatrixs(uint16);
+void dpmoduloa(double*, int ,double*, double*);
+double dpmodulos(double, double);
+
+void spmoduloa(float*, int ,float*, float*);
+float spmodulos(float, float);
+
+void i16pmoduloa(int16*, int ,int16*, int16*);
+int16 i16pmodulos(int16, int16);
+
 
 #ifdef  __cplusplus
 } /* extern "C" */

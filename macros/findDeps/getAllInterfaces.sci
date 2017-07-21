@@ -103,6 +103,8 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/elementaryFunctions/interfaces/int_linspace.h"
       "src/c/elementaryFunctions/interfaces/int_isrow.h" 
       "src/c/elementaryFunctions/interfaces/int_nthroot.h"
+      "src/c/elementaryFunctions/interfaces/int_pmodulo.h"
+      "src/c/elementaryFunctions/interfaces/int_nanmax.h"
       "src/c/elementaryFunctions/interfaces/int_issquare.h"
       "src/c/elementaryFunctions/interfaces/int_isscalar.h"
       "src/c/elementaryFunctions/interfaces/int_isvector.h"

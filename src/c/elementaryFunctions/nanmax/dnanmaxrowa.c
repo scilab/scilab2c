@@ -10,16 +10,27 @@
  Email: toolbox@scilab.in
 */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include "doubleComplex.h"
-#include "isvector.h"
-#include "types.h"
 
-char zisvectora(doubleComplex *inp, int row, int col)
+#include "nanmax.h"
+#include "types.h"
+#include "uint16.h"
+
+void dnanmaxrowa(double *in, int row, int col, double* out)
 {
-     if(row ==1 || col==1)
-   return 'T';
-   return 'F';
+    double inter[row]; 
+
+
+
+for(int i=0; i< col; i++)
+	{
+		for(int j=0 ; j< row; j++)
+			{
+				inter[j]= in[j+ (i*row)];
+				
+			}
+     out[i]= dnanmaxa( inter, row);
+	
+	}
+
+
 }

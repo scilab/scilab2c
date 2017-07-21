@@ -13,13 +13,45 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "doubleComplex.h"
-#include "isvector.h"
+#include "nanmax.h"
 #include "types.h"
+#include "doubleComplex.h"
+#include "abs.h"
 
-char zisvectora(doubleComplex *inp, int row, int col)
+doubleComplex znanmaxa(doubleComplex* in, int size)
 {
-     if(row ==1 || col==1)
-   return 'T';
-   return 'F';
+doubleComplex high=0; int k=0;
+for(int i=0; i<size; i++)
+{
+	if( !(isnan(in[i])) )
+	{
+	high= in[i];
+	 break;
+         k= 1;
+	}
+}
+
+
+	
+	for(int i=0; i< size; i++)
+		{
+			if( !(isnan(in[i])) )
+				{
+					if( zabss(in[i]) > zabss(high))
+						{
+							high= in[i];
+	
+						}
+
+		
+				}
+
+
+		}
+		
+
+if(k != 0)
+return high;
+else
+return - 0.0/0.0;	
 }

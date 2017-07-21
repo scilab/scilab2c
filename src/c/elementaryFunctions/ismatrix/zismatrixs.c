@@ -13,13 +13,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "doubleComplex.h"
-#include "isvector.h"
+#include "ismatrix.h"
 #include "types.h"
-
-char zisvectora(doubleComplex *inp, int row, int col)
+#include "uint16.h"
+#include "doubleComplex.h"
+char zismatrixs(doubleComplex in)
 {
-     if(row ==1 || col==1)
-   return 'T';
-   return 'F';
+   char out= 'T' ;
+    return out;
 }
