@@ -521,12 +521,12 @@ extern "C" {
 #include "modk.h"
 #include "int_modk.h"
 /* interfacing idct */
-//#include "idct.h"
-//#include "int_idct.h"
+#include "idct.h"
+#include "int_idct.h"
 
 /* interfacing dct   */
-//#include "dct.h"
-//#include "int_dct.h"
+#include "dct.h"
+#include "int_dct.h"
 
 /* interfacing convol */
 #include "conv.h"
