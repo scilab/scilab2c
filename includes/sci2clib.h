@@ -191,6 +191,12 @@ extern "C" {
 /*interfacing nanmax*/
 #include "nanmax.h"
 #include "int_nanmax.h"
+/*interfacing nanmean*/
+#include "nanmean.h"
+#include "int_nanmean.h"
+/*interfacing nanmin*/
+#include "nanmin.h"
+#include "int_nanmin.h"
 /*interfacing issquare*/
 #include "issquare.h"
 #include "int_issquare.h"

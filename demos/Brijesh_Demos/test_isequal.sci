@@ -1,4 +1,4 @@
-function Test_Isreal
+function test_isequal
 	disp('Datatype: Double');
 	i1 = [1 2 3];
 	i2 = [1 2 3];

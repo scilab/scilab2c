@@ -1,4 +1,4 @@
-function Test_Cross
+function test_cross
 	disp('Datatype: Double');
 	i1 = [1 2;3 4;5 6];
 	i2 = [7 8;9 10;11 12];

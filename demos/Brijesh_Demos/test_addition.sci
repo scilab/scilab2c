@@ -1,4 +1,4 @@
-function Test_Addition()
+function test_addition()
     a = 1;
     b = 2;
     d = float(b);

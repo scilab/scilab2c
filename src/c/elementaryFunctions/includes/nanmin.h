@@ -5,34 +5,33 @@
  you should have received as part of this distribution.  The terms
  are also available at
  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
- Author: Ukasha Noor
+ Author: Brijesh Gupta C R
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
 */
 
+#ifndef __NANMIN_H__
+#define __NANMIN_H__
 
-#ifndef __DCT_H__
-#define __DCT_H__
 
-#include <math.h>
 #include "types.h"
 #include "doubleComplex.h"
-#include "addition.h"
+#include "floatComplex.h"
+#include "int16.h"
 
 #ifdef  __cplusplus
 extern "C" {
 #endif
 
-void ddcta(double *in,int row,int col,int sign,double *out);
+double dnanmina(double* in, int row, int col, double* pos);
+double dnanminnpa(double* in, int row, int col);
+double dnanmins(double in, double* pos);
+double dnanminnps(double in);
 
-void sdcta(float *in,int row,int col,int sign,float *out);
 
-void zdcta(doubleComplex *in,int row,int col,int sign,doubleComplex *out);
-
-void cdcta(floatComplex *in,int row,int col,int sign,floatComplex *out);
 
 #ifdef  __cplusplus
 } /* extern "C" */
 #endif
 
-#endif
+#endif  /*__NANMIN_H__*/

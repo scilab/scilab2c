@@ -1,4 +1,4 @@
-function Test_Erfcx
+function test_erfcx
 	disp('Datatype: Double');
 	i1 = [.75 .8 -.32];
 	o1 = erfcx(i1);
