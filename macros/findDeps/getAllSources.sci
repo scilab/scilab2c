@@ -828,6 +828,8 @@ function allSources = getAllSources(SharedInfo,BuildTool)
       "src/c/elementaryFunctions/nanmin/dnanmina.c"
       "src/c/elementaryFunctions/nanmin/dnanmins.c"
       "src/c/elementaryFunctions/nanmin/dnanminnpa.c"
+      "src/c/elementaryFunctions/nanmin/dnanmincolnpa.c"
+      "src/c/elementaryFunctions/nanmin/dnanminrownpa.c"
       "src/c/elementaryFunctions/nanmin/dnanminnps.c"
       "src/c/elementaryFunctions/isscalar/disscalara.c"
       "src/c/elementaryFunctions/isscalar/disscalars.c"

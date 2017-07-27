@@ -1038,11 +1038,11 @@ PrintStringInfo('OUT(2).SZ(1)= ''1''',ClassFileName,'file','y');
 PrintStringInfo('OUT(2).SZ(2)= ''2''',ClassFileName,'file','y');
 
 
-//PrintStringInfo('NIN=          2',ClassFileName,'file','y');
-//PrintStringInfo('NOUT=         1',ClassFileName,'file','y');
-//PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
-//PrintStringInfo('OUT(1).SZ(1)= FA_SZ_SEL1(IN(1).SZ(1),IN(2).VAL)',ClassFileName,'file','y');
-//PrintStringInfo('OUT(1).SZ(2)= FA_SZ_SEL2(IN(1).SZ(2),IN(2).VAL)',ClassFileName,'file','y');
+PrintStringInfo('NIN=          2',ClassFileName,'file','y');
+PrintStringInfo('NOUT=         1',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).TP=    IN(1).TP',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(1)= FA_SZ_SEL1(IN(1).SZ(1),IN(2).VAL)',ClassFileName,'file','y');
+PrintStringInfo('OUT(1).SZ(2)= FA_SZ_SEL2(IN(1).SZ(2),IN(2).VAL)',ClassFileName,'file','y');
 
 //PrintStringInfo('NIN=          2',ClassFileName,'file','y');
 //PrintStringInfo('NOUT=         2',ClassFileName,'file','y');
@@ -1059,7 +1059,7 @@ PrintStringInfo('d0'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('d2'+ArgSeparator+'d0',ClassFileName,'file','y');
 PrintStringInfo('d2'+ArgSeparator+'d0d2',ClassFileName,'file','y');
 PrintStringInfo('d0'+ArgSeparator+'d0d2',ClassFileName,'file','y');
-//PrintStringInfo('d2g2'+ArgSeparator+'d2',ClassFileName,'file','y');
+PrintStringInfo('d2g2'+ArgSeparator+'d2',ClassFileName,'file','y');
 //PrintStringInfo('d2g2'+ArgSeparator+'d2d2',ClassFileName,'file','y');
 
 

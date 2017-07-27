@@ -28,6 +28,10 @@ double dnanminnpa(double* in, int row, int col);
 double dnanmins(double in, double* pos);
 double dnanminnps(double in);
 
+void dnanminrownpa(double *in, int row, int col, double* out);
+void dnanmincolnpa(double *in, int row, int col, double* out);
+
+
 
 
 #ifdef  __cplusplus
