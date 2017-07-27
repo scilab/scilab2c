@@ -11,25 +11,23 @@
 */
 
 
-#include "nanmax.h"
+#include "nanmedian.h"
 #include "types.h"
 #include "uint16.h"
-#include "doubleComplex.h"
 
-void znanmaxrowa(doubleComplex *in, int row, int col, doubleComplex* out)
+void dnanmediancola(double *in, int row, int col, double* out)
 {
-    doubleComplex inter[row]; 
+    double inter[col]; 
 
 
-
-for(int i=0; i< col; i++)
+for(int i=0; i< row; i++)
 	{
-		for(int j=0 ; j< row; j++)
+		for(int j=0 ; j< col; j++)
 			{
-				inter[j]= in[j+ (i*row)];
+				inter[j]= in[i+ (j*row)];
 				
 			}
-     out[i]= znanmaxa( inter, row);
+     out[i]= dnanmediana( inter, col);
 	
 	}
 

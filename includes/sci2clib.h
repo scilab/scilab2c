@@ -619,6 +619,9 @@ extern "C" {
 /* interfacing median */
 #include "median.h"
 #include "int_median.h"
+/* interfacing nanmedian */
+#include "nanmedian.h"
+#include "int_nanmedian.h"
 /* interfacing mad */
 #include "mad.h"
 #include "int_mad.h"

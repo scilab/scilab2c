@@ -13,23 +13,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "nanmax.h"
+#include "nanmedian.h"
+#include "median.h"
 #include "types.h"
-#include "doubleComplex.h"
-#include "abs.h"
+double dnanmediana(double* in, int size)
+{
 
-doubleComplex znanmaxa(doubleComplex* in, int size)
-{
-doubleComplex high=0; int k=0;
-for(int i=0; i<size; i++)
-{
-	if( !(isnan(in[i])) )
-	{
-	high= in[i];
-	 break;
-         k= 1;
-	}
-}
+double temp[size];
+double out;
+int j=0;
+
+double a= 0.0/0.0;
 
 
 	
@@ -37,21 +31,21 @@ for(int i=0; i<size; i++)
 		{
 			if( !(isnan(in[i])) )
 				{
-					if( zabss(in[i]) > zabss(high))
-						{
-							high= in[i];
-	
-						}
-
+					temp[j]= in[i];
+					j=j+1;
+					
 		
 				}
 
 
 		}
-		
 
-if(k != 0)
-return high;
+
+out= dmediana(temp, j);
+
+if(j=0)
+return a;
 else
-return - 0.0/0.0;	
+return out;
+	
 }

@@ -146,6 +146,7 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/statisticsFunctions/includes/sum.h"
       "src/c/statisticsFunctions/includes/mean.h"
       "src/c/statisticsFunctions/includes/median.h"
+      "src/c/statisticsFunctions/includes/nanmedian.h"
       "src/c/statisticsFunctions/includes/mad.h"
       "src/c/statisticsFunctions/includes/meanf.h"
       "src/c/statisticsFunctions/includes/stdevf.h"

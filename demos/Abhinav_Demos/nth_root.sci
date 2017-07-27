@@ -1,7 +1,7 @@
 // Test file for "nthroot" function for the data types double, float, double complex.
 
 
-function nthroot1()
+function nth_root()
 	b= [1,2,3,4;5,6,7,8]
 	c=[45,12,4,12; 23,34,5,6]
 	d= nthroot(b,c)

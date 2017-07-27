@@ -3,7 +3,7 @@
 //The function written doesn't work for string or character scalar as of now.
 
 
-function Column()
+function column()
 	a=[1,2,3,4; 5,6,7,8; 98,162,6587,0]
 	disp( iscolumn(a))
 	disp('')

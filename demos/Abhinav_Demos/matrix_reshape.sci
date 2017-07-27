@@ -1,7 +1,7 @@
 
 // Test file for "matrix" function for the data types double, float, double complex, uint16
 
-function matrixreshape()
+function matrix_reshape()
 	a=[1,2,3,4;5,6,7,8;8,9,1,2]
 	b=float(a)
 	c= uint16(b)
