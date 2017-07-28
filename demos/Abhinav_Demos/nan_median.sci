@@ -27,7 +27,5 @@ disp(nanmedian(y, 'c'))
 disp('')
 
 
-
-
 endfunction
 

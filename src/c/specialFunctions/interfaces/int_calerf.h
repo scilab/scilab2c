@@ -1,4 +1,4 @@
- /* Copyright (C) 2017 - IIT Bombay - FOSSEE
+/* Copyright (C) 2017 - IIT Bombay - FOSSEE
 
  This file must be used under the terms of the CeCILL.
  This source file is licensed as described in the file COPYING, which
@@ -9,26 +9,24 @@
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
  */
-#ifndef __ERF_H__
-#define __ERF_H__
-#include "types.h"
-#include "floatComplex.h"
-#include "doubleComplex.h"
-#include "uint8.h"
-#include "uint16.h"
-#include "int16.h"
+#ifndef __INT_CALERF_H__
+#define __INT_CALERF_H__
 
 #ifdef  __cplusplus
 extern "C" {
 #endif
 
-double derfs(double inp1);
-float serfs(float inp1);
-void derfa(double* inp1, int sizer, int sizec,double* out);
-void serfa(float* inp1, int sizer, int sizec,float* out);
 
-#ifdef  __cplusplus 
+
+#define d0d0calerfd0(in1,in2) 			dcalerfs(in1, in2)
+#define d2d0calerfd2(in1, size, in2, out) 	dcalerfa(in1, size[0]*size[1], in2, out)
+
+#define s0d0calerfs0(in1,in2) 			scalerfs(in1, in2)
+#define s2d0calerfs2(in1, size, in2, out) 	scalerfa(in1, size[0]*size[1], in2, out)
+
+
+#ifdef  __cplusplus
 } /* extern "C" */
 #endif
 
-#endif /*__ERF_H__*/
+#endif /*__INT_CALERF_H__*/

@@ -9,26 +9,33 @@
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
  */
-#ifndef __ERF_H__
-#define __ERF_H__
+
+#ifndef __CALERF_H__
+#define __CALERF_H__
 #include "types.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
 #include "uint8.h"
 #include "uint16.h"
 #include "int16.h"
+#include "erf.h"
+#include "erfc.h"
+#include "erfcx.h"
+#include "calerf.h"
 
 #ifdef  __cplusplus
 extern "C" {
 #endif
 
-double derfs(double inp1);
-float serfs(float inp1);
-void derfa(double* inp1, int sizer, int sizec,double* out);
-void serfa(float* inp1, int sizer, int sizec,float* out);
+double dcalerfs (double inp1, double inp2);
+void dcalerfa(double* inp1, int size,double inp2, double* out);
+
+float scalerfs (float inp1, double inp2);
+void scalerfa(float* inp1, int size,double inp2, float* out);
+
 
 #ifdef  __cplusplus 
 } /* extern "C" */
 #endif
 
-#endif /*__ERF_H__*/
+#endif /*__CALERF_H__*/
