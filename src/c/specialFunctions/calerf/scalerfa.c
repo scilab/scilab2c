@@ -13,23 +13,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "nanmin.h"
+#include "erf.h"
+#include "erfc.h"
+#include "erfcx.h"
+#include "calerf.h"
 
-void dnanminrowa(double *in, int row, int col, double *out, double *p)
+
+void scalerfa(float* inp1, int size,double inp2, float* out)
 {
-    double inter[row], *position;
-
-
-
-    for(int i=0; i< col; i++)
-	{
-		for(int j=0 ; j< row; j++)
-			{
-				inter[j]= in[j+ (i*row)];
-				
-			}
-     	out[i]= dnanmina( inter, row, 1, position);
-	}
-	//p = position;
-
+    for (int i = 0; i < size; i++)
+    {
+	out[i] = scalerfs(inp1[i],inp2);
+    }
 }
+

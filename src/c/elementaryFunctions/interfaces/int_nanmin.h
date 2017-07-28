@@ -22,7 +22,7 @@ extern "C" {
 #define d0nanmind0(in1)						dnanminnps(in1)
 
 #define d2g2nanmind2(in1, size1, in2, size2, out)        	(in2[0]=='r') ? dnanminrownpa(in1, size1[0], size1[1], out) : dnanmincolnpa(in1, size1[0] , size1[1], out)
-//#define d2g2nanmind2d2(in1, size1, in2, size2, p, out)        	(in2[0]=='r') ? dnanminrowa(in1, size1[0], size1[1], p, out) : dnanmincola(in1, size1[0] , size1[1], p, out)
+#define d2g2nanmind2d2(in1, size1, in2, size2, out, p)        	(in2[0]=='r') ? dnanminrowa(in1, size1[0], size1[1], p, out) : dnanmincola(in1, size1[0] , size1[1],  out, p)
 
 #ifdef  __cplusplus
 } /* extern "C" */

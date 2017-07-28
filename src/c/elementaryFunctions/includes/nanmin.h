@@ -30,7 +30,8 @@ double dnanminnps(double in);
 
 void dnanminrownpa(double *in, int row, int col, double* out);
 void dnanmincolnpa(double *in, int row, int col, double* out);
-
+void dnanminrowa(double *in, int row, int col, double *out, double *p);
+void dnanmincola(double *in, int row, int col, double *out, double *p);
 
 
 

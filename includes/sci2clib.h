@@ -82,6 +82,10 @@ extern "C" {
 
 /* SPECIAL FUNCTIONS */
 
+/* interfacing calerf */
+#include "calerf.h"
+#include "int_calerf.h"
+
 /* interfacing erf */
 #include "erf.h"
 #include "int_erf.h"

@@ -15,22 +15,19 @@
 #include <math.h>
 #include "nanmin.h"
 
-void dnanmincola(double *in, int row, int col, double *p, double *out)
+void dnanmincola(double *in, int row, int col, double *out, double *p)
 {
-    double inter[col]; 
-
-
-for(int i=0; i< row; i++)
+    double inter[col];
+    double position[col];
+    
+    for(int i=0; i < row; i++)
+    {
+	for(int j=0; j < col; i++)
 	{
-		for(int j=0 ; j< col; j++)
-			{
-				inter[j]= in[i+ (j*row)];
-				
-			}
-     out[i]= dnanmina( inter, 1, col, p);
-	
+	    inter[j]= in[i+ (j*row)];
 	}
-
-
+	
+	out[i]= dnanmina(inter, 1, col, position);
+	
+    }
 }
-

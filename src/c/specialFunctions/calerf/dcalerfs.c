@@ -13,23 +13,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "nanmin.h"
+#include "erf.h"
+#include "erfc.h"
+#include "erfcx.h"
 
-void dnanminrowa(double *in, int row, int col, double *out, double *p)
+double dcalerfs (double inp1, double inp2)
 {
-    double inter[row], *position;
-
-
-
-    for(int i=0; i< col; i++)
-	{
-		for(int j=0 ; j< row; j++)
-			{
-				inter[j]= in[j+ (i*row)];
-				
-			}
-     	out[i]= dnanmina( inter, row, 1, position);
-	}
-	//p = position;
-
+    if (inp2 == 0)    
+	return erf(inp1);
+    if (inp2 == 1)
+	return derfcs(inp1);
+    if (inp2 == 2)
+	return derfcxs(inp1);
 }
+
