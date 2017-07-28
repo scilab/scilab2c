@@ -15,9 +15,9 @@
 #include "types.h"
 #include "uint16.h"
 
-void snanmaxcola(float *in, int row, int col, float* out1, float* out2)
+void dnanmaxcol1a(double *in, int row, int col, double* out1)
 {
-    float inter[col]; 
+    double inter[col]; 
 
 
 for(int i=0; i< row; i++)
@@ -27,7 +27,7 @@ for(int i=0; i< row; i++)
 				inter[j]= in[i+ (j*row)];
 				
 			}
-     out1[i]= snanmax2a( inter, col, &out2[i]);
+     out1[i]= dnanmaxa( inter, col);
 	
 	}
 

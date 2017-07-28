@@ -201,6 +201,9 @@ extern "C" {
 /*interfacing nanmin*/
 #include "nanmin.h"
 #include "int_nanmin.h"
+/*interfacing nanmin*/
+#include "nansum.h"
+#include "int_nansum.h"
 /*interfacing issquare*/
 #include "issquare.h"
 #include "int_issquare.h"
@@ -629,6 +632,9 @@ extern "C" {
 /* interfacing median */
 #include "median.h"
 #include "int_median.h"
+/* interfacing nanmedian */
+#include "nanmedian.h"
+#include "int_nanmedian.h"
 /* interfacing mad */
 #include "mad.h"
 #include "int_mad.h"

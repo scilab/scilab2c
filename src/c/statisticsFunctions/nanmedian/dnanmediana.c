@@ -10,26 +10,42 @@
  Email: toolbox@scilab.in
 */
 
-
-#include "nanmax.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include "nanmedian.h"
+#include "median.h"
 #include "types.h"
-#include "uint16.h"
-
-void snanmaxcola(float *in, int row, int col, float* out1, float* out2)
+double dnanmediana(double* in, int size)
 {
-    float inter[col]; 
+
+double temp[size];
+double out;
+int j=0;
+
+double a= 0.0/0.0;
 
 
-for(int i=0; i< row; i++)
-	{
-		for(int j=0 ; j< col; j++)
-			{
-				inter[j]= in[i+ (j*row)];
-				
-			}
-     out1[i]= snanmax2a( inter, col, &out2[i]);
 	
-	}
+	for(int i=0; i< size; i++)
+		{
+			if( !(isnan(in[i])) )
+				{
+					temp[j]= in[i];
+					j=j+1;
+					
+		
+				}
 
 
+		}
+
+
+out= dmediana(temp, j);
+
+if(j=0)
+return a;
+else
+return out;
+	
 }

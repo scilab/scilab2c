@@ -11,25 +11,27 @@
 */
 
 
-#include "nanmax.h"
+#include "nansum.h"
 #include "types.h"
-#include "uint16.h"
+#include "doubleComplex.h"
+#include "addition.h"
 
-void snanmaxcola(float *in, int row, int col, float* out1, float* out2)
+doubleComplex znansuma(doubleComplex *in, int size)
 {
-    float inter[col]; 
+   doubleComplex fin=0;
 
 
-for(int i=0; i< row; i++)
-	{
-		for(int j=0 ; j< col; j++)
-			{
-				inter[j]= in[i+ (j*row)];
-				
-			}
-     out1[i]= snanmax2a( inter, col, &out2[i]);
-	
-	}
+    for (int i = 0; i < size; ++i)
+
+    {
+	if(!(isnan(zreals(in[i]))) && !(isnan(zimags(in[i]))))
+		{
+			fin= zadds(fin, in[i]);
+
+		}	
 
 
+    }
+
+    return fin;
 }

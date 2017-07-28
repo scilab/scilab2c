@@ -17,7 +17,7 @@
 
 
 
-#define d2dctd2(in,size,out)		ddcta(in,size[0],size[1],-1,out)
+#define d2d2dctd2(in,size,out)		ddcta(in,size[0],size[1],-1,out)
 
 #define d2d0dctd2(in,size,sign,out)	ddcta(in,size[0],size[1],sign,out)
 

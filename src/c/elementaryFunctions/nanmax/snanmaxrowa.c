@@ -15,9 +15,9 @@
 #include "types.h"
 #include "uint16.h"
 
-void snanmaxrowa(float *in, int row, int col, float* out)
+void snanmaxrowa(float *in, int row, int col, float* out1, float* out2)
 {
-    float inter[row]; 
+    float inter[row];  
 
 
 
@@ -28,9 +28,10 @@ for(int i=0; i< col; i++)
 				inter[j]= in[j+ (i*row)];
 				
 			}
-     out[i]= snanmaxa( inter, row);
+     out1[i]= snanmax2a( inter, row, &out2[i]);
 	
 	}
+
 
 
 }

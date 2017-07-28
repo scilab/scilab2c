@@ -11,25 +11,27 @@
 */
 
 
-#include "nanmax.h"
+#include "nansum.h"
 #include "types.h"
 #include "uint16.h"
+#include "addition.h"
 
-void snanmaxcola(float *in, int row, int col, float* out1, float* out2)
+float snansuma(float *in, int size)
 {
-    float inter[col]; 
+   float fin=0;
 
 
-for(int i=0; i< row; i++)
-	{
-		for(int j=0 ; j< col; j++)
-			{
-				inter[j]= in[i+ (j*row)];
-				
-			}
-     out1[i]= snanmax2a( inter, col, &out2[i]);
-	
-	}
+    for (int i = 0; i < size; ++i)
+
+    {
+	if(!(isnan(in[i])))
+		{
+			fin= sadds(fin, in[i]);
+
+		}	
 
 
+    }
+
+    return fin;
 }

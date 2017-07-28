@@ -15,9 +15,9 @@
 #include "types.h"
 #include "uint16.h"
 
-void dnanmaxrowa(double *in, int row, int col, double* out)
+void dnanmaxrowa(double *in, int row, int col, double* out1, double* out2)
 {
-    double inter[row]; 
+    double inter[row];  
 
 
 
@@ -28,9 +28,10 @@ for(int i=0; i< col; i++)
 				inter[j]= in[j+ (i*row)];
 				
 			}
-     out[i]= dnanmaxa( inter, row);
+     out1[i]= dnanmax2a( inter, row, &out2[i]);
 	
 	}
+
 
 
 }

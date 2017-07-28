@@ -10,26 +10,49 @@
  Email: toolbox@scilab.in
 */
 
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 #include "nanmax.h"
 #include "types.h"
-#include "uint16.h"
-
-void snanmaxcola(float *in, int row, int col, float* out1, float* out2)
+double dnanmax1a(double* in, int row, int col, double* out)
 {
-    float inter[col]; 
-
-
-for(int i=0; i< row; i++)
+double high;
+int ival=0;
+for(int i=0; i<row*col; i++)
+{
+	if( !(isnan(in[i])) )
 	{
-		for(int j=0 ; j< col; j++)
-			{
-				inter[j]= in[i+ (j*row)];
-				
-			}
-     out1[i]= snanmax2a( inter, col, &out2[i]);
-	
+	high= in[i];
+	 break;
+
 	}
+}
 
 
+	
+	for(int i=0; i< row*col; i++)
+		{
+			if( !(isnan(in[i])) )
+				{
+					if( in[i] > high)
+						{
+							high= in[i];
+							ival=i;
+	
+						}
+
+		
+				}
+
+
+		}
+
+out[0]= ival%row +1;
+out[1]= ival/row +1;
+		
+
+
+return high;
+	
 }

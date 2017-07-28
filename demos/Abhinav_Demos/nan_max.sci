@@ -1,33 +1,43 @@
-function nan_max()
+function nan_max ()
+    x= [1 %nan 1 0.8; 21 1 13 %nan]	
+	disp('Double')
+	a= nanmax(x)
+	disp(a)
+	disp('')
+	[b,c]= nanmax(x)
+        disp(b)
+	disp('')
+        disp(c)
+	disp('')
+	d= nanmax(x)
+        disp(d)
+	disp('')
+	e=nanmax(x,'r')
+	f=nanmax(x,'c')
+        disp(e)
+	disp('')
+        disp(f)
+	disp('')
 
-x=[%nan 0.121 %nan 0.5 0.8; 0.12 %nan 9 12 %nan]
-
-disp('Double')
-
-disp(nanmax(x))
-disp('')
-
-disp(nanmax(x , 'r'))
-disp('')
-
-disp(nanmax(x, 'c'))
-disp('')
-
-y= uint16(x)
-
-disp('Float')
-
-disp(nanmax(y))
-disp('')
-
-disp(nanmax(y , 'r'))
-disp('')
-
-disp(nanmax(y, 'c'))
-disp('')
-
-
-
-
+	y= float(x)
+	disp('Float')
+	g= nanmax(y)
+	disp(g)
+	disp('')
+	[h,i]= nanmax(y)
+        disp(h)
+	disp('')
+        disp(i)
+	disp('')
+	j= nanmax(y)
+        disp(j)
+	disp('')
+	k=nanmax(y,'r')
+	l=nanmax(y,'c')
+        disp(k)
+	disp('')
+        disp(l)
+	disp('')
+		
+    
 endfunction
-
