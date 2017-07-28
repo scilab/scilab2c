@@ -197,6 +197,9 @@ extern "C" {
 /*interfacing nanmin*/
 #include "nanmin.h"
 #include "int_nanmin.h"
+/*interfacing nanmin*/
+#include "nansum.h"
+#include "int_nansum.h"
 /*interfacing issquare*/
 #include "issquare.h"
 #include "int_issquare.h"
