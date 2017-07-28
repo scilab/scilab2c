@@ -5,19 +5,19 @@
  you should have received as part of this distribution.  The terms
  are also available at
  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
- Author: Abhinav Dronamraju
+ Author: Brijesh Gupta C R
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
 */
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include "nanmin.h"
 
-#include "nanmax.h"
-#include "types.h"
-#include "uint16.h"
-
-void snanmaxcola(float *in, int row, int col, float* out1, float* out2)
+void dnanmincola(double *in, int row, int col, double *p, double *out)
 {
-    float inter[col]; 
+    double inter[col]; 
 
 
 for(int i=0; i< row; i++)
@@ -27,9 +27,10 @@ for(int i=0; i< row; i++)
 				inter[j]= in[i+ (j*row)];
 				
 			}
-     out1[i]= snanmax2a( inter, col, &out2[i]);
+     out[i]= dnanmina( inter, 1, col, p);
 	
 	}
 
 
 }
+

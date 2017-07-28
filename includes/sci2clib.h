@@ -191,6 +191,12 @@ extern "C" {
 /*interfacing nanmax*/
 #include "nanmax.h"
 #include "int_nanmax.h"
+/*interfacing nanmean*/
+#include "nanmean.h"
+#include "int_nanmean.h"
+/*interfacing nanmin*/
+#include "nanmin.h"
+#include "int_nanmin.h"
 /*interfacing issquare*/
 #include "issquare.h"
 #include "int_issquare.h"
@@ -521,12 +527,12 @@ extern "C" {
 #include "modk.h"
 #include "int_modk.h"
 /* interfacing idct */
-//#include "idct.h"
-//#include "int_idct.h"
+#include "idct.h"
+#include "int_idct.h"
 
 /* interfacing dct   */
-//#include "dct.h"
-//#include "int_dct.h"
+#include "dct.h"
+#include "int_dct.h"
 
 /* interfacing convol */
 #include "conv.h"

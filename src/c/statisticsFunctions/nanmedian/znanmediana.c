@@ -5,34 +5,47 @@
  you should have received as part of this distribution.  The terms
  are also available at
  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
- Author: Ukasha Noor
+ Author: Abhinav Dronamraju
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
 */
 
-
-#ifndef __DCT_H__
-#define __DCT_H__
-
+#include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
+#include "nanmedian.h"
+#include "median.h"
 #include "types.h"
 #include "doubleComplex.h"
-#include "addition.h"
 
-#ifdef  __cplusplus
-extern "C" {
-#endif
+doubleComplex znanmediana(doubleComplex* in, int size)
+{
 
-void ddcta(double *in,int row,int col,int sign,double *out);
+doubleComplex temp[size];
+doubleComplex out;
+int j=0;
 
-void sdcta(float *in,int row,int col,int sign,float *out);
+float a= 0.0/0.0;
+	
+	for(int i=0; i< size; i++)
+		{
+			if( !(zreals(in[i])) && !(zimags(in[i])) ) 
+				{
+					temp[j]= in[i];
+					j=j+1;
+					
+		
+				}
 
-void zdcta(doubleComplex *in,int row,int col,int sign,doubleComplex *out);
 
-void cdcta(floatComplex *in,int row,int col,int sign,floatComplex *out);
+		}
 
-#ifdef  __cplusplus
-} /* extern "C" */
-#endif
 
-#endif
+out= zmediana(temp, j);
+
+if(j=0)
+return a;
+else
+return out;
+	
+}

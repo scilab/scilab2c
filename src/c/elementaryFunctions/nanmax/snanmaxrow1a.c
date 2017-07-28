@@ -15,21 +15,23 @@
 #include "types.h"
 #include "uint16.h"
 
-void snanmaxcola(float *in, int row, int col, float* out1, float* out2)
+void snanmaxrow1a(float *in, int row, int col, float* out1)
 {
-    float inter[col]; 
+    float inter[row];  
 
 
-for(int i=0; i< row; i++)
+
+for(int i=0; i< col; i++)
 	{
-		for(int j=0 ; j< col; j++)
+		for(int j=0 ; j< row; j++)
 			{
-				inter[j]= in[i+ (j*row)];
+				inter[j]= in[j+ (i*row)];
 				
 			}
-     out1[i]= snanmax2a( inter, col, &out2[i]);
+     out1[i]= snanmaxa( inter, row);
 	
 	}
+
 
 
 }

@@ -1,4 +1,4 @@
-function Test_Toeplitz()
+function test_toeplitz()
     disp('Datatype: Double');
     ai = [1 2 3 4];
     bi = [1 6 7 8];

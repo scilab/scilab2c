@@ -24,12 +24,20 @@ extern "C" {
 #endif
 
 double dnanmaxa (double* , int);
-void   dnanmaxrowa (double*, int , int, double*);
-void   dnanmaxcola (double*, int , int, double*);
+double dnanmax1a (double* , int, int , double*);
+double dnanmax2a (double* , int, double*);
+void   dnanmaxrowa (double*, int , int, double*, double*);
+void   dnanmaxcola (double*, int , int, double*, double*);
+void   dnanmaxrow1a (double*, int , int, double*);
+void   dnanmaxcol1a (double*, int , int, double*);
 
 float snanmaxa (float* , int);
-void   snanmaxrowa (float*, int , int, float*);
-void   snanmaxcola (float*, int , int, float*);
+float snanmax1a (float* , int, int , float*);
+float snanmax2a (float* , int, float*);
+void   snanmaxrowa (float*, int , int, float*, float*);
+void   snanmaxcola (float*, int , int, float*, float*);
+void   snanmaxrow1a (float*, int , int, float*);
+void   snanmaxcol1a (float*, int , int, float*);
 
 
 

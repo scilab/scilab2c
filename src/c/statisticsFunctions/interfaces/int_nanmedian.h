@@ -19,9 +19,8 @@
 #define s2nanmedians0(in1, size)                            snanmediana(in1,size[0]* size[1])
 #define s2g2nanmedians2(in1, size1, in2, size2, out)        (in2[0]=='r') ? snanmedianrowa(in1, size1[0], size1[1], out) : snanmediancola(in1, size1[0] , size1[1], out)
 
-
-//#define i160i160pmoduloi160(in1, in2)        i16pmodulos(in1,in2)
-//#define i162i162pmoduloi162(in1, size1, in2, size2, out)        i16pmoduloa(in1,size1[0]*size1[1],in2, out)
+#define z2nanmedianz0(in1, size)                            znanmediana(in1,size[0]* size[1])
+#define z2g2nanmedianz2(in1, size1, in2, size2, out)        (in2[0]=='r') ? znanmedianrowa(in1, size1[0], size1[1], out) : znanmediancola(in1, size1[0] , size1[1], out)
 
 
 #endif

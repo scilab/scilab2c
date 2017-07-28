@@ -5,31 +5,29 @@
  you should have received as part of this distribution.  The terms
  are also available at
  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
- Author: Abhinav Dronamraju
+ Author: Brijesh Gupta C R
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
 */
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include "nanmean.h"
 
-#include "nanmax.h"
-#include "types.h"
-#include "uint16.h"
-
-void snanmaxcola(float *in, int row, int col, float* out1, float* out2)
+double dnanmeana(double* in, int size)
 {
-    float inter[col]; 
+    double count = 0, sum = 0;
 
+    for(int i = 0; i<size; i++)
+    {
+        if(!(isnan(in[i])))
+        {
+            count++;
+            sum += in[i];
+        }
+    }
 
-for(int i=0; i< row; i++)
-	{
-		for(int j=0 ; j< col; j++)
-			{
-				inter[j]= in[i+ (j*row)];
-				
-			}
-     out1[i]= snanmax2a( inter, col, &out2[i]);
-	
-	}
-
-
+    return sum/count;
 }
+

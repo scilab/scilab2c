@@ -5,13 +5,13 @@
  you should have received as part of this distribution.  The terms
  are also available at
  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
- Author: Abhinav Dronamraju
+ Author: Brijesh Gupta C R
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
 */
 
-#ifndef __NANMEDIAN_H__
-#define __NANMEDIAN_H__
+#ifndef __NANMIN_H__
+#define __NANMIN_H__
 
 
 #include "types.h"
@@ -23,17 +23,14 @@
 extern "C" {
 #endif
 
-double dnanmediana (double* , int);
-void   dnanmedianrowa (double*, int , int, double*);
-void   dnanmediancola (double*, int , int, double*);
+double dnanmina(double* in, int row, int col, double* pos);
+double dnanminnpa(double* in, int row, int col);
+double dnanmins(double in, double* pos);
+double dnanminnps(double in);
 
-float  snanmediana (float* , int);
-void   snanmedianrowa (float*, int , int, float*);
-void   snanmediancola (float*, int , int, float*);
+void dnanminrownpa(double *in, int row, int col, double* out);
+void dnanmincolnpa(double *in, int row, int col, double* out);
 
-doubleComplex  znanmediana (doubleComplex* , int);
-void   znanmedianrowa (doubleComplex*, int , int, doubleComplex*);
-void   znanmediancola (doubleComplex*, int , int, doubleComplex*);
 
 
 
@@ -41,4 +38,4 @@ void   znanmediancola (doubleComplex*, int , int, doubleComplex*);
 } /* extern "C" */
 #endif
 
-#endif
+#endif  /*__NANMIN_H__*/

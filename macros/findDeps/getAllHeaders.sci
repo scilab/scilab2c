@@ -134,6 +134,8 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/elementaryFunctions/includes/nthroot.h"
       "src/c/elementaryFunctions/includes/pmodulo.h"
       "src/c/elementaryFunctions/includes/nanmax.h"
+      "src/c/elementaryFunctions/includes/nanmean.h"
+      "src/c/elementaryFunctions/includes/nanmin.h"
       "src/c/elementaryFunctions/includes/issquare.h"
       "src/c/elementaryFunctions/includes/isscalar.h"
       "src/c/elementaryFunctions/includes/isvector.h"
