@@ -160,6 +160,7 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/statisticsFunctions/includes/dynlib_statisticsfunctions.h"
       "src/c/statisticsFunctions/includes/statMax.h"
       "src/c/statisticsFunctions/includes/statMin.h"
+      "src/c/statisticsFunctions/includes/moment.h"
       "src/c/operations/includes/subtraction.h"
       "src/c/operations/includes/addition.h"
       "src/c/operations/includes/dynlib_operations.h"
