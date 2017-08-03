@@ -543,6 +543,9 @@ extern "C" {
 /* interfacing dct   */
 #include "dct.h"
 #include "int_dct.h"
+/* interfacing hank   */
+#include "hank.h"
+#include "int_hank.h"
 
 /* interfacing convol */
 #include "conv.h"
