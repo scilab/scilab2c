@@ -656,6 +656,16 @@ extern "C" {
 /* interfacing variance */
 #include "variance.h"
 #include "int_variance.h"
+/* interfacing wcenter */
+#include "wcenter.h"
+#include "int_wcenter.h"
+/* interfacing center */
+#include "center.h"
+#include "int_center.h"
+/* interfacing correl */
+#include "correl.h"
+#include "int_correl.h"
+
 
 /* TYPE */
 /* interfacing real */
