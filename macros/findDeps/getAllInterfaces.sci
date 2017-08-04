@@ -175,6 +175,7 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/string/interfaces/int_disp.h"
       "src/c/string/interfaces/int_string.h"
       "src/c/signalProcessing/interfaces/int_modk.h"
+      "src/c/signalProcessing/interfaces/int_hank.h"
       "src/c/signalProcessing/interfaces/int_idct.h"
       "src/c/signalProcessing/interfaces/int_dct.h"
       "src/c/signalProcessing/interfaces/int_ifft.h"

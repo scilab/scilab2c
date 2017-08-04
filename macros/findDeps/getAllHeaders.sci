@@ -173,6 +173,7 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/string/includes/disp.h"
       "src/c/string/includes/str.h"
       "src/c/signalProcessing/includes/modk.h"
+      "src/c/signalProcessing/includes/hank.h"
       "src/c/signalProcessing/includes/idct.h"
       "src/c/signalProcessing/includes/dct.h"
       "src/c/signalProcessing/fft/fft_internal.h"
