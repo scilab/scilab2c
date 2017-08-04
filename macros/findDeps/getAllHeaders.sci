@@ -164,6 +164,7 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/statisticsFunctions/includes/wcenter.h"
       "src/c/statisticsFunctions/includes/center.h"
       "src/c/statisticsFunctions/includes/correl.h"
+      "src/c/statisticsFunctions/includes/covar.h"
       "src/c/operations/includes/subtraction.h"
       "src/c/operations/includes/addition.h"
       "src/c/operations/includes/dynlib_operations.h"

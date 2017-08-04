@@ -152,6 +152,7 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/statisticsFunctions/interfaces/int_wcenter.h"
       "src/c/statisticsFunctions/interfaces/int_center.h"
       "src/c/statisticsFunctions/interfaces/int_correl.h"
+      "src/c/statisticsFunctions/interfaces/int_covar.h"
       "src/c/operations/interfaces/int_OpEqual.h"
       "src/c/operations/interfaces/int_OpLogNot.h"
       "src/c/operations/interfaces/int_OpLogEq.h"

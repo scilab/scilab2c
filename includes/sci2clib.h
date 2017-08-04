@@ -677,6 +677,9 @@ extern "C" {
 /* interfacing correl */
 #include "correl.h"
 #include "int_correl.h"
+/* interfacing covar */
+#include "covar.h"
+#include "int_covar.h"
 
 
 /* TYPE */
