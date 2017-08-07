@@ -502,6 +502,9 @@ extern "C" {
 /*interfacing nnz*/
 #include "int_nnz.h"
 #include "nnz.h"
+/*interfacing pertrans*/
+#include "int_pertrans.h"
+#include "pertrans.h"
 /*interfacing cumprod*/
 #include "int_cumprod.h"
 #include "cumprod.h"

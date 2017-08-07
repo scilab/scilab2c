@@ -55,6 +55,7 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/matrixOperations/interfaces/int_cumsum.h"
       "src/c/matrixOperations/interfaces/int_matrix.h"
       "src/c/matrixOperations/interfaces/int_nnz.h"
+      "src/c/matrixOperations/interfaces/int_pertrans.h"
       "src/c/matrixOperations/interfaces/int_cumprod.h"
       "src/c/matrixOperations/interfaces/int_triu.h"
       "src/c/matrixOperations/interfaces/int_tril.h"
