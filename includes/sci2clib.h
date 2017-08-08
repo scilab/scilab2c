@@ -168,6 +168,9 @@ extern "C" {
 /* interfacing atanh */
 #include "atanh.h"
 #include "int_atanh.h"
+/* interfacing tand */
+#include "tand.h"
+#include "int_tand.h"
 /* interfacing cos */
 #include "cos.h"
 #include "int_cos.h"
@@ -253,6 +256,9 @@ extern "C" {
 /* interfacing sinh */
 #include "sinh.h"
 #include "int_sinh.h"
+/* interfacing sind */
+#include "sind.h"
+#include "int_sind.h"
 /* interfacing sqrt */
 #include "sqrt.h"
 #include "int_sqrt.h"
@@ -520,12 +526,9 @@ extern "C" {
 /*interfacing norm*/
 #include "int_norm.h"
 #include "norm.h"
-
 /*interface Toeplitz */
 #include "toeplitz.h"
 #include "int_toeplitz.h"
-
-
 /*interface Cross */
 #include "cross.h"
 #include "int_cross.h"
