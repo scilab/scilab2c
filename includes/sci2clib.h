@@ -102,6 +102,17 @@ extern "C" {
 #include "erfinv.h"
 #include "int_erfinv.h"
 
+/* interfacing gamma */
+#include "gamma.h"
+#include "int_gamma.h"
+
+/* interfacing gammaln */
+#include "gammaln.h"
+#include "int_gammaln.h"
+
+/* interfacing beta */
+#include "beta.h"
+#include "int_beta.h"
 
 /* ELEMENTARY FUNCTIONS */
 
@@ -168,6 +179,9 @@ extern "C" {
 /* interfacing atanh */
 #include "atanh.h"
 #include "int_atanh.h"
+/* interfacing tand */
+#include "tand.h"
+#include "int_tand.h"
 /* interfacing cos */
 #include "cos.h"
 #include "int_cos.h"
@@ -253,6 +267,9 @@ extern "C" {
 /* interfacing sinh */
 #include "sinh.h"
 #include "int_sinh.h"
+/* interfacing sind */
+#include "sind.h"
+#include "int_sind.h"
 /* interfacing sqrt */
 #include "sqrt.h"
 #include "int_sqrt.h"
@@ -407,6 +424,10 @@ extern "C" {
 #include "isequal.h"
 #include "int_isequal.h"
 
+/*interfacing isinf*/
+#include "isinf.h"
+#include "int_isinf.h"
+
 
 /* IMPLICIT LISTS */
 /* interfacing implicitList/OpColon */
@@ -523,15 +544,15 @@ extern "C" {
 /*interfacing norm*/
 #include "int_norm.h"
 #include "norm.h"
-
 /*interface Toeplitz */
 #include "toeplitz.h"
 #include "int_toeplitz.h"
-
-
 /*interface Cross */
 #include "cross.h"
 #include "int_cross.h"
+/*interface Ndgrid */
+#include "ndgrid.h"
+#include "int_ndgrid.h"
 
 
 /* SIGNAL PROCESSING */
@@ -674,6 +695,19 @@ extern "C" {
 /* interfacing variance */
 #include "variance.h"
 #include "int_variance.h"
+/* interfacing wcenter */
+#include "wcenter.h"
+#include "int_wcenter.h"
+/* interfacing center */
+#include "center.h"
+#include "int_center.h"
+/* interfacing correl */
+#include "correl.h"
+#include "int_correl.h"
+/* interfacing covar */
+#include "covar.h"
+#include "int_covar.h"
+
 
 /* TYPE */
 /* interfacing real */
@@ -790,6 +824,9 @@ extern "C" {
 #include "rowcomp.h"	/* Linear Algebra - row compression, range */
 #include "int_rowcomp.h"
 
+/*interfacing range*/
+#include "range.h"
+#include "int_range.h"
 
 #include "qr.h" /* Linear Algebra - QR decomposition */
 #include "int_qr.h"
