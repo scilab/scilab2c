@@ -102,6 +102,17 @@ extern "C" {
 #include "erfinv.h"
 #include "int_erfinv.h"
 
+/* interfacing gamma */
+#include "gamma.h"
+#include "int_gamma.h"
+
+/* interfacing gammaln */
+#include "gammaln.h"
+#include "int_gammaln.h"
+
+/* interfacing beta */
+#include "beta.h"
+#include "int_beta.h"
 
 /* ELEMENTARY FUNCTIONS */
 
@@ -413,6 +424,10 @@ extern "C" {
 #include "isequal.h"
 #include "int_isequal.h"
 
+/*interfacing isinf*/
+#include "isinf.h"
+#include "int_isinf.h"
+
 
 /* IMPLICIT LISTS */
 /* interfacing implicitList/OpColon */
@@ -532,6 +547,9 @@ extern "C" {
 /*interface Cross */
 #include "cross.h"
 #include "int_cross.h"
+/*interface Ndgrid */
+#include "ndgrid.h"
+#include "int_ndgrid.h"
 
 
 /* SIGNAL PROCESSING */
@@ -797,6 +815,9 @@ extern "C" {
 #include "rowcomp.h"	/* Linear Algebra - row compression, range */
 #include "int_rowcomp.h"
 
+/*interfacing range*/
+#include "range.h"
+#include "int_range.h"
 
 #include "qr.h" /* Linear Algebra - QR decomposition */
 #include "int_qr.h"

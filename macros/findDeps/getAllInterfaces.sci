@@ -64,6 +64,7 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/matrixOperations/interfaces/int_norm.h"
       "src/c/matrixOperations/interfaces/int_toeplitz.h"
       "src/c/matrixOperations/interfaces/int_cross.h"
+      "src/c/matrixOperations/interfaces/int_ndgrid.h"
       "src/c/interpolation/interfaces/int_interp1.h"
       "src/c/elementaryFunctions/interfaces/int_nextpow2.h"
       "src/c/elementaryFunctions/interfaces/int_gcd.h"
@@ -139,6 +140,7 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/elementaryFunctions/interfaces/int_gcd.h"
       "src/c/elementaryFunctions/interfaces/int_lcm.h"
       "src/c/elementaryFunctions/interfaces/int_isequal.h"
+      "src/c/elementaryFunctions/interfaces/int_isinf.h"
       "src/c/statisticsFunctions/interfaces/int_mean.h"
       "src/c/statisticsFunctions/interfaces/int_median.h"
       "src/c/statisticsFunctions/interfaces/int_nanmedian.h"
@@ -246,6 +248,9 @@ function allInterfaces = getAllInterfaces(SharedInfo)
 	"src/c/specialFunctions/interfaces/int_erfcx.h"
 	"src/c/specialFunctions/interfaces/int_erfinv.h"
 	"src/c/specialFunctions/interfaces/int_calerf.h"
+	"src/c/specialFunctions/interfaces/int_gamma.h"
+	"src/c/specialFunctions/interfaces/int_gammaln.h"
+	"src/c/specialFunctions/interfaces/int_beta.h"
       "src/c/CACSD/interfaces/int_syslin.h"
       "src/c/CACSD/interfaces/int_lqr.h"
       "src/c/CACSD/interfaces/int_lqe.h"
@@ -261,6 +266,7 @@ function allInterfaces = getAllInterfaces(SharedInfo)
 	  "src/c/linearAlgebra/interfaces/int_householder.h"
 	  "src/c/linearAlgebra/interfaces/int_fullrf.h"	
 	  "src/c/linearAlgebra/interfaces/int_rowcomp.h"	
+	  "src/c/linearAlgebra/interfaces/int_range.h"	
 	  "src/c/linearAlgebra/interfaces/int_qr.h";
       "src/c/linearAlgebra/interfaces/int_rcond.h"];
 
