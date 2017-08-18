@@ -101,6 +101,7 @@ end
 
 PrintStringInfo('N Input Arguments: '+string(NInArg),ReportFileName,'file','y','n');
 PrintStringInfo('N Output Arguments: '+string(NOutArg),ReportFileName,'file','y');
+
    //#RNU_RES_E
    for counterinputargs = 1:NInArg
       //#RNU_RES_B
