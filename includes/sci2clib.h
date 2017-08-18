@@ -529,6 +529,9 @@ extern "C" {
 /*interfacing nnz*/
 #include "int_nnz.h"
 #include "nnz.h"
+/*interfacing pertrans*/
+#include "int_pertrans.h"
+#include "pertrans.h"
 /*interfacing cumprod*/
 #include "int_cumprod.h"
 #include "cumprod.h"
@@ -672,6 +675,9 @@ extern "C" {
 /* interfacing median */
 #include "median.h"
 #include "int_median.h"
+/* interfacing gsort */
+#include "gsort.h"
+#include "int_gsort.h"
 /* interfacing moment */
 #include "moment.h"
 #include "int_moment.h"
@@ -803,6 +809,9 @@ extern "C" {
 
 #include "svd.h"		/*Linear Alegbra - Singular value decompostion */
 #include "int_svd.h"
+
+#include "rank.h"		/*Linear Alegbra - Rank Using Singular value decompostion */
+#include "int_rank.h"
 
 #include "rcond.h"
 #include "int_rcond.h"

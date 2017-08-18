@@ -17,7 +17,9 @@
 
 double dmediana(double *in, int size)
 {
-    double a; double fin;
+    double a; double fin; double in_copy[size];
+for(int i=0; i< size; i++)
+	in_copy[i]= in[i];
 
 
     for (int i = 0; i < size; ++i)
@@ -28,15 +30,15 @@ double dmediana(double *in, int size)
 
         {
 
-            if (in[i] > in[j])
+            if (in_copy[i] > in_copy[j])
 
             {
 
-                a =  in[i];
+                a =  in_copy[i];
 
-                in[i] = in[j];
+                in_copy[i] = in_copy[j];
 
-                in[j] = a;
+                in_copy[j] = a;
 
             }
 
@@ -47,11 +49,11 @@ double dmediana(double *in, int size)
 
  if(size%2 ==0)
     {
-     fin= (in[size/2]+ in[(size/2)-1])/2;
+     fin= (in_copy[size/2]+ in_copy[(size/2)-1])/2;
     }
  else
     {
-    fin= in[(size-1)/2];
+    fin= in_copy[(size-1)/2];
     }
 
     return fin;

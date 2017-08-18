@@ -11,17 +11,24 @@
 */
 
 
-#include "median.h"
+#include "gsort.h"
 #include "types.h"
 #include "uint16.h"
 
-float smediana(float *in, int size)
+void sgsorta(float *in, int size, char check, float* out)
 {
     float a; float fin; float in_copy[size];
 
-for(int i=0; i< size; i++)
-	in_copy[i]= in[i];
+   for(int i=0; i< size; i++)
 
+	{
+		in_copy[i]= in[i];
+
+        }
+
+
+if(check == 'i')
+{
     for (int i = 0; i < size; ++i)
 
     {
@@ -45,15 +52,43 @@ for(int i=0; i< size; i++)
         }
 
     }
+}
 
- if(size%2 ==0)
+if(check =='d')
+{
+ for (int i = 0; i < size; ++i)
+
     {
-     fin= (in_copy[size/2]+ in_copy[(size/2)-1])/2;
-    }
- else
-    {
-    fin= in_copy[(size-1)/2];
+
+        for (int j = i + 1; j < size; ++j)
+
+        {
+
+           if (in_copy[i] < in_copy[j])
+
+            {
+
+                a =  in_copy[i];
+
+                in_copy[i] = in_copy[j];
+
+                in_copy[j] = a;
+
+            }
+
+        }
+
     }
 
-    return fin;
+
+}
+
+   for(int i=0; i< size; i++)
+
+	{
+		out[i]= in_copy[i];
+
+        }
+
+
 }

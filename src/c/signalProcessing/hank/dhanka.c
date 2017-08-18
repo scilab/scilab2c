@@ -20,6 +20,8 @@
 
 void dhanka(int m, int n, double*seq_conv, int row, int col, double*out)
 {
+
+// Variable Declaration Start
     int mr, nr; 
     mr= m* row;
     nr= n* row;
@@ -31,8 +33,9 @@ void dhanka(int m, int n, double*seq_conv, int row, int col, double*out)
     double middle2[m*nr];
     double index[m*nr];
     double final[row*m*nr];
+// Variable Declaration End
 
-
+// Algorithm Start
      donesa(ones1, 1 , nr);
      donesa(ones2, m , 1);
 int j=0;
@@ -106,5 +109,6 @@ printf("\n");
 */
 
   dmatrixa(final, row, m*nr, mr, (row*m*nr)/mr, out);
+//Algorith Ends
      
 }
