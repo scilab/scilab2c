@@ -606,6 +606,14 @@ extern "C" {
 #include "buttmag.h"
 #include "int_buttmag.h"
 
+/*interfacing kalm */
+#include "kalm.h"
+#include "int_kalm.h"
+
+/*interfacing faurre */
+#include "faurre.h"
+#include "int_faurre.h"
+
 /*interfacing cheb1mag */
 #include "cheb1mag.h"
 #include "int_cheb1mag.h"
@@ -662,6 +670,9 @@ extern "C" {
 /* interfacing median */
 #include "median.h"
 #include "int_median.h"
+/* interfacing mvcorrel */
+#include "mvcorrel.h"
+#include "int_mvcorrel.h"
 /* interfacing gsort */
 #include "gsort.h"
 #include "int_gsort.h"

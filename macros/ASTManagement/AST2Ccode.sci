@@ -16,7 +16,6 @@ function AST2Ccode(FileInfoDatFile)
 // Copyright 2007 Raffaele Nutricato.
 // Contact: raffaele.nutricato@tiscali.it
 // -----------------------------------------------------------------
-
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
@@ -75,7 +74,6 @@ FName = null
 
 ASTFileName = FileInfo.Funct(nxtscifunnumber).ASTFileName;
 
-
 // -----------------------
 // --- Initialization. ---
 // -----------------------
@@ -121,7 +119,6 @@ AST_PushASTStack('Dummy');
          SharedInfo.UsedTempScalarVars = OrigUsedTempScalarVars;
          //NUT: put here a manageeol so that you can have all the save and load you want.
          SharedInfo.ASTReader.UsedTempVars = 0;
-
 // ----------------------------------
 // --- Main loop to read the AST. ---
 // ----------------------------------
@@ -137,7 +134,6 @@ while ~meof(fidAST)
    if STACKDEDUG == 1
       disp('Read AST Line: '+treeline);
    end
-
    // Analyze line.
    select treeline
 
@@ -179,7 +175,6 @@ while ~meof(fidAST)
 	 end
 	 disp_isthere = 0;
  	 FName = null
-
       case 'Equal' then
          SharedInfo.Equal.Enabled = 1; // 1 means enabled -> we are inside an equal AST block.
          AST_PushASTStack(treeline);
@@ -218,7 +213,6 @@ while ~meof(fidAST)
                 end
          	AST_PushASTStack(treeline);
 		end
-
       // ----------------
       // --- If/Else. ---
       // ----------------
@@ -237,7 +231,6 @@ while ~meof(fidAST)
             SharedInfo = C_IfElseBlocks(FileInfo,SharedInfo,'out');
          end
          SharedInfo.CountNestedIf = 0;
-
       // --------------
       // --- Dummy. ---
       // --------------
@@ -254,7 +247,6 @@ while ~meof(fidAST)
 	 disp_isthere = 0;
          //NUT: per essere precisi si puo' pensare di mettere un check
          //NUT: alla fine dell'albero per accertarsi che c'e' end program li' dove ce lo aspettiamo
-
       // ------------
       // --- For. ---
       // ------------
@@ -313,7 +305,6 @@ SharedInfo.Function_list_index = x(1);
 SharedInfo.Function_list = unique(SharedInfo.Function_list);
 
 SharedInfo.Function_list = SharedInfo.Function_list(1:SharedInfo.Function_list_index);
-
 
 
 

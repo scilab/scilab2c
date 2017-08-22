@@ -95,15 +95,15 @@ for counterout = 1:NOutArg
       UpdatedOutArg(counterout).FindLike = -1;
    end
 
-   // #RNU_RES_B
-   // When the size is given by e IN(x).VAL  annotation we can have two cases:
-   // IN(x).VAL is a number or IN(x).VAL is %nan. When it is %nan the
-   // size is equal to the name of IN(x).
-   // This is a dynamic memory extension of a local variable and for the moment
-   // we issue an error according to SCI2C specifications
-   // #RNU_RES_E
-   //disp(FunSizeAnnot(2),FunSizeAnnot(1))
-	//Ukasha
+//    #RNU_RES_B
+//    When the size is given by e IN(x).VAL  annotation we can have two cases:
+//    IN(x).VAL is a number or IN(x).VAL is %nan. When it is %nan the
+//    size is equal to the name of IN(x).
+//    This is a dynamic memory extension of a local variable and for the moment
+//    we issue an error according to SCI2C specifications
+//    #RNU_RES_E
+//   disp(FunSizeAnnot(2),FunSizeAnnot(1))
+//	Ukasha
 //	if ASTFunName == svd
 //		x=1;
 //		for i=1:InArg(1).Size(1)
