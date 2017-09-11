@@ -114,6 +114,22 @@ extern "C" {
 #include "beta.h"
 #include "int_beta.h"
 
+/* interfacing besseli */
+#include "besseli.h"
+#include "int_besseli.h"
+
+/* interfacing besselj */
+#include "besselj.h"
+#include "int_besselj.h"
+
+/* interfacing besselk */
+#include "besselk.h"
+#include "int_besselk.h"
+
+/* interfacing bessely */
+#include "bessely.h"
+#include "int_bessely.h"
+
 /* ELEMENTARY FUNCTIONS */
 
 #include "nextpow2.h"
