@@ -9,29 +9,27 @@
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
 */
- 
 
-#ifndef __MVCORREL_H__
-#define __MVCORREL_H__
 
+#include "strange.h"
 #include "types.h"
-#include "doubleComplex.h"
 #include "uint16.h"
 
-#ifdef  __cplusplus
-extern "C" {
-#endif
-
-void  dmvcorrela(double* , int, int, double* );
-double dmvcorrel1a( int, int);
-
-void  smvcorrela(float* , int, int, float* );
-float smvcorrel1a( int, int);
+void u16strangerowa(uint16 *in, int row, int col, uint16* out)
+{
+    uint16 inter[row]; 
 
 
+for(int i=0; i< col; i++)
+	{
+		for(int j=0 ; j< row; j++)
+			{
+				inter[j]= in[j+ (i*row)];
+				
+			}
 
-#ifdef  __cplusplus
-} /* extern "C" */
-#endif
+	         out[i]= u16strangea(inter, row);
+	}
 
-#endif /*__MVCORREL_H__*/
+
+}

@@ -43,7 +43,7 @@ for(int i=1; i< mr+1; i= i+row)
 	{
 	temp1[j]=i;
 	j++;
-	printf("%d", i);
+	//printf("%d", i);
 	}
 for(int j=0;j< nr; j++)
 	temp2[j]=j;
@@ -65,7 +65,7 @@ for(int i=0; i< m*nr; i++)
 		}
 
         }
-
+//Debug Only
 /*
 printf("ones1\n");
 for(int k=0; k<1*nr; k++)

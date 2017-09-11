@@ -9,29 +9,26 @@
  Organization: FOSSEE, IIT Bombay
  Email: toolbox@scilab.in
 */
- 
 
-#ifndef __MVCORREL_H__
-#define __MVCORREL_H__
 
+#include "mvcorrel.h"
+#include "stdlib.h"
+#include "stdio.h"
 #include "types.h"
-#include "doubleComplex.h"
 #include "uint16.h"
+#include "zeros.h"
+#include "sum.h"
+#include "ones.h"
+#include "matrixMultiplication.h"
+#include "matrixTranspose.h"
+#include "subtraction.h"
+#include "division.h"
 
-#ifdef  __cplusplus
-extern "C" {
-#endif
+double dmvcorrel1a(int lx, int cx)
+{
+ if(lx==1 && cx==1)
+	return 0;
 
-void  dmvcorrela(double* , int, int, double* );
-double dmvcorrel1a( int, int);
-
-void  smvcorrela(float* , int, int, float* );
-float smvcorrel1a( int, int);
-
-
-
-#ifdef  __cplusplus
-} /* extern "C" */
-#endif
-
-#endif /*__MVCORREL_H__*/
+ else
+	return 1;
+}

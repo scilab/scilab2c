@@ -247,6 +247,9 @@ extern "C" {
 /* interfacing log */
 #include "log.h"
 #include "int_log.h"
+/* interfacing log2 */
+#include "log2.h"
+#include "int_log2.h"
 /* interfacing log10 */
 #include "log10.h"
 #include "int_log10.h"
@@ -504,6 +507,9 @@ extern "C" {
 /* interfacing trace */
 #include "matrixTrace.h"
 #include "int_trace.h"
+/* interfacing lu */
+#include "lu.h"
+#include "int_lu.h"
 /* interfacing tranpose */
 #include "matrixTranspose.h"
 #include "int_OpApex.h"
@@ -553,6 +559,13 @@ extern "C" {
 /*interface Ndgrid */
 #include "ndgrid.h"
 #include "int_ndgrid.h"
+
+
+/* GRAPHICS */
+
+/* interfacing scaling */
+#include "scaling.h"
+#include "int_scaling.h"
 
 
 /* SIGNAL PROCESSING */
@@ -682,6 +695,9 @@ extern "C" {
 /* interfacing nanmedian */
 #include "nanmedian.h"
 #include "int_nanmedian.h"
+/* interfacing strange */
+#include "strange.h"
+#include "int_strange.h"
 /* interfacing nanstdev */
 #include "nanstdev.h"
 #include "int_nanstdev.h"

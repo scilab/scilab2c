@@ -10,15 +10,15 @@
  Email: toolbox@scilab.in
  */
 
-#ifndef __KALM_H__
-#define __KALM_H__
+#ifndef __WEINER_H__
+#define __WEINER_H__
 #include "types.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-void dkalma(double* y, int y_row, int y_col, double* x0, int x0_row, int x0_col, double* p0, int p0_row, int p0_col, double* f, int f_row, int f_col, double* g, int g_row, int g_col, double* h, int h_row, int h_col, double* q, int q_row, int q_col, double* r, int r_row, int r_col, double* x1, double* p1, double* x, double* p);
+void dwienera(double* y, int y_row, int y_col, double* x0, int x0_row, int x0_col, double* p0, int p0_row, int p0_col, double* f, int f_row, int f_col, double* g, int g_row, int g_col, double* h, int h_row, int h_col, double* q, int q_row, int q_col, double* r, int r_row, int r_col, double* xs, double* ps, double* xf, double* pf);
 	    
 
 
@@ -26,5 +26,5 @@ void dkalma(double* y, int y_row, int y_col, double* x0, int x0_row, int x0_col,
 } /* extern "C" */
 #endif
 
-#endif /* __KALM_H__ */
+#endif /* __WEINER_H__ */
 
