@@ -1352,8 +1352,6 @@ function allSources = getAllSources(SharedInfo,BuildTool)
       "src/c/signalProcessing/zpch1/dzpch1s.c"
       "src/c/signalProcessing/zpch2/dzpch2s.c"
       "src/c/signalProcessing/buttmag/dbuttmags.c"
-      "src/c/signalProcessing/kalm/dkalma.c"
-      //"src/c/signalProcessing/wiener/dwienera.c"
       "src/c/signalProcessing/faurre/dfaurrea.c"
       "src/c/signalProcessing/cheb1mag/dcheb1mags.c"
       "src/c/signalProcessing/cheb2mag/dcheb2mags.c"

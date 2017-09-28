@@ -204,7 +204,6 @@ function allInterfaces = getAllInterfaces(SharedInfo)
       "src/c/signalProcessing/interfaces/int_zpch2.h"
       "src/c/signalProcessing/interfaces/int_buttmag.h"
       "src/c/signalProcessing/interfaces/int_kalm.h"
-      "src/c/signalProcessing/interfaces/int_wiener.h"
       "src/c/signalProcessing/interfaces/int_faurre.h"
       "src/c/signalProcessing/interfaces/int_cheb1mag.h"
       "src/c/signalProcessing/interfaces/int_cheb2mag.h"
