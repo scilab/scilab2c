@@ -16,6 +16,7 @@
 #include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
+#include "types.h"
 
 #ifdef  __cplusplus
 extern "C" {
@@ -48,6 +49,31 @@ EXTERN_ELEMFUNCT floatComplex	csinhs(floatComplex in);
 */
 EXTERN_ELEMFUNCT doubleComplex	zsinhs(doubleComplex in);
 
+
+/*
+** \brief Uint8 Sine function
+** \param in : input value.
+*/
+EXTERN_ELEMFUNCT float		u8sinhs(uint8 in);
+
+/*
+** \brief Int8 Sine function
+** \param in : input value.
+*/
+EXTERN_ELEMFUNCT float		i8sinhs(int8 in);
+
+/*
+** \brief Uint16 Sine function
+** \param in : input value.
+*/
+EXTERN_ELEMFUNCT float		u16sinhs(uint16 in);
+
+/*
+** \brief Int16 Sine function
+** \param in : input value.
+*/
+EXTERN_ELEMFUNCT float		i16sinhs(int16 in);
+
 /*
 ** \brief Float Matrix Sine function
 ** \param in : input array value.
@@ -79,6 +105,39 @@ EXTERN_ELEMFUNCT void		csinha(floatComplex* in, int size, floatComplex* out);
 ** \param size : the size of in and out arrays.
 */
 EXTERN_ELEMFUNCT void		zsinha(doubleComplex* in, int size, doubleComplex* out);
+
+/*
+** \brief Uint8 Matrix Sine function
+** \param in : input array value.
+** \param out : input array value.
+** \param size : the size of in and out arrays.
+*/
+EXTERN_ELEMFUNCT void		u8sinha(uint8* in, int size, float* out);
+
+/*
+** \brief Int8 Matrix Sine function
+** \param in : input array value.
+** \param out : input array value.
+** \param size : the size of in and out arrays.
+*/
+EXTERN_ELEMFUNCT void		i8sinha(int8* in, int size, float* out);
+
+/*
+** \brief Uint16 Matrix Sine function
+** \param in : input array value.
+** \param out : input array value.
+** \param size : the size of in and out arrays.
+*/
+EXTERN_ELEMFUNCT void		u16sinha(uint16* in, int size, float* out);
+
+/*
+** \brief Int16 Matrix Sine function
+** \param in : input array value.
+** \param out : input array value.
+** \param size : the size of in and out arrays.
+*/
+EXTERN_ELEMFUNCT void		i16sinha(int16* in, int size, float* out);
+
 
 #ifdef  __cplusplus
 } /* extern "C" */

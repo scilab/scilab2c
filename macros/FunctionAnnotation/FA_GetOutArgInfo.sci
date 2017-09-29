@@ -1,5 +1,6 @@
 function UpdatedOutArg = ...
-   FA_GetOutArgInfo(InArg,NInArg,OutArg,NOutArg,SharedInfo,FunPrecSpecifier,FunTypeAnnot,FunSizeAnnot,ReportFileName)
+   FA_GetOutArgInfo(InArg,NInArg,OutArg,NOutArg,SharedInfo,FunPrecSpecifier, ...
+        FunTypeAnnot,FunSizeAnnot,ReportFileName,ASTFunName)
 // function UpdatedOutArg = ...
 //    FA_GetOutArgInfo(InArg,NInArg,OutArg,NOutArg,SharedInfo,FunPrecSpecifier,FunTypeAnnot,FunSizeAnnot,ReportFileName)
 // -----------------------------------------------------------------
@@ -23,10 +24,12 @@ function UpdatedOutArg = ...
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-SCI2CNInArgCheck(argn(2),9,9);
+SCI2CNInArgCheck(argn(2),10,10);
 // -----------------------
 // --- Initialization. ---
 // -----------------------
+
+
 UpdatedOutArg   = OutArg;
 for cntin = 1:NInArg
    IN(cntin).TP    = InArg(cntin).Type;
@@ -44,17 +47,18 @@ for cntin = 1:NInArg
    end
 end
 DefaultPrecision = SharedInfo.DefaultPrecision;
-
 // ---------------------------
 // --- End Initialization. ---
 // ---------------------------
 if (FunTypeAnnot(1) == '')
    NOutArg = 0;
+   
 else
    NOutArg = max(size(FunTypeAnnot));
 end
 
 flagfindlike = 0;
+
 for counterin = 1:NInArg
    if (InArg(counterin).FindLike == 1 | InArg(counterin).FindLike == -1)
       // #RNU_RES_B
@@ -68,7 +72,6 @@ for counterin = 1:NInArg
 end
 
 for counterout = 1:NOutArg
-
    if(FunTypeAnnot == 'FA_TP_USER')
       UpdatedOutArg(counterout).Type   = FA_TP_USER(FunPrecSpecifier,DefaultPrecision);
    else
@@ -92,14 +95,26 @@ for counterout = 1:NOutArg
       UpdatedOutArg(counterout).FindLike = -1;
    end
 
-   // #RNU_RES_B
-   // When the size is given by e IN(x).VAL  annotation we can have two cases:
-   // IN(x).VAL is a number or IN(x).VAL is %nan. When it is %nan the
-   // size is equal to the name of IN(x).
-   // This is a dynamic memory extension of a local variable and for the moment
-   // we issue an error according to SCI2C specifications
-   // #RNU_RES_E
+//    #RNU_RES_B
+//    When the size is given by e IN(x).VAL  annotation we can have two cases:
+//    IN(x).VAL is a number or IN(x).VAL is %nan. When it is %nan the
+//    size is equal to the name of IN(x).
+//    This is a dynamic memory extension of a local variable and for the moment
+//    we issue an error according to SCI2C specifications
+//    #RNU_RES_E
+//   disp(FunSizeAnnot(2),FunSizeAnnot(1))
+//	Ukasha
+//	if ASTFunName == svd
+//		x=1;
+//		for i=1:InArg(1).Size(1)
+//			for j=1:InArg(1).Size(2)
+//				A(i)(j)=InArg(1).Value(x);
+//			end
+//		end
+//		[U,S,V]=svd(A,"e");
+			
 
+ 
    for iterOutputPosition=1:size(FunSizeAnnot, 'c')
      tmpeval = eval(FunSizeAnnot(counterout, iterOutputPosition));
      if (IsNanSize(tmpeval))
@@ -118,8 +133,13 @@ for counterout = 1:NOutArg
        UpdatedOutArg(counterout).Size(iterOutputPosition) = string(tmpeval);
      end
    end
-
-   UpdatedOutArg(counterout).Value     = %nan;
+   if(ASTFunName == 'syslin')
+    no_of_st = eval(InArg(2).Size(1))
+    no_of_ip = eval(InArg(3).Size(2))
+      UpdatedOutArg(counterout).Value     = no_of_st+no_of_ip*0.1;
+   else 
+      UpdatedOutArg(counterout).Value     = %nan;
+   end
    UpdatedOutArg(counterout).Dimension = GetSymbolDimension(UpdatedOutArg(counterout).Size);
    UpdatedOutArg(counterout).Scope     = 'Temp';//NUT anche su questo si puo' ragionare verifica anche la handleoperation.
 end

@@ -13,6 +13,7 @@
 
 #include "multiplication.h"
 
-double dmuls(double in1, double in2){
+double dmuls(double in1, double in2)
+{
 	return in1*in2;
 }

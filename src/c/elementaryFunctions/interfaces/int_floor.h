@@ -23,6 +23,14 @@
 
 #define z0floorz0(in)			zfloors(in)
 
+#define u80flooru80(in)			u8floors(in)
+
+#define i80floori80(in)			i8floors(in)
+
+#define u160flooru160(in)		u16floors(in)
+
+#define i160floori160(in)		i16floors(in)
+
 #define s2floors2(in,size,out)		sfloora(in, size[0]*size[1], out)
 
 #define d2floord2(in,size,out)		dfloora(in, size[0]*size[1], out)
@@ -30,5 +38,13 @@
 #define c2floorc2(in,size,out)		cfloora(in, size[0]*size[1], out)
 
 #define z2floorz2(in,size,out)		zfloora(in, size[0]*size[1], out)
+
+#define u82flooru82(in,size,out)	u8floora(in, size[0]*size[1], out)
+
+#define i82floori82(in,size,out)	i8floora(in, size[0]*size[1], out)
+
+#define u162flooru162(in,size,out)	u16floora(in, size[0]*size[1], out)
+
+#define i162floori162(in,size,out)	i16floora(in, size[0]*size[1], out)
 
 #endif /* !__INT_FLOOR_H__ */

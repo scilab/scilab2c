@@ -47,6 +47,7 @@ TempVarsFileName   = FileInfo.Funct(nxtscifunnumber).TempVarFileName;
 // ------------------------------------------------------------------
 // #RNU_RES_E
 for cntout = 1:NOutArg
+
    // #RNU_RES_B
    PrintStringInfo('   Symbol ""'+OutArg(cntout).Name+'""',ReportFileName,'file','y');
    // #RNU_RES_E
@@ -83,7 +84,6 @@ for cntout = 1:NOutArg
       // #RNU_RES_E
       OutArg(cntout).Scope     = 'Local';
    end
-   
    // #RNU_RES_B
    // --- Check in global symbol table. ---
    // #RNU_RES_E

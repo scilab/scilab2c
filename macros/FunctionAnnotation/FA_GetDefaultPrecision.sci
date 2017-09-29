@@ -79,6 +79,17 @@ else
       defaultprecision = 's';
    elseif (tmpprecision == 'DOUBLE')
       defaultprecision = 'd';
+   elseif (tmpprecision == 'UINT8')
+      defaultprecision = 'u8';
+   elseif (tmpprecision == 'INT8')
+      defaultprecision = 'i8';
+   elseif (tmpprecision == 'UINT16')
+      defaultprecision = 'u16';
+   elseif (tmpprecision == 'INT16')
+      defaultprecision = 'i16';
+   elseif (tmpprecision == 'CVIMAGE') 
+      defaultprecision = 'IplImage'      
+   
    end
 end
 

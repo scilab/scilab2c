@@ -15,23 +15,22 @@ SCI2CNInArgCheck(argn(2),2,2);
 
 
 if (isnum(in1))
-   in1num = eval(in1) ;
-   if isnan(in1num)
-      opout = '__SCI2CNANSIZE';
-   elseif ( in1num < 0 )
-	opout= '0' ;
-   else
-	opout = string ( floor (abs(in1num))) ;
+    in1num = eval(in1) ;
+    if isnan(in1num)
+        opout = '__SCI2CNANSIZE';
+    elseif ( in1num < 0 )
+        opout= '0' ;
+    else
+        opout = string ( floor (abs(in1num))) ;
 
-   end
-
+    end
 
 else
-  opout  = in2+"0floor"+in2+"0"+"("+in1+")";
-  opout  = in2+"0abs"+in2+"0"+"("+opout+")";
+    opout  = in2+"0floor"+in2+"0"+"("+in1+")";
+    opout  = in2+"0abs"+in2+"0"+"("+opout+")";
+
 
 end
 
 
 endfunction
-

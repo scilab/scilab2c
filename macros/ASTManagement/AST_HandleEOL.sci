@@ -46,15 +46,17 @@ sciline = mgetl(SciFileFid,1);
 PrintStringInfo(' ',ReportFileName,'file','y','n');
 PrintStringInfo('##################'+'################'+'##################'+'##################'+'##################',ReportFileName,'file','y','n');
 PrintStringInfo('##################'+'################'+'##################'+'##################'+'##################',ReportFileName,'file','y','n');
-PrintStringInfo('### Scilab code: '+sciline+' ###',ReportFileName,'file','y','n');
+//PrintStringInfo('### Scilab code: '+sciline+' ###',ReportFileName,'file','y','n');
 PrintStringInfo('##################'+'################'+'##################'+'##################'+'##################',ReportFileName,'file','y','n');
 PrintStringInfo('##################'+'################'+'##################'+'##################'+'##################',ReportFileName,'file','y','n');
 // #RNU_RES_E
 PrintStringInfo(' ',CPass1FileName,'file','y');
 // RNU BRUNO modeprintstringinfo MUST BE AN EXTERNAL PARAMETER!
-modeprintstringinfo = 'both';
+//modeprintstringinfo = 'both';
 if (SharedInfo.CopySciCodeIntoCCode == 1)
-   modeprintstringinfo = 'both';
+   modeprintstringinfo = 'file';
+else
+	modeprintstringinfo = 'stdout';
 end
 PrintStringInfo(C_IndentBlanks(IndentLevel)+'/*SCI2C: #############'+'############'+'##############'+'###############'+'############',CPass1FileName,modeprintstringinfo,'y','n');
 PrintStringInfo(C_IndentBlanks(IndentLevel)+'  SCI2C: '+sciline,CPass1FileName,modeprintstringinfo,'y','n');

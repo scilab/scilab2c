@@ -16,6 +16,7 @@
 #include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
+#include "types.h"
 
 #ifdef  __cplusplus
 extern "C" {
@@ -49,6 +50,33 @@ EXTERN_ELEMFUNCT floatComplex	csins(floatComplex in);
 EXTERN_ELEMFUNCT doubleComplex	zsins(doubleComplex in);
 
 /*
+** \brief Uint8 Sine function
+** \param in : input value.
+*/
+EXTERN_ELEMFUNCT float		u8sins(uint8 in);
+
+
+/*
+** \brief Int8 Sine function
+** \param in : input value.
+*/
+EXTERN_ELEMFUNCT float		i8sins(int8 in);
+
+
+/*
+** \brief Uint16 Sine function
+** \param in : input value.
+*/
+EXTERN_ELEMFUNCT float		u16sins(uint16 in);
+
+
+/*
+** \brief Int16 Sine function
+** \param in : input value.
+*/
+EXTERN_ELEMFUNCT float		i16sins(int16 in);
+
+/*
 ** \brief Float Matrix Sine function
 ** \param in : input array value.
 ** \param out : output array value.
@@ -79,6 +107,39 @@ EXTERN_ELEMFUNCT void		csina(floatComplex* in, int size, floatComplex* out);
 ** \param size : the size of in and out arrays.
 */
 EXTERN_ELEMFUNCT void		zsina(doubleComplex* in, int size, doubleComplex* out);
+
+/*
+** \brief uint8 Matrix Sine function
+** \param in : input array value.
+** \param out : output array value.
+** \param size : the size of in and out arrays.
+*/
+EXTERN_ELEMFUNCT void		u8sina(uint8* in, int size, float* out);
+
+/*
+** \brief int8 Matrix Sine function
+** \param in : input array value.
+** \param out : output array value.
+** \param size : the size of in and out arrays.
+*/
+EXTERN_ELEMFUNCT void		i8sina(int8* in, int size, float* out);
+
+/*
+** \brief uint16 Matrix Sine function
+** \param in : input array value.
+** \param out : output array value.
+** \param size : the size of in and out arrays.
+*/
+EXTERN_ELEMFUNCT void		u16sina(uint16* in, int size, float* out);
+
+/*
+** \brief int16 Matrix Sine function
+** \param in : input array value.
+** \param out : output array value.
+** \param size : the size of in and out arrays.
+*/
+EXTERN_ELEMFUNCT void		i16sina(int16* in, int size, float* out);
+
 
 #ifdef  __cplusplus
 } /* extern "C" */

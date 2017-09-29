@@ -19,6 +19,7 @@
 #include "dynlib_string.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
+#include "types.h"
 
 #ifdef  __cplusplus
 extern "C" {
@@ -54,6 +55,35 @@ EXTERN_STRING void zstrings (doubleComplex in, char* out);
 
 
 /*
+** \brief convert of a uint8 scalar into a char array
+** \param in the uint8 scalar to convert
+** \param out the output char array
+*/
+EXTERN_STRING void u8strings (uint8 in, char* out);
+
+/*
+** \brief convert of a int8 scalar into a char array
+** \param in the int8 scalar to convert
+** \param out the output char array
+*/
+EXTERN_STRING void i8strings (int8 in, char* out);
+
+/*
+** \brief convert of a uint16 scalar into a char array
+** \param in the uint16 scalar to convert
+** \param out the output char array
+*/
+EXTERN_STRING void u16strings (uint16 in, char* out);
+
+/*
+** \brief convert of a int16 scalar into a char array
+** \param in the int16 scalar to convert
+** \param out the output char array
+*/
+EXTERN_STRING void i16strings (int16 in, char* out);
+
+
+/*
 ** \brief convert of a float scalar array into an array of char arrays
 ** \param in the float scalar array to convert
 ** \param out the output array of char arrays
@@ -80,6 +110,34 @@ EXTERN_STRING void cstringa (floatComplex* in, int size, char** out );
 ** \param out the output array of char arrays
 */
 EXTERN_STRING void zstringa (doubleComplex* in, int size, char** out);
+
+/*
+** \brief convert of a uint8 scalar array into an array of char arrays
+** \param in the uint8 scalar array to convert
+** \param out the output array of char arrays
+*/
+EXTERN_STRING void u8stringa (uint8* in, int size, char** out);
+
+/*
+** \brief convert of a int8 scalar array into an array of char arrays
+** \param in the int8 scalar array to convert
+** \param out the output array of char arrays
+*/
+EXTERN_STRING void i8stringa (int8* in, int size, char** out);
+
+/*
+** \brief convert of a uint16 scalar array into an array of char arrays
+** \param in the uint16 scalar array to convert
+** \param out the output array of char arrays
+*/
+EXTERN_STRING void u16stringa (uint16* in, int size, char** out);
+
+/*
+** \brief convert of a int16 scalar array into an array of char arrays
+** \param in the int16 scalar array to convert
+** \param out the output array of char arrays
+*/
+EXTERN_STRING void i16stringa (int16* in, int size, char** out);
 
 #ifdef  __cplusplus
 } /* extern "C" */

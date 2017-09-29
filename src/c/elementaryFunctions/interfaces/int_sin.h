@@ -23,6 +23,14 @@
 
 #define z0sinz0(in)			zsins(in)
 
+#define u80sins0(in)			u8sins(in)
+
+#define i80sins0(in)			i8sins(in)
+
+#define u160sins0(in)			u16sins(in)
+
+#define i160sins0(in)			i16sins(in)
+
 #define s2sins2(in,size,out)		ssina(in, size[0]*size[1], out)
 
 #define d2sind2(in,size,out)		dsina(in, size[0]*size[1], out)
@@ -30,5 +38,13 @@
 #define c2sinc2(in,size,out)		csina(in, size[0]*size[1], out)
 
 #define z2sinz2(in,size,out)		zsina(in, size[0]*size[1], out)
+
+#define u82sins2(in,size,out)		u8sina(in, size[0]*size[1], out)
+
+#define i82sins2(in,size,out)		i8sina(in, size[0]*size[1], out)
+
+#define u162sins2(in,size,out)		u16sina(in, size[0]*size[1], out)
+
+#define i162sins2(in,size,out)		i16sina(in, size[0]*size[1], out)
 
 #endif /* !__INT_SIN_H__ */

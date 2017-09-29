@@ -25,6 +25,14 @@
 
 #define z0findd0(in)						((zreals(in) == 0) && (zimags(in) == 0)) ? -1 : 1
 
+#define u80findu80(in)						(in == 0) ? -1 : 1
+
+#define u160findu160(in)                                        (in == 0) ? -1 : 1
+
+#define i80findi80(in)                                          (in == 0) ? -1 : 1
+
+#define i160findi160(in)                                        (in == 0) ? -1 : 1
+
 #define s2finds2(in,size,out)                   sfinda(in, size[0]*size[1], out, -1)
 
 #define d2findd2(in,size,out)                   dfinda(in, size[0]*size[1], out, -1)
@@ -32,6 +40,14 @@
 #define c2finds2(in,size,out)                   cfinda(in, size[0]*size[1], out, -1)
 
 #define z2findd2(in,size,out)                   zfinda(in, size[0]*size[1], out, -1)
+
+#define u82findu82(in,size,out)                 u8finda(in,size[0]*size[1],out, -1)
+
+#define u162findu162(in,size,out)               u16finda(in,size[0]*size[1],out, -1)
+
+#define i82findi82(in,size,out)                 i8finda(in,size[0]*size[1],out, -1)
+
+#define i162findi162(in,size,out)               i16finda(in,size[0]*size[1],out, -1)
 
 /* 1 input, 2 outputs */
 
@@ -43,10 +59,18 @@
 
 #define z0findd0d0(in,out2)					if ((zreals(in)==0) && (zimags(in)==0)) {out2=0;} else {out2=1;}
 
+#define u80findu80u80(in,out2)                                  *out2 = u80findu80(in);u80findu80(in)
+
+#define u160findu160u160(in,out2)                               *out2 = u160findu160(in);u160findu160(in)
+
+#define i80findi80i80(in,out2)                                  *out2 = i80findi80(in);i80findi80(in)
+
+#define i160findi160i160(in,out2)                               *out2 = i160findi160(in);i160findi160(in)
+
 
 #define s2finds2s2(in,size,out1,sizeOut1,out2,sizeOut2)			sfind2da(in,size[0],size[1],out1,sizeOut1,out2,sizeOut2,-1)
 
-#define d2findd2d2(in,size,out1,out2)                           dfind2da(in,size[0],size[1],out1,out2,-1)
+#define d2findd2d2(in,size,out1,out2)                                   dfind2da(in,size[0],size[1],out1,out2,-1)
 
 #define c2finds2s2(in,size,out1,sizeOut1,out2,sizeOut2)			cfind2da(in,size[0],size[1],out1,sizeOut1,out2,sizeOut2,-1)
 
@@ -61,6 +85,14 @@
 #define c0s0finds0(in1,in2)					c0finds0(in1)
 
 #define z0d0findd0(in1,in2)					z0findd0(in1)
+
+#define u80u80findu80(in1,in2)                                  u80findu80(in1)
+
+#define u160u160findu160(in1,in2)                               u160findu160(in1)
+
+#define i80i80findi80(in1,in2)                                  i80findi80(in1)
+
+#define i160i160findi160(in1,in2)                               i160findi160(in1)
 
 #define s2s0finds2(in1,size,in2,out)			{\
  int temp_out_indice[2] = {0} ;\
@@ -82,6 +114,25 @@
  zfinda(in1,size[0]*size[1],out,in2);\
  }
 
+#define u82u80findu82(in1,size,in2,out)                {\
+ int temp_out_indice[2] = {0};\
+ u8finda(in1,size[0]*size[1],out,in2);\
+}
+
+#define u162u160findu162(in1,size,in2,out)                {\
+ int temp_out_indice[2] = {0};\
+ u16finda(in1,size[0]*size[1],out,in2);\
+}
+
+#define i82i80findi82(in1,size,in2,out)                {\
+ int temp_out_indice[2] = {0};\
+ i8finda(in1,size[0]*size[1],out,in2);\
+}
+
+#define i162i160findi162(in1,size,in2,out)                {\
+ int temp_out_indice[2] = {0};\
+ i16finda(in1,size[0]*size[1],out,in2);\
+}
 /* 2 inputs, 2 outputs */
 
 #define s0s0finds0s0(in1,in2,out1,out2)				s0finds0s0(in1,out1,out2)
@@ -91,6 +142,14 @@
 #define c0s0finds0s0(in1,in2,out1,out2)				c0finds0s0(in1,out1,out2)
 
 #define z0d0findd0d0(in1,in2,out1,out2)				z0findd0d0(in1,out1,out2)
+
+#define u80u80findu80u80(in1,in2,out1,out2)                     u80findu80u80(in1,out1,out2)
+
+#define u160u160findu160u160(in1,in2,out1,out2)                 u160findu160u160(in1,out1,out2)
+
+#define i80i80findi80i80(in1,in2,out1,out2)                     i80findi80i80(in1,out1,out2)
+
+#define i160i60findi60i60(in1,in2,out1,out2)                    i60findi60i60(in1,out1,out2)
 
 
 /*FIXME : prototypes are wrong*/

@@ -15,7 +15,7 @@
 #ifndef __INT_CONJ_H__
 #define __INT_CONJ_H__
 
-#define copy(in,size,out)		{int i;for (i=0; i<size[0]*size[1];i++) out[i]=in[i];}
+#define copy_c(in,size,out)		{int i;for (i=0; i<size[0]*size[1];i++) out[i]=in[i];}
 
 #define s0conjs0(in)			in
 
@@ -25,12 +25,28 @@
 
 #define z0conjz0(in)			zconjs(in)
 
-#define s2conjs2(in,size,out)		copy(in,size,out)
+#define u80conju80(in)			in
 
-#define d2conjd2(in,size,out)		copy(in,size,out)
+#define i80conji80(in)			in
+
+#define u160conju160(in)		in
+
+#define i160conji160(in)		in
+
+#define s2conjs2(in,size,out)		copy_c(in,size,out)
+
+#define d2conjd2(in,size,out)		copy_c(in,size,out)
 
 #define c2conjc2(in,size,out)		cconja(in, size[0]*size[1], out)
 
 #define z2conjz2(in,size,out)		zconja(in, size[0]*size[1], out)
+
+#define u82conju82(in,size,out)		copy_c(in,size,out)
+
+#define i82conji82(in,size,out)		copy_c(in,size,out)
+
+#define u162conju162(in,size,out)	copy_c(in,size,out)
+
+#define i162conji162(in,size,out)	copy_c(in,size,out)
 
 #endif /* !__INT_CONJ_H__ */

@@ -4,7 +4,7 @@ Title: Scilab 2 C
 
 Summary: Translate Scilab code into C code
 
-Version: 2.0
+Version: 2.3
 
 Author: Bruno JOFRET
  Allan SIMON
@@ -21,15 +21,15 @@ Entity: DIGITEO
 
 WebSite: http://forge.scilab.org/index.php/p/scilab2c/
 
-URL: http://atoms.scilab.org/toolboxes/scilab2c/2.0
+URL: http://atoms.scilab.org/toolboxes/scilab2c/2.3
 
 License: GPL
 
-ScilabVersion: >= 5.2
+ScilabVersion: >= 5.4
 
 Depends: 
 
-Date: 2010-06-21 08:27:19
+Date: 2012-08-02 09:53:30
 
 Description: Sci2C is a tool capable to translate Scilab code into C code.
  

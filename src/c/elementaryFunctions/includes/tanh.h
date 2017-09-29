@@ -16,6 +16,7 @@
 #include "dynlib_elementaryfunctions.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
+#include "sinh.h"
 
 #ifdef  __cplusplus
 extern "C" {
@@ -49,6 +50,30 @@ EXTERN_ELEMFUNCT floatComplex	ctanhs(floatComplex in);
 EXTERN_ELEMFUNCT doubleComplex	ztanhs(doubleComplex in);
 
 /*
+** \brief Uint8 Hyperbolic Tangeant function
+** \param in : input value.
+*/
+EXTERN_ELEMFUNCT float		u8tanhs(uint8 in);
+
+/*
+** \brief Int8 Hyperbolic Tangeant function
+** \param in : input value.
+*/
+EXTERN_ELEMFUNCT float		i8tanhs(int8 in);
+
+/*
+** \brief Uint16 Hyperbolic Tangeant function
+** \param in : input value.
+*/
+EXTERN_ELEMFUNCT float		u16tanhs(uint16 in);
+
+/*
+** \brief Int16 Hyperbolic Tangeant function
+** \param in : input value.
+*/
+EXTERN_ELEMFUNCT float		i16tanhs(int16 in);
+
+/*
 ** \brief Float Matrix Hyperbolic Tangeant function
 ** \param in : input array value.
 ** \param out : output array value.
@@ -79,6 +104,38 @@ EXTERN_ELEMFUNCT void		ctanha(floatComplex* in, int size, floatComplex* out);
 ** \param size : the size of in and out arrays.
 */
 EXTERN_ELEMFUNCT void		ztanha(doubleComplex* in, int size, doubleComplex* out);
+
+/*
+** \brief Uint8 Matrix Hyperbolic Tangeant function
+** \param in : input array value.
+** \param out : output array value.
+** \param size : the size of in and out arrays.
+*/
+EXTERN_ELEMFUNCT void		u8tanha(uint8* in, int size, float* out);
+
+/*
+** \brief Int8 Matrix Hyperbolic Tangeant function
+** \param in : input array value.
+** \param out : output array value.
+** \param size : the size of in and out arrays.
+*/
+EXTERN_ELEMFUNCT void		i8tanha(int8* in, int size, float* out);
+
+/*
+** \brief Uint16 Matrix Hyperbolic Tangeant function
+** \param in : input array value.
+** \param out : output array value.
+** \param size : the size of in and out arrays.
+*/
+EXTERN_ELEMFUNCT void		u16tanha(uint16* in, int size, float* out);
+
+/*
+** \brief Int16 Matrix Hyperbolic Tangeant function
+** \param in : input array value.
+** \param out : output array value.
+** \param size : the size of in and out arrays.
+*/
+EXTERN_ELEMFUNCT void		i16tanha(int16* in, int size, float* out);
 
 #ifdef  __cplusplus
 } /* extern "C" */

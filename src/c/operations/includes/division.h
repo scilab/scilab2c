@@ -16,6 +16,7 @@
 #include "dynlib_operations.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
+#include "types.h"
 
 #ifdef  __cplusplus
 extern "C" {
@@ -101,6 +102,80 @@ EXTERN_OPERATIONS doubleComplex zrdivs (doubleComplex in1, doubleComplex in2);
 */
 EXTERN_OPERATIONS void zrdiva(doubleComplex* in1, doubleComplex* in2, int size, doubleComplex* out );
 
+
+/*
+** \brief Compute a right division element ways for uint8.
+** \param in1 : input array.
+** \param in2 : input array.
+** \param size : size of in2 array = rows*columns.
+** \param out : array that contains the division in1 ./ in2.
+*/
+EXTERN_OPERATIONS void u8rdiva (uint8* in1, uint8* in2, int size, uint8* out );
+
+
+
+/*
+** \brief Compute a right division for uint8.
+** \param in1 : input uint8.
+** \param in2 : input uint8.
+** \return in1 / in2 = in1 ./ in2.
+*/
+
+EXTERN_OPERATIONS uint8 u8rdivs (uint8 in1, uint8 in2);
+
+/*
+** \brief Compute a right division element ways for uint16.
+** \param in1 : input array.
+** \param in2 : input array.
+** \param size : size of in2 array = rows*columns.
+** \param out : array that contains the division in1 ./ in2.
+*/
+EXTERN_OPERATIONS void u16rdiva (uint16* in1, uint16* in2, int size, uint16* out );
+
+
+/*
+** \brief Compute a right division element ways for int8.
+** \param in1 : input array.
+** \param in2 : input array.
+** \param size : size of in2 array = rows*columns.
+** \param out : array that contains the division in1 ./ in2.
+*/
+EXTERN_OPERATIONS void i8rdiva (int8* in1, int8* in2, int size, int8* out );
+
+/*
+** \brief Compute a right division for int8.
+** \param in1 : input int8.
+** \param in2 : input int8.
+** \return in1 / in2 = in1 ./ in2.
+*/
+EXTERN_OPERATIONS int8 i8rdivs (int8 in1, int8 in2);
+
+/*
+** \brief Compute a right division for uint16.
+** \param in1 : input uint16.
+** \param in2 : input uint16.
+** \return in1 / in2 = in1 ./ in2.
+*/
+EXTERN_OPERATIONS uint16 u16rdivs (uint16 in1, uint16 in2);
+
+/*
+** \brief Compute a right division for int16.
+** \param in1 : input int16.
+** \param in2 : input int16.
+** \return in1 / in2 = in1 ./ in2.
+*/
+EXTERN_OPERATIONS int16 i16rdivs (int16 in1, int16 in2);
+
+/*
+** \brief Compute a right division element ways for int16.
+** \param in1 : input array.
+** \param in2 : input array.
+** \param size : size of in2 array = rows*columns.
+** \param out : array that contains the division in1 ./ in2.
+*/
+EXTERN_OPERATIONS void i16rdiva (int16* in1, int16* in2, int size, int16* out );
+
+
 /*
 ** LEFT DIVISION
 */
@@ -172,6 +247,78 @@ EXTERN_OPERATIONS doubleComplex zldivs (doubleComplex in1, doubleComplex in2);
 ** \param out : array that contains the division in1 .\ in2.
 */
 EXTERN_OPERATIONS void zldiva(doubleComplex* in1, doubleComplex* in2, int size, doubleComplex* out );
+
+/*
+** \brief Compute a left division element ways for uint8.
+** \param in1 : input array.
+** \param in2 : input array.
+** \param size : size of in2 array = rows*columns.
+** \param out : array that contains the division in1 .\ in2.
+*/
+EXTERN_OPERATIONS void u8ldiva (uint8* in1, uint8* in2, int size, uint8* out );
+
+/*
+** \brief Compute a right division for uint8.
+** \param in1 : input uint8.
+** \param in2 : input uint8.
+** \return in1 / in2 = in1 ./ in2.
+*/
+EXTERN_OPERATIONS uint8 u8ldivs (uint8 in1, uint8 in2);
+
+/*
+** \brief Compute a left division element ways for int8.
+** \param in1 : input array.
+** \param in2 : input array.
+** \param size : size of in2 array = rows*columns.
+** \param out : array that contains the division in1 .\ in2.
+*/
+EXTERN_OPERATIONS void i8ldiva (int8* in1, int8* in2, int size, int8* out );
+
+/*
+** \brief Compute a right division for int8.
+** \param in1 : input int8.
+** \param in2 : input int8.
+** \return in1 / in2 = in1 ./ in2.
+*/
+EXTERN_OPERATIONS int8 i8ldivs (int8 in1, int8 in2);
+
+/*
+** \brief Compute a left division element ways for uint16.
+** \param in1 : input array.
+** \param in2 : input array.
+** \param size : size of in2 array = rows*columns.
+** \param out : array that contains the division in1 .\ in2.
+*/
+EXTERN_OPERATIONS void u16ldiva (uint16* in1, uint16* in2, int size, uint16* out );
+
+
+/*
+** \brief Compute a right division for uint16.
+** \param in1 : input uint16.
+** \param in2 : input uint16.
+** \return in1 / in2 = in1 ./ in2.
+*/
+EXTERN_OPERATIONS uint16 u16ldivs (uint16 in1, uint16 in2);
+
+/*
+** \brief Compute a left division element ways for int16.
+** \param in1 : input array.
+** \param in2 : input array.
+** \param size : size of in2 array = rows*columns.
+** \param out : array that contains the division in1 .\ in2.
+*/
+EXTERN_OPERATIONS void i16ldiva (int16* in1, int16* in2, int size, int16* out );
+
+
+/*
+** \brief Compute a right division for int16.
+** \param in1 : input int16.
+** \param in2 : input int16.
+** \return in1 / in2 = in1 ./ in2.
+*/
+EXTERN_OPERATIONS int16 i16ldivs (int16 in1, int16 in2);
+
+
 
 #ifdef  __cplusplus
 } /* extern "C" */

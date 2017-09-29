@@ -16,9 +16,10 @@ void dcolumnmaxa(double *in, int rows, int columns, double* out) {
   int i = 0, j = 0;
 
   for (i = 0; i < rows; i++) {
-	  out[i]=in[i];
+	  out[i]=in[i*columns];
 	  for (j=0;j<columns;j++)
-      		if (in[i+j*rows]>out[i]) out[i] = in[i+j*rows];
+      		if (in[i+j*rows]>out[i]) 
+                   out[i] = in[i+j*rows];
     }
 
 }

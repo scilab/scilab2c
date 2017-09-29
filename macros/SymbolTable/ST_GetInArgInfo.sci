@@ -1,4 +1,4 @@
-function [UpdatedInArg,SharedInfo] = ST_GetInArgInfo(InArg,NInArg,FileInfo,SharedInfo)
+function [UpdatedInArg,SharedInfo] = ST_GetInArgInfo(InArg,NInArg,FileInfo,SharedInfo,ASTFunName)
 // function UpdatedInArg = ST_GetInArgInfo(InArg,NInArg,FileInfo,SharedInfo)
 // -----------------------------------------------------------------
 // #RNU_RES_B
@@ -26,7 +26,7 @@ function [UpdatedInArg,SharedInfo] = ST_GetInArgInfo(InArg,NInArg,FileInfo,Share
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-SCI2CNInArgCheck(argn(2),4,4);
+SCI2CNInArgCheck(argn(2),5,5);
 
 // -----------------------
 // --- Initialization. ---
@@ -47,15 +47,15 @@ UpdatedInArg = InArg;
 
 for cntinarg = 1:NInArg
    tmpname = InArg(cntinarg).Name; 
-   tmpscope = InArg(cntinarg).Scope; 
+   tmpscope = InArg(cntinarg).Scope;
    lengthNumber = length('Number_');
-   if (part(tmpscope,1:lengthNumber) == 'Number_')
+   if (part(tmpscope,1:lengthNumber) == 'Number_')	
       // #RNU_RES_B
       PrintStringInfo('Input Argument '+string(cntinarg)+' is a number: '+tmpname+'.',FileInfo.Funct(nxtscifunnumber).ReportFileName,'file');
       // #RNU_RES_E
       UpdatedInArg(cntinarg).Type = part(tmpscope,lengthNumber+1:lengthNumber+1);
       if (UpdatedInArg(cntinarg).Type == 'x')
-         UpdatedInArg(cntinarg).Type = SharedInfo.DefaultPrecision; // It is the default.
+         UpdatedInArg(cntinarg).Type = SharedInfo.DefaultPrecision; // It is the default	
       elseif (UpdatedInArg(cntinarg).Type == 'X')
          if (SharedInfo.DefaultPrecision == 's')
             UpdatedInArg(cntinarg).Type = 'c'; // It is the default.
@@ -101,6 +101,17 @@ for cntinarg = 1:NInArg
       UpdatedInArg(cntinarg).FindLike  = 0;
       UpdatedInArg(cntinarg).Dimension = 0;
       UpdatedInArg(cntinarg).Scope     = 'Number';
+	if((ASTFunName == 'cmd_analog_in' | ASTFunName == 'cmd_analog_in_volt' ) & cntinarg == 2)
+	 numvalue = eval(tmpname);
+               if (SharedInfo.Board_name == 'mega' | SharedInfo.Board_name == 'mega2560') then
+		      tmpname = string(numvalue + 54)
+ 		      UpdatedInArg(cntinarg).Value     = 54 + numvalue;
+	       else
+	              tmpname = string(numvalue + 14)
+		      UpdatedInArg(cntinarg).Value     = 14 + numvalue;
+	       end
+	  UpdatedInArg(cntinarg).Name      = tmpname; // Change the name.
+        end
       
    elseif (tmpscope == 'String')
       // #RNU_RES_B
@@ -115,7 +126,7 @@ for cntinarg = 1:NInArg
       UpdatedInArg(cntinarg).Size(2)   = string(length(tmpname)+1); //+1 = (\0)
       UpdatedInArg(cntinarg).Value     = '""'+tmpname+'""';
       UpdatedInArg(cntinarg).FindLike  = 0;
-      UpdatedInArg(cntinarg).Dimension = 2; //NUT: in future releases you can set this field to 1.
+      UpdatedInArg(cntinarg).Dimension = 2; //Keep it zero to avoid extra argument 'funcnameSize'.
       UpdatedInArg(cntinarg).Scope     = 'Temp';
       
       // #RNU_RES_B
@@ -129,22 +140,69 @@ for cntinarg = 1:NInArg
       PrintStringInfo('Input Argument '+string(cntinarg)+' is a symbol: '+tmpname+'.',FileInfo.Funct(nxtscifunnumber).ReportFileName,'file');
       // #RNU_RES_E
       [TBFlagfound,TBType,TBSize,TBValue,TBFindLike,TBDimension,TBScope] = ST_GetSymbolInfo(tmpname,FileInfo,SharedInfo);
+
       if (TBFlagfound == 0)
-         PrintStringInfo(' ',ReportFileName,'both','y');
-         PrintStringInfo('SCI2CERROR: Unknown symbol ""'+tmpname+'"".',ReportFileName,'both','y');
-         PrintStringInfo('SCI2CERROR: Be sure to initialize every symbol you are using.',ReportFileName,'both','y');
-         PrintStringInfo('SCI2CERROR: Before running the SCI2C translator, remember to run the code you are trying',ReportFileName,'both','y');
-         PrintStringInfo('SCI2CERROR: to translate in order to check syntax errors.',ReportFileName,'both','y');
-         PrintStringInfo(' ',ReportFileName,'both','y');
-         error(9999, 'SCI2CERROR: Unknown symbol ""'+tmpname+'"".');
+            if(ASTFunName == 'ode')
+               if((NInArg == 4 & cntinarg == 4) | (NInArg == 6 & cntinarg == 6))  
+               //incase of 4 arguments, fourth argument is function name
+                  UpdatedInArg(cntinarg).Name      = tmpname; // Change the name.
+                  UpdatedInArg(cntinarg).Type      = 'fn'; //it is a function name
+                  UpdatedInArg(cntinarg).Size(1)   = '1'; 
+                  UpdatedInArg(cntinarg).Size(2)   = '1'; //+1 = (\0)
+                  UpdatedInArg(cntinarg).Value     = '&'+tmpname;
+                  UpdatedInArg(cntinarg).FindLike  = 0;
+                  UpdatedInArg(cntinarg).Dimension = 0; //NUT: in future releases you can set this field to 1.
+                  UpdatedInArg(cntinarg).Scope     = 'Temp';
+                  ST_InsOutArg(UpdatedInArg(cntinarg),1,FileInfo,SharedInfo,'all');
+               elseif (NInArg == 5 & cntinarg == 5) then
+                  //incase of 5 arguments, fifth argument is function name
+                  UpdatedInArg(cntinarg).Name      = tmpname; // Change the name.
+                  UpdatedInArg(cntinarg).Type      = 'fn'; //it is a function name
+                  UpdatedInArg(cntinarg).Size(1)   = '1'; 
+                  UpdatedInArg(cntinarg).Size(2)   = '1'; //+1 = (\0)
+                  UpdatedInArg(cntinarg).Value     = '&'+tmpname;
+                  UpdatedInArg(cntinarg).FindLike  = 0;
+                  UpdatedInArg(cntinarg).Dimension = 0; //NUT: in future releases you can set this field to 1.
+                  UpdatedInArg(cntinarg).Scope     = 'Temp';
+                  ST_InsOutArg(UpdatedInArg(cntinarg),1,FileInfo,SharedInfo,'all');
+               end
+            elseif (ASTFunName == 'RPI_ThreadCreate')
+               UpdatedInArg(cntinarg).Name      = tmpname; // Change the name.
+               UpdatedInArg(cntinarg).Type      = 'fn'; //it is a function name
+               UpdatedInArg(cntinarg).Size(1)   = '1'; 
+               UpdatedInArg(cntinarg).Size(2)   = '1'; //+1 = (\0)
+               UpdatedInArg(cntinarg).Value     = '&'+tmpname;
+               UpdatedInArg(cntinarg).FindLike  = 0;
+               UpdatedInArg(cntinarg).Dimension = 0; //NUT: in future releases you can set this field to 1.
+               UpdatedInArg(cntinarg).Scope     = 'Temp';
+               ST_InsOutArg(UpdatedInArg(cntinarg),1,FileInfo,SharedInfo,'all');
+            elseif (ASTFunName == 'RPI_PinISR')
+               UpdatedInArg(cntinarg).Name      = tmpname; // Change the name.
+               UpdatedInArg(cntinarg).Type      = 'fn'; //it is a function name
+               UpdatedInArg(cntinarg).Size(1)   = '1'; 
+               UpdatedInArg(cntinarg).Size(2)   = '1'; //+1 = (\0)
+               UpdatedInArg(cntinarg).Value     = '&'+tmpname;
+               UpdatedInArg(cntinarg).FindLike  = 0;
+               UpdatedInArg(cntinarg).Dimension = 0; //NUT: in future releases you can set this field to 1.
+               UpdatedInArg(cntinarg).Scope     = 'Temp';
+               ST_InsOutArg(UpdatedInArg(cntinarg),1,FileInfo,SharedInfo,'all');
+            else   
+               PrintStringInfo(' ',ReportFileName,'both','y');
+               PrintStringInfo('SCI2CERROR: Unknown symbol ""'+tmpname+'"".',ReportFileName,'both','y');
+               PrintStringInfo('SCI2CERROR: Be sure to initialize every symbol you are using.',ReportFileName,'both','y');
+               PrintStringInfo('SCI2CERROR: Before running the SCI2C translator, remember to run the code you are trying',ReportFileName,'both','y');
+               PrintStringInfo('SCI2CERROR: to translate in order to check syntax errors.',ReportFileName,'both','y');
+               PrintStringInfo(' ',ReportFileName,'both','y');
+               error(9999, 'SCI2CERROR: Unknown symbol ""'+tmpname+'"".');
+            end
+      else
+         UpdatedInArg(cntinarg).Type      = TBType;
+         UpdatedInArg(cntinarg).Size      = TBSize;
+         UpdatedInArg(cntinarg).Value     = TBValue;
+         UpdatedInArg(cntinarg).FindLike  = TBFindLike;
+         UpdatedInArg(cntinarg).Dimension = TBDimension;
+         UpdatedInArg(cntinarg).Scope     = TBScope;
       end
-      UpdatedInArg(cntinarg).Type      = TBType;
-      UpdatedInArg(cntinarg).Size      = TBSize;
-      UpdatedInArg(cntinarg).Value     = TBValue;
-      UpdatedInArg(cntinarg).FindLike  = TBFindLike;
-      UpdatedInArg(cntinarg).Dimension = TBDimension;
-      UpdatedInArg(cntinarg).Scope     = TBScope;
-      
    else
       error(9999, 'Unknown scope identifier ""'+tmpscope+'"" for variable ""'+tmpname+'"".');
    end
@@ -152,7 +210,7 @@ for cntinarg = 1:NInArg
    PrintStringInfo('   Type:      '+UpdatedInArg(cntinarg).Type,FileInfo.Funct(nxtscifunnumber).ReportFileName,'file');
    PrintStringInfo('   Size(1):   '+string(UpdatedInArg(cntinarg).Size(1)),FileInfo.Funct(nxtscifunnumber).ReportFileName,'file');
    PrintStringInfo('   Size(2):   '+string(UpdatedInArg(cntinarg).Size(2)),FileInfo.Funct(nxtscifunnumber).ReportFileName,'file');
-   PrintStringInfo('   Value:     '+string(UpdatedInArg(cntinarg).Value),FileInfo.Funct(nxtscifunnumber).ReportFileName,'file');
+   //PrintStringInfo('   Value:     '+string(UpdatedInArg(cntinarg).Value),FileInfo.Funct(nxtscifunnumber).ReportFileName,'file');
    PrintStringInfo('   FindLike:  '+string(UpdatedInArg(cntinarg).FindLike),FileInfo.Funct(nxtscifunnumber).ReportFileName,'file');
    PrintStringInfo('   Dimension: '+string(UpdatedInArg(cntinarg).Dimension),FileInfo.Funct(nxtscifunnumber).ReportFileName,'file');
    PrintStringInfo('   Scope:     '+UpdatedInArg(cntinarg).Scope,FileInfo.Funct(nxtscifunnumber).ReportFileName,'file');

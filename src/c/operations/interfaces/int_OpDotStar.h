@@ -25,6 +25,14 @@
 
 #define z0z0OpDotStarz0(in1,in2)				zmuls(in1,in2)
 
+#define u80u80OpDotStaru80(in1,in2)                             u8muls(in1,in2)
+
+#define u160u160OpDotStaru160(in1,in2)                          u16muls(in1,in2)
+
+#define i80i80OpDotStari80(in1,in2)                             i8muls(in1,in2)
+
+#define i160i60OpDotStari60(in1,in2)                            i16muls(in1,in2)
+
 #define s0c0OpDotStarc0(in1,in2)				cmuls(FloatComplex(in1,0),in2)
 
 #define c0s0OpDotStarc0(in1,in2)				cmuls(in1,FloatComplex(in2,0))
@@ -47,6 +55,18 @@
 
 #define z0z2OpDotStarz2(in1,in2,size,out)			{int i=0;\
 									for(i=0;i<size[0]*size[1];i++) out[i]= zmuls(in1,in2[i]);}
+
+#define u80u82OpDotStaru80(in1,in2,size,out)                    {int i=0;\
+                                                                        for(i=0;i<size[0]*size[1];i++) out[i] = u8muls(in1,in2[i]);}
+
+#define u160u162OpDotStaru160(in1,in2,size,out)                 {int i=0;\
+                                                                        for(i=0;i<size[0]*size[1];i++) out[i] = u16muls(in1,in2[i]);}
+
+#define i80i82OpDotStari80(in1,in2,size,out)                    {int i=0;\
+                                                                        for(i=0;i<size[0]*size[1];i++) out[i] = i8muls(in1,in2[i]);}
+
+#define i160i162OpDotStari160(in1,in2,size,out)                 {int i=0;\
+                                                                        for(i=0;i<size[0]*size[1];i++) out[i] = i16muls(in1,in2[i]);}
 
 #define s0c2OpDotStarc2(in1,in2,size,out)			c0c2OpDotStarc2(FloatComplex(in1,0),in2,size,out)
 
@@ -73,6 +93,18 @@
 #define z2z0OpDotStarz2(in1,size,in2,out)			{int i=0;\
 									for(i=0;i<size[0]*size[1];i++) out[i]= zmuls(in1[i],in2);}
 
+#define u82u80OpDotStaru82(in1,size,in2,out)                    {int i=0;\
+                                                                        for(i=0;i<size[0]*size[1];i++) out[i] = u8muls(in[i],in2);}
+
+#define u162u160OpDotStaru162(in1,size,in2,out)                 {int i=0;\
+                                                                        for(i=0;i<size[0]*size[1];i++) out[i] = u16muls(in[i],in2);}
+
+#define i82i80OpDotStari82(in1,size,in2,out)                    {int i=0;\
+                                                                        for(i=0;i<size[0]*size[1];i++) out[i] = i8muls(in[i],in2);}
+
+#define i162i160OpDotStari162(in1,size,in2,out)                 {int i=0;\
+                                                                        for(i=0;i<size[0]*size[1];i++) out[i] = i16muls(in[i],in2);}
+
 #define s2c0OpDotStarc2(in1,size,in2,out)			{int i=0;\
 									for(i=0;i<size[0]*size[1];i++) out[i]= cmuls(FloatComplex(in1[i],0),in2);}
 
@@ -92,6 +124,14 @@
 #define c2c2OpDotStarc2(in1,size1,in2,size2,out)		cmula(in1,in2,size1[0]*size2[1],out)
 
 #define z2z2OpDotStarz2(in1,size1,in2,size2,out)		zmula(in1,in2,size1[0]*size2[1],out)
+
+#define u82u82OpDotStaru82(in1,size1,in2,size2,out)             u8mula(in1,in2,size1[0]*size2[1],out)
+
+#define u162u162OpDotStaru162(in1,size1,in2,size2,out)          u16mula(in1,in2,size1[0]*size2[1],out)
+
+#define i82i82OpDotStari82(in1,size1,in2,size2,out)             i8mula(in1,in2,size1[0]*size2[1],out)
+
+#define i162i61OpDotStari162(in1,size1,in2,size2,out)           i16mula(in1,in2,size1[0]*size2[1],out)
 
 
 #define c2s2OpDotStarc2(in1,size1,in2,size2,out)		{int i=0;\

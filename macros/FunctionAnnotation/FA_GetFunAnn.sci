@@ -1,4 +1,4 @@
-function [FunTypeAnnot,FunSizeAnnot] = ...
+function [FunTypeAnnot,FunSizeAnnot,NOutArg_mod] = ...
     FA_GetFunAnn(NInArg,NOutArg,FunName,FileInfo,SharedInfo)
 // function [FunTypeAnnot,FunSizeAnnot] = ...
 //    FA_GetFunAnn(NInArg,NOutArg,FunName,FileInfo,SharedInfo)
@@ -52,7 +52,7 @@ FunSizeAnnot = '';
 // ---------------------------------------------
 // --- Open the .sci file (read only). ---
 inclsfid = SCI2COpenFileRead(SCI2CClassFileName);
-
+PrintStringInfo(' '+string(inclsfid),ReportFileName,'file','y');
 // #RNU_RES_B
 // --- Loop over the lines of the input file. ---
 // Position file pointer to the desired NInArg/NOutArg section,
@@ -71,6 +71,7 @@ while ((meof(inclsfid) == 0) & (FoundNIn == 0) & (FoundNOut == 0))
 // #RNU_RES_E
     if (SCI2Cstrncmps1size(SharedInfo.Annotations.FUNNIN,check_string))
       FUNNINAnnot = part(check_string,length(SharedInfo.Annotations.FUNNIN)+1:length(check_string));
+
 // #RNU_RES_B
 // --- Check NIN value. ---
 // #RNU_RES_E
@@ -89,7 +90,6 @@ while ((meof(inclsfid) == 0) & (FoundNIn == 0) & (FoundNOut == 0))
 // #RNU_RES_E
           if (SCI2Cstrncmps1size(SharedInfo.Annotations.FUNNOUT,check_string))
             FUNNOUTAnnot = part(check_string,length(SharedInfo.Annotations.FUNNOUT)+1:length(check_string));
-
 // #RNU_RES_B
 // --- Check NOUT value. ---
 // #RNU_RES_E
@@ -99,6 +99,8 @@ while ((meof(inclsfid) == 0) & (FoundNIn == 0) & (FoundNOut == 0))
                               ReportFileName,'file','y');
 // #RNU_RES_E
               FoundNOut = 1;
+            elseif(eval(FUNNOUTAnnot) == 0)
+              FoundNOut = 1
             else
               FoundNIn = 0;
             end
@@ -131,7 +133,15 @@ if (FoundNOut*FoundNIn == 0)
   PrintStringInfo(' ',ReportFileName,'both','y');
   error(9999, 'SCI2CERROR: Incorrect function annotation.');
 else
-
+  //This change has been made in order to supress the generation
+  //of output variables in case of functions which do not return
+  //anything.
+  if(eval(FUNNOUTAnnot) == 0)
+    NOutArg_mod = 0;
+  else
+    NOutArg_mod = NOutArg
+  end 
+  
   // In case we are reading to much informations
   readNewLine = %t;
 
@@ -194,11 +204,14 @@ else
       end
     end
   end
+
+  
 end
 // --- End loop over the lines of the input file. ---
 mclose(inclsfid);
 // -------------------------------------------------
 // --- End Read the annotations of the function. ---
 // -------------------------------------------------
+PrintStringInfo('  end of annotation '+string(NOutArg_mod),ReportFileName,'file','y');
 
 endfunction

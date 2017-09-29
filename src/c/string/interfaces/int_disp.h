@@ -17,25 +17,43 @@
 
 #include <stdio.h>
 
-#define s0dispd0(in)			sdisps(in)
+#define s0disp(in)			sdisps(in)
 
-#define d0dispd0(in)			ddisps(in)
+#define d0disp(in)			ddisps(in)
 
-#define c0dispd0(in)			cdisps(in)
+#define c0disp(in)			cdisps(in)
 
-#define z0dispd0(in)			zdisps(in)
+#define z0disp(in)			zdisps(in)
 
-#define s2dispd0(in,size)		sdispa(in,size[0],size[1])
+#define u80disp(in)			u8disps(in)
 
-#define d2dispd0(in,size)		ddispa(in,size[0],size[1])
+#define i80disp(in)			i8disps(in)
 
-#define c2dispd0(in,size)		cdispa(in,size[0],size[1])
+#define u160disp(in)			u16disps(in)
 
-#define z2dispd0(in,size)		zdispa(in,size[0],size[1])
+#define i160disp(in)			i16disps(in)
 
-#define d3dispd0(in,size)       ddisph(in,size[0],size[1],size[2])
+#define s2disp(in,size)		sdispa(in,size[0],size[1])
 
-#define g2dispd0(in, size)		printf("%s\n",in)
+#define d2disp(in,size)		ddispa(in,size[0],size[1])
+
+#define c2disp(in,size)		cdispa(in,size[0],size[1])
+
+#define z2disp(in,size)		zdispa(in,size[0],size[1])
+
+#define u82disp(in,size)		u8dispa(in,size[0],size[1])
+
+#define i82disp(in,size)		i8dispa(in,size[0],size[1])
+
+#define u162disp(in,size)		u16dispa(in,size[0],size[1])
+
+#define i162disp(in,size)		i16dispa(in,size[0],size[1])
+
+#define d3disp(in,size)       ddisph(in,size[0],size[1],size[2])
+
+#define g2disp(in, size)		printf("%s\n", in)
+
+#define g0disp(in)                      printf("%c\n", in)
 
 #endif /* __INT_DISP_H__ */
 

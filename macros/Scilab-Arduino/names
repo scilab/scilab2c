@@ -1,0 +1,11 @@
+GenerateSetupFunction
+GetArduinoFunctions
+GetArduinoSetupFunctions
+InsertSetupInList
+IsArduinoFunction
+IsArduinoSetupFunction
+cmd_i2c_dev
+cmd_i2c_read
+cmd_i2c_read_register
+cmd_i2c_write
+cmd_i2c_write_register

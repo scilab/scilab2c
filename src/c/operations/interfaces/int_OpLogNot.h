@@ -23,6 +23,14 @@
 
 #define z0OpLogNotz0(in)			(zreals(in)==0) ? DoubleComplex(1,0) : DoubleComplex(0,0)
 
+#define u8OpLogNotu80(in)			(in==0) ? (uint8)1 : (uint8)0
+
+#define i8OpLogNoti80(in)			(in==0) ? (int8)1 : (int8)0
+
+#define u16OpLogNotu160(in)			(in==0) ? (uint16)1 : (uint16)0
+
+#define i16OpLogNoti160(in)			(in==0) ? (int16)1 : (int16)0
+
 #define s2OpLogNots2(in,size,out)		{int i;\
 							for (i=0;i<size[0]*size[1];i++)	out[i]=s0OpLogNots0(in[i]);\
 							}
@@ -38,5 +46,22 @@
 #define z2OpLogNotz2(in,size,out)		{int i;\
 							for (i=0;i<size[0]*size[1];i++)	out[i]=z0OpLogNotz0(in[i]);\
 							}
+
+#define u82OpLogNotu82(in,size,out)		{int i;\
+							for (i=0;i<size[0]*size[1];i++)	out[i]=u80OpLogNotu80(in[i]);\
+							}
+
+#define i82OpLogNoti82(in,size,out)		{int i;\
+							for (i=0;i<size[0]*size[1];i++)	out[i]=i80OpLogNoti80(in[i]);\
+							}
+
+#define u162OpLogNotu162(in,size,out)		{int i;\
+							for (i=0;i<size[0]*size[1];i++)	out[i]=u160OpLogNoti160(in[i]);\
+							}
+
+#define i162OpLogNoti162(in,size,out)		{int i;\
+							for (i=0;i<size[0]*size[1];i++)	out[i]=i160OpLogNotu160(in[i]);\
+							}
+
 
 #endif /* !__INT_OPLOGNOT_H__ */

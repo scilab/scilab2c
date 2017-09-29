@@ -14,10 +14,11 @@
 
 void drowmaxa(double *in, int rows, int columns, double* out) {
   int i = 0, j = 0;
-
-  for (i = 0; i < columns; i++) {
+    for (i = 0; i < columns; i++)
+   {
 	  out[i]=in[i*rows];
 	  for (j = 1 ; j < rows ; j++)
-     		 if (in[i*rows+j]>out[i]) out[i] = in[i*rows+j];
+     		 if (in[i*rows+j]>out[i]) 
+                    out[i] = in[i*rows+j];
     }
 }

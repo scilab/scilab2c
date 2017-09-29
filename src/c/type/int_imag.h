@@ -23,6 +23,14 @@
 
 #define z0imagd0(in)			zimags(in)
 
+#define u80imagu80(in)			0
+
+#define i80imagi80(in)			0
+
+#define u160imagu160(in)		0
+
+#define i160imagi160(in)		0
+
 #define s2imags2(in,size,out)		szerosa(out,size[0],size[1])
 
 #define d2imagd2(in,size,out)		dzerosa(out,size[0],size[1])
@@ -30,5 +38,13 @@
 #define c2imags2(in,size,out)		cimaga(in, size[0]*size[1], out)
 
 #define z2imagd2(in,size,out)		zimaga(in, size[0]*size[1], out)
+
+#define u82imagu82(in,size,out)		u8zerosa(out,size[0],size[1])
+
+#define i82imagi82(in,size,out)		i8zerosa(out,size[0],size[1])
+
+#define u162imagu162(in,size,out)	u16zerosa(out,size[0],size[1])
+
+#define i162imagi162(in,size,out)	i16zerosa(out,size[0],size[1])
 
 #endif /* !__INT_IMAG_H__ */

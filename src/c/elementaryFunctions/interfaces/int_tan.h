@@ -23,6 +23,14 @@
 
 #define z0tanz0(in)			ztans(in)
 
+#define u80tans0(in)			u8tans(in)
+
+#define i80tans0(in)			i8tans(in)
+
+#define u160tans0(in)			u16tans(in)
+
+#define i160tans0(in)			i16tans(in)
+
 #define s2tans2(in,size,out)		stana(in, size[0]*size[1], out)
 
 #define d2tand2(in,size,out)		dtana(in, size[0]*size[1], out)
@@ -30,5 +38,13 @@
 #define c2tanc2(in,size,out)		ctana(in, size[0]*size[1], out)
 
 #define z2tanz2(in,size,out)		ztana(in, size[0]*size[1], out)
+
+#define u82tans2(in,size,out)		u8tana(in, size[0]*size[1], out)
+
+#define i82tans2(in,size,out)		i8tana(in, size[0]*size[1], out)
+
+#define u162tans2(in,size,out)		u16tana(in, size[0]*size[1], out)
+
+#define i162tans2(in,size,out)		i16tana(in, size[0]*size[1], out)
 
 #endif /* !__INT_TAN_H__ */

@@ -21,7 +21,13 @@
 
 #define c0tracec0(in)			in
 
-#define z0tracez0(in)			in
+#define u80traceu80(in)                 (uint8)in
+
+#define u160traceu160(in)		(uint16)in
+
+#define i80tracei80(in)		        (int8)in
+
+#define i160tracei160(in)		(int16)in
 
 #define s2traces0(in,size)		stracea(in, size[0])
 
@@ -30,5 +36,13 @@
 #define c2tracec0(in,size)		ctracea(in, size[0])
 
 #define z2tracez0(in,size)		ztracea(in, size[0])
+
+#define u82traceu80(in,size)            u8tracea(in, size[0])
+
+#define u162traceu160(in,size)          u16tracea(in, size[0])
+
+#define i82tracei80(in,size)            i8tracea(in, size[0])
+
+#define i162tracei160(in,size)          i16trace(in,size[0])
 
 #endif /* !__INT_TRACE_H__ */

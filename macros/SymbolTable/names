@@ -1,0 +1,13 @@
+ST_AnalyzeScope
+ST_Del
+ST_FindPos
+ST_Get
+ST_GetInArgInfo
+ST_GetSymbolInfo
+ST_InsForCntVars
+ST_InsOutArg
+ST_InsOutArg_Dup
+ST_Load
+ST_MatchSymbol
+ST_Save
+ST_Set

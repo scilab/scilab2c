@@ -35,7 +35,7 @@ CDeclarationFileName = FileInfo.Funct(nxtscifunnumber).CDeclarationFileName;
 CInitVarsFileName    = FileInfo.Funct(nxtscifunnumber).CInitVarsFileName;
 IndentLevel          = SharedInfo.NIndent;
 CCall                = '';
-
+Target	             = SharedInfo.Target;
 // --- Extract Function Info. ---
 FunctionName      = FunInfo.SCIFunctionName;
 CFunName          = FunInfo.CFunctionName;
@@ -174,144 +174,205 @@ end
 // --- Generate the C call. ---
 // ----------------------------
 CCall ='';
-if (FunInfo.CFunctionName == SharedInfo.CMainFunName)
-   if (FlagCall == 1)
-      error(9999, 'main function called in a source code!');
-   else
-      CCall =CCall+'int ';
-   end
-else
-   if (PosFirstOutScalar >= 1)
+if(mtlb_strcmp(part(CFunName,1:9),'PI_thread') == %T)
+//Functions that are to be ru in separate thread in case of RPi target, 
+//need to have specific name which is PI_THREAD(functionname)
+
+CCall = CCall + 'PI_THREAD('+CFunName+')'
+else   
+   
+   if (FunInfo.CFunctionName == SharedInfo.CMainFunName)
       if (FlagCall == 1)
-         CCall = CCall+OutArg(PosFirstOutScalar).Name+' = ';
+         error(9999, 'main function called in a source code!');
       else
-         CCall = CCall+C_Type(OutArg(PosFirstOutScalar).Type)+' ';
+         CCall =CCall+'int ';
       end
+   elseif ((mtlb_strcmp(part(CFunName,1:5),'odefn') == %T))
+      //Return type of function containing ODEs must be int.
+      CCall = CCall + 'int ';
    else
-      if (FlagCall == 0)
-         CCall = CCall+'void ';
+      if (PosFirstOutScalar >= 1)
+         if (FlagCall == 1)
+            CCall = CCall+OutArg(PosFirstOutScalar).Name+' = ';
+         else
+            CCall = CCall+C_Type(OutArg(PosFirstOutScalar).Type)+' ';
+         end
+      else
+         if (FlagCall == 0)
+            CCall = CCall+'void ';
+         end
       end
    end
-end
 
 
-// FIXME : Wrap library function call with prefixed name
+   // FIXME : Wrap library function call with prefixed name
 
-//if CFunName == "main"
-  CCall = CCall + CFunName + "(";
-//else
-//  CCall = CCall+"SCI2C("+CFunName+")(";
-//end
-
-// #RNU_RES_B
-PrintStringInfo('   C call after output scalar args check: '+CCall,ReportFileName,'file','y');
-// #RNU_RES_E
-clear counterin
-for counterin = 1:NInArg
-
-   if (InArg(counterin).Type == 'g' & InArg(counterin).Scope == 'String')
-      TmpInArgName = '""'+InArg(counterin).Name+'""';
-   elseif (InArg(counterin).Type == 'z' & (InArg(counterin).Scope == 'Number'))
-      TmpInArgName = 'DoubleComplex('+SCI2Cstring(real(InArg(counterin).Value))+','+SCI2Cstring(imag(InArg(counterin).Value))+')';
-   elseif (InArg(counterin).Type == 'c' & (InArg(counterin).Scope == 'Number'))
-      TmpInArgName = 'FloatComplex('+SCI2Cstring(real(InArg(counterin).Value))+','+SCI2Cstring(imag(InArg(counterin).Value))+')';
-   else
-      TmpInArgName = InArg(counterin).Name;
-   end
-
-   TmpInArgType = C_Type(InArg(counterin).Type);
-
-   //if (FunctionName == 'OpEqual')
-   //      TmpInArgSizeVar = '__'+OutArg(counterin).Name+'Size';
-   // else
-   TmpInArgSizeVar = '__'+InArg(counterin).Name+'Size';
+   //if CFunName == "main"
+     CCall = CCall + CFunName + "(";
+   //else
+   //  CCall = CCall+"SCI2C("+CFunName+")(";
    //end
 
-   if (InArg(counterin).Dimension == 0)
-      if (FlagCall == 0)
-         CCall = CCall+TmpInArgType+' ';
+   // #RNU_RES_B
+   PrintStringInfo('   C call after output scalar args check: '+CCall,ReportFileName,'file','y');
+   // #RNU_RES_E
+   clear counterin
+   if(mtlb_strcmp(part(CFunName,1:5),'odefn') == %F)
+      for counterin = 1:NInArg
+
+         if (InArg(counterin).Type == 'g' & InArg(counterin).Scope == 'String')
+            TmpInArgName = '""'+InArg(counterin).Name+'""';
+         elseif (InArg(counterin).Type == 'z' & (InArg(counterin).Scope == 'Number'))
+            TmpInArgName = 'DoubleComplex('+SCI2Cstring(real(InArg(counterin).Value))+','+SCI2Cstring(imag(InArg(counterin).Value))+')';
+         elseif (InArg(counterin).Type == 'c' & (InArg(counterin).Scope == 'Number'))
+            TmpInArgName = 'FloatComplex('+SCI2Cstring(real(InArg(counterin).Value))+','+SCI2Cstring(imag(InArg(counterin).Value))+')';
+         else
+            TmpInArgName = InArg(counterin).Name;
+         end
+         TmpInArgType = C_Type(InArg(counterin).Type);
+
+         //if (FunctionName == 'OpEqual')
+         //      TmpInArgSizeVar = '__'+OutArg(counterin).Name+'Size';
+         // else
+         TmpInArgSizeVar = '__'+InArg(counterin).Name+'Size';
+         //end
+
+         if (InArg(counterin).Dimension == 0)
+            if (FlagCall == 0)
+               CCall = CCall+TmpInArgType+' ';
+            end
+            CCall = CCall+TmpInArgName+',';
+         else
+            if (FlagCall == 0)
+               CCall = CCall+TmpInArgType+'* '+TmpInArgName+', int* __'+TmpInArgName+'Size,';
+            else
+               CCall = CCall+TmpInArgName+',  '+TmpInArgSizeVar+',';
+            end
+         end
       end
-      CCall = CCall+TmpInArgName+',';
    else
-      if (FlagCall == 0)
-         CCall = CCall+TmpInArgType+'* '+TmpInArgName+', int* __'+TmpInArgName+'Size,';
-      else
-         CCall = CCall+TmpInArgName+',  '+TmpInArgSizeVar+',';
+      //If current function contains 'odefn' at the beginning, then it contains
+      //differnetial equations and its function call need to be differnt than 
+      //other function call. GSL library being used for solving ODEs, requires 
+      //function containing odes in specific format which is differnt than generated
+      //above.
+      for counterin = 1:NInArg
+         
+         //if((NInArg == 4 & counterin <> 3) | (NInArg == 5 & counterin <> 4))   //Skip third argument
+            if (InArg(counterin).Type == 'g' & InArg(counterin).Scope == 'String')
+               TmpInArgName = '""'+InArg(counterin).Name+'""';
+            elseif (InArg(counterin).Type == 'z' & (InArg(counterin).Scope == 'Number'))
+               TmpInArgName = 'DoubleComplex('+SCI2Cstring(real(InArg(counterin).Value))+','+SCI2Cstring(imag(InArg(counterin).Value))+')';
+            elseif (InArg(counterin).Type == 'c' & (InArg(counterin).Scope == 'Number'))
+               TmpInArgName = 'FloatComplex('+SCI2Cstring(real(InArg(counterin).Value))+','+SCI2Cstring(imag(InArg(counterin).Value))+')';
+            else
+               TmpInArgName = InArg(counterin).Name;
+            end
+            
+            TmpInArgType = C_Type(InArg(counterin).Type);
+
+            //if (FunctionName == 'OpEqual')
+            //      TmpInArgSizeVar = '__'+OutArg(counterin).Name+'Size';
+            // else
+            TmpInArgSizeVar = '__'+InArg(counterin).Name+'Size';
+            //end
+
+            if (InArg(counterin).Dimension == 0)
+               if (FlagCall == 0)
+                  CCall = CCall+TmpInArgType+' ';
+               end
+               CCall = CCall+TmpInArgName+',';
+            else
+               if (FlagCall == 0)
+                  CCall = CCall+TmpInArgType+'* '+TmpInArgName+', ';//int* __'+TmpInArgName+'Size,';
+               else
+                  CCall = CCall+TmpInArgName+',  ';//+TmpInArgSizeVar+',';
+               end
+            end
+         //end
       end
+
    end
-end
-// #RNU_RES_B
-PrintStringInfo('   C call after input args analysis: '+CCall,ReportFileName,'file','y');
-// #RNU_RES_E
-for counterout = 1:NOutArg
-   TmpOutArgName = OutArg(counterout).Name;
-   TmpOutArgType = C_Type(OutArg(counterout).Type);
-   if (counterout == PosFirstOutScalar)
-      if (FlagCall == 0)
-         // #RNU_RES_B
-         // --- Write in the declaration file the returned output scalar (if any). ---
-         // #RNU_RES_E
-         outscalardeclaration = TmpOutArgType+' '+TmpOutArgName+';';
-         // #RNU_RES_B
-         PrintStringInfo(outscalardeclaration,ReportFileName,'file','y');
-         // #RNU_RES_E
-         PrintStringInfo(C_IndentBlanks(1)+outscalardeclaration,CDeclarationFileName,'file','y');
-         PrintStringInfo(' ',CDeclarationFileName,'file','y');
-      end
-   else
-      if (OutArg(counterout).Dimension == 0)
+      
+   // #RNU_RES_B
+   PrintStringInfo('   C call after input args analysis: '+CCall,ReportFileName,'file','y');
+   // #RNU_RES_E
+   for counterout = 1:NOutArg
+      TmpOutArgName = OutArg(counterout).Name;
+      TmpOutArgType = C_Type(OutArg(counterout).Type);
+      if (counterout == PosFirstOutScalar)
          if (FlagCall == 0)
+            // #RNU_RES_B
             // --- Write in the declaration file the returned output scalar (if any). ---
+            // #RNU_RES_E
             outscalardeclaration = TmpOutArgType+' '+TmpOutArgName+';';
+            // #RNU_RES_B
             PrintStringInfo(outscalardeclaration,ReportFileName,'file','y');
+            // #RNU_RES_E
             PrintStringInfo(C_IndentBlanks(1)+outscalardeclaration,CDeclarationFileName,'file','y');
             PrintStringInfo(' ',CDeclarationFileName,'file','y');
-            CCall = CCall+TmpOutArgType+'* __ptr'+TmpOutArgName+', ';
-         else
-            CCall = CCall+'&'+TmpOutArgName+', ';//NUT: verifica se ci vuole l'&
          end
       else
-         if (FlagCall == 0)
-            CCall = CCall+TmpOutArgType+'* '+TmpOutArgName+',';
-            if (OutArg(counterout).FindLike == 1)
-               CCall = CCall+'int* __'+TmpOutArgName+'Size'+',';
+         if (OutArg(counterout).Dimension == 0)
+            if (FlagCall == 0)
+               // --- Write in the declaration file the returned output scalar (if any). ---
+               outscalardeclaration = TmpOutArgType+' '+TmpOutArgName+';';
+               PrintStringInfo(outscalardeclaration,ReportFileName,'file','y');
+               PrintStringInfo(C_IndentBlanks(1)+outscalardeclaration,CDeclarationFileName,'file','y');
+               PrintStringInfo(' ',CDeclarationFileName,'file','y');
+               CCall = CCall+TmpOutArgType+'* __ptr'+TmpOutArgName+', ';
+            else
+               CCall = CCall+'&'+TmpOutArgName+', ';//NUT: verifica se ci vuole l'&
             end
-            // #RNU_RES_B
-            //NUT prova a sostituire le variabili strutture con variabili dichiarate all'inizio del codice.
-            // --- Declare the size of the output arguments. ---
-            // #RNU_RES_E
-            outscalardeclaration = 'int __'+TmpOutArgName+'Size[2];';
-            PrintStringInfo(outscalardeclaration,ReportFileName,'file','y');
-            PrintStringInfo(C_IndentBlanks(1)+outscalardeclaration,CDeclarationFileName,'file','y');
-            outscalardeclaration = '__'+TmpOutArgName+'Size[0] = '+(OutArg(counterout).Size(1))+';';
-            PrintStringInfo(outscalardeclaration,ReportFileName,'file','y');
-            PrintStringInfo(C_IndentBlanks(1)+outscalardeclaration,CInitVarsFileName,'file','y');
-            outscalardeclaration = '__'+TmpOutArgName+'Size[1] = '+(OutArg(counterout).Size(2))+';';
-            PrintStringInfo(outscalardeclaration,ReportFileName,'file','y');
-            PrintStringInfo(C_IndentBlanks(1)+outscalardeclaration,CInitVarsFileName,'file','y');
-            PrintStringInfo(' ',CInitVarsFileName,'file','y');
          else
-            CCall = CCall+OutArg(counterout).Name+',';
-            if (OutArg(counterout).FindLike == 1)
-               CCall = CCall+'(int* ) __'+TmpOutArgName+'Size'+',';
+            if (FlagCall == 0)
+               CCall = CCall+TmpOutArgType+'* '+TmpOutArgName+',';
+               if (OutArg(counterout).FindLike == 1)
+                  CCall = CCall+'int* __'+TmpOutArgName+'Size'+',';
+               end
+               // #RNU_RES_B
+               //NUT prova a sostituire le variabili strutture con variabili dichiarate all'inizio del codice.
+               // --- Declare the size of the output arguments. ---
+               // #RNU_RES_E
+               outscalardeclaration = 'int __'+TmpOutArgName+'Size[2];';
+               PrintStringInfo(outscalardeclaration,ReportFileName,'file','y');
+               PrintStringInfo(C_IndentBlanks(1)+outscalardeclaration,CDeclarationFileName,'file','y');
+               outscalardeclaration = '__'+TmpOutArgName+'Size[0] = '+(OutArg(counterout).Size(1))+';';
+               PrintStringInfo(outscalardeclaration,ReportFileName,'file','y');
+               PrintStringInfo(C_IndentBlanks(1)+outscalardeclaration,CInitVarsFileName,'file','y');
+               outscalardeclaration = '__'+TmpOutArgName+'Size[1] = '+(OutArg(counterout).Size(2))+';';
+               PrintStringInfo(outscalardeclaration,ReportFileName,'file','y');
+               PrintStringInfo(C_IndentBlanks(1)+outscalardeclaration,CInitVarsFileName,'file','y');
+               PrintStringInfo(' ',CInitVarsFileName,'file','y');
+            else
+               CCall = CCall+OutArg(counterout).Name+',';
+               if (OutArg(counterout).FindLike == 1)
+                  CCall = CCall+'(int* ) __'+TmpOutArgName+'Size'+',';
+               end
             end
          end
       end
    end
-end
-PrintStringInfo('   C call after output args analysis: '+CCall,ReportFileName,'file','y');
-// Remove the last " " and ","
-if (part(CCall,length(CCall):length(CCall)) == ' ')
-   CCall = part(CCall,1:length(CCall)-1);
-end
-if (part(CCall,length(CCall):length(CCall)) == ',')
-   CCall = part(CCall,1:length(CCall)-1);
-end
+   PrintStringInfo('   C call after output args analysis: '+CCall,ReportFileName,'file','y');
+   // Remove the last " " and ","
+   if (part(CCall,length(CCall):length(CCall)) == ' ')
+      CCall = part(CCall,1:length(CCall)-1);
+   end
+   if (part(CCall,length(CCall):length(CCall)) == ',')
+      CCall = part(CCall,1:length(CCall)-1);
+   end
 
-CCall = CCall+')';
-if (FlagCall == 1)
-   CCall = CCall+';';
-end
+   //__ysize is added to input arguments at last to comply with form required by GSL
+   if(mtlb_strcmp(part(CFunName,1:5),'odefn') == %T)
+      CCall = CCall + ',  int* '+TmpInArgSizeVar;
+   end
+
+   CCall = CCall+')';
+   if (FlagCall == 1)
+      CCall = CCall+';';
+   end
+
+end 
 //NUT: la parte di generazione della C call va inserita in una funzione a parte.
 //NUT: tale funzione deve avere anche uno switch che consenta di generare differenti versioni
 //NUT: delle chiamate C in accordo con la libreria disponibile, fermo restando che
@@ -352,8 +413,12 @@ if mtlb_strcmp(FunctionName,'return')
    PrintStringInfo('   return function of the AST is skipped.',ReportFileName,'file','y');
    //RN provo a non skippare e a mettere la return.
    // #RNU_RES_E
+   
    if (SharedInfo.CurrentFunInfo.CFunctionName == SharedInfo.CMainFunName)
       CCall = CCall+'return(0);';
+   elseif (mtlb_strcmp(part(SharedInfo.CurrentFunInfo.CFunctionName,1:5),'odefn') == %T)
+   //For GSL library, function containing ODEs must return GSL_SUCCESS
+      CCall = CCall + 'return GSL_SUCCESS;'   
    else
       if (SharedInfo.CurrentFunInfo.PosFirstOutScalar > 0)
          CCall = CCall+'return('+SharedInfo.CurrentFunInfo.OutArg(SharedInfo.CurrentFunInfo.PosFirstOutScalar).Name+');'
@@ -371,7 +436,7 @@ else
    if (FlagCall == 0)
       // Add prototype to the header file
 
-     C_InitHeader(CCall+';',HeaderFileName,SharedInfo.Sci2CLibMainHeaderFName);
+     C_InitHeader(CCall+';',HeaderFileName,SharedInfo.Sci2CLibMainHeaderFName,Target,SharedInfo.OpenCVUsed);
 
       // Add { at the beginning of the function.
       PrintStringInfo('   {',ReportFileName,'file','y');

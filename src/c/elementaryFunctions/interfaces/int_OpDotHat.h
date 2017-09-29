@@ -25,6 +25,14 @@
 
 #define z0z0OpDotHatz0(in1, in2)			zpows(in1, in2)
 
+#define u80u80OpDotHatu80(in1, in2)                     u8pows(in1, in2)
+
+#define u160u160OpDotHatu160(in1, in2)                  u16pows(in1, in2)
+
+#define i80i80OpDotHati80(in1, in2)                     i8pows(in1, in2)
+
+#define i160i160OpDotHati60(in1, in2)                   i16pows(in1, in2)
+
 #define s0c0OpDotHatc0(in1, in2)			cpows(FloatComplex(in1,0), in2)
 
 #define c0s0OpDotHatc0(in1, in2)			cpows(in1, FloatComplex(in2,0))
@@ -53,6 +61,20 @@
 									for (i=0;i<size[0]*size[1];i++) out[i]=zpows(in1,in2[i]);\
 									}
 
+#define u80u82OpDotHatu82(in1, in2, size, out)		{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=u8pows(in1,in2[i]);\
+									}
+
+#define u160u162OpDotHatu162(in1, in2, size, out)		{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=u16pows(in1,in2[i]);\
+									}
+#define i80i82OpDotHati82(in1, in2, size, out)		{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=i8pows(in1,in2[i]);\
+									}
+
+#define i160i162OpDotHati162(in1, in2, size, out)		{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=i16pows(in1,in2[i]);\
+									}
 
 
 #define s0c2OpDotHatc2(in1, in2, size, out)		{int i=0;\
@@ -90,6 +112,23 @@
 								for (i=0;i<size[0]*size[1];i++) out[i]=zpows(in1[i],in2);\
 								}
 
+#define u82u80OpDotHatu82(in1,size,in2,out)		{int i=0;\
+								for (i=0;i<size[0]*size[1];i++) out[i]=u8pows(in1[i],in2);\
+								}
+
+#define u162u160OpDotHatu162(in1,size,in2,out)		{int i=0;\
+								for (i=0;i<size[0]*size[1];i++) out[i]=u16pows(in1[i],in2);\
+								}
+
+#define i82i80OpDotHati82(in1,size,in2,out)		{int i=0;\
+								for (i=0;i<size[0]*size[1];i++) out[i]=i8pows(in1[i],in2);\
+								}
+
+#define i162i160OpDotHati162(in1,size,in2,out)		{int i=0;\
+								for (i=0;i<size[0]*size[1];i++) out[i]=i16pows(in1[i],in2);\
+								}
+
+
 #define s2c0OpDotHatc2(in1,size,in2,out)		{int i=0;\
 								for (i=0;i<size[0]*size[1];i++) out[i]=cpows(FloatComplex(in1[i],0),in2);\
 								}
@@ -106,6 +145,24 @@
 								for (i=0;i<size[0]*size[1];i++) out[i]=zpows(in1[i],DoubleComplex(in2,0));\
 								}
 
+#define u82d0OpDotHatu82(in1,size,in2,out)		{int i=0;\
+								for (i=0;i<size[0]*size[1];i++) out[i]=u8pows(in1[i],in2);\
+								}
+
+#define u162d0OpDotHatu162(in1,size,in2,out)		{int i=0;\
+								for (i=0;i<size[0]*size[1];i++) out[i]=u16pows(in1[i],in2);\
+								}
+
+
+#define i82d0OpDotHati82(in1,size,in2,out)		{int i=0;\
+								for (i=0;i<size[0]*size[1];i++) out[i]=i8pows(in1[i],in2);\
+								}
+
+#define i162d0OpDotHatui62(in1,size,in2,out)		{int i=0;\
+								for (i=0;i<size[0]*size[1];i++) out[i]=i16pows(in1[i],in2);\
+								}
+
+
 
 /* Matrix - Matrix */
 
@@ -116,6 +173,14 @@
 #define c2c2OpDotHatc2(in1, size1, in2, size2, out)	cpowa(in1, size1[0]*size2[1], in2, out)
 
 #define z2z2OpDotHatz2(in1, size1, in2, size2, out)	zpowa(in1, size1[0]*size2[1], in2, out)
+
+#define u82u82OpDotHatu82(in1, size1, in2, size2, out)	u8powa(in1, size1[0]*size2[1], in2, out)
+
+#define u162u162OpDotHatu162(in1, size1, in2, size2, out) u16powa(in1, size1[0]*size2[1], in2, out)
+
+#define i82i82OpDotHati82(in1, size1, in2, size2, out)	i8powa(in1, size1[0]*size2[1], in2, out)
+
+#define i162i162OpDotHati162(in1, size1, in2, size2, out) i16powa(in1, size1[0]*size2[1], in2, out)
 
 #define s2c2OpDotHatc2(in1, size1, in2, size2, out)	{int i=0;\
 									for (i=0;i<size1[0]*size2[1];i++) out[i]=cpows(FloatComplex(in1[i],0),in2[i]);\

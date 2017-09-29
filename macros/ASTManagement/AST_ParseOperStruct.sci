@@ -26,6 +26,7 @@ function [FunctionName,InArg,NInArg,NOutArg] = AST_ParseOperStruct(FileInfo,Shar
 //
 // Status:
 // 11-Apr-2007 -- Raffaele Nutricato: Author.
+// 25-June-2017 -- Ukasha Noor: Revised By
 //
 // Copyright 2007 Raffaele Nutricato.
 // Contact: raffaele.nutricato@tiscali.it
@@ -61,6 +62,17 @@ LabelFunctName = 'Operator: ';
 FunctionName = stripblanks(part(buffstring,length(LabelFunctName)+1:length(buffstring)));
 // Generate the proper function name.
 FunctionName  = Operator2FunName(FunctionName);
+PrintStringInfo(' '+FunctionName,ReportFileName,'file','y');
+
+if (FunctionName == 'OpLogAnd' | FunctionName=='OpLogOr')
+    NInArg = 0;
+    NOutArg = 0;
+    InArg=[];
+    //RhsField = AST_PopASTStack();
+    //PrintStringInfo('hello'+RhsField,ReportFileName,'file','y');
+    //RhsField = AST_PopASTStack();
+    return ;
+end
 
 // ------------------------------
 // --- Read input parameters. ---

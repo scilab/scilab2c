@@ -10,12 +10,9 @@
  *
  */
 
-
-
-#ifdef _MSC_VER
-#include <float.h>
-#define isnan(x) _isnan((double)x)
-#endif
+#ifdef _WIN32
+#include <math.h>
+#endif 
 
 #include "isnan.h"
 

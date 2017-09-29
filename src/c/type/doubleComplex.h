@@ -45,6 +45,21 @@ typedef struct double_complex doubleComplex;
 /*
 ** }
 */
+#elif defined(ARDUINO)
+/*
+** Hand made Double Complex definition
+** {
+*/
+struct  double_complex
+{
+  double real;
+  double imag;
+};
+
+typedef struct double_complex doubleComplex;
+/*
+** }
+*/
 #else
 /*
 ** Standard C99 Complex
@@ -57,7 +72,6 @@ typedef double complex doubleComplex;
 ** }
 */
 #endif
-
 #ifdef  __cplusplus
 extern "C" {
 #endif

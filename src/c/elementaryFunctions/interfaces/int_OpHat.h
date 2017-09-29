@@ -23,6 +23,14 @@
 
 #define c0c0OpHatc0(in1, in2)			cpows(in1, in2)
 
+#define u80u80OpHatu80(in1,in2)                 u8pows(in1, in2)
+
+#define u160u160OpHatu160(in1,in2)              u16pows(in1, in2)
+
+#define i80i80OpHati80(in1,in2)                 i8pows(in1, in2)
+
+#define i160i60OpHati60(in1,in2)                i6pows(in1, in2)
+
 #define s0c0OpHatc0(in1, in2)			cpows(FloatComplex(in1,0), in2)
 
 #define c0s0OpHatc0(in1, in2)			cpows(in1, FloatComplex(in2,0))
@@ -54,6 +62,25 @@
 									for (i=0;i<size[0]*size[1];i++) out[i]=zpows(in1,in2[i]);\
 									}
 
+#define u80u82OpHatu82(in1, in2, size, out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=u8pows(in1,in2[i]);\
+									}
+
+
+#define u160u162OpHatu162(in1, in2, size, out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=u16pows(in1,in2[i]);\
+									}
+
+#define i80i82OpHati82(in1, in2, size, out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=i8pows(in1,in2[i]);\
+									}
+
+
+#define i160i162OpHati162(in1, in2, size, out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=i16pows(in1,in2[i]);\
+									}
+
+
 
 
 #define s0c2OpHatc2(in1, in2, size, out)			{int i=0;\
@@ -83,6 +110,22 @@
 #define c2c0OpHatc2(in1,size,in2,out)		cpowma(in1,size[0],in2,out);
 
 #define z2z0OpHatz2(in1,size,in2,out)		zpowma(in1,size[0],in2,out);
+
+#define u82u80OpHatu82(in1,size,in2,out)        u8powa(in1,size[0],in2,out)
+
+#define u162u162OpHatu162(in1,size,in2,out)     u16powa(in1,size[0],in2,out)
+
+#define i82i80OpHati82(in1,size,in2,out)        i8powa(in1,size[0],in2,out)
+
+#define i162i160OpHati82(in1,size,in2,out)      i16powa(in1,size[0],in2,out)
+
+#define u82d0OpHatu82(in1,size,in2,out)         u8powa(in1,size[0],in2,out)
+
+#define u162d0OpHatu162(in1,size,in2,out)       u16powa(in1,size[0],in2,out)
+
+#define i82d0OpHati82(in1,size,in2,out)         i8powa(in1,size[0],in2,out)
+
+#define i162d0OpHati162(in1,sine,in2,out)       i16powa(in1,size[0],in2,out) 
 
 /* FIXME : malloc here */
 #define s2c0OpHatc2(in1,size,in2,out)		{float* tmp;\

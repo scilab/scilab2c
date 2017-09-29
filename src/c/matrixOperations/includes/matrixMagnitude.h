@@ -17,6 +17,7 @@
 #include "dynlib_matrixoperations.h"
 #include "floatComplex.h"
 #include "doubleComplex.h"
+#include "types.h"
 
 #ifdef  __cplusplus
 extern "C" {
@@ -33,6 +34,18 @@ EXTERN_MATOPS float cmagna(floatComplex* in, int rows, int cols);
 
 EXTERN_MATOPS double zmagns(doubleComplex in);
 EXTERN_MATOPS double zmagna(doubleComplex* in, int rows, int cols);
+
+EXTERN_MATOPS uint8 u8magns(uint8 in);
+EXTERN_MATOPS uint8 u8magna(uint8* in, int rows, int cols);
+
+EXTERN_MATOPS uint16 u16magns(uint16 in);
+EXTERN_MATOPS uint16 u16magna(uint16* in, int rows, int cols);
+
+EXTERN_MATOPS int8 i8magns(int8 in);
+EXTERN_MATOPS int8 i8magna(int8* in, int rows, int cols);
+
+EXTERN_MATOPS int16 i16magns(int16 in);
+EXTERN_MATOPS int16 i16magna(int16* in, int rows, int cols);
 
 #ifdef  __cplusplus
 } /* extern "C" */

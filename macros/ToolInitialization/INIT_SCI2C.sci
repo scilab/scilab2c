@@ -1,5 +1,5 @@
 function [FileInfoDatFile,SharedInfoDatFile] = ...
-    INIT_SCI2C(UserScilabMainFile, UserSciFilesPaths, SCI2COutputDir, RunMode)
+    INIT_SCI2C(UserScilabMainFile, UserSciFilesPaths, SCI2COutputDir, RunMode,Target,Board_name)
 // function [FileInfoDatFile,SharedInfoDatFile] = INIT_SCI2C(SCI2CInputPrmFile)
 // -----------------------------------------------------------------
 // #RNU_RES_B
@@ -68,12 +68,14 @@ OutCCCodeDir = SCI2CResultDir;
 
 //-- FIXME : MainLibHeader and Verbose mode are (?) configurable
 SharedInfo = INIT_GenSharedInfo(RunMode,UserScilabMainFile, ...
-				TotTempScalarVars,EnableTempVarsReuse,"sci2clib.h", %t);
+				TotTempScalarVars,EnableTempVarsReuse,"sci2clib.h", %t,Target,Board_name);
 
 // ----------------------------
 // --- Initialize FileInfo. ---
 // ----------------------------
 FileInfo = INIT_GenFileInfo(WorkingDir,OutCCCodeDir,UserSciFilesPaths);
+
+
 PrintStepInfo('SCI2C hArtes/POLIBA Tool!!!',FileInfo.GeneralReport,'stdout');
 
 // ----------------------------------------------------
@@ -143,6 +145,17 @@ SharedInfoDatFile = FileInfo.SharedInfoDatFile;
 
 global anscounter; //NUT: just to fix problem with ans variables.
 anscounter = 0;
+
+//--------------------------------------------
+//---Hardware related initialisation----------
+//--------------------------------------------
+if (Target == 'AVR')
+	PeripheralList = list();
+	save(FileInfo.PeripheralInitListFile, 'PeripheralList');
+elseif (Target == 'Arduino')
+    SetupList = list();
+    save(FileInfo.SetupListFile, 'SetupList');
+end
 
 endfunction
 // #RNU_RES_B

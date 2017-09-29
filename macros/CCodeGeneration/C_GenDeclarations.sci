@@ -92,24 +92,28 @@ if (ArgStruct.Dimension > 0)
     Cdeclaration(2) = Cdeclaration(2)+';';
   end
 else
-  if (FlagExt == 1)
-    Cdeclaration(1) = 'extern ';
+  if (ArgStruct.Type == 'fn')
+    //do nothing. This is a function name. Will be declared in header file.
   else
-    Cdeclaration(1) = '';
-  end
-  Cdeclaration(1) = Cdeclaration(1)+C_Type(ArgStruct.Type)+' '+ArgStruct.Name;
-  if (~isnan(ArgStruct.Value) & (FlagExt == 0))
-    if isreal(ArgStruct.Value)
-      Cdeclaration(1) = Cdeclaration(1)+' = '+SCI2Cstring(ArgStruct.Value);
+    if (FlagExt == 1)
+      Cdeclaration(1) = 'extern ';
     else
-      if (ArgStruct.Type == 'z')
-        Cdeclaration(1) = Cdeclaration(1)+' = DoubleComplex('+SCI2Cstring(real(ArgStruct.Value))+','+SCI2Cstring(imag(ArgStruct.Value))+')';
+      Cdeclaration(1) = '';
+    end
+    Cdeclaration(1) = Cdeclaration(1)+C_Type(ArgStruct.Type)+' '+ArgStruct.Name;
+    if (~isnan(ArgStruct.Value) & (FlagExt == 0))
+      if isreal(ArgStruct.Value)
+        Cdeclaration(1) = Cdeclaration(1)+' = '+SCI2Cstring(ArgStruct.Value);
       else
-        Cdeclaration(1) = Cdeclaration(1)+' = FloatComplex('+SCI2Cstring(real(ArgStruct.Value))+','+SCI2Cstring(imag(ArgStruct.Value))+')';
+        if (ArgStruct.Type == 'z')
+          Cdeclaration(1) = Cdeclaration(1)+' = DoubleComplex('+SCI2Cstring(real(ArgStruct.Value))+','+SCI2Cstring(imag(ArgStruct.Value))+')';
+        else
+          Cdeclaration(1) = Cdeclaration(1)+' = FloatComplex('+SCI2Cstring(real(ArgStruct.Value))+','+SCI2Cstring(imag(ArgStruct.Value))+')';
+        end
       end
     end
+    Cdeclaration(1) = Cdeclaration(1)+';';
   end
-  Cdeclaration(1) = Cdeclaration(1)+';';
 end
 
 

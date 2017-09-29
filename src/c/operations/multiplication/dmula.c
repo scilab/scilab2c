@@ -15,7 +15,8 @@
 
 void dmula(double* in1, double* in2, int size, double* out){
 	int i=0;
-	for (i=0;i<size;i++){
+	for (i=0;i<size;i++)
+        {
 		out[i]=dmuls(in1[i],in2[i]);
 	}
 }

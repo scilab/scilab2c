@@ -20,6 +20,30 @@ sci2c_GenFunctionslib    = lib(pathmacros + "GeneralFunctions"   + filesep());
 sci2c_SymbolTablelib     = lib(pathmacros + "SymbolTable"        + filesep());
 sci2c_ToolInitlib        = lib(pathmacros + "ToolInitialization" + filesep());
 sci2c_finDeps            = lib(pathmacros + "findDeps"           + filesep());
+sci2c_AVRlib	    	 = lib(pathmacros + "Hardware\AVR"       + filesep());
+sci2c_RPilib    		 = lib(pathmacros + "Hardware\RasberryPi"+ filesep());
+sci2c_RPI_Digitallib     = lib(pathmacros + "Hardware\RasberryPi\Digital"      + filesep());
+sci2c_RPI_gertBoardlib   = lib(pathmacros + "Hardware\RasberryPi\gertBoard"      + filesep());
+sci2c_RPI_I2Clib         = lib(pathmacros + "Hardware\RasberryPi\I2C"      + filesep());
+sci2c_RPI_Interruptlib   = lib(pathmacros + "Hardware\RasberryPi\Interrupt"      + filesep());
+sci2c_RPI_lcdlib         = lib(pathmacros + "Hardware\RasberryPi\lcd"      + filesep());
+sci2c_RPI_lcd128x64lib   = lib(pathmacros + "Hardware\RasberryPi\lcd128x64"      + filesep());
+sci2c_RPI_mcplib         = lib(pathmacros + "Hardware\RasberryPi\mcp"      + filesep());
+sci2c_RPI_Misclib        = lib(pathmacros + "Hardware\RasberryPi\Misc"      + filesep());
+sci2c_RPI_pcflib         = lib(pathmacros + "Hardware\RasberryPi\pcf"      + filesep());
+sci2c_RPI_piGlowlib      = lib(pathmacros + "Hardware\RasberryPi\piGlow"      + filesep());
+sci2c_RPI_pinMaplib      = lib(pathmacros + "Hardware\RasberryPi\pinMap"      + filesep());
+sci2c_RPI_pwmlib         = lib(pathmacros + "Hardware\RasberryPi\pwm"      + filesep());
+sci2c_RPI_Seriallib      = lib(pathmacros + "Hardware\RasberryPi\Serial"      + filesep());
+sci2c_RPI_Setuplib       = lib(pathmacros + "Hardware\RasberryPi\Setup"      + filesep());
+sci2c_RPI_Shiftlib       = lib(pathmacros + "Hardware\RasberryPi\Shift"      + filesep());
+sci2c_RPI_Softlib        = lib(pathmacros + "Hardware\RasberryPi\Soft"      + filesep());
+sci2c_RPI_SPIlib         = lib(pathmacros + "Hardware\RasberryPi\SPI"      + filesep());
+sci2c_RPI_Timinglib      = lib(pathmacros + "Hardware\RasberryPi\Timing"      + filesep());
+sci2c_ScilabArduinolib	 = lib(pathmacros + "Scilab-Arduino"     + filesep());
+sci2c_CVCorelib	     	 = lib(pathmacros + "ImageProcessing\core" + filesep());
+sci2c_CVHighguilib    	 = lib(pathmacros + "ImageProcessing\highgui" + filesep());
+sci2c_CVImgproclib  	 = lib(pathmacros + "ImageProcessing\imgproc" + filesep());
 clear pathmacros;
 
 // Load and add help chapter
@@ -38,7 +62,7 @@ end
 // =============================================================================
 
 if or(getscilabmode() == ["NW";"STD"]) then
-    mprintf("\tLoad demos\n");
+   mprintf("\tLoad demos\n");
    pathdemos = pathconvert(root_tlbx + "/demos/scilab2c.dem.gateway.sce",%f,%t);
 
    add_demo(gettext("Scilab2C"),pathdemos);

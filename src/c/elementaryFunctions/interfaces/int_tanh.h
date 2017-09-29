@@ -23,6 +23,14 @@
 
 #define z0tanhz0(in)			ztanhs(in)
 
+#define u80tanhs0(in)			u8tanhs(in)
+
+#define i80tanhs0(in)			i8tanhs(in)
+
+#define u160tanhs0(in)			u16tanhs(in)
+
+#define i160tanhs0(in)			i16tanhs(in)
+
 #define s2tanhs2(in,size,out)		stanha(in, size[0]*size[1], out)
 
 #define d2tanhd2(in,size,out)		dtanha(in, size[0]*size[1], out)
@@ -30,5 +38,13 @@
 #define c2tanhc2(in,size,out)		ctanha(in, size[0]*size[1], out)
 
 #define z2tanhz2(in,size,out)		ztanha(in, size[0]*size[1], out)
+
+#define u82tanhs2(in,size,out)		u8tanha(in, size[0]*size[1], out)
+
+#define i82tanhs2(in,size,out)		i8tanha(in, size[0]*size[1], out)
+
+#define u162tanhs2(in,size,out)		u16tanha(in, size[0]*size[1], out)
+
+#define i162tanhs2(in,size,out)		i16tanha(in, size[0]*size[1], out)
 
 #endif /* !__INT_TANH_H__ */

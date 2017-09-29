@@ -47,8 +47,6 @@ PrintStringInfo('***Putting output arguments in the symbol table***',ReportFileN
 // ---------------------------
 // --- End Initialization. ---
 // ---------------------------
-
-
 for counteroutput = 1:NOutArg
    // #RNU_RES_B
    PrintStringInfo('   Symbol ""'+OutArg(counteroutput).Name+'""',ReportFileName,'file','y','n');
@@ -125,6 +123,13 @@ for counteroutput = 1:NOutArg
                OutArg(counteroutput).Dimension,...
                SymbTableFileName);
          end
+
+         // IndentLevelDeclaration = 1; //NUT: per ora lo forzo sempre a 1
+         // IndentLevelMalloc      = SharedInfo.NIndent;
+         // FlagExt = 0;
+         // C_GenDeclarations(OutArg(counteroutput),CDeclarationFileName,IndentLevelDeclaration,ReportFileName,FlagExt,SharedInfo.ResizeApproach);
+      
+
       end
    elseif (TBFlagfound == 2)
       // #RNU_RES_B

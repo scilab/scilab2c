@@ -12,10 +12,17 @@
 
 demopath = get_absolute_file_path("scilab2c.dem.gateway.sce");
 
-subdemolist = ["Trigonometric Identity" , "TrigonometricIdentity.dem.sce";
+subdemolist =["Linear Algebra","LinearAlgebra/LinearAlgebra.dem.gateway.sce";
+			  "Arduino","Arduino/Arduino.dem.gateway.sce";
+		      "Cosine Transforms","CT/CT.dem.gateway.sce";
+              "Filters","Filters/Filters.dem.gateway.sce";
+              "Raspberry Pi","RPi/RPi.dem.gateway.sce";
+              "Trigonometric Identity" , "TrigonometricIdentity.dem.sce";
               "Linear Regression" , "LinearRegression.dem.sce";
               "Symbols", "Symbols.dem.sce";
-               "High Pass Filter", "Filter.dem.sce";
-              ];
-
+              "Jacobi functions","Jacobi.dem.sce";
+		      "String Functions","string.dem.sce";
+              "Ffilt coeff. of FIR low pass filter","ffilt.dem.sce";
+              "Design of FIR linear phase filters using freq. samping technique","fsfirlin.dem.sce";
+              "Samples of sinc function","filt_sinc.dem.sce";]
 subdemolist(:,2) = demopath + subdemolist(:,2);

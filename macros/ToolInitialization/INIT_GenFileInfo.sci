@@ -108,4 +108,10 @@ FileInfo.GeneralReport = fullfile(FileInfo.WorkingDir,'SCI2CGeneralReport.txt');
 FileInfo.CStyleSCI2CMainDir = pathconvert(FileInfo.SCI2CMainDir, %f, %f, 'u');
 FileInfo.CStyleOutCCCodeDir = pathconvert(OutCCCodeDir, %f, %f, 'u');
 FileInfo.MakefileFilename   = fullfile(FileInfo.CStyleOutCCCodeDir,'Makefile');
+
+//-------------------------
+//----Hardware related-----
+//-------------------------
+FileInfo.PeripheralInitListFile      = fullfile(FileInfo.WorkingDir,'PeripheralInit.dat');
+FileInfo.SetupListFile				 = fullfile(FileInfo.WorkingDir,'SetupList.dat');
 endfunction

@@ -33,9 +33,47 @@
 
 #define z0d0OpStarz0(in1,in2)				zmuls(in1,DoubleComplex(in2,0))
 
+#define u80u80OpStaru80(in1,in2)			u8muls(in1, in2)
+
+#define u80u80OpStaru160(in1,in2)			(uint16)(in1 * in2)
+
+#define u80i80OpStari80(in1,in2)			(int8)(in1 * in2)
+
+#define u80i80OpStari160(in1,in2)			(int16)(in1 * in2)
+
+#define u80u160OpStaru160(in1,in2)			(uint16)(in1 * in2)
+
+#define u80i160OpStari160(in1,in2)			(int16)(in1 * in2)
+
+#define i80u80OpStari80(in1,in2)			(int8)(in1 * in2)
+
+#define i80u80OpStari160(in1,in2)			(int16)(in1 * in2)
+
+#define i80i80OpStari80(in1,in2)			(int8)(in1 , in2)
+
+#define i80i80OpStari160(in1,in2)			(int16)(in1 * in2)
+
+#define i80u160OpStari160(in1,in2)			(int16)(in1 * in2)
+
+#define i80i160OpStari160(in1,in2)			(int16)(in1 * in2)
+
+#define u160u80OpStaru160(in1,in2)			(uint16)(in1 * in2)
+
+#define u160i80OpStari160(in1,in2)			(int16)(in1 * in2)
+
+#define u160u160OpStaru160(in1,in2)			u16muls(in1 , in2)
+
+#define u160i160OpStari160(in1,in2)			(int16)(in1 * in2)
+
+#define i160u80OpStari160(in1,in2)			(int16)(in1 * in2)
+
+#define i160i80OpStari160(in1,in2)			(int16)(in1 * in2)
+
+#define i160u160OpStari160(in1,in2)			(int16)(in1 * in2)
+
+#define i160i160OpStari160(in1,in2)			i16muls(in1 , in2)
 
 /* Scalar * Matrix */
-
 
 #define s0s2OpStars2(in1,in2,size,out)			{int i=0;\
 									for (i=0;i<size[0]*size[1];i++) out[i]=in1*in2[i];}
@@ -64,6 +102,18 @@
 #define z0d2OpStarz2(in1,in2,size,out)			{int i=0;\
 									for (i=0;i<size[0]*size[1];i++) out[i]=zmuls(in1,DoubleComplex(in2[i],0));}
 
+
+#define u80u82OpStaru82(in1,in2,size,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=in1*(uint8)in2[i];}
+
+#define i80i82OpStari82(in1,in2,size,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=in1*in2[i];}
+
+#define u160u162OpStaru162(in1,in2,size,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=in1*in2[i];}
+
+#define i160i162OpStari162(in1,in2,size,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=in1*in2[i];}
 
 /* Matrix * Scalar */
 
@@ -95,6 +145,20 @@
 
 
 #define z2d0OpStarz2(in1,size,in2,out)			z2z0OpStarz2(in1,size,DoubleComplex(in2,0),out)
+
+
+#define u82u80OpStaru82(in1,size,in2,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=in1[i]*in2;}
+
+#define i82i80OpStari82(in1,size,in2,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=in1[i]*in2;}
+
+#define u162u160OpStaru162(in1,size,in2,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=in1[i]*in2;}
+
+#define i162i160OpStari162(in1,size,in2,out)			{int i=0;\
+									for (i=0;i<size[0]*size[1];i++) out[i]=in1[i]*in2;}
+
 
 /* Matrix * Matrix */
 
@@ -147,5 +211,13 @@
 #define d2z2OpStarz0(in1, size1, in2, size2)		zmuldzv(in1, in2, MAX(MAX(size1[0], size1[1]), MAX(size2[0], size2[1])))
 
 #define z2z2OpStarz0(in1, size1, in2, size2)		zmulv(  in1, in2, MAX(MAX(size1[0], size1[1]), MAX(size2[0], size2[1])))
+
+#define u82u82OpStaru80(in1, size1, in2, size2)		u8mulv(  in1, in2, MAX(MAX(size1[0], size1[1]), MAX(size2[0], size2[1])))
+
+#define i82i82OpStari80(in1, size1, in2, size2)		i8mulv(  in1, in2, MAX(MAX(size1[0], size1[1]), MAX(size2[0], size2[1])))
+
+#define u162u162OpStaru160(in1, size1, in2, size2)	u16mulv(  in1, in2, MAX(MAX(size1[0], size1[1]), MAX(size2[0], size2[1])))
+
+#define i162i162OpStari160(in1, size1, in2, size2)	i16mulv(  in1, in2, MAX(MAX(size1[0], size1[1]), MAX(size2[0], size2[1])))
 
 #endif /* !__INT_OPSTAR_H__ */

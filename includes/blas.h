@@ -150,7 +150,7 @@ void	dgemm_(char *TRANSA, char* TRANSB, int *M, int *N, int *K,
 	       double *B, int *LDB, double *BETA,
 	       double *C, int *LDC);*/
 
-extern  int     C2F(dgemm)();
+extern  int     C2F(dgemm)(char *,char*,int*,int*,int*,double*,double*,int*,double*,int*,double*,double*,int*);
 extern  int     C2F(idamax)() ;/* could be transcribe easaly in c */
 extern  int     C2F(daxpy) () ;/* could be transcribe easaly in c */
 extern  int     C2F(dscal) () ;/* could be transcribe easaly in c */

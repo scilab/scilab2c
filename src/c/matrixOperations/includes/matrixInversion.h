@@ -16,6 +16,7 @@
 
 #include "abs.h"
 #include "dynlib_matrixoperations.h"
+#include "types.h"
 
 #ifdef  __cplusplus
 extern "C" {
@@ -58,6 +59,43 @@ EXTERN_MATOPS void cinverma ( floatComplex* in, floatComplex* out, int leadDimIn
 
 
 EXTERN_MATOPS void zinverma ( doubleComplex* in, doubleComplex* out, int leadDimIn );
+
+/*
+** \brief Compute the matrix inverse for uint8.
+** \param in : input matrix.
+** \param leadDimIn : the leading dimension of the matrix .
+** \param out : the matrix inverse of the input .
+*/
+
+EXTERN_MATOPS void u8inverma ( uint8* in,  float* out, int leadDimIn );
+
+/*
+** \brief Compute the matrix inverse for int8.
+** \param in : input matrix.
+** \param leadDimIn : the leading dimension of the matrix .
+** \param out : the matrix inverse of the input .
+*/
+
+EXTERN_MATOPS void i8inverma ( int8* in,  float* out, int leadDimIn );
+
+/*
+** \brief Compute the matrix inverse for uint16.
+** \param in : input matrix.
+** \param leadDimIn : the leading dimension of the matrix .
+** \param out : the matrix inverse of the input .
+*/
+
+EXTERN_MATOPS void u16inverma ( uint16* in,  float* out, int leadDimIn );
+
+/*
+** \brief Compute the matrix inverse for int16.
+** \param in : input matrix.
+** \param leadDimIn : the leading dimension of the matrix .
+** \param out : the matrix inverse of the input .
+*/
+
+EXTERN_MATOPS void i16inverma ( int16* in,  float* out, int leadDimIn );
+
 
 #ifdef  __cplusplus
 } /* extern "C" */

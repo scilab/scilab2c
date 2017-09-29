@@ -27,13 +27,25 @@ function FunNameCFuncList = FL_InOutArgs2CFunNames(FunctionName,CommaSepCFuncLis
 // ------------------------------
 SCI2CNInArgCheck(argn(2),3,3);
 
-SepChar = ',';
-scanned = csvTextScan(CommaSepCFuncList, ",", [], "string");
-if size(scanned, 'c') <> 2 then
-    disp('Incorrect format for the function list class.');
-    error(9999, 'Check the following function list class item: ""'+strcat(CommaSepCFuncList, " ")+'"".');
-end
 
-FunNameCFuncList = scanned(:,1)+FunctionName+scanned(:,2);
+FunNameCFuncList = '';
+SepChar = ',';
+for cntelem = 1:CFuncListNElem
+   tmptokens = tokens(CommaSepCFuncList(cntelem),SepChar);
+   if (size(tmptokens,1) == 0)
+      FunNameCFuncList(cntelem) = FunctionName;
+   elseif (size(tmptokens,1) == 1)
+      if part(tmptokens,1:1) == ','
+         FunNameCFuncList(cntelem) = FunctionName+tmptokens(2);
+      else
+         FunNameCFuncList(cntelem) = tmptokens(1)+FunctionName;
+      end
+   elseif (size(tmptokens,1) == 2)
+      FunNameCFuncList(cntelem) = tmptokens(1)+FunctionName+tmptokens(2);
+   else
+      disp('Incorrect format for the function list class.');
+      error(9999, 'Check the following function list class item: ""'+CommaSepCFuncList(cntelem)+'"".');
+   end
+end
 
 endfunction

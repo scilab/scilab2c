@@ -1,4 +1,4 @@
-function SharedInfo = INIT_GenSharedInfo(RunMode,UserScilabMainFile,TotTempScalarVars,EnableTempVarsReuse,Sci2CLibMainHeaderFName,CopySciCodeIntoCCode)
+function SharedInfo = INIT_GenSharedInfo(RunMode,UserScilabMainFile,TotTempScalarVars,EnableTempVarsReuse,Sci2CLibMainHeaderFName,CopySciCodeIntoCCode,Target,Board_name)
 // function SharedInfo = INIT_GenSharedInfo(WorkingDir,OutCCCodeDir,UserSciFilesPaths,...
 //    RunMode,UserScilabMainFile,TotTempScalarVars,EnableTempVarsReuse,Sci2CLibMainHeaderFName)
 // -----------------------------------------------------------------
@@ -47,7 +47,13 @@ SharedInfo.Sci2CLibMainHeaderFName = pathconvert(Sci2CLibMainHeaderFName, %f, %f
 SharedInfo.NextSCIFileName  = UserScilabMainFile;
 [scipath,funname,sciext]    = fileparts(UserScilabMainFile);
 SharedInfo.SCIMainFunName   = funname;
-SharedInfo.CMainFunName     = 'main';
+if (Target == 'Arduino')
+   SharedInfo.CMainFunName     = 'loop_arduino';
+elseif (RunMode == 'Translate')
+   SharedInfo.CMainFunName     = funname;
+else
+   SharedInfo.CMainFunName     = 'main';
+end
 SharedInfo.NextSCIFunName   = SharedInfo.SCIMainFunName; //NUT: per ora no so cosa metter
 SharedInfo.NextCFunName     = SharedInfo.CMainFunName; //NUT: per ora no so cosa metter //NUT: questo viene aggiornato dalla C_Funcall
 SharedInfo.NextSCIFunNumber = 1;
@@ -56,13 +62,17 @@ SharedInfo.NFilesToTranslate = 1;
 
 // --- Annotations. ---
 SharedInfo.Annotations.GBLVAR   = 'global';
-SharedInfo.Annotations.DataPrec = {'int','float','double'};
+SharedInfo.Annotations.DataPrec = {'uint8','int8','uint16','int16','int','float','double','IplImage'};
 SharedInfo.Annotations.FUNNIN   = 'NIN=';
 SharedInfo.Annotations.FUNNOUT  = 'NOUT=';
 SharedInfo.Annotations.FUNTYPE  = '''OUT(''+string(SCI2C_nout)+'').TP='''; // Type includes also precision.
 SharedInfo.Annotations.FUNSIZE  = '''OUT(''+string(SCI2C_nout)+'').SZ(''+string(SCI2C_nelem)+'')= ''';
 SharedInfo.Annotations.FUNCLASS = 'CLASS: ';
 SharedInfo.Annotations.USERFUN  = '//SCI2C: ';
+SharedInfo.Annotations.INTYPE  = '''IN(''+string(SCI2C_nout)+'').TP='''; // Type includes also precision.
+SharedInfo.Annotations.INSIZE  = '''IN(''+string(SCI2C_nout)+'').SZ(''+string(SCI2C_nelem)+'')= ''';
+
+
 // #RNU_RES_B
 // Note when you execute the following code:
    // SCI2C_nout=1;
@@ -115,4 +125,13 @@ SharedInfo.Extension.FuncListClasses     = '.lcls';  // Stands for list class
 // --- Resize Approach. ---
 // ------------------------
 SharedInfo.ResizeApproach = 'NO_RESIZE'; // 'NO_RESIZE', 'RESIZE_ALL', 'RESIZE_TEMP', 'RESIZE_LOCAL', 'RESIZE_GLOBAL', 'REALLOC_ALL_RESIZE_ALL'
+
+SharedInfo.Target = Target; // Specifies code generation target.
+
+SharedInfo.Includelist = list(); //Maintains list of functions being used in code
+								// to add their header files to main function.
+SharedInfo.OpenCVUsed = %F; 	// Specifies if opencv library is used or not
+
+SharedInfo.Board_name = Board_name; //Specifies Name of Arduino board
+
 endfunction

@@ -9,8 +9,8 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
-
 #include "statMax.h"
+
 
 void srowmaxa(float *in, int rows, int columns, float* out) {
   int i = 0, j = 0;

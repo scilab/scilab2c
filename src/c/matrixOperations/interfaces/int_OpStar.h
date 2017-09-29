@@ -23,6 +23,14 @@
 
 #define c2c2OpStarc2(in1,size1,in2,size2,out)		cmulma(in1,size1[0],size1[1],in2,size2[0],size2[1],out)
 
+#define u82u82OpStaru82(in1,size1,in2,size2,out)	u8mulma(in1,size1[0],size1[1],in2,size2[0],size2[1],out)
+
+#define u162u162OpStaru162(in1,size1,in2,size2,out)	u16mulma(in1,size1[0],size1[1],in2,size2[0],size2[1],out)
+
+#define i82i82OpStari82(in1,size1,in2,size2,out)	i8mulma(in1,size1[0],size1[1],in2,size2[0],size2[1],out)
+
+#define i162i162OpStari162(in1,size1,in2,size2,out)	i16mulma(in1,size1[0],size1[1],in2,size2[0],size2[1],out)
+
 #define c2s2OpStarc2(in1,size1,in2,size2,out)		cmulma(in1,size1[0],size1[1],FloatComplexMatrix(in2,0,size2[0]*size2[1]),size2[0],size2[1],out)
 
 #define s2c2OpStarc2(in1,size1,in2,size2,out)		cmulma(FloatComplexMatrix(in1,0,size1[0]*size1[1]),size1[0],size1[1],in2,size2[0],size2[1],out)

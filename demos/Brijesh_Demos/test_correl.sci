@@ -1,0 +1,32 @@
+function test_correl
+	disp('Datatype: Double');
+	i1 = [1 2 3 4 5 6];
+	i2 = [1 2 3 3 5 6];
+	o1 = correl(i1,i2);
+	disp(o1);
+	i3 = [1 2 3 4 5 6];
+	i4 = [1 2];
+	fre = [1 2 ;3 4; 5 6; 7 8; 9 1; 2 3];
+	o2 = correl(i3,i4,fre);
+	disp(o2);
+	disp('Datatype: float');
+	i5 = float([1 2 3 4 5 6]);
+	i6 = float([1 2 3 3 5 6]);
+	o3 = correl(i5,i6);
+	disp(o3);
+	i7 = float([1 2 3 4 5 6]);
+	i8 = float([1 2]);
+	ffre = float([1 2 ;3 4; 5 6; 7 8; 9 1; 2 3]);
+	o4 = correl(i7,i8,ffre);
+	disp(o4);
+	disp('Datatype: DoubleComplex');
+	i9 = [1 2 %i 4 6+6*%i 5];
+	i10 = [0 %i 1 4 8*%i 2];
+	o5 = correl(i9,i10);
+	disp(o5);
+	i11 = [1 2 %i 4 6+6*%i 5];
+	i12 = [1 %i];
+	zfre = [1 %i ;3 0; 5 6*%i; 7 8; 9 1; 2 3];
+	o6 = correl(i11,i12,zfre);
+	disp(o6);
+endfunction

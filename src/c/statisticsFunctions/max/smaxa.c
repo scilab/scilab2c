@@ -9,8 +9,8 @@
  *  http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  */
-
 #include "statMax.h"
+
 
 float smaxa(float *in, int size) {
   float out = in[0];
