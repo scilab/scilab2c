@@ -206,7 +206,6 @@ function allHeaders = getAllHeaders(SharedInfo)
       "src/c/signalProcessing/includes/zpch2.h"
       "src/c/signalProcessing/includes/buttmag.h"
       "src/c/signalProcessing/includes/kalm.h"
-      "src/c/signalProcessing/includes/wiener.h"
       "src/c/signalProcessing/includes/faurre.h"
       "src/c/signalProcessing/includes/cheb1mag.h"
       "src/c/signalProcessing/includes/cheb2mag.h"
