@@ -1,0 +1,9 @@
+# Scilab macros
+*.bin
+names
+lib
+
+# Ignore help builds
+/help/en_US/master_help.xml
+/help/en_US/scilab_en_US_help/*
+
