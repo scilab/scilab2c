@@ -181,10 +181,7 @@ elseif get(gcbo, "tag")=="convertbtn" then
   elseif get(findobj("tag", "brdnmType"), "value") == 28 then
     Board_name = "lilyPadUSB"
   else
-    Board_name = "uno"
-
-  //elseif get(findobj("tag", "brdnmType"), "value") == [1 0 0 0 0 0] then
-    //Board_name = "none"
+    Board_name = "none"
   end
 
   CopySciCodeIntoCCode = get(findobj("tag", "sciintocradioyes"), "value") == 1;

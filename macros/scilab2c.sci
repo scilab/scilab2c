@@ -36,7 +36,7 @@ function scilab2c(varargin)
     RunMode = 'All';
     BuildTool = getNativeBuildTool();
     Target = "StandAlone"
-    //Board_name = "uno"
+    Board_name = "none"
     //
 // scilab2c(UserScilabMainFile, CCodeOutputDir, UserSciFilesPaths)
 //
@@ -57,7 +57,7 @@ function scilab2c(varargin)
     RunMode = "All";
     BuildTool = getNativeBuildTool();
     Target = "StandAlone"
-    Board_name = "uno"
+    Board_name = "none"
 	//
 // scilab2c(UserScilabMainFile, CCodeOutputDir, UserSciFilesPaths, RunMode)
 //
@@ -82,7 +82,7 @@ function scilab2c(varargin)
     RunMode = varargin(4);
     BuildTool = getNativeBuildTool();
     Target = "StandAlone"
-    //Board_name = "uno"
+    Board_name = "none"
    case 5
 	for i = 1:4
       if typeof(varargin(i)) <> "string"
@@ -108,7 +108,7 @@ function scilab2c(varargin)
     RunMode = varargin(4);
     BuildTool = varargin(5);
     Target = "StandAlone"
-    //Board_name = "uno"
+    Board_name = "none"
    case 6
       for i = 1:4
       if typeof(varargin(i)) <> "string"
@@ -138,7 +138,7 @@ function scilab2c(varargin)
     RunMode = varargin(4);
     BuildTool = varargin(5);
     Target = varargin(6);
-    //Board_name = "uno";
+    Board_name = "none";
    case 7
       for i = 1:4
       if typeof(varargin(i)) <> "string"
