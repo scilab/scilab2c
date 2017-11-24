@@ -1,5 +1,5 @@
-function defaultprecision = FA_GetDefaultPrecision(scifilename,ReportFileName)
-// function defaultprecision = FA_GetDefaultPrecision(scifilename,ReportFileName)
+function defaultprecision = FA_GetDefaultPrecision(scifilename,scifileid,ReportFileName)
+// function defaultprecision = FA_GetDefaultPrecision(scifilename,scifileid,ReportFileName)
 // -----------------------------------------------------------------
 // #RNU_RES_B
 // Extracts the default precision for the file .sci passed in input.
@@ -28,7 +28,7 @@ function defaultprecision = FA_GetDefaultPrecision(scifilename,ReportFileName)
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-SCI2CNInArgCheck(argn(2),2,2);
+SCI2CNInArgCheck(argn(2),3,3);
 
 // -----------------------
 // --- Initialization. ---
@@ -43,7 +43,11 @@ PrintStringInfo('***Get default precision from: '+scifilename,ReportFileName,'fi
 // ---------------------------
 
 // --- Open the .sci file (read only). ---
-scifid = SCI2COpenFileRead(scifilename);
+if scifileid == [] then
+    scifid = SCI2COpenFileRead(scifilename);
+else
+    scifid = scifileid;
+end
 
 // #RNU_RES_B
 // --- Loop over the lines of the input file. ---
@@ -93,5 +97,9 @@ else
    end
 end
 
-mclose(scifid);
+if scifileid == [] then
+    mclose(scifid);
+else
+    mseek(0, scifid);
+end
 endfunction

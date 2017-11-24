@@ -1,4 +1,4 @@
-function ResizeApproach = FA_GetResizeApproach(scifilename,ReportFileName)
+function ResizeApproach = FA_GetResizeApproach(scifilename,scifileid,ReportFileName)
 
 // function ResizeApproach = FA_GetResizeApproach(scifilename,ReportFileName)
 // -----------------------------------------------------------------
@@ -30,7 +30,7 @@ function ResizeApproach = FA_GetResizeApproach(scifilename,ReportFileName)
 // ------------------------------
 // --- Check input arguments. ---
 // ------------------------------
-SCI2CNInArgCheck(argn(2),2,2);
+SCI2CNInArgCheck(argn(2),3,3);
 
 // -----------------------
 // --- Initialization. ---
@@ -43,7 +43,11 @@ PrintStringInfo('***Get resize approach from: '+scifilename,ReportFileName,'file
 // ---------------------------
 
 // --- Open the .sci file (read only). ---
-scifid = SCI2COpenFileRead(scifilename);
+if scifileid == [] then
+    scifid = SCI2COpenFileRead(scifilename);
+else
+    scifid = scifileid;
+end
 
 // --- Loop over the lines of the input file. ---
 // Position file pointer to the desired NInArg/NOutArg section,
@@ -75,5 +79,9 @@ if (foundannotation == 0)
 else
    ResizeApproach = tmpresize;
 end
+if scifileid == [] then
 mclose(scifid);
+else
+mseek(0, scifid)
+end
 endfunction

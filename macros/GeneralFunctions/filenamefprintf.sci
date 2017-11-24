@@ -31,7 +31,15 @@ SCI2CNInArgCheck(argn(2),4,4);
 
 
 //   [FidReportFile, mess] = mopen(deblank(filename),'at+');
-   [FidReportFile, mess] = mopen(filename,'a+');
+    if type(filename) == 1 then // double
+        FidReportFile = filename;
+        mess = "invalid filename";
+    elseif type(filename) == 10 then // string
+        [FidReportFile, mess] = mopen(filename,'a+');
+    else
+        FidReportFile = -1;
+        mess = "invalid filename type";
+    end
    if (FidReportFile == -1) then
       error(9999, mess);
    end
@@ -43,6 +51,7 @@ SCI2CNInArgCheck(argn(2),4,4);
    if ennewline=='y' then
       mfprintf(FidReportFile,'\n');
    end
-   mclose(FidReportFile);
-   
+    if type(filename) == 10 then 
+        mclose(FidReportFile);
+    end
 endfunction

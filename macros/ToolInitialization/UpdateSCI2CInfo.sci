@@ -179,12 +179,12 @@ TempVars = [];
 // 'NO_RESIZE'
 // 'REALLOC_ALL_RESIZE_ALL'
 SharedInfo.DefaultPrecision = ...
-   FA_GetDefaultPrecision(FileInfo.Funct(funnumber).SCICopyFileName,FileInfo.Funct(funnumber).ReportFileName);
+   FA_GetDefaultPrecision(FileInfo.Funct(funnumber).SCICopyFileName,FileInfo.Funct(funnumber).SCICopyFileFid,FileInfo.Funct(funnumber).ReportFileName);
 
 // ----------------------------------
 // --- Determine Resize Approach. ---
 // ----------------------------------
-SharedInfo.ResizeApproach = FA_GetResizeApproach(FileInfo.Funct(funnumber).SCICopyFileName,FileInfo.Funct(funnumber).ReportFileName);
+SharedInfo.ResizeApproach = FA_GetResizeApproach(FileInfo.Funct(funnumber).SCICopyFileName,FileInfo.Funct(funnumber).SCICopyFileFid,FileInfo.Funct(funnumber).ReportFileName);
 
 // ---------------------
 // --- Save section. ---
